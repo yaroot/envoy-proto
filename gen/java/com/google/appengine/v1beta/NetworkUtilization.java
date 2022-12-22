@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NetworkUtilization(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            targetSentBytesPerSecond_ = input.readInt32();
-            break;
-          }
-          case 88: {
-
-            targetSentPacketsPerSecond_ = input.readInt32();
-            break;
-          }
-          case 96: {
-
-            targetReceivedBytesPerSecond_ = input.readInt32();
-            break;
-          }
-          case 104: {
-
-            targetReceivedPacketsPerSecond_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1beta.VersionProto.internal_static_google_appengine_v1beta_NetworkUtilization_descriptor;
@@ -108,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_SENT_BYTES_PER_SECOND_FIELD_NUMBER = 1;
-  private int targetSentBytesPerSecond_;
+  private int targetSentBytesPerSecond_ = 0;
   /**
    * <pre>
    * Target bytes sent per second.
@@ -123,7 +64,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_SENT_PACKETS_PER_SECOND_FIELD_NUMBER = 11;
-  private int targetSentPacketsPerSecond_;
+  private int targetSentPacketsPerSecond_ = 0;
   /**
    * <pre>
    * Target packets sent per second.
@@ -138,7 +79,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_RECEIVED_BYTES_PER_SECOND_FIELD_NUMBER = 12;
-  private int targetReceivedBytesPerSecond_;
+  private int targetReceivedBytesPerSecond_ = 0;
   /**
    * <pre>
    * Target bytes received per second.
@@ -153,7 +94,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_RECEIVED_PACKETS_PER_SECOND_FIELD_NUMBER = 13;
-  private int targetReceivedPacketsPerSecond_;
+  private int targetReceivedPacketsPerSecond_ = 0;
   /**
    * <pre>
    * Target packets received per second.
@@ -193,7 +134,7 @@ private static final long serialVersionUID = 0L;
     if (targetReceivedPacketsPerSecond_ != 0) {
       output.writeInt32(13, targetReceivedPacketsPerSecond_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -218,7 +159,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(13, targetReceivedPacketsPerSecond_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -241,7 +182,7 @@ private static final long serialVersionUID = 0L;
         != other.getTargetReceivedBytesPerSecond()) return false;
     if (getTargetReceivedPacketsPerSecond()
         != other.getTargetReceivedPacketsPerSecond()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -260,7 +201,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTargetReceivedBytesPerSecond();
     hash = (37 * hash) + TARGET_RECEIVED_PACKETS_PER_SECOND_FIELD_NUMBER;
     hash = (53 * hash) + getTargetReceivedPacketsPerSecond();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -382,30 +323,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1beta.NetworkUtilization.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       targetSentBytesPerSecond_ = 0;
-
       targetSentPacketsPerSecond_ = 0;
-
       targetReceivedBytesPerSecond_ = 0;
-
       targetReceivedPacketsPerSecond_ = 0;
-
       return this;
     }
 
@@ -432,12 +365,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1beta.NetworkUtilization buildPartial() {
       com.google.appengine.v1beta.NetworkUtilization result = new com.google.appengine.v1beta.NetworkUtilization(this);
-      result.targetSentBytesPerSecond_ = targetSentBytesPerSecond_;
-      result.targetSentPacketsPerSecond_ = targetSentPacketsPerSecond_;
-      result.targetReceivedBytesPerSecond_ = targetReceivedBytesPerSecond_;
-      result.targetReceivedPacketsPerSecond_ = targetReceivedPacketsPerSecond_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1beta.NetworkUtilization result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.targetSentBytesPerSecond_ = targetSentBytesPerSecond_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.targetSentPacketsPerSecond_ = targetSentPacketsPerSecond_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.targetReceivedBytesPerSecond_ = targetReceivedBytesPerSecond_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.targetReceivedPacketsPerSecond_ = targetReceivedPacketsPerSecond_;
+      }
     }
 
     @java.lang.Override
@@ -496,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.getTargetReceivedPacketsPerSecond() != 0) {
         setTargetReceivedPacketsPerSecond(other.getTargetReceivedPacketsPerSecond());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -511,19 +457,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1beta.NetworkUtilization parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              targetSentBytesPerSecond_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 88: {
+              targetSentPacketsPerSecond_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 88
+            case 96: {
+              targetReceivedBytesPerSecond_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 96
+            case 104: {
+              targetReceivedPacketsPerSecond_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 104
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1beta.NetworkUtilization) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int targetSentBytesPerSecond_ ;
     /**
@@ -550,6 +530,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetSentBytesPerSecond(int value) {
       
       targetSentBytesPerSecond_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -562,7 +543,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetSentBytesPerSecond() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       targetSentBytesPerSecond_ = 0;
       onChanged();
       return this;
@@ -593,6 +574,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetSentPacketsPerSecond(int value) {
       
       targetSentPacketsPerSecond_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -605,7 +587,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetSentPacketsPerSecond() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       targetSentPacketsPerSecond_ = 0;
       onChanged();
       return this;
@@ -636,6 +618,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetReceivedBytesPerSecond(int value) {
       
       targetReceivedBytesPerSecond_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -648,7 +631,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetReceivedBytesPerSecond() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       targetReceivedBytesPerSecond_ = 0;
       onChanged();
       return this;
@@ -679,6 +662,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetReceivedPacketsPerSecond(int value) {
       
       targetReceivedPacketsPerSecond_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -691,7 +675,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetReceivedPacketsPerSecond() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       targetReceivedPacketsPerSecond_ = 0;
       onChanged();
       return this;
@@ -729,7 +713,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NetworkUtilization(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

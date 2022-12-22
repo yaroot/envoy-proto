@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WindowsVersions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              windowsVersions_ = new java.util.ArrayList<com.google.container.v1beta1.WindowsVersions.WindowsVersion>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            windowsVersions_.add(
-                input.readMessage(com.google.container.v1beta1.WindowsVersions.WindowsVersion.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        windowsVersions_ = java.util.Collections.unmodifiableList(windowsVersions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_WindowsVersions_descriptor;
@@ -204,70 +152,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private WindowsVersion(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              imageType_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              osVersion_ = s;
-              break;
-            }
-            case 26: {
-              com.google.type.Date.Builder subBuilder = null;
-              if (supportEndDate_ != null) {
-                subBuilder = supportEndDate_.toBuilder();
-              }
-              supportEndDate_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(supportEndDate_);
-                supportEndDate_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_WindowsVersions_WindowsVersion_descriptor;
@@ -282,7 +166,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int IMAGE_TYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object imageType_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object imageType_ = "";
     /**
      * <pre>
      * Windows server image type
@@ -328,7 +213,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OS_VERSION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object osVersion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object osVersion_ = "";
     /**
      * <pre>
      * Windows server build number
@@ -408,7 +294,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.type.DateOrBuilder getSupportEndDateOrBuilder() {
-      return getSupportEndDate();
+      return supportEndDate_ == null ? com.google.type.Date.getDefaultInstance() : supportEndDate_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -434,7 +320,7 @@ private static final long serialVersionUID = 0L;
       if (supportEndDate_ != null) {
         output.writeMessage(3, getSupportEndDate());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -453,7 +339,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getSupportEndDate());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -477,7 +363,7 @@ private static final long serialVersionUID = 0L;
         if (!getSupportEndDate()
             .equals(other.getSupportEndDate())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -496,7 +382,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SUPPORT_END_DATE_FIELD_NUMBER;
         hash = (53 * hash) + getSupportEndDate().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -617,30 +503,23 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.container.v1beta1.WindowsVersions.WindowsVersion.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         imageType_ = "";
-
         osVersion_ = "";
-
-        if (supportEndDateBuilder_ == null) {
-          supportEndDate_ = null;
-        } else {
-          supportEndDate_ = null;
+        supportEndDate_ = null;
+        if (supportEndDateBuilder_ != null) {
+          supportEndDateBuilder_.dispose();
           supportEndDateBuilder_ = null;
         }
         return this;
@@ -669,15 +548,24 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.container.v1beta1.WindowsVersions.WindowsVersion buildPartial() {
         com.google.container.v1beta1.WindowsVersions.WindowsVersion result = new com.google.container.v1beta1.WindowsVersions.WindowsVersion(this);
-        result.imageType_ = imageType_;
-        result.osVersion_ = osVersion_;
-        if (supportEndDateBuilder_ == null) {
-          result.supportEndDate_ = supportEndDate_;
-        } else {
-          result.supportEndDate_ = supportEndDateBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.container.v1beta1.WindowsVersions.WindowsVersion result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.imageType_ = imageType_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.osVersion_ = osVersion_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.supportEndDate_ = supportEndDateBuilder_ == null
+              ? supportEndDate_
+              : supportEndDateBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -726,16 +614,18 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.container.v1beta1.WindowsVersions.WindowsVersion.getDefaultInstance()) return this;
         if (!other.getImageType().isEmpty()) {
           imageType_ = other.imageType_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getOsVersion().isEmpty()) {
           osVersion_ = other.osVersion_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasSupportEndDate()) {
           mergeSupportEndDate(other.getSupportEndDate());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -750,19 +640,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.container.v1beta1.WindowsVersions.WindowsVersion parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                imageType_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                osVersion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getSupportEndDateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.container.v1beta1.WindowsVersions.WindowsVersion) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object imageType_ = "";
       /**
@@ -817,11 +738,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setImageType(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         imageType_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -834,8 +753,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearImageType() {
-        
         imageType_ = getDefaultInstance().getImageType();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -850,12 +769,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setImageTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         imageType_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -913,11 +830,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOsVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         osVersion_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -930,8 +845,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOsVersion() {
-        
         osVersion_ = getDefaultInstance().getOsVersion();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -946,12 +861,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOsVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         osVersion_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -968,7 +881,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the supportEndDate field is set.
        */
       public boolean hasSupportEndDate() {
-        return supportEndDateBuilder_ != null || supportEndDate_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -998,11 +911,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           supportEndDate_ = value;
-          onChanged();
         } else {
           supportEndDateBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1016,11 +929,11 @@ private static final long serialVersionUID = 0L;
           com.google.type.Date.Builder builderForValue) {
         if (supportEndDateBuilder_ == null) {
           supportEndDate_ = builderForValue.build();
-          onChanged();
         } else {
           supportEndDateBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1032,17 +945,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeSupportEndDate(com.google.type.Date value) {
         if (supportEndDateBuilder_ == null) {
-          if (supportEndDate_ != null) {
-            supportEndDate_ =
-              com.google.type.Date.newBuilder(supportEndDate_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            supportEndDate_ != null &&
+            supportEndDate_ != com.google.type.Date.getDefaultInstance()) {
+            getSupportEndDateBuilder().mergeFrom(value);
           } else {
             supportEndDate_ = value;
           }
-          onChanged();
         } else {
           supportEndDateBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1053,14 +967,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.Date support_end_date = 3;</code>
        */
       public Builder clearSupportEndDate() {
-        if (supportEndDateBuilder_ == null) {
-          supportEndDate_ = null;
-          onChanged();
-        } else {
-          supportEndDate_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        supportEndDate_ = null;
+        if (supportEndDateBuilder_ != null) {
+          supportEndDateBuilder_.dispose();
           supportEndDateBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1071,7 +984,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.Date support_end_date = 3;</code>
        */
       public com.google.type.Date.Builder getSupportEndDateBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getSupportEndDateFieldBuilder().getBuilder();
       }
@@ -1143,7 +1056,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new WindowsVersion(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1164,6 +1088,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WINDOWS_VERSIONS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.container.v1beta1.WindowsVersions.WindowsVersion> windowsVersions_;
   /**
    * <pre>
@@ -1240,7 +1165,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < windowsVersions_.size(); i++) {
       output.writeMessage(1, windowsVersions_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1253,7 +1178,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, windowsVersions_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1270,7 +1195,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getWindowsVersionsList()
         .equals(other.getWindowsVersionsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1285,7 +1210,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WINDOWS_VERSIONS_FIELD_NUMBER;
       hash = (53 * hash) + getWindowsVersionsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1406,29 +1331,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.WindowsVersions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getWindowsVersionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (windowsVersionsBuilder_ == null) {
         windowsVersions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        windowsVersions_ = null;
         windowsVersionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -1455,7 +1376,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.WindowsVersions buildPartial() {
       com.google.container.v1beta1.WindowsVersions result = new com.google.container.v1beta1.WindowsVersions(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.container.v1beta1.WindowsVersions result) {
       if (windowsVersionsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           windowsVersions_ = java.util.Collections.unmodifiableList(windowsVersions_);
@@ -1465,8 +1392,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.windowsVersions_ = windowsVersionsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.WindowsVersions result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -1539,7 +1468,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1554,17 +1483,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.WindowsVersions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.container.v1beta1.WindowsVersions.WindowsVersion m =
+                  input.readMessage(
+                      com.google.container.v1beta1.WindowsVersions.WindowsVersion.parser(),
+                      extensionRegistry);
+              if (windowsVersionsBuilder_ == null) {
+                ensureWindowsVersionsIsMutable();
+                windowsVersions_.add(m);
+              } else {
+                windowsVersionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.WindowsVersions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1913,7 +1868,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WindowsVersions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,6 +9,7 @@ package io.envoyproxy.envoy.service.health.v3;
  * health checks to support statistics reporting, logging and debugging by the
  * Envoy instance (outside of HDS). For maximum usefulness, it should match the
  * same cluster structure as that provided by EDS.
+ * [#next-free-field: 6]
  * </pre>
  *
  * Protobuf type {@code envoy.service.health.v3.ClusterHealthCheck}
@@ -41,88 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClusterHealthCheck(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterName_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              healthChecks_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HealthCheck>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            healthChecks_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.HealthCheck.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              localityEndpoints_ = new java.util.ArrayList<io.envoyproxy.envoy.service.health.v3.LocalityEndpoints>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            localityEndpoints_.add(
-                input.readMessage(io.envoyproxy.envoy.service.health.v3.LocalityEndpoints.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              transportSocketMatches_ = new java.util.ArrayList<io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatch>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            transportSocketMatches_.add(
-                input.readMessage(io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatch.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        healthChecks_ = java.util.Collections.unmodifiableList(healthChecks_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        localityEndpoints_ = java.util.Collections.unmodifiableList(localityEndpoints_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        transportSocketMatches_ = java.util.Collections.unmodifiableList(transportSocketMatches_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.service.health.v3.HdsProto.internal_static_envoy_service_health_v3_ClusterHealthCheck_descriptor;
@@ -137,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object clusterName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterName_ = "";
   /**
    * <code>string cluster_name = 1;</code>
    * @return The clusterName.
@@ -175,6 +95,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEALTH_CHECKS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.HealthCheck> healthChecks_;
   /**
    * <code>repeated .envoy.config.core.v3.HealthCheck health_checks = 2;</code>
@@ -215,6 +136,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCALITY_ENDPOINTS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.service.health.v3.LocalityEndpoints> localityEndpoints_;
   /**
    * <code>repeated .envoy.service.health.v3.LocalityEndpoints locality_endpoints = 3;</code>
@@ -255,6 +177,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSPORT_SOCKET_MATCHES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatch> transportSocketMatches_;
   /**
    * <pre>
@@ -324,6 +247,47 @@ private static final long serialVersionUID = 0L;
     return transportSocketMatches_.get(index);
   }
 
+  public static final int UPSTREAM_BIND_CONFIG_FIELD_NUMBER = 5;
+  private io.envoyproxy.envoy.config.core.v3.BindConfig upstreamBindConfig_;
+  /**
+   * <pre>
+   * Optional configuration used to bind newly established upstream connections.
+   * If the address and port are empty, no bind will be performed.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+   * @return Whether the upstreamBindConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasUpstreamBindConfig() {
+    return upstreamBindConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Optional configuration used to bind newly established upstream connections.
+   * If the address and port are empty, no bind will be performed.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+   * @return The upstreamBindConfig.
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.BindConfig getUpstreamBindConfig() {
+    return upstreamBindConfig_ == null ? io.envoyproxy.envoy.config.core.v3.BindConfig.getDefaultInstance() : upstreamBindConfig_;
+  }
+  /**
+   * <pre>
+   * Optional configuration used to bind newly established upstream connections.
+   * If the address and port are empty, no bind will be performed.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.BindConfigOrBuilder getUpstreamBindConfigOrBuilder() {
+    return upstreamBindConfig_ == null ? io.envoyproxy.envoy.config.core.v3.BindConfig.getDefaultInstance() : upstreamBindConfig_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -350,7 +314,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < transportSocketMatches_.size(); i++) {
       output.writeMessage(4, transportSocketMatches_.get(i));
     }
-    unknownFields.writeTo(output);
+    if (upstreamBindConfig_ != null) {
+      output.writeMessage(5, getUpstreamBindConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -374,7 +341,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, transportSocketMatches_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    if (upstreamBindConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getUpstreamBindConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -397,7 +368,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLocalityEndpointsList())) return false;
     if (!getTransportSocketMatchesList()
         .equals(other.getTransportSocketMatchesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasUpstreamBindConfig() != other.hasUpstreamBindConfig()) return false;
+    if (hasUpstreamBindConfig()) {
+      if (!getUpstreamBindConfig()
+          .equals(other.getUpstreamBindConfig())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -422,7 +398,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRANSPORT_SOCKET_MATCHES_FIELD_NUMBER;
       hash = (53 * hash) + getTransportSocketMatchesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasUpstreamBindConfig()) {
+      hash = (37 * hash) + UPSTREAM_BIND_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getUpstreamBindConfig().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -523,6 +503,7 @@ private static final long serialVersionUID = 0L;
    * health checks to support statistics reporting, logging and debugging by the
    * Envoy instance (outside of HDS). For maximum usefulness, it should match the
    * same cluster structure as that provided by EDS.
+   * [#next-free-field: 6]
    * </pre>
    *
    * Protobuf type {@code envoy.service.health.v3.ClusterHealthCheck}
@@ -546,44 +527,44 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.service.health.v3.ClusterHealthCheck.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHealthChecksFieldBuilder();
-        getLocalityEndpointsFieldBuilder();
-        getTransportSocketMatchesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       clusterName_ = "";
-
       if (healthChecksBuilder_ == null) {
         healthChecks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        healthChecks_ = null;
         healthChecksBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (localityEndpointsBuilder_ == null) {
         localityEndpoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        localityEndpoints_ = null;
         localityEndpointsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (transportSocketMatchesBuilder_ == null) {
         transportSocketMatches_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        transportSocketMatches_ = null;
         transportSocketMatchesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000008);
+      upstreamBindConfig_ = null;
+      if (upstreamBindConfigBuilder_ != null) {
+        upstreamBindConfigBuilder_.dispose();
+        upstreamBindConfigBuilder_ = null;
       }
       return this;
     }
@@ -611,37 +592,52 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.service.health.v3.ClusterHealthCheck buildPartial() {
       io.envoyproxy.envoy.service.health.v3.ClusterHealthCheck result = new io.envoyproxy.envoy.service.health.v3.ClusterHealthCheck(this);
-      int from_bitField0_ = bitField0_;
-      result.clusterName_ = clusterName_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.service.health.v3.ClusterHealthCheck result) {
       if (healthChecksBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           healthChecks_ = java.util.Collections.unmodifiableList(healthChecks_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.healthChecks_ = healthChecks_;
       } else {
         result.healthChecks_ = healthChecksBuilder_.build();
       }
       if (localityEndpointsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           localityEndpoints_ = java.util.Collections.unmodifiableList(localityEndpoints_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.localityEndpoints_ = localityEndpoints_;
       } else {
         result.localityEndpoints_ = localityEndpointsBuilder_.build();
       }
       if (transportSocketMatchesBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           transportSocketMatches_ = java.util.Collections.unmodifiableList(transportSocketMatches_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.transportSocketMatches_ = transportSocketMatches_;
       } else {
         result.transportSocketMatches_ = transportSocketMatchesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.service.health.v3.ClusterHealthCheck result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.clusterName_ = clusterName_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.upstreamBindConfig_ = upstreamBindConfigBuilder_ == null
+            ? upstreamBindConfig_
+            : upstreamBindConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -690,13 +686,14 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.service.health.v3.ClusterHealthCheck.getDefaultInstance()) return this;
       if (!other.getClusterName().isEmpty()) {
         clusterName_ = other.clusterName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (healthChecksBuilder_ == null) {
         if (!other.healthChecks_.isEmpty()) {
           if (healthChecks_.isEmpty()) {
             healthChecks_ = other.healthChecks_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureHealthChecksIsMutable();
             healthChecks_.addAll(other.healthChecks_);
@@ -709,7 +706,7 @@ private static final long serialVersionUID = 0L;
             healthChecksBuilder_.dispose();
             healthChecksBuilder_ = null;
             healthChecks_ = other.healthChecks_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             healthChecksBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getHealthChecksFieldBuilder() : null;
@@ -722,7 +719,7 @@ private static final long serialVersionUID = 0L;
         if (!other.localityEndpoints_.isEmpty()) {
           if (localityEndpoints_.isEmpty()) {
             localityEndpoints_ = other.localityEndpoints_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureLocalityEndpointsIsMutable();
             localityEndpoints_.addAll(other.localityEndpoints_);
@@ -735,7 +732,7 @@ private static final long serialVersionUID = 0L;
             localityEndpointsBuilder_.dispose();
             localityEndpointsBuilder_ = null;
             localityEndpoints_ = other.localityEndpoints_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             localityEndpointsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLocalityEndpointsFieldBuilder() : null;
@@ -748,7 +745,7 @@ private static final long serialVersionUID = 0L;
         if (!other.transportSocketMatches_.isEmpty()) {
           if (transportSocketMatches_.isEmpty()) {
             transportSocketMatches_ = other.transportSocketMatches_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureTransportSocketMatchesIsMutable();
             transportSocketMatches_.addAll(other.transportSocketMatches_);
@@ -761,7 +758,7 @@ private static final long serialVersionUID = 0L;
             transportSocketMatchesBuilder_.dispose();
             transportSocketMatchesBuilder_ = null;
             transportSocketMatches_ = other.transportSocketMatches_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             transportSocketMatchesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTransportSocketMatchesFieldBuilder() : null;
@@ -770,7 +767,10 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasUpstreamBindConfig()) {
+        mergeUpstreamBindConfig(other.getUpstreamBindConfig());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -785,17 +785,81 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.service.health.v3.ClusterHealthCheck parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              clusterName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.envoyproxy.envoy.config.core.v3.HealthCheck m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.HealthCheck.parser(),
+                      extensionRegistry);
+              if (healthChecksBuilder_ == null) {
+                ensureHealthChecksIsMutable();
+                healthChecks_.add(m);
+              } else {
+                healthChecksBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              io.envoyproxy.envoy.service.health.v3.LocalityEndpoints m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.service.health.v3.LocalityEndpoints.parser(),
+                      extensionRegistry);
+              if (localityEndpointsBuilder_ == null) {
+                ensureLocalityEndpointsIsMutable();
+                localityEndpoints_.add(m);
+              } else {
+                localityEndpointsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatch m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatch.parser(),
+                      extensionRegistry);
+              if (transportSocketMatchesBuilder_ == null) {
+                ensureTransportSocketMatchesIsMutable();
+                transportSocketMatches_.add(m);
+              } else {
+                transportSocketMatchesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getUpstreamBindConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.service.health.v3.ClusterHealthCheck) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -841,11 +905,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -854,8 +916,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClusterName() {
-      
       clusterName_ = getDefaultInstance().getClusterName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -866,12 +928,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -879,9 +939,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.HealthCheck> healthChecks_ =
       java.util.Collections.emptyList();
     private void ensureHealthChecksIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         healthChecks_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HealthCheck>(healthChecks_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1031,7 +1091,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearHealthChecks() {
       if (healthChecksBuilder_ == null) {
         healthChecks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         healthChecksBuilder_.clear();
@@ -1108,7 +1168,7 @@ private static final long serialVersionUID = 0L;
         healthChecksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.HealthCheck, io.envoyproxy.envoy.config.core.v3.HealthCheck.Builder, io.envoyproxy.envoy.config.core.v3.HealthCheckOrBuilder>(
                 healthChecks_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         healthChecks_ = null;
@@ -1119,9 +1179,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.service.health.v3.LocalityEndpoints> localityEndpoints_ =
       java.util.Collections.emptyList();
     private void ensureLocalityEndpointsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         localityEndpoints_ = new java.util.ArrayList<io.envoyproxy.envoy.service.health.v3.LocalityEndpoints>(localityEndpoints_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1271,7 +1331,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLocalityEndpoints() {
       if (localityEndpointsBuilder_ == null) {
         localityEndpoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         localityEndpointsBuilder_.clear();
@@ -1348,7 +1408,7 @@ private static final long serialVersionUID = 0L;
         localityEndpointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.service.health.v3.LocalityEndpoints, io.envoyproxy.envoy.service.health.v3.LocalityEndpoints.Builder, io.envoyproxy.envoy.service.health.v3.LocalityEndpointsOrBuilder>(
                 localityEndpoints_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         localityEndpoints_ = null;
@@ -1359,9 +1419,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatch> transportSocketMatches_ =
       java.util.Collections.emptyList();
     private void ensureTransportSocketMatchesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         transportSocketMatches_ = new java.util.ArrayList<io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatch>(transportSocketMatches_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1577,7 +1637,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTransportSocketMatches() {
       if (transportSocketMatchesBuilder_ == null) {
         transportSocketMatches_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         transportSocketMatchesBuilder_.clear();
@@ -1696,12 +1756,176 @@ private static final long serialVersionUID = 0L;
         transportSocketMatchesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatch, io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatch.Builder, io.envoyproxy.envoy.config.cluster.v3.Cluster.TransportSocketMatchOrBuilder>(
                 transportSocketMatches_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         transportSocketMatches_ = null;
       }
       return transportSocketMatchesBuilder_;
+    }
+
+    private io.envoyproxy.envoy.config.core.v3.BindConfig upstreamBindConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.BindConfig, io.envoyproxy.envoy.config.core.v3.BindConfig.Builder, io.envoyproxy.envoy.config.core.v3.BindConfigOrBuilder> upstreamBindConfigBuilder_;
+    /**
+     * <pre>
+     * Optional configuration used to bind newly established upstream connections.
+     * If the address and port are empty, no bind will be performed.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+     * @return Whether the upstreamBindConfig field is set.
+     */
+    public boolean hasUpstreamBindConfig() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * Optional configuration used to bind newly established upstream connections.
+     * If the address and port are empty, no bind will be performed.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+     * @return The upstreamBindConfig.
+     */
+    public io.envoyproxy.envoy.config.core.v3.BindConfig getUpstreamBindConfig() {
+      if (upstreamBindConfigBuilder_ == null) {
+        return upstreamBindConfig_ == null ? io.envoyproxy.envoy.config.core.v3.BindConfig.getDefaultInstance() : upstreamBindConfig_;
+      } else {
+        return upstreamBindConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional configuration used to bind newly established upstream connections.
+     * If the address and port are empty, no bind will be performed.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+     */
+    public Builder setUpstreamBindConfig(io.envoyproxy.envoy.config.core.v3.BindConfig value) {
+      if (upstreamBindConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        upstreamBindConfig_ = value;
+      } else {
+        upstreamBindConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional configuration used to bind newly established upstream connections.
+     * If the address and port are empty, no bind will be performed.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+     */
+    public Builder setUpstreamBindConfig(
+        io.envoyproxy.envoy.config.core.v3.BindConfig.Builder builderForValue) {
+      if (upstreamBindConfigBuilder_ == null) {
+        upstreamBindConfig_ = builderForValue.build();
+      } else {
+        upstreamBindConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional configuration used to bind newly established upstream connections.
+     * If the address and port are empty, no bind will be performed.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+     */
+    public Builder mergeUpstreamBindConfig(io.envoyproxy.envoy.config.core.v3.BindConfig value) {
+      if (upstreamBindConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+          upstreamBindConfig_ != null &&
+          upstreamBindConfig_ != io.envoyproxy.envoy.config.core.v3.BindConfig.getDefaultInstance()) {
+          getUpstreamBindConfigBuilder().mergeFrom(value);
+        } else {
+          upstreamBindConfig_ = value;
+        }
+      } else {
+        upstreamBindConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional configuration used to bind newly established upstream connections.
+     * If the address and port are empty, no bind will be performed.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+     */
+    public Builder clearUpstreamBindConfig() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      upstreamBindConfig_ = null;
+      if (upstreamBindConfigBuilder_ != null) {
+        upstreamBindConfigBuilder_.dispose();
+        upstreamBindConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional configuration used to bind newly established upstream connections.
+     * If the address and port are empty, no bind will be performed.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.BindConfig.Builder getUpstreamBindConfigBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return getUpstreamBindConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional configuration used to bind newly established upstream connections.
+     * If the address and port are empty, no bind will be performed.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.BindConfigOrBuilder getUpstreamBindConfigOrBuilder() {
+      if (upstreamBindConfigBuilder_ != null) {
+        return upstreamBindConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return upstreamBindConfig_ == null ?
+            io.envoyproxy.envoy.config.core.v3.BindConfig.getDefaultInstance() : upstreamBindConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional configuration used to bind newly established upstream connections.
+     * If the address and port are empty, no bind will be performed.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.BindConfig upstream_bind_config = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.BindConfig, io.envoyproxy.envoy.config.core.v3.BindConfig.Builder, io.envoyproxy.envoy.config.core.v3.BindConfigOrBuilder> 
+        getUpstreamBindConfigFieldBuilder() {
+      if (upstreamBindConfigBuilder_ == null) {
+        upstreamBindConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.envoyproxy.envoy.config.core.v3.BindConfig, io.envoyproxy.envoy.config.core.v3.BindConfig.Builder, io.envoyproxy.envoy.config.core.v3.BindConfigOrBuilder>(
+                getUpstreamBindConfig(),
+                getParentForChildren(),
+                isClean());
+        upstreamBindConfig_ = null;
+      }
+      return upstreamBindConfigBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1736,7 +1960,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClusterHealthCheck(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

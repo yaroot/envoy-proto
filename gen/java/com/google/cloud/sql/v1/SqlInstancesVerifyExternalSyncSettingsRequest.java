@@ -37,87 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SqlInstancesVerifyExternalSyncSettingsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instance_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case 24: {
-
-            verifyConnectionOnly_ = input.readBool();
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            syncMode_ = rawValue;
-            break;
-          }
-          case 40: {
-
-            verifyReplicationOnly_ = input.readBool();
-            break;
-          }
-          case 50: {
-            com.google.cloud.sql.v1.MySqlSyncConfig.Builder subBuilder = null;
-            if (syncConfigCase_ == 6) {
-              subBuilder = ((com.google.cloud.sql.v1.MySqlSyncConfig) syncConfig_).toBuilder();
-            }
-            syncConfig_ =
-                input.readMessage(com.google.cloud.sql.v1.MySqlSyncConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.sql.v1.MySqlSyncConfig) syncConfig_);
-              syncConfig_ = subBuilder.buildPartial();
-            }
-            syncConfigCase_ = 6;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1.CloudSqlServiceProto.internal_static_google_cloud_sql_v1_SqlInstancesVerifyExternalSyncSettingsRequest_descriptor;
@@ -316,7 +235,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object instance_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instance_ = "";
   /**
    * <pre>
    * Cloud SQL instance ID. This does not include the project ID.
@@ -362,7 +282,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Project ID of the project that contains the instance.
@@ -408,7 +329,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFY_CONNECTION_ONLY_FIELD_NUMBER = 3;
-  private boolean verifyConnectionOnly_;
+  private boolean verifyConnectionOnly_ = false;
   /**
    * <pre>
    * Flag to enable verifying connection only
@@ -423,7 +344,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SYNC_MODE_FIELD_NUMBER = 4;
-  private int syncMode_;
+  private int syncMode_ = 0;
   /**
    * <pre>
    * External sync mode
@@ -444,13 +365,12 @@ private static final long serialVersionUID = 0L;
    * @return The syncMode.
    */
   @java.lang.Override public com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode getSyncMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode result = com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode.valueOf(syncMode_);
+    com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode result = com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode.forNumber(syncMode_);
     return result == null ? com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode.UNRECOGNIZED : result;
   }
 
   public static final int VERIFY_REPLICATION_ONLY_FIELD_NUMBER = 5;
-  private boolean verifyReplicationOnly_;
+  private boolean verifyReplicationOnly_ = false;
   /**
    * <pre>
    * Optional. Flag to verify settings required by replication setup only
@@ -539,7 +459,7 @@ private static final long serialVersionUID = 0L;
     if (syncConfigCase_ == 6) {
       output.writeMessage(6, (com.google.cloud.sql.v1.MySqlSyncConfig) syncConfig_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -570,7 +490,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, (com.google.cloud.sql.v1.MySqlSyncConfig) syncConfig_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -603,7 +523,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -634,7 +554,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -755,32 +675,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       instance_ = "";
-
       project_ = "";
-
       verifyConnectionOnly_ = false;
-
       syncMode_ = 0;
-
       verifyReplicationOnly_ = false;
-
+      if (mysqlSyncConfigBuilder_ != null) {
+        mysqlSyncConfigBuilder_.clear();
+      }
       syncConfigCase_ = 0;
       syncConfig_ = null;
       return this;
@@ -809,21 +723,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest buildPartial() {
       com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest result = new com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest(this);
-      result.instance_ = instance_;
-      result.project_ = project_;
-      result.verifyConnectionOnly_ = verifyConnectionOnly_;
-      result.syncMode_ = syncMode_;
-      result.verifyReplicationOnly_ = verifyReplicationOnly_;
-      if (syncConfigCase_ == 6) {
-        if (mysqlSyncConfigBuilder_ == null) {
-          result.syncConfig_ = syncConfig_;
-        } else {
-          result.syncConfig_ = mysqlSyncConfigBuilder_.build();
-        }
-      }
-      result.syncConfigCase_ = syncConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.instance_ = instance_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.verifyConnectionOnly_ = verifyConnectionOnly_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.syncMode_ = syncMode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.verifyReplicationOnly_ = verifyReplicationOnly_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest result) {
+      result.syncConfigCase_ = syncConfigCase_;
+      result.syncConfig_ = this.syncConfig_;
+      if (syncConfigCase_ == 6 &&
+          mysqlSyncConfigBuilder_ != null) {
+        result.syncConfig_ = mysqlSyncConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -872,10 +803,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.getDefaultInstance()) return this;
       if (!other.getInstance().isEmpty()) {
         instance_ = other.instance_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getVerifyConnectionOnly() != false) {
@@ -896,7 +829,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -911,17 +844,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              verifyConnectionOnly_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              syncMode_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              verifyReplicationOnly_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getMysqlSyncConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              syncConfigCase_ = 6;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int syncConfigCase_ = 0;
@@ -939,6 +917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object instance_ = "";
     /**
@@ -993,11 +972,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstance(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       instance_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1010,8 +987,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstance() {
-      
       instance_ = getDefaultInstance().getInstance();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1026,12 +1003,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instance_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1089,11 +1064,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1106,8 +1079,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1122,12 +1095,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1157,6 +1128,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVerifyConnectionOnly(boolean value) {
       
       verifyConnectionOnly_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1169,7 +1141,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVerifyConnectionOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       verifyConnectionOnly_ = false;
       onChanged();
       return this;
@@ -1197,8 +1169,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSyncModeValue(int value) {
-      
       syncMode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1212,8 +1184,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode getSyncMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode result = com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode.valueOf(syncMode_);
+      com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode result = com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode.forNumber(syncMode_);
       return result == null ? com.google.cloud.sql.v1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode.UNRECOGNIZED : result;
     }
     /**
@@ -1229,7 +1200,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       syncMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1243,7 +1214,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSyncMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       syncMode_ = 0;
       onChanged();
       return this;
@@ -1274,6 +1245,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVerifyReplicationOnly(boolean value) {
       
       verifyReplicationOnly_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1286,7 +1258,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVerifyReplicationOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       verifyReplicationOnly_ = false;
       onChanged();
       return this;
@@ -1466,7 +1438,7 @@ private static final long serialVersionUID = 0L;
         syncConfig_ = null;
       }
       syncConfigCase_ = 6;
-      onChanged();;
+      onChanged();
       return mysqlSyncConfigBuilder_;
     }
     @java.lang.Override
@@ -1502,7 +1474,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SqlInstancesVerifyExternalSyncSettingsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

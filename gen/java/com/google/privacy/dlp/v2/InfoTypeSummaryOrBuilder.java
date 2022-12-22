@@ -33,4 +33,16 @@ public interface InfoTypeSummaryOrBuilder extends
    * <code>.google.privacy.dlp.v2.InfoType info_type = 1;</code>
    */
   com.google.privacy.dlp.v2.InfoTypeOrBuilder getInfoTypeOrBuilder();
+
+  /**
+   * <pre>
+   * Not populated for predicted infotypes.
+   * </pre>
+   *
+   * <code>int32 estimated_prevalence = 2 [deprecated = true];</code>
+   * @deprecated google.privacy.dlp.v2.InfoTypeSummary.estimated_prevalence is deprecated.
+   *     See google/privacy/dlp/v2/dlp.proto;l=5324
+   * @return The estimatedPrevalence.
+   */
+  @java.lang.Deprecated int getEstimatedPrevalence();
 }

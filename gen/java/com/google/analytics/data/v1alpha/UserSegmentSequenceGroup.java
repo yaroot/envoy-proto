@@ -37,77 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserSegmentSequenceGroup(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            sequenceScoping_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (sequenceMaximumDuration_ != null) {
-              subBuilder = sequenceMaximumDuration_.toBuilder();
-            }
-            sequenceMaximumDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sequenceMaximumDuration_);
-              sequenceMaximumDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              userSequenceSteps_ = new java.util.ArrayList<com.google.analytics.data.v1alpha.UserSequenceStep>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            userSequenceSteps_.add(
-                input.readMessage(com.google.analytics.data.v1alpha.UserSequenceStep.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        userSequenceSteps_ = java.util.Collections.unmodifiableList(userSequenceSteps_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.ReportingApiProto.internal_static_google_analytics_data_v1alpha_UserSegmentSequenceGroup_descriptor;
@@ -122,7 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEQUENCE_SCOPING_FIELD_NUMBER = 1;
-  private int sequenceScoping_;
+  private int sequenceScoping_ = 0;
   /**
    * <pre>
    * All sequence steps must be satisfied in the scoping for the user to
@@ -155,8 +84,7 @@ private static final long serialVersionUID = 0L;
    * @return The sequenceScoping.
    */
   @java.lang.Override public com.google.analytics.data.v1alpha.UserCriteriaScoping getSequenceScoping() {
-    @SuppressWarnings("deprecation")
-    com.google.analytics.data.v1alpha.UserCriteriaScoping result = com.google.analytics.data.v1alpha.UserCriteriaScoping.valueOf(sequenceScoping_);
+    com.google.analytics.data.v1alpha.UserCriteriaScoping result = com.google.analytics.data.v1alpha.UserCriteriaScoping.forNumber(sequenceScoping_);
     return result == null ? com.google.analytics.data.v1alpha.UserCriteriaScoping.UNRECOGNIZED : result;
   }
 
@@ -213,10 +141,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getSequenceMaximumDurationOrBuilder() {
-    return getSequenceMaximumDuration();
+    return sequenceMaximumDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : sequenceMaximumDuration_;
   }
 
   public static final int USER_SEQUENCE_STEPS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.analytics.data.v1alpha.UserSequenceStep> userSequenceSteps_;
   /**
    * <pre>
@@ -309,7 +238,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < userSequenceSteps_.size(); i++) {
       output.writeMessage(3, userSequenceSteps_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -330,7 +259,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, userSequenceSteps_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -353,7 +282,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getUserSequenceStepsList()
         .equals(other.getUserSequenceStepsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -374,7 +303,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USER_SEQUENCE_STEPS_FIELD_NUMBER;
       hash = (53 * hash) + getUserSequenceStepsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -496,37 +425,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1alpha.UserSegmentSequenceGroup.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getUserSequenceStepsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       sequenceScoping_ = 0;
-
-      if (sequenceMaximumDurationBuilder_ == null) {
-        sequenceMaximumDuration_ = null;
-      } else {
-        sequenceMaximumDuration_ = null;
+      sequenceMaximumDuration_ = null;
+      if (sequenceMaximumDurationBuilder_ != null) {
+        sequenceMaximumDurationBuilder_.dispose();
         sequenceMaximumDurationBuilder_ = null;
       }
       if (userSequenceStepsBuilder_ == null) {
         userSequenceSteps_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        userSequenceSteps_ = null;
         userSequenceStepsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -553,24 +476,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.UserSegmentSequenceGroup buildPartial() {
       com.google.analytics.data.v1alpha.UserSegmentSequenceGroup result = new com.google.analytics.data.v1alpha.UserSegmentSequenceGroup(this);
-      int from_bitField0_ = bitField0_;
-      result.sequenceScoping_ = sequenceScoping_;
-      if (sequenceMaximumDurationBuilder_ == null) {
-        result.sequenceMaximumDuration_ = sequenceMaximumDuration_;
-      } else {
-        result.sequenceMaximumDuration_ = sequenceMaximumDurationBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.analytics.data.v1alpha.UserSegmentSequenceGroup result) {
       if (userSequenceStepsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           userSequenceSteps_ = java.util.Collections.unmodifiableList(userSequenceSteps_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.userSequenceSteps_ = userSequenceSteps_;
       } else {
         result.userSequenceSteps_ = userSequenceStepsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.UserSegmentSequenceGroup result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sequenceScoping_ = sequenceScoping_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sequenceMaximumDuration_ = sequenceMaximumDurationBuilder_ == null
+            ? sequenceMaximumDuration_
+            : sequenceMaximumDurationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -627,7 +560,7 @@ private static final long serialVersionUID = 0L;
         if (!other.userSequenceSteps_.isEmpty()) {
           if (userSequenceSteps_.isEmpty()) {
             userSequenceSteps_ = other.userSequenceSteps_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureUserSequenceStepsIsMutable();
             userSequenceSteps_.addAll(other.userSequenceSteps_);
@@ -640,7 +573,7 @@ private static final long serialVersionUID = 0L;
             userSequenceStepsBuilder_.dispose();
             userSequenceStepsBuilder_ = null;
             userSequenceSteps_ = other.userSequenceSteps_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             userSequenceStepsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getUserSequenceStepsFieldBuilder() : null;
@@ -649,7 +582,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -664,17 +597,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.UserSegmentSequenceGroup parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              sequenceScoping_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getSequenceMaximumDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.analytics.data.v1alpha.UserSequenceStep m =
+                  input.readMessage(
+                      com.google.analytics.data.v1alpha.UserSequenceStep.parser(),
+                      extensionRegistry);
+              if (userSequenceStepsBuilder_ == null) {
+                ensureUserSequenceStepsIsMutable();
+                userSequenceSteps_.add(m);
+              } else {
+                userSequenceStepsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.UserSegmentSequenceGroup) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -713,8 +684,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSequenceScopingValue(int value) {
-      
       sequenceScoping_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -734,8 +705,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.analytics.data.v1alpha.UserCriteriaScoping getSequenceScoping() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.data.v1alpha.UserCriteriaScoping result = com.google.analytics.data.v1alpha.UserCriteriaScoping.valueOf(sequenceScoping_);
+      com.google.analytics.data.v1alpha.UserCriteriaScoping result = com.google.analytics.data.v1alpha.UserCriteriaScoping.forNumber(sequenceScoping_);
       return result == null ? com.google.analytics.data.v1alpha.UserCriteriaScoping.UNRECOGNIZED : result;
     }
     /**
@@ -757,7 +727,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       sequenceScoping_ = value.getNumber();
       onChanged();
       return this;
@@ -777,7 +747,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSequenceScoping() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       sequenceScoping_ = 0;
       onChanged();
       return this;
@@ -801,7 +771,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sequenceMaximumDuration field is set.
      */
     public boolean hasSequenceMaximumDuration() {
-      return sequenceMaximumDurationBuilder_ != null || sequenceMaximumDuration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -843,11 +813,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sequenceMaximumDuration_ = value;
-        onChanged();
       } else {
         sequenceMaximumDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -867,11 +837,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (sequenceMaximumDurationBuilder_ == null) {
         sequenceMaximumDuration_ = builderForValue.build();
-        onChanged();
       } else {
         sequenceMaximumDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -889,17 +859,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSequenceMaximumDuration(com.google.protobuf.Duration value) {
       if (sequenceMaximumDurationBuilder_ == null) {
-        if (sequenceMaximumDuration_ != null) {
-          sequenceMaximumDuration_ =
-            com.google.protobuf.Duration.newBuilder(sequenceMaximumDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          sequenceMaximumDuration_ != null &&
+          sequenceMaximumDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getSequenceMaximumDurationBuilder().mergeFrom(value);
         } else {
           sequenceMaximumDuration_ = value;
         }
-        onChanged();
       } else {
         sequenceMaximumDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -916,14 +887,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration sequence_maximum_duration = 2;</code>
      */
     public Builder clearSequenceMaximumDuration() {
-      if (sequenceMaximumDurationBuilder_ == null) {
-        sequenceMaximumDuration_ = null;
-        onChanged();
-      } else {
-        sequenceMaximumDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      sequenceMaximumDuration_ = null;
+      if (sequenceMaximumDurationBuilder_ != null) {
+        sequenceMaximumDurationBuilder_.dispose();
         sequenceMaximumDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -940,7 +910,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration sequence_maximum_duration = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getSequenceMaximumDurationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSequenceMaximumDurationFieldBuilder().getBuilder();
     }
@@ -995,9 +965,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.analytics.data.v1alpha.UserSequenceStep> userSequenceSteps_ =
       java.util.Collections.emptyList();
     private void ensureUserSequenceStepsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         userSequenceSteps_ = new java.util.ArrayList<com.google.analytics.data.v1alpha.UserSequenceStep>(userSequenceSteps_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1213,7 +1183,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearUserSequenceSteps() {
       if (userSequenceStepsBuilder_ == null) {
         userSequenceSteps_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         userSequenceStepsBuilder_.clear();
@@ -1332,7 +1302,7 @@ private static final long serialVersionUID = 0L;
         userSequenceStepsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.analytics.data.v1alpha.UserSequenceStep, com.google.analytics.data.v1alpha.UserSequenceStep.Builder, com.google.analytics.data.v1alpha.UserSequenceStepOrBuilder>(
                 userSequenceSteps_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         userSequenceSteps_ = null;
@@ -1372,7 +1342,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserSegmentSequenceGroup(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

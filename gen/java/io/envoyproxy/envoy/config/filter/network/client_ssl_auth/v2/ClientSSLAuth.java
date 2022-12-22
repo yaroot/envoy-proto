@@ -33,83 +33,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClientSSLAuth(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authApiCluster_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statPrefix_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (refreshDelay_ != null) {
-              subBuilder = refreshDelay_.toBuilder();
-            }
-            refreshDelay_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(refreshDelay_);
-              refreshDelay_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ipWhiteList_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.CidrRange>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            ipWhiteList_.add(
-                input.readMessage(io.envoyproxy.envoy.api.v2.core.CidrRange.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ipWhiteList_ = java.util.Collections.unmodifiableList(ipWhiteList_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSslAuthProto.internal_static_envoy_config_filter_network_client_ssl_auth_v2_ClientSSLAuth_descriptor;
@@ -124,7 +47,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTH_API_CLUSTER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object authApiCluster_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authApiCluster_ = "";
   /**
    * <pre>
    * The :ref:`cluster manager &lt;arch_overview_cluster_manager&gt;` cluster that runs
@@ -176,7 +100,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAT_PREFIX_FIELD_NUMBER = 2;
-  private volatile java.lang.Object statPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
   /**
    * <pre>
    * The prefix to use when emitting :ref:`statistics
@@ -267,10 +192,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getRefreshDelayOrBuilder() {
-    return getRefreshDelay();
+    return refreshDelay_ == null ? com.google.protobuf.Duration.getDefaultInstance() : refreshDelay_;
   }
 
   public static final int IP_WHITE_LIST_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.api.v2.core.CidrRange> ipWhiteList_;
   /**
    * <pre>
@@ -366,7 +292,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < ipWhiteList_.size(); i++) {
       output.writeMessage(4, ipWhiteList_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -389,7 +315,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, ipWhiteList_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -415,7 +341,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getIpWhiteListList()
         .equals(other.getIpWhiteListList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -438,7 +364,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + IP_WHITE_LIST_FIELD_NUMBER;
       hash = (53 * hash) + getIpWhiteListList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -555,39 +481,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getIpWhiteListFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       authApiCluster_ = "";
-
       statPrefix_ = "";
-
-      if (refreshDelayBuilder_ == null) {
-        refreshDelay_ = null;
-      } else {
-        refreshDelay_ = null;
+      refreshDelay_ = null;
+      if (refreshDelayBuilder_ != null) {
+        refreshDelayBuilder_.dispose();
         refreshDelayBuilder_ = null;
       }
       if (ipWhiteListBuilder_ == null) {
         ipWhiteList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        ipWhiteList_ = null;
         ipWhiteListBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -614,25 +533,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth buildPartial() {
       io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth result = new io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth(this);
-      int from_bitField0_ = bitField0_;
-      result.authApiCluster_ = authApiCluster_;
-      result.statPrefix_ = statPrefix_;
-      if (refreshDelayBuilder_ == null) {
-        result.refreshDelay_ = refreshDelay_;
-      } else {
-        result.refreshDelay_ = refreshDelayBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth result) {
       if (ipWhiteListBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           ipWhiteList_ = java.util.Collections.unmodifiableList(ipWhiteList_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.ipWhiteList_ = ipWhiteList_;
       } else {
         result.ipWhiteList_ = ipWhiteListBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.authApiCluster_ = authApiCluster_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.refreshDelay_ = refreshDelayBuilder_ == null
+            ? refreshDelay_
+            : refreshDelayBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -681,10 +612,12 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth.getDefaultInstance()) return this;
       if (!other.getAuthApiCluster().isEmpty()) {
         authApiCluster_ = other.authApiCluster_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getStatPrefix().isEmpty()) {
         statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasRefreshDelay()) {
@@ -694,7 +627,7 @@ private static final long serialVersionUID = 0L;
         if (!other.ipWhiteList_.isEmpty()) {
           if (ipWhiteList_.isEmpty()) {
             ipWhiteList_ = other.ipWhiteList_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureIpWhiteListIsMutable();
             ipWhiteList_.addAll(other.ipWhiteList_);
@@ -707,7 +640,7 @@ private static final long serialVersionUID = 0L;
             ipWhiteListBuilder_.dispose();
             ipWhiteListBuilder_ = null;
             ipWhiteList_ = other.ipWhiteList_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             ipWhiteListBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getIpWhiteListFieldBuilder() : null;
@@ -716,7 +649,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -731,17 +664,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              authApiCluster_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRefreshDelayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              io.envoyproxy.envoy.api.v2.core.CidrRange m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.api.v2.core.CidrRange.parser(),
+                      extensionRegistry);
+              if (ipWhiteListBuilder_ == null) {
+                ensureIpWhiteListIsMutable();
+                ipWhiteList_.add(m);
+              } else {
+                ipWhiteListBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.filter.network.client_ssl_auth.v2.ClientSSLAuth) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -808,11 +784,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthApiCluster(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authApiCluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -828,8 +802,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthApiCluster() {
-      
       authApiCluster_ = getDefaultInstance().getAuthApiCluster();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -847,12 +821,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthApiClusterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authApiCluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -913,11 +885,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statPrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -931,8 +901,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatPrefix() {
-      
       statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -948,12 +918,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statPrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -973,7 +941,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the refreshDelay field is set.
      */
     public boolean hasRefreshDelay() {
-      return refreshDelayBuilder_ != null || refreshDelay_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1009,11 +977,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         refreshDelay_ = value;
-        onChanged();
       } else {
         refreshDelayBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1030,11 +998,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (refreshDelayBuilder_ == null) {
         refreshDelay_ = builderForValue.build();
-        onChanged();
       } else {
         refreshDelayBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1049,17 +1017,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRefreshDelay(com.google.protobuf.Duration value) {
       if (refreshDelayBuilder_ == null) {
-        if (refreshDelay_ != null) {
-          refreshDelay_ =
-            com.google.protobuf.Duration.newBuilder(refreshDelay_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          refreshDelay_ != null &&
+          refreshDelay_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getRefreshDelayBuilder().mergeFrom(value);
         } else {
           refreshDelay_ = value;
         }
-        onChanged();
       } else {
         refreshDelayBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1073,14 +1042,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration refresh_delay = 3;</code>
      */
     public Builder clearRefreshDelay() {
-      if (refreshDelayBuilder_ == null) {
-        refreshDelay_ = null;
-        onChanged();
-      } else {
-        refreshDelay_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      refreshDelay_ = null;
+      if (refreshDelayBuilder_ != null) {
+        refreshDelayBuilder_.dispose();
         refreshDelayBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1094,7 +1062,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration refresh_delay = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getRefreshDelayBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRefreshDelayFieldBuilder().getBuilder();
     }
@@ -1143,9 +1111,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.api.v2.core.CidrRange> ipWhiteList_ =
       java.util.Collections.emptyList();
     private void ensureIpWhiteListIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         ipWhiteList_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.CidrRange>(ipWhiteList_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1361,7 +1329,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearIpWhiteList() {
       if (ipWhiteListBuilder_ == null) {
         ipWhiteList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         ipWhiteListBuilder_.clear();
@@ -1480,7 +1448,7 @@ private static final long serialVersionUID = 0L;
         ipWhiteListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.api.v2.core.CidrRange, io.envoyproxy.envoy.api.v2.core.CidrRange.Builder, io.envoyproxy.envoy.api.v2.core.CidrRangeOrBuilder>(
                 ipWhiteList_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         ipWhiteList_ = null;
@@ -1520,7 +1488,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClientSSLAuth(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

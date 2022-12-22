@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SuggestionInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dataqna.v1alpha.AnnotatedString.Builder subBuilder = null;
-            if (annotatedSuggestion_ != null) {
-              subBuilder = annotatedSuggestion_.toBuilder();
-            }
-            annotatedSuggestion_ = input.readMessage(com.google.cloud.dataqna.v1alpha.AnnotatedString.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(annotatedSuggestion_);
-              annotatedSuggestion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              queryMatches_ = new java.util.ArrayList<com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            queryMatches_.add(
-                input.readMessage(com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        queryMatches_ = java.util.Collections.unmodifiableList(queryMatches_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataqna.v1alpha.AutoSuggestionServiceProto.internal_static_google_cloud_dataqna_v1alpha_SuggestionInfo_descriptor;
@@ -188,55 +123,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MatchInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              startCharIndex_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              length_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataqna.v1alpha.AutoSuggestionServiceProto.internal_static_google_cloud_dataqna_v1alpha_SuggestionInfo_MatchInfo_descriptor;
@@ -251,7 +137,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int START_CHAR_INDEX_FIELD_NUMBER = 1;
-    private int startCharIndex_;
+    private int startCharIndex_ = 0;
     /**
      * <pre>
      * Unicode character index of the string annotation.
@@ -266,7 +152,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LENGTH_FIELD_NUMBER = 2;
-    private int length_;
+    private int length_ = 0;
     /**
      * <pre>
      * Count of unicode characters of this substring.
@@ -300,7 +186,7 @@ private static final long serialVersionUID = 0L;
       if (length_ != 0) {
         output.writeInt32(2, length_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -317,7 +203,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, length_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -336,7 +222,7 @@ private static final long serialVersionUID = 0L;
           != other.getStartCharIndex()) return false;
       if (getLength()
           != other.getLength()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -351,7 +237,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getStartCharIndex();
       hash = (37 * hash) + LENGTH_FIELD_NUMBER;
       hash = (53 * hash) + getLength();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -492,26 +378,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         startCharIndex_ = 0;
-
         length_ = 0;
-
         return this;
       }
 
@@ -538,10 +418,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo buildPartial() {
         com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo result = new com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo(this);
-        result.startCharIndex_ = startCharIndex_;
-        result.length_ = length_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.startCharIndex_ = startCharIndex_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.length_ = length_;
+        }
       }
 
       @java.lang.Override
@@ -594,7 +483,7 @@ private static final long serialVersionUID = 0L;
         if (other.getLength() != 0) {
           setLength(other.getLength());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -609,19 +498,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                startCharIndex_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                length_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int startCharIndex_ ;
       /**
@@ -648,6 +561,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStartCharIndex(int value) {
         
         startCharIndex_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -660,7 +574,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStartCharIndex() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         startCharIndex_ = 0;
         onChanged();
         return this;
@@ -691,6 +605,7 @@ private static final long serialVersionUID = 0L;
       public Builder setLength(int value) {
         
         length_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -703,7 +618,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLength() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         length_ = 0;
         onChanged();
         return this;
@@ -741,7 +656,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MatchInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -799,10 +725,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataqna.v1alpha.AnnotatedStringOrBuilder getAnnotatedSuggestionOrBuilder() {
-    return getAnnotatedSuggestion();
+    return annotatedSuggestion_ == null ? com.google.cloud.dataqna.v1alpha.AnnotatedString.getDefaultInstance() : annotatedSuggestion_;
   }
 
   public static final int QUERY_MATCHES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo> queryMatches_;
   /**
    * <pre>
@@ -882,7 +809,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < queryMatches_.size(); i++) {
       output.writeMessage(2, queryMatches_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -899,7 +826,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, queryMatches_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -921,7 +848,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getQueryMatchesList()
         .equals(other.getQueryMatchesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -940,7 +867,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + QUERY_MATCHES_FIELD_NUMBER;
       hash = (53 * hash) + getQueryMatchesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1061,35 +988,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataqna.v1alpha.SuggestionInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getQueryMatchesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (annotatedSuggestionBuilder_ == null) {
-        annotatedSuggestion_ = null;
-      } else {
-        annotatedSuggestion_ = null;
+      bitField0_ = 0;
+      annotatedSuggestion_ = null;
+      if (annotatedSuggestionBuilder_ != null) {
+        annotatedSuggestionBuilder_.dispose();
         annotatedSuggestionBuilder_ = null;
       }
       if (queryMatchesBuilder_ == null) {
         queryMatches_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        queryMatches_ = null;
         queryMatchesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -1116,23 +1038,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataqna.v1alpha.SuggestionInfo buildPartial() {
       com.google.cloud.dataqna.v1alpha.SuggestionInfo result = new com.google.cloud.dataqna.v1alpha.SuggestionInfo(this);
-      int from_bitField0_ = bitField0_;
-      if (annotatedSuggestionBuilder_ == null) {
-        result.annotatedSuggestion_ = annotatedSuggestion_;
-      } else {
-        result.annotatedSuggestion_ = annotatedSuggestionBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dataqna.v1alpha.SuggestionInfo result) {
       if (queryMatchesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           queryMatches_ = java.util.Collections.unmodifiableList(queryMatches_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.queryMatches_ = queryMatches_;
       } else {
         result.queryMatches_ = queryMatchesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataqna.v1alpha.SuggestionInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.annotatedSuggestion_ = annotatedSuggestionBuilder_ == null
+            ? annotatedSuggestion_
+            : annotatedSuggestionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1186,7 +1116,7 @@ private static final long serialVersionUID = 0L;
         if (!other.queryMatches_.isEmpty()) {
           if (queryMatches_.isEmpty()) {
             queryMatches_ = other.queryMatches_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureQueryMatchesIsMutable();
             queryMatches_.addAll(other.queryMatches_);
@@ -1199,7 +1129,7 @@ private static final long serialVersionUID = 0L;
             queryMatchesBuilder_.dispose();
             queryMatchesBuilder_ = null;
             queryMatches_ = other.queryMatches_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             queryMatchesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getQueryMatchesFieldBuilder() : null;
@@ -1208,7 +1138,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1223,17 +1153,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataqna.v1alpha.SuggestionInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAnnotatedSuggestionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo m =
+                  input.readMessage(
+                      com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo.parser(),
+                      extensionRegistry);
+              if (queryMatchesBuilder_ == null) {
+                ensureQueryMatchesIsMutable();
+                queryMatches_.add(m);
+              } else {
+                queryMatchesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataqna.v1alpha.SuggestionInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1251,7 +1214,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the annotatedSuggestion field is set.
      */
     public boolean hasAnnotatedSuggestion() {
-      return annotatedSuggestionBuilder_ != null || annotatedSuggestion_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1283,11 +1246,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         annotatedSuggestion_ = value;
-        onChanged();
       } else {
         annotatedSuggestionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1302,11 +1265,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataqna.v1alpha.AnnotatedString.Builder builderForValue) {
       if (annotatedSuggestionBuilder_ == null) {
         annotatedSuggestion_ = builderForValue.build();
-        onChanged();
       } else {
         annotatedSuggestionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1319,17 +1282,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAnnotatedSuggestion(com.google.cloud.dataqna.v1alpha.AnnotatedString value) {
       if (annotatedSuggestionBuilder_ == null) {
-        if (annotatedSuggestion_ != null) {
-          annotatedSuggestion_ =
-            com.google.cloud.dataqna.v1alpha.AnnotatedString.newBuilder(annotatedSuggestion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          annotatedSuggestion_ != null &&
+          annotatedSuggestion_ != com.google.cloud.dataqna.v1alpha.AnnotatedString.getDefaultInstance()) {
+          getAnnotatedSuggestionBuilder().mergeFrom(value);
         } else {
           annotatedSuggestion_ = value;
         }
-        onChanged();
       } else {
         annotatedSuggestionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1341,14 +1305,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataqna.v1alpha.AnnotatedString annotated_suggestion = 1;</code>
      */
     public Builder clearAnnotatedSuggestion() {
-      if (annotatedSuggestionBuilder_ == null) {
-        annotatedSuggestion_ = null;
-        onChanged();
-      } else {
-        annotatedSuggestion_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      annotatedSuggestion_ = null;
+      if (annotatedSuggestionBuilder_ != null) {
+        annotatedSuggestionBuilder_.dispose();
         annotatedSuggestionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1360,7 +1323,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataqna.v1alpha.AnnotatedString annotated_suggestion = 1;</code>
      */
     public com.google.cloud.dataqna.v1alpha.AnnotatedString.Builder getAnnotatedSuggestionBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAnnotatedSuggestionFieldBuilder().getBuilder();
     }
@@ -1405,9 +1368,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo> queryMatches_ =
       java.util.Collections.emptyList();
     private void ensureQueryMatchesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         queryMatches_ = new java.util.ArrayList<com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo>(queryMatches_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1601,7 +1564,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearQueryMatches() {
       if (queryMatchesBuilder_ == null) {
         queryMatches_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         queryMatchesBuilder_.clear();
@@ -1706,7 +1669,7 @@ private static final long serialVersionUID = 0L;
         queryMatchesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo, com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfo.Builder, com.google.cloud.dataqna.v1alpha.SuggestionInfo.MatchInfoOrBuilder>(
                 queryMatches_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         queryMatches_ = null;
@@ -1746,7 +1709,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SuggestionInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

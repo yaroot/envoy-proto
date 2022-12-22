@@ -25,12 +25,12 @@ public final class RatelimitUnitProto {
     java.lang.String[] descriptorData = {
       "\n\"envoy/type/v3/ratelimit_unit.proto\022\ren" +
       "voy.type.v3\032\035udpa/annotations/status.pro" +
-      "to*G\n\rRateLimitUnit\022\013\n\007UNKNOWN\020\000\022\n\n\006SECO" +
-      "ND\020\001\022\n\n\006MINUTE\020\002\022\010\n\004HOUR\020\003\022\007\n\003DAY\020\004Bx\n\033i" +
-      "o.envoyproxy.envoy.type.v3B\022RatelimitUni" +
-      "tProtoP\001Z;github.com/envoyproxy/go-contr" +
-      "ol-plane/envoy/type/v3;typev3\272\200\310\321\006\002\020\002b\006p" +
-      "roto3"
+      "to*\\\n\rRateLimitUnit\022\013\n\007UNKNOWN\020\000\022\n\n\006SECO" +
+      "ND\020\001\022\n\n\006MINUTE\020\002\022\010\n\004HOUR\020\003\022\007\n\003DAY\020\004\022\t\n\005M" +
+      "ONTH\020\005\022\010\n\004YEAR\020\006Bx\n\033io.envoyproxy.envoy." +
+      "type.v3B\022RatelimitUnitProtoP\001Z;github.co" +
+      "m/envoyproxy/go-control-plane/envoy/type" +
+      "/v3;typev3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

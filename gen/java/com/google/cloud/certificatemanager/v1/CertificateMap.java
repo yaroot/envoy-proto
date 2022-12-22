@@ -37,109 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CertificateMap(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              gclbTargets_ = new java.util.ArrayList<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            gclbTargets_.add(
-                input.readMessage(com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        gclbTargets_ = java.util.Collections.unmodifiableList(gclbTargets_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.certificatemanager.v1.CertificateManagerProto.internal_static_google_cloud_certificatemanager_v1_CertificateMap_descriptor;
@@ -171,31 +68,34 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_https_proxy = 1;</code>
+     * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the targetHttpsProxy field is set.
      */
     boolean hasTargetHttpsProxy();
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_https_proxy = 1;</code>
+     * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The targetHttpsProxy.
      */
     java.lang.String getTargetHttpsProxy();
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_https_proxy = 1;</code>
+     * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bytes for targetHttpsProxy.
      */
     com.google.protobuf.ByteString
@@ -203,31 +103,34 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_ssl_proxy = 3;</code>
+     * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the targetSslProxy field is set.
      */
     boolean hasTargetSslProxy();
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_ssl_proxy = 3;</code>
+     * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The targetSslProxy.
      */
     java.lang.String getTargetSslProxy();
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_ssl_proxy = 3;</code>
+     * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bytes for targetSslProxy.
      */
     com.google.protobuf.ByteString
@@ -235,49 +138,49 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     java.util.List<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig> 
         getIpConfigsList();
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig getIpConfigs(int index);
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     int getIpConfigsCount();
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     java.util.List<? extends com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfigOrBuilder> 
         getIpConfigsOrBuilderList();
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfigOrBuilder getIpConfigsOrBuilder(
         int index);
@@ -316,70 +219,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GclbTarget(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              targetProxyCase_ = 1;
-              targetProxy_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                ipConfigs_ = new java.util.ArrayList<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              ipConfigs_.add(
-                  input.readMessage(com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              targetProxyCase_ = 3;
-              targetProxy_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          ipConfigs_ = java.util.Collections.unmodifiableList(ipConfigs_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.certificatemanager.v1.CertificateManagerProto.internal_static_google_cloud_certificatemanager_v1_CertificateMap_GclbTarget_descriptor;
@@ -399,19 +238,19 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * An external IP address.
+       * Output only. An external IP address.
        * </pre>
        *
-       * <code>string ip_address = 1;</code>
+       * <code>string ip_address = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The ipAddress.
        */
       java.lang.String getIpAddress();
       /**
        * <pre>
-       * An external IP address.
+       * Output only. An external IP address.
        * </pre>
        *
-       * <code>string ip_address = 1;</code>
+       * <code>string ip_address = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The bytes for ipAddress.
        */
       com.google.protobuf.ByteString
@@ -419,28 +258,28 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Ports.
+       * Output only. Ports.
        * </pre>
        *
-       * <code>repeated uint32 ports = 3;</code>
+       * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return A list containing the ports.
        */
       java.util.List<java.lang.Integer> getPortsList();
       /**
        * <pre>
-       * Ports.
+       * Output only. Ports.
        * </pre>
        *
-       * <code>repeated uint32 ports = 3;</code>
+       * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The count of ports.
        */
       int getPortsCount();
       /**
        * <pre>
-       * Ports.
+       * Output only. Ports.
        * </pre>
        *
-       * <code>repeated uint32 ports = 3;</code>
+       * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @param index The index of the element to return.
        * @return The ports at the given index.
        */
@@ -479,76 +318,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private IpConfig(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                ipAddress_ = s;
-                break;
-              }
-              case 24: {
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  ports_ = newIntList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                ports_.addInt(input.readUInt32());
-                break;
-              }
-              case 26: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                  ports_ = newIntList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                while (input.getBytesUntilLimit() > 0) {
-                  ports_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            ports_.makeImmutable(); // C
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.certificatemanager.v1.CertificateManagerProto.internal_static_google_cloud_certificatemanager_v1_CertificateMap_GclbTarget_IpConfig_descriptor;
@@ -563,13 +332,14 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int IP_ADDRESS_FIELD_NUMBER = 1;
-      private volatile java.lang.Object ipAddress_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object ipAddress_ = "";
       /**
        * <pre>
-       * An external IP address.
+       * Output only. An external IP address.
        * </pre>
        *
-       * <code>string ip_address = 1;</code>
+       * <code>string ip_address = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The ipAddress.
        */
       @java.lang.Override
@@ -587,10 +357,10 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * An external IP address.
+       * Output only. An external IP address.
        * </pre>
        *
-       * <code>string ip_address = 1;</code>
+       * <code>string ip_address = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The bytes for ipAddress.
        */
       @java.lang.Override
@@ -609,13 +379,14 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int PORTS_FIELD_NUMBER = 3;
+      @SuppressWarnings("serial")
       private com.google.protobuf.Internal.IntList ports_;
       /**
        * <pre>
-       * Ports.
+       * Output only. Ports.
        * </pre>
        *
-       * <code>repeated uint32 ports = 3;</code>
+       * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return A list containing the ports.
        */
       @java.lang.Override
@@ -625,10 +396,10 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Ports.
+       * Output only. Ports.
        * </pre>
        *
-       * <code>repeated uint32 ports = 3;</code>
+       * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The count of ports.
        */
       public int getPortsCount() {
@@ -636,10 +407,10 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Ports.
+       * Output only. Ports.
        * </pre>
        *
-       * <code>repeated uint32 ports = 3;</code>
+       * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @param index The index of the element to return.
        * @return The ports at the given index.
        */
@@ -673,7 +444,7 @@ private static final long serialVersionUID = 0L;
         for (int i = 0; i < ports_.size(); i++) {
           output.writeUInt32NoTag(ports_.getInt(i));
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -699,7 +470,7 @@ private static final long serialVersionUID = 0L;
           }
           portsMemoizedSerializedSize = dataSize;
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -718,7 +489,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getIpAddress())) return false;
         if (!getPortsList()
             .equals(other.getPortsList())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -735,7 +506,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + PORTS_FIELD_NUMBER;
           hash = (53 * hash) + getPortsList().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -856,26 +627,20 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           ipAddress_ = "";
-
           ports_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
 
@@ -902,15 +667,25 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig buildPartial() {
           com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig result = new com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig(this);
-          int from_bitField0_ = bitField0_;
-          result.ipAddress_ = ipAddress_;
-          if (((bitField0_ & 0x00000001) != 0)) {
-            ports_.makeImmutable();
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.ports_ = ports_;
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig result) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            ports_.makeImmutable();
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.ports_ = ports_;
+        }
+
+        private void buildPartial0(com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.ipAddress_ = ipAddress_;
+          }
         }
 
         @java.lang.Override
@@ -959,19 +734,20 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.getDefaultInstance()) return this;
           if (!other.getIpAddress().isEmpty()) {
             ipAddress_ = other.ipAddress_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (!other.ports_.isEmpty()) {
             if (ports_.isEmpty()) {
               ports_ = other.ports_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensurePortsIsMutable();
               ports_.addAll(other.ports_);
             }
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -986,17 +762,51 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  ipAddress_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 24: {
+                  int v = input.readUInt32();
+                  ensurePortsIsMutable();
+                  ports_.addInt(v);
+                  break;
+                } // case 24
+                case 26: {
+                  int length = input.readRawVarint32();
+                  int limit = input.pushLimit(length);
+                  ensurePortsIsMutable();
+                  while (input.getBytesUntilLimit() > 0) {
+                    ports_.addInt(input.readUInt32());
+                  }
+                  input.popLimit(limit);
+                  break;
+                } // case 26
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -1004,10 +814,10 @@ private static final long serialVersionUID = 0L;
         private java.lang.Object ipAddress_ = "";
         /**
          * <pre>
-         * An external IP address.
+         * Output only. An external IP address.
          * </pre>
          *
-         * <code>string ip_address = 1;</code>
+         * <code>string ip_address = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The ipAddress.
          */
         public java.lang.String getIpAddress() {
@@ -1024,10 +834,10 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * An external IP address.
+         * Output only. An external IP address.
          * </pre>
          *
-         * <code>string ip_address = 1;</code>
+         * <code>string ip_address = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The bytes for ipAddress.
          */
         public com.google.protobuf.ByteString
@@ -1045,84 +855,80 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * An external IP address.
+         * Output only. An external IP address.
          * </pre>
          *
-         * <code>string ip_address = 1;</code>
+         * <code>string ip_address = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The ipAddress to set.
          * @return This builder for chaining.
          */
         public Builder setIpAddress(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           ipAddress_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * An external IP address.
+         * Output only. An external IP address.
          * </pre>
          *
-         * <code>string ip_address = 1;</code>
+         * <code>string ip_address = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return This builder for chaining.
          */
         public Builder clearIpAddress() {
-          
           ipAddress_ = getDefaultInstance().getIpAddress();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * An external IP address.
+         * Output only. An external IP address.
          * </pre>
          *
-         * <code>string ip_address = 1;</code>
+         * <code>string ip_address = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The bytes for ipAddress to set.
          * @return This builder for chaining.
          */
         public Builder setIpAddressBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           ipAddress_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
 
         private com.google.protobuf.Internal.IntList ports_ = emptyIntList();
         private void ensurePortsIsMutable() {
-          if (!((bitField0_ & 0x00000001) != 0)) {
+          if (!((bitField0_ & 0x00000002) != 0)) {
             ports_ = mutableCopy(ports_);
-            bitField0_ |= 0x00000001;
-           }
+            bitField0_ |= 0x00000002;
+          }
         }
         /**
          * <pre>
-         * Ports.
+         * Output only. Ports.
          * </pre>
          *
-         * <code>repeated uint32 ports = 3;</code>
+         * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return A list containing the ports.
          */
         public java.util.List<java.lang.Integer>
             getPortsList() {
-          return ((bitField0_ & 0x00000001) != 0) ?
+          return ((bitField0_ & 0x00000002) != 0) ?
                    java.util.Collections.unmodifiableList(ports_) : ports_;
         }
         /**
          * <pre>
-         * Ports.
+         * Output only. Ports.
          * </pre>
          *
-         * <code>repeated uint32 ports = 3;</code>
+         * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return The count of ports.
          */
         public int getPortsCount() {
@@ -1130,10 +936,10 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Ports.
+         * Output only. Ports.
          * </pre>
          *
-         * <code>repeated uint32 ports = 3;</code>
+         * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param index The index of the element to return.
          * @return The ports at the given index.
          */
@@ -1142,16 +948,17 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Ports.
+         * Output only. Ports.
          * </pre>
          *
-         * <code>repeated uint32 ports = 3;</code>
+         * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param index The index to set the value at.
          * @param value The ports to set.
          * @return This builder for chaining.
          */
         public Builder setPorts(
             int index, int value) {
+          
           ensurePortsIsMutable();
           ports_.setInt(index, value);
           onChanged();
@@ -1159,14 +966,15 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Ports.
+         * Output only. Ports.
          * </pre>
          *
-         * <code>repeated uint32 ports = 3;</code>
+         * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param value The ports to add.
          * @return This builder for chaining.
          */
         public Builder addPorts(int value) {
+          
           ensurePortsIsMutable();
           ports_.addInt(value);
           onChanged();
@@ -1174,10 +982,10 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Ports.
+         * Output only. Ports.
          * </pre>
          *
-         * <code>repeated uint32 ports = 3;</code>
+         * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @param values The ports to add.
          * @return This builder for chaining.
          */
@@ -1191,15 +999,15 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Ports.
+         * Output only. Ports.
          * </pre>
          *
-         * <code>repeated uint32 ports = 3;</code>
+         * <code>repeated uint32 ports = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          * @return This builder for chaining.
          */
         public Builder clearPorts() {
           ports_ = emptyIntList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
           return this;
         }
@@ -1236,7 +1044,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new IpConfig(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1300,11 +1119,12 @@ private static final long serialVersionUID = 0L;
     public static final int TARGET_HTTPS_PROXY_FIELD_NUMBER = 1;
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_https_proxy = 1;</code>
+     * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the targetHttpsProxy field is set.
      */
     public boolean hasTargetHttpsProxy() {
@@ -1312,11 +1132,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_https_proxy = 1;</code>
+     * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The targetHttpsProxy.
      */
     public java.lang.String getTargetHttpsProxy() {
@@ -1338,11 +1159,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_https_proxy = 1;</code>
+     * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bytes for targetHttpsProxy.
      */
     public com.google.protobuf.ByteString
@@ -1367,11 +1189,12 @@ private static final long serialVersionUID = 0L;
     public static final int TARGET_SSL_PROXY_FIELD_NUMBER = 3;
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_ssl_proxy = 3;</code>
+     * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the targetSslProxy field is set.
      */
     public boolean hasTargetSslProxy() {
@@ -1379,11 +1202,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_ssl_proxy = 3;</code>
+     * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The targetSslProxy.
      */
     public java.lang.String getTargetSslProxy() {
@@ -1405,11 +1229,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field returns the resource name in the following format:
+     * Output only. This field returns the resource name in the following
+     * format:
      * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
      * </pre>
      *
-     * <code>string target_ssl_proxy = 3;</code>
+     * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bytes for targetSslProxy.
      */
     public com.google.protobuf.ByteString
@@ -1432,14 +1257,15 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int IP_CONFIGS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig> ipConfigs_;
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
     public java.util.List<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig> getIpConfigsList() {
@@ -1447,11 +1273,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
     public java.util.List<? extends com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfigOrBuilder> 
@@ -1460,11 +1286,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
     public int getIpConfigsCount() {
@@ -1472,11 +1298,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
     public com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig getIpConfigs(int index) {
@@ -1484,11 +1310,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * IP configurations for this Target Proxy where the
+     * Output only. IP configurations for this Target Proxy where the
      * Certificate Map is serving.
      * </pre>
      *
-     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+     * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
     public com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfigOrBuilder getIpConfigsOrBuilder(
@@ -1519,7 +1345,7 @@ private static final long serialVersionUID = 0L;
       if (targetProxyCase_ == 3) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, targetProxy_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1538,7 +1364,7 @@ private static final long serialVersionUID = 0L;
       if (targetProxyCase_ == 3) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, targetProxy_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1568,7 +1394,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1595,7 +1421,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1716,29 +1542,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getIpConfigsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (ipConfigsBuilder_ == null) {
           ipConfigs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          ipConfigs_ = null;
           ipConfigsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         targetProxyCase_ = 0;
         targetProxy_ = null;
         return this;
@@ -1767,25 +1589,32 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget buildPartial() {
         com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget result = new com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget(this);
-        int from_bitField0_ = bitField0_;
-        if (targetProxyCase_ == 1) {
-          result.targetProxy_ = targetProxy_;
-        }
-        if (targetProxyCase_ == 3) {
-          result.targetProxy_ = targetProxy_;
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget result) {
         if (ipConfigsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             ipConfigs_ = java.util.Collections.unmodifiableList(ipConfigs_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.ipConfigs_ = ipConfigs_;
         } else {
           result.ipConfigs_ = ipConfigsBuilder_.build();
         }
+      }
+
+      private void buildPartial0(com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget result) {
         result.targetProxyCase_ = targetProxyCase_;
-        onBuilt();
-        return result;
+        result.targetProxy_ = this.targetProxy_;
       }
 
       @java.lang.Override
@@ -1836,7 +1665,7 @@ private static final long serialVersionUID = 0L;
           if (!other.ipConfigs_.isEmpty()) {
             if (ipConfigs_.isEmpty()) {
               ipConfigs_ = other.ipConfigs_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureIpConfigsIsMutable();
               ipConfigs_.addAll(other.ipConfigs_);
@@ -1849,7 +1678,7 @@ private static final long serialVersionUID = 0L;
               ipConfigsBuilder_.dispose();
               ipConfigsBuilder_ = null;
               ipConfigs_ = other.ipConfigs_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
               ipConfigsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getIpConfigsFieldBuilder() : null;
@@ -1875,7 +1704,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1890,17 +1719,55 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                targetProxyCase_ = 1;
+                targetProxy_ = s;
+                break;
+              } // case 10
+              case 18: {
+                com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig m =
+                    input.readMessage(
+                        com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.parser(),
+                        extensionRegistry);
+                if (ipConfigsBuilder_ == null) {
+                  ensureIpConfigsIsMutable();
+                  ipConfigs_.add(m);
+                } else {
+                  ipConfigsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                targetProxyCase_ = 3;
+                targetProxy_ = s;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int targetProxyCase_ = 0;
@@ -1922,11 +1789,12 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_https_proxy = 1;</code>
+       * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return Whether the targetHttpsProxy field is set.
        */
       @java.lang.Override
@@ -1935,11 +1803,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_https_proxy = 1;</code>
+       * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The targetHttpsProxy.
        */
       @java.lang.Override
@@ -1962,11 +1831,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_https_proxy = 1;</code>
+       * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The bytes for targetHttpsProxy.
        */
       @java.lang.Override
@@ -1990,31 +1860,31 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_https_proxy = 1;</code>
+       * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @param value The targetHttpsProxy to set.
        * @return This builder for chaining.
        */
       public Builder setTargetHttpsProxy(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  targetProxyCase_ = 1;
+        if (value == null) { throw new NullPointerException(); }
+        targetProxyCase_ = 1;
         targetProxy_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_https_proxy = 1;</code>
+       * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return This builder for chaining.
        */
       public Builder clearTargetHttpsProxy() {
@@ -2027,20 +1897,19 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetHttpsProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_https_proxy = 1;</code>
+       * <code>string target_https_proxy = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @param value The bytes for targetHttpsProxy to set.
        * @return This builder for chaining.
        */
       public Builder setTargetHttpsProxyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         targetProxyCase_ = 1;
         targetProxy_ = value;
         onChanged();
@@ -2049,11 +1918,12 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_ssl_proxy = 3;</code>
+       * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return Whether the targetSslProxy field is set.
        */
       @java.lang.Override
@@ -2062,11 +1932,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_ssl_proxy = 3;</code>
+       * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The targetSslProxy.
        */
       @java.lang.Override
@@ -2089,11 +1960,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_ssl_proxy = 3;</code>
+       * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return The bytes for targetSslProxy.
        */
       @java.lang.Override
@@ -2117,31 +1989,31 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_ssl_proxy = 3;</code>
+       * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @param value The targetSslProxy to set.
        * @return This builder for chaining.
        */
       public Builder setTargetSslProxy(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  targetProxyCase_ = 3;
+        if (value == null) { throw new NullPointerException(); }
+        targetProxyCase_ = 3;
         targetProxy_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_ssl_proxy = 3;</code>
+       * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return This builder for chaining.
        */
       public Builder clearTargetSslProxy() {
@@ -2154,20 +2026,19 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * This field returns the resource name in the following format:
+       * Output only. This field returns the resource name in the following
+       * format:
        * `//compute.googleapis.com/projects/&#42;&#47;global/targetSslProxies/&#42;`.
        * </pre>
        *
-       * <code>string target_ssl_proxy = 3;</code>
+       * <code>string target_ssl_proxy = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @param value The bytes for targetSslProxy to set.
        * @return This builder for chaining.
        */
       public Builder setTargetSslProxyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         targetProxyCase_ = 3;
         targetProxy_ = value;
         onChanged();
@@ -2177,9 +2048,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig> ipConfigs_ =
         java.util.Collections.emptyList();
       private void ensureIpConfigsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           ipConfigs_ = new java.util.ArrayList<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig>(ipConfigs_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -2188,11 +2059,11 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public java.util.List<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig> getIpConfigsList() {
         if (ipConfigsBuilder_ == null) {
@@ -2203,11 +2074,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public int getIpConfigsCount() {
         if (ipConfigsBuilder_ == null) {
@@ -2218,11 +2089,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig getIpConfigs(int index) {
         if (ipConfigsBuilder_ == null) {
@@ -2233,11 +2104,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder setIpConfigs(
           int index, com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig value) {
@@ -2255,11 +2126,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder setIpConfigs(
           int index, com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.Builder builderForValue) {
@@ -2274,11 +2145,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder addIpConfigs(com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig value) {
         if (ipConfigsBuilder_ == null) {
@@ -2295,11 +2166,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder addIpConfigs(
           int index, com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig value) {
@@ -2317,11 +2188,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder addIpConfigs(
           com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.Builder builderForValue) {
@@ -2336,11 +2207,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder addIpConfigs(
           int index, com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.Builder builderForValue) {
@@ -2355,11 +2226,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder addAllIpConfigs(
           java.lang.Iterable<? extends com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig> values) {
@@ -2375,16 +2246,16 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearIpConfigs() {
         if (ipConfigsBuilder_ == null) {
           ipConfigs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           ipConfigsBuilder_.clear();
@@ -2393,11 +2264,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder removeIpConfigs(int index) {
         if (ipConfigsBuilder_ == null) {
@@ -2411,11 +2282,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.Builder getIpConfigsBuilder(
           int index) {
@@ -2423,11 +2294,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfigOrBuilder getIpConfigsOrBuilder(
           int index) {
@@ -2438,11 +2309,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public java.util.List<? extends com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfigOrBuilder> 
            getIpConfigsOrBuilderList() {
@@ -2454,11 +2325,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.Builder addIpConfigsBuilder() {
         return getIpConfigsFieldBuilder().addBuilder(
@@ -2466,11 +2337,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.Builder addIpConfigsBuilder(
           int index) {
@@ -2479,11 +2350,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * IP configurations for this Target Proxy where the
+       * Output only. IP configurations for this Target Proxy where the
        * Certificate Map is serving.
        * </pre>
        *
-       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2;</code>
+       * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig ip_configs = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public java.util.List<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.Builder> 
            getIpConfigsBuilderList() {
@@ -2496,7 +2367,7 @@ private static final long serialVersionUID = 0L;
           ipConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig, com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfig.Builder, com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.IpConfigOrBuilder>(
                   ipConfigs_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           ipConfigs_ = null;
@@ -2536,7 +2407,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GclbTarget(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2557,7 +2439,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * A user-defined name of the Certificate Map. Certificate Map names must be
@@ -2607,7 +2490,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * One or more paragraphs of text description of a certificate map.
@@ -2687,7 +2571,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 6;
@@ -2725,7 +2609,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 3;
@@ -2740,6 +2624,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2750,7 +2635,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -2761,7 +2645,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -2784,7 +2667,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -2796,10 +2678,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -2813,7 +2696,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2826,10 +2708,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GCLB_TARGETS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget> gclbTargets_;
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2841,6 +2726,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2853,6 +2740,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2864,6 +2753,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2875,6 +2766,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Output only. A list of GCLB targets which use this Certificate Map.
+   * A Target Proxy is only present on this list if it's attached to a
+   * Forwarding Rule.
    * </pre>
    *
    * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2920,7 +2813,7 @@ private static final long serialVersionUID = 0L;
     if (updateTime_ != null) {
       output.writeMessage(6, getUpdateTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2957,7 +2850,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getUpdateTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2990,7 +2883,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetLabels())) return false;
     if (!getGclbTargetsList()
         .equals(other.getGclbTargetsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3021,7 +2914,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GCLB_TARGETS_FIELD_NUMBER;
       hash = (53 * hash) + getGclbTargetsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3164,46 +3057,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.certificatemanager.v1.CertificateMap.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getGclbTargetsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       description_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       internalGetMutableLabels().clear();
       if (gclbTargetsBuilder_ == null) {
         gclbTargets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        gclbTargets_ = null;
         gclbTargetsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -3230,32 +3115,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.certificatemanager.v1.CertificateMap buildPartial() {
       com.google.cloud.certificatemanager.v1.CertificateMap result = new com.google.cloud.certificatemanager.v1.CertificateMap(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.description_ = description_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.certificatemanager.v1.CertificateMap result) {
       if (gclbTargetsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           gclbTargets_ = java.util.Collections.unmodifiableList(gclbTargets_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.gclbTargets_ = gclbTargets_;
       } else {
         result.gclbTargets_ = gclbTargetsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.certificatemanager.v1.CertificateMap result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -3304,10 +3203,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.certificatemanager.v1.CertificateMap.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -3318,11 +3219,12 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000010;
       if (gclbTargetsBuilder_ == null) {
         if (!other.gclbTargets_.isEmpty()) {
           if (gclbTargets_.isEmpty()) {
             gclbTargets_ = other.gclbTargets_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureGclbTargetsIsMutable();
             gclbTargets_.addAll(other.gclbTargets_);
@@ -3335,7 +3237,7 @@ private static final long serialVersionUID = 0L;
             gclbTargetsBuilder_.dispose();
             gclbTargetsBuilder_ = null;
             gclbTargets_ = other.gclbTargets_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             gclbTargetsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getGclbTargetsFieldBuilder() : null;
@@ -3344,7 +3246,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3359,17 +3261,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.certificatemanager.v1.CertificateMap parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 26
+            case 34: {
+              com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget m =
+                  input.readMessage(
+                      com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.parser(),
+                      extensionRegistry);
+              if (gclbTargetsBuilder_ == null) {
+                ensureGclbTargetsIsMutable();
+                gclbTargets_.add(m);
+              } else {
+                gclbTargetsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.certificatemanager.v1.CertificateMap) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3433,11 +3394,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3452,8 +3411,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3470,12 +3429,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3533,11 +3490,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3550,8 +3505,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3566,12 +3521,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3588,7 +3541,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -3618,11 +3571,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3636,11 +3589,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3652,17 +3605,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3673,14 +3627,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3691,7 +3644,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -3743,7 +3696,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -3773,11 +3726,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3791,11 +3744,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3807,17 +3760,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3828,14 +3782,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3846,7 +3799,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -3889,7 +3842,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3897,8 +3850,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3906,9 +3858,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -3919,7 +3872,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -3942,7 +3894,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -3954,10 +3905,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -3971,7 +3923,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3982,8 +3933,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -3995,7 +3946,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4008,7 +3958,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -4022,12 +3973,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -4037,20 +3986,20 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
     private java.util.List<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget> gclbTargets_ =
       java.util.Collections.emptyList();
     private void ensureGclbTargetsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         gclbTargets_ = new java.util.ArrayList<com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget>(gclbTargets_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -4060,6 +4009,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4074,6 +4025,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4088,6 +4041,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4102,6 +4057,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4123,6 +4080,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4141,6 +4100,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4161,6 +4122,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4182,6 +4145,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4200,6 +4165,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4218,6 +4185,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4237,6 +4206,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4244,7 +4215,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearGclbTargets() {
       if (gclbTargetsBuilder_ == null) {
         gclbTargets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         gclbTargetsBuilder_.clear();
@@ -4254,6 +4225,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4271,6 +4244,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4282,6 +4257,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4296,6 +4273,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4311,6 +4290,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4322,6 +4303,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4334,6 +4317,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Output only. A list of GCLB targets which use this Certificate Map.
+     * A Target Proxy is only present on this list if it's attached to a
+     * Forwarding Rule.
      * </pre>
      *
      * <code>repeated .google.cloud.certificatemanager.v1.CertificateMap.GclbTarget gclb_targets = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4349,7 +4334,7 @@ private static final long serialVersionUID = 0L;
         gclbTargetsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget, com.google.cloud.certificatemanager.v1.CertificateMap.GclbTarget.Builder, com.google.cloud.certificatemanager.v1.CertificateMap.GclbTargetOrBuilder>(
                 gclbTargets_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         gclbTargets_ = null;
@@ -4389,7 +4374,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CertificateMap(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

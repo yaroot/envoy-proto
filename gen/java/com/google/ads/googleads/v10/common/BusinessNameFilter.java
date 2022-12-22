@@ -36,57 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BusinessNameFilter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            businessName_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            filterType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.FeedItemSetFilterTypeInfosProto.internal_static_google_ads_googleads_v10_common_BusinessNameFilter_descriptor;
@@ -101,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUSINESS_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object businessName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object businessName_ = "";
   /**
    * <pre>
    * Business name string to use for filtering.
@@ -147,7 +97,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_TYPE_FIELD_NUMBER = 2;
-  private int filterType_;
+  private int filterType_ = 0;
   /**
    * <pre>
    * The type of string matching to use when filtering with business_name.
@@ -168,8 +118,7 @@ private static final long serialVersionUID = 0L;
    * @return The filterType.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType getFilterType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType result = com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType.valueOf(filterType_);
+    com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType result = com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType.forNumber(filterType_);
     return result == null ? com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType.UNRECOGNIZED : result;
   }
 
@@ -193,7 +142,7 @@ private static final long serialVersionUID = 0L;
     if (filterType_ != com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType.UNSPECIFIED.getNumber()) {
       output.writeEnum(2, filterType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -209,7 +158,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, filterType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -227,7 +176,7 @@ private static final long serialVersionUID = 0L;
     if (!getBusinessName()
         .equals(other.getBusinessName())) return false;
     if (filterType_ != other.filterType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -242,7 +191,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getBusinessName().hashCode();
     hash = (37 * hash) + FILTER_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + filterType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -363,26 +312,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.BusinessNameFilter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       businessName_ = "";
-
       filterType_ = 0;
-
       return this;
     }
 
@@ -409,10 +352,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.BusinessNameFilter buildPartial() {
       com.google.ads.googleads.v10.common.BusinessNameFilter result = new com.google.ads.googleads.v10.common.BusinessNameFilter(this);
-      result.businessName_ = businessName_;
-      result.filterType_ = filterType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.BusinessNameFilter result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.businessName_ = businessName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.filterType_ = filterType_;
+      }
     }
 
     @java.lang.Override
@@ -461,12 +413,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.common.BusinessNameFilter.getDefaultInstance()) return this;
       if (!other.getBusinessName().isEmpty()) {
         businessName_ = other.businessName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.filterType_ != 0) {
         setFilterTypeValue(other.getFilterTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -481,19 +434,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.BusinessNameFilter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              businessName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              filterType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.BusinessNameFilter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object businessName_ = "";
     /**
@@ -548,11 +525,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBusinessName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       businessName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -565,8 +540,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBusinessName() {
-      
       businessName_ = getDefaultInstance().getBusinessName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -581,12 +556,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBusinessNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       businessName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -613,8 +586,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFilterTypeValue(int value) {
-      
       filterType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -628,8 +601,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType getFilterType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType result = com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType.valueOf(filterType_);
+      com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType result = com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType.forNumber(filterType_);
       return result == null ? com.google.ads.googleads.v10.enums.FeedItemSetStringFilterTypeEnum.FeedItemSetStringFilterType.UNRECOGNIZED : result;
     }
     /**
@@ -645,7 +617,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       filterType_ = value.getNumber();
       onChanged();
       return this;
@@ -659,7 +631,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilterType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       filterType_ = 0;
       onChanged();
       return this;
@@ -697,7 +669,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BusinessNameFilter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

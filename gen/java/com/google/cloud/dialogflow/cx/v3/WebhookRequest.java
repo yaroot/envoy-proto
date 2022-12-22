@@ -40,172 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WebhookRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            detectIntentResponseId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.Builder subBuilder = null;
-            if (intentInfo_ != null) {
-              subBuilder = intentInfo_.toBuilder();
-            }
-            intentInfo_ = input.readMessage(com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(intentInfo_);
-              intentInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.dialogflow.cx.v3.PageInfo.Builder subBuilder = null;
-            if (pageInfo_ != null) {
-              subBuilder = pageInfo_.toBuilder();
-            }
-            pageInfo_ = input.readMessage(com.google.cloud.dialogflow.cx.v3.PageInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pageInfo_);
-              pageInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.dialogflow.cx.v3.SessionInfo.Builder subBuilder = null;
-            if (sessionInfo_ != null) {
-              subBuilder = sessionInfo_.toBuilder();
-            }
-            sessionInfo_ = input.readMessage(com.google.cloud.dialogflow.cx.v3.SessionInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sessionInfo_);
-              sessionInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo.Builder subBuilder = null;
-            if (fulfillmentInfo_ != null) {
-              subBuilder = fulfillmentInfo_.toBuilder();
-            }
-            fulfillmentInfo_ = input.readMessage(com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fulfillmentInfo_);
-              fulfillmentInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              messages_ = new java.util.ArrayList<com.google.cloud.dialogflow.cx.v3.ResponseMessage>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            messages_.add(
-                input.readMessage(com.google.cloud.dialogflow.cx.v3.ResponseMessage.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (payload_ != null) {
-              subBuilder = payload_.toBuilder();
-            }
-            payload_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(payload_);
-              payload_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult.Builder subBuilder = null;
-            if (sentimentAnalysisResult_ != null) {
-              subBuilder = sentimentAnalysisResult_.toBuilder();
-            }
-            sentimentAnalysisResult_ = input.readMessage(com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sentimentAnalysisResult_);
-              sentimentAnalysisResult_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            queryCase_ = 10;
-            query_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-            queryCase_ = 11;
-            query_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-            queryCase_ = 12;
-            query_ = s;
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            queryCase_ = 14;
-            query_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        messages_ = java.util.Collections.unmodifiableList(messages_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.cx.v3.WebhookProto.internal_static_google_cloud_dialogflow_cx_v3_WebhookRequest_descriptor;
@@ -283,51 +117,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FulfillmentInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tag_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.cx.v3.WebhookProto.internal_static_google_cloud_dialogflow_cx_v3_WebhookRequest_FulfillmentInfo_descriptor;
@@ -342,7 +131,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TAG_FIELD_NUMBER = 1;
-    private volatile java.lang.Object tag_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object tag_ = "";
     /**
      * <pre>
      * Always present.
@@ -412,7 +202,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tag_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tag_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -424,7 +214,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tag_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tag_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -441,7 +231,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getTag()
           .equals(other.getTag())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -454,7 +244,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TAG_FIELD_NUMBER;
       hash = (53 * hash) + getTag().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -575,24 +365,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         tag_ = "";
-
         return this;
       }
 
@@ -619,9 +404,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo buildPartial() {
         com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo result = new com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo(this);
-        result.tag_ = tag_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.tag_ = tag_;
+        }
       }
 
       @java.lang.Override
@@ -670,9 +462,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo.getDefaultInstance()) return this;
         if (!other.getTag().isEmpty()) {
           tag_ = other.tag_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -687,19 +480,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                tag_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object tag_ = "";
       /**
@@ -766,11 +578,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTag(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         tag_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -787,8 +597,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTag() {
-        
         tag_ = getDefaultInstance().getTag();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -807,12 +617,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTagBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         tag_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -849,7 +657,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FulfillmentInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -970,7 +789,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
      */
-
     /* nullable */
 com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue getParametersOrDefault(
         java.lang.String key,
@@ -986,7 +804,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      *
      * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
      */
-
     com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue getParametersOrThrow(
         java.lang.String key);
 
@@ -1033,76 +850,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private IntentInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              lastMatchedIntent_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                parameters_ = com.google.protobuf.MapField.newMapField(
-                    ParametersDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue>
-              parameters__ = input.readMessage(
-                  ParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              parameters_.getMutableMap().put(
-                  parameters__.getKey(), parameters__.getValue());
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            case 37: {
-
-              confidence_ = input.readFloat();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1215,64 +962,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       getUnknownFields() {
         return this.unknownFields;
       }
-      private IntentParameterValue(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                originalValue_ = s;
-                break;
-              }
-              case 18: {
-                com.google.protobuf.Value.Builder subBuilder = null;
-                if (resolvedValue_ != null) {
-                  subBuilder = resolvedValue_.toBuilder();
-                }
-                resolvedValue_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(resolvedValue_);
-                  resolvedValue_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.dialogflow.cx.v3.WebhookProto.internal_static_google_cloud_dialogflow_cx_v3_WebhookRequest_IntentInfo_IntentParameterValue_descriptor;
@@ -1287,7 +976,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       }
 
       public static final int ORIGINAL_VALUE_FIELD_NUMBER = 1;
-      private volatile java.lang.Object originalValue_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object originalValue_ = "";
       /**
        * <pre>
        * Always present. Original text value extracted from user utterance.
@@ -1370,7 +1060,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        */
       @java.lang.Override
       public com.google.protobuf.ValueOrBuilder getResolvedValueOrBuilder() {
-        return getResolvedValue();
+        return resolvedValue_ == null ? com.google.protobuf.Value.getDefaultInstance() : resolvedValue_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -1393,7 +1083,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         if (resolvedValue_ != null) {
           output.writeMessage(2, getResolvedValue());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1409,7 +1099,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getResolvedValue());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1431,7 +1121,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           if (!getResolvedValue()
               .equals(other.getResolvedValue())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1448,7 +1138,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           hash = (37 * hash) + RESOLVED_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getResolvedValue().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1569,28 +1259,22 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
 
         // Construct using com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           originalValue_ = "";
-
-          if (resolvedValueBuilder_ == null) {
-            resolvedValue_ = null;
-          } else {
-            resolvedValue_ = null;
+          resolvedValue_ = null;
+          if (resolvedValueBuilder_ != null) {
+            resolvedValueBuilder_.dispose();
             resolvedValueBuilder_ = null;
           }
           return this;
@@ -1619,14 +1303,21 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         @java.lang.Override
         public com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue buildPartial() {
           com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue result = new com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue(this);
-          result.originalValue_ = originalValue_;
-          if (resolvedValueBuilder_ == null) {
-            result.resolvedValue_ = resolvedValue_;
-          } else {
-            result.resolvedValue_ = resolvedValueBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.originalValue_ = originalValue_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.resolvedValue_ = resolvedValueBuilder_ == null
+                ? resolvedValue_
+                : resolvedValueBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -1675,12 +1366,13 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           if (other == com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue.getDefaultInstance()) return this;
           if (!other.getOriginalValue().isEmpty()) {
             originalValue_ = other.originalValue_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.hasResolvedValue()) {
             mergeResolvedValue(other.getResolvedValue());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1695,19 +1387,45 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  originalValue_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getResolvedValueFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object originalValue_ = "";
         /**
@@ -1762,11 +1480,9 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
          */
         public Builder setOriginalValue(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           originalValue_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1779,8 +1495,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
          * @return This builder for chaining.
          */
         public Builder clearOriginalValue() {
-          
           originalValue_ = getDefaultInstance().getOriginalValue();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -1795,12 +1511,10 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
          */
         public Builder setOriginalValueBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           originalValue_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1818,7 +1532,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
          * @return Whether the resolvedValue field is set.
          */
         public boolean hasResolvedValue() {
-          return resolvedValueBuilder_ != null || resolvedValue_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -1850,11 +1564,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
               throw new NullPointerException();
             }
             resolvedValue_ = value;
-            onChanged();
           } else {
             resolvedValueBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1869,11 +1583,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
             com.google.protobuf.Value.Builder builderForValue) {
           if (resolvedValueBuilder_ == null) {
             resolvedValue_ = builderForValue.build();
-            onChanged();
           } else {
             resolvedValueBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1886,17 +1600,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
          */
         public Builder mergeResolvedValue(com.google.protobuf.Value value) {
           if (resolvedValueBuilder_ == null) {
-            if (resolvedValue_ != null) {
-              resolvedValue_ =
-                com.google.protobuf.Value.newBuilder(resolvedValue_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              resolvedValue_ != null &&
+              resolvedValue_ != com.google.protobuf.Value.getDefaultInstance()) {
+              getResolvedValueBuilder().mergeFrom(value);
             } else {
               resolvedValue_ = value;
             }
-            onChanged();
           } else {
             resolvedValueBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1908,14 +1623,13 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
          * <code>.google.protobuf.Value resolved_value = 2;</code>
          */
         public Builder clearResolvedValue() {
-          if (resolvedValueBuilder_ == null) {
-            resolvedValue_ = null;
-            onChanged();
-          } else {
-            resolvedValue_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          resolvedValue_ = null;
+          if (resolvedValueBuilder_ != null) {
+            resolvedValueBuilder_.dispose();
             resolvedValueBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1927,7 +1641,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
          * <code>.google.protobuf.Value resolved_value = 2;</code>
          */
         public com.google.protobuf.Value.Builder getResolvedValueBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getResolvedValueFieldBuilder().getBuilder();
         }
@@ -2001,7 +1715,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new IntentParameterValue(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2022,7 +1747,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     }
 
     public static final int LAST_MATCHED_INTENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object lastMatchedIntent_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object lastMatchedIntent_ = "";
     /**
      * <pre>
      * Always present. The unique identifier of the last matched
@@ -2074,7 +1800,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * Always present. The display name of the last matched [intent][google.cloud.dialogflow.cx.v3.Intent].
@@ -2131,6 +1858,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue> parameters_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue>
@@ -2141,7 +1869,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       }
       return parameters_;
     }
-
     public int getParametersCount() {
       return internalGetParameters().getMap().size();
     }
@@ -2155,7 +1882,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      *
      * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsParameters(
         java.lang.String key) {
@@ -2181,7 +1907,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue> getParametersMap() {
       return internalGetParameters().getMap();
     }
@@ -2196,10 +1921,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue getParametersOrDefault(
+    public /* nullable */
+com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue getParametersOrDefault(
         java.lang.String key,
-        com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue defaultValue) {
+        /* nullable */
+com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue> map =
           internalGetParameters().getMap();
@@ -2216,7 +1942,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue getParametersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2229,7 +1954,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     }
 
     public static final int CONFIDENCE_FIELD_NUMBER = 4;
-    private float confidence_;
+    private float confidence_ = 0F;
     /**
      * <pre>
      * The confidence of the matched intent. Values range from 0.0 (completely
@@ -2273,7 +1998,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       if (java.lang.Float.floatToRawIntBits(confidence_) != 0) {
         output.writeFloat(4, confidence_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2302,7 +2027,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(4, confidence_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2326,7 +2051,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       if (java.lang.Float.floatToIntBits(getConfidence())
           != java.lang.Float.floatToIntBits(
               other.getConfidence())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2348,7 +2073,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       hash = (37 * hash) + CONFIDENCE_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getConfidence());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2491,29 +2216,22 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
 
       // Construct using com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         lastMatchedIntent_ = "";
-
         displayName_ = "";
-
         internalGetMutableParameters().clear();
         confidence_ = 0F;
-
         return this;
       }
 
@@ -2540,14 +2258,26 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo buildPartial() {
         com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo result = new com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo(this);
-        int from_bitField0_ = bitField0_;
-        result.lastMatchedIntent_ = lastMatchedIntent_;
-        result.displayName_ = displayName_;
-        result.parameters_ = internalGetParameters();
-        result.parameters_.makeImmutable();
-        result.confidence_ = confidence_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.lastMatchedIntent_ = lastMatchedIntent_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.displayName_ = displayName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.parameters_ = internalGetParameters();
+          result.parameters_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.confidence_ = confidence_;
+        }
       }
 
       @java.lang.Override
@@ -2596,18 +2326,21 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         if (other == com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.getDefaultInstance()) return this;
         if (!other.getLastMatchedIntent().isEmpty()) {
           lastMatchedIntent_ = other.lastMatchedIntent_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         internalGetMutableParameters().mergeFrom(
             other.internalGetParameters());
+        bitField0_ |= 0x00000004;
         if (other.getConfidence() != 0F) {
           setConfidence(other.getConfidence());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2622,17 +2355,54 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                lastMatchedIntent_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue>
+                parameters__ = input.readMessage(
+                    ParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableParameters().getMutableMap().put(
+                    parameters__.getKey(), parameters__.getValue());
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 18
+              case 26: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 26
+              case 37: {
+                confidence_ = input.readFloat();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 37
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2699,11 +2469,9 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        */
       public Builder setLastMatchedIntent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         lastMatchedIntent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2719,8 +2487,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        * @return This builder for chaining.
        */
       public Builder clearLastMatchedIntent() {
-        
         lastMatchedIntent_ = getDefaultInstance().getLastMatchedIntent();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2738,12 +2506,10 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        */
       public Builder setLastMatchedIntentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         lastMatchedIntent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2801,11 +2567,9 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2818,8 +2582,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2834,12 +2598,10 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2847,7 +2609,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue> parameters_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue>
-      internalGetParameters() {
+          internalGetParameters() {
         if (parameters_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ParametersDefaultEntryHolder.defaultEntry);
@@ -2855,8 +2617,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         return parameters_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue>
-      internalGetMutableParameters() {
-        onChanged();;
+          internalGetMutableParameters() {
         if (parameters_ == null) {
           parameters_ = com.google.protobuf.MapField.newMapField(
               ParametersDefaultEntryHolder.defaultEntry);
@@ -2864,9 +2625,10 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         if (!parameters_.isMutable()) {
           parameters_ = parameters_.copy();
         }
+        bitField0_ |= 0x00000004;
+        onChanged();
         return parameters_;
       }
-
       public int getParametersCount() {
         return internalGetParameters().getMap().size();
       }
@@ -2880,7 +2642,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        *
        * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsParameters(
           java.lang.String key) {
@@ -2906,7 +2667,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue> getParametersMap() {
         return internalGetParameters().getMap();
       }
@@ -2921,10 +2681,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue getParametersOrDefault(
+      public /* nullable */
+com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue getParametersOrDefault(
           java.lang.String key,
-          com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue defaultValue) {
+          /* nullable */
+com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue> map =
             internalGetParameters().getMap();
@@ -2941,7 +2702,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue getParametersOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2952,8 +2712,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         }
         return map.get(key);
       }
-
       public Builder clearParameters() {
+        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableParameters().getMutableMap()
             .clear();
         return this;
@@ -2968,7 +2728,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        *
        * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
        */
-
       public Builder removeParameters(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2981,7 +2740,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue>
-      getMutableParameters() {
+          getMutableParameters() {
+        bitField0_ |= 0x00000004;
         return internalGetMutableParameters().getMutableMap();
       }
       /**
@@ -2998,12 +2758,10 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           java.lang.String key,
           com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableParameters().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -3016,11 +2774,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        *
        * <code>map&lt;string, .google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue&gt; parameters = 2;</code>
        */
-
       public Builder putAllParameters(
           java.util.Map<java.lang.String, com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue> values) {
         internalGetMutableParameters().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000004;
         return this;
       }
 
@@ -3051,6 +2809,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       public Builder setConfidence(float value) {
         
         confidence_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3064,7 +2823,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        * @return This builder for chaining.
        */
       public Builder clearConfidence() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         confidence_ = 0F;
         onChanged();
         return this;
@@ -3102,7 +2861,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new IntentInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3180,55 +2950,6 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SentimentAnalysisResult(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              score_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              magnitude_ = input.readFloat();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.cx.v3.WebhookProto.internal_static_google_cloud_dialogflow_cx_v3_WebhookRequest_SentimentAnalysisResult_descriptor;
@@ -3243,7 +2964,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     }
 
     public static final int SCORE_FIELD_NUMBER = 1;
-    private float score_;
+    private float score_ = 0F;
     /**
      * <pre>
      * Sentiment score between -1.0 (negative sentiment) and 1.0 (positive
@@ -3259,7 +2980,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     }
 
     public static final int MAGNITUDE_FIELD_NUMBER = 2;
-    private float magnitude_;
+    private float magnitude_ = 0F;
     /**
      * <pre>
      * A non-negative number in the [0, +inf) range, which represents the
@@ -3295,7 +3016,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       if (java.lang.Float.floatToRawIntBits(magnitude_) != 0) {
         output.writeFloat(2, magnitude_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3312,7 +3033,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(2, magnitude_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3333,7 +3054,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       if (java.lang.Float.floatToIntBits(getMagnitude())
           != java.lang.Float.floatToIntBits(
               other.getMagnitude())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3350,7 +3071,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       hash = (37 * hash) + MAGNITUDE_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getMagnitude());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3471,26 +3192,20 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
 
       // Construct using com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         score_ = 0F;
-
         magnitude_ = 0F;
-
         return this;
       }
 
@@ -3517,10 +3232,19 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       @java.lang.Override
       public com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult buildPartial() {
         com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult result = new com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult(this);
-        result.score_ = score_;
-        result.magnitude_ = magnitude_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.score_ = score_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.magnitude_ = magnitude_;
+        }
       }
 
       @java.lang.Override
@@ -3573,7 +3297,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         if (other.getMagnitude() != 0F) {
           setMagnitude(other.getMagnitude());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3588,19 +3312,43 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                score_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                magnitude_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private float score_ ;
       /**
@@ -3629,6 +3377,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       public Builder setScore(float value) {
         
         score_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3642,7 +3391,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        * @return This builder for chaining.
        */
       public Builder clearScore() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         score_ = 0F;
         onChanged();
         return this;
@@ -3677,6 +3426,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       public Builder setMagnitude(float value) {
         
         magnitude_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3691,7 +3441,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
        * @return This builder for chaining.
        */
       public Builder clearMagnitude() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         magnitude_ = 0F;
         onChanged();
         return this;
@@ -3729,7 +3479,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SentimentAnalysisResult(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3795,7 +3556,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
   }
 
   public static final int DETECT_INTENT_RESPONSE_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object detectIntentResponseId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object detectIntentResponseId_ = "";
   /**
    * <pre>
    * Always present. The unique identifier of the [DetectIntentResponse][google.cloud.dialogflow.cx.v3.DetectIntentResponse] that
@@ -4117,7 +3879,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 15;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * The language code specified in the [original
@@ -4202,7 +3965,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfoOrBuilder getFulfillmentInfoOrBuilder() {
-    return getFulfillmentInfo();
+    return fulfillmentInfo_ == null ? com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo.getDefaultInstance() : fulfillmentInfo_;
   }
 
   public static final int INTENT_INFO_FIELD_NUMBER = 3;
@@ -4240,7 +4003,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfoOrBuilder getIntentInfoOrBuilder() {
-    return getIntentInfo();
+    return intentInfo_ == null ? com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.getDefaultInstance() : intentInfo_;
   }
 
   public static final int PAGE_INFO_FIELD_NUMBER = 4;
@@ -4278,7 +4041,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3.PageInfoOrBuilder getPageInfoOrBuilder() {
-    return getPageInfo();
+    return pageInfo_ == null ? com.google.cloud.dialogflow.cx.v3.PageInfo.getDefaultInstance() : pageInfo_;
   }
 
   public static final int SESSION_INFO_FIELD_NUMBER = 5;
@@ -4316,10 +4079,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3.SessionInfoOrBuilder getSessionInfoOrBuilder() {
-    return getSessionInfo();
+    return sessionInfo_ == null ? com.google.cloud.dialogflow.cx.v3.SessionInfo.getDefaultInstance() : sessionInfo_;
   }
 
   public static final int MESSAGES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dialogflow.cx.v3.ResponseMessage> messages_;
   /**
    * <pre>
@@ -4424,7 +4188,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getPayloadOrBuilder() {
-    return getPayload();
+    return payload_ == null ? com.google.protobuf.Struct.getDefaultInstance() : payload_;
   }
 
   public static final int SENTIMENT_ANALYSIS_RESULT_FIELD_NUMBER = 9;
@@ -4465,7 +4229,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResultOrBuilder getSentimentAnalysisResultOrBuilder() {
-    return getSentimentAnalysisResult();
+    return sentimentAnalysisResult_ == null ? com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult.getDefaultInstance() : sentimentAnalysisResult_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -4521,7 +4285,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, languageCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4576,7 +4340,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, languageCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4648,7 +4412,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4711,7 +4475,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4835,67 +4599,55 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
 
     // Construct using com.google.cloud.dialogflow.cx.v3.WebhookRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMessagesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       detectIntentResponseId_ = "";
-
       languageCode_ = "";
-
-      if (fulfillmentInfoBuilder_ == null) {
-        fulfillmentInfo_ = null;
-      } else {
-        fulfillmentInfo_ = null;
+      fulfillmentInfo_ = null;
+      if (fulfillmentInfoBuilder_ != null) {
+        fulfillmentInfoBuilder_.dispose();
         fulfillmentInfoBuilder_ = null;
       }
-      if (intentInfoBuilder_ == null) {
-        intentInfo_ = null;
-      } else {
-        intentInfo_ = null;
+      intentInfo_ = null;
+      if (intentInfoBuilder_ != null) {
+        intentInfoBuilder_.dispose();
         intentInfoBuilder_ = null;
       }
-      if (pageInfoBuilder_ == null) {
-        pageInfo_ = null;
-      } else {
-        pageInfo_ = null;
+      pageInfo_ = null;
+      if (pageInfoBuilder_ != null) {
+        pageInfoBuilder_.dispose();
         pageInfoBuilder_ = null;
       }
-      if (sessionInfoBuilder_ == null) {
-        sessionInfo_ = null;
-      } else {
-        sessionInfo_ = null;
+      sessionInfo_ = null;
+      if (sessionInfoBuilder_ != null) {
+        sessionInfoBuilder_.dispose();
         sessionInfoBuilder_ = null;
       }
       if (messagesBuilder_ == null) {
         messages_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        messages_ = null;
         messagesBuilder_.clear();
       }
-      if (payloadBuilder_ == null) {
-        payload_ = null;
-      } else {
-        payload_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      payload_ = null;
+      if (payloadBuilder_ != null) {
+        payloadBuilder_.dispose();
         payloadBuilder_ = null;
       }
-      if (sentimentAnalysisResultBuilder_ == null) {
-        sentimentAnalysisResult_ = null;
-      } else {
-        sentimentAnalysisResult_ = null;
+      sentimentAnalysisResult_ = null;
+      if (sentimentAnalysisResultBuilder_ != null) {
+        sentimentAnalysisResultBuilder_.dispose();
         sentimentAnalysisResultBuilder_ = null;
       }
       queryCase_ = 0;
@@ -4926,63 +4678,68 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3.WebhookRequest buildPartial() {
       com.google.cloud.dialogflow.cx.v3.WebhookRequest result = new com.google.cloud.dialogflow.cx.v3.WebhookRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.detectIntentResponseId_ = detectIntentResponseId_;
-      if (queryCase_ == 10) {
-        result.query_ = query_;
-      }
-      if (queryCase_ == 11) {
-        result.query_ = query_;
-      }
-      if (queryCase_ == 12) {
-        result.query_ = query_;
-      }
-      if (queryCase_ == 14) {
-        result.query_ = query_;
-      }
-      result.languageCode_ = languageCode_;
-      if (fulfillmentInfoBuilder_ == null) {
-        result.fulfillmentInfo_ = fulfillmentInfo_;
-      } else {
-        result.fulfillmentInfo_ = fulfillmentInfoBuilder_.build();
-      }
-      if (intentInfoBuilder_ == null) {
-        result.intentInfo_ = intentInfo_;
-      } else {
-        result.intentInfo_ = intentInfoBuilder_.build();
-      }
-      if (pageInfoBuilder_ == null) {
-        result.pageInfo_ = pageInfo_;
-      } else {
-        result.pageInfo_ = pageInfoBuilder_.build();
-      }
-      if (sessionInfoBuilder_ == null) {
-        result.sessionInfo_ = sessionInfo_;
-      } else {
-        result.sessionInfo_ = sessionInfoBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dialogflow.cx.v3.WebhookRequest result) {
       if (messagesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           messages_ = java.util.Collections.unmodifiableList(messages_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.messages_ = messages_;
       } else {
         result.messages_ = messagesBuilder_.build();
       }
-      if (payloadBuilder_ == null) {
-        result.payload_ = payload_;
-      } else {
-        result.payload_ = payloadBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.cx.v3.WebhookRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.detectIntentResponseId_ = detectIntentResponseId_;
       }
-      if (sentimentAnalysisResultBuilder_ == null) {
-        result.sentimentAnalysisResult_ = sentimentAnalysisResult_;
-      } else {
-        result.sentimentAnalysisResult_ = sentimentAnalysisResultBuilder_.build();
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.languageCode_ = languageCode_;
       }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.fulfillmentInfo_ = fulfillmentInfoBuilder_ == null
+            ? fulfillmentInfo_
+            : fulfillmentInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.intentInfo_ = intentInfoBuilder_ == null
+            ? intentInfo_
+            : intentInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.pageInfo_ = pageInfoBuilder_ == null
+            ? pageInfo_
+            : pageInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.sessionInfo_ = sessionInfoBuilder_ == null
+            ? sessionInfo_
+            : sessionInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.payload_ = payloadBuilder_ == null
+            ? payload_
+            : payloadBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.sentimentAnalysisResult_ = sentimentAnalysisResultBuilder_ == null
+            ? sentimentAnalysisResult_
+            : sentimentAnalysisResultBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dialogflow.cx.v3.WebhookRequest result) {
       result.queryCase_ = queryCase_;
-      onBuilt();
-      return result;
+      result.query_ = this.query_;
     }
 
     @java.lang.Override
@@ -5031,10 +4788,12 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
       if (other == com.google.cloud.dialogflow.cx.v3.WebhookRequest.getDefaultInstance()) return this;
       if (!other.getDetectIntentResponseId().isEmpty()) {
         detectIntentResponseId_ = other.detectIntentResponseId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasFulfillmentInfo()) {
@@ -5053,7 +4812,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         if (!other.messages_.isEmpty()) {
           if (messages_.isEmpty()) {
             messages_ = other.messages_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensureMessagesIsMutable();
             messages_.addAll(other.messages_);
@@ -5066,7 +4825,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
             messagesBuilder_.dispose();
             messagesBuilder_ = null;
             messages_ = other.messages_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000400);
             messagesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMessagesFieldBuilder() : null;
@@ -5110,7 +4869,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -5125,17 +4884,119 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.cx.v3.WebhookRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              detectIntentResponseId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getIntentInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPageInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSessionInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getFulfillmentInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              com.google.cloud.dialogflow.cx.v3.ResponseMessage m =
+                  input.readMessage(
+                      com.google.cloud.dialogflow.cx.v3.ResponseMessage.parser(),
+                      extensionRegistry);
+              if (messagesBuilder_ == null) {
+                ensureMessagesIsMutable();
+                messages_.add(m);
+              } else {
+                messagesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getPayloadFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getSentimentAnalysisResultFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              queryCase_ = 10;
+              query_ = s;
+              break;
+            } // case 82
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+              queryCase_ = 11;
+              query_ = s;
+              break;
+            } // case 90
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              queryCase_ = 12;
+              query_ = s;
+              break;
+            } // case 98
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+              queryCase_ = 14;
+              query_ = s;
+              break;
+            } // case 114
+            case 122: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.cx.v3.WebhookRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int queryCase_ = 0;
@@ -5211,11 +5072,9 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setDetectIntentResponseId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       detectIntentResponseId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -5229,8 +5088,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * @return This builder for chaining.
      */
     public Builder clearDetectIntentResponseId() {
-      
       detectIntentResponseId_ = getDefaultInstance().getDetectIntentResponseId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -5246,12 +5105,10 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setDetectIntentResponseIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       detectIntentResponseId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -5336,10 +5193,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  queryCase_ = 10;
+      if (value == null) { throw new NullPointerException(); }
+      queryCase_ = 10;
       query_ = value;
       onChanged();
       return this;
@@ -5373,10 +5228,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       queryCase_ = 10;
       query_ = value;
       onChanged();
@@ -5471,10 +5324,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setTriggerIntent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  queryCase_ = 11;
+      if (value == null) { throw new NullPointerException(); }
+      queryCase_ = 11;
       query_ = value;
       onChanged();
       return this;
@@ -5512,10 +5363,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setTriggerIntentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       queryCase_ = 11;
       query_ = value;
       onChanged();
@@ -5602,10 +5451,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setTranscript(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  queryCase_ = 12;
+      if (value == null) { throw new NullPointerException(); }
+      queryCase_ = 12;
       query_ = value;
       onChanged();
       return this;
@@ -5639,10 +5486,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setTranscriptBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       queryCase_ = 12;
       query_ = value;
       onChanged();
@@ -5729,10 +5574,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setTriggerEvent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  queryCase_ = 14;
+      if (value == null) { throw new NullPointerException(); }
+      queryCase_ = 14;
       query_ = value;
       onChanged();
       return this;
@@ -5766,10 +5609,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setTriggerEventBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       queryCase_ = 14;
       query_ = value;
       onChanged();
@@ -5832,11 +5673,9 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -5850,8 +5689,8 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -5867,12 +5706,10 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -5890,7 +5727,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * @return Whether the fulfillmentInfo field is set.
      */
     public boolean hasFulfillmentInfo() {
-      return fulfillmentInfoBuilder_ != null || fulfillmentInfo_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -5922,11 +5759,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           throw new NullPointerException();
         }
         fulfillmentInfo_ = value;
-        onChanged();
       } else {
         fulfillmentInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -5941,11 +5778,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo.Builder builderForValue) {
       if (fulfillmentInfoBuilder_ == null) {
         fulfillmentInfo_ = builderForValue.build();
-        onChanged();
       } else {
         fulfillmentInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -5958,17 +5795,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder mergeFulfillmentInfo(com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo value) {
       if (fulfillmentInfoBuilder_ == null) {
-        if (fulfillmentInfo_ != null) {
-          fulfillmentInfo_ =
-            com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo.newBuilder(fulfillmentInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          fulfillmentInfo_ != null &&
+          fulfillmentInfo_ != com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo.getDefaultInstance()) {
+          getFulfillmentInfoBuilder().mergeFrom(value);
         } else {
           fulfillmentInfo_ = value;
         }
-        onChanged();
       } else {
         fulfillmentInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -5980,14 +5818,13 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo fulfillment_info = 6;</code>
      */
     public Builder clearFulfillmentInfo() {
-      if (fulfillmentInfoBuilder_ == null) {
-        fulfillmentInfo_ = null;
-        onChanged();
-      } else {
-        fulfillmentInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      fulfillmentInfo_ = null;
+      if (fulfillmentInfoBuilder_ != null) {
+        fulfillmentInfoBuilder_.dispose();
         fulfillmentInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5999,7 +5836,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo fulfillment_info = 6;</code>
      */
     public com.google.cloud.dialogflow.cx.v3.WebhookRequest.FulfillmentInfo.Builder getFulfillmentInfoBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getFulfillmentInfoFieldBuilder().getBuilder();
     }
@@ -6053,7 +5890,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * @return Whether the intentInfo field is set.
      */
     public boolean hasIntentInfo() {
-      return intentInfoBuilder_ != null || intentInfo_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -6083,11 +5920,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           throw new NullPointerException();
         }
         intentInfo_ = value;
-        onChanged();
       } else {
         intentInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -6101,11 +5938,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.Builder builderForValue) {
       if (intentInfoBuilder_ == null) {
         intentInfo_ = builderForValue.build();
-        onChanged();
       } else {
         intentInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -6117,17 +5954,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder mergeIntentInfo(com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo value) {
       if (intentInfoBuilder_ == null) {
-        if (intentInfo_ != null) {
-          intentInfo_ =
-            com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.newBuilder(intentInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          intentInfo_ != null &&
+          intentInfo_ != com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.getDefaultInstance()) {
+          getIntentInfoBuilder().mergeFrom(value);
         } else {
           intentInfo_ = value;
         }
-        onChanged();
       } else {
         intentInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -6138,14 +5976,13 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo intent_info = 3;</code>
      */
     public Builder clearIntentInfo() {
-      if (intentInfoBuilder_ == null) {
-        intentInfo_ = null;
-        onChanged();
-      } else {
-        intentInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      intentInfo_ = null;
+      if (intentInfoBuilder_ != null) {
+        intentInfoBuilder_.dispose();
         intentInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6156,7 +5993,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo intent_info = 3;</code>
      */
     public com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.Builder getIntentInfoBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getIntentInfoFieldBuilder().getBuilder();
     }
@@ -6208,7 +6045,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * @return Whether the pageInfo field is set.
      */
     public boolean hasPageInfo() {
-      return pageInfoBuilder_ != null || pageInfo_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -6238,11 +6075,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           throw new NullPointerException();
         }
         pageInfo_ = value;
-        onChanged();
       } else {
         pageInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -6256,11 +6093,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         com.google.cloud.dialogflow.cx.v3.PageInfo.Builder builderForValue) {
       if (pageInfoBuilder_ == null) {
         pageInfo_ = builderForValue.build();
-        onChanged();
       } else {
         pageInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -6272,17 +6109,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder mergePageInfo(com.google.cloud.dialogflow.cx.v3.PageInfo value) {
       if (pageInfoBuilder_ == null) {
-        if (pageInfo_ != null) {
-          pageInfo_ =
-            com.google.cloud.dialogflow.cx.v3.PageInfo.newBuilder(pageInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          pageInfo_ != null &&
+          pageInfo_ != com.google.cloud.dialogflow.cx.v3.PageInfo.getDefaultInstance()) {
+          getPageInfoBuilder().mergeFrom(value);
         } else {
           pageInfo_ = value;
         }
-        onChanged();
       } else {
         pageInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -6293,14 +6131,13 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.PageInfo page_info = 4;</code>
      */
     public Builder clearPageInfo() {
-      if (pageInfoBuilder_ == null) {
-        pageInfo_ = null;
-        onChanged();
-      } else {
-        pageInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      pageInfo_ = null;
+      if (pageInfoBuilder_ != null) {
+        pageInfoBuilder_.dispose();
         pageInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6311,7 +6148,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.PageInfo page_info = 4;</code>
      */
     public com.google.cloud.dialogflow.cx.v3.PageInfo.Builder getPageInfoBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getPageInfoFieldBuilder().getBuilder();
     }
@@ -6363,7 +6200,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * @return Whether the sessionInfo field is set.
      */
     public boolean hasSessionInfo() {
-      return sessionInfoBuilder_ != null || sessionInfo_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -6393,11 +6230,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           throw new NullPointerException();
         }
         sessionInfo_ = value;
-        onChanged();
       } else {
         sessionInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -6411,11 +6248,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         com.google.cloud.dialogflow.cx.v3.SessionInfo.Builder builderForValue) {
       if (sessionInfoBuilder_ == null) {
         sessionInfo_ = builderForValue.build();
-        onChanged();
       } else {
         sessionInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -6427,17 +6264,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder mergeSessionInfo(com.google.cloud.dialogflow.cx.v3.SessionInfo value) {
       if (sessionInfoBuilder_ == null) {
-        if (sessionInfo_ != null) {
-          sessionInfo_ =
-            com.google.cloud.dialogflow.cx.v3.SessionInfo.newBuilder(sessionInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          sessionInfo_ != null &&
+          sessionInfo_ != com.google.cloud.dialogflow.cx.v3.SessionInfo.getDefaultInstance()) {
+          getSessionInfoBuilder().mergeFrom(value);
         } else {
           sessionInfo_ = value;
         }
-        onChanged();
       } else {
         sessionInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -6448,14 +6286,13 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.SessionInfo session_info = 5;</code>
      */
     public Builder clearSessionInfo() {
-      if (sessionInfoBuilder_ == null) {
-        sessionInfo_ = null;
-        onChanged();
-      } else {
-        sessionInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      sessionInfo_ = null;
+      if (sessionInfoBuilder_ != null) {
+        sessionInfoBuilder_.dispose();
         sessionInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6466,7 +6303,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.SessionInfo session_info = 5;</code>
      */
     public com.google.cloud.dialogflow.cx.v3.SessionInfo.Builder getSessionInfoBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getSessionInfoFieldBuilder().getBuilder();
     }
@@ -6509,9 +6346,9 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     private java.util.List<com.google.cloud.dialogflow.cx.v3.ResponseMessage> messages_ =
       java.util.Collections.emptyList();
     private void ensureMessagesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         messages_ = new java.util.ArrayList<com.google.cloud.dialogflow.cx.v3.ResponseMessage>(messages_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000400;
        }
     }
 
@@ -6727,7 +6564,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
     public Builder clearMessages() {
       if (messagesBuilder_ == null) {
         messages_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
         messagesBuilder_.clear();
@@ -6846,7 +6683,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         messagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dialogflow.cx.v3.ResponseMessage, com.google.cloud.dialogflow.cx.v3.ResponseMessage.Builder, com.google.cloud.dialogflow.cx.v3.ResponseMessageOrBuilder>(
                 messages_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
         messages_ = null;
@@ -6866,7 +6703,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * @return Whether the payload field is set.
      */
     public boolean hasPayload() {
-      return payloadBuilder_ != null || payload_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -6896,11 +6733,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           throw new NullPointerException();
         }
         payload_ = value;
-        onChanged();
       } else {
         payloadBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -6914,11 +6751,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         com.google.protobuf.Struct.Builder builderForValue) {
       if (payloadBuilder_ == null) {
         payload_ = builderForValue.build();
-        onChanged();
       } else {
         payloadBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -6930,17 +6767,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder mergePayload(com.google.protobuf.Struct value) {
       if (payloadBuilder_ == null) {
-        if (payload_ != null) {
-          payload_ =
-            com.google.protobuf.Struct.newBuilder(payload_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          payload_ != null &&
+          payload_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getPayloadBuilder().mergeFrom(value);
         } else {
           payload_ = value;
         }
-        onChanged();
       } else {
         payloadBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -6951,14 +6789,13 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.protobuf.Struct payload = 8;</code>
      */
     public Builder clearPayload() {
-      if (payloadBuilder_ == null) {
-        payload_ = null;
-        onChanged();
-      } else {
-        payload_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      payload_ = null;
+      if (payloadBuilder_ != null) {
+        payloadBuilder_.dispose();
         payloadBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6969,7 +6806,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.protobuf.Struct payload = 8;</code>
      */
     public com.google.protobuf.Struct.Builder getPayloadBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getPayloadFieldBuilder().getBuilder();
     }
@@ -7022,7 +6859,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * @return Whether the sentimentAnalysisResult field is set.
      */
     public boolean hasSentimentAnalysisResult() {
-      return sentimentAnalysisResultBuilder_ != null || sentimentAnalysisResult_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -7054,11 +6891,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
           throw new NullPointerException();
         }
         sentimentAnalysisResult_ = value;
-        onChanged();
       } else {
         sentimentAnalysisResultBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -7073,11 +6910,11 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult.Builder builderForValue) {
       if (sentimentAnalysisResultBuilder_ == null) {
         sentimentAnalysisResult_ = builderForValue.build();
-        onChanged();
       } else {
         sentimentAnalysisResultBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -7090,17 +6927,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      */
     public Builder mergeSentimentAnalysisResult(com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult value) {
       if (sentimentAnalysisResultBuilder_ == null) {
-        if (sentimentAnalysisResult_ != null) {
-          sentimentAnalysisResult_ =
-            com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult.newBuilder(sentimentAnalysisResult_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          sentimentAnalysisResult_ != null &&
+          sentimentAnalysisResult_ != com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult.getDefaultInstance()) {
+          getSentimentAnalysisResultBuilder().mergeFrom(value);
         } else {
           sentimentAnalysisResult_ = value;
         }
-        onChanged();
       } else {
         sentimentAnalysisResultBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -7112,14 +6950,13 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult sentiment_analysis_result = 9;</code>
      */
     public Builder clearSentimentAnalysisResult() {
-      if (sentimentAnalysisResultBuilder_ == null) {
-        sentimentAnalysisResult_ = null;
-        onChanged();
-      } else {
-        sentimentAnalysisResult_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      sentimentAnalysisResult_ = null;
+      if (sentimentAnalysisResultBuilder_ != null) {
+        sentimentAnalysisResultBuilder_.dispose();
         sentimentAnalysisResultBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7131,7 +6968,7 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
      * <code>.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult sentiment_analysis_result = 9;</code>
      */
     public com.google.cloud.dialogflow.cx.v3.WebhookRequest.SentimentAnalysisResult.Builder getSentimentAnalysisResultBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getSentimentAnalysisResultFieldBuilder().getBuilder();
     }
@@ -7205,7 +7042,18 @@ com.google.cloud.dialogflow.cx.v3.WebhookRequest.IntentInfo.IntentParameterValue
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WebhookRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

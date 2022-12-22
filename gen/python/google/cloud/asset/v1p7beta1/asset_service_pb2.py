@@ -17,12 +17,10 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.asset.v1p7beta1 import assets_pb2 as google_dot_cloud_dot_asset_dot_v1p7beta1_dot_assets__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
-from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/asset/v1p7beta1/asset_service.proto\x12\x1cgoogle.cloud.asset.v1p7beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/asset/v1p7beta1/assets.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb7\x02\n\x13\x45xportAssetsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1f\x63loudasset.googleapis.com/Asset\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0b\x61sset_types\x18\x03 \x03(\t\x12?\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32).google.cloud.asset.v1p7beta1.ContentType\x12\x46\n\routput_config\x18\x05 \x01(\x0b\x32*.google.cloud.asset.v1p7beta1.OutputConfigB\x03\xe0\x41\x02\x12\x1a\n\x12relationship_types\x18\x06 \x03(\t\"\xcb\x01\n\x14\x45xportAssetsResponse\x12-\n\tread_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x41\n\routput_config\x18\x02 \x01(\x0b\x32*.google.cloud.asset.v1p7beta1.OutputConfig\x12\x41\n\routput_result\x18\x03 \x01(\x0b\x32*.google.cloud.asset.v1p7beta1.OutputResult\"\xb9\x01\n\x0cOutputConfig\x12G\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32,.google.cloud.asset.v1p7beta1.GcsDestinationH\x00\x12Q\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32\x31.google.cloud.asset.v1p7beta1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"]\n\x0cOutputResult\x12\x43\n\ngcs_result\x18\x01 \x01(\x0b\x32-.google.cloud.asset.v1p7beta1.GcsOutputResultH\x00\x42\x08\n\x06result\"\x1f\n\x0fGcsOutputResult\x12\x0c\n\x04uris\x18\x01 \x03(\t\"C\n\x0eGcsDestination\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x12\x14\n\nuri_prefix\x18\x02 \x01(\tH\x00\x42\x0c\n\nobject_uri\"\xbb\x01\n\x13\x42igQueryDestination\x12\x14\n\x07\x64\x61taset\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05table\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x43\n\x0epartition_spec\x18\x04 \x01(\x0b\x32+.google.cloud.asset.v1p7beta1.PartitionSpec\x12&\n\x1eseparate_tables_per_asset_type\x18\x05 \x01(\x08\"\xb0\x01\n\rPartitionSpec\x12O\n\rpartition_key\x18\x01 \x01(\x0e\x32\x38.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey\"N\n\x0cPartitionKey\x12\x1d\n\x19PARTITION_KEY_UNSPECIFIED\x10\x00\x12\r\n\tREAD_TIME\x10\x01\x12\x10\n\x0cREQUEST_TIME\x10\x02*~\n\x0b\x43ontentType\x12\x1c\n\x18\x43ONTENT_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08RESOURCE\x10\x01\x12\x0e\n\nIAM_POLICY\x10\x02\x12\x0e\n\nORG_POLICY\x10\x04\x12\x11\n\rACCESS_POLICY\x10\x05\x12\x10\n\x0cRELATIONSHIP\x10\x07\x32\xda\x02\n\x0c\x41ssetService\x12\xfa\x01\n\x0c\x45xportAssets\x12\x31.google.cloud.asset.v1p7beta1.ExportAssetsRequest\x1a\x1d.google.longrunning.Operation\"\x97\x01\x82\xd3\xe4\x93\x02)\"$/v1p7beta1/{parent=*/*}:exportAssets:\x01*\xca\x41\x65\n1google.cloud.asset.v1p7beta1.ExportAssetsResponse\x12\x30google.cloud.asset.v1p7beta1.ExportAssetsRequest\x1aM\xca\x41\x19\x63loudasset.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xb8\x01\n com.google.cloud.asset.v1p7beta1B\x11\x41ssetServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/asset/v1p7beta1;asset\xaa\x02\x1cGoogle.Cloud.Asset.V1P7Beta1\xca\x02\x1cGoogle\\Cloud\\Asset\\V1p7beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/asset/v1p7beta1/asset_service.proto\x12\x1cgoogle.cloud.asset.v1p7beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/asset/v1p7beta1/assets.proto\x1a#google/longrunning/operations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb7\x02\n\x13\x45xportAssetsRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\x12\x1f\x63loudasset.googleapis.com/Asset\x12-\n\tread_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0b\x61sset_types\x18\x03 \x03(\t\x12?\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32).google.cloud.asset.v1p7beta1.ContentType\x12\x46\n\routput_config\x18\x05 \x01(\x0b\x32*.google.cloud.asset.v1p7beta1.OutputConfigB\x03\xe0\x41\x02\x12\x1a\n\x12relationship_types\x18\x06 \x03(\t\"\xcb\x01\n\x14\x45xportAssetsResponse\x12-\n\tread_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x41\n\routput_config\x18\x02 \x01(\x0b\x32*.google.cloud.asset.v1p7beta1.OutputConfig\x12\x41\n\routput_result\x18\x03 \x01(\x0b\x32*.google.cloud.asset.v1p7beta1.OutputResult\"\xb9\x01\n\x0cOutputConfig\x12G\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32,.google.cloud.asset.v1p7beta1.GcsDestinationH\x00\x12Q\n\x14\x62igquery_destination\x18\x02 \x01(\x0b\x32\x31.google.cloud.asset.v1p7beta1.BigQueryDestinationH\x00\x42\r\n\x0b\x64\x65stination\"]\n\x0cOutputResult\x12\x43\n\ngcs_result\x18\x01 \x01(\x0b\x32-.google.cloud.asset.v1p7beta1.GcsOutputResultH\x00\x42\x08\n\x06result\"\x1f\n\x0fGcsOutputResult\x12\x0c\n\x04uris\x18\x01 \x03(\t\"C\n\x0eGcsDestination\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x12\x14\n\nuri_prefix\x18\x02 \x01(\tH\x00\x42\x0c\n\nobject_uri\"\xbb\x01\n\x13\x42igQueryDestination\x12\x14\n\x07\x64\x61taset\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x12\n\x05table\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x43\n\x0epartition_spec\x18\x04 \x01(\x0b\x32+.google.cloud.asset.v1p7beta1.PartitionSpec\x12&\n\x1eseparate_tables_per_asset_type\x18\x05 \x01(\x08\"\xb0\x01\n\rPartitionSpec\x12O\n\rpartition_key\x18\x01 \x01(\x0e\x32\x38.google.cloud.asset.v1p7beta1.PartitionSpec.PartitionKey\"N\n\x0cPartitionKey\x12\x1d\n\x19PARTITION_KEY_UNSPECIFIED\x10\x00\x12\r\n\tREAD_TIME\x10\x01\x12\x10\n\x0cREQUEST_TIME\x10\x02*~\n\x0b\x43ontentType\x12\x1c\n\x18\x43ONTENT_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08RESOURCE\x10\x01\x12\x0e\n\nIAM_POLICY\x10\x02\x12\x0e\n\nORG_POLICY\x10\x04\x12\x11\n\rACCESS_POLICY\x10\x05\x12\x10\n\x0cRELATIONSHIP\x10\x07\x32\xda\x02\n\x0c\x41ssetService\x12\xfa\x01\n\x0c\x45xportAssets\x12\x31.google.cloud.asset.v1p7beta1.ExportAssetsRequest\x1a\x1d.google.longrunning.Operation\"\x97\x01\x82\xd3\xe4\x93\x02)\"$/v1p7beta1/{parent=*/*}:exportAssets:\x01*\xca\x41\x65\n1google.cloud.asset.v1p7beta1.ExportAssetsResponse\x12\x30google.cloud.asset.v1p7beta1.ExportAssetsRequest\x1aM\xca\x41\x19\x63loudasset.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xb8\x01\n com.google.cloud.asset.v1p7beta1B\x11\x41ssetServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/asset/v1p7beta1;asset\xaa\x02\x1cGoogle.Cloud.Asset.V1P7Beta1\xca\x02\x1cGoogle\\Cloud\\Asset\\V1p7beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.asset.v1p7beta1.asset_service_pb2', globals())
@@ -42,26 +40,26 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _ASSETSERVICE._serialized_options = b'\312A\031cloudasset.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform'
   _ASSETSERVICE.methods_by_name['ExportAssets']._options = None
   _ASSETSERVICE.methods_by_name['ExportAssets']._serialized_options = b'\202\323\344\223\002)\"$/v1p7beta1/{parent=*/*}:exportAssets:\001*\312Ae\n1google.cloud.asset.v1p7beta1.ExportAssetsResponse\0220google.cloud.asset.v1p7beta1.ExportAssetsRequest'
-  _CONTENTTYPE._serialized_start=1647
-  _CONTENTTYPE._serialized_end=1773
-  _EXPORTASSETSREQUEST._serialized_start=374
-  _EXPORTASSETSREQUEST._serialized_end=685
-  _EXPORTASSETSRESPONSE._serialized_start=688
-  _EXPORTASSETSRESPONSE._serialized_end=891
-  _OUTPUTCONFIG._serialized_start=894
-  _OUTPUTCONFIG._serialized_end=1079
-  _OUTPUTRESULT._serialized_start=1081
-  _OUTPUTRESULT._serialized_end=1174
-  _GCSOUTPUTRESULT._serialized_start=1176
-  _GCSOUTPUTRESULT._serialized_end=1207
-  _GCSDESTINATION._serialized_start=1209
-  _GCSDESTINATION._serialized_end=1276
-  _BIGQUERYDESTINATION._serialized_start=1279
-  _BIGQUERYDESTINATION._serialized_end=1466
-  _PARTITIONSPEC._serialized_start=1469
-  _PARTITIONSPEC._serialized_end=1645
-  _PARTITIONSPEC_PARTITIONKEY._serialized_start=1567
-  _PARTITIONSPEC_PARTITIONKEY._serialized_end=1645
-  _ASSETSERVICE._serialized_start=1776
-  _ASSETSERVICE._serialized_end=2122
+  _CONTENTTYPE._serialized_start=1584
+  _CONTENTTYPE._serialized_end=1710
+  _EXPORTASSETSREQUEST._serialized_start=311
+  _EXPORTASSETSREQUEST._serialized_end=622
+  _EXPORTASSETSRESPONSE._serialized_start=625
+  _EXPORTASSETSRESPONSE._serialized_end=828
+  _OUTPUTCONFIG._serialized_start=831
+  _OUTPUTCONFIG._serialized_end=1016
+  _OUTPUTRESULT._serialized_start=1018
+  _OUTPUTRESULT._serialized_end=1111
+  _GCSOUTPUTRESULT._serialized_start=1113
+  _GCSOUTPUTRESULT._serialized_end=1144
+  _GCSDESTINATION._serialized_start=1146
+  _GCSDESTINATION._serialized_end=1213
+  _BIGQUERYDESTINATION._serialized_start=1216
+  _BIGQUERYDESTINATION._serialized_end=1403
+  _PARTITIONSPEC._serialized_start=1406
+  _PARTITIONSPEC._serialized_end=1582
+  _PARTITIONSPEC_PARTITIONKEY._serialized_start=1504
+  _PARTITIONSPEC_PARTITIONKEY._serialized_end=1582
+  _ASSETSERVICE._serialized_start=1713
+  _ASSETSERVICE._serialized_end=2059
 # @@protoc_insertion_point(module_scope)

@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     serviceAccount_ = "";
     state_ = 0;
     partialFailures_ = java.util.Collections.emptyList();
+    modelMonitoringStatsAnomalies_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -43,333 +44,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private BatchPredictionJob(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            model_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.Builder subBuilder = null;
-            if (inputConfig_ != null) {
-              subBuilder = inputConfig_.toBuilder();
-            }
-            inputConfig_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inputConfig_);
-              inputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (modelParameters_ != null) {
-              subBuilder = modelParameters_.toBuilder();
-            }
-            modelParameters_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(modelParameters_);
-              modelParameters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig.Builder subBuilder = null;
-            if (outputConfig_ != null) {
-              subBuilder = outputConfig_.toBuilder();
-            }
-            outputConfig_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputConfig_);
-              outputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.cloud.aiplatform.v1beta1.BatchDedicatedResources.Builder subBuilder = null;
-            if (dedicatedResources_ != null) {
-              subBuilder = dedicatedResources_.toBuilder();
-            }
-            dedicatedResources_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.BatchDedicatedResources.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dedicatedResources_);
-              dedicatedResources_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters.Builder subBuilder = null;
-            if (manualBatchTuningParameters_ != null) {
-              subBuilder = manualBatchTuningParameters_.toBuilder();
-            }
-            manualBatchTuningParameters_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(manualBatchTuningParameters_);
-              manualBatchTuningParameters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo.Builder subBuilder = null;
-            if (outputInfo_ != null) {
-              subBuilder = outputInfo_.toBuilder();
-            }
-            outputInfo_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputInfo_);
-              outputInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 90: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (error_ != null) {
-              subBuilder = error_.toBuilder();
-            }
-            error_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(error_);
-              error_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              partialFailures_ = new java.util.ArrayList<com.google.rpc.Status>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            partialFailures_.add(
-                input.readMessage(com.google.rpc.Status.parser(), extensionRegistry));
-            break;
-          }
-          case 106: {
-            com.google.cloud.aiplatform.v1beta1.ResourcesConsumed.Builder subBuilder = null;
-            if (resourcesConsumed_ != null) {
-              subBuilder = resourcesConsumed_.toBuilder();
-            }
-            resourcesConsumed_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ResourcesConsumed.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resourcesConsumed_);
-              resourcesConsumed_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            com.google.cloud.aiplatform.v1beta1.CompletionStats.Builder subBuilder = null;
-            if (completionStats_ != null) {
-              subBuilder = completionStats_.toBuilder();
-            }
-            completionStats_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.CompletionStats.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(completionStats_);
-              completionStats_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (startTime_ != null) {
-              subBuilder = startTime_.toBuilder();
-            }
-            startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startTime_);
-              startTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (endTime_ != null) {
-              subBuilder = endTime_.toBuilder();
-            }
-            endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endTime_);
-              endTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 154: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 184: {
-
-            generateExplanation_ = input.readBool();
-            break;
-          }
-          case 194: {
-            com.google.cloud.aiplatform.v1beta1.EncryptionSpec.Builder subBuilder = null;
-            if (encryptionSpec_ != null) {
-              subBuilder = encryptionSpec_.toBuilder();
-            }
-            encryptionSpec_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.EncryptionSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(encryptionSpec_);
-              encryptionSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 202: {
-            com.google.cloud.aiplatform.v1beta1.ExplanationSpec.Builder subBuilder = null;
-            if (explanationSpec_ != null) {
-              subBuilder = explanationSpec_.toBuilder();
-            }
-            explanationSpec_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ExplanationSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(explanationSpec_);
-              explanationSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 210: {
-            com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig.Builder subBuilder = null;
-            if (modelMonitoringConfig_ != null) {
-              subBuilder = modelMonitoringConfig_.toBuilder();
-            }
-            modelMonitoringConfig_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(modelMonitoringConfig_);
-              modelMonitoringConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 226: {
-            com.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel.Builder subBuilder = null;
-            if (unmanagedContainerModel_ != null) {
-              subBuilder = unmanagedContainerModel_.toBuilder();
-            }
-            unmanagedContainerModel_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(unmanagedContainerModel_);
-              unmanagedContainerModel_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 234: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccount_ = s;
-            break;
-          }
-          case 242: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            modelVersionId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        partialFailures_ = java.util.Collections.unmodifiableList(partialFailures_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -526,79 +200,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private InputConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              instancesFormat_ = s;
-              break;
-            }
-            case 18: {
-              com.google.cloud.aiplatform.v1beta1.GcsSource.Builder subBuilder = null;
-              if (sourceCase_ == 2) {
-                subBuilder = ((com.google.cloud.aiplatform.v1beta1.GcsSource) source_).toBuilder();
-              }
-              source_ =
-                  input.readMessage(com.google.cloud.aiplatform.v1beta1.GcsSource.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.GcsSource) source_);
-                source_ = subBuilder.buildPartial();
-              }
-              sourceCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.cloud.aiplatform.v1beta1.BigQuerySource.Builder subBuilder = null;
-              if (sourceCase_ == 3) {
-                subBuilder = ((com.google.cloud.aiplatform.v1beta1.BigQuerySource) source_).toBuilder();
-              }
-              source_ =
-                  input.readMessage(com.google.cloud.aiplatform.v1beta1.BigQuerySource.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.BigQuerySource) source_);
-                source_ = subBuilder.buildPartial();
-              }
-              sourceCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1beta1.BatchPredictionJobProto.internal_static_google_cloud_aiplatform_v1beta1_BatchPredictionJob_InputConfig_descriptor;
@@ -752,7 +353,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INSTANCES_FORMAT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object instancesFormat_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object instancesFormat_ = "";
     /**
      * <pre>
      * Required. The format in which instances are given, must be one of the
@@ -824,7 +426,7 @@ private static final long serialVersionUID = 0L;
       if (sourceCase_ == 3) {
         output.writeMessage(3, (com.google.cloud.aiplatform.v1beta1.BigQuerySource) source_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -844,7 +446,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (com.google.cloud.aiplatform.v1beta1.BigQuerySource) source_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -874,7 +476,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -899,7 +501,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1022,24 +624,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (gcsSourceBuilder_ != null) {
+          gcsSourceBuilder_.clear();
+        }
+        if (bigquerySourceBuilder_ != null) {
+          bigquerySourceBuilder_.clear();
+        }
         instancesFormat_ = "";
-
         sourceCase_ = 0;
         source_ = null;
         return this;
@@ -1068,24 +671,30 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig buildPartial() {
         com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig result = new com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig(this);
-        if (sourceCase_ == 2) {
-          if (gcsSourceBuilder_ == null) {
-            result.source_ = source_;
-          } else {
-            result.source_ = gcsSourceBuilder_.build();
-          }
-        }
-        if (sourceCase_ == 3) {
-          if (bigquerySourceBuilder_ == null) {
-            result.source_ = source_;
-          } else {
-            result.source_ = bigquerySourceBuilder_.build();
-          }
-        }
-        result.instancesFormat_ = instancesFormat_;
-        result.sourceCase_ = sourceCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.instancesFormat_ = instancesFormat_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig result) {
+        result.sourceCase_ = sourceCase_;
+        result.source_ = this.source_;
+        if (sourceCase_ == 2 &&
+            gcsSourceBuilder_ != null) {
+          result.source_ = gcsSourceBuilder_.build();
+        }
+        if (sourceCase_ == 3 &&
+            bigquerySourceBuilder_ != null) {
+          result.source_ = bigquerySourceBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1134,6 +743,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.getDefaultInstance()) return this;
         if (!other.getInstancesFormat().isEmpty()) {
           instancesFormat_ = other.instancesFormat_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         switch (other.getSourceCase()) {
@@ -1149,7 +759,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1164,17 +774,49 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instancesFormat_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getGcsSourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                sourceCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getBigquerySourceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                sourceCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int sourceCase_ = 0;
@@ -1192,6 +834,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.aiplatform.v1beta1.GcsSource, com.google.cloud.aiplatform.v1beta1.GcsSource.Builder, com.google.cloud.aiplatform.v1beta1.GcsSourceOrBuilder> gcsSourceBuilder_;
@@ -1367,7 +1010,7 @@ private static final long serialVersionUID = 0L;
           source_ = null;
         }
         sourceCase_ = 2;
-        onChanged();;
+        onChanged();
         return gcsSourceBuilder_;
       }
 
@@ -1581,7 +1224,7 @@ private static final long serialVersionUID = 0L;
           source_ = null;
         }
         sourceCase_ = 3;
-        onChanged();;
+        onChanged();
         return bigquerySourceBuilder_;
       }
 
@@ -1644,11 +1287,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInstancesFormat(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         instancesFormat_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1663,8 +1304,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearInstancesFormat() {
-        
         instancesFormat_ = getDefaultInstance().getInstancesFormat();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1681,12 +1322,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInstancesFormatBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         instancesFormat_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1723,7 +1362,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new InputConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1738,6 +1388,1934 @@ private static final long serialVersionUID = 0L;
 
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface InstanceConfigOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The format of the instance that the Model accepts. Vertex AI will
+     * convert compatible
+     * [batch prediction input instance formats][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.instances_format]
+     * to the specified format.
+     * Supported values are:
+     * * `object`: Each input is converted to JSON object format.
+     *     * For `bigquery`, each row is converted to an object.
+     *     * For `jsonl`, each line of the JSONL input must be an object.
+     *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+     *       `tf-record-gzip`.
+     * * `array`: Each input is converted to JSON array format.
+     *     * For `bigquery`, each row is converted to an array. The order
+     *       of columns is determined by the BigQuery column order, unless
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+     *     * For `jsonl`, if each line of the JSONL input is an object,
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+     *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+     *       `tf-record-gzip`.
+     * If not specified, Vertex AI converts the batch prediction input as
+     * follows:
+     *  * For `bigquery` and `csv`, the behavior is the same as `array`. The
+     *    order of columns is the same as defined in the file or table, unless
+     *    [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+     *  * For `jsonl`, the prediction instance format is determined by
+     *    each line of the input.
+     *  * For `tf-record`/`tf-record-gzip`, each record will be converted to
+     *    an object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+     *    the Base64-encoded string of the content of the record.
+     *  * For `file-list`, each file in the list will be converted to an
+     *    object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+     *    the Base64-encoded string of the content of the file.
+     * </pre>
+     *
+     * <code>string instance_type = 1;</code>
+     * @return The instanceType.
+     */
+    java.lang.String getInstanceType();
+    /**
+     * <pre>
+     * The format of the instance that the Model accepts. Vertex AI will
+     * convert compatible
+     * [batch prediction input instance formats][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.instances_format]
+     * to the specified format.
+     * Supported values are:
+     * * `object`: Each input is converted to JSON object format.
+     *     * For `bigquery`, each row is converted to an object.
+     *     * For `jsonl`, each line of the JSONL input must be an object.
+     *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+     *       `tf-record-gzip`.
+     * * `array`: Each input is converted to JSON array format.
+     *     * For `bigquery`, each row is converted to an array. The order
+     *       of columns is determined by the BigQuery column order, unless
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+     *     * For `jsonl`, if each line of the JSONL input is an object,
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+     *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+     *       `tf-record-gzip`.
+     * If not specified, Vertex AI converts the batch prediction input as
+     * follows:
+     *  * For `bigquery` and `csv`, the behavior is the same as `array`. The
+     *    order of columns is the same as defined in the file or table, unless
+     *    [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+     *  * For `jsonl`, the prediction instance format is determined by
+     *    each line of the input.
+     *  * For `tf-record`/`tf-record-gzip`, each record will be converted to
+     *    an object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+     *    the Base64-encoded string of the content of the record.
+     *  * For `file-list`, each file in the list will be converted to an
+     *    object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+     *    the Base64-encoded string of the content of the file.
+     * </pre>
+     *
+     * <code>string instance_type = 1;</code>
+     * @return The bytes for instanceType.
+     */
+    com.google.protobuf.ByteString
+        getInstanceTypeBytes();
+
+    /**
+     * <pre>
+     * The name of the field that is considered as a key.
+     * The values identified by the key field is not included in the transformed
+     * instances that is sent to the Model. This is similar to
+     * specifying this name of the field in [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields]. In addition,
+     * the batch prediction output will not include the instances. Instead the
+     * output will only include the value of the key field, in a field named
+     * `key` in the output:
+     *  * For `jsonl` output format, the output will have a `key` field
+     *    instead of the `instance` field.
+     *  * For `csv`/`bigquery` output format, the output will have have a `key`
+     *    column instead of the instance feature columns.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>string key_field = 2;</code>
+     * @return The keyField.
+     */
+    java.lang.String getKeyField();
+    /**
+     * <pre>
+     * The name of the field that is considered as a key.
+     * The values identified by the key field is not included in the transformed
+     * instances that is sent to the Model. This is similar to
+     * specifying this name of the field in [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields]. In addition,
+     * the batch prediction output will not include the instances. Instead the
+     * output will only include the value of the key field, in a field named
+     * `key` in the output:
+     *  * For `jsonl` output format, the output will have a `key` field
+     *    instead of the `instance` field.
+     *  * For `csv`/`bigquery` output format, the output will have have a `key`
+     *    column instead of the instance feature columns.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>string key_field = 2;</code>
+     * @return The bytes for keyField.
+     */
+    com.google.protobuf.ByteString
+        getKeyFieldBytes();
+
+    /**
+     * <pre>
+     * Fields that will be included in the prediction instance that is
+     * sent to the Model.
+     * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+     * included_fields also determines the order of the values in the array.
+     * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string included_fields = 3;</code>
+     * @return A list containing the includedFields.
+     */
+    java.util.List<java.lang.String>
+        getIncludedFieldsList();
+    /**
+     * <pre>
+     * Fields that will be included in the prediction instance that is
+     * sent to the Model.
+     * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+     * included_fields also determines the order of the values in the array.
+     * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string included_fields = 3;</code>
+     * @return The count of includedFields.
+     */
+    int getIncludedFieldsCount();
+    /**
+     * <pre>
+     * Fields that will be included in the prediction instance that is
+     * sent to the Model.
+     * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+     * included_fields also determines the order of the values in the array.
+     * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string included_fields = 3;</code>
+     * @param index The index of the element to return.
+     * @return The includedFields at the given index.
+     */
+    java.lang.String getIncludedFields(int index);
+    /**
+     * <pre>
+     * Fields that will be included in the prediction instance that is
+     * sent to the Model.
+     * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+     * included_fields also determines the order of the values in the array.
+     * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string included_fields = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the includedFields at the given index.
+     */
+    com.google.protobuf.ByteString
+        getIncludedFieldsBytes(int index);
+
+    /**
+     * <pre>
+     * Fields that will be excluded in the prediction instance that is
+     * sent to the Model.
+     * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+     * is not specified.
+     * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string excluded_fields = 4;</code>
+     * @return A list containing the excludedFields.
+     */
+    java.util.List<java.lang.String>
+        getExcludedFieldsList();
+    /**
+     * <pre>
+     * Fields that will be excluded in the prediction instance that is
+     * sent to the Model.
+     * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+     * is not specified.
+     * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string excluded_fields = 4;</code>
+     * @return The count of excludedFields.
+     */
+    int getExcludedFieldsCount();
+    /**
+     * <pre>
+     * Fields that will be excluded in the prediction instance that is
+     * sent to the Model.
+     * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+     * is not specified.
+     * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string excluded_fields = 4;</code>
+     * @param index The index of the element to return.
+     * @return The excludedFields at the given index.
+     */
+    java.lang.String getExcludedFields(int index);
+    /**
+     * <pre>
+     * Fields that will be excluded in the prediction instance that is
+     * sent to the Model.
+     * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+     * is not specified.
+     * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string excluded_fields = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the excludedFields at the given index.
+     */
+    com.google.protobuf.ByteString
+        getExcludedFieldsBytes(int index);
+  }
+  /**
+   * <pre>
+   * Configuration defining how to transform batch prediction input instances to
+   * the instances that the Model accepts.
+   * </pre>
+   *
+   * Protobuf type {@code google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig}
+   */
+  public static final class InstanceConfig extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig)
+      InstanceConfigOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use InstanceConfig.newBuilder() to construct.
+    private InstanceConfig(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private InstanceConfig() {
+      instanceType_ = "";
+      keyField_ = "";
+      includedFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      excludedFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new InstanceConfig();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.cloud.aiplatform.v1beta1.BatchPredictionJobProto.internal_static_google_cloud_aiplatform_v1beta1_BatchPredictionJob_InstanceConfig_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.cloud.aiplatform.v1beta1.BatchPredictionJobProto.internal_static_google_cloud_aiplatform_v1beta1_BatchPredictionJob_InstanceConfig_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.class, com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.Builder.class);
+    }
+
+    public static final int INSTANCE_TYPE_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object instanceType_ = "";
+    /**
+     * <pre>
+     * The format of the instance that the Model accepts. Vertex AI will
+     * convert compatible
+     * [batch prediction input instance formats][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.instances_format]
+     * to the specified format.
+     * Supported values are:
+     * * `object`: Each input is converted to JSON object format.
+     *     * For `bigquery`, each row is converted to an object.
+     *     * For `jsonl`, each line of the JSONL input must be an object.
+     *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+     *       `tf-record-gzip`.
+     * * `array`: Each input is converted to JSON array format.
+     *     * For `bigquery`, each row is converted to an array. The order
+     *       of columns is determined by the BigQuery column order, unless
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+     *     * For `jsonl`, if each line of the JSONL input is an object,
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+     *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+     *       `tf-record-gzip`.
+     * If not specified, Vertex AI converts the batch prediction input as
+     * follows:
+     *  * For `bigquery` and `csv`, the behavior is the same as `array`. The
+     *    order of columns is the same as defined in the file or table, unless
+     *    [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+     *  * For `jsonl`, the prediction instance format is determined by
+     *    each line of the input.
+     *  * For `tf-record`/`tf-record-gzip`, each record will be converted to
+     *    an object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+     *    the Base64-encoded string of the content of the record.
+     *  * For `file-list`, each file in the list will be converted to an
+     *    object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+     *    the Base64-encoded string of the content of the file.
+     * </pre>
+     *
+     * <code>string instance_type = 1;</code>
+     * @return The instanceType.
+     */
+    @java.lang.Override
+    public java.lang.String getInstanceType() {
+      java.lang.Object ref = instanceType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        instanceType_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The format of the instance that the Model accepts. Vertex AI will
+     * convert compatible
+     * [batch prediction input instance formats][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.instances_format]
+     * to the specified format.
+     * Supported values are:
+     * * `object`: Each input is converted to JSON object format.
+     *     * For `bigquery`, each row is converted to an object.
+     *     * For `jsonl`, each line of the JSONL input must be an object.
+     *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+     *       `tf-record-gzip`.
+     * * `array`: Each input is converted to JSON array format.
+     *     * For `bigquery`, each row is converted to an array. The order
+     *       of columns is determined by the BigQuery column order, unless
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+     *     * For `jsonl`, if each line of the JSONL input is an object,
+     *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+     *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+     *       `tf-record-gzip`.
+     * If not specified, Vertex AI converts the batch prediction input as
+     * follows:
+     *  * For `bigquery` and `csv`, the behavior is the same as `array`. The
+     *    order of columns is the same as defined in the file or table, unless
+     *    [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+     *  * For `jsonl`, the prediction instance format is determined by
+     *    each line of the input.
+     *  * For `tf-record`/`tf-record-gzip`, each record will be converted to
+     *    an object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+     *    the Base64-encoded string of the content of the record.
+     *  * For `file-list`, each file in the list will be converted to an
+     *    object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+     *    the Base64-encoded string of the content of the file.
+     * </pre>
+     *
+     * <code>string instance_type = 1;</code>
+     * @return The bytes for instanceType.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getInstanceTypeBytes() {
+      java.lang.Object ref = instanceType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        instanceType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int KEY_FIELD_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object keyField_ = "";
+    /**
+     * <pre>
+     * The name of the field that is considered as a key.
+     * The values identified by the key field is not included in the transformed
+     * instances that is sent to the Model. This is similar to
+     * specifying this name of the field in [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields]. In addition,
+     * the batch prediction output will not include the instances. Instead the
+     * output will only include the value of the key field, in a field named
+     * `key` in the output:
+     *  * For `jsonl` output format, the output will have a `key` field
+     *    instead of the `instance` field.
+     *  * For `csv`/`bigquery` output format, the output will have have a `key`
+     *    column instead of the instance feature columns.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>string key_field = 2;</code>
+     * @return The keyField.
+     */
+    @java.lang.Override
+    public java.lang.String getKeyField() {
+      java.lang.Object ref = keyField_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keyField_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The name of the field that is considered as a key.
+     * The values identified by the key field is not included in the transformed
+     * instances that is sent to the Model. This is similar to
+     * specifying this name of the field in [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields]. In addition,
+     * the batch prediction output will not include the instances. Instead the
+     * output will only include the value of the key field, in a field named
+     * `key` in the output:
+     *  * For `jsonl` output format, the output will have a `key` field
+     *    instead of the `instance` field.
+     *  * For `csv`/`bigquery` output format, the output will have have a `key`
+     *    column instead of the instance feature columns.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>string key_field = 2;</code>
+     * @return The bytes for keyField.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getKeyFieldBytes() {
+      java.lang.Object ref = keyField_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keyField_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int INCLUDED_FIELDS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringList includedFields_;
+    /**
+     * <pre>
+     * Fields that will be included in the prediction instance that is
+     * sent to the Model.
+     * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+     * included_fields also determines the order of the values in the array.
+     * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string included_fields = 3;</code>
+     * @return A list containing the includedFields.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getIncludedFieldsList() {
+      return includedFields_;
+    }
+    /**
+     * <pre>
+     * Fields that will be included in the prediction instance that is
+     * sent to the Model.
+     * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+     * included_fields also determines the order of the values in the array.
+     * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string included_fields = 3;</code>
+     * @return The count of includedFields.
+     */
+    public int getIncludedFieldsCount() {
+      return includedFields_.size();
+    }
+    /**
+     * <pre>
+     * Fields that will be included in the prediction instance that is
+     * sent to the Model.
+     * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+     * included_fields also determines the order of the values in the array.
+     * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string included_fields = 3;</code>
+     * @param index The index of the element to return.
+     * @return The includedFields at the given index.
+     */
+    public java.lang.String getIncludedFields(int index) {
+      return includedFields_.get(index);
+    }
+    /**
+     * <pre>
+     * Fields that will be included in the prediction instance that is
+     * sent to the Model.
+     * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+     * included_fields also determines the order of the values in the array.
+     * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string included_fields = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the includedFields at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getIncludedFieldsBytes(int index) {
+      return includedFields_.getByteString(index);
+    }
+
+    public static final int EXCLUDED_FIELDS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringList excludedFields_;
+    /**
+     * <pre>
+     * Fields that will be excluded in the prediction instance that is
+     * sent to the Model.
+     * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+     * is not specified.
+     * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string excluded_fields = 4;</code>
+     * @return A list containing the excludedFields.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getExcludedFieldsList() {
+      return excludedFields_;
+    }
+    /**
+     * <pre>
+     * Fields that will be excluded in the prediction instance that is
+     * sent to the Model.
+     * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+     * is not specified.
+     * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string excluded_fields = 4;</code>
+     * @return The count of excludedFields.
+     */
+    public int getExcludedFieldsCount() {
+      return excludedFields_.size();
+    }
+    /**
+     * <pre>
+     * Fields that will be excluded in the prediction instance that is
+     * sent to the Model.
+     * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+     * is not specified.
+     * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string excluded_fields = 4;</code>
+     * @param index The index of the element to return.
+     * @return The excludedFields at the given index.
+     */
+    public java.lang.String getExcludedFields(int index) {
+      return excludedFields_.get(index);
+    }
+    /**
+     * <pre>
+     * Fields that will be excluded in the prediction instance that is
+     * sent to the Model.
+     * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+     * is not specified.
+     * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+     * The input must be JSONL with objects at each line, CSV, BigQuery
+     * or TfRecord.
+     * </pre>
+     *
+     * <code>repeated string excluded_fields = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the excludedFields at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getExcludedFieldsBytes(int index) {
+      return excludedFields_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(instanceType_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, instanceType_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyField_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, keyField_);
+      }
+      for (int i = 0; i < includedFields_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, includedFields_.getRaw(i));
+      }
+      for (int i = 0; i < excludedFields_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, excludedFields_.getRaw(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(instanceType_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, instanceType_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyField_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, keyField_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < includedFields_.size(); i++) {
+          dataSize += computeStringSizeNoTag(includedFields_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getIncludedFieldsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < excludedFields_.size(); i++) {
+          dataSize += computeStringSizeNoTag(excludedFields_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getExcludedFieldsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig)) {
+        return super.equals(obj);
+      }
+      com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig other = (com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig) obj;
+
+      if (!getInstanceType()
+          .equals(other.getInstanceType())) return false;
+      if (!getKeyField()
+          .equals(other.getKeyField())) return false;
+      if (!getIncludedFieldsList()
+          .equals(other.getIncludedFieldsList())) return false;
+      if (!getExcludedFieldsList()
+          .equals(other.getExcludedFieldsList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + INSTANCE_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getInstanceType().hashCode();
+      hash = (37 * hash) + KEY_FIELD_FIELD_NUMBER;
+      hash = (53 * hash) + getKeyField().hashCode();
+      if (getIncludedFieldsCount() > 0) {
+        hash = (37 * hash) + INCLUDED_FIELDS_FIELD_NUMBER;
+        hash = (53 * hash) + getIncludedFieldsList().hashCode();
+      }
+      if (getExcludedFieldsCount() > 0) {
+        hash = (37 * hash) + EXCLUDED_FIELDS_FIELD_NUMBER;
+        hash = (53 * hash) + getExcludedFieldsList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Configuration defining how to transform batch prediction input instances to
+     * the instances that the Model accepts.
+     * </pre>
+     *
+     * Protobuf type {@code google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig)
+        com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfigOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.cloud.aiplatform.v1beta1.BatchPredictionJobProto.internal_static_google_cloud_aiplatform_v1beta1_BatchPredictionJob_InstanceConfig_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.cloud.aiplatform.v1beta1.BatchPredictionJobProto.internal_static_google_cloud_aiplatform_v1beta1_BatchPredictionJob_InstanceConfig_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.class, com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.Builder.class);
+      }
+
+      // Construct using com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        instanceType_ = "";
+        keyField_ = "";
+        includedFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        excludedFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.cloud.aiplatform.v1beta1.BatchPredictionJobProto.internal_static_google_cloud_aiplatform_v1beta1_BatchPredictionJob_InstanceConfig_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig getDefaultInstanceForType() {
+        return com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig build() {
+        com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig buildPartial() {
+        com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig result = new com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          includedFields_ = includedFields_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.includedFields_ = includedFields_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          excludedFields_ = excludedFields_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.excludedFields_ = excludedFields_;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.instanceType_ = instanceType_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.keyField_ = keyField_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig) {
+          return mergeFrom((com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig other) {
+        if (other == com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.getDefaultInstance()) return this;
+        if (!other.getInstanceType().isEmpty()) {
+          instanceType_ = other.instanceType_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getKeyField().isEmpty()) {
+          keyField_ = other.keyField_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.includedFields_.isEmpty()) {
+          if (includedFields_.isEmpty()) {
+            includedFields_ = other.includedFields_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureIncludedFieldsIsMutable();
+            includedFields_.addAll(other.includedFields_);
+          }
+          onChanged();
+        }
+        if (!other.excludedFields_.isEmpty()) {
+          if (excludedFields_.isEmpty()) {
+            excludedFields_ = other.excludedFields_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureExcludedFieldsIsMutable();
+            excludedFields_.addAll(other.excludedFields_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instanceType_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                keyField_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureIncludedFieldsIsMutable();
+                includedFields_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExcludedFieldsIsMutable();
+                excludedFields_.add(s);
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object instanceType_ = "";
+      /**
+       * <pre>
+       * The format of the instance that the Model accepts. Vertex AI will
+       * convert compatible
+       * [batch prediction input instance formats][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.instances_format]
+       * to the specified format.
+       * Supported values are:
+       * * `object`: Each input is converted to JSON object format.
+       *     * For `bigquery`, each row is converted to an object.
+       *     * For `jsonl`, each line of the JSONL input must be an object.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * * `array`: Each input is converted to JSON array format.
+       *     * For `bigquery`, each row is converted to an array. The order
+       *       of columns is determined by the BigQuery column order, unless
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * For `jsonl`, if each line of the JSONL input is an object,
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * If not specified, Vertex AI converts the batch prediction input as
+       * follows:
+       *  * For `bigquery` and `csv`, the behavior is the same as `array`. The
+       *    order of columns is the same as defined in the file or table, unless
+       *    [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *  * For `jsonl`, the prediction instance format is determined by
+       *    each line of the input.
+       *  * For `tf-record`/`tf-record-gzip`, each record will be converted to
+       *    an object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the record.
+       *  * For `file-list`, each file in the list will be converted to an
+       *    object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the file.
+       * </pre>
+       *
+       * <code>string instance_type = 1;</code>
+       * @return The instanceType.
+       */
+      public java.lang.String getInstanceType() {
+        java.lang.Object ref = instanceType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          instanceType_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The format of the instance that the Model accepts. Vertex AI will
+       * convert compatible
+       * [batch prediction input instance formats][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.instances_format]
+       * to the specified format.
+       * Supported values are:
+       * * `object`: Each input is converted to JSON object format.
+       *     * For `bigquery`, each row is converted to an object.
+       *     * For `jsonl`, each line of the JSONL input must be an object.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * * `array`: Each input is converted to JSON array format.
+       *     * For `bigquery`, each row is converted to an array. The order
+       *       of columns is determined by the BigQuery column order, unless
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * For `jsonl`, if each line of the JSONL input is an object,
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * If not specified, Vertex AI converts the batch prediction input as
+       * follows:
+       *  * For `bigquery` and `csv`, the behavior is the same as `array`. The
+       *    order of columns is the same as defined in the file or table, unless
+       *    [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *  * For `jsonl`, the prediction instance format is determined by
+       *    each line of the input.
+       *  * For `tf-record`/`tf-record-gzip`, each record will be converted to
+       *    an object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the record.
+       *  * For `file-list`, each file in the list will be converted to an
+       *    object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the file.
+       * </pre>
+       *
+       * <code>string instance_type = 1;</code>
+       * @return The bytes for instanceType.
+       */
+      public com.google.protobuf.ByteString
+          getInstanceTypeBytes() {
+        java.lang.Object ref = instanceType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          instanceType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The format of the instance that the Model accepts. Vertex AI will
+       * convert compatible
+       * [batch prediction input instance formats][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.instances_format]
+       * to the specified format.
+       * Supported values are:
+       * * `object`: Each input is converted to JSON object format.
+       *     * For `bigquery`, each row is converted to an object.
+       *     * For `jsonl`, each line of the JSONL input must be an object.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * * `array`: Each input is converted to JSON array format.
+       *     * For `bigquery`, each row is converted to an array. The order
+       *       of columns is determined by the BigQuery column order, unless
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * For `jsonl`, if each line of the JSONL input is an object,
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * If not specified, Vertex AI converts the batch prediction input as
+       * follows:
+       *  * For `bigquery` and `csv`, the behavior is the same as `array`. The
+       *    order of columns is the same as defined in the file or table, unless
+       *    [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *  * For `jsonl`, the prediction instance format is determined by
+       *    each line of the input.
+       *  * For `tf-record`/`tf-record-gzip`, each record will be converted to
+       *    an object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the record.
+       *  * For `file-list`, each file in the list will be converted to an
+       *    object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the file.
+       * </pre>
+       *
+       * <code>string instance_type = 1;</code>
+       * @param value The instanceType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInstanceType(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        instanceType_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The format of the instance that the Model accepts. Vertex AI will
+       * convert compatible
+       * [batch prediction input instance formats][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.instances_format]
+       * to the specified format.
+       * Supported values are:
+       * * `object`: Each input is converted to JSON object format.
+       *     * For `bigquery`, each row is converted to an object.
+       *     * For `jsonl`, each line of the JSONL input must be an object.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * * `array`: Each input is converted to JSON array format.
+       *     * For `bigquery`, each row is converted to an array. The order
+       *       of columns is determined by the BigQuery column order, unless
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * For `jsonl`, if each line of the JSONL input is an object,
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * If not specified, Vertex AI converts the batch prediction input as
+       * follows:
+       *  * For `bigquery` and `csv`, the behavior is the same as `array`. The
+       *    order of columns is the same as defined in the file or table, unless
+       *    [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *  * For `jsonl`, the prediction instance format is determined by
+       *    each line of the input.
+       *  * For `tf-record`/`tf-record-gzip`, each record will be converted to
+       *    an object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the record.
+       *  * For `file-list`, each file in the list will be converted to an
+       *    object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the file.
+       * </pre>
+       *
+       * <code>string instance_type = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInstanceType() {
+        instanceType_ = getDefaultInstance().getInstanceType();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The format of the instance that the Model accepts. Vertex AI will
+       * convert compatible
+       * [batch prediction input instance formats][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.instances_format]
+       * to the specified format.
+       * Supported values are:
+       * * `object`: Each input is converted to JSON object format.
+       *     * For `bigquery`, each row is converted to an object.
+       *     * For `jsonl`, each line of the JSONL input must be an object.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * * `array`: Each input is converted to JSON array format.
+       *     * For `bigquery`, each row is converted to an array. The order
+       *       of columns is determined by the BigQuery column order, unless
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * For `jsonl`, if each line of the JSONL input is an object,
+       *       [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be populated for specifying field orders.
+       *     * Does not apply to `csv`, `file-list`, `tf-record`, or
+       *       `tf-record-gzip`.
+       * If not specified, Vertex AI converts the batch prediction input as
+       * follows:
+       *  * For `bigquery` and `csv`, the behavior is the same as `array`. The
+       *    order of columns is the same as defined in the file or table, unless
+       *    [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] is populated.
+       *  * For `jsonl`, the prediction instance format is determined by
+       *    each line of the input.
+       *  * For `tf-record`/`tf-record-gzip`, each record will be converted to
+       *    an object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the record.
+       *  * For `file-list`, each file in the list will be converted to an
+       *    object in the format of `{"b64": &lt;value&gt;}`, where `&lt;value&gt;` is
+       *    the Base64-encoded string of the content of the file.
+       * </pre>
+       *
+       * <code>string instance_type = 1;</code>
+       * @param value The bytes for instanceType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInstanceTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        instanceType_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object keyField_ = "";
+      /**
+       * <pre>
+       * The name of the field that is considered as a key.
+       * The values identified by the key field is not included in the transformed
+       * instances that is sent to the Model. This is similar to
+       * specifying this name of the field in [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields]. In addition,
+       * the batch prediction output will not include the instances. Instead the
+       * output will only include the value of the key field, in a field named
+       * `key` in the output:
+       *  * For `jsonl` output format, the output will have a `key` field
+       *    instead of the `instance` field.
+       *  * For `csv`/`bigquery` output format, the output will have have a `key`
+       *    column instead of the instance feature columns.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>string key_field = 2;</code>
+       * @return The keyField.
+       */
+      public java.lang.String getKeyField() {
+        java.lang.Object ref = keyField_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keyField_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The name of the field that is considered as a key.
+       * The values identified by the key field is not included in the transformed
+       * instances that is sent to the Model. This is similar to
+       * specifying this name of the field in [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields]. In addition,
+       * the batch prediction output will not include the instances. Instead the
+       * output will only include the value of the key field, in a field named
+       * `key` in the output:
+       *  * For `jsonl` output format, the output will have a `key` field
+       *    instead of the `instance` field.
+       *  * For `csv`/`bigquery` output format, the output will have have a `key`
+       *    column instead of the instance feature columns.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>string key_field = 2;</code>
+       * @return The bytes for keyField.
+       */
+      public com.google.protobuf.ByteString
+          getKeyFieldBytes() {
+        java.lang.Object ref = keyField_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keyField_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The name of the field that is considered as a key.
+       * The values identified by the key field is not included in the transformed
+       * instances that is sent to the Model. This is similar to
+       * specifying this name of the field in [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields]. In addition,
+       * the batch prediction output will not include the instances. Instead the
+       * output will only include the value of the key field, in a field named
+       * `key` in the output:
+       *  * For `jsonl` output format, the output will have a `key` field
+       *    instead of the `instance` field.
+       *  * For `csv`/`bigquery` output format, the output will have have a `key`
+       *    column instead of the instance feature columns.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>string key_field = 2;</code>
+       * @param value The keyField to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeyField(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        keyField_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The name of the field that is considered as a key.
+       * The values identified by the key field is not included in the transformed
+       * instances that is sent to the Model. This is similar to
+       * specifying this name of the field in [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields]. In addition,
+       * the batch prediction output will not include the instances. Instead the
+       * output will only include the value of the key field, in a field named
+       * `key` in the output:
+       *  * For `jsonl` output format, the output will have a `key` field
+       *    instead of the `instance` field.
+       *  * For `csv`/`bigquery` output format, the output will have have a `key`
+       *    column instead of the instance feature columns.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>string key_field = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKeyField() {
+        keyField_ = getDefaultInstance().getKeyField();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The name of the field that is considered as a key.
+       * The values identified by the key field is not included in the transformed
+       * instances that is sent to the Model. This is similar to
+       * specifying this name of the field in [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields]. In addition,
+       * the batch prediction output will not include the instances. Instead the
+       * output will only include the value of the key field, in a field named
+       * `key` in the output:
+       *  * For `jsonl` output format, the output will have a `key` field
+       *    instead of the `instance` field.
+       *  * For `csv`/`bigquery` output format, the output will have have a `key`
+       *    column instead of the instance feature columns.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>string key_field = 2;</code>
+       * @param value The bytes for keyField to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeyFieldBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        keyField_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList includedFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureIncludedFieldsIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          includedFields_ = new com.google.protobuf.LazyStringArrayList(includedFields_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <pre>
+       * Fields that will be included in the prediction instance that is
+       * sent to the Model.
+       * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+       * included_fields also determines the order of the values in the array.
+       * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string included_fields = 3;</code>
+       * @return A list containing the includedFields.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getIncludedFieldsList() {
+        return includedFields_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Fields that will be included in the prediction instance that is
+       * sent to the Model.
+       * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+       * included_fields also determines the order of the values in the array.
+       * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string included_fields = 3;</code>
+       * @return The count of includedFields.
+       */
+      public int getIncludedFieldsCount() {
+        return includedFields_.size();
+      }
+      /**
+       * <pre>
+       * Fields that will be included in the prediction instance that is
+       * sent to the Model.
+       * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+       * included_fields also determines the order of the values in the array.
+       * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string included_fields = 3;</code>
+       * @param index The index of the element to return.
+       * @return The includedFields at the given index.
+       */
+      public java.lang.String getIncludedFields(int index) {
+        return includedFields_.get(index);
+      }
+      /**
+       * <pre>
+       * Fields that will be included in the prediction instance that is
+       * sent to the Model.
+       * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+       * included_fields also determines the order of the values in the array.
+       * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string included_fields = 3;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the includedFields at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getIncludedFieldsBytes(int index) {
+        return includedFields_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Fields that will be included in the prediction instance that is
+       * sent to the Model.
+       * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+       * included_fields also determines the order of the values in the array.
+       * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string included_fields = 3;</code>
+       * @param index The index to set the value at.
+       * @param value The includedFields to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIncludedFields(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureIncludedFieldsIsMutable();
+        includedFields_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Fields that will be included in the prediction instance that is
+       * sent to the Model.
+       * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+       * included_fields also determines the order of the values in the array.
+       * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string included_fields = 3;</code>
+       * @param value The includedFields to add.
+       * @return This builder for chaining.
+       */
+      public Builder addIncludedFields(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureIncludedFieldsIsMutable();
+        includedFields_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Fields that will be included in the prediction instance that is
+       * sent to the Model.
+       * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+       * included_fields also determines the order of the values in the array.
+       * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string included_fields = 3;</code>
+       * @param values The includedFields to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllIncludedFields(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureIncludedFieldsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, includedFields_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Fields that will be included in the prediction instance that is
+       * sent to the Model.
+       * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+       * included_fields also determines the order of the values in the array.
+       * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string included_fields = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIncludedFields() {
+        includedFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Fields that will be included in the prediction instance that is
+       * sent to the Model.
+       * If [instance_type][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.instance_type] is `array`, the order of field names in
+       * included_fields also determines the order of the values in the array.
+       * When included_fields is populated, [excluded_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.excluded_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string included_fields = 3;</code>
+       * @param value The bytes of the includedFields to add.
+       * @return This builder for chaining.
+       */
+      public Builder addIncludedFieldsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureIncludedFieldsIsMutable();
+        includedFields_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList excludedFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureExcludedFieldsIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          excludedFields_ = new com.google.protobuf.LazyStringArrayList(excludedFields_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <pre>
+       * Fields that will be excluded in the prediction instance that is
+       * sent to the Model.
+       * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+       * is not specified.
+       * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string excluded_fields = 4;</code>
+       * @return A list containing the excludedFields.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getExcludedFieldsList() {
+        return excludedFields_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Fields that will be excluded in the prediction instance that is
+       * sent to the Model.
+       * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+       * is not specified.
+       * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string excluded_fields = 4;</code>
+       * @return The count of excludedFields.
+       */
+      public int getExcludedFieldsCount() {
+        return excludedFields_.size();
+      }
+      /**
+       * <pre>
+       * Fields that will be excluded in the prediction instance that is
+       * sent to the Model.
+       * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+       * is not specified.
+       * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string excluded_fields = 4;</code>
+       * @param index The index of the element to return.
+       * @return The excludedFields at the given index.
+       */
+      public java.lang.String getExcludedFields(int index) {
+        return excludedFields_.get(index);
+      }
+      /**
+       * <pre>
+       * Fields that will be excluded in the prediction instance that is
+       * sent to the Model.
+       * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+       * is not specified.
+       * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string excluded_fields = 4;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the excludedFields at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getExcludedFieldsBytes(int index) {
+        return excludedFields_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Fields that will be excluded in the prediction instance that is
+       * sent to the Model.
+       * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+       * is not specified.
+       * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string excluded_fields = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The excludedFields to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExcludedFields(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludedFieldsIsMutable();
+        excludedFields_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Fields that will be excluded in the prediction instance that is
+       * sent to the Model.
+       * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+       * is not specified.
+       * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string excluded_fields = 4;</code>
+       * @param value The excludedFields to add.
+       * @return This builder for chaining.
+       */
+      public Builder addExcludedFields(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludedFieldsIsMutable();
+        excludedFields_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Fields that will be excluded in the prediction instance that is
+       * sent to the Model.
+       * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+       * is not specified.
+       * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string excluded_fields = 4;</code>
+       * @param values The excludedFields to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllExcludedFields(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureExcludedFieldsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, excludedFields_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Fields that will be excluded in the prediction instance that is
+       * sent to the Model.
+       * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+       * is not specified.
+       * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string excluded_fields = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearExcludedFields() {
+        excludedFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Fields that will be excluded in the prediction instance that is
+       * sent to the Model.
+       * Excluded will be attached to the batch prediction output if [key_field][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.key_field]
+       * is not specified.
+       * When excluded_fields is populated, [included_fields][google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.included_fields] must be empty.
+       * The input must be JSONL with objects at each line, CSV, BigQuery
+       * or TfRecord.
+       * </pre>
+       *
+       * <code>repeated string excluded_fields = 4;</code>
+       * @param value The bytes of the excludedFields to add.
+       * @return This builder for chaining.
+       */
+      public Builder addExcludedFieldsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureExcludedFieldsIsMutable();
+        excludedFields_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig)
+    private static final com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig();
+    }
+
+    public static com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<InstanceConfig>
+        PARSER = new com.google.protobuf.AbstractParser<InstanceConfig>() {
+      @java.lang.Override
+      public InstanceConfig parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<InstanceConfig> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<InstanceConfig> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1968,79 +3546,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private OutputConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              predictionsFormat_ = s;
-              break;
-            }
-            case 18: {
-              com.google.cloud.aiplatform.v1beta1.GcsDestination.Builder subBuilder = null;
-              if (destinationCase_ == 2) {
-                subBuilder = ((com.google.cloud.aiplatform.v1beta1.GcsDestination) destination_).toBuilder();
-              }
-              destination_ =
-                  input.readMessage(com.google.cloud.aiplatform.v1beta1.GcsDestination.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.GcsDestination) destination_);
-                destination_ = subBuilder.buildPartial();
-              }
-              destinationCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.cloud.aiplatform.v1beta1.BigQueryDestination.Builder subBuilder = null;
-              if (destinationCase_ == 3) {
-                subBuilder = ((com.google.cloud.aiplatform.v1beta1.BigQueryDestination) destination_).toBuilder();
-              }
-              destination_ =
-                  input.readMessage(com.google.cloud.aiplatform.v1beta1.BigQueryDestination.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.BigQueryDestination) destination_);
-                destination_ = subBuilder.buildPartial();
-              }
-              destinationCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -2291,7 +3796,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PREDICTIONS_FORMAT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object predictionsFormat_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object predictionsFormat_ = "";
     /**
      * <pre>
      * Required. The format in which Vertex AI gives the predictions, must be one of the
@@ -2363,7 +3869,7 @@ private static final long serialVersionUID = 0L;
       if (destinationCase_ == 3) {
         output.writeMessage(3, (com.google.cloud.aiplatform.v1beta1.BigQueryDestination) destination_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2383,7 +3889,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (com.google.cloud.aiplatform.v1beta1.BigQueryDestination) destination_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2413,7 +3919,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2438,7 +3944,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2561,24 +4067,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (gcsDestinationBuilder_ != null) {
+          gcsDestinationBuilder_.clear();
+        }
+        if (bigqueryDestinationBuilder_ != null) {
+          bigqueryDestinationBuilder_.clear();
+        }
         predictionsFormat_ = "";
-
         destinationCase_ = 0;
         destination_ = null;
         return this;
@@ -2607,24 +4114,30 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig buildPartial() {
         com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig result = new com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig(this);
-        if (destinationCase_ == 2) {
-          if (gcsDestinationBuilder_ == null) {
-            result.destination_ = destination_;
-          } else {
-            result.destination_ = gcsDestinationBuilder_.build();
-          }
-        }
-        if (destinationCase_ == 3) {
-          if (bigqueryDestinationBuilder_ == null) {
-            result.destination_ = destination_;
-          } else {
-            result.destination_ = bigqueryDestinationBuilder_.build();
-          }
-        }
-        result.predictionsFormat_ = predictionsFormat_;
-        result.destinationCase_ = destinationCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.predictionsFormat_ = predictionsFormat_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig result) {
+        result.destinationCase_ = destinationCase_;
+        result.destination_ = this.destination_;
+        if (destinationCase_ == 2 &&
+            gcsDestinationBuilder_ != null) {
+          result.destination_ = gcsDestinationBuilder_.build();
+        }
+        if (destinationCase_ == 3 &&
+            bigqueryDestinationBuilder_ != null) {
+          result.destination_ = bigqueryDestinationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2673,6 +4186,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig.getDefaultInstance()) return this;
         if (!other.getPredictionsFormat().isEmpty()) {
           predictionsFormat_ = other.predictionsFormat_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         switch (other.getDestinationCase()) {
@@ -2688,7 +4202,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2703,17 +4217,49 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                predictionsFormat_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getGcsDestinationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                destinationCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getBigqueryDestinationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                destinationCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int destinationCase_ = 0;
@@ -2731,6 +4277,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.aiplatform.v1beta1.GcsDestination, com.google.cloud.aiplatform.v1beta1.GcsDestination.Builder, com.google.cloud.aiplatform.v1beta1.GcsDestinationOrBuilder> gcsDestinationBuilder_;
@@ -3077,7 +4624,7 @@ private static final long serialVersionUID = 0L;
           destination_ = null;
         }
         destinationCase_ = 2;
-        onChanged();;
+        onChanged();
         return gcsDestinationBuilder_;
       }
 
@@ -3408,7 +4955,7 @@ private static final long serialVersionUID = 0L;
           destination_ = null;
         }
         destinationCase_ = 3;
-        onChanged();;
+        onChanged();
         return bigqueryDestinationBuilder_;
       }
 
@@ -3471,11 +5018,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPredictionsFormat(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         predictionsFormat_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3490,8 +5035,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPredictionsFormat() {
-        
         predictionsFormat_ = getDefaultInstance().getPredictionsFormat();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -3508,12 +5053,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPredictionsFormatBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         predictionsFormat_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3550,7 +5093,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OutputConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3701,63 +5255,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private OutputInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              outputLocationCase_ = 1;
-              outputLocation_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              outputLocationCase_ = 2;
-              outputLocation_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              bigqueryOutputTable_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -3951,7 +5448,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BIGQUERY_OUTPUT_TABLE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object bigqueryOutputTable_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object bigqueryOutputTable_ = "";
     /**
      * <pre>
      * Output only. The name of the BigQuery table created, in
@@ -4025,7 +5523,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bigqueryOutputTable_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, bigqueryOutputTable_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4043,7 +5541,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bigqueryOutputTable_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, bigqueryOutputTable_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4073,7 +5571,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4098,7 +5596,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4220,24 +5718,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         bigqueryOutputTable_ = "";
-
         outputLocationCase_ = 0;
         outputLocation_ = null;
         return this;
@@ -4266,16 +5759,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo buildPartial() {
         com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo result = new com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo(this);
-        if (outputLocationCase_ == 1) {
-          result.outputLocation_ = outputLocation_;
-        }
-        if (outputLocationCase_ == 2) {
-          result.outputLocation_ = outputLocation_;
-        }
-        result.bigqueryOutputTable_ = bigqueryOutputTable_;
-        result.outputLocationCase_ = outputLocationCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.bigqueryOutputTable_ = bigqueryOutputTable_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo result) {
+        result.outputLocationCase_ = outputLocationCase_;
+        result.outputLocation_ = this.outputLocation_;
       }
 
       @java.lang.Override
@@ -4324,6 +5823,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo.getDefaultInstance()) return this;
         if (!other.getBigqueryOutputTable().isEmpty()) {
           bigqueryOutputTable_ = other.bigqueryOutputTable_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         switch (other.getOutputLocationCase()) {
@@ -4343,7 +5843,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4358,17 +5858,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                outputLocationCase_ = 1;
+                outputLocation_ = s;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                outputLocationCase_ = 2;
+                outputLocation_ = s;
+                break;
+              } // case 18
+              case 34: {
+                bigqueryOutputTable_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int outputLocationCase_ = 0;
@@ -4386,6 +5916,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       /**
        * <pre>
@@ -4467,10 +5998,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGcsOutputDirectory(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  outputLocationCase_ = 1;
+        if (value == null) { throw new NullPointerException(); }
+        outputLocationCase_ = 1;
         outputLocation_ = value;
         onChanged();
         return this;
@@ -4504,10 +6033,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGcsOutputDirectoryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         outputLocationCase_ = 1;
         outputLocation_ = value;
         onChanged();
@@ -4598,10 +6125,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBigqueryOutputDataset(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  outputLocationCase_ = 2;
+        if (value == null) { throw new NullPointerException(); }
+        outputLocationCase_ = 2;
         outputLocation_ = value;
         onChanged();
         return this;
@@ -4637,10 +6162,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBigqueryOutputDatasetBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         outputLocationCase_ = 2;
         outputLocation_ = value;
         onChanged();
@@ -4709,11 +6232,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBigqueryOutputTable(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         bigqueryOutputTable_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4729,8 +6250,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearBigqueryOutputTable() {
-        
         bigqueryOutputTable_ = getDefaultInstance().getBigqueryOutputTable();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -4748,12 +6269,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBigqueryOutputTableBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         bigqueryOutputTable_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4790,7 +6309,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OutputInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4811,7 +6341,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Resource name of the BatchPredictionJob.
@@ -4857,7 +6388,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The user-defined name of this BatchPredictionJob.
@@ -4903,10 +6435,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_FIELD_NUMBER = 3;
-  private volatile java.lang.Object model_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object model_ = "";
   /**
    * <pre>
-   * The name of the Model resoure that produces the predictions via this job,
+   * The name of the Model resource that produces the predictions via this job,
    * must share the same ancestor Location.
    * Starting this job has no impact on any existing deployments of the Model
    * and their resources.
@@ -4933,7 +6466,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The name of the Model resoure that produces the predictions via this job,
+   * The name of the Model resource that produces the predictions via this job,
    * must share the same ancestor Location.
    * Starting this job has no impact on any existing deployments of the Model
    * and their resources.
@@ -4961,7 +6494,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_VERSION_ID_FIELD_NUMBER = 30;
-  private volatile java.lang.Object modelVersionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object modelVersionId_ = "";
   /**
    * <pre>
    * Output only. The version ID of the Model that produces the predictions via this job.
@@ -5047,7 +6581,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.UnmanagedContainerModelOrBuilder getUnmanagedContainerModelOrBuilder() {
-    return getUnmanagedContainerModel();
+    return unmanagedContainerModel_ == null ? com.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel.getDefaultInstance() : unmanagedContainerModel_;
   }
 
   public static final int INPUT_CONFIG_FIELD_NUMBER = 4;
@@ -5097,7 +6631,48 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfigOrBuilder getInputConfigOrBuilder() {
-    return getInputConfig();
+    return inputConfig_ == null ? com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.getDefaultInstance() : inputConfig_;
+  }
+
+  public static final int INSTANCE_CONFIG_FIELD_NUMBER = 27;
+  private com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instanceConfig_;
+  /**
+   * <pre>
+   * Configuration for how to convert batch prediction input instances to the
+   * prediction instances that are sent to the Model.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+   * @return Whether the instanceConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasInstanceConfig() {
+    return instanceConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Configuration for how to convert batch prediction input instances to the
+   * prediction instances that are sent to the Model.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+   * @return The instanceConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig getInstanceConfig() {
+    return instanceConfig_ == null ? com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.getDefaultInstance() : instanceConfig_;
+  }
+  /**
+   * <pre>
+   * Configuration for how to convert batch prediction input instances to the
+   * prediction instances that are sent to the Model.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfigOrBuilder getInstanceConfigOrBuilder() {
+    return instanceConfig_ == null ? com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.getDefaultInstance() : instanceConfig_;
   }
 
   public static final int MODEL_PARAMETERS_FIELD_NUMBER = 5;
@@ -5144,7 +6719,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ValueOrBuilder getModelParametersOrBuilder() {
-    return getModelParameters();
+    return modelParameters_ == null ? com.google.protobuf.Value.getDefaultInstance() : modelParameters_;
   }
 
   public static final int OUTPUT_CONFIG_FIELD_NUMBER = 6;
@@ -5203,7 +6778,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfigOrBuilder getOutputConfigOrBuilder() {
-    return getOutputConfig();
+    return outputConfig_ == null ? com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig.getDefaultInstance() : outputConfig_;
   }
 
   public static final int DEDICATED_RESOURCES_FIELD_NUMBER = 7;
@@ -5253,17 +6828,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.BatchDedicatedResourcesOrBuilder getDedicatedResourcesOrBuilder() {
-    return getDedicatedResources();
+    return dedicatedResources_ == null ? com.google.cloud.aiplatform.v1beta1.BatchDedicatedResources.getDefaultInstance() : dedicatedResources_;
   }
 
   public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 29;
-  private volatile java.lang.Object serviceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccount_ = "";
   /**
    * <pre>
    * The service account that the DeployedModel's container runs as. If not
    * specified, a system generated one will be used, which
    * has minimal permissions and the custom container, if used, may not have
-   * enough permission to access other GCP resources.
+   * enough permission to access other Google Cloud resources.
    * Users deploying the Model must have the `iam.serviceAccounts.actAs`
    * permission on this service account.
    * </pre>
@@ -5289,7 +6865,7 @@ private static final long serialVersionUID = 0L;
    * The service account that the DeployedModel's container runs as. If not
    * specified, a system generated one will be used, which
    * has minimal permissions and the custom container, if used, may not have
-   * enough permission to access other GCP resources.
+   * enough permission to access other Google Cloud resources.
    * Users deploying the Model must have the `iam.serviceAccounts.actAs`
    * permission on this service account.
    * </pre>
@@ -5353,11 +6929,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ManualBatchTuningParametersOrBuilder getManualBatchTuningParametersOrBuilder() {
-    return getManualBatchTuningParameters();
+    return manualBatchTuningParameters_ == null ? com.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters.getDefaultInstance() : manualBatchTuningParameters_;
   }
 
   public static final int GENERATE_EXPLANATION_FIELD_NUMBER = 23;
-  private boolean generateExplanation_;
+  private boolean generateExplanation_ = false;
   /**
    * <pre>
    * Generate explanation with the batch prediction results.
@@ -5432,7 +7008,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ExplanationSpecOrBuilder getExplanationSpecOrBuilder() {
-    return getExplanationSpec();
+    return explanationSpec_ == null ? com.google.cloud.aiplatform.v1beta1.ExplanationSpec.getDefaultInstance() : explanationSpec_;
   }
 
   public static final int OUTPUT_INFO_FIELD_NUMBER = 9;
@@ -5470,11 +7046,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfoOrBuilder getOutputInfoOrBuilder() {
-    return getOutputInfo();
+    return outputInfo_ == null ? com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo.getDefaultInstance() : outputInfo_;
   }
 
   public static final int STATE_FIELD_NUMBER = 10;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The detailed state of the job.
@@ -5495,8 +7071,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.aiplatform.v1beta1.JobState getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.aiplatform.v1beta1.JobState result = com.google.cloud.aiplatform.v1beta1.JobState.valueOf(state_);
+    com.google.cloud.aiplatform.v1beta1.JobState result = com.google.cloud.aiplatform.v1beta1.JobState.forNumber(state_);
     return result == null ? com.google.cloud.aiplatform.v1beta1.JobState.UNRECOGNIZED : result;
   }
 
@@ -5538,17 +7113,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getErrorOrBuilder() {
-    return getError();
+    return error_ == null ? com.google.rpc.Status.getDefaultInstance() : error_;
   }
 
   public static final int PARTIAL_FAILURES_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.rpc.Status> partialFailures_;
   /**
    * <pre>
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5562,7 +7138,7 @@ private static final long serialVersionUID = 0L;
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5577,7 +7153,7 @@ private static final long serialVersionUID = 0L;
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5591,7 +7167,7 @@ private static final long serialVersionUID = 0L;
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5605,7 +7181,7 @@ private static final long serialVersionUID = 0L;
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5663,7 +7239,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ResourcesConsumedOrBuilder getResourcesConsumedOrBuilder() {
-    return getResourcesConsumed();
+    return resourcesConsumed_ == null ? com.google.cloud.aiplatform.v1beta1.ResourcesConsumed.getDefaultInstance() : resourcesConsumed_;
   }
 
   public static final int COMPLETION_STATS_FIELD_NUMBER = 14;
@@ -5701,7 +7277,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.CompletionStatsOrBuilder getCompletionStatsOrBuilder() {
-    return getCompletionStats();
+    return completionStats_ == null ? com.google.cloud.aiplatform.v1beta1.CompletionStats.getDefaultInstance() : completionStats_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 15;
@@ -5739,7 +7315,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int START_TIME_FIELD_NUMBER = 16;
@@ -5780,7 +7356,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-    return getStartTime();
+    return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
   }
 
   public static final int END_TIME_FIELD_NUMBER = 17;
@@ -5821,7 +7397,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-    return getEndTime();
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 18;
@@ -5859,7 +7435,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 19;
@@ -5874,6 +7450,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -5884,7 +7461,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -5899,7 +7475,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 19;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -5926,7 +7501,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 19;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -5942,10 +7516,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 19;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -5963,7 +7538,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 19;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -6016,7 +7590,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.EncryptionSpecOrBuilder getEncryptionSpecOrBuilder() {
-    return getEncryptionSpec();
+    return encryptionSpec_ == null ? com.google.cloud.aiplatform.v1beta1.EncryptionSpec.getDefaultInstance() : encryptionSpec_;
   }
 
   public static final int MODEL_MONITORING_CONFIG_FIELD_NUMBER = 26;
@@ -6060,7 +7634,106 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfigOrBuilder getModelMonitoringConfigOrBuilder() {
-    return getModelMonitoringConfig();
+    return modelMonitoringConfig_ == null ? com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig.getDefaultInstance() : modelMonitoringConfig_;
+  }
+
+  public static final int MODEL_MONITORING_STATS_ANOMALIES_FIELD_NUMBER = 31;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies> modelMonitoringStatsAnomalies_;
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies> getModelMonitoringStatsAnomaliesList() {
+    return modelMonitoringStatsAnomalies_;
+  }
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomaliesOrBuilder> 
+      getModelMonitoringStatsAnomaliesOrBuilderList() {
+    return modelMonitoringStatsAnomalies_;
+  }
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  @java.lang.Override
+  public int getModelMonitoringStatsAnomaliesCount() {
+    return modelMonitoringStatsAnomalies_.size();
+  }
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies getModelMonitoringStatsAnomalies(int index) {
+    return modelMonitoringStatsAnomalies_.get(index);
+  }
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomaliesOrBuilder getModelMonitoringStatsAnomaliesOrBuilder(
+      int index) {
+    return modelMonitoringStatsAnomalies_.get(index);
+  }
+
+  public static final int MODEL_MONITORING_STATUS_FIELD_NUMBER = 32;
+  private com.google.rpc.Status modelMonitoringStatus_;
+  /**
+   * <pre>
+   * Output only. The running status of the model monitoring pipeline.
+   * </pre>
+   *
+   * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return Whether the modelMonitoringStatus field is set.
+   */
+  @java.lang.Override
+  public boolean hasModelMonitoringStatus() {
+    return modelMonitoringStatus_ != null;
+  }
+  /**
+   * <pre>
+   * Output only. The running status of the model monitoring pipeline.
+   * </pre>
+   *
+   * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The modelMonitoringStatus.
+   */
+  @java.lang.Override
+  public com.google.rpc.Status getModelMonitoringStatus() {
+    return modelMonitoringStatus_ == null ? com.google.rpc.Status.getDefaultInstance() : modelMonitoringStatus_;
+  }
+  /**
+   * <pre>
+   * Output only. The running status of the model monitoring pipeline.
+   * </pre>
+   *
+   * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public com.google.rpc.StatusOrBuilder getModelMonitoringStatusOrBuilder() {
+    return modelMonitoringStatus_ == null ? com.google.rpc.Status.getDefaultInstance() : modelMonitoringStatus_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -6149,6 +7822,9 @@ private static final long serialVersionUID = 0L;
     if (modelMonitoringConfig_ != null) {
       output.writeMessage(26, getModelMonitoringConfig());
     }
+    if (instanceConfig_ != null) {
+      output.writeMessage(27, getInstanceConfig());
+    }
     if (unmanagedContainerModel_ != null) {
       output.writeMessage(28, getUnmanagedContainerModel());
     }
@@ -6158,7 +7834,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelVersionId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 30, modelVersionId_);
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < modelMonitoringStatsAnomalies_.size(); i++) {
+      output.writeMessage(31, modelMonitoringStatsAnomalies_.get(i));
+    }
+    if (modelMonitoringStatus_ != null) {
+      output.writeMessage(32, getModelMonitoringStatus());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -6262,6 +7944,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(26, getModelMonitoringConfig());
     }
+    if (instanceConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(27, getInstanceConfig());
+    }
     if (unmanagedContainerModel_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(28, getUnmanagedContainerModel());
@@ -6272,7 +7958,15 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelVersionId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(30, modelVersionId_);
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < modelMonitoringStatsAnomalies_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(31, modelMonitoringStatsAnomalies_.get(i));
+    }
+    if (modelMonitoringStatus_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(32, getModelMonitoringStatus());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -6304,6 +7998,11 @@ private static final long serialVersionUID = 0L;
     if (hasInputConfig()) {
       if (!getInputConfig()
           .equals(other.getInputConfig())) return false;
+    }
+    if (hasInstanceConfig() != other.hasInstanceConfig()) return false;
+    if (hasInstanceConfig()) {
+      if (!getInstanceConfig()
+          .equals(other.getInstanceConfig())) return false;
     }
     if (hasModelParameters() != other.hasModelParameters()) return false;
     if (hasModelParameters()) {
@@ -6389,7 +8088,14 @@ private static final long serialVersionUID = 0L;
       if (!getModelMonitoringConfig()
           .equals(other.getModelMonitoringConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getModelMonitoringStatsAnomaliesList()
+        .equals(other.getModelMonitoringStatsAnomaliesList())) return false;
+    if (hasModelMonitoringStatus() != other.hasModelMonitoringStatus()) return false;
+    if (hasModelMonitoringStatus()) {
+      if (!getModelMonitoringStatus()
+          .equals(other.getModelMonitoringStatus())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -6415,6 +8121,10 @@ private static final long serialVersionUID = 0L;
     if (hasInputConfig()) {
       hash = (37 * hash) + INPUT_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getInputConfig().hashCode();
+    }
+    if (hasInstanceConfig()) {
+      hash = (37 * hash) + INSTANCE_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getInstanceConfig().hashCode();
     }
     if (hasModelParameters()) {
       hash = (37 * hash) + MODEL_PARAMETERS_FIELD_NUMBER;
@@ -6491,7 +8201,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MODEL_MONITORING_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getModelMonitoringConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getModelMonitoringStatsAnomaliesCount() > 0) {
+      hash = (37 * hash) + MODEL_MONITORING_STATS_ANOMALIES_FIELD_NUMBER;
+      hash = (53 * hash) + getModelMonitoringStatsAnomaliesList().hashCode();
+    }
+    if (hasModelMonitoringStatus()) {
+      hash = (37 * hash) + MODEL_MONITORING_STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getModelMonitoringStatus().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -6637,145 +8355,134 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPartialFailuresFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       model_ = "";
-
       modelVersionId_ = "";
-
-      if (unmanagedContainerModelBuilder_ == null) {
-        unmanagedContainerModel_ = null;
-      } else {
-        unmanagedContainerModel_ = null;
+      unmanagedContainerModel_ = null;
+      if (unmanagedContainerModelBuilder_ != null) {
+        unmanagedContainerModelBuilder_.dispose();
         unmanagedContainerModelBuilder_ = null;
       }
-      if (inputConfigBuilder_ == null) {
-        inputConfig_ = null;
-      } else {
-        inputConfig_ = null;
+      inputConfig_ = null;
+      if (inputConfigBuilder_ != null) {
+        inputConfigBuilder_.dispose();
         inputConfigBuilder_ = null;
       }
-      if (modelParametersBuilder_ == null) {
-        modelParameters_ = null;
-      } else {
-        modelParameters_ = null;
+      instanceConfig_ = null;
+      if (instanceConfigBuilder_ != null) {
+        instanceConfigBuilder_.dispose();
+        instanceConfigBuilder_ = null;
+      }
+      modelParameters_ = null;
+      if (modelParametersBuilder_ != null) {
+        modelParametersBuilder_.dispose();
         modelParametersBuilder_ = null;
       }
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-      } else {
-        outputConfig_ = null;
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
-      if (dedicatedResourcesBuilder_ == null) {
-        dedicatedResources_ = null;
-      } else {
-        dedicatedResources_ = null;
+      dedicatedResources_ = null;
+      if (dedicatedResourcesBuilder_ != null) {
+        dedicatedResourcesBuilder_.dispose();
         dedicatedResourcesBuilder_ = null;
       }
       serviceAccount_ = "";
-
-      if (manualBatchTuningParametersBuilder_ == null) {
-        manualBatchTuningParameters_ = null;
-      } else {
-        manualBatchTuningParameters_ = null;
+      manualBatchTuningParameters_ = null;
+      if (manualBatchTuningParametersBuilder_ != null) {
+        manualBatchTuningParametersBuilder_.dispose();
         manualBatchTuningParametersBuilder_ = null;
       }
       generateExplanation_ = false;
-
-      if (explanationSpecBuilder_ == null) {
-        explanationSpec_ = null;
-      } else {
-        explanationSpec_ = null;
+      explanationSpec_ = null;
+      if (explanationSpecBuilder_ != null) {
+        explanationSpecBuilder_.dispose();
         explanationSpecBuilder_ = null;
       }
-      if (outputInfoBuilder_ == null) {
-        outputInfo_ = null;
-      } else {
-        outputInfo_ = null;
+      outputInfo_ = null;
+      if (outputInfoBuilder_ != null) {
+        outputInfoBuilder_.dispose();
         outputInfoBuilder_ = null;
       }
       state_ = 0;
-
-      if (errorBuilder_ == null) {
-        error_ = null;
-      } else {
-        error_ = null;
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
       if (partialFailuresBuilder_ == null) {
         partialFailures_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        partialFailures_ = null;
         partialFailuresBuilder_.clear();
       }
-      if (resourcesConsumedBuilder_ == null) {
-        resourcesConsumed_ = null;
-      } else {
-        resourcesConsumed_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      resourcesConsumed_ = null;
+      if (resourcesConsumedBuilder_ != null) {
+        resourcesConsumedBuilder_.dispose();
         resourcesConsumedBuilder_ = null;
       }
-      if (completionStatsBuilder_ == null) {
-        completionStats_ = null;
-      } else {
-        completionStats_ = null;
+      completionStats_ = null;
+      if (completionStatsBuilder_ != null) {
+        completionStatsBuilder_.dispose();
         completionStatsBuilder_ = null;
       }
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-      } else {
-        startTime_ = null;
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-      } else {
-        endTime_ = null;
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       internalGetMutableLabels().clear();
-      if (encryptionSpecBuilder_ == null) {
-        encryptionSpec_ = null;
-      } else {
-        encryptionSpec_ = null;
+      encryptionSpec_ = null;
+      if (encryptionSpecBuilder_ != null) {
+        encryptionSpecBuilder_.dispose();
         encryptionSpecBuilder_ = null;
       }
-      if (modelMonitoringConfigBuilder_ == null) {
-        modelMonitoringConfig_ = null;
-      } else {
-        modelMonitoringConfig_ = null;
+      modelMonitoringConfig_ = null;
+      if (modelMonitoringConfigBuilder_ != null) {
+        modelMonitoringConfigBuilder_.dispose();
         modelMonitoringConfigBuilder_ = null;
+      }
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        modelMonitoringStatsAnomalies_ = java.util.Collections.emptyList();
+      } else {
+        modelMonitoringStatsAnomalies_ = null;
+        modelMonitoringStatsAnomaliesBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x08000000);
+      modelMonitoringStatus_ = null;
+      if (modelMonitoringStatusBuilder_ != null) {
+        modelMonitoringStatusBuilder_.dispose();
+        modelMonitoringStatusBuilder_ = null;
       }
       return this;
     }
@@ -6803,112 +8510,155 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob buildPartial() {
       com.google.cloud.aiplatform.v1beta1.BatchPredictionJob result = new com.google.cloud.aiplatform.v1beta1.BatchPredictionJob(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.model_ = model_;
-      result.modelVersionId_ = modelVersionId_;
-      if (unmanagedContainerModelBuilder_ == null) {
-        result.unmanagedContainerModel_ = unmanagedContainerModel_;
-      } else {
-        result.unmanagedContainerModel_ = unmanagedContainerModelBuilder_.build();
-      }
-      if (inputConfigBuilder_ == null) {
-        result.inputConfig_ = inputConfig_;
-      } else {
-        result.inputConfig_ = inputConfigBuilder_.build();
-      }
-      if (modelParametersBuilder_ == null) {
-        result.modelParameters_ = modelParameters_;
-      } else {
-        result.modelParameters_ = modelParametersBuilder_.build();
-      }
-      if (outputConfigBuilder_ == null) {
-        result.outputConfig_ = outputConfig_;
-      } else {
-        result.outputConfig_ = outputConfigBuilder_.build();
-      }
-      if (dedicatedResourcesBuilder_ == null) {
-        result.dedicatedResources_ = dedicatedResources_;
-      } else {
-        result.dedicatedResources_ = dedicatedResourcesBuilder_.build();
-      }
-      result.serviceAccount_ = serviceAccount_;
-      if (manualBatchTuningParametersBuilder_ == null) {
-        result.manualBatchTuningParameters_ = manualBatchTuningParameters_;
-      } else {
-        result.manualBatchTuningParameters_ = manualBatchTuningParametersBuilder_.build();
-      }
-      result.generateExplanation_ = generateExplanation_;
-      if (explanationSpecBuilder_ == null) {
-        result.explanationSpec_ = explanationSpec_;
-      } else {
-        result.explanationSpec_ = explanationSpecBuilder_.build();
-      }
-      if (outputInfoBuilder_ == null) {
-        result.outputInfo_ = outputInfo_;
-      } else {
-        result.outputInfo_ = outputInfoBuilder_.build();
-      }
-      result.state_ = state_;
-      if (errorBuilder_ == null) {
-        result.error_ = error_;
-      } else {
-        result.error_ = errorBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob result) {
       if (partialFailuresBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00020000) != 0)) {
           partialFailures_ = java.util.Collections.unmodifiableList(partialFailures_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00020000);
         }
         result.partialFailures_ = partialFailures_;
       } else {
         result.partialFailures_ = partialFailuresBuilder_.build();
       }
-      if (resourcesConsumedBuilder_ == null) {
-        result.resourcesConsumed_ = resourcesConsumed_;
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        if (((bitField0_ & 0x08000000) != 0)) {
+          modelMonitoringStatsAnomalies_ = java.util.Collections.unmodifiableList(modelMonitoringStatsAnomalies_);
+          bitField0_ = (bitField0_ & ~0x08000000);
+        }
+        result.modelMonitoringStatsAnomalies_ = modelMonitoringStatsAnomalies_;
       } else {
-        result.resourcesConsumed_ = resourcesConsumedBuilder_.build();
+        result.modelMonitoringStatsAnomalies_ = modelMonitoringStatsAnomaliesBuilder_.build();
       }
-      if (completionStatsBuilder_ == null) {
-        result.completionStats_ = completionStats_;
-      } else {
-        result.completionStats_ = completionStatsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
       }
-      if (startTimeBuilder_ == null) {
-        result.startTime_ = startTime_;
-      } else {
-        result.startTime_ = startTimeBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.model_ = model_;
       }
-      if (endTimeBuilder_ == null) {
-        result.endTime_ = endTime_;
-      } else {
-        result.endTime_ = endTimeBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.modelVersionId_ = modelVersionId_;
       }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.unmanagedContainerModel_ = unmanagedContainerModelBuilder_ == null
+            ? unmanagedContainerModel_
+            : unmanagedContainerModelBuilder_.build();
       }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (encryptionSpecBuilder_ == null) {
-        result.encryptionSpec_ = encryptionSpec_;
-      } else {
-        result.encryptionSpec_ = encryptionSpecBuilder_.build();
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.inputConfig_ = inputConfigBuilder_ == null
+            ? inputConfig_
+            : inputConfigBuilder_.build();
       }
-      if (modelMonitoringConfigBuilder_ == null) {
-        result.modelMonitoringConfig_ = modelMonitoringConfig_;
-      } else {
-        result.modelMonitoringConfig_ = modelMonitoringConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.instanceConfig_ = instanceConfigBuilder_ == null
+            ? instanceConfig_
+            : instanceConfigBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.modelParameters_ = modelParametersBuilder_ == null
+            ? modelParameters_
+            : modelParametersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.outputConfig_ = outputConfigBuilder_ == null
+            ? outputConfig_
+            : outputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.dedicatedResources_ = dedicatedResourcesBuilder_ == null
+            ? dedicatedResources_
+            : dedicatedResourcesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.serviceAccount_ = serviceAccount_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.manualBatchTuningParameters_ = manualBatchTuningParametersBuilder_ == null
+            ? manualBatchTuningParameters_
+            : manualBatchTuningParametersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.generateExplanation_ = generateExplanation_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.explanationSpec_ = explanationSpecBuilder_ == null
+            ? explanationSpec_
+            : explanationSpecBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.outputInfo_ = outputInfoBuilder_ == null
+            ? outputInfo_
+            : outputInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.resourcesConsumed_ = resourcesConsumedBuilder_ == null
+            ? resourcesConsumed_
+            : resourcesConsumedBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.completionStats_ = completionStatsBuilder_ == null
+            ? completionStats_
+            : completionStatsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.startTime_ = startTimeBuilder_ == null
+            ? startTime_
+            : startTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.endTime_ = endTimeBuilder_ == null
+            ? endTime_
+            : endTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.encryptionSpec_ = encryptionSpecBuilder_ == null
+            ? encryptionSpec_
+            : encryptionSpecBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.modelMonitoringConfig_ = modelMonitoringConfigBuilder_ == null
+            ? modelMonitoringConfig_
+            : modelMonitoringConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.modelMonitoringStatus_ = modelMonitoringStatusBuilder_ == null
+            ? modelMonitoringStatus_
+            : modelMonitoringStatusBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -6957,18 +8707,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getModel().isEmpty()) {
         model_ = other.model_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getModelVersionId().isEmpty()) {
         modelVersionId_ = other.modelVersionId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasUnmanagedContainerModel()) {
@@ -6976,6 +8730,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasInputConfig()) {
         mergeInputConfig(other.getInputConfig());
+      }
+      if (other.hasInstanceConfig()) {
+        mergeInstanceConfig(other.getInstanceConfig());
       }
       if (other.hasModelParameters()) {
         mergeModelParameters(other.getModelParameters());
@@ -6988,6 +8745,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceAccount().isEmpty()) {
         serviceAccount_ = other.serviceAccount_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasManualBatchTuningParameters()) {
@@ -7012,7 +8770,7 @@ private static final long serialVersionUID = 0L;
         if (!other.partialFailures_.isEmpty()) {
           if (partialFailures_.isEmpty()) {
             partialFailures_ = other.partialFailures_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00020000);
           } else {
             ensurePartialFailuresIsMutable();
             partialFailures_.addAll(other.partialFailures_);
@@ -7025,7 +8783,7 @@ private static final long serialVersionUID = 0L;
             partialFailuresBuilder_.dispose();
             partialFailuresBuilder_ = null;
             partialFailures_ = other.partialFailures_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00020000);
             partialFailuresBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPartialFailuresFieldBuilder() : null;
@@ -7054,13 +8812,43 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x01000000;
       if (other.hasEncryptionSpec()) {
         mergeEncryptionSpec(other.getEncryptionSpec());
       }
       if (other.hasModelMonitoringConfig()) {
         mergeModelMonitoringConfig(other.getModelMonitoringConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        if (!other.modelMonitoringStatsAnomalies_.isEmpty()) {
+          if (modelMonitoringStatsAnomalies_.isEmpty()) {
+            modelMonitoringStatsAnomalies_ = other.modelMonitoringStatsAnomalies_;
+            bitField0_ = (bitField0_ & ~0x08000000);
+          } else {
+            ensureModelMonitoringStatsAnomaliesIsMutable();
+            modelMonitoringStatsAnomalies_.addAll(other.modelMonitoringStatsAnomalies_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.modelMonitoringStatsAnomalies_.isEmpty()) {
+          if (modelMonitoringStatsAnomaliesBuilder_.isEmpty()) {
+            modelMonitoringStatsAnomaliesBuilder_.dispose();
+            modelMonitoringStatsAnomaliesBuilder_ = null;
+            modelMonitoringStatsAnomalies_ = other.modelMonitoringStatsAnomalies_;
+            bitField0_ = (bitField0_ & ~0x08000000);
+            modelMonitoringStatsAnomaliesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getModelMonitoringStatsAnomaliesFieldBuilder() : null;
+          } else {
+            modelMonitoringStatsAnomaliesBuilder_.addAllMessages(other.modelMonitoringStatsAnomalies_);
+          }
+        }
+      }
+      if (other.hasModelMonitoringStatus()) {
+        mergeModelMonitoringStatus(other.getModelMonitoringStatus());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -7075,17 +8863,233 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.BatchPredictionJob parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              model_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getInputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getModelParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getOutputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDedicatedResourcesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getManualBatchTuningParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getOutputInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 74
+            case 80: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 90
+            case 98: {
+              com.google.rpc.Status m =
+                  input.readMessage(
+                      com.google.rpc.Status.parser(),
+                      extensionRegistry);
+              if (partialFailuresBuilder_ == null) {
+                ensurePartialFailuresIsMutable();
+                partialFailures_.add(m);
+              } else {
+                partialFailuresBuilder_.addMessage(m);
+              }
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getResourcesConsumedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getCompletionStatsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 146
+            case 154: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 154
+            case 184: {
+              generateExplanation_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 184
+            case 194: {
+              input.readMessage(
+                  getEncryptionSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 194
+            case 202: {
+              input.readMessage(
+                  getExplanationSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 202
+            case 210: {
+              input.readMessage(
+                  getModelMonitoringConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 210
+            case 218: {
+              input.readMessage(
+                  getInstanceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 218
+            case 226: {
+              input.readMessage(
+                  getUnmanagedContainerModelFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 226
+            case 234: {
+              serviceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 234
+            case 242: {
+              modelVersionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 242
+            case 250: {
+              com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies m =
+                  input.readMessage(
+                      com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.parser(),
+                      extensionRegistry);
+              if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+                ensureModelMonitoringStatsAnomaliesIsMutable();
+                modelMonitoringStatsAnomalies_.add(m);
+              } else {
+                modelMonitoringStatsAnomaliesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 250
+            case 258: {
+              input.readMessage(
+                  getModelMonitoringStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x10000000;
+              break;
+            } // case 258
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.BatchPredictionJob) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -7143,11 +9147,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -7160,8 +9162,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -7176,12 +9178,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -7239,11 +9239,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -7256,8 +9254,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -7272,12 +9270,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -7285,7 +9281,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object model_ = "";
     /**
      * <pre>
-     * The name of the Model resoure that produces the predictions via this job,
+     * The name of the Model resource that produces the predictions via this job,
      * must share the same ancestor Location.
      * Starting this job has no impact on any existing deployments of the Model
      * and their resources.
@@ -7311,7 +9307,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The name of the Model resoure that produces the predictions via this job,
+     * The name of the Model resource that produces the predictions via this job,
      * must share the same ancestor Location.
      * Starting this job has no impact on any existing deployments of the Model
      * and their resources.
@@ -7338,7 +9334,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The name of the Model resoure that produces the predictions via this job,
+     * The name of the Model resource that produces the predictions via this job,
      * must share the same ancestor Location.
      * Starting this job has no impact on any existing deployments of the Model
      * and their resources.
@@ -7353,17 +9349,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       model_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The name of the Model resoure that produces the predictions via this job,
+     * The name of the Model resource that produces the predictions via this job,
      * must share the same ancestor Location.
      * Starting this job has no impact on any existing deployments of the Model
      * and their resources.
@@ -7376,14 +9370,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModel() {
-      
       model_ = getDefaultInstance().getModel();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The name of the Model resoure that produces the predictions via this job,
+     * The name of the Model resource that produces the predictions via this job,
      * must share the same ancestor Location.
      * Starting this job has no impact on any existing deployments of the Model
      * and their resources.
@@ -7398,12 +9392,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       model_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -7461,11 +9453,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelVersionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       modelVersionId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -7478,8 +9468,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModelVersionId() {
-      
       modelVersionId_ = getDefaultInstance().getModelVersionId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -7494,12 +9484,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelVersionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       modelVersionId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -7518,7 +9506,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the unmanagedContainerModel field is set.
      */
     public boolean hasUnmanagedContainerModel() {
-      return unmanagedContainerModelBuilder_ != null || unmanagedContainerModel_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -7552,11 +9540,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         unmanagedContainerModel_ = value;
-        onChanged();
       } else {
         unmanagedContainerModelBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -7572,11 +9560,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel.Builder builderForValue) {
       if (unmanagedContainerModelBuilder_ == null) {
         unmanagedContainerModel_ = builderForValue.build();
-        onChanged();
       } else {
         unmanagedContainerModelBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -7590,17 +9578,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUnmanagedContainerModel(com.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel value) {
       if (unmanagedContainerModelBuilder_ == null) {
-        if (unmanagedContainerModel_ != null) {
-          unmanagedContainerModel_ =
-            com.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel.newBuilder(unmanagedContainerModel_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          unmanagedContainerModel_ != null &&
+          unmanagedContainerModel_ != com.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel.getDefaultInstance()) {
+          getUnmanagedContainerModelBuilder().mergeFrom(value);
         } else {
           unmanagedContainerModel_ = value;
         }
-        onChanged();
       } else {
         unmanagedContainerModelBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -7613,14 +9602,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel unmanaged_container_model = 28;</code>
      */
     public Builder clearUnmanagedContainerModel() {
-      if (unmanagedContainerModelBuilder_ == null) {
-        unmanagedContainerModel_ = null;
-        onChanged();
-      } else {
-        unmanagedContainerModel_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      unmanagedContainerModel_ = null;
+      if (unmanagedContainerModelBuilder_ != null) {
+        unmanagedContainerModelBuilder_.dispose();
         unmanagedContainerModelBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7633,7 +9621,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel unmanaged_container_model = 28;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.UnmanagedContainerModel.Builder getUnmanagedContainerModelBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getUnmanagedContainerModelFieldBuilder().getBuilder();
     }
@@ -7693,7 +9681,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inputConfig field is set.
      */
     public boolean hasInputConfig() {
-      return inputConfigBuilder_ != null || inputConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -7731,11 +9719,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inputConfig_ = value;
-        onChanged();
       } else {
         inputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -7753,11 +9741,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.Builder builderForValue) {
       if (inputConfigBuilder_ == null) {
         inputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         inputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -7773,17 +9761,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInputConfig(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig value) {
       if (inputConfigBuilder_ == null) {
-        if (inputConfig_ != null) {
-          inputConfig_ =
-            com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.newBuilder(inputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          inputConfig_ != null &&
+          inputConfig_ != com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.getDefaultInstance()) {
+          getInputConfigBuilder().mergeFrom(value);
         } else {
           inputConfig_ = value;
         }
-        onChanged();
       } else {
         inputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -7798,14 +9787,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig input_config = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearInputConfig() {
-      if (inputConfigBuilder_ == null) {
-        inputConfig_ = null;
-        onChanged();
-      } else {
-        inputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      inputConfig_ = null;
+      if (inputConfigBuilder_ != null) {
+        inputConfigBuilder_.dispose();
         inputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7820,7 +9808,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig input_config = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig.Builder getInputConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getInputConfigFieldBuilder().getBuilder();
     }
@@ -7868,6 +9856,170 @@ private static final long serialVersionUID = 0L;
       return inputConfigBuilder_;
     }
 
+    private com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instanceConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig, com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.Builder, com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfigOrBuilder> instanceConfigBuilder_;
+    /**
+     * <pre>
+     * Configuration for how to convert batch prediction input instances to the
+     * prediction instances that are sent to the Model.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+     * @return Whether the instanceConfig field is set.
+     */
+    public boolean hasInstanceConfig() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * Configuration for how to convert batch prediction input instances to the
+     * prediction instances that are sent to the Model.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+     * @return The instanceConfig.
+     */
+    public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig getInstanceConfig() {
+      if (instanceConfigBuilder_ == null) {
+        return instanceConfig_ == null ? com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.getDefaultInstance() : instanceConfig_;
+      } else {
+        return instanceConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Configuration for how to convert batch prediction input instances to the
+     * prediction instances that are sent to the Model.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+     */
+    public Builder setInstanceConfig(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig value) {
+      if (instanceConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        instanceConfig_ = value;
+      } else {
+        instanceConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for how to convert batch prediction input instances to the
+     * prediction instances that are sent to the Model.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+     */
+    public Builder setInstanceConfig(
+        com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.Builder builderForValue) {
+      if (instanceConfigBuilder_ == null) {
+        instanceConfig_ = builderForValue.build();
+      } else {
+        instanceConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for how to convert batch prediction input instances to the
+     * prediction instances that are sent to the Model.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+     */
+    public Builder mergeInstanceConfig(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig value) {
+      if (instanceConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000040) != 0) &&
+          instanceConfig_ != null &&
+          instanceConfig_ != com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.getDefaultInstance()) {
+          getInstanceConfigBuilder().mergeFrom(value);
+        } else {
+          instanceConfig_ = value;
+        }
+      } else {
+        instanceConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for how to convert batch prediction input instances to the
+     * prediction instances that are sent to the Model.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+     */
+    public Builder clearInstanceConfig() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      instanceConfig_ = null;
+      if (instanceConfigBuilder_ != null) {
+        instanceConfigBuilder_.dispose();
+        instanceConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for how to convert batch prediction input instances to the
+     * prediction instances that are sent to the Model.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+     */
+    public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.Builder getInstanceConfigBuilder() {
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return getInstanceConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Configuration for how to convert batch prediction input instances to the
+     * prediction instances that are sent to the Model.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+     */
+    public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfigOrBuilder getInstanceConfigOrBuilder() {
+      if (instanceConfigBuilder_ != null) {
+        return instanceConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return instanceConfig_ == null ?
+            com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.getDefaultInstance() : instanceConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Configuration for how to convert batch prediction input instances to the
+     * prediction instances that are sent to the Model.
+     * </pre>
+     *
+     * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig, com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.Builder, com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfigOrBuilder> 
+        getInstanceConfigFieldBuilder() {
+      if (instanceConfigBuilder_ == null) {
+        instanceConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig, com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig.Builder, com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfigOrBuilder>(
+                getInstanceConfig(),
+                getParentForChildren(),
+                isClean());
+        instanceConfig_ = null;
+      }
+      return instanceConfigBuilder_;
+    }
+
     private com.google.protobuf.Value modelParameters_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> modelParametersBuilder_;
@@ -7883,7 +10035,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the modelParameters field is set.
      */
     public boolean hasModelParameters() {
-      return modelParametersBuilder_ != null || modelParameters_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -7919,11 +10071,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         modelParameters_ = value;
-        onChanged();
       } else {
         modelParametersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -7940,11 +10092,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Value.Builder builderForValue) {
       if (modelParametersBuilder_ == null) {
         modelParameters_ = builderForValue.build();
-        onChanged();
       } else {
         modelParametersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -7959,17 +10111,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeModelParameters(com.google.protobuf.Value value) {
       if (modelParametersBuilder_ == null) {
-        if (modelParameters_ != null) {
-          modelParameters_ =
-            com.google.protobuf.Value.newBuilder(modelParameters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          modelParameters_ != null &&
+          modelParameters_ != com.google.protobuf.Value.getDefaultInstance()) {
+          getModelParametersBuilder().mergeFrom(value);
         } else {
           modelParameters_ = value;
         }
-        onChanged();
       } else {
         modelParametersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -7983,14 +10136,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value model_parameters = 5;</code>
      */
     public Builder clearModelParameters() {
-      if (modelParametersBuilder_ == null) {
-        modelParameters_ = null;
-        onChanged();
-      } else {
-        modelParameters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      modelParameters_ = null;
+      if (modelParametersBuilder_ != null) {
+        modelParametersBuilder_.dispose();
         modelParametersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8004,7 +10156,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value model_parameters = 5;</code>
      */
     public com.google.protobuf.Value.Builder getModelParametersBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getModelParametersFieldBuilder().getBuilder();
     }
@@ -8069,7 +10221,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputConfig field is set.
      */
     public boolean hasOutputConfig() {
-      return outputConfigBuilder_ != null || outputConfig_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -8113,11 +10265,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputConfig_ = value;
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -8138,11 +10290,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig.Builder builderForValue) {
       if (outputConfigBuilder_ == null) {
         outputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -8161,17 +10313,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputConfig(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig value) {
       if (outputConfigBuilder_ == null) {
-        if (outputConfig_ != null) {
-          outputConfig_ =
-            com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig.newBuilder(outputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          outputConfig_ != null &&
+          outputConfig_ != com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig.getDefaultInstance()) {
+          getOutputConfigBuilder().mergeFrom(value);
         } else {
           outputConfig_ = value;
         }
-        onChanged();
       } else {
         outputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -8189,14 +10342,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig output_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearOutputConfig() {
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-        onChanged();
-      } else {
-        outputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8214,7 +10366,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig output_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputConfig.Builder getOutputConfigBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getOutputConfigFieldBuilder().getBuilder();
     }
@@ -8284,7 +10436,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dedicatedResources field is set.
      */
     public boolean hasDedicatedResources() {
-      return dedicatedResourcesBuilder_ != null || dedicatedResources_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -8322,11 +10474,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dedicatedResources_ = value;
-        onChanged();
       } else {
         dedicatedResourcesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -8344,11 +10496,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.BatchDedicatedResources.Builder builderForValue) {
       if (dedicatedResourcesBuilder_ == null) {
         dedicatedResources_ = builderForValue.build();
-        onChanged();
       } else {
         dedicatedResourcesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -8364,17 +10516,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDedicatedResources(com.google.cloud.aiplatform.v1beta1.BatchDedicatedResources value) {
       if (dedicatedResourcesBuilder_ == null) {
-        if (dedicatedResources_ != null) {
-          dedicatedResources_ =
-            com.google.cloud.aiplatform.v1beta1.BatchDedicatedResources.newBuilder(dedicatedResources_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          dedicatedResources_ != null &&
+          dedicatedResources_ != com.google.cloud.aiplatform.v1beta1.BatchDedicatedResources.getDefaultInstance()) {
+          getDedicatedResourcesBuilder().mergeFrom(value);
         } else {
           dedicatedResources_ = value;
         }
-        onChanged();
       } else {
         dedicatedResourcesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -8389,14 +10542,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BatchDedicatedResources dedicated_resources = 7;</code>
      */
     public Builder clearDedicatedResources() {
-      if (dedicatedResourcesBuilder_ == null) {
-        dedicatedResources_ = null;
-        onChanged();
-      } else {
-        dedicatedResources_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      dedicatedResources_ = null;
+      if (dedicatedResourcesBuilder_ != null) {
+        dedicatedResourcesBuilder_.dispose();
         dedicatedResourcesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8411,7 +10563,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BatchDedicatedResources dedicated_resources = 7;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.BatchDedicatedResources.Builder getDedicatedResourcesBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getDedicatedResourcesFieldBuilder().getBuilder();
     }
@@ -8465,7 +10617,7 @@ private static final long serialVersionUID = 0L;
      * The service account that the DeployedModel's container runs as. If not
      * specified, a system generated one will be used, which
      * has minimal permissions and the custom container, if used, may not have
-     * enough permission to access other GCP resources.
+     * enough permission to access other Google Cloud resources.
      * Users deploying the Model must have the `iam.serviceAccounts.actAs`
      * permission on this service account.
      * </pre>
@@ -8490,7 +10642,7 @@ private static final long serialVersionUID = 0L;
      * The service account that the DeployedModel's container runs as. If not
      * specified, a system generated one will be used, which
      * has minimal permissions and the custom container, if used, may not have
-     * enough permission to access other GCP resources.
+     * enough permission to access other Google Cloud resources.
      * Users deploying the Model must have the `iam.serviceAccounts.actAs`
      * permission on this service account.
      * </pre>
@@ -8516,7 +10668,7 @@ private static final long serialVersionUID = 0L;
      * The service account that the DeployedModel's container runs as. If not
      * specified, a system generated one will be used, which
      * has minimal permissions and the custom container, if used, may not have
-     * enough permission to access other GCP resources.
+     * enough permission to access other Google Cloud resources.
      * Users deploying the Model must have the `iam.serviceAccounts.actAs`
      * permission on this service account.
      * </pre>
@@ -8527,11 +10679,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccount_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -8540,7 +10690,7 @@ private static final long serialVersionUID = 0L;
      * The service account that the DeployedModel's container runs as. If not
      * specified, a system generated one will be used, which
      * has minimal permissions and the custom container, if used, may not have
-     * enough permission to access other GCP resources.
+     * enough permission to access other Google Cloud resources.
      * Users deploying the Model must have the `iam.serviceAccounts.actAs`
      * permission on this service account.
      * </pre>
@@ -8549,8 +10699,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceAccount() {
-      
       serviceAccount_ = getDefaultInstance().getServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -8559,7 +10709,7 @@ private static final long serialVersionUID = 0L;
      * The service account that the DeployedModel's container runs as. If not
      * specified, a system generated one will be used, which
      * has minimal permissions and the custom container, if used, may not have
-     * enough permission to access other GCP resources.
+     * enough permission to access other Google Cloud resources.
      * Users deploying the Model must have the `iam.serviceAccounts.actAs`
      * permission on this service account.
      * </pre>
@@ -8570,12 +10720,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccount_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -8594,7 +10742,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the manualBatchTuningParameters field is set.
      */
     public boolean hasManualBatchTuningParameters() {
-      return manualBatchTuningParametersBuilder_ != null || manualBatchTuningParameters_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -8628,11 +10776,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         manualBatchTuningParameters_ = value;
-        onChanged();
       } else {
         manualBatchTuningParametersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -8648,11 +10796,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters.Builder builderForValue) {
       if (manualBatchTuningParametersBuilder_ == null) {
         manualBatchTuningParameters_ = builderForValue.build();
-        onChanged();
       } else {
         manualBatchTuningParametersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -8666,17 +10814,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeManualBatchTuningParameters(com.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters value) {
       if (manualBatchTuningParametersBuilder_ == null) {
-        if (manualBatchTuningParameters_ != null) {
-          manualBatchTuningParameters_ =
-            com.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters.newBuilder(manualBatchTuningParameters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          manualBatchTuningParameters_ != null &&
+          manualBatchTuningParameters_ != com.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters.getDefaultInstance()) {
+          getManualBatchTuningParametersBuilder().mergeFrom(value);
         } else {
           manualBatchTuningParameters_ = value;
         }
-        onChanged();
       } else {
         manualBatchTuningParametersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -8689,14 +10838,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters manual_batch_tuning_parameters = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public Builder clearManualBatchTuningParameters() {
-      if (manualBatchTuningParametersBuilder_ == null) {
-        manualBatchTuningParameters_ = null;
-        onChanged();
-      } else {
-        manualBatchTuningParameters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      manualBatchTuningParameters_ = null;
+      if (manualBatchTuningParametersBuilder_ != null) {
+        manualBatchTuningParametersBuilder_.dispose();
         manualBatchTuningParametersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8709,7 +10857,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters manual_batch_tuning_parameters = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.ManualBatchTuningParameters.Builder getManualBatchTuningParametersBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getManualBatchTuningParametersFieldBuilder().getBuilder();
     }
@@ -8800,6 +10948,7 @@ private static final long serialVersionUID = 0L;
     public Builder setGenerateExplanation(boolean value) {
       
       generateExplanation_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -8823,7 +10972,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGenerateExplanation() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       generateExplanation_ = false;
       onChanged();
       return this;
@@ -8846,7 +10995,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the explanationSpec field is set.
      */
     public boolean hasExplanationSpec() {
-      return explanationSpecBuilder_ != null || explanationSpec_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -8886,11 +11035,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         explanationSpec_ = value;
-        onChanged();
       } else {
         explanationSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -8909,11 +11058,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.ExplanationSpec.Builder builderForValue) {
       if (explanationSpecBuilder_ == null) {
         explanationSpec_ = builderForValue.build();
-        onChanged();
       } else {
         explanationSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -8930,17 +11079,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExplanationSpec(com.google.cloud.aiplatform.v1beta1.ExplanationSpec value) {
       if (explanationSpecBuilder_ == null) {
-        if (explanationSpec_ != null) {
-          explanationSpec_ =
-            com.google.cloud.aiplatform.v1beta1.ExplanationSpec.newBuilder(explanationSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          explanationSpec_ != null &&
+          explanationSpec_ != com.google.cloud.aiplatform.v1beta1.ExplanationSpec.getDefaultInstance()) {
+          getExplanationSpecBuilder().mergeFrom(value);
         } else {
           explanationSpec_ = value;
         }
-        onChanged();
       } else {
         explanationSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -8956,14 +11106,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ExplanationSpec explanation_spec = 25;</code>
      */
     public Builder clearExplanationSpec() {
-      if (explanationSpecBuilder_ == null) {
-        explanationSpec_ = null;
-        onChanged();
-      } else {
-        explanationSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      explanationSpec_ = null;
+      if (explanationSpecBuilder_ != null) {
+        explanationSpecBuilder_.dispose();
         explanationSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8979,7 +11128,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ExplanationSpec explanation_spec = 25;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.ExplanationSpec.Builder getExplanationSpecBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getExplanationSpecFieldBuilder().getBuilder();
     }
@@ -9041,7 +11190,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputInfo field is set.
      */
     public boolean hasOutputInfo() {
-      return outputInfoBuilder_ != null || outputInfo_ != null;
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -9071,11 +11220,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputInfo_ = value;
-        onChanged();
       } else {
         outputInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -9089,11 +11238,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo.Builder builderForValue) {
       if (outputInfoBuilder_ == null) {
         outputInfo_ = builderForValue.build();
-        onChanged();
       } else {
         outputInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -9105,17 +11254,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputInfo(com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo value) {
       if (outputInfoBuilder_ == null) {
-        if (outputInfo_ != null) {
-          outputInfo_ =
-            com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo.newBuilder(outputInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00004000) != 0) &&
+          outputInfo_ != null &&
+          outputInfo_ != com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo.getDefaultInstance()) {
+          getOutputInfoBuilder().mergeFrom(value);
         } else {
           outputInfo_ = value;
         }
-        onChanged();
       } else {
         outputInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -9126,14 +11276,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo output_info = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearOutputInfo() {
-      if (outputInfoBuilder_ == null) {
-        outputInfo_ = null;
-        onChanged();
-      } else {
-        outputInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      outputInfo_ = null;
+      if (outputInfoBuilder_ != null) {
+        outputInfoBuilder_.dispose();
         outputInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -9144,7 +11293,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo output_info = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.OutputInfo.Builder getOutputInfoBuilder() {
-      
+      bitField0_ |= 0x00004000;
       onChanged();
       return getOutputInfoFieldBuilder().getBuilder();
     }
@@ -9206,8 +11355,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -9221,8 +11370,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.JobState getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.aiplatform.v1beta1.JobState result = com.google.cloud.aiplatform.v1beta1.JobState.valueOf(state_);
+      com.google.cloud.aiplatform.v1beta1.JobState result = com.google.cloud.aiplatform.v1beta1.JobState.forNumber(state_);
       return result == null ? com.google.cloud.aiplatform.v1beta1.JobState.UNRECOGNIZED : result;
     }
     /**
@@ -9238,7 +11386,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00008000;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -9252,7 +11400,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       state_ = 0;
       onChanged();
       return this;
@@ -9271,7 +11419,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the error field is set.
      */
     public boolean hasError() {
-      return errorBuilder_ != null || error_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -9303,11 +11451,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         error_ = value;
-        onChanged();
       } else {
         errorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -9322,11 +11470,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (errorBuilder_ == null) {
         error_ = builderForValue.build();
-        onChanged();
       } else {
         errorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -9339,17 +11487,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeError(com.google.rpc.Status value) {
       if (errorBuilder_ == null) {
-        if (error_ != null) {
-          error_ =
-            com.google.rpc.Status.newBuilder(error_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          error_ != null &&
+          error_ != com.google.rpc.Status.getDefaultInstance()) {
+          getErrorBuilder().mergeFrom(value);
         } else {
           error_ = value;
         }
-        onChanged();
       } else {
         errorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -9361,14 +11510,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearError() {
-      if (errorBuilder_ == null) {
-        error_ = null;
-        onChanged();
-      } else {
-        error_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -9380,7 +11528,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.rpc.Status.Builder getErrorBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getErrorFieldBuilder().getBuilder();
     }
@@ -9425,9 +11573,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.rpc.Status> partialFailures_ =
       java.util.Collections.emptyList();
     private void ensurePartialFailuresIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00020000) != 0)) {
         partialFailures_ = new java.util.ArrayList<com.google.rpc.Status>(partialFailures_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00020000;
        }
     }
 
@@ -9439,7 +11587,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9456,7 +11604,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9473,7 +11621,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9490,7 +11638,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9514,7 +11662,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9535,7 +11683,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9558,7 +11706,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9582,7 +11730,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9603,7 +11751,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9624,7 +11772,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9646,7 +11794,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9654,7 +11802,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPartialFailures() {
       if (partialFailuresBuilder_ == null) {
         partialFailures_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00020000);
         onChanged();
       } else {
         partialFailuresBuilder_.clear();
@@ -9666,7 +11814,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9686,7 +11834,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9700,7 +11848,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9717,7 +11865,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9735,7 +11883,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9749,7 +11897,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9764,7 +11912,7 @@ private static final long serialVersionUID = 0L;
      * Output only. Partial failures encountered.
      * For example, single files that can't be read.
      * This field never exceeds 20 entries.
-     * Status details fields contain standard GCP error details.
+     * Status details fields contain standard Google Cloud error details.
      * </pre>
      *
      * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -9780,7 +11928,7 @@ private static final long serialVersionUID = 0L;
         partialFailuresBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.rpc.Status, com.google.rpc.Status.Builder, com.google.rpc.StatusOrBuilder>(
                 partialFailures_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00020000) != 0),
                 getParentForChildren(),
                 isClean());
         partialFailures_ = null;
@@ -9804,7 +11952,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resourcesConsumed field is set.
      */
     public boolean hasResourcesConsumed() {
-      return resourcesConsumedBuilder_ != null || resourcesConsumed_ != null;
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <pre>
@@ -9842,11 +11990,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resourcesConsumed_ = value;
-        onChanged();
       } else {
         resourcesConsumedBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -9864,11 +12012,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.ResourcesConsumed.Builder builderForValue) {
       if (resourcesConsumedBuilder_ == null) {
         resourcesConsumed_ = builderForValue.build();
-        onChanged();
       } else {
         resourcesConsumedBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -9884,17 +12032,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResourcesConsumed(com.google.cloud.aiplatform.v1beta1.ResourcesConsumed value) {
       if (resourcesConsumedBuilder_ == null) {
-        if (resourcesConsumed_ != null) {
-          resourcesConsumed_ =
-            com.google.cloud.aiplatform.v1beta1.ResourcesConsumed.newBuilder(resourcesConsumed_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00040000) != 0) &&
+          resourcesConsumed_ != null &&
+          resourcesConsumed_ != com.google.cloud.aiplatform.v1beta1.ResourcesConsumed.getDefaultInstance()) {
+          getResourcesConsumedBuilder().mergeFrom(value);
         } else {
           resourcesConsumed_ = value;
         }
-        onChanged();
       } else {
         resourcesConsumedBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -9909,14 +12058,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ResourcesConsumed resources_consumed = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearResourcesConsumed() {
-      if (resourcesConsumedBuilder_ == null) {
-        resourcesConsumed_ = null;
-        onChanged();
-      } else {
-        resourcesConsumed_ = null;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      resourcesConsumed_ = null;
+      if (resourcesConsumedBuilder_ != null) {
+        resourcesConsumedBuilder_.dispose();
         resourcesConsumedBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -9931,7 +12079,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ResourcesConsumed resources_consumed = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.ResourcesConsumed.Builder getResourcesConsumedBuilder() {
-      
+      bitField0_ |= 0x00040000;
       onChanged();
       return getResourcesConsumedFieldBuilder().getBuilder();
     }
@@ -9991,7 +12139,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the completionStats field is set.
      */
     public boolean hasCompletionStats() {
-      return completionStatsBuilder_ != null || completionStats_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
@@ -10021,11 +12169,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         completionStats_ = value;
-        onChanged();
       } else {
         completionStatsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -10039,11 +12187,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.CompletionStats.Builder builderForValue) {
       if (completionStatsBuilder_ == null) {
         completionStats_ = builderForValue.build();
-        onChanged();
       } else {
         completionStatsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -10055,17 +12203,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCompletionStats(com.google.cloud.aiplatform.v1beta1.CompletionStats value) {
       if (completionStatsBuilder_ == null) {
-        if (completionStats_ != null) {
-          completionStats_ =
-            com.google.cloud.aiplatform.v1beta1.CompletionStats.newBuilder(completionStats_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          completionStats_ != null &&
+          completionStats_ != com.google.cloud.aiplatform.v1beta1.CompletionStats.getDefaultInstance()) {
+          getCompletionStatsBuilder().mergeFrom(value);
         } else {
           completionStats_ = value;
         }
-        onChanged();
       } else {
         completionStatsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -10076,14 +12225,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.CompletionStats completion_stats = 14 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCompletionStats() {
-      if (completionStatsBuilder_ == null) {
-        completionStats_ = null;
-        onChanged();
-      } else {
-        completionStats_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      completionStats_ = null;
+      if (completionStatsBuilder_ != null) {
+        completionStatsBuilder_.dispose();
         completionStatsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10094,7 +12242,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.CompletionStats completion_stats = 14 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.CompletionStats.Builder getCompletionStatsBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getCompletionStatsFieldBuilder().getBuilder();
     }
@@ -10146,7 +12294,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00100000) != 0);
     }
     /**
      * <pre>
@@ -10176,11 +12324,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -10194,11 +12342,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -10210,17 +12358,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00100000) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -10231,14 +12380,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00100000);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10249,7 +12397,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00100000;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -10302,7 +12450,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
-      return startTimeBuilder_ != null || startTime_ != null;
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <pre>
@@ -10334,11 +12482,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startTime_ = value;
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -10353,11 +12501,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (startTimeBuilder_ == null) {
         startTime_ = builderForValue.build();
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -10370,17 +12518,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
-        if (startTime_ != null) {
-          startTime_ =
-            com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00200000) != 0) &&
+          startTime_ != null &&
+          startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStartTimeBuilder().mergeFrom(value);
         } else {
           startTime_ = value;
         }
-        onChanged();
       } else {
         startTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -10392,14 +12541,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearStartTime() {
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-        onChanged();
-      } else {
-        startTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00200000);
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10411,7 +12559,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-      
+      bitField0_ |= 0x00200000;
       onChanged();
       return getStartTimeFieldBuilder().getBuilder();
     }
@@ -10466,7 +12614,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
-      return endTimeBuilder_ != null || endTime_ != null;
+      return ((bitField0_ & 0x00400000) != 0);
     }
     /**
      * <pre>
@@ -10498,11 +12646,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endTime_ = value;
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -10517,11 +12665,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (endTimeBuilder_ == null) {
         endTime_ = builderForValue.build();
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -10534,17 +12682,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
-        if (endTime_ != null) {
-          endTime_ =
-            com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00400000) != 0) &&
+          endTime_ != null &&
+          endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEndTimeBuilder().mergeFrom(value);
         } else {
           endTime_ = value;
         }
-        onChanged();
       } else {
         endTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -10556,14 +12705,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearEndTime() {
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-        onChanged();
-      } else {
-        endTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00400000);
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10575,7 +12723,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 17 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-      
+      bitField0_ |= 0x00400000;
       onChanged();
       return getEndTimeFieldBuilder().getBuilder();
     }
@@ -10629,7 +12777,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00800000) != 0);
     }
     /**
      * <pre>
@@ -10659,11 +12807,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -10677,11 +12825,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -10693,17 +12841,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00800000) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -10714,14 +12863,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00800000);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -10732,7 +12880,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00800000;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -10775,7 +12923,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -10783,8 +12931,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -10792,9 +12939,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x01000000;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -10809,7 +12957,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 19;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -10836,7 +12983,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 19;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -10852,10 +12998,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 19;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -10873,7 +13020,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 19;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -10884,8 +13030,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x01000000);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -10901,7 +13047,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 19;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -10914,7 +13059,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x01000000;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -10932,12 +13078,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x01000000;
       return this;
     }
     /**
@@ -10951,11 +13095,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 19;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x01000000;
       return this;
     }
 
@@ -10973,7 +13117,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the encryptionSpec field is set.
      */
     public boolean hasEncryptionSpec() {
-      return encryptionSpecBuilder_ != null || encryptionSpec_ != null;
+      return ((bitField0_ & 0x02000000) != 0);
     }
     /**
      * <pre>
@@ -11007,11 +13151,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         encryptionSpec_ = value;
-        onChanged();
       } else {
         encryptionSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -11027,11 +13171,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.EncryptionSpec.Builder builderForValue) {
       if (encryptionSpecBuilder_ == null) {
         encryptionSpec_ = builderForValue.build();
-        onChanged();
       } else {
         encryptionSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -11045,17 +13189,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEncryptionSpec(com.google.cloud.aiplatform.v1beta1.EncryptionSpec value) {
       if (encryptionSpecBuilder_ == null) {
-        if (encryptionSpec_ != null) {
-          encryptionSpec_ =
-            com.google.cloud.aiplatform.v1beta1.EncryptionSpec.newBuilder(encryptionSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x02000000) != 0) &&
+          encryptionSpec_ != null &&
+          encryptionSpec_ != com.google.cloud.aiplatform.v1beta1.EncryptionSpec.getDefaultInstance()) {
+          getEncryptionSpecBuilder().mergeFrom(value);
         } else {
           encryptionSpec_ = value;
         }
-        onChanged();
       } else {
         encryptionSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -11068,14 +13213,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.EncryptionSpec encryption_spec = 24;</code>
      */
     public Builder clearEncryptionSpec() {
-      if (encryptionSpecBuilder_ == null) {
-        encryptionSpec_ = null;
-        onChanged();
-      } else {
-        encryptionSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x02000000);
+      encryptionSpec_ = null;
+      if (encryptionSpecBuilder_ != null) {
+        encryptionSpecBuilder_.dispose();
         encryptionSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11088,7 +13232,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.EncryptionSpec encryption_spec = 24;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.EncryptionSpec.Builder getEncryptionSpecBuilder() {
-      
+      bitField0_ |= 0x02000000;
       onChanged();
       return getEncryptionSpecFieldBuilder().getBuilder();
     }
@@ -11146,7 +13290,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the modelMonitoringConfig field is set.
      */
     public boolean hasModelMonitoringConfig() {
-      return modelMonitoringConfigBuilder_ != null || modelMonitoringConfig_ != null;
+      return ((bitField0_ & 0x04000000) != 0);
     }
     /**
      * <pre>
@@ -11180,11 +13324,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         modelMonitoringConfig_ = value;
-        onChanged();
       } else {
         modelMonitoringConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -11200,11 +13344,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig.Builder builderForValue) {
       if (modelMonitoringConfigBuilder_ == null) {
         modelMonitoringConfig_ = builderForValue.build();
-        onChanged();
       } else {
         modelMonitoringConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -11218,17 +13362,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeModelMonitoringConfig(com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig value) {
       if (modelMonitoringConfigBuilder_ == null) {
-        if (modelMonitoringConfig_ != null) {
-          modelMonitoringConfig_ =
-            com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig.newBuilder(modelMonitoringConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x04000000) != 0) &&
+          modelMonitoringConfig_ != null &&
+          modelMonitoringConfig_ != com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig.getDefaultInstance()) {
+          getModelMonitoringConfigBuilder().mergeFrom(value);
         } else {
           modelMonitoringConfig_ = value;
         }
-        onChanged();
       } else {
         modelMonitoringConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -11241,14 +13386,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig model_monitoring_config = 26;</code>
      */
     public Builder clearModelMonitoringConfig() {
-      if (modelMonitoringConfigBuilder_ == null) {
-        modelMonitoringConfig_ = null;
-        onChanged();
-      } else {
-        modelMonitoringConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x04000000);
+      modelMonitoringConfig_ = null;
+      if (modelMonitoringConfigBuilder_ != null) {
+        modelMonitoringConfigBuilder_.dispose();
         modelMonitoringConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11261,7 +13405,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig model_monitoring_config = 26;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig.Builder getModelMonitoringConfigBuilder() {
-      
+      bitField0_ |= 0x04000000;
       onChanged();
       return getModelMonitoringConfigFieldBuilder().getBuilder();
     }
@@ -11304,6 +13448,473 @@ private static final long serialVersionUID = 0L;
       }
       return modelMonitoringConfigBuilder_;
     }
+
+    private java.util.List<com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies> modelMonitoringStatsAnomalies_ =
+      java.util.Collections.emptyList();
+    private void ensureModelMonitoringStatsAnomaliesIsMutable() {
+      if (!((bitField0_ & 0x08000000) != 0)) {
+        modelMonitoringStatsAnomalies_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies>(modelMonitoringStatsAnomalies_);
+        bitField0_ |= 0x08000000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomaliesOrBuilder> modelMonitoringStatsAnomaliesBuilder_;
+
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public java.util.List<com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies> getModelMonitoringStatsAnomaliesList() {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(modelMonitoringStatsAnomalies_);
+      } else {
+        return modelMonitoringStatsAnomaliesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public int getModelMonitoringStatsAnomaliesCount() {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        return modelMonitoringStatsAnomalies_.size();
+      } else {
+        return modelMonitoringStatsAnomaliesBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies getModelMonitoringStatsAnomalies(int index) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        return modelMonitoringStatsAnomalies_.get(index);
+      } else {
+        return modelMonitoringStatsAnomaliesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public Builder setModelMonitoringStatsAnomalies(
+        int index, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies value) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureModelMonitoringStatsAnomaliesIsMutable();
+        modelMonitoringStatsAnomalies_.set(index, value);
+        onChanged();
+      } else {
+        modelMonitoringStatsAnomaliesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public Builder setModelMonitoringStatsAnomalies(
+        int index, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder builderForValue) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        ensureModelMonitoringStatsAnomaliesIsMutable();
+        modelMonitoringStatsAnomalies_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        modelMonitoringStatsAnomaliesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public Builder addModelMonitoringStatsAnomalies(com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies value) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureModelMonitoringStatsAnomaliesIsMutable();
+        modelMonitoringStatsAnomalies_.add(value);
+        onChanged();
+      } else {
+        modelMonitoringStatsAnomaliesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public Builder addModelMonitoringStatsAnomalies(
+        int index, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies value) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureModelMonitoringStatsAnomaliesIsMutable();
+        modelMonitoringStatsAnomalies_.add(index, value);
+        onChanged();
+      } else {
+        modelMonitoringStatsAnomaliesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public Builder addModelMonitoringStatsAnomalies(
+        com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder builderForValue) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        ensureModelMonitoringStatsAnomaliesIsMutable();
+        modelMonitoringStatsAnomalies_.add(builderForValue.build());
+        onChanged();
+      } else {
+        modelMonitoringStatsAnomaliesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public Builder addModelMonitoringStatsAnomalies(
+        int index, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder builderForValue) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        ensureModelMonitoringStatsAnomaliesIsMutable();
+        modelMonitoringStatsAnomalies_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        modelMonitoringStatsAnomaliesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public Builder addAllModelMonitoringStatsAnomalies(
+        java.lang.Iterable<? extends com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies> values) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        ensureModelMonitoringStatsAnomaliesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, modelMonitoringStatsAnomalies_);
+        onChanged();
+      } else {
+        modelMonitoringStatsAnomaliesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public Builder clearModelMonitoringStatsAnomalies() {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        modelMonitoringStatsAnomalies_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x08000000);
+        onChanged();
+      } else {
+        modelMonitoringStatsAnomaliesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public Builder removeModelMonitoringStatsAnomalies(int index) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        ensureModelMonitoringStatsAnomaliesIsMutable();
+        modelMonitoringStatsAnomalies_.remove(index);
+        onChanged();
+      } else {
+        modelMonitoringStatsAnomaliesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder getModelMonitoringStatsAnomaliesBuilder(
+        int index) {
+      return getModelMonitoringStatsAnomaliesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomaliesOrBuilder getModelMonitoringStatsAnomaliesOrBuilder(
+        int index) {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        return modelMonitoringStatsAnomalies_.get(index);  } else {
+        return modelMonitoringStatsAnomaliesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public java.util.List<? extends com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomaliesOrBuilder> 
+         getModelMonitoringStatsAnomaliesOrBuilderList() {
+      if (modelMonitoringStatsAnomaliesBuilder_ != null) {
+        return modelMonitoringStatsAnomaliesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(modelMonitoringStatsAnomalies_);
+      }
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder addModelMonitoringStatsAnomaliesBuilder() {
+      return getModelMonitoringStatsAnomaliesFieldBuilder().addBuilder(
+          com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder addModelMonitoringStatsAnomaliesBuilder(
+        int index) {
+      return getModelMonitoringStatsAnomaliesFieldBuilder().addBuilder(
+          index, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Get batch prediction job monitoring statistics.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+     */
+    public java.util.List<com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder> 
+         getModelMonitoringStatsAnomaliesBuilderList() {
+      return getModelMonitoringStatsAnomaliesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomaliesOrBuilder> 
+        getModelMonitoringStatsAnomaliesFieldBuilder() {
+      if (modelMonitoringStatsAnomaliesBuilder_ == null) {
+        modelMonitoringStatsAnomaliesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies.Builder, com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomaliesOrBuilder>(
+                modelMonitoringStatsAnomalies_,
+                ((bitField0_ & 0x08000000) != 0),
+                getParentForChildren(),
+                isClean());
+        modelMonitoringStatsAnomalies_ = null;
+      }
+      return modelMonitoringStatsAnomaliesBuilder_;
+    }
+
+    private com.google.rpc.Status modelMonitoringStatus_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.rpc.Status, com.google.rpc.Status.Builder, com.google.rpc.StatusOrBuilder> modelMonitoringStatusBuilder_;
+    /**
+     * <pre>
+     * Output only. The running status of the model monitoring pipeline.
+     * </pre>
+     *
+     * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the modelMonitoringStatus field is set.
+     */
+    public boolean hasModelMonitoringStatus() {
+      return ((bitField0_ & 0x10000000) != 0);
+    }
+    /**
+     * <pre>
+     * Output only. The running status of the model monitoring pipeline.
+     * </pre>
+     *
+     * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The modelMonitoringStatus.
+     */
+    public com.google.rpc.Status getModelMonitoringStatus() {
+      if (modelMonitoringStatusBuilder_ == null) {
+        return modelMonitoringStatus_ == null ? com.google.rpc.Status.getDefaultInstance() : modelMonitoringStatus_;
+      } else {
+        return modelMonitoringStatusBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The running status of the model monitoring pipeline.
+     * </pre>
+     *
+     * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setModelMonitoringStatus(com.google.rpc.Status value) {
+      if (modelMonitoringStatusBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        modelMonitoringStatus_ = value;
+      } else {
+        modelMonitoringStatusBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x10000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The running status of the model monitoring pipeline.
+     * </pre>
+     *
+     * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setModelMonitoringStatus(
+        com.google.rpc.Status.Builder builderForValue) {
+      if (modelMonitoringStatusBuilder_ == null) {
+        modelMonitoringStatus_ = builderForValue.build();
+      } else {
+        modelMonitoringStatusBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x10000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The running status of the model monitoring pipeline.
+     * </pre>
+     *
+     * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder mergeModelMonitoringStatus(com.google.rpc.Status value) {
+      if (modelMonitoringStatusBuilder_ == null) {
+        if (((bitField0_ & 0x10000000) != 0) &&
+          modelMonitoringStatus_ != null &&
+          modelMonitoringStatus_ != com.google.rpc.Status.getDefaultInstance()) {
+          getModelMonitoringStatusBuilder().mergeFrom(value);
+        } else {
+          modelMonitoringStatus_ = value;
+        }
+      } else {
+        modelMonitoringStatusBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x10000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The running status of the model monitoring pipeline.
+     * </pre>
+     *
+     * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder clearModelMonitoringStatus() {
+      bitField0_ = (bitField0_ & ~0x10000000);
+      modelMonitoringStatus_ = null;
+      if (modelMonitoringStatusBuilder_ != null) {
+        modelMonitoringStatusBuilder_.dispose();
+        modelMonitoringStatusBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The running status of the model monitoring pipeline.
+     * </pre>
+     *
+     * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.rpc.Status.Builder getModelMonitoringStatusBuilder() {
+      bitField0_ |= 0x10000000;
+      onChanged();
+      return getModelMonitoringStatusFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Output only. The running status of the model monitoring pipeline.
+     * </pre>
+     *
+     * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.rpc.StatusOrBuilder getModelMonitoringStatusOrBuilder() {
+      if (modelMonitoringStatusBuilder_ != null) {
+        return modelMonitoringStatusBuilder_.getMessageOrBuilder();
+      } else {
+        return modelMonitoringStatus_ == null ?
+            com.google.rpc.Status.getDefaultInstance() : modelMonitoringStatus_;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The running status of the model monitoring pipeline.
+     * </pre>
+     *
+     * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.rpc.Status, com.google.rpc.Status.Builder, com.google.rpc.StatusOrBuilder> 
+        getModelMonitoringStatusFieldBuilder() {
+      if (modelMonitoringStatusBuilder_ == null) {
+        modelMonitoringStatusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.rpc.Status, com.google.rpc.Status.Builder, com.google.rpc.StatusOrBuilder>(
+                getModelMonitoringStatus(),
+                getParentForChildren(),
+                isClean());
+        modelMonitoringStatus_ = null;
+      }
+      return modelMonitoringStatusBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -11337,7 +13948,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BatchPredictionJob(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

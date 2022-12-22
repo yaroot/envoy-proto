@@ -110,7 +110,6 @@ public interface MaintenanceWindowOrBuilder extends
    *
    * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
    */
-
   /* nullable */
 com.google.container.v1.TimeWindow getMaintenanceExclusionsOrDefault(
       java.lang.String key,
@@ -124,7 +123,6 @@ com.google.container.v1.TimeWindow defaultValue);
    *
    * <code>map&lt;string, .google.container.v1.TimeWindow&gt; maintenance_exclusions = 4;</code>
    */
-
   com.google.container.v1.TimeWindow getMaintenanceExclusionsOrThrow(
       java.lang.String key);
 

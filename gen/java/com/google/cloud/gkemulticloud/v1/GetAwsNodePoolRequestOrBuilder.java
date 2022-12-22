@@ -9,7 +9,9 @@ public interface GetAwsNodePoolRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The name of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource to describe.
+   * Required. The name of the
+   * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource to
+   * describe.
    * `AwsNodePool` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -22,7 +24,9 @@ public interface GetAwsNodePoolRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The name of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource to describe.
+   * Required. The name of the
+   * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource to
+   * describe.
    * `AwsNodePool` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)

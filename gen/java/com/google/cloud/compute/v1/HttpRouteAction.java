@@ -34,149 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpRouteAction(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 454399306: {
-            com.google.cloud.compute.v1.HttpRetryPolicy.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000010) != 0)) {
-              subBuilder = retryPolicy_.toBuilder();
-            }
-            retryPolicy_ = input.readMessage(com.google.cloud.compute.v1.HttpRetryPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retryPolicy_);
-              retryPolicy_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000010;
-            break;
-          }
-          case 491427010: {
-            com.google.cloud.compute.v1.Duration.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = maxStreamDuration_.toBuilder();
-            }
-            maxStreamDuration_ = input.readMessage(com.google.cloud.compute.v1.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxStreamDuration_);
-              maxStreamDuration_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case 1761574930: {
-            com.google.cloud.compute.v1.RequestMirrorPolicy.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000008) != 0)) {
-              subBuilder = requestMirrorPolicy_.toBuilder();
-            }
-            requestMirrorPolicy_ = input.readMessage(com.google.cloud.compute.v1.RequestMirrorPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requestMirrorPolicy_);
-              requestMirrorPolicy_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000008;
-            break;
-          }
-          case -2108295710: {
-            com.google.cloud.compute.v1.UrlRewrite.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000040) != 0)) {
-              subBuilder = urlRewrite_.toBuilder();
-            }
-            urlRewrite_ = input.readMessage(com.google.cloud.compute.v1.UrlRewrite.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(urlRewrite_);
-              urlRewrite_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000040;
-            break;
-          }
-          case -1921357046: {
-            com.google.cloud.compute.v1.Duration.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000020) != 0)) {
-              subBuilder = timeout_.toBuilder();
-            }
-            timeout_ = input.readMessage(com.google.cloud.compute.v1.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeout_);
-              timeout_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000020;
-            break;
-          }
-          case -1598742902: {
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              weightedBackendServices_ = new java.util.ArrayList<com.google.cloud.compute.v1.WeightedBackendService>();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            weightedBackendServices_.add(
-                input.readMessage(com.google.cloud.compute.v1.WeightedBackendService.parser(), extensionRegistry));
-            break;
-          }
-          case -1103417310: {
-            com.google.cloud.compute.v1.CorsPolicy.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = corsPolicy_.toBuilder();
-            }
-            corsPolicy_ = input.readMessage(com.google.cloud.compute.v1.CorsPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(corsPolicy_);
-              corsPolicy_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case -992718662: {
-            com.google.cloud.compute.v1.HttpFaultInjection.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              subBuilder = faultInjectionPolicy_.toBuilder();
-            }
-            faultInjectionPolicy_ = input.readMessage(com.google.cloud.compute.v1.HttpFaultInjection.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(faultInjectionPolicy_);
-              faultInjectionPolicy_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000002;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        weightedBackendServices_ = java.util.Collections.unmodifiableList(weightedBackendServices_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_HttpRouteAction_descriptor;
@@ -458,6 +315,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WEIGHTED_BACKEND_SERVICES_FIELD_NUMBER = 337028049;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.WeightedBackendService> weightedBackendServices_;
   /**
    * <pre>
@@ -555,7 +413,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(412781079, getFaultInjectionPolicy());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -596,7 +454,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(412781079, getFaultInjectionPolicy());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -648,7 +506,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getWeightedBackendServicesList()
         .equals(other.getWeightedBackendServicesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -691,7 +549,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WEIGHTED_BACKEND_SERVICES_FIELD_NUMBER;
       hash = (53 * hash) + getWeightedBackendServicesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -835,54 +693,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (corsPolicyBuilder_ == null) {
-        corsPolicy_ = null;
-      } else {
-        corsPolicyBuilder_.clear();
+      bitField0_ = 0;
+      corsPolicy_ = null;
+      if (corsPolicyBuilder_ != null) {
+        corsPolicyBuilder_.dispose();
+        corsPolicyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (faultInjectionPolicyBuilder_ == null) {
-        faultInjectionPolicy_ = null;
-      } else {
-        faultInjectionPolicyBuilder_.clear();
+      faultInjectionPolicy_ = null;
+      if (faultInjectionPolicyBuilder_ != null) {
+        faultInjectionPolicyBuilder_.dispose();
+        faultInjectionPolicyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (maxStreamDurationBuilder_ == null) {
-        maxStreamDuration_ = null;
-      } else {
-        maxStreamDurationBuilder_.clear();
+      maxStreamDuration_ = null;
+      if (maxStreamDurationBuilder_ != null) {
+        maxStreamDurationBuilder_.dispose();
+        maxStreamDurationBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (requestMirrorPolicyBuilder_ == null) {
-        requestMirrorPolicy_ = null;
-      } else {
-        requestMirrorPolicyBuilder_.clear();
+      requestMirrorPolicy_ = null;
+      if (requestMirrorPolicyBuilder_ != null) {
+        requestMirrorPolicyBuilder_.dispose();
+        requestMirrorPolicyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000008);
-      if (retryPolicyBuilder_ == null) {
-        retryPolicy_ = null;
-      } else {
-        retryPolicyBuilder_.clear();
+      retryPolicy_ = null;
+      if (retryPolicyBuilder_ != null) {
+        retryPolicyBuilder_.dispose();
+        retryPolicyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000010);
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-      } else {
-        timeoutBuilder_.clear();
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
+        timeoutBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000020);
-      if (urlRewriteBuilder_ == null) {
-        urlRewrite_ = null;
-      } else {
-        urlRewriteBuilder_.clear();
+      urlRewrite_ = null;
+      if (urlRewriteBuilder_ != null) {
+        urlRewriteBuilder_.dispose();
+        urlRewriteBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000040);
       if (weightedBackendServicesBuilder_ == null) {
         weightedBackendServices_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
       } else {
+        weightedBackendServices_ = null;
         weightedBackendServicesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -909,64 +762,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.HttpRouteAction buildPartial() {
       com.google.cloud.compute.v1.HttpRouteAction result = new com.google.cloud.compute.v1.HttpRouteAction(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (corsPolicyBuilder_ == null) {
-          result.corsPolicy_ = corsPolicy_;
-        } else {
-          result.corsPolicy_ = corsPolicyBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (faultInjectionPolicyBuilder_ == null) {
-          result.faultInjectionPolicy_ = faultInjectionPolicy_;
-        } else {
-          result.faultInjectionPolicy_ = faultInjectionPolicyBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000002;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (maxStreamDurationBuilder_ == null) {
-          result.maxStreamDuration_ = maxStreamDuration_;
-        } else {
-          result.maxStreamDuration_ = maxStreamDurationBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000004;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        if (requestMirrorPolicyBuilder_ == null) {
-          result.requestMirrorPolicy_ = requestMirrorPolicy_;
-        } else {
-          result.requestMirrorPolicy_ = requestMirrorPolicyBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000008;
-      }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        if (retryPolicyBuilder_ == null) {
-          result.retryPolicy_ = retryPolicy_;
-        } else {
-          result.retryPolicy_ = retryPolicyBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000010;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        if (timeoutBuilder_ == null) {
-          result.timeout_ = timeout_;
-        } else {
-          result.timeout_ = timeoutBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000020;
-      }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        if (urlRewriteBuilder_ == null) {
-          result.urlRewrite_ = urlRewrite_;
-        } else {
-          result.urlRewrite_ = urlRewriteBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000040;
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.HttpRouteAction result) {
       if (weightedBackendServicesBuilder_ == null) {
         if (((bitField0_ & 0x00000080) != 0)) {
           weightedBackendServices_ = java.util.Collections.unmodifiableList(weightedBackendServices_);
@@ -976,9 +778,54 @@ private static final long serialVersionUID = 0L;
       } else {
         result.weightedBackendServices_ = weightedBackendServicesBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.HttpRouteAction result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.corsPolicy_ = corsPolicyBuilder_ == null
+            ? corsPolicy_
+            : corsPolicyBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.faultInjectionPolicy_ = faultInjectionPolicyBuilder_ == null
+            ? faultInjectionPolicy_
+            : faultInjectionPolicyBuilder_.build();
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxStreamDuration_ = maxStreamDurationBuilder_ == null
+            ? maxStreamDuration_
+            : maxStreamDurationBuilder_.build();
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.requestMirrorPolicy_ = requestMirrorPolicyBuilder_ == null
+            ? requestMirrorPolicy_
+            : requestMirrorPolicyBuilder_.build();
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.retryPolicy_ = retryPolicyBuilder_ == null
+            ? retryPolicy_
+            : retryPolicyBuilder_.build();
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.timeout_ = timeoutBuilder_ == null
+            ? timeout_
+            : timeoutBuilder_.build();
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.urlRewrite_ = urlRewriteBuilder_ == null
+            ? urlRewrite_
+            : urlRewriteBuilder_.build();
+        to_bitField0_ |= 0x00000040;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1072,7 +919,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1087,17 +934,92 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.HttpRouteAction parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 454399306: {
+              input.readMessage(
+                  getRetryPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 454399306
+            case 491427010: {
+              input.readMessage(
+                  getMaxStreamDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 491427010
+            case 1761574930: {
+              input.readMessage(
+                  getRequestMirrorPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1761574930
+            case -2108295710: {
+              input.readMessage(
+                  getUrlRewriteFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case -2108295710
+            case -1921357046: {
+              input.readMessage(
+                  getTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -1921357046
+            case -1598742902: {
+              com.google.cloud.compute.v1.WeightedBackendService m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.WeightedBackendService.parser(),
+                      extensionRegistry);
+              if (weightedBackendServicesBuilder_ == null) {
+                ensureWeightedBackendServicesIsMutable();
+                weightedBackendServices_.add(m);
+              } else {
+                weightedBackendServicesBuilder_.addMessage(m);
+              }
+              break;
+            } // case -1598742902
+            case -1103417310: {
+              input.readMessage(
+                  getCorsPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1103417310
+            case -992718662: {
+              input.readMessage(
+                  getFaultInjectionPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -992718662
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.HttpRouteAction) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1144,11 +1066,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         corsPolicy_ = value;
-        onChanged();
       } else {
         corsPolicyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1162,11 +1084,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.CorsPolicy.Builder builderForValue) {
       if (corsPolicyBuilder_ == null) {
         corsPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         corsPolicyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1179,18 +1101,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeCorsPolicy(com.google.cloud.compute.v1.CorsPolicy value) {
       if (corsPolicyBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            corsPolicy_ != null &&
-            corsPolicy_ != com.google.cloud.compute.v1.CorsPolicy.getDefaultInstance()) {
-          corsPolicy_ =
-            com.google.cloud.compute.v1.CorsPolicy.newBuilder(corsPolicy_).mergeFrom(value).buildPartial();
+          corsPolicy_ != null &&
+          corsPolicy_ != com.google.cloud.compute.v1.CorsPolicy.getDefaultInstance()) {
+          getCorsPolicyBuilder().mergeFrom(value);
         } else {
           corsPolicy_ = value;
         }
-        onChanged();
       } else {
         corsPolicyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1201,13 +1122,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.CorsPolicy cors_policy = 398943748;</code>
      */
     public Builder clearCorsPolicy() {
-      if (corsPolicyBuilder_ == null) {
-        corsPolicy_ = null;
-        onChanged();
-      } else {
-        corsPolicyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      corsPolicy_ = null;
+      if (corsPolicyBuilder_ != null) {
+        corsPolicyBuilder_.dispose();
+        corsPolicyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1300,11 +1221,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         faultInjectionPolicy_ = value;
-        onChanged();
       } else {
         faultInjectionPolicyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1318,11 +1239,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpFaultInjection.Builder builderForValue) {
       if (faultInjectionPolicyBuilder_ == null) {
         faultInjectionPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         faultInjectionPolicyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1335,18 +1256,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFaultInjectionPolicy(com.google.cloud.compute.v1.HttpFaultInjection value) {
       if (faultInjectionPolicyBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            faultInjectionPolicy_ != null &&
-            faultInjectionPolicy_ != com.google.cloud.compute.v1.HttpFaultInjection.getDefaultInstance()) {
-          faultInjectionPolicy_ =
-            com.google.cloud.compute.v1.HttpFaultInjection.newBuilder(faultInjectionPolicy_).mergeFrom(value).buildPartial();
+          faultInjectionPolicy_ != null &&
+          faultInjectionPolicy_ != com.google.cloud.compute.v1.HttpFaultInjection.getDefaultInstance()) {
+          getFaultInjectionPolicyBuilder().mergeFrom(value);
         } else {
           faultInjectionPolicy_ = value;
         }
-        onChanged();
       } else {
         faultInjectionPolicyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1357,13 +1277,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.HttpFaultInjection fault_injection_policy = 412781079;</code>
      */
     public Builder clearFaultInjectionPolicy() {
-      if (faultInjectionPolicyBuilder_ == null) {
-        faultInjectionPolicy_ = null;
-        onChanged();
-      } else {
-        faultInjectionPolicyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      faultInjectionPolicy_ = null;
+      if (faultInjectionPolicyBuilder_ != null) {
+        faultInjectionPolicyBuilder_.dispose();
+        faultInjectionPolicyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1456,11 +1376,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxStreamDuration_ = value;
-        onChanged();
       } else {
         maxStreamDurationBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1474,11 +1394,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Duration.Builder builderForValue) {
       if (maxStreamDurationBuilder_ == null) {
         maxStreamDuration_ = builderForValue.build();
-        onChanged();
       } else {
         maxStreamDurationBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1491,18 +1411,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeMaxStreamDuration(com.google.cloud.compute.v1.Duration value) {
       if (maxStreamDurationBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
-            maxStreamDuration_ != null &&
-            maxStreamDuration_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
-          maxStreamDuration_ =
-            com.google.cloud.compute.v1.Duration.newBuilder(maxStreamDuration_).mergeFrom(value).buildPartial();
+          maxStreamDuration_ != null &&
+          maxStreamDuration_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
+          getMaxStreamDurationBuilder().mergeFrom(value);
         } else {
           maxStreamDuration_ = value;
         }
-        onChanged();
       } else {
         maxStreamDurationBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1513,13 +1432,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.Duration max_stream_duration = 61428376;</code>
      */
     public Builder clearMaxStreamDuration() {
-      if (maxStreamDurationBuilder_ == null) {
-        maxStreamDuration_ = null;
-        onChanged();
-      } else {
-        maxStreamDurationBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000004);
+      maxStreamDuration_ = null;
+      if (maxStreamDurationBuilder_ != null) {
+        maxStreamDurationBuilder_.dispose();
+        maxStreamDurationBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1612,11 +1531,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requestMirrorPolicy_ = value;
-        onChanged();
       } else {
         requestMirrorPolicyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1630,11 +1549,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.RequestMirrorPolicy.Builder builderForValue) {
       if (requestMirrorPolicyBuilder_ == null) {
         requestMirrorPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         requestMirrorPolicyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1647,18 +1566,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeRequestMirrorPolicy(com.google.cloud.compute.v1.RequestMirrorPolicy value) {
       if (requestMirrorPolicyBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0) &&
-            requestMirrorPolicy_ != null &&
-            requestMirrorPolicy_ != com.google.cloud.compute.v1.RequestMirrorPolicy.getDefaultInstance()) {
-          requestMirrorPolicy_ =
-            com.google.cloud.compute.v1.RequestMirrorPolicy.newBuilder(requestMirrorPolicy_).mergeFrom(value).buildPartial();
+          requestMirrorPolicy_ != null &&
+          requestMirrorPolicy_ != com.google.cloud.compute.v1.RequestMirrorPolicy.getDefaultInstance()) {
+          getRequestMirrorPolicyBuilder().mergeFrom(value);
         } else {
           requestMirrorPolicy_ = value;
         }
-        onChanged();
       } else {
         requestMirrorPolicyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1669,13 +1587,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.RequestMirrorPolicy request_mirror_policy = 220196866;</code>
      */
     public Builder clearRequestMirrorPolicy() {
-      if (requestMirrorPolicyBuilder_ == null) {
-        requestMirrorPolicy_ = null;
-        onChanged();
-      } else {
-        requestMirrorPolicyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000008);
+      requestMirrorPolicy_ = null;
+      if (requestMirrorPolicyBuilder_ != null) {
+        requestMirrorPolicyBuilder_.dispose();
+        requestMirrorPolicyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1768,11 +1686,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retryPolicy_ = value;
-        onChanged();
       } else {
         retryPolicyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1786,11 +1704,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpRetryPolicy.Builder builderForValue) {
       if (retryPolicyBuilder_ == null) {
         retryPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         retryPolicyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1803,18 +1721,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeRetryPolicy(com.google.cloud.compute.v1.HttpRetryPolicy value) {
       if (retryPolicyBuilder_ == null) {
         if (((bitField0_ & 0x00000010) != 0) &&
-            retryPolicy_ != null &&
-            retryPolicy_ != com.google.cloud.compute.v1.HttpRetryPolicy.getDefaultInstance()) {
-          retryPolicy_ =
-            com.google.cloud.compute.v1.HttpRetryPolicy.newBuilder(retryPolicy_).mergeFrom(value).buildPartial();
+          retryPolicy_ != null &&
+          retryPolicy_ != com.google.cloud.compute.v1.HttpRetryPolicy.getDefaultInstance()) {
+          getRetryPolicyBuilder().mergeFrom(value);
         } else {
           retryPolicy_ = value;
         }
-        onChanged();
       } else {
         retryPolicyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1825,13 +1742,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.HttpRetryPolicy retry_policy = 56799913;</code>
      */
     public Builder clearRetryPolicy() {
-      if (retryPolicyBuilder_ == null) {
-        retryPolicy_ = null;
-        onChanged();
-      } else {
-        retryPolicyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000010);
+      retryPolicy_ = null;
+      if (retryPolicyBuilder_ != null) {
+        retryPolicyBuilder_.dispose();
+        retryPolicyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1924,11 +1841,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeout_ = value;
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1942,11 +1859,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Duration.Builder builderForValue) {
       if (timeoutBuilder_ == null) {
         timeout_ = builderForValue.build();
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1959,18 +1876,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeTimeout(com.google.cloud.compute.v1.Duration value) {
       if (timeoutBuilder_ == null) {
         if (((bitField0_ & 0x00000020) != 0) &&
-            timeout_ != null &&
-            timeout_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
-          timeout_ =
-            com.google.cloud.compute.v1.Duration.newBuilder(timeout_).mergeFrom(value).buildPartial();
+          timeout_ != null &&
+          timeout_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
+          getTimeoutBuilder().mergeFrom(value);
         } else {
           timeout_ = value;
         }
-        onChanged();
       } else {
         timeoutBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1981,13 +1897,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.Duration timeout = 296701281;</code>
      */
     public Builder clearTimeout() {
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-        onChanged();
-      } else {
-        timeoutBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000020);
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
+        timeoutBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2080,11 +1996,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         urlRewrite_ = value;
-        onChanged();
       } else {
         urlRewriteBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2098,11 +2014,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.UrlRewrite.Builder builderForValue) {
       if (urlRewriteBuilder_ == null) {
         urlRewrite_ = builderForValue.build();
-        onChanged();
       } else {
         urlRewriteBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2115,18 +2031,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeUrlRewrite(com.google.cloud.compute.v1.UrlRewrite value) {
       if (urlRewriteBuilder_ == null) {
         if (((bitField0_ & 0x00000040) != 0) &&
-            urlRewrite_ != null &&
-            urlRewrite_ != com.google.cloud.compute.v1.UrlRewrite.getDefaultInstance()) {
-          urlRewrite_ =
-            com.google.cloud.compute.v1.UrlRewrite.newBuilder(urlRewrite_).mergeFrom(value).buildPartial();
+          urlRewrite_ != null &&
+          urlRewrite_ != com.google.cloud.compute.v1.UrlRewrite.getDefaultInstance()) {
+          getUrlRewriteBuilder().mergeFrom(value);
         } else {
           urlRewrite_ = value;
         }
-        onChanged();
       } else {
         urlRewriteBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2137,13 +2052,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.UrlRewrite url_rewrite = 273333948;</code>
      */
     public Builder clearUrlRewrite() {
-      if (urlRewriteBuilder_ == null) {
-        urlRewrite_ = null;
-        onChanged();
-      } else {
-        urlRewriteBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000040);
+      urlRewrite_ = null;
+      if (urlRewriteBuilder_ != null) {
+        urlRewriteBuilder_.dispose();
+        urlRewriteBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2538,7 +2453,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpRouteAction(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

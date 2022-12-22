@@ -9,6 +9,7 @@ package io.envoyproxy.envoy.config.core.v3;
  * make an HTTP connection to an origin server. See https://tools.ietf.org/html/rfc7838 for
  * HTTP Alternative Services and https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-04
  * for the "HTTPS" DNS resource record.
+ * [#next-free-field: 6]
  * </pre>
  *
  * Protobuf type {@code envoy.config.core.v3.AlternateProtocolsCacheOptions}
@@ -25,6 +26,7 @@ private static final long serialVersionUID = 0L;
   private AlternateProtocolsCacheOptions() {
     name_ = "";
     prepopulatedEntries_ = java.util.Collections.emptyList();
+    canonicalSuffixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -38,90 +40,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private AlternateProtocolsCacheOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (maxEntries_ != null) {
-              subBuilder = maxEntries_.toBuilder();
-            }
-            maxEntries_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxEntries_);
-              maxEntries_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder subBuilder = null;
-            if (keyValueStoreConfig_ != null) {
-              subBuilder = keyValueStoreConfig_.toBuilder();
-            }
-            keyValueStoreConfig_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(keyValueStoreConfig_);
-              keyValueStoreConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              prepopulatedEntries_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            prepopulatedEntries_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        prepopulatedEntries_ = java.util.Collections.unmodifiableList(prepopulatedEntries_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -210,56 +128,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AlternateProtocolsCacheEntry(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              hostname_ = s;
-              break;
-            }
-            case 16: {
-
-              port_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.config.core.v3.ProtocolProto.internal_static_envoy_config_core_v3_AlternateProtocolsCacheOptions_AlternateProtocolsCacheEntry_descriptor;
@@ -274,7 +142,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int HOSTNAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object hostname_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object hostname_ = "";
     /**
      * <pre>
      * The host name for the alternate protocol entry.
@@ -320,7 +189,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PORT_FIELD_NUMBER = 2;
-    private int port_;
+    private int port_ = 0;
     /**
      * <pre>
      * The port for the alternate protocol entry.
@@ -354,7 +223,7 @@ private static final long serialVersionUID = 0L;
       if (port_ != 0) {
         output.writeUInt32(2, port_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -370,7 +239,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, port_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -389,7 +258,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getHostname())) return false;
       if (getPort()
           != other.getPort()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -404,7 +273,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getHostname().hashCode();
       hash = (37 * hash) + PORT_FIELD_NUMBER;
       hash = (53 * hash) + getPort();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -533,26 +402,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         hostname_ = "";
-
         port_ = 0;
-
         return this;
       }
 
@@ -579,10 +442,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry buildPartial() {
         io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry result = new io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry(this);
-        result.hostname_ = hostname_;
-        result.port_ = port_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.hostname_ = hostname_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.port_ = port_;
+        }
       }
 
       @java.lang.Override
@@ -631,12 +503,13 @@ private static final long serialVersionUID = 0L;
         if (other == io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry.getDefaultInstance()) return this;
         if (!other.getHostname().isEmpty()) {
           hostname_ = other.hostname_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getPort() != 0) {
           setPort(other.getPort());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -651,19 +524,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                hostname_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                port_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object hostname_ = "";
       /**
@@ -718,11 +615,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setHostname(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         hostname_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -735,8 +630,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearHostname() {
-        
         hostname_ = getDefaultInstance().getHostname();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -751,12 +646,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setHostnameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         hostname_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -786,6 +679,7 @@ private static final long serialVersionUID = 0L;
       public Builder setPort(int value) {
         
         port_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -798,7 +692,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPort() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         port_ = 0;
         onChanged();
         return this;
@@ -836,7 +730,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AlternateProtocolsCacheEntry(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -857,7 +762,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the cache. Multiple named caches allow independent alternate protocols cache
@@ -957,7 +863,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMaxEntriesOrBuilder() {
-    return getMaxEntries();
+    return maxEntries_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : maxEntries_;
   }
 
   public static final int KEY_VALUE_STORE_CONFIG_FIELD_NUMBER = 3;
@@ -1007,10 +913,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getKeyValueStoreConfigOrBuilder() {
-    return getKeyValueStoreConfig();
+    return keyValueStoreConfig_ == null ? io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance() : keyValueStoreConfig_;
   }
 
   public static final int PREPOPULATED_ENTRIES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry> prepopulatedEntries_;
   /**
    * <pre>
@@ -1070,6 +977,86 @@ private static final long serialVersionUID = 0L;
     return prepopulatedEntries_.get(index);
   }
 
+  public static final int CANONICAL_SUFFIXES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringList canonicalSuffixes_;
+  /**
+   * <pre>
+   * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+   * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+   * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+   * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+   * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+   * first listed suffix will be used.
+   * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>repeated string canonical_suffixes = 5;</code>
+   * @return A list containing the canonicalSuffixes.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getCanonicalSuffixesList() {
+    return canonicalSuffixes_;
+  }
+  /**
+   * <pre>
+   * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+   * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+   * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+   * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+   * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+   * first listed suffix will be used.
+   * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>repeated string canonical_suffixes = 5;</code>
+   * @return The count of canonicalSuffixes.
+   */
+  public int getCanonicalSuffixesCount() {
+    return canonicalSuffixes_.size();
+  }
+  /**
+   * <pre>
+   * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+   * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+   * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+   * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+   * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+   * first listed suffix will be used.
+   * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>repeated string canonical_suffixes = 5;</code>
+   * @param index The index of the element to return.
+   * @return The canonicalSuffixes at the given index.
+   */
+  public java.lang.String getCanonicalSuffixes(int index) {
+    return canonicalSuffixes_.get(index);
+  }
+  /**
+   * <pre>
+   * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+   * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+   * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+   * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+   * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+   * first listed suffix will be used.
+   * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>repeated string canonical_suffixes = 5;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the canonicalSuffixes at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getCanonicalSuffixesBytes(int index) {
+    return canonicalSuffixes_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1096,7 +1083,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < prepopulatedEntries_.size(); i++) {
       output.writeMessage(4, prepopulatedEntries_.get(i));
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < canonicalSuffixes_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, canonicalSuffixes_.getRaw(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1120,7 +1110,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, prepopulatedEntries_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    {
+      int dataSize = 0;
+      for (int i = 0; i < canonicalSuffixes_.size(); i++) {
+        dataSize += computeStringSizeNoTag(canonicalSuffixes_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getCanonicalSuffixesList().size();
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1149,7 +1147,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getPrepopulatedEntriesList()
         .equals(other.getPrepopulatedEntriesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getCanonicalSuffixesList()
+        .equals(other.getCanonicalSuffixesList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1174,7 +1174,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PREPOPULATED_ENTRIES_FIELD_NUMBER;
       hash = (53 * hash) + getPrepopulatedEntriesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getCanonicalSuffixesCount() > 0) {
+      hash = (37 * hash) + CANONICAL_SUFFIXES_FIELD_NUMBER;
+      hash = (53 * hash) + getCanonicalSuffixesList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1275,6 +1279,7 @@ private static final long serialVersionUID = 0L;
    * make an HTTP connection to an origin server. See https://tools.ietf.org/html/rfc7838 for
    * HTTP Alternative Services and https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-svcb-https-04
    * for the "HTTPS" DNS resource record.
+   * [#next-free-field: 6]
    * </pre>
    *
    * Protobuf type {@code envoy.config.core.v3.AlternateProtocolsCacheOptions}
@@ -1298,43 +1303,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPrepopulatedEntriesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (maxEntriesBuilder_ == null) {
-        maxEntries_ = null;
-      } else {
-        maxEntries_ = null;
+      maxEntries_ = null;
+      if (maxEntriesBuilder_ != null) {
+        maxEntriesBuilder_.dispose();
         maxEntriesBuilder_ = null;
       }
-      if (keyValueStoreConfigBuilder_ == null) {
-        keyValueStoreConfig_ = null;
-      } else {
-        keyValueStoreConfig_ = null;
+      keyValueStoreConfig_ = null;
+      if (keyValueStoreConfigBuilder_ != null) {
+        keyValueStoreConfigBuilder_.dispose();
         keyValueStoreConfigBuilder_ = null;
       }
       if (prepopulatedEntriesBuilder_ == null) {
         prepopulatedEntries_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        prepopulatedEntries_ = null;
         prepopulatedEntriesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
+      canonicalSuffixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -1361,29 +1361,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions buildPartial() {
       io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions result = new io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (maxEntriesBuilder_ == null) {
-        result.maxEntries_ = maxEntries_;
-      } else {
-        result.maxEntries_ = maxEntriesBuilder_.build();
-      }
-      if (keyValueStoreConfigBuilder_ == null) {
-        result.keyValueStoreConfig_ = keyValueStoreConfig_;
-      } else {
-        result.keyValueStoreConfig_ = keyValueStoreConfigBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions result) {
       if (prepopulatedEntriesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           prepopulatedEntries_ = java.util.Collections.unmodifiableList(prepopulatedEntries_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.prepopulatedEntries_ = prepopulatedEntries_;
       } else {
         result.prepopulatedEntries_ = prepopulatedEntriesBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((bitField0_ & 0x00000010) != 0)) {
+        canonicalSuffixes_ = canonicalSuffixes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.canonicalSuffixes_ = canonicalSuffixes_;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxEntries_ = maxEntriesBuilder_ == null
+            ? maxEntries_
+            : maxEntriesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.keyValueStoreConfig_ = keyValueStoreConfigBuilder_ == null
+            ? keyValueStoreConfig_
+            : keyValueStoreConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1432,6 +1447,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasMaxEntries()) {
@@ -1444,7 +1460,7 @@ private static final long serialVersionUID = 0L;
         if (!other.prepopulatedEntries_.isEmpty()) {
           if (prepopulatedEntries_.isEmpty()) {
             prepopulatedEntries_ = other.prepopulatedEntries_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensurePrepopulatedEntriesIsMutable();
             prepopulatedEntries_.addAll(other.prepopulatedEntries_);
@@ -1457,7 +1473,7 @@ private static final long serialVersionUID = 0L;
             prepopulatedEntriesBuilder_.dispose();
             prepopulatedEntriesBuilder_ = null;
             prepopulatedEntries_ = other.prepopulatedEntries_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             prepopulatedEntriesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPrepopulatedEntriesFieldBuilder() : null;
@@ -1466,7 +1482,17 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.canonicalSuffixes_.isEmpty()) {
+        if (canonicalSuffixes_.isEmpty()) {
+          canonicalSuffixes_ = other.canonicalSuffixes_;
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          ensureCanonicalSuffixesIsMutable();
+          canonicalSuffixes_.addAll(other.canonicalSuffixes_);
+        }
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1481,17 +1507,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getMaxEntriesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getKeyValueStoreConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry.parser(),
+                      extensionRegistry);
+              if (prepopulatedEntriesBuilder_ == null) {
+                ensurePrepopulatedEntriesIsMutable();
+                prepopulatedEntries_.add(m);
+              } else {
+                prepopulatedEntriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCanonicalSuffixesIsMutable();
+              canonicalSuffixes_.add(s);
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1561,11 +1638,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1582,8 +1657,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1602,12 +1677,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1628,7 +1701,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxEntries field is set.
      */
     public boolean hasMaxEntries() {
-      return maxEntriesBuilder_ != null || maxEntries_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1666,11 +1739,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxEntries_ = value;
-        onChanged();
       } else {
         maxEntriesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1688,11 +1761,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (maxEntriesBuilder_ == null) {
         maxEntries_ = builderForValue.build();
-        onChanged();
       } else {
         maxEntriesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1708,17 +1781,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxEntries(com.google.protobuf.UInt32Value value) {
       if (maxEntriesBuilder_ == null) {
-        if (maxEntries_ != null) {
-          maxEntries_ =
-            com.google.protobuf.UInt32Value.newBuilder(maxEntries_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          maxEntries_ != null &&
+          maxEntries_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMaxEntriesBuilder().mergeFrom(value);
         } else {
           maxEntries_ = value;
         }
-        onChanged();
       } else {
         maxEntriesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1733,14 +1807,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_entries = 2 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMaxEntries() {
-      if (maxEntriesBuilder_ == null) {
-        maxEntries_ = null;
-        onChanged();
-      } else {
-        maxEntries_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      maxEntries_ = null;
+      if (maxEntriesBuilder_ != null) {
+        maxEntriesBuilder_.dispose();
         maxEntriesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1755,7 +1828,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_entries = 2 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMaxEntriesBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMaxEntriesFieldBuilder().getBuilder();
     }
@@ -1819,7 +1892,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the keyValueStoreConfig field is set.
      */
     public boolean hasKeyValueStoreConfig() {
-      return keyValueStoreConfigBuilder_ != null || keyValueStoreConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1857,11 +1930,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         keyValueStoreConfig_ = value;
-        onChanged();
       } else {
         keyValueStoreConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1879,11 +1952,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder builderForValue) {
       if (keyValueStoreConfigBuilder_ == null) {
         keyValueStoreConfig_ = builderForValue.build();
-        onChanged();
       } else {
         keyValueStoreConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1899,17 +1972,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKeyValueStoreConfig(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig value) {
       if (keyValueStoreConfigBuilder_ == null) {
-        if (keyValueStoreConfig_ != null) {
-          keyValueStoreConfig_ =
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.newBuilder(keyValueStoreConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          keyValueStoreConfig_ != null &&
+          keyValueStoreConfig_ != io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance()) {
+          getKeyValueStoreConfigBuilder().mergeFrom(value);
         } else {
           keyValueStoreConfig_ = value;
         }
-        onChanged();
       } else {
         keyValueStoreConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1924,14 +1998,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig key_value_store_config = 3;</code>
      */
     public Builder clearKeyValueStoreConfig() {
-      if (keyValueStoreConfigBuilder_ == null) {
-        keyValueStoreConfig_ = null;
-        onChanged();
-      } else {
-        keyValueStoreConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      keyValueStoreConfig_ = null;
+      if (keyValueStoreConfigBuilder_ != null) {
+        keyValueStoreConfigBuilder_.dispose();
         keyValueStoreConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1946,7 +2019,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig key_value_store_config = 3;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder getKeyValueStoreConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getKeyValueStoreConfigFieldBuilder().getBuilder();
     }
@@ -1997,9 +2070,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry> prepopulatedEntries_ =
       java.util.Collections.emptyList();
     private void ensurePrepopulatedEntriesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         prepopulatedEntries_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry>(prepopulatedEntries_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2193,7 +2266,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPrepopulatedEntries() {
       if (prepopulatedEntriesBuilder_ == null) {
         prepopulatedEntries_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         prepopulatedEntriesBuilder_.clear();
@@ -2298,12 +2371,215 @@ private static final long serialVersionUID = 0L;
         prepopulatedEntriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry, io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntry.Builder, io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntryOrBuilder>(
                 prepopulatedEntries_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         prepopulatedEntries_ = null;
       }
       return prepopulatedEntriesBuilder_;
+    }
+
+    private com.google.protobuf.LazyStringList canonicalSuffixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureCanonicalSuffixesIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        canonicalSuffixes_ = new com.google.protobuf.LazyStringArrayList(canonicalSuffixes_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+    /**
+     * <pre>
+     * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+     * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+     * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+     * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+     * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+     * first listed suffix will be used.
+     * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+     * [#not-implemented-hide:]
+     * </pre>
+     *
+     * <code>repeated string canonical_suffixes = 5;</code>
+     * @return A list containing the canonicalSuffixes.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getCanonicalSuffixesList() {
+      return canonicalSuffixes_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+     * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+     * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+     * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+     * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+     * first listed suffix will be used.
+     * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+     * [#not-implemented-hide:]
+     * </pre>
+     *
+     * <code>repeated string canonical_suffixes = 5;</code>
+     * @return The count of canonicalSuffixes.
+     */
+    public int getCanonicalSuffixesCount() {
+      return canonicalSuffixes_.size();
+    }
+    /**
+     * <pre>
+     * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+     * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+     * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+     * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+     * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+     * first listed suffix will be used.
+     * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+     * [#not-implemented-hide:]
+     * </pre>
+     *
+     * <code>repeated string canonical_suffixes = 5;</code>
+     * @param index The index of the element to return.
+     * @return The canonicalSuffixes at the given index.
+     */
+    public java.lang.String getCanonicalSuffixes(int index) {
+      return canonicalSuffixes_.get(index);
+    }
+    /**
+     * <pre>
+     * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+     * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+     * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+     * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+     * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+     * first listed suffix will be used.
+     * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+     * [#not-implemented-hide:]
+     * </pre>
+     *
+     * <code>repeated string canonical_suffixes = 5;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the canonicalSuffixes at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getCanonicalSuffixesBytes(int index) {
+      return canonicalSuffixes_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+     * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+     * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+     * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+     * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+     * first listed suffix will be used.
+     * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+     * [#not-implemented-hide:]
+     * </pre>
+     *
+     * <code>repeated string canonical_suffixes = 5;</code>
+     * @param index The index to set the value at.
+     * @param value The canonicalSuffixes to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCanonicalSuffixes(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureCanonicalSuffixesIsMutable();
+      canonicalSuffixes_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+     * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+     * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+     * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+     * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+     * first listed suffix will be used.
+     * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+     * [#not-implemented-hide:]
+     * </pre>
+     *
+     * <code>repeated string canonical_suffixes = 5;</code>
+     * @param value The canonicalSuffixes to add.
+     * @return This builder for chaining.
+     */
+    public Builder addCanonicalSuffixes(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureCanonicalSuffixesIsMutable();
+      canonicalSuffixes_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+     * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+     * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+     * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+     * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+     * first listed suffix will be used.
+     * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+     * [#not-implemented-hide:]
+     * </pre>
+     *
+     * <code>repeated string canonical_suffixes = 5;</code>
+     * @param values The canonicalSuffixes to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllCanonicalSuffixes(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureCanonicalSuffixesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, canonicalSuffixes_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+     * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+     * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+     * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+     * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+     * first listed suffix will be used.
+     * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+     * [#not-implemented-hide:]
+     * </pre>
+     *
+     * <code>repeated string canonical_suffixes = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCanonicalSuffixes() {
+      canonicalSuffixes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+     * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+     * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+     * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+     * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+     * first listed suffix will be used.
+     * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+     * [#not-implemented-hide:]
+     * </pre>
+     *
+     * <code>repeated string canonical_suffixes = 5;</code>
+     * @param value The bytes of the canonicalSuffixes to add.
+     * @return This builder for chaining.
+     */
+    public Builder addCanonicalSuffixesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureCanonicalSuffixesIsMutable();
+      canonicalSuffixes_.add(value);
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2338,7 +2614,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AlternateProtocolsCacheOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

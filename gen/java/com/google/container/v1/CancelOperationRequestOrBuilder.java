@@ -16,7 +16,7 @@ public interface CancelOperationRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.CancelOperationRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2544
+   *     See google/container/v1/cluster_service.proto;l=2639
    * @return The projectId.
    */
   @java.lang.Deprecated java.lang.String getProjectId();
@@ -29,7 +29,7 @@ public interface CancelOperationRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.CancelOperationRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2544
+   *     See google/container/v1/cluster_service.proto;l=2639
    * @return The bytes for projectId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -45,7 +45,7 @@ public interface CancelOperationRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.CancelOperationRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2550
+   *     See google/container/v1/cluster_service.proto;l=2645
    * @return The zone.
    */
   @java.lang.Deprecated java.lang.String getZone();
@@ -59,7 +59,7 @@ public interface CancelOperationRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.CancelOperationRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2550
+   *     See google/container/v1/cluster_service.proto;l=2645
    * @return The bytes for zone.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -73,7 +73,7 @@ public interface CancelOperationRequestOrBuilder extends
    *
    * <code>string operation_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.CancelOperationRequest.operation_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2554
+   *     See google/container/v1/cluster_service.proto;l=2649
    * @return The operationId.
    */
   @java.lang.Deprecated java.lang.String getOperationId();
@@ -85,7 +85,7 @@ public interface CancelOperationRequestOrBuilder extends
    *
    * <code>string operation_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.CancelOperationRequest.operation_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2554
+   *     See google/container/v1/cluster_service.proto;l=2649
    * @return The bytes for operationId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

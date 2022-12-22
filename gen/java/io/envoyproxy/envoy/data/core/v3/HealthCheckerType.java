@@ -24,6 +24,10 @@ public enum HealthCheckerType
    * <code>REDIS = 3;</code>
    */
   REDIS(3),
+  /**
+   * <code>THRIFT = 4;</code>
+   */
+  THRIFT(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -43,6 +47,10 @@ public enum HealthCheckerType
    * <code>REDIS = 3;</code>
    */
   public static final int REDIS_VALUE = 3;
+  /**
+   * <code>THRIFT = 4;</code>
+   */
+  public static final int THRIFT_VALUE = 4;
 
 
   public final int getNumber() {
@@ -73,6 +81,7 @@ public enum HealthCheckerType
       case 1: return TCP;
       case 2: return GRPC;
       case 3: return REDIS;
+      case 4: return THRIFT;
       default: return null;
     }
   }

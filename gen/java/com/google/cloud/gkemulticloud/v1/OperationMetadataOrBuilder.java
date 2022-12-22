@@ -103,7 +103,8 @@ public interface OperationMetadataOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Human-readable status of any error that occurred during the operation.
+   * Output only. Human-readable status of any error that occurred during the
+   * operation.
    * </pre>
    *
    * <code>string error_detail = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -112,7 +113,8 @@ public interface OperationMetadataOrBuilder extends
   java.lang.String getErrorDetail();
   /**
    * <pre>
-   * Output only. Human-readable status of any error that occurred during the operation.
+   * Output only. Human-readable status of any error that occurred during the
+   * operation.
    * </pre>
    *
    * <code>string error_detail = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -120,4 +122,40 @@ public interface OperationMetadataOrBuilder extends
    */
   com.google.protobuf.ByteString
       getErrorDetailBytes();
+
+  /**
+   * <pre>
+   * Output only. The verb associated with the API method which triggered this
+   * operation. Possible values are "create", "delete", "update" and "import".
+   * </pre>
+   *
+   * <code>string verb = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The verb.
+   */
+  java.lang.String getVerb();
+  /**
+   * <pre>
+   * Output only. The verb associated with the API method which triggered this
+   * operation. Possible values are "create", "delete", "update" and "import".
+   * </pre>
+   *
+   * <code>string verb = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The bytes for verb.
+   */
+  com.google.protobuf.ByteString
+      getVerbBytes();
+
+  /**
+   * <pre>
+   * Output only. Identifies whether it has been requested cancellation
+   * for the operation. Operations that have successfully been cancelled
+   * have [Operation.error][] value with a
+   * [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+   * `Code.CANCELLED`.
+   * </pre>
+   *
+   * <code>bool requested_cancellation = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The requestedCancellation.
+   */
+  boolean getRequestedCancellation();
 }

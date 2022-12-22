@@ -136,7 +136,6 @@ public interface OracleProfileOrBuilder extends
    *
    * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
    */
-
   /* nullable */
 java.lang.String getConnectionAttributesOrDefault(
       java.lang.String key,
@@ -149,7 +148,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; connection_attributes = 6;</code>
    */
-
   java.lang.String getConnectionAttributesOrThrow(
       java.lang.String key);
 }

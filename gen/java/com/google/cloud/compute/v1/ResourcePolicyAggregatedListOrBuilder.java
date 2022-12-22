@@ -92,7 +92,6 @@ public interface ResourcePolicyAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.ResourcePoliciesScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.ResourcePoliciesScopedList getItemsOrDefault(
       java.lang.String key,
@@ -105,7 +104,6 @@ com.google.cloud.compute.v1.ResourcePoliciesScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.ResourcePoliciesScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.ResourcePoliciesScopedList getItemsOrThrow(
       java.lang.String key);
 

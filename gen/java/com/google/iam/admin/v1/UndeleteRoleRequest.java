@@ -36,86 +36,40 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UndeleteRoleRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-
-            etag_ = input.readBytes();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_UndeleteRoleRequest_descriptor;
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_UndeleteRoleRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_UndeleteRoleRequest_fieldAccessorTable
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_UndeleteRoleRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.iam.admin.v1.UndeleteRoleRequest.class, com.google.iam.admin.v1.UndeleteRoleRequest.Builder.class);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The `name` parameter's value depends on the target resource for the
    * request, namely
-   * [`projects`](/iam/reference/rest/v1/projects.roles) or
-   * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-   * resource type's `name` value format is described below:
-   * * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+   * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+   * or
+   * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+   * Each resource type's `name` value format is described below:
+   * * [`projects.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/undelete):
    *   `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-   *   only [custom roles](/iam/docs/understanding-custom-roles) that have been
-   *   created at the project level. Example request URL:
+   *   only [custom
+   *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
+   *   have been created at the project level. Example request URL:
    *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
-   * * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+   * * [`organizations.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/undelete):
    *   `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-   *   undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+   *   undeletes only [custom
+   *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
    *   have been created at the organization level. Example request URL:
    *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
    * Note: Wildcard (*) values are invalid; you must specify a complete project
@@ -142,17 +96,20 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The `name` parameter's value depends on the target resource for the
    * request, namely
-   * [`projects`](/iam/reference/rest/v1/projects.roles) or
-   * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-   * resource type's `name` value format is described below:
-   * * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+   * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+   * or
+   * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+   * Each resource type's `name` value format is described below:
+   * * [`projects.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/undelete):
    *   `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-   *   only [custom roles](/iam/docs/understanding-custom-roles) that have been
-   *   created at the project level. Example request URL:
+   *   only [custom
+   *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
+   *   have been created at the project level. Example request URL:
    *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
-   * * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+   * * [`organizations.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/undelete):
    *   `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-   *   undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+   *   undeletes only [custom
+   *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
    *   have been created at the organization level. Example request URL:
    *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
    * Note: Wildcard (*) values are invalid; you must specify a complete project
@@ -178,7 +135,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString etag_;
+  private com.google.protobuf.ByteString etag_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Used to perform a consistent read-modify-write.
@@ -212,7 +169,7 @@ private static final long serialVersionUID = 0L;
     if (!etag_.isEmpty()) {
       output.writeBytes(2, etag_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +185,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(2, etag_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -247,7 +204,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getEtag()
         .equals(other.getEtag())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -262,7 +219,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + ETAG_FIELD_NUMBER;
     hash = (53 * hash) + getEtag().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -370,46 +327,40 @@ private static final long serialVersionUID = 0L;
       com.google.iam.admin.v1.UndeleteRoleRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_UndeleteRoleRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_UndeleteRoleRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_UndeleteRoleRequest_fieldAccessorTable
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_UndeleteRoleRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.iam.admin.v1.UndeleteRoleRequest.class, com.google.iam.admin.v1.UndeleteRoleRequest.Builder.class);
     }
 
     // Construct using com.google.iam.admin.v1.UndeleteRoleRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       etag_ = com.google.protobuf.ByteString.EMPTY;
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_UndeleteRoleRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_UndeleteRoleRequest_descriptor;
     }
 
     @java.lang.Override
@@ -429,10 +380,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.admin.v1.UndeleteRoleRequest buildPartial() {
       com.google.iam.admin.v1.UndeleteRoleRequest result = new com.google.iam.admin.v1.UndeleteRoleRequest(this);
-      result.name_ = name_;
-      result.etag_ = etag_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.iam.admin.v1.UndeleteRoleRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.etag_ = etag_;
+      }
     }
 
     @java.lang.Override
@@ -481,12 +441,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.iam.admin.v1.UndeleteRoleRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getEtag() != com.google.protobuf.ByteString.EMPTY) {
         setEtag(other.getEtag());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -501,36 +462,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.admin.v1.UndeleteRoleRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              etag_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.admin.v1.UndeleteRoleRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
      * <pre>
      * The `name` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `name` value format is described below:
-     * * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `name` value format is described below:
+     * * [`projects.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/undelete):
      *   `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-     *   only [custom roles](/iam/docs/understanding-custom-roles) that have been
-     *   created at the project level. Example request URL:
+     *   only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
+     *   have been created at the project level. Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
-     * * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+     * * [`organizations.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/undelete):
      *   `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-     *   undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+     *   undeletes only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
      *   have been created at the organization level. Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
@@ -556,17 +544,20 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The `name` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `name` value format is described below:
-     * * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `name` value format is described below:
+     * * [`projects.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/undelete):
      *   `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-     *   only [custom roles](/iam/docs/understanding-custom-roles) that have been
-     *   created at the project level. Example request URL:
+     *   only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
+     *   have been created at the project level. Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
-     * * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+     * * [`organizations.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/undelete):
      *   `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-     *   undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+     *   undeletes only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
      *   have been created at the organization level. Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
@@ -593,17 +584,20 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The `name` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `name` value format is described below:
-     * * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `name` value format is described below:
+     * * [`projects.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/undelete):
      *   `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-     *   only [custom roles](/iam/docs/understanding-custom-roles) that have been
-     *   created at the project level. Example request URL:
+     *   only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
+     *   have been created at the project level. Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
-     * * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+     * * [`organizations.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/undelete):
      *   `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-     *   undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+     *   undeletes only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
      *   have been created at the organization level. Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
@@ -616,11 +610,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -628,17 +620,20 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The `name` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `name` value format is described below:
-     * * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `name` value format is described below:
+     * * [`projects.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/undelete):
      *   `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-     *   only [custom roles](/iam/docs/understanding-custom-roles) that have been
-     *   created at the project level. Example request URL:
+     *   only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
+     *   have been created at the project level. Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
-     * * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+     * * [`organizations.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/undelete):
      *   `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-     *   undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+     *   undeletes only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
      *   have been created at the organization level. Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
@@ -649,8 +644,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -658,17 +653,20 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The `name` parameter's value depends on the target resource for the
      * request, namely
-     * [`projects`](/iam/reference/rest/v1/projects.roles) or
-     * [`organizations`](/iam/reference/rest/v1/organizations.roles). Each
-     * resource type's `name` value format is described below:
-     * * [`projects.roles.undelete()`](/iam/reference/rest/v1/projects.roles/undelete):
+     * [`projects`](https://cloud.google.com/iam/reference/rest/v1/projects.roles)
+     * or
+     * [`organizations`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles).
+     * Each resource type's `name` value format is described below:
+     * * [`projects.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/projects.roles/undelete):
      *   `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
-     *   only [custom roles](/iam/docs/understanding-custom-roles) that have been
-     *   created at the project level. Example request URL:
+     *   only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
+     *   have been created at the project level. Example request URL:
      *   `https://iam.googleapis.com/v1/projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`
-     * * [`organizations.roles.undelete()`](/iam/reference/rest/v1/organizations.roles/undelete):
+     * * [`organizations.roles.undelete()`](https://cloud.google.com/iam/reference/rest/v1/organizations.roles/undelete):
      *   `organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`. This method
-     *   undeletes only [custom roles](/iam/docs/understanding-custom-roles) that
+     *   undeletes only [custom
+     *   roles](https://cloud.google.com/iam/docs/understanding-custom-roles) that
      *   have been created at the organization level. Example request URL:
      *   `https://iam.googleapis.com/v1/organizations/{ORGANIZATION_ID}/roles/{CUSTOM_ROLE_ID}`
      * Note: Wildcard (*) values are invalid; you must specify a complete project
@@ -681,12 +679,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -714,11 +710,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEtag(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -731,7 +725,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       etag_ = getDefaultInstance().getEtag();
       onChanged();
       return this;
@@ -769,7 +763,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UndeleteRoleRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

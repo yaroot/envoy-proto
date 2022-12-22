@@ -50,111 +50,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AttributeContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.Builder subBuilder = null;
-            if (source_ != null) {
-              subBuilder = source_.toBuilder();
-            }
-            source_ = input.readMessage(io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(source_);
-              source_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.Builder subBuilder = null;
-            if (destination_ != null) {
-              subBuilder = destination_.toBuilder();
-            }
-            destination_ = input.readMessage(io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(destination_);
-              destination_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request.Builder subBuilder = null;
-            if (request_ != null) {
-              subBuilder = request_.toBuilder();
-            }
-            request_ = input.readMessage(io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(request_);
-              request_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              contextExtensions_ = com.google.protobuf.MapField.newMapField(
-                  ContextExtensionsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            contextExtensions__ = input.readMessage(
-                ContextExtensionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            contextExtensions_.getMutableMap().put(
-                contextExtensions__.getKey(), contextExtensions__.getValue());
-            break;
-          }
-          case 90: {
-            io.envoyproxy.envoy.config.core.v3.Metadata.Builder subBuilder = null;
-            if (metadataContext_ != null) {
-              subBuilder = metadataContext_.toBuilder();
-            }
-            metadataContext_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Metadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metadataContext_);
-              metadataContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.service.auth.v3.AttributeContextProto.internal_static_envoy_service_auth_v3_AttributeContext_descriptor;
@@ -289,7 +184,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
-
     /* nullable */
 java.lang.String getLabelsOrDefault(
         java.lang.String key,
@@ -304,7 +198,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
-
     java.lang.String getLabelsOrThrow(
         java.lang.String key);
 
@@ -315,9 +208,9 @@ java.lang.String defaultValue);
      * If an X.509 certificate is used to assert the identity this field should be sourced from
      * ``URI Subject Alternative Names``, ``DNS Subject Alternate Names`` or ``Subject`` in that order.
      * The primary identity should be the principal. The principal format is issuer specific.
-     * Example:
-     * *    SPIFFE format is ``spiffe://trust-domain/path``
-     * *    Google account format is ``https://accounts.google.com/{userid}``
+     * Examples:
+     * - SPIFFE format is ``spiffe://trust-domain/path``.
+     * - Google account format is ``https://accounts.google.com/{userid}``.
      * </pre>
      *
      * <code>string principal = 4;</code>
@@ -331,9 +224,9 @@ java.lang.String defaultValue);
      * If an X.509 certificate is used to assert the identity this field should be sourced from
      * ``URI Subject Alternative Names``, ``DNS Subject Alternate Names`` or ``Subject`` in that order.
      * The primary identity should be the principal. The principal format is issuer specific.
-     * Example:
-     * *    SPIFFE format is ``spiffe://trust-domain/path``
-     * *    Google account format is ``https://accounts.google.com/{userid}``
+     * Examples:
+     * - SPIFFE format is ``spiffe://trust-domain/path``.
+     * - Google account format is ``https://accounts.google.com/{userid}``.
      * </pre>
      *
      * <code>string principal = 4;</code>
@@ -402,90 +295,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Peer(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.envoyproxy.envoy.config.core.v3.Address.Builder subBuilder = null;
-              if (address_ != null) {
-                subBuilder = address_.toBuilder();
-              }
-              address_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Address.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(address_);
-                address_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              service_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                labels_ = com.google.protobuf.MapField.newMapField(
-                    LabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              labels__ = input.readMessage(
-                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              labels_.getMutableMap().put(
-                  labels__.getKey(), labels__.getValue());
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              principal_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              certificate_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.service.auth.v3.AttributeContextProto.internal_static_envoy_service_auth_v3_AttributeContext_Peer_descriptor;
@@ -549,11 +358,12 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.AddressOrBuilder getAddressOrBuilder() {
-      return getAddress();
+      return address_ == null ? io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance() : address_;
     }
 
     public static final int SERVICE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object service_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object service_ = "";
     /**
      * <pre>
      * The canonical service name of the peer.
@@ -618,6 +428,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -628,7 +439,6 @@ java.lang.String defaultValue);
       }
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -641,7 +451,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -666,7 +475,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -680,10 +488,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -699,7 +508,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; labels = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -712,7 +520,8 @@ java.lang.String defaultValue);
     }
 
     public static final int PRINCIPAL_FIELD_NUMBER = 4;
-    private volatile java.lang.Object principal_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object principal_ = "";
     /**
      * <pre>
      * The authenticated identity of this peer.
@@ -720,9 +529,9 @@ java.lang.String defaultValue);
      * If an X.509 certificate is used to assert the identity this field should be sourced from
      * ``URI Subject Alternative Names``, ``DNS Subject Alternate Names`` or ``Subject`` in that order.
      * The primary identity should be the principal. The principal format is issuer specific.
-     * Example:
-     * *    SPIFFE format is ``spiffe://trust-domain/path``
-     * *    Google account format is ``https://accounts.google.com/{userid}``
+     * Examples:
+     * - SPIFFE format is ``spiffe://trust-domain/path``.
+     * - Google account format is ``https://accounts.google.com/{userid}``.
      * </pre>
      *
      * <code>string principal = 4;</code>
@@ -748,9 +557,9 @@ java.lang.String defaultValue);
      * If an X.509 certificate is used to assert the identity this field should be sourced from
      * ``URI Subject Alternative Names``, ``DNS Subject Alternate Names`` or ``Subject`` in that order.
      * The primary identity should be the principal. The principal format is issuer specific.
-     * Example:
-     * *    SPIFFE format is ``spiffe://trust-domain/path``
-     * *    Google account format is ``https://accounts.google.com/{userid}``
+     * Examples:
+     * - SPIFFE format is ``spiffe://trust-domain/path``.
+     * - Google account format is ``https://accounts.google.com/{userid}``.
      * </pre>
      *
      * <code>string principal = 4;</code>
@@ -772,7 +581,8 @@ java.lang.String defaultValue);
     }
 
     public static final int CERTIFICATE_FIELD_NUMBER = 5;
-    private volatile java.lang.Object certificate_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object certificate_ = "";
     /**
      * <pre>
      * The X.509 certificate used to authenticate the identify of this peer.
@@ -851,7 +661,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificate_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, certificate_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -883,7 +693,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certificate_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, certificate_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -911,7 +721,7 @@ java.lang.String defaultValue);
           .equals(other.getPrincipal())) return false;
       if (!getCertificate()
           .equals(other.getCertificate())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -936,7 +746,7 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getPrincipal().hashCode();
       hash = (37 * hash) + CERTIFICATE_FIELD_NUMBER;
       hash = (53 * hash) + getCertificate().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1083,35 +893,27 @@ java.lang.String defaultValue);
 
       // Construct using io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (addressBuilder_ == null) {
-          address_ = null;
-        } else {
-          address_ = null;
+        bitField0_ = 0;
+        address_ = null;
+        if (addressBuilder_ != null) {
+          addressBuilder_.dispose();
           addressBuilder_ = null;
         }
         service_ = "";
-
         internalGetMutableLabels().clear();
         principal_ = "";
-
         certificate_ = "";
-
         return this;
       }
 
@@ -1138,19 +940,31 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer buildPartial() {
         io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer result = new io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer(this);
-        int from_bitField0_ = bitField0_;
-        if (addressBuilder_ == null) {
-          result.address_ = address_;
-        } else {
-          result.address_ = addressBuilder_.build();
-        }
-        result.service_ = service_;
-        result.labels_ = internalGetLabels();
-        result.labels_.makeImmutable();
-        result.principal_ = principal_;
-        result.certificate_ = certificate_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.address_ = addressBuilder_ == null
+              ? address_
+              : addressBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.service_ = service_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.labels_ = internalGetLabels();
+          result.labels_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.principal_ = principal_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.certificate_ = certificate_;
+        }
       }
 
       @java.lang.Override
@@ -1202,19 +1016,23 @@ java.lang.String defaultValue);
         }
         if (!other.getService().isEmpty()) {
           service_ = other.service_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         internalGetMutableLabels().mergeFrom(
             other.internalGetLabels());
+        bitField0_ |= 0x00000004;
         if (!other.getPrincipal().isEmpty()) {
           principal_ = other.principal_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getCertificate().isEmpty()) {
           certificate_ = other.certificate_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1229,17 +1047,61 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAddressFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                service_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                labels__ = input.readMessage(
+                    LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableLabels().getMutableMap().put(
+                    labels__.getKey(), labels__.getValue());
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                principal_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                certificate_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1257,7 +1119,7 @@ java.lang.String defaultValue);
        * @return Whether the address field is set.
        */
       public boolean hasAddress() {
-        return addressBuilder_ != null || address_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1289,11 +1151,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           address_ = value;
-          onChanged();
         } else {
           addressBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1308,11 +1170,11 @@ java.lang.String defaultValue);
           io.envoyproxy.envoy.config.core.v3.Address.Builder builderForValue) {
         if (addressBuilder_ == null) {
           address_ = builderForValue.build();
-          onChanged();
         } else {
           addressBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1325,17 +1187,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeAddress(io.envoyproxy.envoy.config.core.v3.Address value) {
         if (addressBuilder_ == null) {
-          if (address_ != null) {
-            address_ =
-              io.envoyproxy.envoy.config.core.v3.Address.newBuilder(address_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            address_ != null &&
+            address_ != io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance()) {
+            getAddressBuilder().mergeFrom(value);
           } else {
             address_ = value;
           }
-          onChanged();
         } else {
           addressBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1347,14 +1210,13 @@ java.lang.String defaultValue);
        * <code>.envoy.config.core.v3.Address address = 1;</code>
        */
       public Builder clearAddress() {
-        if (addressBuilder_ == null) {
-          address_ = null;
-          onChanged();
-        } else {
-          address_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        address_ = null;
+        if (addressBuilder_ != null) {
+          addressBuilder_.dispose();
           addressBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1366,7 +1228,7 @@ java.lang.String defaultValue);
        * <code>.envoy.config.core.v3.Address address = 1;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.Address.Builder getAddressBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getAddressFieldBuilder().getBuilder();
       }
@@ -1473,11 +1335,9 @@ java.lang.String defaultValue);
        */
       public Builder setService(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         service_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1494,8 +1354,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearService() {
-        
         service_ = getDefaultInstance().getService();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1514,12 +1374,10 @@ java.lang.String defaultValue);
        */
       public Builder setServiceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         service_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1527,7 +1385,7 @@ java.lang.String defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> labels_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetLabels() {
+          internalGetLabels() {
         if (labels_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               LabelsDefaultEntryHolder.defaultEntry);
@@ -1535,8 +1393,7 @@ java.lang.String defaultValue);
         return labels_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableLabels() {
-        onChanged();;
+          internalGetMutableLabels() {
         if (labels_ == null) {
           labels_ = com.google.protobuf.MapField.newMapField(
               LabelsDefaultEntryHolder.defaultEntry);
@@ -1544,9 +1401,10 @@ java.lang.String defaultValue);
         if (!labels_.isMutable()) {
           labels_ = labels_.copy();
         }
+        bitField0_ |= 0x00000004;
+        onChanged();
         return labels_;
       }
-
       public int getLabelsCount() {
         return internalGetLabels().getMap().size();
       }
@@ -1559,7 +1417,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; labels = 3;</code>
        */
-
       @java.lang.Override
       public boolean containsLabels(
           java.lang.String key) {
@@ -1584,7 +1441,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; labels = 3;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
         return internalGetLabels().getMap();
       }
@@ -1598,10 +1454,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; labels = 3;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getLabelsOrDefault(
+      public /* nullable */
+java.lang.String getLabelsOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetLabels().getMap();
@@ -1617,7 +1474,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; labels = 3;</code>
        */
       @java.lang.Override
-
       public java.lang.String getLabelsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1628,8 +1484,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearLabels() {
+        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableLabels().getMutableMap()
             .clear();
         return this;
@@ -1643,7 +1499,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; labels = 3;</code>
        */
-
       public Builder removeLabels(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1656,7 +1511,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableLabels() {
+          getMutableLabels() {
+        bitField0_ |= 0x00000004;
         return internalGetMutableLabels().getMutableMap();
       }
       /**
@@ -1672,12 +1528,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableLabels().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -1689,11 +1543,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; labels = 3;</code>
        */
-
       public Builder putAllLabels(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableLabels().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000004;
         return this;
       }
 
@@ -1705,9 +1559,9 @@ java.lang.String defaultValue);
        * If an X.509 certificate is used to assert the identity this field should be sourced from
        * ``URI Subject Alternative Names``, ``DNS Subject Alternate Names`` or ``Subject`` in that order.
        * The primary identity should be the principal. The principal format is issuer specific.
-       * Example:
-       * *    SPIFFE format is ``spiffe://trust-domain/path``
-       * *    Google account format is ``https://accounts.google.com/{userid}``
+       * Examples:
+       * - SPIFFE format is ``spiffe://trust-domain/path``.
+       * - Google account format is ``https://accounts.google.com/{userid}``.
        * </pre>
        *
        * <code>string principal = 4;</code>
@@ -1732,9 +1586,9 @@ java.lang.String defaultValue);
        * If an X.509 certificate is used to assert the identity this field should be sourced from
        * ``URI Subject Alternative Names``, ``DNS Subject Alternate Names`` or ``Subject`` in that order.
        * The primary identity should be the principal. The principal format is issuer specific.
-       * Example:
-       * *    SPIFFE format is ``spiffe://trust-domain/path``
-       * *    Google account format is ``https://accounts.google.com/{userid}``
+       * Examples:
+       * - SPIFFE format is ``spiffe://trust-domain/path``.
+       * - Google account format is ``https://accounts.google.com/{userid}``.
        * </pre>
        *
        * <code>string principal = 4;</code>
@@ -1760,9 +1614,9 @@ java.lang.String defaultValue);
        * If an X.509 certificate is used to assert the identity this field should be sourced from
        * ``URI Subject Alternative Names``, ``DNS Subject Alternate Names`` or ``Subject`` in that order.
        * The primary identity should be the principal. The principal format is issuer specific.
-       * Example:
-       * *    SPIFFE format is ``spiffe://trust-domain/path``
-       * *    Google account format is ``https://accounts.google.com/{userid}``
+       * Examples:
+       * - SPIFFE format is ``spiffe://trust-domain/path``.
+       * - Google account format is ``https://accounts.google.com/{userid}``.
        * </pre>
        *
        * <code>string principal = 4;</code>
@@ -1771,11 +1625,9 @@ java.lang.String defaultValue);
        */
       public Builder setPrincipal(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         principal_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1786,17 +1638,17 @@ java.lang.String defaultValue);
        * If an X.509 certificate is used to assert the identity this field should be sourced from
        * ``URI Subject Alternative Names``, ``DNS Subject Alternate Names`` or ``Subject`` in that order.
        * The primary identity should be the principal. The principal format is issuer specific.
-       * Example:
-       * *    SPIFFE format is ``spiffe://trust-domain/path``
-       * *    Google account format is ``https://accounts.google.com/{userid}``
+       * Examples:
+       * - SPIFFE format is ``spiffe://trust-domain/path``.
+       * - Google account format is ``https://accounts.google.com/{userid}``.
        * </pre>
        *
        * <code>string principal = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPrincipal() {
-        
         principal_ = getDefaultInstance().getPrincipal();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1807,9 +1659,9 @@ java.lang.String defaultValue);
        * If an X.509 certificate is used to assert the identity this field should be sourced from
        * ``URI Subject Alternative Names``, ``DNS Subject Alternate Names`` or ``Subject`` in that order.
        * The primary identity should be the principal. The principal format is issuer specific.
-       * Example:
-       * *    SPIFFE format is ``spiffe://trust-domain/path``
-       * *    Google account format is ``https://accounts.google.com/{userid}``
+       * Examples:
+       * - SPIFFE format is ``spiffe://trust-domain/path``.
+       * - Google account format is ``https://accounts.google.com/{userid}``.
        * </pre>
        *
        * <code>string principal = 4;</code>
@@ -1818,12 +1670,10 @@ java.lang.String defaultValue);
        */
       public Builder setPrincipalBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         principal_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1884,11 +1734,9 @@ java.lang.String defaultValue);
        */
       public Builder setCertificate(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         certificate_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1902,8 +1750,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearCertificate() {
-        
         certificate_ = getDefaultInstance().getCertificate();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -1919,12 +1767,10 @@ java.lang.String defaultValue);
        */
       public Builder setCertificateBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         certificate_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1961,7 +1807,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Peer(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2070,71 +1927,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Request(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (time_ != null) {
-                subBuilder = time_.toBuilder();
-              }
-              time_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(time_);
-                time_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest.Builder subBuilder = null;
-              if (http_ != null) {
-                subBuilder = http_.toBuilder();
-              }
-              http_ = input.readMessage(io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(http_);
-                http_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.service.auth.v3.AttributeContextProto.internal_static_envoy_service_auth_v3_AttributeContext_Request_descriptor;
@@ -2183,7 +1975,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
-      return getTime();
+      return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
     }
 
     public static final int HTTP_FIELD_NUMBER = 2;
@@ -2221,7 +2013,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequestOrBuilder getHttpOrBuilder() {
-      return getHttp();
+      return http_ == null ? io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest.getDefaultInstance() : http_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2244,7 +2036,7 @@ java.lang.String defaultValue);
       if (http_ != null) {
         output.writeMessage(2, getHttp());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2261,7 +2053,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getHttp());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2286,7 +2078,7 @@ java.lang.String defaultValue);
         if (!getHttp()
             .equals(other.getHttp())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2305,7 +2097,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + HTTP_FIELD_NUMBER;
         hash = (53 * hash) + getHttp().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2426,32 +2218,26 @@ java.lang.String defaultValue);
 
       // Construct using io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (timeBuilder_ == null) {
-          time_ = null;
-        } else {
-          time_ = null;
+        bitField0_ = 0;
+        time_ = null;
+        if (timeBuilder_ != null) {
+          timeBuilder_.dispose();
           timeBuilder_ = null;
         }
-        if (httpBuilder_ == null) {
-          http_ = null;
-        } else {
-          http_ = null;
+        http_ = null;
+        if (httpBuilder_ != null) {
+          httpBuilder_.dispose();
           httpBuilder_ = null;
         }
         return this;
@@ -2480,18 +2266,23 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request buildPartial() {
         io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request result = new io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request(this);
-        if (timeBuilder_ == null) {
-          result.time_ = time_;
-        } else {
-          result.time_ = timeBuilder_.build();
-        }
-        if (httpBuilder_ == null) {
-          result.http_ = http_;
-        } else {
-          result.http_ = httpBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.time_ = timeBuilder_ == null
+              ? time_
+              : timeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.http_ = httpBuilder_ == null
+              ? http_
+              : httpBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2544,7 +2335,7 @@ java.lang.String defaultValue);
         if (other.hasHttp()) {
           mergeHttp(other.getHttp());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2559,19 +2350,47 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getHttpFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Timestamp time_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2585,7 +2404,7 @@ java.lang.String defaultValue);
        * @return Whether the time field is set.
        */
       public boolean hasTime() {
-        return timeBuilder_ != null || time_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2615,11 +2434,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           time_ = value;
-          onChanged();
         } else {
           timeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2633,11 +2452,11 @@ java.lang.String defaultValue);
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timeBuilder_ == null) {
           time_ = builderForValue.build();
-          onChanged();
         } else {
           timeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2649,17 +2468,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeTime(com.google.protobuf.Timestamp value) {
         if (timeBuilder_ == null) {
-          if (time_ != null) {
-            time_ =
-              com.google.protobuf.Timestamp.newBuilder(time_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            time_ != null &&
+            time_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getTimeBuilder().mergeFrom(value);
           } else {
             time_ = value;
           }
-          onChanged();
         } else {
           timeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2670,14 +2490,13 @@ java.lang.String defaultValue);
        * <code>.google.protobuf.Timestamp time = 1;</code>
        */
       public Builder clearTime() {
-        if (timeBuilder_ == null) {
-          time_ = null;
-          onChanged();
-        } else {
-          time_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        time_ = null;
+        if (timeBuilder_ != null) {
+          timeBuilder_.dispose();
           timeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2688,7 +2507,7 @@ java.lang.String defaultValue);
        * <code>.google.protobuf.Timestamp time = 1;</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTimeFieldBuilder().getBuilder();
       }
@@ -2740,7 +2559,7 @@ java.lang.String defaultValue);
        * @return Whether the http field is set.
        */
       public boolean hasHttp() {
-        return httpBuilder_ != null || http_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2770,11 +2589,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           http_ = value;
-          onChanged();
         } else {
           httpBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2788,11 +2607,11 @@ java.lang.String defaultValue);
           io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest.Builder builderForValue) {
         if (httpBuilder_ == null) {
           http_ = builderForValue.build();
-          onChanged();
         } else {
           httpBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2804,17 +2623,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeHttp(io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest value) {
         if (httpBuilder_ == null) {
-          if (http_ != null) {
-            http_ =
-              io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest.newBuilder(http_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            http_ != null &&
+            http_ != io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest.getDefaultInstance()) {
+            getHttpBuilder().mergeFrom(value);
           } else {
             http_ = value;
           }
-          onChanged();
         } else {
           httpBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2825,14 +2645,13 @@ java.lang.String defaultValue);
        * <code>.envoy.service.auth.v3.AttributeContext.HttpRequest http = 2;</code>
        */
       public Builder clearHttp() {
-        if (httpBuilder_ == null) {
-          http_ = null;
-          onChanged();
-        } else {
-          http_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        http_ = null;
+        if (httpBuilder_ != null) {
+          httpBuilder_.dispose();
           httpBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2843,7 +2662,7 @@ java.lang.String defaultValue);
        * <code>.envoy.service.auth.v3.AttributeContext.HttpRequest http = 2;</code>
        */
       public io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest.Builder getHttpBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getHttpFieldBuilder().getBuilder();
       }
@@ -2915,7 +2734,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Request(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3032,7 +2862,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
-
     /* nullable */
 java.lang.String getHeadersOrDefault(
         java.lang.String key,
@@ -3047,7 +2876,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
-
     java.lang.String getHeadersOrThrow(
         java.lang.String key);
 
@@ -3075,7 +2903,7 @@ java.lang.String defaultValue);
 
     /**
      * <pre>
-     * The HTTP request ``Host`` or '`Authority`` header value.
+     * The HTTP request ``Host`` or ``:authority`` header value.
      * </pre>
      *
      * <code>string host = 5;</code>
@@ -3084,7 +2912,7 @@ java.lang.String defaultValue);
     java.lang.String getHost();
     /**
      * <pre>
-     * The HTTP request ``Host`` or '`Authority`` header value.
+     * The HTTP request ``Host`` or ``:authority`` header value.
      * </pre>
      *
      * <code>string host = 5;</code>
@@ -3267,123 +3095,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private HttpRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              method_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                headers_ = com.google.protobuf.MapField.newMapField(
-                    HeadersDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              headers__ = input.readMessage(
-                  HeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              headers_.getMutableMap().put(
-                  headers__.getKey(), headers__.getValue());
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              path_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              host_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              scheme_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              query_ = s;
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              fragment_ = s;
-              break;
-            }
-            case 72: {
-
-              size_ = input.readInt64();
-              break;
-            }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              protocol_ = s;
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              body_ = s;
-              break;
-            }
-            case 98: {
-
-              rawBody_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.service.auth.v3.AttributeContextProto.internal_static_envoy_service_auth_v3_AttributeContext_HttpRequest_descriptor;
@@ -3410,7 +3121,8 @@ java.lang.String defaultValue);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
     /**
      * <pre>
      * The unique ID for a request, which can be propagated to downstream
@@ -3462,7 +3174,8 @@ java.lang.String defaultValue);
     }
 
     public static final int METHOD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object method_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object method_ = "";
     /**
      * <pre>
      * The HTTP request method, such as ``GET``, ``POST``.
@@ -3519,6 +3232,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> headers_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -3529,7 +3243,6 @@ java.lang.String defaultValue);
       }
       return headers_;
     }
-
     public int getHeadersCount() {
       return internalGetHeaders().getMap().size();
     }
@@ -3542,7 +3255,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsHeaders(
         java.lang.String key) {
@@ -3567,7 +3279,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getHeadersMap() {
       return internalGetHeaders().getMap();
     }
@@ -3581,10 +3292,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getHeadersOrDefault(
+    public /* nullable */
+java.lang.String getHeadersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetHeaders().getMap();
@@ -3600,7 +3312,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getHeadersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3613,7 +3324,8 @@ java.lang.String defaultValue);
     }
 
     public static final int PATH_FIELD_NUMBER = 4;
-    private volatile java.lang.Object path_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object path_ = "";
     /**
      * <pre>
      * The request target, as it appears in the first line of the HTTP request. This includes
@@ -3661,10 +3373,11 @@ java.lang.String defaultValue);
     }
 
     public static final int HOST_FIELD_NUMBER = 5;
-    private volatile java.lang.Object host_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object host_ = "";
     /**
      * <pre>
-     * The HTTP request ``Host`` or '`Authority`` header value.
+     * The HTTP request ``Host`` or ``:authority`` header value.
      * </pre>
      *
      * <code>string host = 5;</code>
@@ -3685,7 +3398,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * The HTTP request ``Host`` or '`Authority`` header value.
+     * The HTTP request ``Host`` or ``:authority`` header value.
      * </pre>
      *
      * <code>string host = 5;</code>
@@ -3707,7 +3420,8 @@ java.lang.String defaultValue);
     }
 
     public static final int SCHEME_FIELD_NUMBER = 6;
-    private volatile java.lang.Object scheme_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object scheme_ = "";
     /**
      * <pre>
      * The HTTP URL scheme, such as ``http`` and ``https``.
@@ -3753,7 +3467,8 @@ java.lang.String defaultValue);
     }
 
     public static final int QUERY_FIELD_NUMBER = 7;
-    private volatile java.lang.Object query_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object query_ = "";
     /**
      * <pre>
      * This field is always empty, and exists for compatibility reasons. The HTTP URL query is
@@ -3801,7 +3516,8 @@ java.lang.String defaultValue);
     }
 
     public static final int FRAGMENT_FIELD_NUMBER = 8;
-    private volatile java.lang.Object fragment_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fragment_ = "";
     /**
      * <pre>
      * This field is always empty, and exists for compatibility reasons. The URL fragment is
@@ -3849,7 +3565,7 @@ java.lang.String defaultValue);
     }
 
     public static final int SIZE_FIELD_NUMBER = 9;
-    private long size_;
+    private long size_ = 0L;
     /**
      * <pre>
      * The HTTP request size in bytes. If unknown, it must be -1.
@@ -3864,7 +3580,8 @@ java.lang.String defaultValue);
     }
 
     public static final int PROTOCOL_FIELD_NUMBER = 10;
-    private volatile java.lang.Object protocol_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object protocol_ = "";
     /**
      * <pre>
      * The network protocol used with the request, such as "HTTP/1.0", "HTTP/1.1", or "HTTP/2".
@@ -3914,7 +3631,8 @@ java.lang.String defaultValue);
     }
 
     public static final int BODY_FIELD_NUMBER = 11;
-    private volatile java.lang.Object body_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object body_ = "";
     /**
      * <pre>
      * The HTTP request body.
@@ -3960,7 +3678,7 @@ java.lang.String defaultValue);
     }
 
     public static final int RAW_BODY_FIELD_NUMBER = 12;
-    private com.google.protobuf.ByteString rawBody_;
+    private com.google.protobuf.ByteString rawBody_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * The HTTP request body in bytes. This is used instead of
@@ -4030,7 +3748,7 @@ java.lang.String defaultValue);
       if (!rawBody_.isEmpty()) {
         output.writeBytes(12, rawBody_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4084,7 +3802,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(12, rawBody_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4123,7 +3841,7 @@ java.lang.String defaultValue);
           .equals(other.getBody())) return false;
       if (!getRawBody()
           .equals(other.getRawBody())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4161,7 +3879,7 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getBody().hashCode();
       hash = (37 * hash) + RAW_BODY_FIELD_NUMBER;
       hash = (53 * hash) + getRawBody().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4306,45 +4024,30 @@ java.lang.String defaultValue);
 
       // Construct using io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = "";
-
         method_ = "";
-
         internalGetMutableHeaders().clear();
         path_ = "";
-
         host_ = "";
-
         scheme_ = "";
-
         query_ = "";
-
         fragment_ = "";
-
         size_ = 0L;
-
         protocol_ = "";
-
         body_ = "";
-
         rawBody_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -4371,22 +4074,50 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest buildPartial() {
         io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest result = new io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest(this);
-        int from_bitField0_ = bitField0_;
-        result.id_ = id_;
-        result.method_ = method_;
-        result.headers_ = internalGetHeaders();
-        result.headers_.makeImmutable();
-        result.path_ = path_;
-        result.host_ = host_;
-        result.scheme_ = scheme_;
-        result.query_ = query_;
-        result.fragment_ = fragment_;
-        result.size_ = size_;
-        result.protocol_ = protocol_;
-        result.body_ = body_;
-        result.rawBody_ = rawBody_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.method_ = method_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.headers_ = internalGetHeaders();
+          result.headers_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.path_ = path_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.host_ = host_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.scheme_ = scheme_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.query_ = query_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.fragment_ = fragment_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.size_ = size_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.protocol_ = protocol_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.body_ = body_;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.rawBody_ = rawBody_;
+        }
       }
 
       @java.lang.Override
@@ -4435,32 +4166,40 @@ java.lang.String defaultValue);
         if (other == io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getMethod().isEmpty()) {
           method_ = other.method_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         internalGetMutableHeaders().mergeFrom(
             other.internalGetHeaders());
+        bitField0_ |= 0x00000004;
         if (!other.getPath().isEmpty()) {
           path_ = other.path_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getHost().isEmpty()) {
           host_ = other.host_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (!other.getScheme().isEmpty()) {
           scheme_ = other.scheme_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getQuery().isEmpty()) {
           query_ = other.query_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (!other.getFragment().isEmpty()) {
           fragment_ = other.fragment_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
         if (other.getSize() != 0L) {
@@ -4468,16 +4207,18 @@ java.lang.String defaultValue);
         }
         if (!other.getProtocol().isEmpty()) {
           protocol_ = other.protocol_;
+          bitField0_ |= 0x00000200;
           onChanged();
         }
         if (!other.getBody().isEmpty()) {
           body_ = other.body_;
+          bitField0_ |= 0x00000400;
           onChanged();
         }
         if (other.getRawBody() != com.google.protobuf.ByteString.EMPTY) {
           setRawBody(other.getRawBody());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4492,17 +4233,94 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                method_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                headers__ = input.readMessage(
+                    HeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableHeaders().getMutableMap().put(
+                    headers__.getKey(), headers__.getValue());
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                path_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                host_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                scheme_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                query_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                fragment_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 72: {
+                size_ = input.readInt64();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              case 82: {
+                protocol_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                body_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 98: {
+                rawBody_ = input.readBytes();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.service.auth.v3.AttributeContext.HttpRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4569,11 +4387,9 @@ java.lang.String defaultValue);
        */
       public Builder setId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4589,8 +4405,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
         id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4608,12 +4424,10 @@ java.lang.String defaultValue);
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4671,11 +4485,9 @@ java.lang.String defaultValue);
        */
       public Builder setMethod(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         method_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4688,8 +4500,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearMethod() {
-        
         method_ = getDefaultInstance().getMethod();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4704,12 +4516,10 @@ java.lang.String defaultValue);
        */
       public Builder setMethodBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         method_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4717,7 +4527,7 @@ java.lang.String defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> headers_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetHeaders() {
+          internalGetHeaders() {
         if (headers_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               HeadersDefaultEntryHolder.defaultEntry);
@@ -4725,8 +4535,7 @@ java.lang.String defaultValue);
         return headers_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableHeaders() {
-        onChanged();;
+          internalGetMutableHeaders() {
         if (headers_ == null) {
           headers_ = com.google.protobuf.MapField.newMapField(
               HeadersDefaultEntryHolder.defaultEntry);
@@ -4734,9 +4543,10 @@ java.lang.String defaultValue);
         if (!headers_.isMutable()) {
           headers_ = headers_.copy();
         }
+        bitField0_ |= 0x00000004;
+        onChanged();
         return headers_;
       }
-
       public int getHeadersCount() {
         return internalGetHeaders().getMap().size();
       }
@@ -4749,7 +4559,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; headers = 3;</code>
        */
-
       @java.lang.Override
       public boolean containsHeaders(
           java.lang.String key) {
@@ -4774,7 +4583,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; headers = 3;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getHeadersMap() {
         return internalGetHeaders().getMap();
       }
@@ -4788,10 +4596,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; headers = 3;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getHeadersOrDefault(
+      public /* nullable */
+java.lang.String getHeadersOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetHeaders().getMap();
@@ -4807,7 +4616,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; headers = 3;</code>
        */
       @java.lang.Override
-
       public java.lang.String getHeadersOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4818,8 +4626,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearHeaders() {
+        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableHeaders().getMutableMap()
             .clear();
         return this;
@@ -4833,7 +4641,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; headers = 3;</code>
        */
-
       public Builder removeHeaders(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4846,7 +4653,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableHeaders() {
+          getMutableHeaders() {
+        bitField0_ |= 0x00000004;
         return internalGetMutableHeaders().getMutableMap();
       }
       /**
@@ -4862,12 +4670,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableHeaders().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -4879,11 +4685,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; headers = 3;</code>
        */
-
       public Builder putAllHeaders(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableHeaders().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000004;
         return this;
       }
 
@@ -4943,11 +4749,9 @@ java.lang.String defaultValue);
        */
       public Builder setPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         path_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -4961,8 +4765,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        
         path_ = getDefaultInstance().getPath();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -4978,12 +4782,10 @@ java.lang.String defaultValue);
        */
       public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         path_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -4991,7 +4793,7 @@ java.lang.String defaultValue);
       private java.lang.Object host_ = "";
       /**
        * <pre>
-       * The HTTP request ``Host`` or '`Authority`` header value.
+       * The HTTP request ``Host`` or ``:authority`` header value.
        * </pre>
        *
        * <code>string host = 5;</code>
@@ -5011,7 +4813,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * The HTTP request ``Host`` or '`Authority`` header value.
+       * The HTTP request ``Host`` or ``:authority`` header value.
        * </pre>
        *
        * <code>string host = 5;</code>
@@ -5032,7 +4834,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * The HTTP request ``Host`` or '`Authority`` header value.
+       * The HTTP request ``Host`` or ``:authority`` header value.
        * </pre>
        *
        * <code>string host = 5;</code>
@@ -5041,31 +4843,29 @@ java.lang.String defaultValue);
        */
       public Builder setHost(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         host_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The HTTP request ``Host`` or '`Authority`` header value.
+       * The HTTP request ``Host`` or ``:authority`` header value.
        * </pre>
        *
        * <code>string host = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearHost() {
-        
         host_ = getDefaultInstance().getHost();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The HTTP request ``Host`` or '`Authority`` header value.
+       * The HTTP request ``Host`` or ``:authority`` header value.
        * </pre>
        *
        * <code>string host = 5;</code>
@@ -5074,12 +4874,10 @@ java.lang.String defaultValue);
        */
       public Builder setHostBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         host_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -5137,11 +4935,9 @@ java.lang.String defaultValue);
        */
       public Builder setScheme(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         scheme_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -5154,8 +4950,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearScheme() {
-        
         scheme_ = getDefaultInstance().getScheme();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -5170,12 +4966,10 @@ java.lang.String defaultValue);
        */
       public Builder setSchemeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         scheme_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -5236,11 +5030,9 @@ java.lang.String defaultValue);
        */
       public Builder setQuery(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         query_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -5254,8 +5046,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearQuery() {
-        
         query_ = getDefaultInstance().getQuery();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -5271,12 +5063,10 @@ java.lang.String defaultValue);
        */
       public Builder setQueryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         query_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -5337,11 +5127,9 @@ java.lang.String defaultValue);
        */
       public Builder setFragment(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         fragment_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -5355,8 +5143,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearFragment() {
-        
         fragment_ = getDefaultInstance().getFragment();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -5372,12 +5160,10 @@ java.lang.String defaultValue);
        */
       public Builder setFragmentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fragment_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -5407,6 +5193,7 @@ java.lang.String defaultValue);
       public Builder setSize(long value) {
         
         size_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -5419,7 +5206,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearSize() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         size_ = 0L;
         onChanged();
         return this;
@@ -5484,11 +5271,9 @@ java.lang.String defaultValue);
        */
       public Builder setProtocol(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         protocol_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -5503,8 +5288,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearProtocol() {
-        
         protocol_ = getDefaultInstance().getProtocol();
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
         return this;
       }
@@ -5521,12 +5306,10 @@ java.lang.String defaultValue);
        */
       public Builder setProtocolBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         protocol_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -5584,11 +5367,9 @@ java.lang.String defaultValue);
        */
       public Builder setBody(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         body_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -5601,8 +5382,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearBody() {
-        
         body_ = getDefaultInstance().getBody();
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
         return this;
       }
@@ -5617,12 +5398,10 @@ java.lang.String defaultValue);
        */
       public Builder setBodyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         body_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -5656,11 +5435,9 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setRawBody(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         rawBody_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -5676,7 +5453,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearRawBody() {
-        
+        bitField0_ = (bitField0_ & ~0x00000800);
         rawBody_ = getDefaultInstance().getRawBody();
         onChanged();
         return this;
@@ -5714,7 +5491,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HttpRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5775,7 +5563,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public io.envoyproxy.envoy.service.auth.v3.AttributeContext.PeerOrBuilder getSourceOrBuilder() {
-    return getSource();
+    return source_ == null ? io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.getDefaultInstance() : source_;
   }
 
   public static final int DESTINATION_FIELD_NUMBER = 2;
@@ -5819,7 +5607,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public io.envoyproxy.envoy.service.auth.v3.AttributeContext.PeerOrBuilder getDestinationOrBuilder() {
-    return getDestination();
+    return destination_ == null ? io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.getDefaultInstance() : destination_;
   }
 
   public static final int REQUEST_FIELD_NUMBER = 4;
@@ -5857,7 +5645,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public io.envoyproxy.envoy.service.auth.v3.AttributeContext.RequestOrBuilder getRequestOrBuilder() {
-    return getRequest();
+    return request_ == null ? io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request.getDefaultInstance() : request_;
   }
 
   public static final int CONTEXT_EXTENSIONS_FIELD_NUMBER = 10;
@@ -5872,6 +5660,7 @@ java.lang.String defaultValue);
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> contextExtensions_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -5882,7 +5671,6 @@ java.lang.String defaultValue);
     }
     return contextExtensions_;
   }
-
   public int getContextExtensionsCount() {
     return internalGetContextExtensions().getMap().size();
   }
@@ -5896,7 +5684,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; context_extensions = 10;</code>
    */
-
   @java.lang.Override
   public boolean containsContextExtensions(
       java.lang.String key) {
@@ -5922,7 +5709,6 @@ java.lang.String defaultValue);
    * <code>map&lt;string, string&gt; context_extensions = 10;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getContextExtensionsMap() {
     return internalGetContextExtensions().getMap();
   }
@@ -5937,10 +5723,11 @@ java.lang.String defaultValue);
    * <code>map&lt;string, string&gt; context_extensions = 10;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getContextExtensionsOrDefault(
+  public /* nullable */
+java.lang.String getContextExtensionsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetContextExtensions().getMap();
@@ -5957,7 +5744,6 @@ java.lang.String defaultValue);
    * <code>map&lt;string, string&gt; context_extensions = 10;</code>
    */
   @java.lang.Override
-
   public java.lang.String getContextExtensionsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -6004,7 +5790,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.MetadataOrBuilder getMetadataContextOrBuilder() {
-    return getMetadataContext();
+    return metadataContext_ == null ? io.envoyproxy.envoy.config.core.v3.Metadata.getDefaultInstance() : metadataContext_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -6039,7 +5825,7 @@ java.lang.String defaultValue);
     if (metadataContext_ != null) {
       output.writeMessage(11, getMetadataContext());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -6074,7 +5860,7 @@ java.lang.String defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getMetadataContext());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -6111,7 +5897,7 @@ java.lang.String defaultValue);
       if (!getMetadataContext()
           .equals(other.getMetadataContext())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -6142,7 +5928,7 @@ java.lang.String defaultValue);
       hash = (37 * hash) + METADATA_CONTEXT_FIELD_NUMBER;
       hash = (53 * hash) + getMetadataContext().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -6301,45 +6087,37 @@ java.lang.String defaultValue);
 
     // Construct using io.envoyproxy.envoy.service.auth.v3.AttributeContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (sourceBuilder_ == null) {
-        source_ = null;
-      } else {
-        source_ = null;
+      bitField0_ = 0;
+      source_ = null;
+      if (sourceBuilder_ != null) {
+        sourceBuilder_.dispose();
         sourceBuilder_ = null;
       }
-      if (destinationBuilder_ == null) {
-        destination_ = null;
-      } else {
-        destination_ = null;
+      destination_ = null;
+      if (destinationBuilder_ != null) {
+        destinationBuilder_.dispose();
         destinationBuilder_ = null;
       }
-      if (requestBuilder_ == null) {
-        request_ = null;
-      } else {
-        request_ = null;
+      request_ = null;
+      if (requestBuilder_ != null) {
+        requestBuilder_.dispose();
         requestBuilder_ = null;
       }
       internalGetMutableContextExtensions().clear();
-      if (metadataContextBuilder_ == null) {
-        metadataContext_ = null;
-      } else {
-        metadataContext_ = null;
+      metadataContext_ = null;
+      if (metadataContextBuilder_ != null) {
+        metadataContextBuilder_.dispose();
         metadataContextBuilder_ = null;
       }
       return this;
@@ -6368,31 +6146,37 @@ java.lang.String defaultValue);
     @java.lang.Override
     public io.envoyproxy.envoy.service.auth.v3.AttributeContext buildPartial() {
       io.envoyproxy.envoy.service.auth.v3.AttributeContext result = new io.envoyproxy.envoy.service.auth.v3.AttributeContext(this);
-      int from_bitField0_ = bitField0_;
-      if (sourceBuilder_ == null) {
-        result.source_ = source_;
-      } else {
-        result.source_ = sourceBuilder_.build();
-      }
-      if (destinationBuilder_ == null) {
-        result.destination_ = destination_;
-      } else {
-        result.destination_ = destinationBuilder_.build();
-      }
-      if (requestBuilder_ == null) {
-        result.request_ = request_;
-      } else {
-        result.request_ = requestBuilder_.build();
-      }
-      result.contextExtensions_ = internalGetContextExtensions();
-      result.contextExtensions_.makeImmutable();
-      if (metadataContextBuilder_ == null) {
-        result.metadataContext_ = metadataContext_;
-      } else {
-        result.metadataContext_ = metadataContextBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.service.auth.v3.AttributeContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.source_ = sourceBuilder_ == null
+            ? source_
+            : sourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.destination_ = destinationBuilder_ == null
+            ? destination_
+            : destinationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.request_ = requestBuilder_ == null
+            ? request_
+            : requestBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.contextExtensions_ = internalGetContextExtensions();
+        result.contextExtensions_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.metadataContext_ = metadataContextBuilder_ == null
+            ? metadataContext_
+            : metadataContextBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -6450,10 +6234,11 @@ java.lang.String defaultValue);
       }
       internalGetMutableContextExtensions().mergeFrom(
           other.internalGetContextExtensions());
+      bitField0_ |= 0x00000008;
       if (other.hasMetadataContext()) {
         mergeMetadataContext(other.getMetadataContext());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -6468,17 +6253,67 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.service.auth.v3.AttributeContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDestinationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              contextExtensions__ = input.readMessage(
+                  ContextExtensionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableContextExtensions().getMutableMap().put(
+                  contextExtensions__.getKey(), contextExtensions__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getMetadataContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.service.auth.v3.AttributeContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -6497,7 +6332,7 @@ java.lang.String defaultValue);
      * @return Whether the source field is set.
      */
     public boolean hasSource() {
-      return sourceBuilder_ != null || source_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -6531,11 +6366,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         source_ = value;
-        onChanged();
       } else {
         sourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -6551,11 +6386,11 @@ java.lang.String defaultValue);
         io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.Builder builderForValue) {
       if (sourceBuilder_ == null) {
         source_ = builderForValue.build();
-        onChanged();
       } else {
         sourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -6569,17 +6404,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeSource(io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer value) {
       if (sourceBuilder_ == null) {
-        if (source_ != null) {
-          source_ =
-            io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.newBuilder(source_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          source_ != null &&
+          source_ != io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.getDefaultInstance()) {
+          getSourceBuilder().mergeFrom(value);
         } else {
           source_ = value;
         }
-        onChanged();
       } else {
         sourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -6592,14 +6428,13 @@ java.lang.String defaultValue);
      * <code>.envoy.service.auth.v3.AttributeContext.Peer source = 1;</code>
      */
     public Builder clearSource() {
-      if (sourceBuilder_ == null) {
-        source_ = null;
-        onChanged();
-      } else {
-        source_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      source_ = null;
+      if (sourceBuilder_ != null) {
+        sourceBuilder_.dispose();
         sourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6612,7 +6447,7 @@ java.lang.String defaultValue);
      * <code>.envoy.service.auth.v3.AttributeContext.Peer source = 1;</code>
      */
     public io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.Builder getSourceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSourceFieldBuilder().getBuilder();
     }
@@ -6670,7 +6505,7 @@ java.lang.String defaultValue);
      * @return Whether the destination field is set.
      */
     public boolean hasDestination() {
-      return destinationBuilder_ != null || destination_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -6704,11 +6539,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         destination_ = value;
-        onChanged();
       } else {
         destinationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -6724,11 +6559,11 @@ java.lang.String defaultValue);
         io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.Builder builderForValue) {
       if (destinationBuilder_ == null) {
         destination_ = builderForValue.build();
-        onChanged();
       } else {
         destinationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -6742,17 +6577,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeDestination(io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer value) {
       if (destinationBuilder_ == null) {
-        if (destination_ != null) {
-          destination_ =
-            io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.newBuilder(destination_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          destination_ != null &&
+          destination_ != io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.getDefaultInstance()) {
+          getDestinationBuilder().mergeFrom(value);
         } else {
           destination_ = value;
         }
-        onChanged();
       } else {
         destinationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -6765,14 +6601,13 @@ java.lang.String defaultValue);
      * <code>.envoy.service.auth.v3.AttributeContext.Peer destination = 2;</code>
      */
     public Builder clearDestination() {
-      if (destinationBuilder_ == null) {
-        destination_ = null;
-        onChanged();
-      } else {
-        destination_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      destination_ = null;
+      if (destinationBuilder_ != null) {
+        destinationBuilder_.dispose();
         destinationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6785,7 +6620,7 @@ java.lang.String defaultValue);
      * <code>.envoy.service.auth.v3.AttributeContext.Peer destination = 2;</code>
      */
     public io.envoyproxy.envoy.service.auth.v3.AttributeContext.Peer.Builder getDestinationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDestinationFieldBuilder().getBuilder();
     }
@@ -6841,7 +6676,7 @@ java.lang.String defaultValue);
      * @return Whether the request field is set.
      */
     public boolean hasRequest() {
-      return requestBuilder_ != null || request_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -6871,11 +6706,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         request_ = value;
-        onChanged();
       } else {
         requestBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -6889,11 +6724,11 @@ java.lang.String defaultValue);
         io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request.Builder builderForValue) {
       if (requestBuilder_ == null) {
         request_ = builderForValue.build();
-        onChanged();
       } else {
         requestBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -6905,17 +6740,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeRequest(io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request value) {
       if (requestBuilder_ == null) {
-        if (request_ != null) {
-          request_ =
-            io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request.newBuilder(request_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          request_ != null &&
+          request_ != io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request.getDefaultInstance()) {
+          getRequestBuilder().mergeFrom(value);
         } else {
           request_ = value;
         }
-        onChanged();
       } else {
         requestBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -6926,14 +6762,13 @@ java.lang.String defaultValue);
      * <code>.envoy.service.auth.v3.AttributeContext.Request request = 4;</code>
      */
     public Builder clearRequest() {
-      if (requestBuilder_ == null) {
-        request_ = null;
-        onChanged();
-      } else {
-        request_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      request_ = null;
+      if (requestBuilder_ != null) {
+        requestBuilder_.dispose();
         requestBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6944,7 +6779,7 @@ java.lang.String defaultValue);
      * <code>.envoy.service.auth.v3.AttributeContext.Request request = 4;</code>
      */
     public io.envoyproxy.envoy.service.auth.v3.AttributeContext.Request.Builder getRequestBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRequestFieldBuilder().getBuilder();
     }
@@ -6987,7 +6822,7 @@ java.lang.String defaultValue);
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> contextExtensions_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetContextExtensions() {
+        internalGetContextExtensions() {
       if (contextExtensions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ContextExtensionsDefaultEntryHolder.defaultEntry);
@@ -6995,8 +6830,7 @@ java.lang.String defaultValue);
       return contextExtensions_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableContextExtensions() {
-      onChanged();;
+        internalGetMutableContextExtensions() {
       if (contextExtensions_ == null) {
         contextExtensions_ = com.google.protobuf.MapField.newMapField(
             ContextExtensionsDefaultEntryHolder.defaultEntry);
@@ -7004,9 +6838,10 @@ java.lang.String defaultValue);
       if (!contextExtensions_.isMutable()) {
         contextExtensions_ = contextExtensions_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return contextExtensions_;
     }
-
     public int getContextExtensionsCount() {
       return internalGetContextExtensions().getMap().size();
     }
@@ -7020,7 +6855,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; context_extensions = 10;</code>
      */
-
     @java.lang.Override
     public boolean containsContextExtensions(
         java.lang.String key) {
@@ -7046,7 +6880,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; context_extensions = 10;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getContextExtensionsMap() {
       return internalGetContextExtensions().getMap();
     }
@@ -7061,10 +6894,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; context_extensions = 10;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getContextExtensionsOrDefault(
+    public /* nullable */
+java.lang.String getContextExtensionsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetContextExtensions().getMap();
@@ -7081,7 +6915,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; context_extensions = 10;</code>
      */
     @java.lang.Override
-
     public java.lang.String getContextExtensionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -7092,8 +6925,8 @@ java.lang.String defaultValue);
       }
       return map.get(key);
     }
-
     public Builder clearContextExtensions() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableContextExtensions().getMutableMap()
           .clear();
       return this;
@@ -7108,7 +6941,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; context_extensions = 10;</code>
      */
-
     public Builder removeContextExtensions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -7121,7 +6953,8 @@ java.lang.String defaultValue);
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableContextExtensions() {
+        getMutableContextExtensions() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableContextExtensions().getMutableMap();
     }
     /**
@@ -7138,12 +6971,10 @@ java.lang.String defaultValue);
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableContextExtensions().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -7156,11 +6987,11 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; context_extensions = 10;</code>
      */
-
     public Builder putAllContextExtensions(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableContextExtensions().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
@@ -7176,7 +7007,7 @@ java.lang.String defaultValue);
      * @return Whether the metadataContext field is set.
      */
     public boolean hasMetadataContext() {
-      return metadataContextBuilder_ != null || metadataContext_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -7206,11 +7037,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         metadataContext_ = value;
-        onChanged();
       } else {
         metadataContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -7224,11 +7055,11 @@ java.lang.String defaultValue);
         io.envoyproxy.envoy.config.core.v3.Metadata.Builder builderForValue) {
       if (metadataContextBuilder_ == null) {
         metadataContext_ = builderForValue.build();
-        onChanged();
       } else {
         metadataContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -7240,17 +7071,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeMetadataContext(io.envoyproxy.envoy.config.core.v3.Metadata value) {
       if (metadataContextBuilder_ == null) {
-        if (metadataContext_ != null) {
-          metadataContext_ =
-            io.envoyproxy.envoy.config.core.v3.Metadata.newBuilder(metadataContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          metadataContext_ != null &&
+          metadataContext_ != io.envoyproxy.envoy.config.core.v3.Metadata.getDefaultInstance()) {
+          getMetadataContextBuilder().mergeFrom(value);
         } else {
           metadataContext_ = value;
         }
-        onChanged();
       } else {
         metadataContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -7261,14 +7093,13 @@ java.lang.String defaultValue);
      * <code>.envoy.config.core.v3.Metadata metadata_context = 11;</code>
      */
     public Builder clearMetadataContext() {
-      if (metadataContextBuilder_ == null) {
-        metadataContext_ = null;
-        onChanged();
-      } else {
-        metadataContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      metadataContext_ = null;
+      if (metadataContextBuilder_ != null) {
+        metadataContextBuilder_.dispose();
         metadataContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7279,7 +7110,7 @@ java.lang.String defaultValue);
      * <code>.envoy.config.core.v3.Metadata metadata_context = 11;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.Metadata.Builder getMetadataContextBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getMetadataContextFieldBuilder().getBuilder();
     }
@@ -7351,7 +7182,18 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AttributeContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

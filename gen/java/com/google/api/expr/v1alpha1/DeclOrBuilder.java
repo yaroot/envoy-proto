@@ -12,9 +12,11 @@ public interface DeclOrBuilder extends
    * The fully qualified name of the declaration.
    * Declarations are organized in containers and this represents the full path
    * to the declaration in its container, as in `google.api.expr.Decl`.
-   * Declarations used as [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload] parameters may or may not
-   * have a name depending on whether the overload is function declaration or a
-   * function definition containing a result [Expr][google.api.expr.v1alpha1.Expr].
+   * Declarations used as
+   * [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload]
+   * parameters may or may not have a name depending on whether the overload is
+   * function declaration or a function definition containing a result
+   * [Expr][google.api.expr.v1alpha1.Expr].
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -26,9 +28,11 @@ public interface DeclOrBuilder extends
    * The fully qualified name of the declaration.
    * Declarations are organized in containers and this represents the full path
    * to the declaration in its container, as in `google.api.expr.Decl`.
-   * Declarations used as [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload] parameters may or may not
-   * have a name depending on whether the overload is function declaration or a
-   * function definition containing a result [Expr][google.api.expr.v1alpha1.Expr].
+   * Declarations used as
+   * [FunctionDecl.Overload][google.api.expr.v1alpha1.Decl.FunctionDecl.Overload]
+   * parameters may or may not have a name depending on whether the overload is
+   * function declaration or a function definition containing a result
+   * [Expr][google.api.expr.v1alpha1.Expr].
    * </pre>
    *
    * <code>string name = 1;</code>

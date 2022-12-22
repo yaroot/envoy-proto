@@ -246,7 +246,6 @@ public interface OperationMetadataOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.gaming.v1.OperationStatus&gt; operation_status = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.gaming.v1.OperationStatus getOperationStatusOrDefault(
       java.lang.String key,
@@ -262,7 +261,6 @@ com.google.cloud.gaming.v1.OperationStatus defaultValue);
    *
    * <code>map&lt;string, .google.cloud.gaming.v1.OperationStatus&gt; operation_status = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.gaming.v1.OperationStatus getOperationStatusOrThrow(
       java.lang.String key);
 }

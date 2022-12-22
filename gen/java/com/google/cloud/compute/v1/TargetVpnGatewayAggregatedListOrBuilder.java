@@ -75,7 +75,6 @@ public interface TargetVpnGatewayAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.TargetVpnGatewaysScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.TargetVpnGatewaysScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.TargetVpnGatewaysScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.TargetVpnGatewaysScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.TargetVpnGatewaysScopedList getItemsOrThrow(
       java.lang.String key);
 

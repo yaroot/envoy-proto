@@ -72,7 +72,7 @@ public interface PermissionOrBuilder extends
   /**
    * <code>bool only_in_predefined_roles = 4 [deprecated = true];</code>
    * @deprecated google.iam.admin.v1.Permission.only_in_predefined_roles is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=1341
+   *     See google/iam/admin/v1/iam.proto;l=1450
    * @return The onlyInPredefinedRoles.
    */
   @java.lang.Deprecated boolean getOnlyInPredefinedRoles();

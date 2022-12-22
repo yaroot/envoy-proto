@@ -36,88 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DemoteMasterContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kind_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (verifyGtidConsistency_ != null) {
-              subBuilder = verifyGtidConsistency_.toBuilder();
-            }
-            verifyGtidConsistency_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(verifyGtidConsistency_);
-              verifyGtidConsistency_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            masterInstanceName_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.sql.v1beta4.DemoteMasterConfiguration.Builder subBuilder = null;
-            if (replicaConfiguration_ != null) {
-              subBuilder = replicaConfiguration_.toBuilder();
-            }
-            replicaConfiguration_ = input.readMessage(com.google.cloud.sql.v1beta4.DemoteMasterConfiguration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(replicaConfiguration_);
-              replicaConfiguration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            skipReplicationSetup_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1beta4.CloudSqlResourcesProto.internal_static_google_cloud_sql_v1beta4_DemoteMasterContext_descriptor;
@@ -132,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 1;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * This is always `sql#demoteMasterContext`.
@@ -230,11 +149,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getVerifyGtidConsistencyOrBuilder() {
-    return getVerifyGtidConsistency();
+    return verifyGtidConsistency_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : verifyGtidConsistency_;
   }
 
   public static final int MASTER_INSTANCE_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object masterInstanceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object masterInstanceName_ = "";
   /**
    * <pre>
    * The name of the instance which will act as on-premises primary instance
@@ -319,11 +239,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.sql.v1beta4.DemoteMasterConfigurationOrBuilder getReplicaConfigurationOrBuilder() {
-    return getReplicaConfiguration();
+    return replicaConfiguration_ == null ? com.google.cloud.sql.v1beta4.DemoteMasterConfiguration.getDefaultInstance() : replicaConfiguration_;
   }
 
   public static final int SKIP_REPLICATION_SETUP_FIELD_NUMBER = 5;
-  private boolean skipReplicationSetup_;
+  private boolean skipReplicationSetup_ = false;
   /**
    * <pre>
    * Flag to skip replication setup on the instance.
@@ -366,7 +286,7 @@ private static final long serialVersionUID = 0L;
     if (skipReplicationSetup_ != false) {
       output.writeBool(5, skipReplicationSetup_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -393,7 +313,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, skipReplicationSetup_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -424,7 +344,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getSkipReplicationSetup()
         != other.getSkipReplicationSetup()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -450,7 +370,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SKIP_REPLICATION_SETUP_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSkipReplicationSetup());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -571,40 +491,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1beta4.DemoteMasterContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       kind_ = "";
-
-      if (verifyGtidConsistencyBuilder_ == null) {
-        verifyGtidConsistency_ = null;
-      } else {
-        verifyGtidConsistency_ = null;
+      verifyGtidConsistency_ = null;
+      if (verifyGtidConsistencyBuilder_ != null) {
+        verifyGtidConsistencyBuilder_.dispose();
         verifyGtidConsistencyBuilder_ = null;
       }
       masterInstanceName_ = "";
-
-      if (replicaConfigurationBuilder_ == null) {
-        replicaConfiguration_ = null;
-      } else {
-        replicaConfiguration_ = null;
+      replicaConfiguration_ = null;
+      if (replicaConfigurationBuilder_ != null) {
+        replicaConfigurationBuilder_.dispose();
         replicaConfigurationBuilder_ = null;
       }
       skipReplicationSetup_ = false;
-
       return this;
     }
 
@@ -631,21 +542,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1beta4.DemoteMasterContext buildPartial() {
       com.google.cloud.sql.v1beta4.DemoteMasterContext result = new com.google.cloud.sql.v1beta4.DemoteMasterContext(this);
-      result.kind_ = kind_;
-      if (verifyGtidConsistencyBuilder_ == null) {
-        result.verifyGtidConsistency_ = verifyGtidConsistency_;
-      } else {
-        result.verifyGtidConsistency_ = verifyGtidConsistencyBuilder_.build();
-      }
-      result.masterInstanceName_ = masterInstanceName_;
-      if (replicaConfigurationBuilder_ == null) {
-        result.replicaConfiguration_ = replicaConfiguration_;
-      } else {
-        result.replicaConfiguration_ = replicaConfigurationBuilder_.build();
-      }
-      result.skipReplicationSetup_ = skipReplicationSetup_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1beta4.DemoteMasterContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.kind_ = kind_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.verifyGtidConsistency_ = verifyGtidConsistencyBuilder_ == null
+            ? verifyGtidConsistency_
+            : verifyGtidConsistencyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.masterInstanceName_ = masterInstanceName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.replicaConfiguration_ = replicaConfigurationBuilder_ == null
+            ? replicaConfiguration_
+            : replicaConfigurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.skipReplicationSetup_ = skipReplicationSetup_;
+      }
     }
 
     @java.lang.Override
@@ -694,6 +616,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.sql.v1beta4.DemoteMasterContext.getDefaultInstance()) return this;
       if (!other.getKind().isEmpty()) {
         kind_ = other.kind_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasVerifyGtidConsistency()) {
@@ -701,6 +624,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMasterInstanceName().isEmpty()) {
         masterInstanceName_ = other.masterInstanceName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasReplicaConfiguration()) {
@@ -709,7 +633,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSkipReplicationSetup() != false) {
         setSkipReplicationSetup(other.getSkipReplicationSetup());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -724,19 +648,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1beta4.DemoteMasterContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getVerifyGtidConsistencyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              masterInstanceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getReplicaConfigurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              skipReplicationSetup_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1beta4.DemoteMasterContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object kind_ = "";
     /**
@@ -791,11 +758,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -808,8 +773,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -824,12 +789,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -852,7 +815,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the verifyGtidConsistency field is set.
      */
     public boolean hasVerifyGtidConsistency() {
-      return verifyGtidConsistencyBuilder_ != null || verifyGtidConsistency_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -894,11 +857,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         verifyGtidConsistency_ = value;
-        onChanged();
       } else {
         verifyGtidConsistencyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -918,11 +881,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (verifyGtidConsistencyBuilder_ == null) {
         verifyGtidConsistency_ = builderForValue.build();
-        onChanged();
       } else {
         verifyGtidConsistencyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -940,17 +903,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVerifyGtidConsistency(com.google.protobuf.BoolValue value) {
       if (verifyGtidConsistencyBuilder_ == null) {
-        if (verifyGtidConsistency_ != null) {
-          verifyGtidConsistency_ =
-            com.google.protobuf.BoolValue.newBuilder(verifyGtidConsistency_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          verifyGtidConsistency_ != null &&
+          verifyGtidConsistency_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getVerifyGtidConsistencyBuilder().mergeFrom(value);
         } else {
           verifyGtidConsistency_ = value;
         }
-        onChanged();
       } else {
         verifyGtidConsistencyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -967,14 +931,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue verify_gtid_consistency = 2;</code>
      */
     public Builder clearVerifyGtidConsistency() {
-      if (verifyGtidConsistencyBuilder_ == null) {
-        verifyGtidConsistency_ = null;
-        onChanged();
-      } else {
-        verifyGtidConsistency_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      verifyGtidConsistency_ = null;
+      if (verifyGtidConsistencyBuilder_ != null) {
+        verifyGtidConsistencyBuilder_.dispose();
         verifyGtidConsistencyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -991,7 +954,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue verify_gtid_consistency = 2;</code>
      */
     public com.google.protobuf.BoolValue.Builder getVerifyGtidConsistencyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getVerifyGtidConsistencyFieldBuilder().getBuilder();
     }
@@ -1099,11 +1062,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterInstanceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       masterInstanceName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1117,8 +1078,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMasterInstanceName() {
-      
       masterInstanceName_ = getDefaultInstance().getMasterInstanceName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1134,12 +1095,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterInstanceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       masterInstanceName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1157,7 +1116,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the replicaConfiguration field is set.
      */
     public boolean hasReplicaConfiguration() {
-      return replicaConfigurationBuilder_ != null || replicaConfiguration_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1189,11 +1148,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         replicaConfiguration_ = value;
-        onChanged();
       } else {
         replicaConfigurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1208,11 +1167,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.sql.v1beta4.DemoteMasterConfiguration.Builder builderForValue) {
       if (replicaConfigurationBuilder_ == null) {
         replicaConfiguration_ = builderForValue.build();
-        onChanged();
       } else {
         replicaConfigurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1225,17 +1184,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReplicaConfiguration(com.google.cloud.sql.v1beta4.DemoteMasterConfiguration value) {
       if (replicaConfigurationBuilder_ == null) {
-        if (replicaConfiguration_ != null) {
-          replicaConfiguration_ =
-            com.google.cloud.sql.v1beta4.DemoteMasterConfiguration.newBuilder(replicaConfiguration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          replicaConfiguration_ != null &&
+          replicaConfiguration_ != com.google.cloud.sql.v1beta4.DemoteMasterConfiguration.getDefaultInstance()) {
+          getReplicaConfigurationBuilder().mergeFrom(value);
         } else {
           replicaConfiguration_ = value;
         }
-        onChanged();
       } else {
         replicaConfigurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1247,14 +1207,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1beta4.DemoteMasterConfiguration replica_configuration = 4;</code>
      */
     public Builder clearReplicaConfiguration() {
-      if (replicaConfigurationBuilder_ == null) {
-        replicaConfiguration_ = null;
-        onChanged();
-      } else {
-        replicaConfiguration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      replicaConfiguration_ = null;
+      if (replicaConfigurationBuilder_ != null) {
+        replicaConfigurationBuilder_.dispose();
         replicaConfigurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1266,7 +1225,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1beta4.DemoteMasterConfiguration replica_configuration = 4;</code>
      */
     public com.google.cloud.sql.v1beta4.DemoteMasterConfiguration.Builder getReplicaConfigurationBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getReplicaConfigurationFieldBuilder().getBuilder();
     }
@@ -1333,6 +1292,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSkipReplicationSetup(boolean value) {
       
       skipReplicationSetup_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1345,7 +1305,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSkipReplicationSetup() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       skipReplicationSetup_ = false;
       onChanged();
       return this;
@@ -1383,7 +1343,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DemoteMasterContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -5,7 +5,7 @@ package io.envoyproxy.envoy.extensions.filters.http.compressor.v3;
 
 /**
  * <pre>
- * [#next-free-field: 9]
+ * [#next-free-field: 10]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.filters.http.compressor.v3.Compressor}
@@ -35,133 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Compressor(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (contentLength_ != null) {
-              subBuilder = contentLength_.toBuilder();
-            }
-            contentLength_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(contentLength_);
-              contentLength_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              contentType_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            contentType_.add(s);
-            break;
-          }
-          case 24: {
-
-            disableOnEtagHeader_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            removeAcceptEncodingHeader_ = input.readBool();
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder subBuilder = null;
-            if (runtimeEnabled_ != null) {
-              subBuilder = runtimeEnabled_.toBuilder();
-            }
-            runtimeEnabled_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(runtimeEnabled_);
-              runtimeEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder subBuilder = null;
-            if (compressorLibrary_ != null) {
-              subBuilder = compressorLibrary_.toBuilder();
-            }
-            compressorLibrary_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(compressorLibrary_);
-              compressorLibrary_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig.Builder subBuilder = null;
-            if (requestDirectionConfig_ != null) {
-              subBuilder = requestDirectionConfig_.toBuilder();
-            }
-            requestDirectionConfig_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requestDirectionConfig_);
-              requestDirectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig.Builder subBuilder = null;
-            if (responseDirectionConfig_ != null) {
-              subBuilder = responseDirectionConfig_.toBuilder();
-            }
-            responseDirectionConfig_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(responseDirectionConfig_);
-              responseDirectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        contentType_ = contentType_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.compressor.v3.CompressorProto.internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_descriptor;
@@ -183,7 +56,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Runtime flag that controls whether compression is enabled or not for the direction this
      * common config is put in. If set to false, the filter will operate as a pass-through filter
-     * in the chosen direction. If the field is omitted, the filter will be enabled.
+     * in the chosen direction, unless overridden by CompressorPerRoute.
+     * If the field is omitted, the filter will be enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -194,7 +68,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Runtime flag that controls whether compression is enabled or not for the direction this
      * common config is put in. If set to false, the filter will operate as a pass-through filter
-     * in the chosen direction. If the field is omitted, the filter will be enabled.
+     * in the chosen direction, unless overridden by CompressorPerRoute.
+     * If the field is omitted, the filter will be enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -205,7 +80,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Runtime flag that controls whether compression is enabled or not for the direction this
      * common config is put in. If set to false, the filter will operate as a pass-through filter
-     * in the chosen direction. If the field is omitted, the filter will be enabled.
+     * in the chosen direction, unless overridden by CompressorPerRoute.
+     * If the field is omitted, the filter will be enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -327,84 +203,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CommonDirectionConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder subBuilder = null;
-              if (enabled_ != null) {
-                subBuilder = enabled_.toBuilder();
-              }
-              enabled_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(enabled_);
-                enabled_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.UInt32Value.Builder subBuilder = null;
-              if (minContentLength_ != null) {
-                subBuilder = minContentLength_.toBuilder();
-              }
-              minContentLength_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(minContentLength_);
-                minContentLength_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                contentType_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              contentType_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          contentType_ = contentType_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.extensions.filters.http.compressor.v3.CompressorProto.internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_CommonDirectionConfig_descriptor;
@@ -424,7 +222,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Runtime flag that controls whether compression is enabled or not for the direction this
      * common config is put in. If set to false, the filter will operate as a pass-through filter
-     * in the chosen direction. If the field is omitted, the filter will be enabled.
+     * in the chosen direction, unless overridden by CompressorPerRoute.
+     * If the field is omitted, the filter will be enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -438,7 +237,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Runtime flag that controls whether compression is enabled or not for the direction this
      * common config is put in. If set to false, the filter will operate as a pass-through filter
-     * in the chosen direction. If the field is omitted, the filter will be enabled.
+     * in the chosen direction, unless overridden by CompressorPerRoute.
+     * If the field is omitted, the filter will be enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -452,14 +252,15 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Runtime flag that controls whether compression is enabled or not for the direction this
      * common config is put in. If set to false, the filter will operate as a pass-through filter
-     * in the chosen direction. If the field is omitted, the filter will be enabled.
+     * in the chosen direction, unless overridden by CompressorPerRoute.
+     * If the field is omitted, the filter will be enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlagOrBuilder getEnabledOrBuilder() {
-      return getEnabled();
+      return enabled_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance() : enabled_;
     }
 
     public static final int MIN_CONTENT_LENGTH_FIELD_NUMBER = 2;
@@ -500,10 +301,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.UInt32ValueOrBuilder getMinContentLengthOrBuilder() {
-      return getMinContentLength();
+      return minContentLength_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : minContentLength_;
     }
 
     public static final int CONTENT_TYPE_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList contentType_;
     /**
      * <pre>
@@ -593,7 +395,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < contentType_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, contentType_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -618,7 +420,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getContentTypeList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -645,7 +447,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!getContentTypeList()
           .equals(other.getContentTypeList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -668,7 +470,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + CONTENT_TYPE_FIELD_NUMBER;
         hash = (53 * hash) + getContentTypeList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -785,36 +587,30 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (enabledBuilder_ == null) {
-          enabled_ = null;
-        } else {
-          enabled_ = null;
+        bitField0_ = 0;
+        enabled_ = null;
+        if (enabledBuilder_ != null) {
+          enabledBuilder_.dispose();
           enabledBuilder_ = null;
         }
-        if (minContentLengthBuilder_ == null) {
-          minContentLength_ = null;
-        } else {
-          minContentLength_ = null;
+        minContentLength_ = null;
+        if (minContentLengthBuilder_ != null) {
+          minContentLengthBuilder_.dispose();
           minContentLengthBuilder_ = null;
         }
         contentType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -841,24 +637,32 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig buildPartial() {
         io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig result = new io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig(this);
-        int from_bitField0_ = bitField0_;
-        if (enabledBuilder_ == null) {
-          result.enabled_ = enabled_;
-        } else {
-          result.enabled_ = enabledBuilder_.build();
-        }
-        if (minContentLengthBuilder_ == null) {
-          result.minContentLength_ = minContentLength_;
-        } else {
-          result.minContentLength_ = minContentLengthBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
-          contentType_ = contentType_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.contentType_ = contentType_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          contentType_ = contentType_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.contentType_ = contentType_;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.enabled_ = enabledBuilder_ == null
+              ? enabled_
+              : enabledBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.minContentLength_ = minContentLengthBuilder_ == null
+              ? minContentLength_
+              : minContentLengthBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -914,14 +718,14 @@ private static final long serialVersionUID = 0L;
         if (!other.contentType_.isEmpty()) {
           if (contentType_.isEmpty()) {
             contentType_ = other.contentType_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureContentTypeIsMutable();
             contentType_.addAll(other.contentType_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -936,17 +740,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getEnabledFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getMinContentLengthFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureContentTypeIsMutable();
+                contentType_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -958,20 +795,22 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Runtime flag that controls whether compression is enabled or not for the direction this
        * common config is put in. If set to false, the filter will operate as a pass-through filter
-       * in the chosen direction. If the field is omitted, the filter will be enabled.
+       * in the chosen direction, unless overridden by CompressorPerRoute.
+       * If the field is omitted, the filter will be enabled.
        * </pre>
        *
        * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
        * @return Whether the enabled field is set.
        */
       public boolean hasEnabled() {
-        return enabledBuilder_ != null || enabled_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
        * Runtime flag that controls whether compression is enabled or not for the direction this
        * common config is put in. If set to false, the filter will operate as a pass-through filter
-       * in the chosen direction. If the field is omitted, the filter will be enabled.
+       * in the chosen direction, unless overridden by CompressorPerRoute.
+       * If the field is omitted, the filter will be enabled.
        * </pre>
        *
        * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -988,7 +827,8 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Runtime flag that controls whether compression is enabled or not for the direction this
        * common config is put in. If set to false, the filter will operate as a pass-through filter
-       * in the chosen direction. If the field is omitted, the filter will be enabled.
+       * in the chosen direction, unless overridden by CompressorPerRoute.
+       * If the field is omitted, the filter will be enabled.
        * </pre>
        *
        * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -999,18 +839,19 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           enabled_ = value;
-          onChanged();
         } else {
           enabledBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Runtime flag that controls whether compression is enabled or not for the direction this
        * common config is put in. If set to false, the filter will operate as a pass-through filter
-       * in the chosen direction. If the field is omitted, the filter will be enabled.
+       * in the chosen direction, unless overridden by CompressorPerRoute.
+       * If the field is omitted, the filter will be enabled.
        * </pre>
        *
        * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -1019,68 +860,71 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder builderForValue) {
         if (enabledBuilder_ == null) {
           enabled_ = builderForValue.build();
-          onChanged();
         } else {
           enabledBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Runtime flag that controls whether compression is enabled or not for the direction this
        * common config is put in. If set to false, the filter will operate as a pass-through filter
-       * in the chosen direction. If the field is omitted, the filter will be enabled.
+       * in the chosen direction, unless overridden by CompressorPerRoute.
+       * If the field is omitted, the filter will be enabled.
        * </pre>
        *
        * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
        */
       public Builder mergeEnabled(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag value) {
         if (enabledBuilder_ == null) {
-          if (enabled_ != null) {
-            enabled_ =
-              io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.newBuilder(enabled_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            enabled_ != null &&
+            enabled_ != io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance()) {
+            getEnabledBuilder().mergeFrom(value);
           } else {
             enabled_ = value;
           }
-          onChanged();
         } else {
           enabledBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Runtime flag that controls whether compression is enabled or not for the direction this
        * common config is put in. If set to false, the filter will operate as a pass-through filter
-       * in the chosen direction. If the field is omitted, the filter will be enabled.
+       * in the chosen direction, unless overridden by CompressorPerRoute.
+       * If the field is omitted, the filter will be enabled.
        * </pre>
        *
        * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
        */
       public Builder clearEnabled() {
-        if (enabledBuilder_ == null) {
-          enabled_ = null;
-          onChanged();
-        } else {
-          enabled_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        enabled_ = null;
+        if (enabledBuilder_ != null) {
+          enabledBuilder_.dispose();
           enabledBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Runtime flag that controls whether compression is enabled or not for the direction this
        * common config is put in. If set to false, the filter will operate as a pass-through filter
-       * in the chosen direction. If the field is omitted, the filter will be enabled.
+       * in the chosen direction, unless overridden by CompressorPerRoute.
+       * If the field is omitted, the filter will be enabled.
        * </pre>
        *
        * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder getEnabledBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getEnabledFieldBuilder().getBuilder();
       }
@@ -1088,7 +932,8 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Runtime flag that controls whether compression is enabled or not for the direction this
        * common config is put in. If set to false, the filter will operate as a pass-through filter
-       * in the chosen direction. If the field is omitted, the filter will be enabled.
+       * in the chosen direction, unless overridden by CompressorPerRoute.
+       * If the field is omitted, the filter will be enabled.
        * </pre>
        *
        * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -1105,7 +950,8 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Runtime flag that controls whether compression is enabled or not for the direction this
        * common config is put in. If set to false, the filter will operate as a pass-through filter
-       * in the chosen direction. If the field is omitted, the filter will be enabled.
+       * in the chosen direction, unless overridden by CompressorPerRoute.
+       * If the field is omitted, the filter will be enabled.
        * </pre>
        *
        * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 1;</code>
@@ -1137,7 +983,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the minContentLength field is set.
        */
       public boolean hasMinContentLength() {
-        return minContentLengthBuilder_ != null || minContentLength_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1169,11 +1015,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           minContentLength_ = value;
-          onChanged();
         } else {
           minContentLengthBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1188,11 +1034,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.UInt32Value.Builder builderForValue) {
         if (minContentLengthBuilder_ == null) {
           minContentLength_ = builderForValue.build();
-          onChanged();
         } else {
           minContentLengthBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1205,17 +1051,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMinContentLength(com.google.protobuf.UInt32Value value) {
         if (minContentLengthBuilder_ == null) {
-          if (minContentLength_ != null) {
-            minContentLength_ =
-              com.google.protobuf.UInt32Value.newBuilder(minContentLength_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            minContentLength_ != null &&
+            minContentLength_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+            getMinContentLengthBuilder().mergeFrom(value);
           } else {
             minContentLength_ = value;
           }
-          onChanged();
         } else {
           minContentLengthBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1227,14 +1074,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.UInt32Value min_content_length = 2;</code>
        */
       public Builder clearMinContentLength() {
-        if (minContentLengthBuilder_ == null) {
-          minContentLength_ = null;
-          onChanged();
-        } else {
-          minContentLength_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        minContentLength_ = null;
+        if (minContentLengthBuilder_ != null) {
+          minContentLengthBuilder_.dispose();
           minContentLengthBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1246,7 +1092,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.UInt32Value min_content_length = 2;</code>
        */
       public com.google.protobuf.UInt32Value.Builder getMinContentLengthBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getMinContentLengthFieldBuilder().getBuilder();
       }
@@ -1290,9 +1136,9 @@ private static final long serialVersionUID = 0L;
 
       private com.google.protobuf.LazyStringList contentType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureContentTypeIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           contentType_ = new com.google.protobuf.LazyStringArrayList(contentType_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -1375,10 +1221,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setContentType(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContentTypeIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureContentTypeIsMutable();
         contentType_.set(index, value);
         onChanged();
         return this;
@@ -1398,10 +1242,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addContentType(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContentTypeIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureContentTypeIsMutable();
         contentType_.add(value);
         onChanged();
         return this;
@@ -1441,7 +1283,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearContentType() {
         contentType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1460,10 +1302,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addContentTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureContentTypeIsMutable();
         contentType_.add(value);
         onChanged();
@@ -1502,7 +1342,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CommonDirectionConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1572,58 +1423,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RequestDirectionConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.Builder subBuilder = null;
-              if (commonConfig_ != null) {
-                subBuilder = commonConfig_.toBuilder();
-              }
-              commonConfig_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(commonConfig_);
-                commonConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.extensions.filters.http.compressor.v3.CompressorProto.internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_RequestDirectionConfig_descriptor;
@@ -1660,7 +1459,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfigOrBuilder getCommonConfigOrBuilder() {
-      return getCommonConfig();
+      return commonConfig_ == null ? io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.getDefaultInstance() : commonConfig_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1680,7 +1479,7 @@ private static final long serialVersionUID = 0L;
       if (commonConfig_ != null) {
         output.writeMessage(1, getCommonConfig());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1693,7 +1492,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCommonConfig());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1713,7 +1512,7 @@ private static final long serialVersionUID = 0L;
         if (!getCommonConfig()
             .equals(other.getCommonConfig())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1728,7 +1527,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + COMMON_CONFIG_FIELD_NUMBER;
         hash = (53 * hash) + getCommonConfig().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1849,26 +1648,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (commonConfigBuilder_ == null) {
-          commonConfig_ = null;
-        } else {
-          commonConfig_ = null;
+        bitField0_ = 0;
+        commonConfig_ = null;
+        if (commonConfigBuilder_ != null) {
+          commonConfigBuilder_.dispose();
           commonConfigBuilder_ = null;
         }
         return this;
@@ -1897,13 +1691,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig buildPartial() {
         io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig result = new io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig(this);
-        if (commonConfigBuilder_ == null) {
-          result.commonConfig_ = commonConfig_;
-        } else {
-          result.commonConfig_ = commonConfigBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.commonConfig_ = commonConfigBuilder_ == null
+              ? commonConfig_
+              : commonConfigBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1953,7 +1752,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasCommonConfig()) {
           mergeCommonConfig(other.getCommonConfig());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1968,19 +1767,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getCommonConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig commonConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1990,7 +1810,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the commonConfig field is set.
        */
       public boolean hasCommonConfig() {
-        return commonConfigBuilder_ != null || commonConfig_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig common_config = 1;</code>
@@ -2012,11 +1832,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           commonConfig_ = value;
-          onChanged();
         } else {
           commonConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2026,11 +1846,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.Builder builderForValue) {
         if (commonConfigBuilder_ == null) {
           commonConfig_ = builderForValue.build();
-          onChanged();
         } else {
           commonConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2038,38 +1858,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCommonConfig(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig value) {
         if (commonConfigBuilder_ == null) {
-          if (commonConfig_ != null) {
-            commonConfig_ =
-              io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.newBuilder(commonConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            commonConfig_ != null &&
+            commonConfig_ != io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.getDefaultInstance()) {
+            getCommonConfigBuilder().mergeFrom(value);
           } else {
             commonConfig_ = value;
           }
-          onChanged();
         } else {
           commonConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig common_config = 1;</code>
        */
       public Builder clearCommonConfig() {
-        if (commonConfigBuilder_ == null) {
-          commonConfig_ = null;
-          onChanged();
-        } else {
-          commonConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        commonConfig_ = null;
+        if (commonConfigBuilder_ != null) {
+          commonConfigBuilder_.dispose();
           commonConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig common_config = 1;</code>
        */
       public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.Builder getCommonConfigBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getCommonConfigFieldBuilder().getBuilder();
       }
@@ -2133,7 +1953,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RequestDirectionConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2228,68 +2059,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ResponseDirectionConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.Builder subBuilder = null;
-              if (commonConfig_ != null) {
-                subBuilder = commonConfig_.toBuilder();
-              }
-              commonConfig_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(commonConfig_);
-                commonConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-
-              disableOnEtagHeader_ = input.readBool();
-              break;
-            }
-            case 24: {
-
-              removeAcceptEncodingHeader_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.extensions.filters.http.compressor.v3.CompressorProto.internal_static_envoy_extensions_filters_http_compressor_v3_Compressor_ResponseDirectionConfig_descriptor;
@@ -2326,11 +2095,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfigOrBuilder getCommonConfigOrBuilder() {
-      return getCommonConfig();
+      return commonConfig_ == null ? io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.getDefaultInstance() : commonConfig_;
     }
 
     public static final int DISABLE_ON_ETAG_HEADER_FIELD_NUMBER = 2;
-    private boolean disableOnEtagHeader_;
+    private boolean disableOnEtagHeader_ = false;
     /**
      * <pre>
      * If true, disables compression when the response contains an etag header. When it is false, the
@@ -2346,7 +2115,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int REMOVE_ACCEPT_ENCODING_HEADER_FIELD_NUMBER = 3;
-    private boolean removeAcceptEncodingHeader_;
+    private boolean removeAcceptEncodingHeader_ = false;
     /**
      * <pre>
      * If true, removes accept-encoding from the request headers before dispatching it to the upstream
@@ -2387,7 +2156,7 @@ private static final long serialVersionUID = 0L;
       if (removeAcceptEncodingHeader_ != false) {
         output.writeBool(3, removeAcceptEncodingHeader_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2408,7 +2177,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, removeAcceptEncodingHeader_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2432,7 +2201,7 @@ private static final long serialVersionUID = 0L;
           != other.getDisableOnEtagHeader()) return false;
       if (getRemoveAcceptEncodingHeader()
           != other.getRemoveAcceptEncodingHeader()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2453,7 +2222,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REMOVE_ACCEPT_ENCODING_HEADER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getRemoveAcceptEncodingHeader());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2574,32 +2343,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (commonConfigBuilder_ == null) {
-          commonConfig_ = null;
-        } else {
-          commonConfig_ = null;
+        bitField0_ = 0;
+        commonConfig_ = null;
+        if (commonConfigBuilder_ != null) {
+          commonConfigBuilder_.dispose();
           commonConfigBuilder_ = null;
         }
         disableOnEtagHeader_ = false;
-
         removeAcceptEncodingHeader_ = false;
-
         return this;
       }
 
@@ -2626,15 +2388,24 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig buildPartial() {
         io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig result = new io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig(this);
-        if (commonConfigBuilder_ == null) {
-          result.commonConfig_ = commonConfig_;
-        } else {
-          result.commonConfig_ = commonConfigBuilder_.build();
-        }
-        result.disableOnEtagHeader_ = disableOnEtagHeader_;
-        result.removeAcceptEncodingHeader_ = removeAcceptEncodingHeader_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.commonConfig_ = commonConfigBuilder_ == null
+              ? commonConfig_
+              : commonConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.disableOnEtagHeader_ = disableOnEtagHeader_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.removeAcceptEncodingHeader_ = removeAcceptEncodingHeader_;
+        }
       }
 
       @java.lang.Override
@@ -2690,7 +2461,7 @@ private static final long serialVersionUID = 0L;
         if (other.getRemoveAcceptEncodingHeader() != false) {
           setRemoveAcceptEncodingHeader(other.getRemoveAcceptEncodingHeader());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2705,19 +2476,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getCommonConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                disableOnEtagHeader_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                removeAcceptEncodingHeader_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig commonConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2727,7 +2529,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the commonConfig field is set.
        */
       public boolean hasCommonConfig() {
-        return commonConfigBuilder_ != null || commonConfig_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig common_config = 1;</code>
@@ -2749,11 +2551,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           commonConfig_ = value;
-          onChanged();
         } else {
           commonConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2763,11 +2565,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.Builder builderForValue) {
         if (commonConfigBuilder_ == null) {
           commonConfig_ = builderForValue.build();
-          onChanged();
         } else {
           commonConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2775,38 +2577,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCommonConfig(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig value) {
         if (commonConfigBuilder_ == null) {
-          if (commonConfig_ != null) {
-            commonConfig_ =
-              io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.newBuilder(commonConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            commonConfig_ != null &&
+            commonConfig_ != io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.getDefaultInstance()) {
+            getCommonConfigBuilder().mergeFrom(value);
           } else {
             commonConfig_ = value;
           }
-          onChanged();
         } else {
           commonConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig common_config = 1;</code>
        */
       public Builder clearCommonConfig() {
-        if (commonConfigBuilder_ == null) {
-          commonConfig_ = null;
-          onChanged();
-        } else {
-          commonConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        commonConfig_ = null;
+        if (commonConfigBuilder_ != null) {
+          commonConfigBuilder_.dispose();
           commonConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig common_config = 1;</code>
        */
       public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.CommonDirectionConfig.Builder getCommonConfigBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getCommonConfigFieldBuilder().getBuilder();
       }
@@ -2865,6 +2667,7 @@ private static final long serialVersionUID = 0L;
       public Builder setDisableOnEtagHeader(boolean value) {
         
         disableOnEtagHeader_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2878,7 +2681,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDisableOnEtagHeader() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         disableOnEtagHeader_ = false;
         onChanged();
         return this;
@@ -2917,6 +2720,7 @@ private static final long serialVersionUID = 0L;
       public Builder setRemoveAcceptEncodingHeader(boolean value) {
         
         removeAcceptEncodingHeader_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2933,7 +2737,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearRemoveAcceptEncodingHeader() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         removeAcceptEncodingHeader_ = false;
         onChanged();
         return this;
@@ -2971,7 +2775,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResponseDirectionConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3000,7 +2815,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.protobuf.UInt32Value content_length = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_length is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=71
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=72
    * @return Whether the contentLength field is set.
    */
   @java.lang.Override
@@ -3014,7 +2829,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.protobuf.UInt32Value content_length = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_length is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=71
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=72
    * @return The contentLength.
    */
   @java.lang.Override
@@ -3030,10 +2845,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.protobuf.UInt32ValueOrBuilder getContentLengthOrBuilder() {
-    return getContentLength();
+    return contentLength_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : contentLength_;
   }
 
   public static final int CONTENT_TYPE_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList contentType_;
   /**
    * <pre>
@@ -3046,7 +2862,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
    * @return A list containing the contentType.
    */
   @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -3064,7 +2880,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
    * @return The count of contentType.
    */
   @java.lang.Deprecated public int getContentTypeCount() {
@@ -3081,7 +2897,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
    * @param index The index of the element to return.
    * @return The contentType at the given index.
    */
@@ -3099,7 +2915,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
    * @param index The index of the value to return.
    * @return The bytes of the contentType at the given index.
    */
@@ -3109,7 +2925,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLE_ON_ETAG_HEADER_FIELD_NUMBER = 3;
-  private boolean disableOnEtagHeader_;
+  private boolean disableOnEtagHeader_ = false;
   /**
    * <pre>
    * If true, disables compression when the response contains an etag header. When it is false, the
@@ -3118,7 +2934,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>bool disable_on_etag_header = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.disable_on_etag_header is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=84
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=85
    * @return The disableOnEtagHeader.
    */
   @java.lang.Override
@@ -3127,7 +2943,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REMOVE_ACCEPT_ENCODING_HEADER_FIELD_NUMBER = 4;
-  private boolean removeAcceptEncodingHeader_;
+  private boolean removeAcceptEncodingHeader_ = false;
   /**
    * <pre>
    * If true, removes accept-encoding from the request headers before dispatching it to the upstream
@@ -3139,7 +2955,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>bool remove_accept_encoding_header = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.remove_accept_encoding_header is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=94
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=95
    * @return The removeAcceptEncodingHeader.
    */
   @java.lang.Override
@@ -3152,12 +2968,13 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-   * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+   * filter will operate as a pass-through filter, unless overridden by
+   * CompressorPerRoute. If not specified, defaults to enabled.
    * </pre>
    *
    * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.runtime_enabled is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=99
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=101
    * @return Whether the runtimeEnabled field is set.
    */
   @java.lang.Override
@@ -3167,12 +2984,13 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-   * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+   * filter will operate as a pass-through filter, unless overridden by
+   * CompressorPerRoute. If not specified, defaults to enabled.
    * </pre>
    *
    * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.runtime_enabled is deprecated.
-   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=99
+   *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=101
    * @return The runtimeEnabled.
    */
   @java.lang.Override
@@ -3182,14 +3000,15 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-   * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+   * filter will operate as a pass-through filter, unless overridden by
+   * CompressorPerRoute. If not specified, defaults to enabled.
    * </pre>
    *
    * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    */
   @java.lang.Override
   @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlagOrBuilder getRuntimeEnabledOrBuilder() {
-    return getRuntimeEnabled();
+    return runtimeEnabled_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance() : runtimeEnabled_;
   }
 
   public static final int COMPRESSOR_LIBRARY_FIELD_NUMBER = 6;
@@ -3236,7 +3055,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getCompressorLibraryOrBuilder() {
-    return getCompressorLibrary();
+    return compressorLibrary_ == null ? io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance() : compressorLibrary_;
   }
 
   public static final int REQUEST_DIRECTION_CONFIG_FIELD_NUMBER = 7;
@@ -3274,7 +3093,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfigOrBuilder getRequestDirectionConfigOrBuilder() {
-    return getRequestDirectionConfig();
+    return requestDirectionConfig_ == null ? io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig.getDefaultInstance() : requestDirectionConfig_;
   }
 
   public static final int RESPONSE_DIRECTION_CONFIG_FIELD_NUMBER = 8;
@@ -3336,7 +3155,23 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfigOrBuilder getResponseDirectionConfigOrBuilder() {
-    return getResponseDirectionConfig();
+    return responseDirectionConfig_ == null ? io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig.getDefaultInstance() : responseDirectionConfig_;
+  }
+
+  public static final int CHOOSE_FIRST_FIELD_NUMBER = 9;
+  private boolean chooseFirst_ = false;
+  /**
+   * <pre>
+   * If true, chooses this compressor first to do compression when the q-values in `Accept-Encoding` are same.
+   * The last compressor which enables choose_first will be chosen if multiple compressor filters in the chain have choose_first as true.
+   * </pre>
+   *
+   * <code>bool choose_first = 9;</code>
+   * @return The chooseFirst.
+   */
+  @java.lang.Override
+  public boolean getChooseFirst() {
+    return chooseFirst_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3377,7 +3212,10 @@ private static final long serialVersionUID = 0L;
     if (responseDirectionConfig_ != null) {
       output.writeMessage(8, getResponseDirectionConfig());
     }
-    unknownFields.writeTo(output);
+    if (chooseFirst_ != false) {
+      output.writeBool(9, chooseFirst_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3422,7 +3260,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getResponseDirectionConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (chooseFirst_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(9, chooseFirst_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3468,7 +3310,9 @@ private static final long serialVersionUID = 0L;
       if (!getResponseDirectionConfig()
           .equals(other.getResponseDirectionConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getChooseFirst()
+        != other.getChooseFirst()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3509,7 +3353,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESPONSE_DIRECTION_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getResponseDirectionConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + CHOOSE_FIRST_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getChooseFirst());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3606,7 +3453,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#next-free-field: 9]
+   * [#next-free-field: 10]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.filters.http.compressor.v3.Compressor}
@@ -3630,58 +3477,48 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (contentLengthBuilder_ == null) {
-        contentLength_ = null;
-      } else {
-        contentLength_ = null;
+      bitField0_ = 0;
+      contentLength_ = null;
+      if (contentLengthBuilder_ != null) {
+        contentLengthBuilder_.dispose();
         contentLengthBuilder_ = null;
       }
       contentType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       disableOnEtagHeader_ = false;
-
       removeAcceptEncodingHeader_ = false;
-
-      if (runtimeEnabledBuilder_ == null) {
-        runtimeEnabled_ = null;
-      } else {
-        runtimeEnabled_ = null;
+      runtimeEnabled_ = null;
+      if (runtimeEnabledBuilder_ != null) {
+        runtimeEnabledBuilder_.dispose();
         runtimeEnabledBuilder_ = null;
       }
-      if (compressorLibraryBuilder_ == null) {
-        compressorLibrary_ = null;
-      } else {
-        compressorLibrary_ = null;
+      compressorLibrary_ = null;
+      if (compressorLibraryBuilder_ != null) {
+        compressorLibraryBuilder_.dispose();
         compressorLibraryBuilder_ = null;
       }
-      if (requestDirectionConfigBuilder_ == null) {
-        requestDirectionConfig_ = null;
-      } else {
-        requestDirectionConfig_ = null;
+      requestDirectionConfig_ = null;
+      if (requestDirectionConfigBuilder_ != null) {
+        requestDirectionConfigBuilder_.dispose();
         requestDirectionConfigBuilder_ = null;
       }
-      if (responseDirectionConfigBuilder_ == null) {
-        responseDirectionConfig_ = null;
-      } else {
-        responseDirectionConfig_ = null;
+      responseDirectionConfig_ = null;
+      if (responseDirectionConfigBuilder_ != null) {
+        responseDirectionConfigBuilder_.dispose();
         responseDirectionConfigBuilder_ = null;
       }
+      chooseFirst_ = false;
       return this;
     }
 
@@ -3708,41 +3545,56 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor result = new io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor(this);
-      int from_bitField0_ = bitField0_;
-      if (contentLengthBuilder_ == null) {
-        result.contentLength_ = contentLength_;
-      } else {
-        result.contentLength_ = contentLengthBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        contentType_ = contentType_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.contentType_ = contentType_;
-      result.disableOnEtagHeader_ = disableOnEtagHeader_;
-      result.removeAcceptEncodingHeader_ = removeAcceptEncodingHeader_;
-      if (runtimeEnabledBuilder_ == null) {
-        result.runtimeEnabled_ = runtimeEnabled_;
-      } else {
-        result.runtimeEnabled_ = runtimeEnabledBuilder_.build();
-      }
-      if (compressorLibraryBuilder_ == null) {
-        result.compressorLibrary_ = compressorLibrary_;
-      } else {
-        result.compressorLibrary_ = compressorLibraryBuilder_.build();
-      }
-      if (requestDirectionConfigBuilder_ == null) {
-        result.requestDirectionConfig_ = requestDirectionConfig_;
-      } else {
-        result.requestDirectionConfig_ = requestDirectionConfigBuilder_.build();
-      }
-      if (responseDirectionConfigBuilder_ == null) {
-        result.responseDirectionConfig_ = responseDirectionConfig_;
-      } else {
-        result.responseDirectionConfig_ = responseDirectionConfigBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        contentType_ = contentType_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.contentType_ = contentType_;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.contentLength_ = contentLengthBuilder_ == null
+            ? contentLength_
+            : contentLengthBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.disableOnEtagHeader_ = disableOnEtagHeader_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.removeAcceptEncodingHeader_ = removeAcceptEncodingHeader_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.runtimeEnabled_ = runtimeEnabledBuilder_ == null
+            ? runtimeEnabled_
+            : runtimeEnabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.compressorLibrary_ = compressorLibraryBuilder_ == null
+            ? compressorLibrary_
+            : compressorLibraryBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.requestDirectionConfig_ = requestDirectionConfigBuilder_ == null
+            ? requestDirectionConfig_
+            : requestDirectionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.responseDirectionConfig_ = responseDirectionConfigBuilder_ == null
+            ? responseDirectionConfig_
+            : responseDirectionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.chooseFirst_ = chooseFirst_;
+      }
     }
 
     @java.lang.Override
@@ -3795,7 +3647,7 @@ private static final long serialVersionUID = 0L;
       if (!other.contentType_.isEmpty()) {
         if (contentType_.isEmpty()) {
           contentType_ = other.contentType_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureContentTypeIsMutable();
           contentType_.addAll(other.contentType_);
@@ -3820,7 +3672,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasResponseDirectionConfig()) {
         mergeResponseDirectionConfig(other.getResponseDirectionConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getChooseFirst() != false) {
+        setChooseFirst(other.getChooseFirst());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3835,17 +3690,86 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getContentLengthFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureContentTypeIsMutable();
+              contentType_.add(s);
+              break;
+            } // case 18
+            case 24: {
+              disableOnEtagHeader_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              removeAcceptEncodingHeader_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getRuntimeEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getCompressorLibraryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getRequestDirectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getResponseDirectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 72: {
+              chooseFirst_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3860,11 +3784,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.protobuf.UInt32Value content_length = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_length is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=71
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=72
      * @return Whether the contentLength field is set.
      */
     @java.lang.Deprecated public boolean hasContentLength() {
-      return contentLengthBuilder_ != null || contentLength_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -3873,7 +3797,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.protobuf.UInt32Value content_length = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_length is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=71
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=72
      * @return The contentLength.
      */
     @java.lang.Deprecated public com.google.protobuf.UInt32Value getContentLength() {
@@ -3896,11 +3820,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         contentLength_ = value;
-        onChanged();
       } else {
         contentLengthBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -3914,11 +3838,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (contentLengthBuilder_ == null) {
         contentLength_ = builderForValue.build();
-        onChanged();
       } else {
         contentLengthBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -3930,17 +3854,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeContentLength(com.google.protobuf.UInt32Value value) {
       if (contentLengthBuilder_ == null) {
-        if (contentLength_ != null) {
-          contentLength_ =
-            com.google.protobuf.UInt32Value.newBuilder(contentLength_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          contentLength_ != null &&
+          contentLength_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getContentLengthBuilder().mergeFrom(value);
         } else {
           contentLength_ = value;
         }
-        onChanged();
       } else {
         contentLengthBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -3951,14 +3876,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value content_length = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     @java.lang.Deprecated public Builder clearContentLength() {
-      if (contentLengthBuilder_ == null) {
-        contentLength_ = null;
-        onChanged();
-      } else {
-        contentLength_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      contentLength_ = null;
+      if (contentLengthBuilder_ != null) {
+        contentLengthBuilder_.dispose();
         contentLengthBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3969,7 +3893,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value content_length = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     @java.lang.Deprecated public com.google.protobuf.UInt32Value.Builder getContentLengthBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getContentLengthFieldBuilder().getBuilder();
     }
@@ -4011,9 +3935,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList contentType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureContentTypeIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         contentType_ = new com.google.protobuf.LazyStringArrayList(contentType_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -4027,7 +3951,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
      * @return A list containing the contentType.
      */
     @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -4045,7 +3969,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
      * @return The count of contentType.
      */
     @java.lang.Deprecated public int getContentTypeCount() {
@@ -4062,7 +3986,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
      * @param index The index of the element to return.
      * @return The contentType at the given index.
      */
@@ -4080,7 +4004,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
      * @param index The index of the value to return.
      * @return The bytes of the contentType at the given index.
      */
@@ -4099,17 +4023,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
      * @param index The index to set the value at.
      * @param value The contentType to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setContentType(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContentTypeIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureContentTypeIsMutable();
       contentType_.set(index, value);
       onChanged();
       return this;
@@ -4125,16 +4047,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
      * @param value The contentType to add.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder addContentType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContentTypeIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureContentTypeIsMutable();
       contentType_.add(value);
       onChanged();
       return this;
@@ -4150,7 +4070,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
      * @param values The contentType to add.
      * @return This builder for chaining.
      */
@@ -4173,12 +4093,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearContentType() {
       contentType_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -4193,16 +4113,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>repeated string content_type = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.content_type is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=79
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=80
      * @param value The bytes of the contentType to add.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder addContentTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureContentTypeIsMutable();
       contentType_.add(value);
       onChanged();
@@ -4218,7 +4136,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool disable_on_etag_header = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.disable_on_etag_header is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=84
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=85
      * @return The disableOnEtagHeader.
      */
     @java.lang.Override
@@ -4233,13 +4151,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool disable_on_etag_header = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.disable_on_etag_header is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=84
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=85
      * @param value The disableOnEtagHeader to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setDisableOnEtagHeader(boolean value) {
       
       disableOnEtagHeader_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -4251,11 +4170,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool disable_on_etag_header = 3 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.disable_on_etag_header is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=84
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=85
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearDisableOnEtagHeader() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       disableOnEtagHeader_ = false;
       onChanged();
       return this;
@@ -4273,7 +4192,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool remove_accept_encoding_header = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.remove_accept_encoding_header is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=94
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=95
      * @return The removeAcceptEncodingHeader.
      */
     @java.lang.Override
@@ -4291,13 +4210,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool remove_accept_encoding_header = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.remove_accept_encoding_header is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=94
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=95
      * @param value The removeAcceptEncodingHeader to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setRemoveAcceptEncodingHeader(boolean value) {
       
       removeAcceptEncodingHeader_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -4312,11 +4232,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool remove_accept_encoding_header = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.remove_accept_encoding_header is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=94
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=95
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearRemoveAcceptEncodingHeader() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       removeAcceptEncodingHeader_ = false;
       onChanged();
       return this;
@@ -4328,26 +4248,28 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-     * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+     * filter will operate as a pass-through filter, unless overridden by
+     * CompressorPerRoute. If not specified, defaults to enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.runtime_enabled is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=99
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=101
      * @return Whether the runtimeEnabled field is set.
      */
     @java.lang.Deprecated public boolean hasRuntimeEnabled() {
-      return runtimeEnabledBuilder_ != null || runtimeEnabled_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
      * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-     * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+     * filter will operate as a pass-through filter, unless overridden by
+     * CompressorPerRoute. If not specified, defaults to enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.extensions.filters.http.compressor.v3.Compressor.runtime_enabled is deprecated.
-     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=99
+     *     See envoy/extensions/filters/http/compressor/v3/compressor.proto;l=101
      * @return The runtimeEnabled.
      */
     @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag getRuntimeEnabled() {
@@ -4360,7 +4282,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-     * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+     * filter will operate as a pass-through filter, unless overridden by
+     * CompressorPerRoute. If not specified, defaults to enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
@@ -4371,17 +4294,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         runtimeEnabled_ = value;
-        onChanged();
       } else {
         runtimeEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-     * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+     * filter will operate as a pass-through filter, unless overridden by
+     * CompressorPerRoute. If not specified, defaults to enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
@@ -4390,72 +4314,76 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder builderForValue) {
       if (runtimeEnabledBuilder_ == null) {
         runtimeEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         runtimeEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-     * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+     * filter will operate as a pass-through filter, unless overridden by
+     * CompressorPerRoute. If not specified, defaults to enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     @java.lang.Deprecated public Builder mergeRuntimeEnabled(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag value) {
       if (runtimeEnabledBuilder_ == null) {
-        if (runtimeEnabled_ != null) {
-          runtimeEnabled_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.newBuilder(runtimeEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          runtimeEnabled_ != null &&
+          runtimeEnabled_ != io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance()) {
+          getRuntimeEnabledBuilder().mergeFrom(value);
         } else {
           runtimeEnabled_ = value;
         }
-        onChanged();
       } else {
         runtimeEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-     * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+     * filter will operate as a pass-through filter, unless overridden by
+     * CompressorPerRoute. If not specified, defaults to enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     @java.lang.Deprecated public Builder clearRuntimeEnabled() {
-      if (runtimeEnabledBuilder_ == null) {
-        runtimeEnabled_ = null;
-        onChanged();
-      } else {
-        runtimeEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      runtimeEnabled_ = null;
+      if (runtimeEnabledBuilder_ != null) {
+        runtimeEnabledBuilder_.dispose();
         runtimeEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-     * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+     * filter will operate as a pass-through filter, unless overridden by
+     * CompressorPerRoute. If not specified, defaults to enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     @java.lang.Deprecated public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder getRuntimeEnabledBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getRuntimeEnabledFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-     * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+     * filter will operate as a pass-through filter, unless overridden by
+     * CompressorPerRoute. If not specified, defaults to enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
@@ -4471,7 +4399,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Runtime flag that controls whether the filter is enabled or not. If set to false, the
-     * filter will operate as a pass-through filter. If not specified, defaults to enabled.
+     * filter will operate as a pass-through filter, unless overridden by
+     * CompressorPerRoute. If not specified, defaults to enabled.
      * </pre>
      *
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
@@ -4505,7 +4434,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the compressorLibrary field is set.
      */
     public boolean hasCompressorLibrary() {
-      return compressorLibraryBuilder_ != null || compressorLibrary_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -4541,11 +4470,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         compressorLibrary_ = value;
-        onChanged();
       } else {
         compressorLibraryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4562,11 +4491,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder builderForValue) {
       if (compressorLibraryBuilder_ == null) {
         compressorLibrary_ = builderForValue.build();
-        onChanged();
       } else {
         compressorLibraryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4581,17 +4510,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCompressorLibrary(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig value) {
       if (compressorLibraryBuilder_ == null) {
-        if (compressorLibrary_ != null) {
-          compressorLibrary_ =
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.newBuilder(compressorLibrary_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          compressorLibrary_ != null &&
+          compressorLibrary_ != io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance()) {
+          getCompressorLibraryBuilder().mergeFrom(value);
         } else {
           compressorLibrary_ = value;
         }
-        onChanged();
       } else {
         compressorLibraryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4605,14 +4535,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig compressor_library = 6 [(.validate.rules) = { ... }</code>
      */
     public Builder clearCompressorLibrary() {
-      if (compressorLibraryBuilder_ == null) {
-        compressorLibrary_ = null;
-        onChanged();
-      } else {
-        compressorLibrary_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      compressorLibrary_ = null;
+      if (compressorLibraryBuilder_ != null) {
+        compressorLibraryBuilder_.dispose();
         compressorLibraryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4626,7 +4555,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig compressor_library = 6 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder getCompressorLibraryBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getCompressorLibraryFieldBuilder().getBuilder();
     }
@@ -4684,7 +4613,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestDirectionConfig field is set.
      */
     public boolean hasRequestDirectionConfig() {
-      return requestDirectionConfigBuilder_ != null || requestDirectionConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -4714,11 +4643,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requestDirectionConfig_ = value;
-        onChanged();
       } else {
         requestDirectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4732,11 +4661,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig.Builder builderForValue) {
       if (requestDirectionConfigBuilder_ == null) {
         requestDirectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         requestDirectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4748,17 +4677,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequestDirectionConfig(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig value) {
       if (requestDirectionConfigBuilder_ == null) {
-        if (requestDirectionConfig_ != null) {
-          requestDirectionConfig_ =
-            io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig.newBuilder(requestDirectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          requestDirectionConfig_ != null &&
+          requestDirectionConfig_ != io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig.getDefaultInstance()) {
+          getRequestDirectionConfigBuilder().mergeFrom(value);
         } else {
           requestDirectionConfig_ = value;
         }
-        onChanged();
       } else {
         requestDirectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4769,14 +4699,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig request_direction_config = 7;</code>
      */
     public Builder clearRequestDirectionConfig() {
-      if (requestDirectionConfigBuilder_ == null) {
-        requestDirectionConfig_ = null;
-        onChanged();
-      } else {
-        requestDirectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      requestDirectionConfig_ = null;
+      if (requestDirectionConfigBuilder_ != null) {
+        requestDirectionConfigBuilder_.dispose();
         requestDirectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4787,7 +4716,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig request_direction_config = 7;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.RequestDirectionConfig.Builder getRequestDirectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getRequestDirectionConfigFieldBuilder().getBuilder();
     }
@@ -4847,7 +4776,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the responseDirectionConfig field is set.
      */
     public boolean hasResponseDirectionConfig() {
-      return responseDirectionConfigBuilder_ != null || responseDirectionConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -4893,11 +4822,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         responseDirectionConfig_ = value;
-        onChanged();
       } else {
         responseDirectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4919,11 +4848,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig.Builder builderForValue) {
       if (responseDirectionConfigBuilder_ == null) {
         responseDirectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         responseDirectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4943,17 +4872,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResponseDirectionConfig(io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig value) {
       if (responseDirectionConfigBuilder_ == null) {
-        if (responseDirectionConfig_ != null) {
-          responseDirectionConfig_ =
-            io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig.newBuilder(responseDirectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          responseDirectionConfig_ != null &&
+          responseDirectionConfig_ != io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig.getDefaultInstance()) {
+          getResponseDirectionConfigBuilder().mergeFrom(value);
         } else {
           responseDirectionConfig_ = value;
         }
-        onChanged();
       } else {
         responseDirectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4972,14 +4902,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig response_direction_config = 8;</code>
      */
     public Builder clearResponseDirectionConfig() {
-      if (responseDirectionConfigBuilder_ == null) {
-        responseDirectionConfig_ = null;
-        onChanged();
-      } else {
-        responseDirectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      responseDirectionConfig_ = null;
+      if (responseDirectionConfigBuilder_ != null) {
+        responseDirectionConfigBuilder_.dispose();
         responseDirectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4998,7 +4927,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig response_direction_config = 8;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.compressor.v3.Compressor.ResponseDirectionConfig.Builder getResponseDirectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getResponseDirectionConfigFieldBuilder().getBuilder();
     }
@@ -5053,6 +4982,53 @@ private static final long serialVersionUID = 0L;
       }
       return responseDirectionConfigBuilder_;
     }
+
+    private boolean chooseFirst_ ;
+    /**
+     * <pre>
+     * If true, chooses this compressor first to do compression when the q-values in `Accept-Encoding` are same.
+     * The last compressor which enables choose_first will be chosen if multiple compressor filters in the chain have choose_first as true.
+     * </pre>
+     *
+     * <code>bool choose_first = 9;</code>
+     * @return The chooseFirst.
+     */
+    @java.lang.Override
+    public boolean getChooseFirst() {
+      return chooseFirst_;
+    }
+    /**
+     * <pre>
+     * If true, chooses this compressor first to do compression when the q-values in `Accept-Encoding` are same.
+     * The last compressor which enables choose_first will be chosen if multiple compressor filters in the chain have choose_first as true.
+     * </pre>
+     *
+     * <code>bool choose_first = 9;</code>
+     * @param value The chooseFirst to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChooseFirst(boolean value) {
+      
+      chooseFirst_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * If true, chooses this compressor first to do compression when the q-values in `Accept-Encoding` are same.
+     * The last compressor which enables choose_first will be chosen if multiple compressor filters in the chain have choose_first as true.
+     * </pre>
+     *
+     * <code>bool choose_first = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChooseFirst() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      chooseFirst_ = false;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5086,7 +5062,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Compressor(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

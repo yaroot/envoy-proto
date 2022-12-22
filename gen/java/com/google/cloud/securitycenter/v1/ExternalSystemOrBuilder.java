@@ -9,11 +9,10 @@ public interface ExternalSystemOrBuilder extends
 
   /**
    * <pre>
-   * External System Name e.g. jira, demisto, etc.
-   *  e.g.:
-   *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
-   * `folders/1234/sources/5678/findings/123456/externalSystems/jira`
-   * `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+   * Full resource name of the external system, for example:
+   * "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+   * "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+   * "projects/1234/sources/5678/findings/123456/externalSystems/jira"
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -22,11 +21,10 @@ public interface ExternalSystemOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * External System Name e.g. jira, demisto, etc.
-   *  e.g.:
-   *  `organizations/1234/sources/5678/findings/123456/externalSystems/jira`
-   * `folders/1234/sources/5678/findings/123456/externalSystems/jira`
-   * `projects/1234/sources/5678/findings/123456/externalSystems/jira`
+   * Full resource name of the external system, for example:
+   * "organizations/1234/sources/5678/findings/123456/externalSystems/jira",
+   * "folders/1234/sources/5678/findings/123456/externalSystems/jira",
+   * "projects/1234/sources/5678/findings/123456/externalSystems/jira"
    * </pre>
    *
    * <code>string name = 1;</code>

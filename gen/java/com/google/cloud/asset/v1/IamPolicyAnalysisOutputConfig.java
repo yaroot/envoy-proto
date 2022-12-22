@@ -34,73 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IamPolicyAnalysisOutputConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination.Builder subBuilder = null;
-            if (destinationCase_ == 1) {
-              subBuilder = ((com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination) destination_).toBuilder();
-            }
-            destination_ =
-                input.readMessage(com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination) destination_);
-              destination_ = subBuilder.buildPartial();
-            }
-            destinationCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.Builder subBuilder = null;
-            if (destinationCase_ == 2) {
-              subBuilder = ((com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination) destination_).toBuilder();
-            }
-            destination_ =
-                input.readMessage(com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination) destination_);
-              destination_ = subBuilder.buildPartial();
-            }
-            destinationCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.asset.v1.AssetServiceProto.internal_static_google_cloud_asset_v1_IamPolicyAnalysisOutputConfig_descriptor;
@@ -120,8 +53,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. The uri of the Cloud Storage object. It's the same uri that is
-     * used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+     * Required. The uri of the Cloud Storage object. It's the same uri that is used by
+     * gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
      * Editing Object
      * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
      * for more information.
@@ -136,8 +69,8 @@ private static final long serialVersionUID = 0L;
     java.lang.String getUri();
     /**
      * <pre>
-     * Required. The uri of the Cloud Storage object. It's the same uri that is
-     * used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+     * Required. The uri of the Cloud Storage object. It's the same uri that is used by
+     * gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
      * Editing Object
      * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
      * for more information.
@@ -184,51 +117,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GcsDestination(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              uri_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.asset.v1.AssetServiceProto.internal_static_google_cloud_asset_v1_IamPolicyAnalysisOutputConfig_GcsDestination_descriptor;
@@ -243,11 +131,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int URI_FIELD_NUMBER = 1;
-    private volatile java.lang.Object uri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object uri_ = "";
     /**
      * <pre>
-     * Required. The uri of the Cloud Storage object. It's the same uri that is
-     * used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+     * Required. The uri of the Cloud Storage object. It's the same uri that is used by
+     * gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
      * Editing Object
      * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
      * for more information.
@@ -274,8 +163,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The uri of the Cloud Storage object. It's the same uri that is
-     * used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+     * Required. The uri of the Cloud Storage object. It's the same uri that is used by
+     * gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
      * Editing Object
      * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
      * for more information.
@@ -319,7 +208,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uri_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uri_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -331,7 +220,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uri_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uri_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -348,7 +237,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getUri()
           .equals(other.getUri())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -361,7 +250,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + URI_FIELD_NUMBER;
       hash = (53 * hash) + getUri().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -482,24 +371,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         uri_ = "";
-
         return this;
       }
 
@@ -526,9 +410,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination buildPartial() {
         com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination result = new com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination(this);
-        result.uri_ = uri_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.uri_ = uri_;
+        }
       }
 
       @java.lang.Override
@@ -577,9 +468,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination.getDefaultInstance()) return this;
         if (!other.getUri().isEmpty()) {
           uri_ = other.uri_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -594,25 +486,44 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                uri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object uri_ = "";
       /**
        * <pre>
-       * Required. The uri of the Cloud Storage object. It's the same uri that is
-       * used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+       * Required. The uri of the Cloud Storage object. It's the same uri that is used by
+       * gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
        * Editing Object
        * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
        * for more information.
@@ -638,8 +549,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The uri of the Cloud Storage object. It's the same uri that is
-       * used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+       * Required. The uri of the Cloud Storage object. It's the same uri that is used by
+       * gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
        * Editing Object
        * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
        * for more information.
@@ -666,8 +577,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The uri of the Cloud Storage object. It's the same uri that is
-       * used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+       * Required. The uri of the Cloud Storage object. It's the same uri that is used by
+       * gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
        * Editing Object
        * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
        * for more information.
@@ -682,18 +593,16 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         uri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. The uri of the Cloud Storage object. It's the same uri that is
-       * used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+       * Required. The uri of the Cloud Storage object. It's the same uri that is used by
+       * gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
        * Editing Object
        * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
        * for more information.
@@ -706,15 +615,15 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearUri() {
-        
         uri_ = getDefaultInstance().getUri();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. The uri of the Cloud Storage object. It's the same uri that is
-       * used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+       * Required. The uri of the Cloud Storage object. It's the same uri that is used by
+       * gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
        * Editing Object
        * Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
        * for more information.
@@ -729,12 +638,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         uri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -771,7 +678,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GcsDestination(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -797,10 +715,9 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. The BigQuery dataset in format
-     * "projects/projectId/datasets/datasetId", to which the analysis results
-     * should be exported. If this dataset does not exist, the export call will
-     * return an INVALID_ARGUMENT error.
+     * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId",
+     * to which the analysis results should be exported. If this dataset does
+     * not exist, the export call will return an INVALID_ARGUMENT error.
      * </pre>
      *
      * <code>string dataset = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -809,10 +726,9 @@ private static final long serialVersionUID = 0L;
     java.lang.String getDataset();
     /**
      * <pre>
-     * Required. The BigQuery dataset in format
-     * "projects/projectId/datasets/datasetId", to which the analysis results
-     * should be exported. If this dataset does not exist, the export call will
-     * return an INVALID_ARGUMENT error.
+     * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId",
+     * to which the analysis results should be exported. If this dataset does
+     * not exist, the export call will return an INVALID_ARGUMENT error.
      * </pre>
      *
      * <code>string dataset = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -823,9 +739,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. The prefix of the BigQuery tables to which the analysis results
-     * will be written. Tables will be created based on this table_prefix if not
-     * exist:
+     * Required. The prefix of the BigQuery tables to which the analysis results will be
+     * written. Tables will be created based on this table_prefix if not exist:
      * * &lt;table_prefix&gt;_analysis table will contain export operation's metadata.
      * * &lt;table_prefix&gt;_analysis_result will contain all the
      *   [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
@@ -839,9 +754,8 @@ private static final long serialVersionUID = 0L;
     java.lang.String getTablePrefix();
     /**
      * <pre>
-     * Required. The prefix of the BigQuery tables to which the analysis results
-     * will be written. Tables will be created based on this table_prefix if not
-     * exist:
+     * Required. The prefix of the BigQuery tables to which the analysis results will be
+     * written. Tables will be created based on this table_prefix if not exist:
      * * &lt;table_prefix&gt;_analysis table will contain export operation's metadata.
      * * &lt;table_prefix&gt;_analysis_result will contain all the
      *   [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
@@ -876,8 +790,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. Specifies the action that occurs if the destination table or
-     * partition already exists. The following values are supported:
+     * Optional. Specifies the action that occurs if the destination table or partition
+     * already exists. The following values are supported:
      * * WRITE_TRUNCATE: If the table or partition already exists, BigQuery
      * overwrites the entire table or all the partitions data.
      * * WRITE_APPEND: If the table or partition already exists, BigQuery
@@ -895,8 +809,8 @@ private static final long serialVersionUID = 0L;
     java.lang.String getWriteDisposition();
     /**
      * <pre>
-     * Optional. Specifies the action that occurs if the destination table or
-     * partition already exists. The following values are supported:
+     * Optional. Specifies the action that occurs if the destination table or partition
+     * already exists. The following values are supported:
      * * WRITE_TRUNCATE: If the table or partition already exists, BigQuery
      * overwrites the entire table or all the partitions data.
      * * WRITE_APPEND: If the table or partition already exists, BigQuery
@@ -948,69 +862,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private BigQueryDestination(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              dataset_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tablePrefix_ = s;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              partitionKey_ = rawValue;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              writeDisposition_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1163,13 +1014,13 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DATASET_FIELD_NUMBER = 1;
-    private volatile java.lang.Object dataset_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object dataset_ = "";
     /**
      * <pre>
-     * Required. The BigQuery dataset in format
-     * "projects/projectId/datasets/datasetId", to which the analysis results
-     * should be exported. If this dataset does not exist, the export call will
-     * return an INVALID_ARGUMENT error.
+     * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId",
+     * to which the analysis results should be exported. If this dataset does
+     * not exist, the export call will return an INVALID_ARGUMENT error.
      * </pre>
      *
      * <code>string dataset = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1190,10 +1041,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The BigQuery dataset in format
-     * "projects/projectId/datasets/datasetId", to which the analysis results
-     * should be exported. If this dataset does not exist, the export call will
-     * return an INVALID_ARGUMENT error.
+     * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId",
+     * to which the analysis results should be exported. If this dataset does
+     * not exist, the export call will return an INVALID_ARGUMENT error.
      * </pre>
      *
      * <code>string dataset = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1215,12 +1065,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TABLE_PREFIX_FIELD_NUMBER = 2;
-    private volatile java.lang.Object tablePrefix_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object tablePrefix_ = "";
     /**
      * <pre>
-     * Required. The prefix of the BigQuery tables to which the analysis results
-     * will be written. Tables will be created based on this table_prefix if not
-     * exist:
+     * Required. The prefix of the BigQuery tables to which the analysis results will be
+     * written. Tables will be created based on this table_prefix if not exist:
      * * &lt;table_prefix&gt;_analysis table will contain export operation's metadata.
      * * &lt;table_prefix&gt;_analysis_result will contain all the
      *   [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
@@ -1246,9 +1096,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The prefix of the BigQuery tables to which the analysis results
-     * will be written. Tables will be created based on this table_prefix if not
-     * exist:
+     * Required. The prefix of the BigQuery tables to which the analysis results will be
+     * written. Tables will be created based on this table_prefix if not exist:
      * * &lt;table_prefix&gt;_analysis table will contain export operation's metadata.
      * * &lt;table_prefix&gt;_analysis_result will contain all the
      *   [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
@@ -1275,7 +1124,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PARTITION_KEY_FIELD_NUMBER = 3;
-    private int partitionKey_;
+    private int partitionKey_ = 0;
     /**
      * <pre>
      * The partition key for BigQuery partitioned table.
@@ -1296,17 +1145,17 @@ private static final long serialVersionUID = 0L;
      * @return The partitionKey.
      */
     @java.lang.Override public com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey getPartitionKey() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey result = com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey.valueOf(partitionKey_);
+      com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey result = com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey.forNumber(partitionKey_);
       return result == null ? com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey.UNRECOGNIZED : result;
     }
 
     public static final int WRITE_DISPOSITION_FIELD_NUMBER = 4;
-    private volatile java.lang.Object writeDisposition_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object writeDisposition_ = "";
     /**
      * <pre>
-     * Optional. Specifies the action that occurs if the destination table or
-     * partition already exists. The following values are supported:
+     * Optional. Specifies the action that occurs if the destination table or partition
+     * already exists. The following values are supported:
      * * WRITE_TRUNCATE: If the table or partition already exists, BigQuery
      * overwrites the entire table or all the partitions data.
      * * WRITE_APPEND: If the table or partition already exists, BigQuery
@@ -1336,8 +1185,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Specifies the action that occurs if the destination table or
-     * partition already exists. The following values are supported:
+     * Optional. Specifies the action that occurs if the destination table or partition
+     * already exists. The following values are supported:
      * * WRITE_TRUNCATE: If the table or partition already exists, BigQuery
      * overwrites the entire table or all the partitions data.
      * * WRITE_APPEND: If the table or partition already exists, BigQuery
@@ -1393,7 +1242,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(writeDisposition_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, writeDisposition_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1415,7 +1264,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(writeDisposition_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, writeDisposition_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1437,7 +1286,7 @@ private static final long serialVersionUID = 0L;
       if (partitionKey_ != other.partitionKey_) return false;
       if (!getWriteDisposition()
           .equals(other.getWriteDisposition())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1456,7 +1305,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + partitionKey_;
       hash = (37 * hash) + WRITE_DISPOSITION_FIELD_NUMBER;
       hash = (53 * hash) + getWriteDisposition().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1577,30 +1426,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         dataset_ = "";
-
         tablePrefix_ = "";
-
         partitionKey_ = 0;
-
         writeDisposition_ = "";
-
         return this;
       }
 
@@ -1627,12 +1468,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination buildPartial() {
         com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination result = new com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination(this);
-        result.dataset_ = dataset_;
-        result.tablePrefix_ = tablePrefix_;
-        result.partitionKey_ = partitionKey_;
-        result.writeDisposition_ = writeDisposition_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.dataset_ = dataset_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.tablePrefix_ = tablePrefix_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.partitionKey_ = partitionKey_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.writeDisposition_ = writeDisposition_;
+        }
       }
 
       @java.lang.Override
@@ -1681,10 +1535,12 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.getDefaultInstance()) return this;
         if (!other.getDataset().isEmpty()) {
           dataset_ = other.dataset_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getTablePrefix().isEmpty()) {
           tablePrefix_ = other.tablePrefix_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.partitionKey_ != 0) {
@@ -1692,9 +1548,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getWriteDisposition().isEmpty()) {
           writeDisposition_ = other.writeDisposition_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1709,27 +1566,60 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                dataset_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                tablePrefix_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                partitionKey_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                writeDisposition_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object dataset_ = "";
       /**
        * <pre>
-       * Required. The BigQuery dataset in format
-       * "projects/projectId/datasets/datasetId", to which the analysis results
-       * should be exported. If this dataset does not exist, the export call will
-       * return an INVALID_ARGUMENT error.
+       * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId",
+       * to which the analysis results should be exported. If this dataset does
+       * not exist, the export call will return an INVALID_ARGUMENT error.
        * </pre>
        *
        * <code>string dataset = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1749,10 +1639,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The BigQuery dataset in format
-       * "projects/projectId/datasets/datasetId", to which the analysis results
-       * should be exported. If this dataset does not exist, the export call will
-       * return an INVALID_ARGUMENT error.
+       * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId",
+       * to which the analysis results should be exported. If this dataset does
+       * not exist, the export call will return an INVALID_ARGUMENT error.
        * </pre>
        *
        * <code>string dataset = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1773,10 +1662,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The BigQuery dataset in format
-       * "projects/projectId/datasets/datasetId", to which the analysis results
-       * should be exported. If this dataset does not exist, the export call will
-       * return an INVALID_ARGUMENT error.
+       * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId",
+       * to which the analysis results should be exported. If this dataset does
+       * not exist, the export call will return an INVALID_ARGUMENT error.
        * </pre>
        *
        * <code>string dataset = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1785,37 +1673,33 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDataset(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         dataset_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. The BigQuery dataset in format
-       * "projects/projectId/datasets/datasetId", to which the analysis results
-       * should be exported. If this dataset does not exist, the export call will
-       * return an INVALID_ARGUMENT error.
+       * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId",
+       * to which the analysis results should be exported. If this dataset does
+       * not exist, the export call will return an INVALID_ARGUMENT error.
        * </pre>
        *
        * <code>string dataset = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        * @return This builder for chaining.
        */
       public Builder clearDataset() {
-        
         dataset_ = getDefaultInstance().getDataset();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. The BigQuery dataset in format
-       * "projects/projectId/datasets/datasetId", to which the analysis results
-       * should be exported. If this dataset does not exist, the export call will
-       * return an INVALID_ARGUMENT error.
+       * Required. The BigQuery dataset in format "projects/projectId/datasets/datasetId",
+       * to which the analysis results should be exported. If this dataset does
+       * not exist, the export call will return an INVALID_ARGUMENT error.
        * </pre>
        *
        * <code>string dataset = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1824,12 +1708,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDatasetBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         dataset_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1837,9 +1719,8 @@ private static final long serialVersionUID = 0L;
       private java.lang.Object tablePrefix_ = "";
       /**
        * <pre>
-       * Required. The prefix of the BigQuery tables to which the analysis results
-       * will be written. Tables will be created based on this table_prefix if not
-       * exist:
+       * Required. The prefix of the BigQuery tables to which the analysis results will be
+       * written. Tables will be created based on this table_prefix if not exist:
        * * &lt;table_prefix&gt;_analysis table will contain export operation's metadata.
        * * &lt;table_prefix&gt;_analysis_result will contain all the
        *   [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
@@ -1864,9 +1745,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The prefix of the BigQuery tables to which the analysis results
-       * will be written. Tables will be created based on this table_prefix if not
-       * exist:
+       * Required. The prefix of the BigQuery tables to which the analysis results will be
+       * written. Tables will be created based on this table_prefix if not exist:
        * * &lt;table_prefix&gt;_analysis table will contain export operation's metadata.
        * * &lt;table_prefix&gt;_analysis_result will contain all the
        *   [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
@@ -1892,9 +1772,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. The prefix of the BigQuery tables to which the analysis results
-       * will be written. Tables will be created based on this table_prefix if not
-       * exist:
+       * Required. The prefix of the BigQuery tables to which the analysis results will be
+       * written. Tables will be created based on this table_prefix if not exist:
        * * &lt;table_prefix&gt;_analysis table will contain export operation's metadata.
        * * &lt;table_prefix&gt;_analysis_result will contain all the
        *   [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
@@ -1908,19 +1787,16 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTablePrefix(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         tablePrefix_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. The prefix of the BigQuery tables to which the analysis results
-       * will be written. Tables will be created based on this table_prefix if not
-       * exist:
+       * Required. The prefix of the BigQuery tables to which the analysis results will be
+       * written. Tables will be created based on this table_prefix if not exist:
        * * &lt;table_prefix&gt;_analysis table will contain export operation's metadata.
        * * &lt;table_prefix&gt;_analysis_result will contain all the
        *   [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
@@ -1932,16 +1808,15 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTablePrefix() {
-        
         tablePrefix_ = getDefaultInstance().getTablePrefix();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. The prefix of the BigQuery tables to which the analysis results
-       * will be written. Tables will be created based on this table_prefix if not
-       * exist:
+       * Required. The prefix of the BigQuery tables to which the analysis results will be
+       * written. Tables will be created based on this table_prefix if not exist:
        * * &lt;table_prefix&gt;_analysis table will contain export operation's metadata.
        * * &lt;table_prefix&gt;_analysis_result will contain all the
        *   [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult].
@@ -1955,12 +1830,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTablePrefixBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         tablePrefix_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1987,8 +1860,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setPartitionKeyValue(int value) {
-        
         partitionKey_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2002,8 +1875,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey getPartitionKey() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey result = com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey.valueOf(partitionKey_);
+        com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey result = com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey.forNumber(partitionKey_);
         return result == null ? com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination.PartitionKey.UNRECOGNIZED : result;
       }
       /**
@@ -2019,7 +1891,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         partitionKey_ = value.getNumber();
         onChanged();
         return this;
@@ -2033,7 +1905,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPartitionKey() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         partitionKey_ = 0;
         onChanged();
         return this;
@@ -2042,8 +1914,8 @@ private static final long serialVersionUID = 0L;
       private java.lang.Object writeDisposition_ = "";
       /**
        * <pre>
-       * Optional. Specifies the action that occurs if the destination table or
-       * partition already exists. The following values are supported:
+       * Optional. Specifies the action that occurs if the destination table or partition
+       * already exists. The following values are supported:
        * * WRITE_TRUNCATE: If the table or partition already exists, BigQuery
        * overwrites the entire table or all the partitions data.
        * * WRITE_APPEND: If the table or partition already exists, BigQuery
@@ -2072,8 +1944,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. Specifies the action that occurs if the destination table or
-       * partition already exists. The following values are supported:
+       * Optional. Specifies the action that occurs if the destination table or partition
+       * already exists. The following values are supported:
        * * WRITE_TRUNCATE: If the table or partition already exists, BigQuery
        * overwrites the entire table or all the partitions data.
        * * WRITE_APPEND: If the table or partition already exists, BigQuery
@@ -2103,8 +1975,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. Specifies the action that occurs if the destination table or
-       * partition already exists. The following values are supported:
+       * Optional. Specifies the action that occurs if the destination table or partition
+       * already exists. The following values are supported:
        * * WRITE_TRUNCATE: If the table or partition already exists, BigQuery
        * overwrites the entire table or all the partitions data.
        * * WRITE_APPEND: If the table or partition already exists, BigQuery
@@ -2122,18 +1994,16 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setWriteDisposition(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         writeDisposition_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. Specifies the action that occurs if the destination table or
-       * partition already exists. The following values are supported:
+       * Optional. Specifies the action that occurs if the destination table or partition
+       * already exists. The following values are supported:
        * * WRITE_TRUNCATE: If the table or partition already exists, BigQuery
        * overwrites the entire table or all the partitions data.
        * * WRITE_APPEND: If the table or partition already exists, BigQuery
@@ -2149,15 +2019,15 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearWriteDisposition() {
-        
         writeDisposition_ = getDefaultInstance().getWriteDisposition();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. Specifies the action that occurs if the destination table or
-       * partition already exists. The following values are supported:
+       * Optional. Specifies the action that occurs if the destination table or partition
+       * already exists. The following values are supported:
        * * WRITE_TRUNCATE: If the table or partition already exists, BigQuery
        * overwrites the entire table or all the partitions data.
        * * WRITE_APPEND: If the table or partition already exists, BigQuery
@@ -2175,12 +2045,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setWriteDispositionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         writeDisposition_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2217,7 +2085,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BigQueryDestination(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2384,7 +2263,7 @@ private static final long serialVersionUID = 0L;
     if (destinationCase_ == 2) {
       output.writeMessage(2, (com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination) destination_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2401,7 +2280,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.BigQueryDestination) destination_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2429,7 +2308,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2452,7 +2331,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2573,22 +2452,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (gcsDestinationBuilder_ != null) {
+        gcsDestinationBuilder_.clear();
+      }
+      if (bigqueryDestinationBuilder_ != null) {
+        bigqueryDestinationBuilder_.clear();
+      }
       destinationCase_ = 0;
       destination_ = null;
       return this;
@@ -2617,23 +2498,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig buildPartial() {
       com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig result = new com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig(this);
-      if (destinationCase_ == 1) {
-        if (gcsDestinationBuilder_ == null) {
-          result.destination_ = destination_;
-        } else {
-          result.destination_ = gcsDestinationBuilder_.build();
-        }
-      }
-      if (destinationCase_ == 2) {
-        if (bigqueryDestinationBuilder_ == null) {
-          result.destination_ = destination_;
-        } else {
-          result.destination_ = bigqueryDestinationBuilder_.build();
-        }
-      }
-      result.destinationCase_ = destinationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig result) {
+      result.destinationCase_ = destinationCase_;
+      result.destination_ = this.destination_;
+      if (destinationCase_ == 1 &&
+          gcsDestinationBuilder_ != null) {
+        result.destination_ = gcsDestinationBuilder_.build();
+      }
+      if (destinationCase_ == 2 &&
+          bigqueryDestinationBuilder_ != null) {
+        result.destination_ = bigqueryDestinationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2693,7 +2578,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2708,17 +2593,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getGcsDestinationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              destinationCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getBigqueryDestinationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              destinationCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int destinationCase_ = 0;
@@ -2736,6 +2648,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination, com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestination.Builder, com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.GcsDestinationOrBuilder> gcsDestinationBuilder_;
@@ -2911,7 +2824,7 @@ private static final long serialVersionUID = 0L;
         destination_ = null;
       }
       destinationCase_ = 1;
-      onChanged();;
+      onChanged();
       return gcsDestinationBuilder_;
     }
 
@@ -3089,7 +3002,7 @@ private static final long serialVersionUID = 0L;
         destination_ = null;
       }
       destinationCase_ = 2;
-      onChanged();;
+      onChanged();
       return bigqueryDestinationBuilder_;
     }
     @java.lang.Override
@@ -3125,7 +3038,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IamPolicyAnalysisOutputConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

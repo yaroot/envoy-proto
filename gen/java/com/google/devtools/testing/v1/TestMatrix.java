@@ -42,163 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TestMatrix(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            testMatrixId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.devtools.testing.v1.TestSpecification.Builder subBuilder = null;
-            if (testSpecification_ != null) {
-              subBuilder = testSpecification_.toBuilder();
-            }
-            testSpecification_ = input.readMessage(com.google.devtools.testing.v1.TestSpecification.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(testSpecification_);
-              testSpecification_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.devtools.testing.v1.EnvironmentMatrix.Builder subBuilder = null;
-            if (environmentMatrix_ != null) {
-              subBuilder = environmentMatrix_.toBuilder();
-            }
-            environmentMatrix_ = input.readMessage(com.google.devtools.testing.v1.EnvironmentMatrix.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(environmentMatrix_);
-              environmentMatrix_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              testExecutions_ = new java.util.ArrayList<com.google.devtools.testing.v1.TestExecution>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            testExecutions_.add(
-                input.readMessage(com.google.devtools.testing.v1.TestExecution.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.devtools.testing.v1.ResultStorage.Builder subBuilder = null;
-            if (resultStorage_ != null) {
-              subBuilder = resultStorage_.toBuilder();
-            }
-            resultStorage_ = input.readMessage(com.google.devtools.testing.v1.ResultStorage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resultStorage_);
-              resultStorage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (timestamp_ != null) {
-              subBuilder = timestamp_.toBuilder();
-            }
-            timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timestamp_);
-              timestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.devtools.testing.v1.ClientInfo.Builder subBuilder = null;
-            if (clientInfo_ != null) {
-              subBuilder = clientInfo_.toBuilder();
-            }
-            clientInfo_ = input.readMessage(com.google.devtools.testing.v1.ClientInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(clientInfo_);
-              clientInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            invalidMatrixDetails_ = rawValue;
-            break;
-          }
-          case 104: {
-
-            flakyTestAttempts_ = input.readInt32();
-            break;
-          }
-          case 112: {
-            int rawValue = input.readEnum();
-
-            outcomeSummary_ = rawValue;
-            break;
-          }
-          case 136: {
-
-            failFast_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        testExecutions_ = java.util.Collections.unmodifiableList(testExecutions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_TestMatrix_descriptor;
@@ -213,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEST_MATRIX_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object testMatrixId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object testMatrixId_ = "";
   /**
    * <pre>
    * Output only. Unique id set by the service.
@@ -259,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 7;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * The cloud project that owns the test matrix.
@@ -339,7 +184,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.ClientInfoOrBuilder getClientInfoOrBuilder() {
-    return getClientInfo();
+    return clientInfo_ == null ? com.google.devtools.testing.v1.ClientInfo.getDefaultInstance() : clientInfo_;
   }
 
   public static final int TEST_SPECIFICATION_FIELD_NUMBER = 3;
@@ -377,7 +222,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.TestSpecificationOrBuilder getTestSpecificationOrBuilder() {
-    return getTestSpecification();
+    return testSpecification_ == null ? com.google.devtools.testing.v1.TestSpecification.getDefaultInstance() : testSpecification_;
   }
 
   public static final int ENVIRONMENT_MATRIX_FIELD_NUMBER = 4;
@@ -415,10 +260,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.EnvironmentMatrixOrBuilder getEnvironmentMatrixOrBuilder() {
-    return getEnvironmentMatrix();
+    return environmentMatrix_ == null ? com.google.devtools.testing.v1.EnvironmentMatrix.getDefaultInstance() : environmentMatrix_;
   }
 
   public static final int TEST_EXECUTIONS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.TestExecution> testExecutions_;
   /**
    * <pre>
@@ -518,11 +364,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.ResultStorageOrBuilder getResultStorageOrBuilder() {
-    return getResultStorage();
+    return resultStorage_ == null ? com.google.devtools.testing.v1.ResultStorage.getDefaultInstance() : resultStorage_;
   }
 
   public static final int STATE_FIELD_NUMBER = 8;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. Indicates the current progress of the test matrix.
@@ -543,8 +389,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.devtools.testing.v1.TestState getState() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.testing.v1.TestState result = com.google.devtools.testing.v1.TestState.valueOf(state_);
+    com.google.devtools.testing.v1.TestState result = com.google.devtools.testing.v1.TestState.forNumber(state_);
     return result == null ? com.google.devtools.testing.v1.TestState.UNRECOGNIZED : result;
   }
 
@@ -583,11 +428,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-    return getTimestamp();
+    return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
   }
 
   public static final int INVALID_MATRIX_DETAILS_FIELD_NUMBER = 11;
-  private int invalidMatrixDetails_;
+  private int invalidMatrixDetails_ = 0;
   /**
    * <pre>
    * Output only. Describes why the matrix is considered invalid.
@@ -610,13 +455,12 @@ private static final long serialVersionUID = 0L;
    * @return The invalidMatrixDetails.
    */
   @java.lang.Override public com.google.devtools.testing.v1.InvalidMatrixDetails getInvalidMatrixDetails() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.testing.v1.InvalidMatrixDetails result = com.google.devtools.testing.v1.InvalidMatrixDetails.valueOf(invalidMatrixDetails_);
+    com.google.devtools.testing.v1.InvalidMatrixDetails result = com.google.devtools.testing.v1.InvalidMatrixDetails.forNumber(invalidMatrixDetails_);
     return result == null ? com.google.devtools.testing.v1.InvalidMatrixDetails.UNRECOGNIZED : result;
   }
 
   public static final int FLAKY_TEST_ATTEMPTS_FIELD_NUMBER = 13;
-  private int flakyTestAttempts_;
+  private int flakyTestAttempts_ = 0;
   /**
    * <pre>
    * The number of times a TestExecution should be re-attempted if one or more
@@ -634,7 +478,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OUTCOME_SUMMARY_FIELD_NUMBER = 14;
-  private int outcomeSummary_;
+  private int outcomeSummary_ = 0;
   /**
    * <pre>
    * Output Only. The overall outcome of the test.
@@ -657,13 +501,12 @@ private static final long serialVersionUID = 0L;
    * @return The outcomeSummary.
    */
   @java.lang.Override public com.google.devtools.testing.v1.OutcomeSummary getOutcomeSummary() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.testing.v1.OutcomeSummary result = com.google.devtools.testing.v1.OutcomeSummary.valueOf(outcomeSummary_);
+    com.google.devtools.testing.v1.OutcomeSummary result = com.google.devtools.testing.v1.OutcomeSummary.forNumber(outcomeSummary_);
     return result == null ? com.google.devtools.testing.v1.OutcomeSummary.UNRECOGNIZED : result;
   }
 
   public static final int FAIL_FAST_FIELD_NUMBER = 17;
-  private boolean failFast_;
+  private boolean failFast_ = false;
   /**
    * <pre>
    * If true, only a single attempt at most will be made to run each
@@ -736,7 +579,7 @@ private static final long serialVersionUID = 0L;
     if (failFast_ != false) {
       output.writeBool(17, failFast_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -795,7 +638,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(17, failFast_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -848,7 +691,7 @@ private static final long serialVersionUID = 0L;
     if (outcomeSummary_ != other.outcomeSummary_) return false;
     if (getFailFast()
         != other.getFailFast()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -898,7 +741,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + FAIL_FAST_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getFailFast());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1021,73 +864,57 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.TestMatrix.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTestExecutionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       testMatrixId_ = "";
-
       projectId_ = "";
-
-      if (clientInfoBuilder_ == null) {
-        clientInfo_ = null;
-      } else {
-        clientInfo_ = null;
+      clientInfo_ = null;
+      if (clientInfoBuilder_ != null) {
+        clientInfoBuilder_.dispose();
         clientInfoBuilder_ = null;
       }
-      if (testSpecificationBuilder_ == null) {
-        testSpecification_ = null;
-      } else {
-        testSpecification_ = null;
+      testSpecification_ = null;
+      if (testSpecificationBuilder_ != null) {
+        testSpecificationBuilder_.dispose();
         testSpecificationBuilder_ = null;
       }
-      if (environmentMatrixBuilder_ == null) {
-        environmentMatrix_ = null;
-      } else {
-        environmentMatrix_ = null;
+      environmentMatrix_ = null;
+      if (environmentMatrixBuilder_ != null) {
+        environmentMatrixBuilder_.dispose();
         environmentMatrixBuilder_ = null;
       }
       if (testExecutionsBuilder_ == null) {
         testExecutions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        testExecutions_ = null;
         testExecutionsBuilder_.clear();
       }
-      if (resultStorageBuilder_ == null) {
-        resultStorage_ = null;
-      } else {
-        resultStorage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      resultStorage_ = null;
+      if (resultStorageBuilder_ != null) {
+        resultStorageBuilder_.dispose();
         resultStorageBuilder_ = null;
       }
       state_ = 0;
-
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-      } else {
-        timestamp_ = null;
+      timestamp_ = null;
+      if (timestampBuilder_ != null) {
+        timestampBuilder_.dispose();
         timestampBuilder_ = null;
       }
       invalidMatrixDetails_ = 0;
-
       flakyTestAttempts_ = 0;
-
       outcomeSummary_ = 0;
-
       failFast_ = false;
-
       return this;
     }
 
@@ -1114,50 +941,72 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.TestMatrix buildPartial() {
       com.google.devtools.testing.v1.TestMatrix result = new com.google.devtools.testing.v1.TestMatrix(this);
-      int from_bitField0_ = bitField0_;
-      result.testMatrixId_ = testMatrixId_;
-      result.projectId_ = projectId_;
-      if (clientInfoBuilder_ == null) {
-        result.clientInfo_ = clientInfo_;
-      } else {
-        result.clientInfo_ = clientInfoBuilder_.build();
-      }
-      if (testSpecificationBuilder_ == null) {
-        result.testSpecification_ = testSpecification_;
-      } else {
-        result.testSpecification_ = testSpecificationBuilder_.build();
-      }
-      if (environmentMatrixBuilder_ == null) {
-        result.environmentMatrix_ = environmentMatrix_;
-      } else {
-        result.environmentMatrix_ = environmentMatrixBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.testing.v1.TestMatrix result) {
       if (testExecutionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           testExecutions_ = java.util.Collections.unmodifiableList(testExecutions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.testExecutions_ = testExecutions_;
       } else {
         result.testExecutions_ = testExecutionsBuilder_.build();
       }
-      if (resultStorageBuilder_ == null) {
-        result.resultStorage_ = resultStorage_;
-      } else {
-        result.resultStorage_ = resultStorageBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.TestMatrix result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.testMatrixId_ = testMatrixId_;
       }
-      result.state_ = state_;
-      if (timestampBuilder_ == null) {
-        result.timestamp_ = timestamp_;
-      } else {
-        result.timestamp_ = timestampBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.projectId_ = projectId_;
       }
-      result.invalidMatrixDetails_ = invalidMatrixDetails_;
-      result.flakyTestAttempts_ = flakyTestAttempts_;
-      result.outcomeSummary_ = outcomeSummary_;
-      result.failFast_ = failFast_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.clientInfo_ = clientInfoBuilder_ == null
+            ? clientInfo_
+            : clientInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.testSpecification_ = testSpecificationBuilder_ == null
+            ? testSpecification_
+            : testSpecificationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.environmentMatrix_ = environmentMatrixBuilder_ == null
+            ? environmentMatrix_
+            : environmentMatrixBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.resultStorage_ = resultStorageBuilder_ == null
+            ? resultStorage_
+            : resultStorageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.timestamp_ = timestampBuilder_ == null
+            ? timestamp_
+            : timestampBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.invalidMatrixDetails_ = invalidMatrixDetails_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.flakyTestAttempts_ = flakyTestAttempts_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.outcomeSummary_ = outcomeSummary_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.failFast_ = failFast_;
+      }
     }
 
     @java.lang.Override
@@ -1206,10 +1055,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.testing.v1.TestMatrix.getDefaultInstance()) return this;
       if (!other.getTestMatrixId().isEmpty()) {
         testMatrixId_ = other.testMatrixId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasClientInfo()) {
@@ -1225,7 +1076,7 @@ private static final long serialVersionUID = 0L;
         if (!other.testExecutions_.isEmpty()) {
           if (testExecutions_.isEmpty()) {
             testExecutions_ = other.testExecutions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureTestExecutionsIsMutable();
             testExecutions_.addAll(other.testExecutions_);
@@ -1238,7 +1089,7 @@ private static final long serialVersionUID = 0L;
             testExecutionsBuilder_.dispose();
             testExecutionsBuilder_ = null;
             testExecutions_ = other.testExecutions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             testExecutionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTestExecutionsFieldBuilder() : null;
@@ -1268,7 +1119,7 @@ private static final long serialVersionUID = 0L;
       if (other.getFailFast() != false) {
         setFailFast(other.getFailFast());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1283,17 +1134,113 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.TestMatrix parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              testMatrixId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getTestSpecificationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getEnvironmentMatrixFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              com.google.devtools.testing.v1.TestExecution m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.TestExecution.parser(),
+                      extensionRegistry);
+              if (testExecutionsBuilder_ == null) {
+                ensureTestExecutionsIsMutable();
+                testExecutions_.add(m);
+              } else {
+                testExecutionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getResultStorageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 58
+            case 64: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getClientInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 82
+            case 88: {
+              invalidMatrixDetails_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 88
+            case 104: {
+              flakyTestAttempts_ = input.readInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 104
+            case 112: {
+              outcomeSummary_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 112
+            case 136: {
+              failFast_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 136
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.TestMatrix) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1351,11 +1298,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTestMatrixId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       testMatrixId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1368,8 +1313,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTestMatrixId() {
-      
       testMatrixId_ = getDefaultInstance().getTestMatrixId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1384,12 +1329,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTestMatrixIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       testMatrixId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1447,11 +1390,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1464,8 +1405,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1480,12 +1421,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1502,7 +1441,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the clientInfo field is set.
      */
     public boolean hasClientInfo() {
-      return clientInfoBuilder_ != null || clientInfo_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1532,11 +1471,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         clientInfo_ = value;
-        onChanged();
       } else {
         clientInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1550,11 +1489,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.ClientInfo.Builder builderForValue) {
       if (clientInfoBuilder_ == null) {
         clientInfo_ = builderForValue.build();
-        onChanged();
       } else {
         clientInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1566,17 +1505,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeClientInfo(com.google.devtools.testing.v1.ClientInfo value) {
       if (clientInfoBuilder_ == null) {
-        if (clientInfo_ != null) {
-          clientInfo_ =
-            com.google.devtools.testing.v1.ClientInfo.newBuilder(clientInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          clientInfo_ != null &&
+          clientInfo_ != com.google.devtools.testing.v1.ClientInfo.getDefaultInstance()) {
+          getClientInfoBuilder().mergeFrom(value);
         } else {
           clientInfo_ = value;
         }
-        onChanged();
       } else {
         clientInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1587,14 +1527,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.ClientInfo client_info = 10;</code>
      */
     public Builder clearClientInfo() {
-      if (clientInfoBuilder_ == null) {
-        clientInfo_ = null;
-        onChanged();
-      } else {
-        clientInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      clientInfo_ = null;
+      if (clientInfoBuilder_ != null) {
+        clientInfoBuilder_.dispose();
         clientInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1605,7 +1544,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.ClientInfo client_info = 10;</code>
      */
     public com.google.devtools.testing.v1.ClientInfo.Builder getClientInfoBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getClientInfoFieldBuilder().getBuilder();
     }
@@ -1657,7 +1596,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the testSpecification field is set.
      */
     public boolean hasTestSpecification() {
-      return testSpecificationBuilder_ != null || testSpecification_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1687,11 +1626,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         testSpecification_ = value;
-        onChanged();
       } else {
         testSpecificationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1705,11 +1644,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.TestSpecification.Builder builderForValue) {
       if (testSpecificationBuilder_ == null) {
         testSpecification_ = builderForValue.build();
-        onChanged();
       } else {
         testSpecificationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1721,17 +1660,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTestSpecification(com.google.devtools.testing.v1.TestSpecification value) {
       if (testSpecificationBuilder_ == null) {
-        if (testSpecification_ != null) {
-          testSpecification_ =
-            com.google.devtools.testing.v1.TestSpecification.newBuilder(testSpecification_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          testSpecification_ != null &&
+          testSpecification_ != com.google.devtools.testing.v1.TestSpecification.getDefaultInstance()) {
+          getTestSpecificationBuilder().mergeFrom(value);
         } else {
           testSpecification_ = value;
         }
-        onChanged();
       } else {
         testSpecificationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1742,14 +1682,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.TestSpecification test_specification = 3;</code>
      */
     public Builder clearTestSpecification() {
-      if (testSpecificationBuilder_ == null) {
-        testSpecification_ = null;
-        onChanged();
-      } else {
-        testSpecification_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      testSpecification_ = null;
+      if (testSpecificationBuilder_ != null) {
+        testSpecificationBuilder_.dispose();
         testSpecificationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1760,7 +1699,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.TestSpecification test_specification = 3;</code>
      */
     public com.google.devtools.testing.v1.TestSpecification.Builder getTestSpecificationBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTestSpecificationFieldBuilder().getBuilder();
     }
@@ -1812,7 +1751,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the environmentMatrix field is set.
      */
     public boolean hasEnvironmentMatrix() {
-      return environmentMatrixBuilder_ != null || environmentMatrix_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1842,11 +1781,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         environmentMatrix_ = value;
-        onChanged();
       } else {
         environmentMatrixBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1860,11 +1799,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.EnvironmentMatrix.Builder builderForValue) {
       if (environmentMatrixBuilder_ == null) {
         environmentMatrix_ = builderForValue.build();
-        onChanged();
       } else {
         environmentMatrixBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1876,17 +1815,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnvironmentMatrix(com.google.devtools.testing.v1.EnvironmentMatrix value) {
       if (environmentMatrixBuilder_ == null) {
-        if (environmentMatrix_ != null) {
-          environmentMatrix_ =
-            com.google.devtools.testing.v1.EnvironmentMatrix.newBuilder(environmentMatrix_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          environmentMatrix_ != null &&
+          environmentMatrix_ != com.google.devtools.testing.v1.EnvironmentMatrix.getDefaultInstance()) {
+          getEnvironmentMatrixBuilder().mergeFrom(value);
         } else {
           environmentMatrix_ = value;
         }
-        onChanged();
       } else {
         environmentMatrixBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1897,14 +1837,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.EnvironmentMatrix environment_matrix = 4;</code>
      */
     public Builder clearEnvironmentMatrix() {
-      if (environmentMatrixBuilder_ == null) {
-        environmentMatrix_ = null;
-        onChanged();
-      } else {
-        environmentMatrix_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      environmentMatrix_ = null;
+      if (environmentMatrixBuilder_ != null) {
+        environmentMatrixBuilder_.dispose();
         environmentMatrixBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1915,7 +1854,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.EnvironmentMatrix environment_matrix = 4;</code>
      */
     public com.google.devtools.testing.v1.EnvironmentMatrix.Builder getEnvironmentMatrixBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getEnvironmentMatrixFieldBuilder().getBuilder();
     }
@@ -1958,9 +1897,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.devtools.testing.v1.TestExecution> testExecutions_ =
       java.util.Collections.emptyList();
     private void ensureTestExecutionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         testExecutions_ = new java.util.ArrayList<com.google.devtools.testing.v1.TestExecution>(testExecutions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2165,7 +2104,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTestExecutions() {
       if (testExecutionsBuilder_ == null) {
         testExecutions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         testExecutionsBuilder_.clear();
@@ -2277,7 +2216,7 @@ private static final long serialVersionUID = 0L;
         testExecutionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.devtools.testing.v1.TestExecution, com.google.devtools.testing.v1.TestExecution.Builder, com.google.devtools.testing.v1.TestExecutionOrBuilder>(
                 testExecutions_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         testExecutions_ = null;
@@ -2297,7 +2236,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resultStorage field is set.
      */
     public boolean hasResultStorage() {
-      return resultStorageBuilder_ != null || resultStorage_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2327,11 +2266,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resultStorage_ = value;
-        onChanged();
       } else {
         resultStorageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2345,11 +2284,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.ResultStorage.Builder builderForValue) {
       if (resultStorageBuilder_ == null) {
         resultStorage_ = builderForValue.build();
-        onChanged();
       } else {
         resultStorageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2361,17 +2300,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResultStorage(com.google.devtools.testing.v1.ResultStorage value) {
       if (resultStorageBuilder_ == null) {
-        if (resultStorage_ != null) {
-          resultStorage_ =
-            com.google.devtools.testing.v1.ResultStorage.newBuilder(resultStorage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          resultStorage_ != null &&
+          resultStorage_ != com.google.devtools.testing.v1.ResultStorage.getDefaultInstance()) {
+          getResultStorageBuilder().mergeFrom(value);
         } else {
           resultStorage_ = value;
         }
-        onChanged();
       } else {
         resultStorageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2382,14 +2322,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.ResultStorage result_storage = 6;</code>
      */
     public Builder clearResultStorage() {
-      if (resultStorageBuilder_ == null) {
-        resultStorage_ = null;
-        onChanged();
-      } else {
-        resultStorage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      resultStorage_ = null;
+      if (resultStorageBuilder_ != null) {
+        resultStorageBuilder_.dispose();
         resultStorageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2400,7 +2339,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.ResultStorage result_storage = 6;</code>
      */
     public com.google.devtools.testing.v1.ResultStorage.Builder getResultStorageBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getResultStorageFieldBuilder().getBuilder();
     }
@@ -2462,8 +2401,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2477,8 +2416,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.testing.v1.TestState getState() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.testing.v1.TestState result = com.google.devtools.testing.v1.TestState.valueOf(state_);
+      com.google.devtools.testing.v1.TestState result = com.google.devtools.testing.v1.TestState.forNumber(state_);
       return result == null ? com.google.devtools.testing.v1.TestState.UNRECOGNIZED : result;
     }
     /**
@@ -2494,7 +2432,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2508,7 +2446,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       state_ = 0;
       onChanged();
       return this;
@@ -2526,7 +2464,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timestamp field is set.
      */
     public boolean hasTimestamp() {
-      return timestampBuilder_ != null || timestamp_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2556,11 +2494,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timestamp_ = value;
-        onChanged();
       } else {
         timestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2574,11 +2512,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (timestampBuilder_ == null) {
         timestamp_ = builderForValue.build();
-        onChanged();
       } else {
         timestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2590,17 +2528,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
       if (timestampBuilder_ == null) {
-        if (timestamp_ != null) {
-          timestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          timestamp_ != null &&
+          timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getTimestampBuilder().mergeFrom(value);
         } else {
           timestamp_ = value;
         }
-        onChanged();
       } else {
         timestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2611,14 +2550,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp timestamp = 9;</code>
      */
     public Builder clearTimestamp() {
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-        onChanged();
-      } else {
-        timestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      timestamp_ = null;
+      if (timestampBuilder_ != null) {
+        timestampBuilder_.dispose();
         timestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2629,7 +2567,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp timestamp = 9;</code>
      */
     public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getTimestampFieldBuilder().getBuilder();
     }
@@ -2693,8 +2631,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInvalidMatrixDetailsValue(int value) {
-      
       invalidMatrixDetails_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2709,8 +2647,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.testing.v1.InvalidMatrixDetails getInvalidMatrixDetails() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.testing.v1.InvalidMatrixDetails result = com.google.devtools.testing.v1.InvalidMatrixDetails.valueOf(invalidMatrixDetails_);
+      com.google.devtools.testing.v1.InvalidMatrixDetails result = com.google.devtools.testing.v1.InvalidMatrixDetails.forNumber(invalidMatrixDetails_);
       return result == null ? com.google.devtools.testing.v1.InvalidMatrixDetails.UNRECOGNIZED : result;
     }
     /**
@@ -2727,7 +2664,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       invalidMatrixDetails_ = value.getNumber();
       onChanged();
       return this;
@@ -2742,7 +2679,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInvalidMatrixDetails() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       invalidMatrixDetails_ = 0;
       onChanged();
       return this;
@@ -2779,6 +2716,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFlakyTestAttempts(int value) {
       
       flakyTestAttempts_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2794,7 +2732,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFlakyTestAttempts() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       flakyTestAttempts_ = 0;
       onChanged();
       return this;
@@ -2824,8 +2762,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOutcomeSummaryValue(int value) {
-      
       outcomeSummary_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2840,8 +2778,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.testing.v1.OutcomeSummary getOutcomeSummary() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.testing.v1.OutcomeSummary result = com.google.devtools.testing.v1.OutcomeSummary.valueOf(outcomeSummary_);
+      com.google.devtools.testing.v1.OutcomeSummary result = com.google.devtools.testing.v1.OutcomeSummary.forNumber(outcomeSummary_);
       return result == null ? com.google.devtools.testing.v1.OutcomeSummary.UNRECOGNIZED : result;
     }
     /**
@@ -2858,7 +2795,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000800;
       outcomeSummary_ = value.getNumber();
       onChanged();
       return this;
@@ -2873,7 +2810,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOutcomeSummary() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       outcomeSummary_ = 0;
       onChanged();
       return this;
@@ -2916,6 +2853,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFailFast(boolean value) {
       
       failFast_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2934,7 +2872,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailFast() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       failFast_ = false;
       onChanged();
       return this;
@@ -2972,7 +2910,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TestMatrix(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

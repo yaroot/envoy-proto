@@ -113,7 +113,6 @@ public interface ImportDataConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
    */
-
   /* nullable */
 java.lang.String getDataItemLabelsOrDefault(
       java.lang.String key,
@@ -136,8 +135,91 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
    */
-
   java.lang.String getDataItemLabelsOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
+   * Labels that will be applied to newly imported Annotations. If two
+   * Annotations are identical, one of them will be deduped. Two Annotations are
+   * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+   * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+   * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+   * These labels will be overridden by Annotation labels specified inside index
+   * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+   */
+  int getAnnotationLabelsCount();
+  /**
+   * <pre>
+   * Labels that will be applied to newly imported Annotations. If two
+   * Annotations are identical, one of them will be deduped. Two Annotations are
+   * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+   * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+   * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+   * These labels will be overridden by Annotation labels specified inside index
+   * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+   */
+  boolean containsAnnotationLabels(
+      java.lang.String key);
+  /**
+   * Use {@link #getAnnotationLabelsMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getAnnotationLabels();
+  /**
+   * <pre>
+   * Labels that will be applied to newly imported Annotations. If two
+   * Annotations are identical, one of them will be deduped. Two Annotations are
+   * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+   * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+   * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+   * These labels will be overridden by Annotation labels specified inside index
+   * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getAnnotationLabelsMap();
+  /**
+   * <pre>
+   * Labels that will be applied to newly imported Annotations. If two
+   * Annotations are identical, one of them will be deduped. Two Annotations are
+   * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+   * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+   * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+   * These labels will be overridden by Annotation labels specified inside index
+   * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+   */
+  /* nullable */
+java.lang.String getAnnotationLabelsOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <pre>
+   * Labels that will be applied to newly imported Annotations. If two
+   * Annotations are identical, one of them will be deduped. Two Annotations are
+   * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+   * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+   * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+   * These labels will be overridden by Annotation labels specified inside index
+   * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+   */
+  java.lang.String getAnnotationLabelsOrThrow(
       java.lang.String key);
 
   /**

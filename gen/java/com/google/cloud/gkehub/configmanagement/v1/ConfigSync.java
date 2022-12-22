@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConfigSync(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 58: {
-            com.google.cloud.gkehub.configmanagement.v1.GitConfig.Builder subBuilder = null;
-            if (git_ != null) {
-              subBuilder = git_.toBuilder();
-            }
-            git_ = input.readMessage(com.google.cloud.gkehub.configmanagement.v1.GitConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(git_);
-              git_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceFormat_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.configmanagement.v1.ConfigManagementProto.internal_static_google_cloud_gkehub_configmanagement_v1_ConfigSync_descriptor;
@@ -141,11 +83,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.configmanagement.v1.GitConfigOrBuilder getGitOrBuilder() {
-    return getGit();
+    return git_ == null ? com.google.cloud.gkehub.configmanagement.v1.GitConfig.getDefaultInstance() : git_;
   }
 
   public static final int SOURCE_FORMAT_FIELD_NUMBER = 8;
-  private volatile java.lang.Object sourceFormat_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceFormat_ = "";
   /**
    * <pre>
    * Specifies whether the Config Sync Repo is
@@ -212,7 +155,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFormat_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, sourceFormat_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +171,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceFormat_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, sourceFormat_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +193,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSourceFormat()
         .equals(other.getSourceFormat())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -267,7 +210,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SOURCE_FORMAT_FIELD_NUMBER;
     hash = (53 * hash) + getSourceFormat().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -388,30 +331,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.configmanagement.v1.ConfigSync.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (gitBuilder_ == null) {
-        git_ = null;
-      } else {
-        git_ = null;
+      bitField0_ = 0;
+      git_ = null;
+      if (gitBuilder_ != null) {
+        gitBuilder_.dispose();
         gitBuilder_ = null;
       }
       sourceFormat_ = "";
-
       return this;
     }
 
@@ -438,14 +375,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.ConfigSync buildPartial() {
       com.google.cloud.gkehub.configmanagement.v1.ConfigSync result = new com.google.cloud.gkehub.configmanagement.v1.ConfigSync(this);
-      if (gitBuilder_ == null) {
-        result.git_ = git_;
-      } else {
-        result.git_ = gitBuilder_.build();
-      }
-      result.sourceFormat_ = sourceFormat_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.configmanagement.v1.ConfigSync result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.git_ = gitBuilder_ == null
+            ? git_
+            : gitBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sourceFormat_ = sourceFormat_;
+      }
     }
 
     @java.lang.Override
@@ -497,9 +441,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSourceFormat().isEmpty()) {
         sourceFormat_ = other.sourceFormat_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -514,19 +459,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.configmanagement.v1.ConfigSync parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 58: {
+              input.readMessage(
+                  getGitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 58
+            case 66: {
+              sourceFormat_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.configmanagement.v1.ConfigSync) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.gkehub.configmanagement.v1.GitConfig git_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -540,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the git field is set.
      */
     public boolean hasGit() {
-      return gitBuilder_ != null || git_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -570,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         git_ = value;
-        onChanged();
       } else {
         gitBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -588,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.configmanagement.v1.GitConfig.Builder builderForValue) {
       if (gitBuilder_ == null) {
         git_ = builderForValue.build();
-        onChanged();
       } else {
         gitBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -604,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGit(com.google.cloud.gkehub.configmanagement.v1.GitConfig value) {
       if (gitBuilder_ == null) {
-        if (git_ != null) {
-          git_ =
-            com.google.cloud.gkehub.configmanagement.v1.GitConfig.newBuilder(git_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          git_ != null &&
+          git_ != com.google.cloud.gkehub.configmanagement.v1.GitConfig.getDefaultInstance()) {
+          getGitBuilder().mergeFrom(value);
         } else {
           git_ = value;
         }
-        onChanged();
       } else {
         gitBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -625,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1.GitConfig git = 7;</code>
      */
     public Builder clearGit() {
-      if (gitBuilder_ == null) {
-        git_ = null;
-        onChanged();
-      } else {
-        git_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      git_ = null;
+      if (gitBuilder_ != null) {
+        gitBuilder_.dispose();
         gitBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -643,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1.GitConfig git = 7;</code>
      */
     public com.google.cloud.gkehub.configmanagement.v1.GitConfig.Builder getGitBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getGitFieldBuilder().getBuilder();
     }
@@ -739,11 +710,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceFormat(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceFormat_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -757,8 +726,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceFormat() {
-      
       sourceFormat_ = getDefaultInstance().getSourceFormat();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -774,12 +743,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceFormatBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceFormat_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -816,7 +783,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConfigSync(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

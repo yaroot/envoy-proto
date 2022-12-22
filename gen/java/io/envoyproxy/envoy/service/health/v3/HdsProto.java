@@ -80,84 +80,87 @@ public final class HdsProto {
     java.lang.String[] descriptorData = {
       "\n!envoy/service/health/v3/hds.proto\022\027env" +
       "oy.service.health.v3\032%envoy/config/clust" +
-      "er/v3/cluster.proto\032\037envoy/config/core/v" +
-      "3/base.proto\032\'envoy/config/core/v3/healt" +
-      "h_check.proto\0322envoy/config/endpoint/v3/" +
-      "endpoint_components.proto\032\034google/api/an" +
-      "notations.proto\032\036google/protobuf/duratio" +
-      "n.proto\032#envoy/annotations/deprecation.p" +
-      "roto\032\035udpa/annotations/status.proto\032!udp" +
-      "a/annotations/versioning.proto\"\262\001\n\nCapab" +
-      "ility\022L\n\026health_check_protocols\030\001 \003(\0162,." +
-      "envoy.service.health.v3.Capability.Proto" +
-      "col\"(\n\010Protocol\022\010\n\004HTTP\020\000\022\007\n\003TCP\020\001\022\t\n\005RE" +
-      "DIS\020\002:,\232\305\210\036\'\n%envoy.service.discovery.v2" +
-      ".Capability\"\255\001\n\022HealthCheckRequest\022(\n\004no" +
-      "de\030\001 \001(\0132\032.envoy.config.core.v3.Node\0227\n\n" +
-      "capability\030\002 \001(\0132#.envoy.service.health." +
-      "v3.Capability:4\232\305\210\036/\n-envoy.service.disc" +
-      "overy.v2.HealthCheckRequest\"\263\001\n\016Endpoint" +
-      "Health\0224\n\010endpoint\030\001 \001(\0132\".envoy.config." +
-      "endpoint.v3.Endpoint\0229\n\rhealth_status\030\002 " +
-      "\001(\0162\".envoy.config.core.v3.HealthStatus:" +
-      "0\232\305\210\036+\n)envoy.service.discovery.v2.Endpo" +
-      "intHealth\"\216\001\n\027LocalityEndpointsHealth\0220\n" +
-      "\010locality\030\001 \001(\0132\036.envoy.config.core.v3.L" +
-      "ocality\022A\n\020endpoints_health\030\002 \003(\0132\'.envo" +
-      "y.service.health.v3.EndpointHealth\"\203\001\n\026C" +
-      "lusterEndpointsHealth\022\024\n\014cluster_name\030\001 " +
-      "\001(\t\022S\n\031locality_endpoints_health\030\002 \003(\01320" +
-      ".envoy.service.health.v3.LocalityEndpoin" +
-      "tsHealth\"\365\001\n\026EndpointHealthResponse\022N\n\020e" +
-      "ndpoints_health\030\001 \003(\0132\'.envoy.service.he" +
-      "alth.v3.EndpointHealthB\013\030\001\222\307\206\330\004\0033.0\022Q\n\030c" +
-      "luster_endpoints_health\030\002 \003(\0132/.envoy.se" +
-      "rvice.health.v3.ClusterEndpointsHealth:8" +
-      "\232\305\210\0363\n1envoy.service.discovery.v2.Endpoi" +
-      "ntHealthResponse\"\254\002\n*HealthCheckRequestO" +
-      "rEndpointHealthResponse\022K\n\024health_check_" +
-      "request\030\001 \001(\0132+.envoy.service.health.v3." +
-      "HealthCheckRequestH\000\022S\n\030endpoint_health_" +
-      "response\030\002 \001(\0132/.envoy.service.health.v3" +
-      ".EndpointHealthResponseH\000:L\232\305\210\036G\nEenvoy." +
-      "service.discovery.v2.HealthCheckRequestO" +
-      "rEndpointHealthResponseB\016\n\014request_type\"" +
-      "\261\001\n\021LocalityEndpoints\0220\n\010locality\030\001 \001(\0132" +
-      "\036.envoy.config.core.v3.Locality\0225\n\tendpo" +
-      "ints\030\002 \003(\0132\".envoy.config.endpoint.v3.En" +
-      "dpoint:3\232\305\210\036.\n,envoy.service.discovery.v" +
-      "2.LocalityEndpoints\"\273\002\n\022ClusterHealthChe" +
-      "ck\022\024\n\014cluster_name\030\001 \001(\t\0228\n\rhealth_check" +
-      "s\030\002 \003(\0132!.envoy.config.core.v3.HealthChe" +
-      "ck\022F\n\022locality_endpoints\030\003 \003(\0132*.envoy.s" +
-      "ervice.health.v3.LocalityEndpoints\022W\n\030tr" +
-      "ansport_socket_matches\030\004 \003(\01325.envoy.con" +
-      "fig.cluster.v3.Cluster.TransportSocketMa" +
-      "tch:4\232\305\210\036/\n-envoy.service.discovery.v2.C" +
-      "lusterHealthCheck\"\307\001\n\024HealthCheckSpecifi" +
-      "er\022J\n\025cluster_health_checks\030\001 \003(\0132+.envo" +
-      "y.service.health.v3.ClusterHealthCheck\022+" +
-      "\n\010interval\030\002 \001(\0132\031.google.protobuf.Durat" +
-      "ion:6\232\305\210\0361\n/envoy.service.discovery.v2.H" +
-      "ealthCheckSpecifier\"\n\n\010HdsDummy2\336\002\n\026Heal" +
-      "thDiscoveryService\022\215\001\n\021StreamHealthCheck" +
-      "\022C.envoy.service.health.v3.HealthCheckRe" +
-      "questOrEndpointHealthResponse\032-.envoy.se" +
-      "rvice.health.v3.HealthCheckSpecifier\"\000(\001" +
-      "0\001\022\263\001\n\020FetchHealthCheck\022C.envoy.service." +
-      "health.v3.HealthCheckRequestOrEndpointHe" +
-      "althResponse\032-.envoy.service.health.v3.H" +
-      "ealthCheckSpecifier\"+\202\323\344\223\002\034\"\032/v3/discove" +
-      "ry:health_check\202\323\344\223\002\003:\001*B\207\001\n%io.envoypro" +
-      "xy.envoy.service.health.v3B\010HdsProtoP\001ZG" +
-      "github.com/envoyproxy/go-control-plane/e" +
-      "nvoy/service/health/v3;healthv3\210\001\001\272\200\310\321\006\002" +
-      "\020\002b\006proto3"
+      "er/v3/cluster.proto\032\"envoy/config/core/v" +
+      "3/address.proto\032\037envoy/config/core/v3/ba" +
+      "se.proto\032\'envoy/config/core/v3/health_ch" +
+      "eck.proto\0322envoy/config/endpoint/v3/endp" +
+      "oint_components.proto\032\034google/api/annota" +
+      "tions.proto\032\036google/protobuf/duration.pr" +
+      "oto\032#envoy/annotations/deprecation.proto" +
+      "\032\035udpa/annotations/status.proto\032!udpa/an" +
+      "notations/versioning.proto\"\262\001\n\nCapabilit" +
+      "y\022L\n\026health_check_protocols\030\001 \003(\0162,.envo" +
+      "y.service.health.v3.Capability.Protocol\"" +
+      "(\n\010Protocol\022\010\n\004HTTP\020\000\022\007\n\003TCP\020\001\022\t\n\005REDIS\020" +
+      "\002:,\232\305\210\036\'\n%envoy.service.discovery.v2.Cap" +
+      "ability\"\255\001\n\022HealthCheckRequest\022(\n\004node\030\001" +
+      " \001(\0132\032.envoy.config.core.v3.Node\0227\n\ncapa" +
+      "bility\030\002 \001(\0132#.envoy.service.health.v3.C" +
+      "apability:4\232\305\210\036/\n-envoy.service.discover" +
+      "y.v2.HealthCheckRequest\"\263\001\n\016EndpointHeal" +
+      "th\0224\n\010endpoint\030\001 \001(\0132\".envoy.config.endp" +
+      "oint.v3.Endpoint\0229\n\rhealth_status\030\002 \001(\0162" +
+      "\".envoy.config.core.v3.HealthStatus:0\232\305\210" +
+      "\036+\n)envoy.service.discovery.v2.EndpointH" +
+      "ealth\"\216\001\n\027LocalityEndpointsHealth\0220\n\010loc" +
+      "ality\030\001 \001(\0132\036.envoy.config.core.v3.Local" +
+      "ity\022A\n\020endpoints_health\030\002 \003(\0132\'.envoy.se" +
+      "rvice.health.v3.EndpointHealth\"\203\001\n\026Clust" +
+      "erEndpointsHealth\022\024\n\014cluster_name\030\001 \001(\t\022" +
+      "S\n\031locality_endpoints_health\030\002 \003(\01320.env" +
+      "oy.service.health.v3.LocalityEndpointsHe" +
+      "alth\"\365\001\n\026EndpointHealthResponse\022N\n\020endpo" +
+      "ints_health\030\001 \003(\0132\'.envoy.service.health" +
+      ".v3.EndpointHealthB\013\030\001\222\307\206\330\004\0033.0\022Q\n\030clust" +
+      "er_endpoints_health\030\002 \003(\0132/.envoy.servic" +
+      "e.health.v3.ClusterEndpointsHealth:8\232\305\210\036" +
+      "3\n1envoy.service.discovery.v2.EndpointHe" +
+      "althResponse\"\254\002\n*HealthCheckRequestOrEnd" +
+      "pointHealthResponse\022K\n\024health_check_requ" +
+      "est\030\001 \001(\0132+.envoy.service.health.v3.Heal" +
+      "thCheckRequestH\000\022S\n\030endpoint_health_resp" +
+      "onse\030\002 \001(\0132/.envoy.service.health.v3.End" +
+      "pointHealthResponseH\000:L\232\305\210\036G\nEenvoy.serv" +
+      "ice.discovery.v2.HealthCheckRequestOrEnd" +
+      "pointHealthResponseB\016\n\014request_type\"\261\001\n\021" +
+      "LocalityEndpoints\0220\n\010locality\030\001 \001(\0132\036.en" +
+      "voy.config.core.v3.Locality\0225\n\tendpoints" +
+      "\030\002 \003(\0132\".envoy.config.endpoint.v3.Endpoi" +
+      "nt:3\232\305\210\036.\n,envoy.service.discovery.v2.Lo" +
+      "calityEndpoints\"\373\002\n\022ClusterHealthCheck\022\024" +
+      "\n\014cluster_name\030\001 \001(\t\0228\n\rhealth_checks\030\002 " +
+      "\003(\0132!.envoy.config.core.v3.HealthCheck\022F" +
+      "\n\022locality_endpoints\030\003 \003(\0132*.envoy.servi" +
+      "ce.health.v3.LocalityEndpoints\022W\n\030transp" +
+      "ort_socket_matches\030\004 \003(\01325.envoy.config." +
+      "cluster.v3.Cluster.TransportSocketMatch\022" +
+      ">\n\024upstream_bind_config\030\005 \001(\0132 .envoy.co" +
+      "nfig.core.v3.BindConfig:4\232\305\210\036/\n-envoy.se" +
+      "rvice.discovery.v2.ClusterHealthCheck\"\307\001" +
+      "\n\024HealthCheckSpecifier\022J\n\025cluster_health" +
+      "_checks\030\001 \003(\0132+.envoy.service.health.v3." +
+      "ClusterHealthCheck\022+\n\010interval\030\002 \001(\0132\031.g" +
+      "oogle.protobuf.Duration:6\232\305\210\0361\n/envoy.se" +
+      "rvice.discovery.v2.HealthCheckSpecifier\"" +
+      "\n\n\010HdsDummy2\336\002\n\026HealthDiscoveryService\022\215" +
+      "\001\n\021StreamHealthCheck\022C.envoy.service.hea" +
+      "lth.v3.HealthCheckRequestOrEndpointHealt" +
+      "hResponse\032-.envoy.service.health.v3.Heal" +
+      "thCheckSpecifier\"\000(\0010\001\022\263\001\n\020FetchHealthCh" +
+      "eck\022C.envoy.service.health.v3.HealthChec" +
+      "kRequestOrEndpointHealthResponse\032-.envoy" +
+      ".service.health.v3.HealthCheckSpecifier\"" +
+      "+\202\323\344\223\002\034\"\032/v3/discovery:health_check\202\323\344\223\002" +
+      "\003:\001*B\207\001\n%io.envoyproxy.envoy.service.hea" +
+      "lth.v3B\010HdsProtoP\001ZGgithub.com/envoyprox" +
+      "y/go-control-plane/envoy/service/health/" +
+      "v3;healthv3\210\001\001\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.envoyproxy.envoy.config.cluster.v3.ClusterProto.getDescriptor(),
+          io.envoyproxy.envoy.config.core.v3.AddressProto.getDescriptor(),
           io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor(),
           io.envoyproxy.envoy.config.core.v3.HealthCheckProto.getDescriptor(),
           io.envoyproxy.envoy.config.endpoint.v3.EndpointComponentsProto.getDescriptor(),
@@ -220,7 +223,7 @@ public final class HdsProto {
     internal_static_envoy_service_health_v3_ClusterHealthCheck_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_service_health_v3_ClusterHealthCheck_descriptor,
-        new java.lang.String[] { "ClusterName", "HealthChecks", "LocalityEndpoints", "TransportSocketMatches", });
+        new java.lang.String[] { "ClusterName", "HealthChecks", "LocalityEndpoints", "TransportSocketMatches", "UpstreamBindConfig", });
     internal_static_envoy_service_health_v3_HealthCheckSpecifier_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_envoy_service_health_v3_HealthCheckSpecifier_fieldAccessorTable = new
@@ -242,6 +245,7 @@ public final class HdsProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     io.envoyproxy.envoy.config.cluster.v3.ClusterProto.getDescriptor();
+    io.envoyproxy.envoy.config.core.v3.AddressProto.getDescriptor();
     io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor();
     io.envoyproxy.envoy.config.core.v3.HealthCheckProto.getDescriptor();
     io.envoyproxy.envoy.config.endpoint.v3.EndpointComponentsProto.getDescriptor();

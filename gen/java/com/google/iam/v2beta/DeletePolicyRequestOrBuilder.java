@@ -18,7 +18,7 @@ public interface DeletePolicyRequestOrBuilder extends
    * name. For projects, you can use the alphanumeric or the numeric ID.
    * </pre>
    *
-   * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The name.
    */
   java.lang.String getName();
@@ -33,7 +33,7 @@ public interface DeletePolicyRequestOrBuilder extends
    * name. For projects, you can use the alphanumeric or the numeric ID.
    * </pre>
    *
-   * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString

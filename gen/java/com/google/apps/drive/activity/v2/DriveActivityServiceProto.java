@@ -26,10 +26,10 @@ public final class DriveActivityServiceProto {
       "\n:google/apps/drive/activity/v2/drive_ac" +
       "tivity_service.proto\022\035google.apps.drive." +
       "activity.v2\032\034google/api/annotations.prot" +
-      "o\032@google/apps/drive/activity/v2/query_d" +
-      "rive_activity_request.proto\032Agoogle/apps" +
-      "/drive/activity/v2/query_drive_activity_" +
-      "response.proto\032\027google/api/client.proto2" +
+      "o\032\027google/api/client.proto\032@google/apps/" +
+      "drive/activity/v2/query_drive_activity_r" +
+      "equest.proto\032Agoogle/apps/drive/activity" +
+      "/v2/query_drive_activity_response.proto2" +
       "\314\002\n\024DriveActivityService\022\250\001\n\022QueryDriveA" +
       "ctivity\0228.google.apps.drive.activity.v2." +
       "QueryDriveActivityRequest\0329.google.apps." +
@@ -49,9 +49,9 @@ public final class DriveActivityServiceProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
+          com.google.api.ClientProto.getDescriptor(),
           com.google.apps.drive.activity.v2.QueryDriveActivityRequestProto.getDescriptor(),
           com.google.apps.drive.activity.v2.QueryDriveActivityResponseProto.getDescriptor(),
-          com.google.api.ClientProto.getDescriptor(),
         });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
@@ -61,9 +61,9 @@ public final class DriveActivityServiceProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
+    com.google.api.ClientProto.getDescriptor();
     com.google.apps.drive.activity.v2.QueryDriveActivityRequestProto.getDescriptor();
     com.google.apps.drive.activity.v2.QueryDriveActivityResponseProto.getDescriptor();
-    com.google.api.ClientProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

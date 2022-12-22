@@ -37,92 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CustomAttribute(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              text_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            text_.add(s);
-            break;
-          }
-          case 17: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              numbers_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            numbers_.addDouble(input.readDouble());
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-              numbers_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              numbers_.addDouble(input.readDouble());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 24: {
-            bitField0_ |= 0x00000001;
-            searchable_ = input.readBool();
-            break;
-          }
-          case 32: {
-            bitField0_ |= 0x00000002;
-            indexable_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        text_ = text_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        numbers_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2.CommonProto.internal_static_google_cloud_retail_v2_CustomAttribute_descriptor;
@@ -138,6 +52,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int TEXT_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList text_;
   /**
    * <pre>
@@ -213,6 +128,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUMBERS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.DoubleList numbers_;
   /**
    * <pre>
@@ -265,12 +181,12 @@ private static final long serialVersionUID = 0L;
   private int numbersMemoizedSerializedSize = -1;
 
   public static final int SEARCHABLE_FIELD_NUMBER = 3;
-  private boolean searchable_;
+  private boolean searchable_ = false;
   /**
    * <pre>
    * This field is normally ignored unless
-   * [AttributesConfig.attribute_config_level][] of the
-   * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+   * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+   * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
    * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
    * attribute configuration, see [Configuration
    * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -283,7 +199,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>optional bool searchable = 3 [deprecated = true];</code>
    * @deprecated google.cloud.retail.v2.CustomAttribute.searchable is deprecated.
-   *     See google/cloud/retail/v2/common.proto;l=130
+   *     See google/cloud/retail/v2/common.proto;l=409
    * @return Whether the searchable field is set.
    */
   @java.lang.Override
@@ -293,8 +209,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * This field is normally ignored unless
-   * [AttributesConfig.attribute_config_level][] of the
-   * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+   * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+   * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
    * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
    * attribute configuration, see [Configuration
    * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -307,7 +223,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>optional bool searchable = 3 [deprecated = true];</code>
    * @deprecated google.cloud.retail.v2.CustomAttribute.searchable is deprecated.
-   *     See google/cloud/retail/v2/common.proto;l=130
+   *     See google/cloud/retail/v2/common.proto;l=409
    * @return The searchable.
    */
   @java.lang.Override
@@ -316,12 +232,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INDEXABLE_FIELD_NUMBER = 4;
-  private boolean indexable_;
+  private boolean indexable_ = false;
   /**
    * <pre>
    * This field is normally ignored unless
-   * [AttributesConfig.attribute_config_level][] of the
-   * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+   * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+   * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
    * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
    * attribute configuration, see [Configuration
    * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -338,7 +254,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>optional bool indexable = 4 [deprecated = true];</code>
    * @deprecated google.cloud.retail.v2.CustomAttribute.indexable is deprecated.
-   *     See google/cloud/retail/v2/common.proto;l=149
+   *     See google/cloud/retail/v2/common.proto;l=428
    * @return Whether the indexable field is set.
    */
   @java.lang.Override
@@ -348,8 +264,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * This field is normally ignored unless
-   * [AttributesConfig.attribute_config_level][] of the
-   * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+   * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+   * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
    * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
    * attribute configuration, see [Configuration
    * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -366,7 +282,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>optional bool indexable = 4 [deprecated = true];</code>
    * @deprecated google.cloud.retail.v2.CustomAttribute.indexable is deprecated.
-   *     See google/cloud/retail/v2/common.proto;l=149
+   *     See google/cloud/retail/v2/common.proto;l=428
    * @return The indexable.
    */
   @java.lang.Override
@@ -405,7 +321,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeBool(4, indexable_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -441,7 +357,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, indexable_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -470,7 +386,7 @@ private static final long serialVersionUID = 0L;
       if (getIndexable()
           != other.getIndexable()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -499,7 +415,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIndexable());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -621,30 +537,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2.CustomAttribute.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       text_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       numbers_ = emptyDoubleList();
-      bitField0_ = (bitField0_ & ~0x00000002);
       searchable_ = false;
-      bitField0_ = (bitField0_ & ~0x00000004);
       indexable_ = false;
-      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -671,8 +580,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2.CustomAttribute buildPartial() {
       com.google.cloud.retail.v2.CustomAttribute result = new com.google.cloud.retail.v2.CustomAttribute(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2.CustomAttribute result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         text_ = text_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -683,6 +597,11 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.numbers_ = numbers_;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2.CustomAttribute result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.searchable_ = searchable_;
         to_bitField0_ |= 0x00000001;
@@ -691,9 +610,7 @@ private static final long serialVersionUID = 0L;
         result.indexable_ = indexable_;
         to_bitField0_ |= 0x00000002;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -766,7 +683,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasIndexable()) {
         setIndexable(other.getIndexable());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -781,17 +698,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2.CustomAttribute parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTextIsMutable();
+              text_.add(s);
+              break;
+            } // case 10
+            case 17: {
+              double v = input.readDouble();
+              ensureNumbersIsMutable();
+              numbers_.addDouble(v);
+              break;
+            } // case 17
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureNumbersIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                numbers_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 24: {
+              searchable_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              indexable_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2.CustomAttribute) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -893,10 +855,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setText(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTextIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTextIsMutable();
       text_.set(index, value);
       onChanged();
       return this;
@@ -918,10 +878,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTextIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTextIsMutable();
       text_.add(value);
       onChanged();
       return this;
@@ -986,10 +944,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTextIsMutable();
       text_.add(value);
       onChanged();
@@ -1001,7 +957,7 @@ private static final long serialVersionUID = 0L;
       if (!((bitField0_ & 0x00000002) != 0)) {
         numbers_ = mutableCopy(numbers_);
         bitField0_ |= 0x00000002;
-       }
+      }
     }
     /**
      * <pre>
@@ -1067,6 +1023,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNumbers(
         int index, double value) {
+      
       ensureNumbersIsMutable();
       numbers_.setDouble(index, value);
       onChanged();
@@ -1086,6 +1043,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addNumbers(double value) {
+      
       ensureNumbersIsMutable();
       numbers_.addDouble(value);
       onChanged();
@@ -1135,8 +1093,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * This field is normally ignored unless
-     * [AttributesConfig.attribute_config_level][] of the
-     * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+     * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+     * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
      * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
      * attribute configuration, see [Configuration
      * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -1149,7 +1107,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>optional bool searchable = 3 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.CustomAttribute.searchable is deprecated.
-     *     See google/cloud/retail/v2/common.proto;l=130
+     *     See google/cloud/retail/v2/common.proto;l=409
      * @return Whether the searchable field is set.
      */
     @java.lang.Override
@@ -1159,8 +1117,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * This field is normally ignored unless
-     * [AttributesConfig.attribute_config_level][] of the
-     * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+     * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+     * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
      * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
      * attribute configuration, see [Configuration
      * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -1173,7 +1131,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>optional bool searchable = 3 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.CustomAttribute.searchable is deprecated.
-     *     See google/cloud/retail/v2/common.proto;l=130
+     *     See google/cloud/retail/v2/common.proto;l=409
      * @return The searchable.
      */
     @java.lang.Override
@@ -1183,8 +1141,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * This field is normally ignored unless
-     * [AttributesConfig.attribute_config_level][] of the
-     * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+     * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+     * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
      * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
      * attribute configuration, see [Configuration
      * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -1197,21 +1155,22 @@ private static final long serialVersionUID = 0L;
      *
      * <code>optional bool searchable = 3 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.CustomAttribute.searchable is deprecated.
-     *     See google/cloud/retail/v2/common.proto;l=130
+     *     See google/cloud/retail/v2/common.proto;l=409
      * @param value The searchable to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setSearchable(boolean value) {
-      bitField0_ |= 0x00000004;
+      
       searchable_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * This field is normally ignored unless
-     * [AttributesConfig.attribute_config_level][] of the
-     * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+     * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+     * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
      * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
      * attribute configuration, see [Configuration
      * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -1224,7 +1183,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>optional bool searchable = 3 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.CustomAttribute.searchable is deprecated.
-     *     See google/cloud/retail/v2/common.proto;l=130
+     *     See google/cloud/retail/v2/common.proto;l=409
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearSearchable() {
@@ -1238,8 +1197,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * This field is normally ignored unless
-     * [AttributesConfig.attribute_config_level][] of the
-     * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+     * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+     * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
      * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
      * attribute configuration, see [Configuration
      * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -1256,7 +1215,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>optional bool indexable = 4 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.CustomAttribute.indexable is deprecated.
-     *     See google/cloud/retail/v2/common.proto;l=149
+     *     See google/cloud/retail/v2/common.proto;l=428
      * @return Whether the indexable field is set.
      */
     @java.lang.Override
@@ -1266,8 +1225,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * This field is normally ignored unless
-     * [AttributesConfig.attribute_config_level][] of the
-     * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+     * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+     * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
      * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
      * attribute configuration, see [Configuration
      * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -1284,7 +1243,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>optional bool indexable = 4 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.CustomAttribute.indexable is deprecated.
-     *     See google/cloud/retail/v2/common.proto;l=149
+     *     See google/cloud/retail/v2/common.proto;l=428
      * @return The indexable.
      */
     @java.lang.Override
@@ -1294,8 +1253,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * This field is normally ignored unless
-     * [AttributesConfig.attribute_config_level][] of the
-     * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+     * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+     * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
      * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
      * attribute configuration, see [Configuration
      * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -1312,21 +1271,22 @@ private static final long serialVersionUID = 0L;
      *
      * <code>optional bool indexable = 4 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.CustomAttribute.indexable is deprecated.
-     *     See google/cloud/retail/v2/common.proto;l=149
+     *     See google/cloud/retail/v2/common.proto;l=428
      * @param value The indexable to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setIndexable(boolean value) {
-      bitField0_ |= 0x00000008;
+      
       indexable_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * This field is normally ignored unless
-     * [AttributesConfig.attribute_config_level][] of the
-     * [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
+     * [AttributesConfig.attribute_config_level][google.cloud.retail.v2.AttributesConfig.attribute_config_level]
+     * of the [Catalog][google.cloud.retail.v2.Catalog] is set to the deprecated
      * 'PRODUCT_LEVEL_ATTRIBUTE_CONFIG' mode. For information about product-level
      * attribute configuration, see [Configuration
      * modes](https://cloud.google.com/retail/docs/attribute-config#config-modes).
@@ -1343,7 +1303,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>optional bool indexable = 4 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.CustomAttribute.indexable is deprecated.
-     *     See google/cloud/retail/v2/common.proto;l=149
+     *     See google/cloud/retail/v2/common.proto;l=428
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearIndexable() {
@@ -1385,7 +1345,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CustomAttribute(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

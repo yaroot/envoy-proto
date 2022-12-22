@@ -41,51 +41,58 @@ public final class TranscoderProto {
       "\nFenvoy/extensions/filters/http/grpc_jso" +
       "n_transcoder/v3/transcoder.proto\0225envoy." +
       "extensions.filters.http.grpc_json_transc" +
-      "oder.v3\032\035udpa/annotations/status.proto\032!" +
-      "udpa/annotations/versioning.proto\032\027valid" +
-      "ate/validate.proto\"\210\n\n\022GrpcJsonTranscode" +
-      "r\022\032\n\020proto_descriptor\030\001 \001(\tH\000\022\036\n\024proto_d" +
-      "escriptor_bin\030\004 \001(\014H\000\022\020\n\010services\030\002 \003(\t\022" +
-      "m\n\rprint_options\030\003 \001(\0132V.envoy.extension" +
-      "s.filters.http.grpc_json_transcoder.v3.G" +
-      "rpcJsonTranscoder.PrintOptions\022$\n\034match_" +
-      "incoming_request_route\030\005 \001(\010\022 \n\030ignored_" +
-      "query_parameters\030\006 \003(\t\022\024\n\014auto_mapping\030\007" +
-      " \001(\010\022\'\n\037ignore_unknown_query_parameters\030" +
-      "\010 \001(\010\022\033\n\023convert_grpc_status\030\t \001(\010\022~\n\021ur" +
-      "l_unescape_spec\030\n \001(\0162Y.envoy.extensions" +
-      ".filters.http.grpc_json_transcoder.v3.Gr" +
-      "pcJsonTranscoder.UrlUnescapeSpecB\010\372B\005\202\001\002" +
-      "\020\001\022!\n\031query_param_unescape_plus\030\014 \001(\010\022&\n" +
-      "\036match_unregistered_custom_verb\030\r \001(\010\022\206\001" +
-      "\n\032request_validation_options\030\013 \001(\0132b.env" +
-      "oy.extensions.filters.http.grpc_json_tra" +
-      "nscoder.v3.GrpcJsonTranscoder.RequestVal" +
-      "idationOptions\032\344\001\n\014PrintOptions\022\026\n\016add_w" +
-      "hitespace\030\001 \001(\010\022%\n\035always_print_primitiv" +
-      "e_fields\030\002 \001(\010\022\"\n\032always_print_enums_as_" +
-      "ints\030\003 \001(\010\022\"\n\032preserve_proto_field_names" +
-      "\030\004 \001(\010:M\232\305\210\036H\nFenvoy.config.filter.http." +
-      "transcoder.v2.GrpcJsonTranscoder.PrintOp" +
-      "tions\032\220\001\n\030RequestValidationOptions\022\035\n\025re" +
-      "ject_unknown_method\030\001 \001(\010\022\'\n\037reject_unkn" +
-      "own_query_parameters\030\002 \001(\010\022,\n$reject_bin" +
-      "ding_body_field_collisions\030\003 \001(\010\"j\n\017UrlU" +
-      "nescapeSpec\022\"\n\036ALL_CHARACTERS_EXCEPT_RES" +
-      "ERVED\020\000\022\037\n\033ALL_CHARACTERS_EXCEPT_SLASH\020\001" +
-      "\022\022\n\016ALL_CHARACTERS\020\002:@\232\305\210\036;\n9envoy.confi" +
-      "g.filter.http.transcoder.v2.GrpcJsonTran" +
-      "scoderB\025\n\016descriptor_set\022\003\370B\001B\325\001\nCio.env" +
-      "oyproxy.envoy.extensions.filters.http.gr" +
-      "pc_json_transcoder.v3B\017TranscoderProtoP\001" +
-      "Zsgithub.com/envoyproxy/go-control-plane" +
-      "/envoy/extensions/filters/http/grpc_json" +
-      "_transcoder/v3;grpc_json_transcoderv3\272\200\310" +
-      "\321\006\002\020\002b\006proto3"
+      "oder.v3\032\036google/protobuf/wrappers.proto\032" +
+      "\035udpa/annotations/status.proto\032!udpa/ann" +
+      "otations/versioning.proto\032\027validate/vali" +
+      "date.proto\"\336\013\n\022GrpcJsonTranscoder\022\032\n\020pro" +
+      "to_descriptor\030\001 \001(\tH\000\022\036\n\024proto_descripto" +
+      "r_bin\030\004 \001(\014H\000\022\020\n\010services\030\002 \003(\t\022m\n\rprint" +
+      "_options\030\003 \001(\0132V.envoy.extensions.filter" +
+      "s.http.grpc_json_transcoder.v3.GrpcJsonT" +
+      "ranscoder.PrintOptions\022$\n\034match_incoming" +
+      "_request_route\030\005 \001(\010\022 \n\030ignored_query_pa" +
+      "rameters\030\006 \003(\t\022\024\n\014auto_mapping\030\007 \001(\010\022\'\n\037" +
+      "ignore_unknown_query_parameters\030\010 \001(\010\022\033\n" +
+      "\023convert_grpc_status\030\t \001(\010\022~\n\021url_unesca" +
+      "pe_spec\030\n \001(\0162Y.envoy.extensions.filters" +
+      ".http.grpc_json_transcoder.v3.GrpcJsonTr" +
+      "anscoder.UrlUnescapeSpecB\010\372B\005\202\001\002\020\001\022!\n\031qu" +
+      "ery_param_unescape_plus\030\014 \001(\010\022&\n\036match_u" +
+      "nregistered_custom_verb\030\r \001(\010\022\206\001\n\032reques" +
+      "t_validation_options\030\013 \001(\0132b.envoy.exten" +
+      "sions.filters.http.grpc_json_transcoder." +
+      "v3.GrpcJsonTranscoder.RequestValidationO" +
+      "ptions\022%\n\035case_insensitive_enum_parsing\030" +
+      "\016 \001(\010\022D\n\025max_request_body_size\030\017 \001(\0132\034.g" +
+      "oogle.protobuf.UInt32ValueB\007\372B\004*\002 \000\022E\n\026m" +
+      "ax_response_body_size\030\020 \001(\0132\034.google.pro" +
+      "tobuf.UInt32ValueB\007\372B\004*\002 \000\032\206\002\n\014PrintOpti" +
+      "ons\022\026\n\016add_whitespace\030\001 \001(\010\022%\n\035always_pr" +
+      "int_primitive_fields\030\002 \001(\010\022\"\n\032always_pri" +
+      "nt_enums_as_ints\030\003 \001(\010\022\"\n\032preserve_proto" +
+      "_field_names\030\004 \001(\010\022 \n\030stream_newline_del" +
+      "imited\030\005 \001(\010:M\232\305\210\036H\nFenvoy.config.filter" +
+      ".http.transcoder.v2.GrpcJsonTranscoder.P" +
+      "rintOptions\032\220\001\n\030RequestValidationOptions" +
+      "\022\035\n\025reject_unknown_method\030\001 \001(\010\022\'\n\037rejec" +
+      "t_unknown_query_parameters\030\002 \001(\010\022,\n$reje" +
+      "ct_binding_body_field_collisions\030\003 \001(\010\"j" +
+      "\n\017UrlUnescapeSpec\022\"\n\036ALL_CHARACTERS_EXCE" +
+      "PT_RESERVED\020\000\022\037\n\033ALL_CHARACTERS_EXCEPT_S" +
+      "LASH\020\001\022\022\n\016ALL_CHARACTERS\020\002:@\232\305\210\036;\n9envoy" +
+      ".config.filter.http.transcoder.v2.GrpcJs" +
+      "onTranscoderB\025\n\016descriptor_set\022\003\370B\001B\325\001\nC" +
+      "io.envoyproxy.envoy.extensions.filters.h" +
+      "ttp.grpc_json_transcoder.v3B\017TranscoderP" +
+      "rotoP\001Zsgithub.com/envoyproxy/go-control" +
+      "-plane/envoy/extensions/filters/http/grp" +
+      "c_json_transcoder/v3;grpc_json_transcode" +
+      "rv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.WrappersProto.getDescriptor(),
           udpa.annotations.Status.getDescriptor(),
           udpa.annotations.Versioning.getDescriptor(),
           io.envoyproxy.pgv.validate.Validate.getDescriptor(),
@@ -95,13 +102,13 @@ public final class TranscoderProto {
     internal_static_envoy_extensions_filters_http_grpc_json_transcoder_v3_GrpcJsonTranscoder_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_grpc_json_transcoder_v3_GrpcJsonTranscoder_descriptor,
-        new java.lang.String[] { "ProtoDescriptor", "ProtoDescriptorBin", "Services", "PrintOptions", "MatchIncomingRequestRoute", "IgnoredQueryParameters", "AutoMapping", "IgnoreUnknownQueryParameters", "ConvertGrpcStatus", "UrlUnescapeSpec", "QueryParamUnescapePlus", "MatchUnregisteredCustomVerb", "RequestValidationOptions", "DescriptorSet", });
+        new java.lang.String[] { "ProtoDescriptor", "ProtoDescriptorBin", "Services", "PrintOptions", "MatchIncomingRequestRoute", "IgnoredQueryParameters", "AutoMapping", "IgnoreUnknownQueryParameters", "ConvertGrpcStatus", "UrlUnescapeSpec", "QueryParamUnescapePlus", "MatchUnregisteredCustomVerb", "RequestValidationOptions", "CaseInsensitiveEnumParsing", "MaxRequestBodySize", "MaxResponseBodySize", "DescriptorSet", });
     internal_static_envoy_extensions_filters_http_grpc_json_transcoder_v3_GrpcJsonTranscoder_PrintOptions_descriptor =
       internal_static_envoy_extensions_filters_http_grpc_json_transcoder_v3_GrpcJsonTranscoder_descriptor.getNestedTypes().get(0);
     internal_static_envoy_extensions_filters_http_grpc_json_transcoder_v3_GrpcJsonTranscoder_PrintOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_grpc_json_transcoder_v3_GrpcJsonTranscoder_PrintOptions_descriptor,
-        new java.lang.String[] { "AddWhitespace", "AlwaysPrintPrimitiveFields", "AlwaysPrintEnumsAsInts", "PreserveProtoFieldNames", });
+        new java.lang.String[] { "AddWhitespace", "AlwaysPrintPrimitiveFields", "AlwaysPrintEnumsAsInts", "PreserveProtoFieldNames", "StreamNewlineDelimited", });
     internal_static_envoy_extensions_filters_http_grpc_json_transcoder_v3_GrpcJsonTranscoder_RequestValidationOptions_descriptor =
       internal_static_envoy_extensions_filters_http_grpc_json_transcoder_v3_GrpcJsonTranscoder_descriptor.getNestedTypes().get(1);
     internal_static_envoy_extensions_filters_http_grpc_json_transcoder_v3_GrpcJsonTranscoder_RequestValidationOptions_fieldAccessorTable = new
@@ -116,6 +123,7 @@ public final class TranscoderProto {
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
+    com.google.protobuf.WrappersProto.getDescriptor();
     udpa.annotations.Status.getDescriptor();
     udpa.annotations.Versioning.getDescriptor();
     io.envoyproxy.pgv.validate.Validate.getDescriptor();

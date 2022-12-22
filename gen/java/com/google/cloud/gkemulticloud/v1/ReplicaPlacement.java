@@ -36,57 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReplicaPlacement(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subnetId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            azureAvailabilityZone_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AzureResourcesProto.internal_static_google_cloud_gkemulticloud_v1_ReplicaPlacement_descriptor;
@@ -101,12 +50,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBNET_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object subnetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subnetId_ = "";
   /**
    * <pre>
-   * Required. For a given replica, the ARM ID of the subnet where the control plane VM is
-   * deployed. Make sure it's a subnet under the virtual network in the cluster
-   * configuration.
+   * Required. For a given replica, the ARM ID of the subnet where the control
+   * plane VM is deployed. Make sure it's a subnet under the virtual network in
+   * the cluster configuration.
    * </pre>
    *
    * <code>string subnet_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -127,9 +77,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. For a given replica, the ARM ID of the subnet where the control plane VM is
-   * deployed. Make sure it's a subnet under the virtual network in the cluster
-   * configuration.
+   * Required. For a given replica, the ARM ID of the subnet where the control
+   * plane VM is deployed. Make sure it's a subnet under the virtual network in
+   * the cluster configuration.
    * </pre>
    *
    * <code>string subnet_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -151,11 +101,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AZURE_AVAILABILITY_ZONE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object azureAvailabilityZone_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object azureAvailabilityZone_ = "";
   /**
    * <pre>
-   * Required. For a given replica, the Azure availability zone where to provision the
-   * control plane VM and the ETCD disk.
+   * Required. For a given replica, the Azure availability zone where to
+   * provision the control plane VM and the ETCD disk.
    * </pre>
    *
    * <code>string azure_availability_zone = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -176,8 +127,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. For a given replica, the Azure availability zone where to provision the
-   * control plane VM and the ETCD disk.
+   * Required. For a given replica, the Azure availability zone where to
+   * provision the control plane VM and the ETCD disk.
    * </pre>
    *
    * <code>string azure_availability_zone = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -218,7 +169,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(azureAvailabilityZone_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, azureAvailabilityZone_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -233,7 +184,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(azureAvailabilityZone_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, azureAvailabilityZone_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -252,7 +203,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSubnetId())) return false;
     if (!getAzureAvailabilityZone()
         .equals(other.getAzureAvailabilityZone())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -267,7 +218,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSubnetId().hashCode();
     hash = (37 * hash) + AZURE_AVAILABILITY_ZONE_FIELD_NUMBER;
     hash = (53 * hash) + getAzureAvailabilityZone().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -388,26 +339,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.ReplicaPlacement.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       subnetId_ = "";
-
       azureAvailabilityZone_ = "";
-
       return this;
     }
 
@@ -434,10 +379,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.ReplicaPlacement buildPartial() {
       com.google.cloud.gkemulticloud.v1.ReplicaPlacement result = new com.google.cloud.gkemulticloud.v1.ReplicaPlacement(this);
-      result.subnetId_ = subnetId_;
-      result.azureAvailabilityZone_ = azureAvailabilityZone_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.ReplicaPlacement result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.subnetId_ = subnetId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.azureAvailabilityZone_ = azureAvailabilityZone_;
+      }
     }
 
     @java.lang.Override
@@ -486,13 +440,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.ReplicaPlacement.getDefaultInstance()) return this;
       if (!other.getSubnetId().isEmpty()) {
         subnetId_ = other.subnetId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAzureAvailabilityZone().isEmpty()) {
         azureAvailabilityZone_ = other.azureAvailabilityZone_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -507,26 +463,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.ReplicaPlacement parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              subnetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              azureAvailabilityZone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.ReplicaPlacement) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object subnetId_ = "";
     /**
      * <pre>
-     * Required. For a given replica, the ARM ID of the subnet where the control plane VM is
-     * deployed. Make sure it's a subnet under the virtual network in the cluster
-     * configuration.
+     * Required. For a given replica, the ARM ID of the subnet where the control
+     * plane VM is deployed. Make sure it's a subnet under the virtual network in
+     * the cluster configuration.
      * </pre>
      *
      * <code>string subnet_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -546,9 +526,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. For a given replica, the ARM ID of the subnet where the control plane VM is
-     * deployed. Make sure it's a subnet under the virtual network in the cluster
-     * configuration.
+     * Required. For a given replica, the ARM ID of the subnet where the control
+     * plane VM is deployed. Make sure it's a subnet under the virtual network in
+     * the cluster configuration.
      * </pre>
      *
      * <code>string subnet_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -569,9 +549,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. For a given replica, the ARM ID of the subnet where the control plane VM is
-     * deployed. Make sure it's a subnet under the virtual network in the cluster
-     * configuration.
+     * Required. For a given replica, the ARM ID of the subnet where the control
+     * plane VM is deployed. Make sure it's a subnet under the virtual network in
+     * the cluster configuration.
      * </pre>
      *
      * <code>string subnet_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -580,35 +560,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subnetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. For a given replica, the ARM ID of the subnet where the control plane VM is
-     * deployed. Make sure it's a subnet under the virtual network in the cluster
-     * configuration.
+     * Required. For a given replica, the ARM ID of the subnet where the control
+     * plane VM is deployed. Make sure it's a subnet under the virtual network in
+     * the cluster configuration.
      * </pre>
      *
      * <code>string subnet_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearSubnetId() {
-      
       subnetId_ = getDefaultInstance().getSubnetId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. For a given replica, the ARM ID of the subnet where the control plane VM is
-     * deployed. Make sure it's a subnet under the virtual network in the cluster
-     * configuration.
+     * Required. For a given replica, the ARM ID of the subnet where the control
+     * plane VM is deployed. Make sure it's a subnet under the virtual network in
+     * the cluster configuration.
      * </pre>
      *
      * <code>string subnet_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -617,12 +595,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subnetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -630,8 +606,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object azureAvailabilityZone_ = "";
     /**
      * <pre>
-     * Required. For a given replica, the Azure availability zone where to provision the
-     * control plane VM and the ETCD disk.
+     * Required. For a given replica, the Azure availability zone where to
+     * provision the control plane VM and the ETCD disk.
      * </pre>
      *
      * <code>string azure_availability_zone = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -651,8 +627,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. For a given replica, the Azure availability zone where to provision the
-     * control plane VM and the ETCD disk.
+     * Required. For a given replica, the Azure availability zone where to
+     * provision the control plane VM and the ETCD disk.
      * </pre>
      *
      * <code>string azure_availability_zone = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -673,8 +649,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. For a given replica, the Azure availability zone where to provision the
-     * control plane VM and the ETCD disk.
+     * Required. For a given replica, the Azure availability zone where to
+     * provision the control plane VM and the ETCD disk.
      * </pre>
      *
      * <code>string azure_availability_zone = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -683,33 +659,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAzureAvailabilityZone(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       azureAvailabilityZone_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. For a given replica, the Azure availability zone where to provision the
-     * control plane VM and the ETCD disk.
+     * Required. For a given replica, the Azure availability zone where to
+     * provision the control plane VM and the ETCD disk.
      * </pre>
      *
      * <code>string azure_availability_zone = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearAzureAvailabilityZone() {
-      
       azureAvailabilityZone_ = getDefaultInstance().getAzureAvailabilityZone();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. For a given replica, the Azure availability zone where to provision the
-     * control plane VM and the ETCD disk.
+     * Required. For a given replica, the Azure availability zone where to
+     * provision the control plane VM and the ETCD disk.
      * </pre>
      *
      * <code>string azure_availability_zone = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -718,12 +692,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAzureAvailabilityZoneBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       azureAvailabilityZone_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -760,7 +732,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReplicaPlacement(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

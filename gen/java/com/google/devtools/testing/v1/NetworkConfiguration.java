@@ -31,77 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NetworkConfiguration(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            com.google.devtools.testing.v1.TrafficRule.Builder subBuilder = null;
-            if (upRule_ != null) {
-              subBuilder = upRule_.toBuilder();
-            }
-            upRule_ = input.readMessage(com.google.devtools.testing.v1.TrafficRule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(upRule_);
-              upRule_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.devtools.testing.v1.TrafficRule.Builder subBuilder = null;
-            if (downRule_ != null) {
-              subBuilder = downRule_.toBuilder();
-            }
-            downRule_ = input.readMessage(com.google.devtools.testing.v1.TrafficRule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(downRule_);
-              downRule_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestEnvironmentDiscoveryProto.internal_static_google_devtools_testing_v1_NetworkConfiguration_descriptor;
@@ -116,7 +45,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The unique opaque id for this network traffic configuration.
@@ -196,7 +126,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.TrafficRuleOrBuilder getUpRuleOrBuilder() {
-    return getUpRule();
+    return upRule_ == null ? com.google.devtools.testing.v1.TrafficRule.getDefaultInstance() : upRule_;
   }
 
   public static final int DOWN_RULE_FIELD_NUMBER = 3;
@@ -234,7 +164,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.TrafficRuleOrBuilder getDownRuleOrBuilder() {
-    return getDownRule();
+    return downRule_ == null ? com.google.devtools.testing.v1.TrafficRule.getDefaultInstance() : downRule_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -260,7 +190,7 @@ private static final long serialVersionUID = 0L;
     if (downRule_ != null) {
       output.writeMessage(3, getDownRule());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -280,7 +210,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getDownRule());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -307,7 +237,7 @@ private static final long serialVersionUID = 0L;
       if (!getDownRule()
           .equals(other.getDownRule())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -328,7 +258,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOWN_RULE_FIELD_NUMBER;
       hash = (53 * hash) + getDownRule().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -445,34 +375,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.NetworkConfiguration.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
-      if (upRuleBuilder_ == null) {
-        upRule_ = null;
-      } else {
-        upRule_ = null;
+      upRule_ = null;
+      if (upRuleBuilder_ != null) {
+        upRuleBuilder_.dispose();
         upRuleBuilder_ = null;
       }
-      if (downRuleBuilder_ == null) {
-        downRule_ = null;
-      } else {
-        downRule_ = null;
+      downRule_ = null;
+      if (downRuleBuilder_ != null) {
+        downRuleBuilder_.dispose();
         downRuleBuilder_ = null;
       }
       return this;
@@ -501,19 +424,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.NetworkConfiguration buildPartial() {
       com.google.devtools.testing.v1.NetworkConfiguration result = new com.google.devtools.testing.v1.NetworkConfiguration(this);
-      result.id_ = id_;
-      if (upRuleBuilder_ == null) {
-        result.upRule_ = upRule_;
-      } else {
-        result.upRule_ = upRuleBuilder_.build();
-      }
-      if (downRuleBuilder_ == null) {
-        result.downRule_ = downRule_;
-      } else {
-        result.downRule_ = downRuleBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.NetworkConfiguration result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.upRule_ = upRuleBuilder_ == null
+            ? upRule_
+            : upRuleBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.downRule_ = downRuleBuilder_ == null
+            ? downRule_
+            : downRuleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -562,6 +492,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.testing.v1.NetworkConfiguration.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasUpRule()) {
@@ -570,7 +501,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDownRule()) {
         mergeDownRule(other.getDownRule());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -585,19 +516,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.NetworkConfiguration parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUpRuleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDownRuleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.NetworkConfiguration) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
@@ -652,11 +616,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -669,8 +631,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -685,12 +647,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -707,7 +667,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the upRule field is set.
      */
     public boolean hasUpRule() {
-      return upRuleBuilder_ != null || upRule_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -737,11 +697,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         upRule_ = value;
-        onChanged();
       } else {
         upRuleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -755,11 +715,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.TrafficRule.Builder builderForValue) {
       if (upRuleBuilder_ == null) {
         upRule_ = builderForValue.build();
-        onChanged();
       } else {
         upRuleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -771,17 +731,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpRule(com.google.devtools.testing.v1.TrafficRule value) {
       if (upRuleBuilder_ == null) {
-        if (upRule_ != null) {
-          upRule_ =
-            com.google.devtools.testing.v1.TrafficRule.newBuilder(upRule_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          upRule_ != null &&
+          upRule_ != com.google.devtools.testing.v1.TrafficRule.getDefaultInstance()) {
+          getUpRuleBuilder().mergeFrom(value);
         } else {
           upRule_ = value;
         }
-        onChanged();
       } else {
         upRuleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -792,14 +753,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.TrafficRule up_rule = 2;</code>
      */
     public Builder clearUpRule() {
-      if (upRuleBuilder_ == null) {
-        upRule_ = null;
-        onChanged();
-      } else {
-        upRule_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      upRule_ = null;
+      if (upRuleBuilder_ != null) {
+        upRuleBuilder_.dispose();
         upRuleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -810,7 +770,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.TrafficRule up_rule = 2;</code>
      */
     public com.google.devtools.testing.v1.TrafficRule.Builder getUpRuleBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUpRuleFieldBuilder().getBuilder();
     }
@@ -862,7 +822,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the downRule field is set.
      */
     public boolean hasDownRule() {
-      return downRuleBuilder_ != null || downRule_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -892,11 +852,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         downRule_ = value;
-        onChanged();
       } else {
         downRuleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -910,11 +870,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.TrafficRule.Builder builderForValue) {
       if (downRuleBuilder_ == null) {
         downRule_ = builderForValue.build();
-        onChanged();
       } else {
         downRuleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -926,17 +886,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDownRule(com.google.devtools.testing.v1.TrafficRule value) {
       if (downRuleBuilder_ == null) {
-        if (downRule_ != null) {
-          downRule_ =
-            com.google.devtools.testing.v1.TrafficRule.newBuilder(downRule_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          downRule_ != null &&
+          downRule_ != com.google.devtools.testing.v1.TrafficRule.getDefaultInstance()) {
+          getDownRuleBuilder().mergeFrom(value);
         } else {
           downRule_ = value;
         }
-        onChanged();
       } else {
         downRuleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -947,14 +908,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.TrafficRule down_rule = 3;</code>
      */
     public Builder clearDownRule() {
-      if (downRuleBuilder_ == null) {
-        downRule_ = null;
-        onChanged();
-      } else {
-        downRule_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      downRule_ = null;
+      if (downRuleBuilder_ != null) {
+        downRuleBuilder_.dispose();
         downRuleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -965,7 +925,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.TrafficRule down_rule = 3;</code>
      */
     public com.google.devtools.testing.v1.TrafficRule.Builder getDownRuleBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDownRuleFieldBuilder().getBuilder();
     }
@@ -1037,7 +997,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NetworkConfiguration(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Interstitials(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              adBreaks_ = new java.util.ArrayList<com.google.cloud.video.stitcher.v1.VodSessionAdBreak>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            adBreaks_.add(
-                input.readMessage(com.google.cloud.video.stitcher.v1.VodSessionAdBreak.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.cloud.video.stitcher.v1.VodSessionContent.Builder subBuilder = null;
-            if (sessionContent_ != null) {
-              subBuilder = sessionContent_.toBuilder();
-            }
-            sessionContent_ = input.readMessage(com.google.cloud.video.stitcher.v1.VodSessionContent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sessionContent_);
-              sessionContent_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        adBreaks_ = java.util.Collections.unmodifiableList(adBreaks_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.stitcher.v1.SessionsProto.internal_static_google_cloud_video_stitcher_v1_Interstitials_descriptor;
@@ -114,6 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AD_BREAKS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.stitcher.v1.VodSessionAdBreak> adBreaks_;
   /**
    * <pre>
@@ -208,7 +144,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.stitcher.v1.VodSessionContentOrBuilder getSessionContentOrBuilder() {
-    return getSessionContent();
+    return sessionContent_ == null ? com.google.cloud.video.stitcher.v1.VodSessionContent.getDefaultInstance() : sessionContent_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -231,7 +167,7 @@ private static final long serialVersionUID = 0L;
     if (sessionContent_ != null) {
       output.writeMessage(2, getSessionContent());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -248,7 +184,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getSessionContent());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -270,7 +206,7 @@ private static final long serialVersionUID = 0L;
       if (!getSessionContent()
           .equals(other.getSessionContent())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -289,7 +225,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SESSION_CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getSessionContent().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -410,33 +346,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.stitcher.v1.Interstitials.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAdBreaksFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (adBreaksBuilder_ == null) {
         adBreaks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        adBreaks_ = null;
         adBreaksBuilder_.clear();
       }
-      if (sessionContentBuilder_ == null) {
-        sessionContent_ = null;
-      } else {
-        sessionContent_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      sessionContent_ = null;
+      if (sessionContentBuilder_ != null) {
+        sessionContentBuilder_.dispose();
         sessionContentBuilder_ = null;
       }
       return this;
@@ -465,7 +396,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.stitcher.v1.Interstitials buildPartial() {
       com.google.cloud.video.stitcher.v1.Interstitials result = new com.google.cloud.video.stitcher.v1.Interstitials(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.video.stitcher.v1.Interstitials result) {
       if (adBreaksBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           adBreaks_ = java.util.Collections.unmodifiableList(adBreaks_);
@@ -475,13 +412,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.adBreaks_ = adBreaksBuilder_.build();
       }
-      if (sessionContentBuilder_ == null) {
-        result.sessionContent_ = sessionContent_;
-      } else {
-        result.sessionContent_ = sessionContentBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.video.stitcher.v1.Interstitials result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sessionContent_ = sessionContentBuilder_ == null
+            ? sessionContent_
+            : sessionContentBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -557,7 +496,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSessionContent()) {
         mergeSessionContent(other.getSessionContent());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -572,17 +511,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.stitcher.v1.Interstitials parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.video.stitcher.v1.VodSessionAdBreak m =
+                  input.readMessage(
+                      com.google.cloud.video.stitcher.v1.VodSessionAdBreak.parser(),
+                      extensionRegistry);
+              if (adBreaksBuilder_ == null) {
+                ensureAdBreaksIsMutable();
+                adBreaks_.add(m);
+              } else {
+                adBreaksBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSessionContentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.stitcher.v1.Interstitials) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -911,7 +883,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sessionContent field is set.
      */
     public boolean hasSessionContent() {
-      return sessionContentBuilder_ != null || sessionContent_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -941,11 +913,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sessionContent_ = value;
-        onChanged();
       } else {
         sessionContentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -959,11 +931,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.stitcher.v1.VodSessionContent.Builder builderForValue) {
       if (sessionContentBuilder_ == null) {
         sessionContent_ = builderForValue.build();
-        onChanged();
       } else {
         sessionContentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -975,17 +947,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSessionContent(com.google.cloud.video.stitcher.v1.VodSessionContent value) {
       if (sessionContentBuilder_ == null) {
-        if (sessionContent_ != null) {
-          sessionContent_ =
-            com.google.cloud.video.stitcher.v1.VodSessionContent.newBuilder(sessionContent_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          sessionContent_ != null &&
+          sessionContent_ != com.google.cloud.video.stitcher.v1.VodSessionContent.getDefaultInstance()) {
+          getSessionContentBuilder().mergeFrom(value);
         } else {
           sessionContent_ = value;
         }
-        onChanged();
       } else {
         sessionContentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -996,14 +969,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.stitcher.v1.VodSessionContent session_content = 2;</code>
      */
     public Builder clearSessionContent() {
-      if (sessionContentBuilder_ == null) {
-        sessionContent_ = null;
-        onChanged();
-      } else {
-        sessionContent_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      sessionContent_ = null;
+      if (sessionContentBuilder_ != null) {
+        sessionContentBuilder_.dispose();
         sessionContentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1014,7 +986,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.stitcher.v1.VodSessionContent session_content = 2;</code>
      */
     public com.google.cloud.video.stitcher.v1.VodSessionContent.Builder getSessionContentBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSessionContentFieldBuilder().getBuilder();
     }
@@ -1086,7 +1058,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Interstitials(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

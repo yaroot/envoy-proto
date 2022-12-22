@@ -37,62 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConfigFile(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filePath_ = s;
-            break;
-          }
-          case 26: {
-
-            fileContents_ = input.readBytes();
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            fileType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.servicemanagement.v1.ResourcesProto.internal_static_google_api_servicemanagement_v1_ConfigFile_descriptor;
@@ -315,7 +259,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_PATH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object filePath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filePath_ = "";
   /**
    * <pre>
    * The file name of the configuration file (full or relative path).
@@ -361,7 +306,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_CONTENTS_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString fileContents_;
+  private com.google.protobuf.ByteString fileContents_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The bytes that constitute the file.
@@ -376,7 +321,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_TYPE_FIELD_NUMBER = 4;
-  private int fileType_;
+  private int fileType_ = 0;
   /**
    * <pre>
    * The type of configuration file this represents.
@@ -397,8 +342,7 @@ private static final long serialVersionUID = 0L;
    * @return The fileType.
    */
   @java.lang.Override public com.google.api.servicemanagement.v1.ConfigFile.FileType getFileType() {
-    @SuppressWarnings("deprecation")
-    com.google.api.servicemanagement.v1.ConfigFile.FileType result = com.google.api.servicemanagement.v1.ConfigFile.FileType.valueOf(fileType_);
+    com.google.api.servicemanagement.v1.ConfigFile.FileType result = com.google.api.servicemanagement.v1.ConfigFile.FileType.forNumber(fileType_);
     return result == null ? com.google.api.servicemanagement.v1.ConfigFile.FileType.UNRECOGNIZED : result;
   }
 
@@ -425,7 +369,7 @@ private static final long serialVersionUID = 0L;
     if (fileType_ != com.google.api.servicemanagement.v1.ConfigFile.FileType.FILE_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, fileType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -445,7 +389,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, fileType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -465,7 +409,7 @@ private static final long serialVersionUID = 0L;
     if (!getFileContents()
         .equals(other.getFileContents())) return false;
     if (fileType_ != other.fileType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -482,7 +426,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFileContents().hashCode();
     hash = (37 * hash) + FILE_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + fileType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -603,28 +547,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.servicemanagement.v1.ConfigFile.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       filePath_ = "";
-
       fileContents_ = com.google.protobuf.ByteString.EMPTY;
-
       fileType_ = 0;
-
       return this;
     }
 
@@ -651,11 +588,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.servicemanagement.v1.ConfigFile buildPartial() {
       com.google.api.servicemanagement.v1.ConfigFile result = new com.google.api.servicemanagement.v1.ConfigFile(this);
-      result.filePath_ = filePath_;
-      result.fileContents_ = fileContents_;
-      result.fileType_ = fileType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.servicemanagement.v1.ConfigFile result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.filePath_ = filePath_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.fileContents_ = fileContents_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.fileType_ = fileType_;
+      }
     }
 
     @java.lang.Override
@@ -704,6 +652,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.servicemanagement.v1.ConfigFile.getDefaultInstance()) return this;
       if (!other.getFilePath().isEmpty()) {
         filePath_ = other.filePath_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getFileContents() != com.google.protobuf.ByteString.EMPTY) {
@@ -712,7 +661,7 @@ private static final long serialVersionUID = 0L;
       if (other.fileType_ != 0) {
         setFileTypeValue(other.getFileTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -727,19 +676,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.servicemanagement.v1.ConfigFile parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              filePath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              fileContents_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 32: {
+              fileType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.servicemanagement.v1.ConfigFile) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object filePath_ = "";
     /**
@@ -794,11 +772,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilePath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filePath_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -811,8 +787,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilePath() {
-      
       filePath_ = getDefaultInstance().getFilePath();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -827,12 +803,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilePathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filePath_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -860,11 +834,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFileContents(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       fileContents_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -877,7 +849,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFileContents() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       fileContents_ = getDefaultInstance().getFileContents();
       onChanged();
       return this;
@@ -905,8 +877,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFileTypeValue(int value) {
-      
       fileType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -920,8 +892,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.api.servicemanagement.v1.ConfigFile.FileType getFileType() {
-      @SuppressWarnings("deprecation")
-      com.google.api.servicemanagement.v1.ConfigFile.FileType result = com.google.api.servicemanagement.v1.ConfigFile.FileType.valueOf(fileType_);
+      com.google.api.servicemanagement.v1.ConfigFile.FileType result = com.google.api.servicemanagement.v1.ConfigFile.FileType.forNumber(fileType_);
       return result == null ? com.google.api.servicemanagement.v1.ConfigFile.FileType.UNRECOGNIZED : result;
     }
     /**
@@ -937,7 +908,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       fileType_ = value.getNumber();
       onChanged();
       return this;
@@ -951,7 +922,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFileType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       fileType_ = 0;
       onChanged();
       return this;
@@ -989,7 +960,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConfigFile(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     type_ = 0;
     writeMode_ = 0;
+    location_ = "";
   }
 
   @java.lang.Override
@@ -36,102 +37,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private WriteStream(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (commitTime_ != null) {
-              subBuilder = commitTime_.toBuilder();
-            }
-            commitTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commitTime_);
-              commitTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.bigquery.storage.v1.TableSchema.Builder subBuilder = null;
-            if (tableSchema_ != null) {
-              subBuilder = tableSchema_.toBuilder();
-            }
-            tableSchema_ = input.readMessage(com.google.cloud.bigquery.storage.v1.TableSchema.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tableSchema_);
-              tableSchema_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            writeMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -441,7 +346,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Name of the stream, in the form
@@ -489,7 +395,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 2;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Immutable. Type of the stream.
@@ -510,8 +416,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.bigquery.storage.v1.WriteStream.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.storage.v1.WriteStream.Type result = com.google.cloud.bigquery.storage.v1.WriteStream.Type.valueOf(type_);
+    com.google.cloud.bigquery.storage.v1.WriteStream.Type result = com.google.cloud.bigquery.storage.v1.WriteStream.Type.forNumber(type_);
     return result == null ? com.google.cloud.bigquery.storage.v1.WriteStream.Type.UNRECOGNIZED : result;
   }
 
@@ -519,8 +424,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp createTime_;
   /**
    * <pre>
-   * Output only. Create time of the stream. For the _default stream, this is the
-   * creation_time of the table.
+   * Output only. Create time of the stream. For the _default stream, this is
+   * the creation_time of the table.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -532,8 +437,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Create time of the stream. For the _default stream, this is the
-   * creation_time of the table.
+   * Output only. Create time of the stream. For the _default stream, this is
+   * the creation_time of the table.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -545,15 +450,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Create time of the stream. For the _default stream, this is the
-   * creation_time of the table.
+   * Output only. Create time of the stream. For the _default stream, this is
+   * the creation_time of the table.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int COMMIT_TIME_FIELD_NUMBER = 4;
@@ -600,7 +505,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCommitTimeOrBuilder() {
-    return getCommitTime();
+    return commitTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : commitTime_;
   }
 
   public static final int TABLE_SCHEMA_FIELD_NUMBER = 5;
@@ -647,11 +552,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.storage.v1.TableSchemaOrBuilder getTableSchemaOrBuilder() {
-    return getTableSchema();
+    return tableSchema_ == null ? com.google.cloud.bigquery.storage.v1.TableSchema.getDefaultInstance() : tableSchema_;
   }
 
   public static final int WRITE_MODE_FIELD_NUMBER = 7;
-  private int writeMode_;
+  private int writeMode_ = 0;
   /**
    * <pre>
    * Immutable. Mode of the stream.
@@ -672,9 +577,59 @@ private static final long serialVersionUID = 0L;
    * @return The writeMode.
    */
   @java.lang.Override public com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode getWriteMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode result = com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode.valueOf(writeMode_);
+    com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode result = com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode.forNumber(writeMode_);
     return result == null ? com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode.UNRECOGNIZED : result;
+  }
+
+  public static final int LOCATION_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object location_ = "";
+  /**
+   * <pre>
+   * Immutable. The geographic location where the stream's dataset resides. See
+   * https://cloud.google.com/bigquery/docs/locations for supported
+   * locations.
+   * </pre>
+   *
+   * <code>string location = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The location.
+   */
+  @java.lang.Override
+  public java.lang.String getLocation() {
+    java.lang.Object ref = location_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      location_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Immutable. The geographic location where the stream's dataset resides. See
+   * https://cloud.google.com/bigquery/docs/locations for supported
+   * locations.
+   * </pre>
+   *
+   * <code>string location = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The bytes for location.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLocationBytes() {
+    java.lang.Object ref = location_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      location_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -709,7 +664,10 @@ private static final long serialVersionUID = 0L;
     if (writeMode_ != com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode.WRITE_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(7, writeMode_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, location_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -741,7 +699,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, writeMode_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, location_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -775,7 +736,9 @@ private static final long serialVersionUID = 0L;
           .equals(other.getTableSchema())) return false;
     }
     if (writeMode_ != other.writeMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getLocation()
+        .equals(other.getLocation())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -804,7 +767,9 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + WRITE_MODE_FIELD_NUMBER;
     hash = (53 * hash) + writeMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + LOCATION_FIELD_NUMBER;
+    hash = (53 * hash) + getLocation().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -925,46 +890,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.storage.v1.WriteStream.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       type_ = 0;
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (commitTimeBuilder_ == null) {
-        commitTime_ = null;
-      } else {
-        commitTime_ = null;
+      commitTime_ = null;
+      if (commitTimeBuilder_ != null) {
+        commitTimeBuilder_.dispose();
         commitTimeBuilder_ = null;
       }
-      if (tableSchemaBuilder_ == null) {
-        tableSchema_ = null;
-      } else {
-        tableSchema_ = null;
+      tableSchema_ = null;
+      if (tableSchemaBuilder_ != null) {
+        tableSchemaBuilder_.dispose();
         tableSchemaBuilder_ = null;
       }
       writeMode_ = 0;
-
+      location_ = "";
       return this;
     }
 
@@ -991,26 +947,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1.WriteStream buildPartial() {
       com.google.cloud.bigquery.storage.v1.WriteStream result = new com.google.cloud.bigquery.storage.v1.WriteStream(this);
-      result.name_ = name_;
-      result.type_ = type_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (commitTimeBuilder_ == null) {
-        result.commitTime_ = commitTime_;
-      } else {
-        result.commitTime_ = commitTimeBuilder_.build();
-      }
-      if (tableSchemaBuilder_ == null) {
-        result.tableSchema_ = tableSchema_;
-      } else {
-        result.tableSchema_ = tableSchemaBuilder_.build();
-      }
-      result.writeMode_ = writeMode_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.storage.v1.WriteStream result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.commitTime_ = commitTimeBuilder_ == null
+            ? commitTime_
+            : commitTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.tableSchema_ = tableSchemaBuilder_ == null
+            ? tableSchema_
+            : tableSchemaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.writeMode_ = writeMode_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.location_ = location_;
+      }
     }
 
     @java.lang.Override
@@ -1059,6 +1029,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.storage.v1.WriteStream.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.type_ != 0) {
@@ -1076,7 +1047,12 @@ private static final long serialVersionUID = 0L;
       if (other.writeMode_ != 0) {
         setWriteModeValue(other.getWriteModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getLocation().isEmpty()) {
+        location_ = other.location_;
+        bitField0_ |= 0x00000040;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1091,19 +1067,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.storage.v1.WriteStream parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getCommitTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getTableSchemaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 56: {
+              writeMode_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            case 66: {
+              location_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.storage.v1.WriteStream) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1161,11 +1192,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1179,8 +1208,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1196,12 +1225,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1228,8 +1255,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1243,8 +1270,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1.WriteStream.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.storage.v1.WriteStream.Type result = com.google.cloud.bigquery.storage.v1.WriteStream.Type.valueOf(type_);
+      com.google.cloud.bigquery.storage.v1.WriteStream.Type result = com.google.cloud.bigquery.storage.v1.WriteStream.Type.forNumber(type_);
       return result == null ? com.google.cloud.bigquery.storage.v1.WriteStream.Type.UNRECOGNIZED : result;
     }
     /**
@@ -1260,7 +1286,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -1274,7 +1300,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       type_ = 0;
       onChanged();
       return this;
@@ -1285,20 +1311,20 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createTimeBuilder_;
     /**
      * <pre>
-     * Output only. Create time of the stream. For the _default stream, this is the
-     * creation_time of the table.
+     * Output only. Create time of the stream. For the _default stream, this is
+     * the creation_time of the table.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * Output only. Create time of the stream. For the _default stream, this is the
-     * creation_time of the table.
+     * Output only. Create time of the stream. For the _default stream, this is
+     * the creation_time of the table.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1313,8 +1339,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Create time of the stream. For the _default stream, this is the
-     * creation_time of the table.
+     * Output only. Create time of the stream. For the _default stream, this is
+     * the creation_time of the table.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1325,17 +1351,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Create time of the stream. For the _default stream, this is the
-     * creation_time of the table.
+     * Output only. Create time of the stream. For the _default stream, this is
+     * the creation_time of the table.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1344,72 +1370,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Create time of the stream. For the _default stream, this is the
-     * creation_time of the table.
+     * Output only. Create time of the stream. For the _default stream, this is
+     * the creation_time of the table.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Create time of the stream. For the _default stream, this is the
-     * creation_time of the table.
+     * Output only. Create time of the stream. For the _default stream, this is
+     * the creation_time of the table.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Create time of the stream. For the _default stream, this is the
-     * creation_time of the table.
+     * Output only. Create time of the stream. For the _default stream, this is
+     * the creation_time of the table.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Output only. Create time of the stream. For the _default stream, this is the
-     * creation_time of the table.
+     * Output only. Create time of the stream. For the _default stream, this is
+     * the creation_time of the table.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1424,8 +1450,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Create time of the stream. For the _default stream, this is the
-     * creation_time of the table.
+     * Output only. Create time of the stream. For the _default stream, this is
+     * the creation_time of the table.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1459,7 +1485,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commitTime field is set.
      */
     public boolean hasCommitTime() {
-      return commitTimeBuilder_ != null || commitTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1495,11 +1521,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commitTime_ = value;
-        onChanged();
       } else {
         commitTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1516,11 +1542,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (commitTimeBuilder_ == null) {
         commitTime_ = builderForValue.build();
-        onChanged();
       } else {
         commitTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1535,17 +1561,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommitTime(com.google.protobuf.Timestamp value) {
       if (commitTimeBuilder_ == null) {
-        if (commitTime_ != null) {
-          commitTime_ =
-            com.google.protobuf.Timestamp.newBuilder(commitTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          commitTime_ != null &&
+          commitTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCommitTimeBuilder().mergeFrom(value);
         } else {
           commitTime_ = value;
         }
-        onChanged();
       } else {
         commitTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1559,14 +1586,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp commit_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCommitTime() {
-      if (commitTimeBuilder_ == null) {
-        commitTime_ = null;
-        onChanged();
-      } else {
-        commitTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      commitTime_ = null;
+      if (commitTimeBuilder_ != null) {
+        commitTimeBuilder_.dispose();
         commitTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1580,7 +1606,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp commit_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCommitTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCommitTimeFieldBuilder().getBuilder();
     }
@@ -1641,7 +1667,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tableSchema field is set.
      */
     public boolean hasTableSchema() {
-      return tableSchemaBuilder_ != null || tableSchema_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1677,11 +1703,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tableSchema_ = value;
-        onChanged();
       } else {
         tableSchemaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1698,11 +1724,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.storage.v1.TableSchema.Builder builderForValue) {
       if (tableSchemaBuilder_ == null) {
         tableSchema_ = builderForValue.build();
-        onChanged();
       } else {
         tableSchemaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1717,17 +1743,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTableSchema(com.google.cloud.bigquery.storage.v1.TableSchema value) {
       if (tableSchemaBuilder_ == null) {
-        if (tableSchema_ != null) {
-          tableSchema_ =
-            com.google.cloud.bigquery.storage.v1.TableSchema.newBuilder(tableSchema_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          tableSchema_ != null &&
+          tableSchema_ != com.google.cloud.bigquery.storage.v1.TableSchema.getDefaultInstance()) {
+          getTableSchemaBuilder().mergeFrom(value);
         } else {
           tableSchema_ = value;
         }
-        onChanged();
       } else {
         tableSchemaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1741,14 +1768,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.storage.v1.TableSchema table_schema = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearTableSchema() {
-      if (tableSchemaBuilder_ == null) {
-        tableSchema_ = null;
-        onChanged();
-      } else {
-        tableSchema_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      tableSchema_ = null;
+      if (tableSchemaBuilder_ != null) {
+        tableSchemaBuilder_.dispose();
         tableSchemaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1762,7 +1788,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.storage.v1.TableSchema table_schema = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.bigquery.storage.v1.TableSchema.Builder getTableSchemaBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getTableSchemaFieldBuilder().getBuilder();
     }
@@ -1830,8 +1856,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWriteModeValue(int value) {
-      
       writeMode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1845,8 +1871,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode getWriteMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode result = com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode.valueOf(writeMode_);
+      com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode result = com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode.forNumber(writeMode_);
       return result == null ? com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode.UNRECOGNIZED : result;
     }
     /**
@@ -1862,7 +1887,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       writeMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1876,8 +1901,110 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWriteMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       writeMode_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object location_ = "";
+    /**
+     * <pre>
+     * Immutable. The geographic location where the stream's dataset resides. See
+     * https://cloud.google.com/bigquery/docs/locations for supported
+     * locations.
+     * </pre>
+     *
+     * <code>string location = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return The location.
+     */
+    public java.lang.String getLocation() {
+      java.lang.Object ref = location_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        location_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Immutable. The geographic location where the stream's dataset resides. See
+     * https://cloud.google.com/bigquery/docs/locations for supported
+     * locations.
+     * </pre>
+     *
+     * <code>string location = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return The bytes for location.
+     */
+    public com.google.protobuf.ByteString
+        getLocationBytes() {
+      java.lang.Object ref = location_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        location_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Immutable. The geographic location where the stream's dataset resides. See
+     * https://cloud.google.com/bigquery/docs/locations for supported
+     * locations.
+     * </pre>
+     *
+     * <code>string location = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @param value The location to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLocation(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      location_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. The geographic location where the stream's dataset resides. See
+     * https://cloud.google.com/bigquery/docs/locations for supported
+     * locations.
+     * </pre>
+     *
+     * <code>string location = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLocation() {
+      location_ = getDefaultInstance().getLocation();
+      bitField0_ = (bitField0_ & ~0x00000040);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. The geographic location where the stream's dataset resides. See
+     * https://cloud.google.com/bigquery/docs/locations for supported
+     * locations.
+     * </pre>
+     *
+     * <code>string location = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @param value The bytes for location to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLocationBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      location_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1914,7 +2041,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WriteStream(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

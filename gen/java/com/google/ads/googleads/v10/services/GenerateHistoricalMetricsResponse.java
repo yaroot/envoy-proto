@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenerateHistoricalMetricsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              metrics_ = new java.util.ArrayList<com.google.ads.googleads.v10.services.KeywordPlanKeywordHistoricalMetrics>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            metrics_.add(
-                input.readMessage(com.google.ads.googleads.v10.services.KeywordPlanKeywordHistoricalMetrics.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults.Builder subBuilder = null;
-            if (aggregateMetricResults_ != null) {
-              subBuilder = aggregateMetricResults_.toBuilder();
-            }
-            aggregateMetricResults_ = input.readMessage(com.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(aggregateMetricResults_);
-              aggregateMetricResults_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        metrics_ = java.util.Collections.unmodifiableList(metrics_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.services.KeywordPlanServiceProto.internal_static_google_ads_googleads_v10_services_GenerateHistoricalMetricsResponse_descriptor;
@@ -114,6 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METRICS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v10.services.KeywordPlanKeywordHistoricalMetrics> metrics_;
   /**
    * <pre>
@@ -208,7 +144,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResultsOrBuilder getAggregateMetricResultsOrBuilder() {
-    return getAggregateMetricResults();
+    return aggregateMetricResults_ == null ? com.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults.getDefaultInstance() : aggregateMetricResults_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -231,7 +167,7 @@ private static final long serialVersionUID = 0L;
     if (aggregateMetricResults_ != null) {
       output.writeMessage(2, getAggregateMetricResults());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -248,7 +184,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getAggregateMetricResults());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -270,7 +206,7 @@ private static final long serialVersionUID = 0L;
       if (!getAggregateMetricResults()
           .equals(other.getAggregateMetricResults())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -289,7 +225,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AGGREGATE_METRIC_RESULTS_FIELD_NUMBER;
       hash = (53 * hash) + getAggregateMetricResults().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -410,33 +346,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.services.GenerateHistoricalMetricsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMetricsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (metricsBuilder_ == null) {
         metrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        metrics_ = null;
         metricsBuilder_.clear();
       }
-      if (aggregateMetricResultsBuilder_ == null) {
-        aggregateMetricResults_ = null;
-      } else {
-        aggregateMetricResults_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      aggregateMetricResults_ = null;
+      if (aggregateMetricResultsBuilder_ != null) {
+        aggregateMetricResultsBuilder_.dispose();
         aggregateMetricResultsBuilder_ = null;
       }
       return this;
@@ -465,7 +396,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.services.GenerateHistoricalMetricsResponse buildPartial() {
       com.google.ads.googleads.v10.services.GenerateHistoricalMetricsResponse result = new com.google.ads.googleads.v10.services.GenerateHistoricalMetricsResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v10.services.GenerateHistoricalMetricsResponse result) {
       if (metricsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           metrics_ = java.util.Collections.unmodifiableList(metrics_);
@@ -475,13 +412,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.metrics_ = metricsBuilder_.build();
       }
-      if (aggregateMetricResultsBuilder_ == null) {
-        result.aggregateMetricResults_ = aggregateMetricResults_;
-      } else {
-        result.aggregateMetricResults_ = aggregateMetricResultsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.services.GenerateHistoricalMetricsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.aggregateMetricResults_ = aggregateMetricResultsBuilder_ == null
+            ? aggregateMetricResults_
+            : aggregateMetricResultsBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -557,7 +496,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAggregateMetricResults()) {
         mergeAggregateMetricResults(other.getAggregateMetricResults());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -572,17 +511,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.services.GenerateHistoricalMetricsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.ads.googleads.v10.services.KeywordPlanKeywordHistoricalMetrics m =
+                  input.readMessage(
+                      com.google.ads.googleads.v10.services.KeywordPlanKeywordHistoricalMetrics.parser(),
+                      extensionRegistry);
+              if (metricsBuilder_ == null) {
+                ensureMetricsIsMutable();
+                metrics_.add(m);
+              } else {
+                metricsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAggregateMetricResultsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.services.GenerateHistoricalMetricsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -911,7 +883,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the aggregateMetricResults field is set.
      */
     public boolean hasAggregateMetricResults() {
-      return aggregateMetricResultsBuilder_ != null || aggregateMetricResults_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -941,11 +913,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         aggregateMetricResults_ = value;
-        onChanged();
       } else {
         aggregateMetricResultsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -959,11 +931,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults.Builder builderForValue) {
       if (aggregateMetricResultsBuilder_ == null) {
         aggregateMetricResults_ = builderForValue.build();
-        onChanged();
       } else {
         aggregateMetricResultsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -975,17 +947,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAggregateMetricResults(com.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults value) {
       if (aggregateMetricResultsBuilder_ == null) {
-        if (aggregateMetricResults_ != null) {
-          aggregateMetricResults_ =
-            com.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults.newBuilder(aggregateMetricResults_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          aggregateMetricResults_ != null &&
+          aggregateMetricResults_ != com.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults.getDefaultInstance()) {
+          getAggregateMetricResultsBuilder().mergeFrom(value);
         } else {
           aggregateMetricResults_ = value;
         }
-        onChanged();
       } else {
         aggregateMetricResultsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -996,14 +969,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults aggregate_metric_results = 2;</code>
      */
     public Builder clearAggregateMetricResults() {
-      if (aggregateMetricResultsBuilder_ == null) {
-        aggregateMetricResults_ = null;
-        onChanged();
-      } else {
-        aggregateMetricResults_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      aggregateMetricResults_ = null;
+      if (aggregateMetricResultsBuilder_ != null) {
+        aggregateMetricResultsBuilder_.dispose();
         aggregateMetricResultsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1014,7 +986,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults aggregate_metric_results = 2;</code>
      */
     public com.google.ads.googleads.v10.common.KeywordPlanAggregateMetricResults.Builder getAggregateMetricResultsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAggregateMetricResultsFieldBuilder().getBuilder();
     }
@@ -1086,7 +1058,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenerateHistoricalMetricsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

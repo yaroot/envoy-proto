@@ -52,152 +52,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Task(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            trackingId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deliveryVehicleId_ = s;
-            break;
-          }
-          case 50: {
-            google.maps.fleetengine.delivery.v1.LocationInfo.Builder subBuilder = null;
-            if (plannedLocation_ != null) {
-              subBuilder = plannedLocation_.toBuilder();
-            }
-            plannedLocation_ = input.readMessage(google.maps.fleetengine.delivery.v1.LocationInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(plannedLocation_);
-              plannedLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (taskDuration_ != null) {
-              subBuilder = taskDuration_.toBuilder();
-            }
-            taskDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(taskDuration_);
-              taskDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo.Builder subBuilder = null;
-            if (journeySharingInfo_ != null) {
-              subBuilder = journeySharingInfo_.toBuilder();
-            }
-            journeySharingInfo_ = input.readMessage(google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(journeySharingInfo_);
-              journeySharingInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            taskOutcome_ = rawValue;
-            break;
-          }
-          case 82: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (taskOutcomeTime_ != null) {
-              subBuilder = taskOutcomeTime_.toBuilder();
-            }
-            taskOutcomeTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(taskOutcomeTime_);
-              taskOutcomeTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            google.maps.fleetengine.delivery.v1.LocationInfo.Builder subBuilder = null;
-            if (taskOutcomeLocation_ != null) {
-              subBuilder = taskOutcomeLocation_.toBuilder();
-            }
-            taskOutcomeLocation_ = input.readMessage(google.maps.fleetengine.delivery.v1.LocationInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(taskOutcomeLocation_);
-              taskOutcomeLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            taskOutcomeLocationSource_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.delivery.v1.Tasks.internal_static_maps_fleetengine_delivery_v1_Task_descriptor;
@@ -1033,76 +887,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private JourneySharingInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                remainingVehicleJourneySegments_ = new java.util.ArrayList<google.maps.fleetengine.delivery.v1.VehicleJourneySegment>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              remainingVehicleJourneySegments_.add(
-                  input.readMessage(google.maps.fleetengine.delivery.v1.VehicleJourneySegment.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.Builder subBuilder = null;
-              if (lastLocation_ != null) {
-                subBuilder = lastLocation_.toBuilder();
-              }
-              lastLocation_ = input.readMessage(google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastLocation_);
-                lastLocation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
-
-              lastLocationSnappable_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          remainingVehicleJourneySegments_ = java.util.Collections.unmodifiableList(remainingVehicleJourneySegments_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return google.maps.fleetengine.delivery.v1.Tasks.internal_static_maps_fleetengine_delivery_v1_Task_JourneySharingInfo_descriptor;
@@ -1117,6 +901,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int REMAINING_VEHICLE_JOURNEY_SEGMENTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<google.maps.fleetengine.delivery.v1.VehicleJourneySegment> remainingVehicleJourneySegments_;
     /**
      * <pre>
@@ -1276,11 +1061,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationOrBuilder getLastLocationOrBuilder() {
-      return getLastLocation();
+      return lastLocation_ == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.getDefaultInstance() : lastLocation_;
     }
 
     public static final int LAST_LOCATION_SNAPPABLE_FIELD_NUMBER = 3;
-    private boolean lastLocationSnappable_;
+    private boolean lastLocationSnappable_ = false;
     /**
      * <pre>
      * Indicates whether the vehicle's lastLocation can be snapped to
@@ -1320,7 +1105,7 @@ private static final long serialVersionUID = 0L;
       if (lastLocationSnappable_ != false) {
         output.writeBool(3, lastLocationSnappable_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1341,7 +1126,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, lastLocationSnappable_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1365,7 +1150,7 @@ private static final long serialVersionUID = 0L;
       }
       if (getLastLocationSnappable()
           != other.getLastLocationSnappable()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1387,7 +1172,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LAST_LOCATION_SNAPPABLE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getLastLocationSnappable());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1508,37 +1293,31 @@ private static final long serialVersionUID = 0L;
 
       // Construct using google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRemainingVehicleJourneySegmentsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (remainingVehicleJourneySegmentsBuilder_ == null) {
           remainingVehicleJourneySegments_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          remainingVehicleJourneySegments_ = null;
           remainingVehicleJourneySegmentsBuilder_.clear();
         }
-        if (lastLocationBuilder_ == null) {
-          lastLocation_ = null;
-        } else {
-          lastLocation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        lastLocation_ = null;
+        if (lastLocationBuilder_ != null) {
+          lastLocationBuilder_.dispose();
           lastLocationBuilder_ = null;
         }
         lastLocationSnappable_ = false;
-
         return this;
       }
 
@@ -1565,7 +1344,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo buildPartial() {
         google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo result = new google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo result) {
         if (remainingVehicleJourneySegmentsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             remainingVehicleJourneySegments_ = java.util.Collections.unmodifiableList(remainingVehicleJourneySegments_);
@@ -1575,14 +1360,18 @@ private static final long serialVersionUID = 0L;
         } else {
           result.remainingVehicleJourneySegments_ = remainingVehicleJourneySegmentsBuilder_.build();
         }
-        if (lastLocationBuilder_ == null) {
-          result.lastLocation_ = lastLocation_;
-        } else {
-          result.lastLocation_ = lastLocationBuilder_.build();
+      }
+
+      private void buildPartial0(google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.lastLocation_ = lastLocationBuilder_ == null
+              ? lastLocation_
+              : lastLocationBuilder_.build();
         }
-        result.lastLocationSnappable_ = lastLocationSnappable_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.lastLocationSnappable_ = lastLocationSnappable_;
+        }
       }
 
       @java.lang.Override
@@ -1661,7 +1450,7 @@ private static final long serialVersionUID = 0L;
         if (other.getLastLocationSnappable() != false) {
           setLastLocationSnappable(other.getLastLocationSnappable());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1676,17 +1465,55 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                google.maps.fleetengine.delivery.v1.VehicleJourneySegment m =
+                    input.readMessage(
+                        google.maps.fleetengine.delivery.v1.VehicleJourneySegment.parser(),
+                        extensionRegistry);
+                if (remainingVehicleJourneySegmentsBuilder_ == null) {
+                  ensureRemainingVehicleJourneySegmentsIsMutable();
+                  remainingVehicleJourneySegments_.add(m);
+                } else {
+                  remainingVehicleJourneySegmentsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getLastLocationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                lastLocationSnappable_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2249,7 +2076,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the lastLocation field is set.
        */
       public boolean hasLastLocation() {
-        return lastLocationBuilder_ != null || lastLocation_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2279,11 +2106,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           lastLocation_ = value;
-          onChanged();
         } else {
           lastLocationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2297,11 +2124,11 @@ private static final long serialVersionUID = 0L;
           google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.Builder builderForValue) {
         if (lastLocationBuilder_ == null) {
           lastLocation_ = builderForValue.build();
-          onChanged();
         } else {
           lastLocationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2313,17 +2140,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeLastLocation(google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation value) {
         if (lastLocationBuilder_ == null) {
-          if (lastLocation_ != null) {
-            lastLocation_ =
-              google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.newBuilder(lastLocation_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            lastLocation_ != null &&
+            lastLocation_ != google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.getDefaultInstance()) {
+            getLastLocationBuilder().mergeFrom(value);
           } else {
             lastLocation_ = value;
           }
-          onChanged();
         } else {
           lastLocationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2334,14 +2162,13 @@ private static final long serialVersionUID = 0L;
        * <code>.maps.fleetengine.delivery.v1.DeliveryVehicleLocation last_location = 2;</code>
        */
       public Builder clearLastLocation() {
-        if (lastLocationBuilder_ == null) {
-          lastLocation_ = null;
-          onChanged();
-        } else {
-          lastLocation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        lastLocation_ = null;
+        if (lastLocationBuilder_ != null) {
+          lastLocationBuilder_.dispose();
           lastLocationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2352,7 +2179,7 @@ private static final long serialVersionUID = 0L;
        * <code>.maps.fleetengine.delivery.v1.DeliveryVehicleLocation last_location = 2;</code>
        */
       public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.Builder getLastLocationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getLastLocationFieldBuilder().getBuilder();
       }
@@ -2423,6 +2250,7 @@ private static final long serialVersionUID = 0L;
       public Builder setLastLocationSnappable(boolean value) {
         
         lastLocationSnappable_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2438,7 +2266,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLastLocationSnappable() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         lastLocationSnappable_ = false;
         onChanged();
         return this;
@@ -2476,7 +2304,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new JourneySharingInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2497,7 +2336,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Must be in the format `providers/{provider}/tasks/{task}`.
@@ -2543,7 +2383,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 2;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Required. Immutable. Defines the type of the Task. For example, a break or shipment.
@@ -2564,13 +2404,12 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public google.maps.fleetengine.delivery.v1.Task.Type getType() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.delivery.v1.Task.Type result = google.maps.fleetengine.delivery.v1.Task.Type.valueOf(type_);
+    google.maps.fleetengine.delivery.v1.Task.Type result = google.maps.fleetengine.delivery.v1.Task.Type.forNumber(type_);
     return result == null ? google.maps.fleetengine.delivery.v1.Task.Type.UNRECOGNIZED : result;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Required. The current execution state of the Task.
@@ -2591,13 +2430,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public google.maps.fleetengine.delivery.v1.Task.State getState() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.delivery.v1.Task.State result = google.maps.fleetengine.delivery.v1.Task.State.valueOf(state_);
+    google.maps.fleetengine.delivery.v1.Task.State result = google.maps.fleetengine.delivery.v1.Task.State.forNumber(state_);
     return result == null ? google.maps.fleetengine.delivery.v1.Task.State.UNRECOGNIZED : result;
   }
 
   public static final int TASK_OUTCOME_FIELD_NUMBER = 9;
-  private int taskOutcome_;
+  private int taskOutcome_ = 0;
   /**
    * <pre>
    * The outcome of the Task.
@@ -2618,8 +2456,7 @@ private static final long serialVersionUID = 0L;
    * @return The taskOutcome.
    */
   @java.lang.Override public google.maps.fleetengine.delivery.v1.Task.TaskOutcome getTaskOutcome() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.delivery.v1.Task.TaskOutcome result = google.maps.fleetengine.delivery.v1.Task.TaskOutcome.valueOf(taskOutcome_);
+    google.maps.fleetengine.delivery.v1.Task.TaskOutcome result = google.maps.fleetengine.delivery.v1.Task.TaskOutcome.forNumber(taskOutcome_);
     return result == null ? google.maps.fleetengine.delivery.v1.Task.TaskOutcome.UNRECOGNIZED : result;
   }
 
@@ -2661,7 +2498,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getTaskOutcomeTimeOrBuilder() {
-    return getTaskOutcomeTime();
+    return taskOutcomeTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : taskOutcomeTime_;
   }
 
   public static final int TASK_OUTCOME_LOCATION_FIELD_NUMBER = 11;
@@ -2708,11 +2545,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.LocationInfoOrBuilder getTaskOutcomeLocationOrBuilder() {
-    return getTaskOutcomeLocation();
+    return taskOutcomeLocation_ == null ? google.maps.fleetengine.delivery.v1.LocationInfo.getDefaultInstance() : taskOutcomeLocation_;
   }
 
   public static final int TASK_OUTCOME_LOCATION_SOURCE_FIELD_NUMBER = 12;
-  private int taskOutcomeLocationSource_;
+  private int taskOutcomeLocationSource_ = 0;
   /**
    * <pre>
    * Indicates where the value of the `task_outcome_location` came from.
@@ -2733,13 +2570,13 @@ private static final long serialVersionUID = 0L;
    * @return The taskOutcomeLocationSource.
    */
   @java.lang.Override public google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource getTaskOutcomeLocationSource() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource result = google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource.valueOf(taskOutcomeLocationSource_);
+    google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource result = google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource.forNumber(taskOutcomeLocationSource_);
     return result == null ? google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource.UNRECOGNIZED : result;
   }
 
   public static final int TRACKING_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object trackingId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object trackingId_ = "";
   /**
    * <pre>
    * Immutable. This field facilitates the storing of an ID so you can avoid using a
@@ -2748,7 +2585,7 @@ private static final long serialVersionUID = 0L;
    * following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -2778,7 +2615,7 @@ private static final long serialVersionUID = 0L;
    * following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -2803,14 +2640,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DELIVERY_VEHICLE_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object deliveryVehicleId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deliveryVehicleId_ = "";
   /**
    * <pre>
    * Output only. The ID of the vehicle that is executing this Task. Delivery Vehicle IDs are
    * subject to the following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -2838,7 +2676,7 @@ private static final long serialVersionUID = 0L;
    * subject to the following restrictions:
    * * Must be a valid Unicode string.
    * * Limited to a maximum length of 64 characters.
-   * * Normalized according to Unicode Normalization Form C
+   * * Normalized according to [Unicode Normalization Form C]
    * (http://www.unicode.org/reports/tr15/).
    * * May not contain any of the following ASCII characters: '/', ':', '?',
    * ',', or '#'.
@@ -2900,7 +2738,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.LocationInfoOrBuilder getPlannedLocationOrBuilder() {
-    return getPlannedLocation();
+    return plannedLocation_ == null ? google.maps.fleetengine.delivery.v1.LocationInfo.getDefaultInstance() : plannedLocation_;
   }
 
   public static final int TASK_DURATION_FIELD_NUMBER = 7;
@@ -2938,7 +2776,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTaskDurationOrBuilder() {
-    return getTaskDuration();
+    return taskDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : taskDuration_;
   }
 
   public static final int JOURNEY_SHARING_INFO_FIELD_NUMBER = 8;
@@ -2976,7 +2814,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.Task.JourneySharingInfoOrBuilder getJourneySharingInfoOrBuilder() {
-    return getJourneySharingInfo();
+    return journeySharingInfo_ == null ? google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo.getDefaultInstance() : journeySharingInfo_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3029,7 +2867,7 @@ private static final long serialVersionUID = 0L;
     if (taskOutcomeLocationSource_ != google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource.TASK_OUTCOME_LOCATION_SOURCE_UNSPECIFIED.getNumber()) {
       output.writeEnum(12, taskOutcomeLocationSource_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3083,7 +2921,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(12, taskOutcomeLocationSource_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3133,7 +2971,7 @@ private static final long serialVersionUID = 0L;
       if (!getJourneySharingInfo()
           .equals(other.getJourneySharingInfo())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3178,7 +3016,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + JOURNEY_SHARING_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getJourneySharingInfo().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3310,64 +3148,48 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.delivery.v1.Task.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       type_ = 0;
-
       state_ = 0;
-
       taskOutcome_ = 0;
-
-      if (taskOutcomeTimeBuilder_ == null) {
-        taskOutcomeTime_ = null;
-      } else {
-        taskOutcomeTime_ = null;
+      taskOutcomeTime_ = null;
+      if (taskOutcomeTimeBuilder_ != null) {
+        taskOutcomeTimeBuilder_.dispose();
         taskOutcomeTimeBuilder_ = null;
       }
-      if (taskOutcomeLocationBuilder_ == null) {
-        taskOutcomeLocation_ = null;
-      } else {
-        taskOutcomeLocation_ = null;
+      taskOutcomeLocation_ = null;
+      if (taskOutcomeLocationBuilder_ != null) {
+        taskOutcomeLocationBuilder_.dispose();
         taskOutcomeLocationBuilder_ = null;
       }
       taskOutcomeLocationSource_ = 0;
-
       trackingId_ = "";
-
       deliveryVehicleId_ = "";
-
-      if (plannedLocationBuilder_ == null) {
-        plannedLocation_ = null;
-      } else {
-        plannedLocation_ = null;
+      plannedLocation_ = null;
+      if (plannedLocationBuilder_ != null) {
+        plannedLocationBuilder_.dispose();
         plannedLocationBuilder_ = null;
       }
-      if (taskDurationBuilder_ == null) {
-        taskDuration_ = null;
-      } else {
-        taskDuration_ = null;
+      taskDuration_ = null;
+      if (taskDurationBuilder_ != null) {
+        taskDurationBuilder_.dispose();
         taskDurationBuilder_ = null;
       }
-      if (journeySharingInfoBuilder_ == null) {
-        journeySharingInfo_ = null;
-      } else {
-        journeySharingInfo_ = null;
+      journeySharingInfo_ = null;
+      if (journeySharingInfoBuilder_ != null) {
+        journeySharingInfoBuilder_.dispose();
         journeySharingInfoBuilder_ = null;
       }
       return this;
@@ -3396,40 +3218,59 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.Task buildPartial() {
       google.maps.fleetengine.delivery.v1.Task result = new google.maps.fleetengine.delivery.v1.Task(this);
-      result.name_ = name_;
-      result.type_ = type_;
-      result.state_ = state_;
-      result.taskOutcome_ = taskOutcome_;
-      if (taskOutcomeTimeBuilder_ == null) {
-        result.taskOutcomeTime_ = taskOutcomeTime_;
-      } else {
-        result.taskOutcomeTime_ = taskOutcomeTimeBuilder_.build();
-      }
-      if (taskOutcomeLocationBuilder_ == null) {
-        result.taskOutcomeLocation_ = taskOutcomeLocation_;
-      } else {
-        result.taskOutcomeLocation_ = taskOutcomeLocationBuilder_.build();
-      }
-      result.taskOutcomeLocationSource_ = taskOutcomeLocationSource_;
-      result.trackingId_ = trackingId_;
-      result.deliveryVehicleId_ = deliveryVehicleId_;
-      if (plannedLocationBuilder_ == null) {
-        result.plannedLocation_ = plannedLocation_;
-      } else {
-        result.plannedLocation_ = plannedLocationBuilder_.build();
-      }
-      if (taskDurationBuilder_ == null) {
-        result.taskDuration_ = taskDuration_;
-      } else {
-        result.taskDuration_ = taskDurationBuilder_.build();
-      }
-      if (journeySharingInfoBuilder_ == null) {
-        result.journeySharingInfo_ = journeySharingInfo_;
-      } else {
-        result.journeySharingInfo_ = journeySharingInfoBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.delivery.v1.Task result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.taskOutcome_ = taskOutcome_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.taskOutcomeTime_ = taskOutcomeTimeBuilder_ == null
+            ? taskOutcomeTime_
+            : taskOutcomeTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.taskOutcomeLocation_ = taskOutcomeLocationBuilder_ == null
+            ? taskOutcomeLocation_
+            : taskOutcomeLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.taskOutcomeLocationSource_ = taskOutcomeLocationSource_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.trackingId_ = trackingId_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.deliveryVehicleId_ = deliveryVehicleId_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.plannedLocation_ = plannedLocationBuilder_ == null
+            ? plannedLocation_
+            : plannedLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.taskDuration_ = taskDurationBuilder_ == null
+            ? taskDuration_
+            : taskDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.journeySharingInfo_ = journeySharingInfoBuilder_ == null
+            ? journeySharingInfo_
+            : journeySharingInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3478,6 +3319,7 @@ private static final long serialVersionUID = 0L;
       if (other == google.maps.fleetengine.delivery.v1.Task.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.type_ != 0) {
@@ -3500,10 +3342,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTrackingId().isEmpty()) {
         trackingId_ = other.trackingId_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getDeliveryVehicleId().isEmpty()) {
         deliveryVehicleId_ = other.deliveryVehicleId_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasPlannedLocation()) {
@@ -3515,7 +3359,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasJourneySharingInfo()) {
         mergeJourneySharingInfo(other.getJourneySharingInfo());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3530,19 +3374,103 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.delivery.v1.Task parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              trackingId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 34
+            case 42: {
+              deliveryVehicleId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getPlannedLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getTaskDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getJourneySharingInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 66
+            case 72: {
+              taskOutcome_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 72
+            case 82: {
+              input.readMessage(
+                  getTaskOutcomeTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getTaskOutcomeLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 90
+            case 96: {
+              taskOutcomeLocationSource_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 96
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.delivery.v1.Task) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -3597,11 +3525,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3614,8 +3540,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3630,12 +3556,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3662,8 +3586,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3677,8 +3601,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.Task.Type getType() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.delivery.v1.Task.Type result = google.maps.fleetengine.delivery.v1.Task.Type.valueOf(type_);
+      google.maps.fleetengine.delivery.v1.Task.Type result = google.maps.fleetengine.delivery.v1.Task.Type.forNumber(type_);
       return result == null ? google.maps.fleetengine.delivery.v1.Task.Type.UNRECOGNIZED : result;
     }
     /**
@@ -3694,7 +3617,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -3708,7 +3631,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       type_ = 0;
       onChanged();
       return this;
@@ -3736,8 +3659,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3751,8 +3674,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.Task.State getState() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.delivery.v1.Task.State result = google.maps.fleetengine.delivery.v1.Task.State.valueOf(state_);
+      google.maps.fleetengine.delivery.v1.Task.State result = google.maps.fleetengine.delivery.v1.Task.State.forNumber(state_);
       return result == null ? google.maps.fleetengine.delivery.v1.Task.State.UNRECOGNIZED : result;
     }
     /**
@@ -3768,7 +3690,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -3782,7 +3704,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       state_ = 0;
       onChanged();
       return this;
@@ -3810,8 +3732,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTaskOutcomeValue(int value) {
-      
       taskOutcome_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3825,8 +3747,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.Task.TaskOutcome getTaskOutcome() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.delivery.v1.Task.TaskOutcome result = google.maps.fleetengine.delivery.v1.Task.TaskOutcome.valueOf(taskOutcome_);
+      google.maps.fleetengine.delivery.v1.Task.TaskOutcome result = google.maps.fleetengine.delivery.v1.Task.TaskOutcome.forNumber(taskOutcome_);
       return result == null ? google.maps.fleetengine.delivery.v1.Task.TaskOutcome.UNRECOGNIZED : result;
     }
     /**
@@ -3842,7 +3763,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       taskOutcome_ = value.getNumber();
       onChanged();
       return this;
@@ -3856,7 +3777,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTaskOutcome() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       taskOutcome_ = 0;
       onChanged();
       return this;
@@ -3875,7 +3796,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the taskOutcomeTime field is set.
      */
     public boolean hasTaskOutcomeTime() {
-      return taskOutcomeTimeBuilder_ != null || taskOutcomeTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -3907,11 +3828,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         taskOutcomeTime_ = value;
-        onChanged();
       } else {
         taskOutcomeTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3926,11 +3847,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (taskOutcomeTimeBuilder_ == null) {
         taskOutcomeTime_ = builderForValue.build();
-        onChanged();
       } else {
         taskOutcomeTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3943,17 +3864,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTaskOutcomeTime(com.google.protobuf.Timestamp value) {
       if (taskOutcomeTimeBuilder_ == null) {
-        if (taskOutcomeTime_ != null) {
-          taskOutcomeTime_ =
-            com.google.protobuf.Timestamp.newBuilder(taskOutcomeTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          taskOutcomeTime_ != null &&
+          taskOutcomeTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getTaskOutcomeTimeBuilder().mergeFrom(value);
         } else {
           taskOutcomeTime_ = value;
         }
-        onChanged();
       } else {
         taskOutcomeTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3965,14 +3887,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp task_outcome_time = 10;</code>
      */
     public Builder clearTaskOutcomeTime() {
-      if (taskOutcomeTimeBuilder_ == null) {
-        taskOutcomeTime_ = null;
-        onChanged();
-      } else {
-        taskOutcomeTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      taskOutcomeTime_ = null;
+      if (taskOutcomeTimeBuilder_ != null) {
+        taskOutcomeTimeBuilder_.dispose();
         taskOutcomeTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3984,7 +3905,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp task_outcome_time = 10;</code>
      */
     public com.google.protobuf.Timestamp.Builder getTaskOutcomeTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getTaskOutcomeTimeFieldBuilder().getBuilder();
     }
@@ -4041,7 +3962,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the taskOutcomeLocation field is set.
      */
     public boolean hasTaskOutcomeLocation() {
-      return taskOutcomeLocationBuilder_ != null || taskOutcomeLocation_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -4077,11 +3998,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         taskOutcomeLocation_ = value;
-        onChanged();
       } else {
         taskOutcomeLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4098,11 +4019,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.LocationInfo.Builder builderForValue) {
       if (taskOutcomeLocationBuilder_ == null) {
         taskOutcomeLocation_ = builderForValue.build();
-        onChanged();
       } else {
         taskOutcomeLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4117,17 +4038,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTaskOutcomeLocation(google.maps.fleetengine.delivery.v1.LocationInfo value) {
       if (taskOutcomeLocationBuilder_ == null) {
-        if (taskOutcomeLocation_ != null) {
-          taskOutcomeLocation_ =
-            google.maps.fleetengine.delivery.v1.LocationInfo.newBuilder(taskOutcomeLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          taskOutcomeLocation_ != null &&
+          taskOutcomeLocation_ != google.maps.fleetengine.delivery.v1.LocationInfo.getDefaultInstance()) {
+          getTaskOutcomeLocationBuilder().mergeFrom(value);
         } else {
           taskOutcomeLocation_ = value;
         }
-        onChanged();
       } else {
         taskOutcomeLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4141,14 +4063,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.LocationInfo task_outcome_location = 11;</code>
      */
     public Builder clearTaskOutcomeLocation() {
-      if (taskOutcomeLocationBuilder_ == null) {
-        taskOutcomeLocation_ = null;
-        onChanged();
-      } else {
-        taskOutcomeLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      taskOutcomeLocation_ = null;
+      if (taskOutcomeLocationBuilder_ != null) {
+        taskOutcomeLocationBuilder_.dispose();
         taskOutcomeLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4162,7 +4083,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.LocationInfo task_outcome_location = 11;</code>
      */
     public google.maps.fleetengine.delivery.v1.LocationInfo.Builder getTaskOutcomeLocationBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getTaskOutcomeLocationFieldBuilder().getBuilder();
     }
@@ -4230,8 +4151,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTaskOutcomeLocationSourceValue(int value) {
-      
       taskOutcomeLocationSource_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4245,8 +4166,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource getTaskOutcomeLocationSource() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource result = google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource.valueOf(taskOutcomeLocationSource_);
+      google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource result = google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource.forNumber(taskOutcomeLocationSource_);
       return result == null ? google.maps.fleetengine.delivery.v1.Task.TaskOutcomeLocationSource.UNRECOGNIZED : result;
     }
     /**
@@ -4262,7 +4182,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       taskOutcomeLocationSource_ = value.getNumber();
       onChanged();
       return this;
@@ -4276,7 +4196,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTaskOutcomeLocationSource() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       taskOutcomeLocationSource_ = 0;
       onChanged();
       return this;
@@ -4291,7 +4211,7 @@ private static final long serialVersionUID = 0L;
      * following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4320,7 +4240,7 @@ private static final long serialVersionUID = 0L;
      * following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4350,7 +4270,7 @@ private static final long serialVersionUID = 0L;
      * following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4362,11 +4282,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrackingId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       trackingId_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -4378,7 +4296,7 @@ private static final long serialVersionUID = 0L;
      * following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4388,8 +4306,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrackingId() {
-      
       trackingId_ = getDefaultInstance().getTrackingId();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -4401,7 +4319,7 @@ private static final long serialVersionUID = 0L;
      * following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4413,12 +4331,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrackingIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       trackingId_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -4430,7 +4346,7 @@ private static final long serialVersionUID = 0L;
      * subject to the following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4457,7 +4373,7 @@ private static final long serialVersionUID = 0L;
      * subject to the following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4485,7 +4401,7 @@ private static final long serialVersionUID = 0L;
      * subject to the following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4497,11 +4413,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeliveryVehicleId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deliveryVehicleId_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -4511,7 +4425,7 @@ private static final long serialVersionUID = 0L;
      * subject to the following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4521,8 +4435,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeliveryVehicleId() {
-      
       deliveryVehicleId_ = getDefaultInstance().getDeliveryVehicleId();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -4532,7 +4446,7 @@ private static final long serialVersionUID = 0L;
      * subject to the following restrictions:
      * * Must be a valid Unicode string.
      * * Limited to a maximum length of 64 characters.
-     * * Normalized according to Unicode Normalization Form C
+     * * Normalized according to [Unicode Normalization Form C]
      * (http://www.unicode.org/reports/tr15/).
      * * May not contain any of the following ASCII characters: '/', ':', '?',
      * ',', or '#'.
@@ -4544,12 +4458,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeliveryVehicleIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deliveryVehicleId_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -4567,7 +4479,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the plannedLocation field is set.
      */
     public boolean hasPlannedLocation() {
-      return plannedLocationBuilder_ != null || plannedLocation_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -4599,11 +4511,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         plannedLocation_ = value;
-        onChanged();
       } else {
         plannedLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4618,11 +4530,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.LocationInfo.Builder builderForValue) {
       if (plannedLocationBuilder_ == null) {
         plannedLocation_ = builderForValue.build();
-        onChanged();
       } else {
         plannedLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4635,17 +4547,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePlannedLocation(google.maps.fleetengine.delivery.v1.LocationInfo value) {
       if (plannedLocationBuilder_ == null) {
-        if (plannedLocation_ != null) {
-          plannedLocation_ =
-            google.maps.fleetengine.delivery.v1.LocationInfo.newBuilder(plannedLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          plannedLocation_ != null &&
+          plannedLocation_ != google.maps.fleetengine.delivery.v1.LocationInfo.getDefaultInstance()) {
+          getPlannedLocationBuilder().mergeFrom(value);
         } else {
           plannedLocation_ = value;
         }
-        onChanged();
       } else {
         plannedLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4657,14 +4570,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.LocationInfo planned_location = 6 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public Builder clearPlannedLocation() {
-      if (plannedLocationBuilder_ == null) {
-        plannedLocation_ = null;
-        onChanged();
-      } else {
-        plannedLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      plannedLocation_ = null;
+      if (plannedLocationBuilder_ != null) {
+        plannedLocationBuilder_.dispose();
         plannedLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4676,7 +4588,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.LocationInfo planned_location = 6 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public google.maps.fleetengine.delivery.v1.LocationInfo.Builder getPlannedLocationBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getPlannedLocationFieldBuilder().getBuilder();
     }
@@ -4730,7 +4642,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the taskDuration field is set.
      */
     public boolean hasTaskDuration() {
-      return taskDurationBuilder_ != null || taskDuration_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -4760,11 +4672,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         taskDuration_ = value;
-        onChanged();
       } else {
         taskDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4778,11 +4690,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (taskDurationBuilder_ == null) {
         taskDuration_ = builderForValue.build();
-        onChanged();
       } else {
         taskDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4794,17 +4706,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTaskDuration(com.google.protobuf.Duration value) {
       if (taskDurationBuilder_ == null) {
-        if (taskDuration_ != null) {
-          taskDuration_ =
-            com.google.protobuf.Duration.newBuilder(taskDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          taskDuration_ != null &&
+          taskDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTaskDurationBuilder().mergeFrom(value);
         } else {
           taskDuration_ = value;
         }
-        onChanged();
       } else {
         taskDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4815,14 +4728,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration task_duration = 7 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public Builder clearTaskDuration() {
-      if (taskDurationBuilder_ == null) {
-        taskDuration_ = null;
-        onChanged();
-      } else {
-        taskDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      taskDuration_ = null;
+      if (taskDurationBuilder_ != null) {
+        taskDurationBuilder_.dispose();
         taskDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4833,7 +4745,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration task_duration = 7 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public com.google.protobuf.Duration.Builder getTaskDurationBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getTaskDurationFieldBuilder().getBuilder();
     }
@@ -4885,7 +4797,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the journeySharingInfo field is set.
      */
     public boolean hasJourneySharingInfo() {
-      return journeySharingInfoBuilder_ != null || journeySharingInfo_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -4915,11 +4827,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         journeySharingInfo_ = value;
-        onChanged();
       } else {
         journeySharingInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4933,11 +4845,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo.Builder builderForValue) {
       if (journeySharingInfoBuilder_ == null) {
         journeySharingInfo_ = builderForValue.build();
-        onChanged();
       } else {
         journeySharingInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4949,17 +4861,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJourneySharingInfo(google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo value) {
       if (journeySharingInfoBuilder_ == null) {
-        if (journeySharingInfo_ != null) {
-          journeySharingInfo_ =
-            google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo.newBuilder(journeySharingInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          journeySharingInfo_ != null &&
+          journeySharingInfo_ != google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo.getDefaultInstance()) {
+          getJourneySharingInfoBuilder().mergeFrom(value);
         } else {
           journeySharingInfo_ = value;
         }
-        onChanged();
       } else {
         journeySharingInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4970,14 +4883,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.Task.JourneySharingInfo journey_sharing_info = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearJourneySharingInfo() {
-      if (journeySharingInfoBuilder_ == null) {
-        journeySharingInfo_ = null;
-        onChanged();
-      } else {
-        journeySharingInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      journeySharingInfo_ = null;
+      if (journeySharingInfoBuilder_ != null) {
+        journeySharingInfoBuilder_.dispose();
         journeySharingInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4988,7 +4900,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.Task.JourneySharingInfo journey_sharing_info = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public google.maps.fleetengine.delivery.v1.Task.JourneySharingInfo.Builder getJourneySharingInfoBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getJourneySharingInfoFieldBuilder().getBuilder();
     }
@@ -5060,7 +4972,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Task(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

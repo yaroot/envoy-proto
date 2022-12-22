@@ -40,82 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MatchingFunction(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              leftOperands_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.Operand>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            leftOperands_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.Operand.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              rightOperands_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.Operand>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            rightOperands_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.Operand.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            operator_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            functionString_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        leftOperands_ = java.util.Collections.unmodifiableList(leftOperands_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        rightOperands_ = java.util.Collections.unmodifiableList(rightOperands_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.MatchingFunctionProto.internal_static_google_ads_googleads_v11_common_MatchingFunction_descriptor;
@@ -131,7 +55,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int FUNCTION_STRING_FIELD_NUMBER = 5;
-  private volatile java.lang.Object functionString_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object functionString_ = "";
   /**
    * <pre>
    * String representation of the Function.
@@ -225,7 +150,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATOR_FIELD_NUMBER = 4;
-  private int operator_;
+  private int operator_ = 0;
   /**
    * <pre>
    * Operator for a function.
@@ -246,12 +171,12 @@ private static final long serialVersionUID = 0L;
    * @return The operator.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator getOperator() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator result = com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator.valueOf(operator_);
+    com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator result = com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator.forNumber(operator_);
     return result == null ? com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator.UNRECOGNIZED : result;
   }
 
   public static final int LEFT_OPERANDS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.Operand> leftOperands_;
   /**
    * <pre>
@@ -317,6 +242,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RIGHT_OPERANDS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.Operand> rightOperands_;
   /**
    * <pre>
@@ -402,7 +328,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, functionString_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -426,7 +352,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, functionString_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -451,7 +377,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLeftOperandsList())) return false;
     if (!getRightOperandsList()
         .equals(other.getRightOperandsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -476,7 +402,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RIGHT_OPERANDS_FIELD_NUMBER;
       hash = (53 * hash) + getRightOperandsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -599,40 +525,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.MatchingFunction.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLeftOperandsFieldBuilder();
-        getRightOperandsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       functionString_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       operator_ = 0;
-
       if (leftOperandsBuilder_ == null) {
         leftOperands_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        leftOperands_ = null;
         leftOperandsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (rightOperandsBuilder_ == null) {
         rightOperands_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        rightOperands_ = null;
         rightOperandsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -659,34 +579,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.MatchingFunction buildPartial() {
       com.google.ads.googleads.v11.common.MatchingFunction result = new com.google.ads.googleads.v11.common.MatchingFunction(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.functionString_ = functionString_;
-      result.operator_ = operator_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.common.MatchingFunction result) {
       if (leftOperandsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           leftOperands_ = java.util.Collections.unmodifiableList(leftOperands_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.leftOperands_ = leftOperands_;
       } else {
         result.leftOperands_ = leftOperandsBuilder_.build();
       }
       if (rightOperandsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           rightOperands_ = java.util.Collections.unmodifiableList(rightOperands_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.rightOperands_ = rightOperands_;
       } else {
         result.rightOperands_ = rightOperandsBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.MatchingFunction result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.functionString_ = functionString_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.operator_ = operator_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -734,8 +664,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.ads.googleads.v11.common.MatchingFunction other) {
       if (other == com.google.ads.googleads.v11.common.MatchingFunction.getDefaultInstance()) return this;
       if (other.hasFunctionString()) {
-        bitField0_ |= 0x00000001;
         functionString_ = other.functionString_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.operator_ != 0) {
@@ -745,7 +675,7 @@ private static final long serialVersionUID = 0L;
         if (!other.leftOperands_.isEmpty()) {
           if (leftOperands_.isEmpty()) {
             leftOperands_ = other.leftOperands_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureLeftOperandsIsMutable();
             leftOperands_.addAll(other.leftOperands_);
@@ -758,7 +688,7 @@ private static final long serialVersionUID = 0L;
             leftOperandsBuilder_.dispose();
             leftOperandsBuilder_ = null;
             leftOperands_ = other.leftOperands_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             leftOperandsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLeftOperandsFieldBuilder() : null;
@@ -771,7 +701,7 @@ private static final long serialVersionUID = 0L;
         if (!other.rightOperands_.isEmpty()) {
           if (rightOperands_.isEmpty()) {
             rightOperands_ = other.rightOperands_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureRightOperandsIsMutable();
             rightOperands_.addAll(other.rightOperands_);
@@ -784,7 +714,7 @@ private static final long serialVersionUID = 0L;
             rightOperandsBuilder_.dispose();
             rightOperandsBuilder_ = null;
             rightOperands_ = other.rightOperands_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             rightOperandsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRightOperandsFieldBuilder() : null;
@@ -793,7 +723,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -808,17 +738,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.MatchingFunction parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              com.google.ads.googleads.v11.common.Operand m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.Operand.parser(),
+                      extensionRegistry);
+              if (leftOperandsBuilder_ == null) {
+                ensureLeftOperandsIsMutable();
+                leftOperands_.add(m);
+              } else {
+                leftOperandsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.ads.googleads.v11.common.Operand m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.Operand.parser(),
+                      extensionRegistry);
+              if (rightOperandsBuilder_ == null) {
+                ensureRightOperandsIsMutable();
+                rightOperands_.add(m);
+              } else {
+                rightOperandsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              operator_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 32
+            case 42: {
+              functionString_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.MatchingFunction) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -935,11 +914,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFunctionString(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       functionString_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -964,8 +941,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFunctionString() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       functionString_ = getDefaultInstance().getFunctionString();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -992,12 +969,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFunctionStringBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       functionString_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1024,8 +999,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOperatorValue(int value) {
-      
       operator_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1039,8 +1014,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator getOperator() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator result = com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator.valueOf(operator_);
+      com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator result = com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator.forNumber(operator_);
       return result == null ? com.google.ads.googleads.v11.enums.MatchingFunctionOperatorEnum.MatchingFunctionOperator.UNRECOGNIZED : result;
     }
     /**
@@ -1056,7 +1030,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       operator_ = value.getNumber();
       onChanged();
       return this;
@@ -1070,7 +1044,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperator() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       operator_ = 0;
       onChanged();
       return this;
@@ -1079,9 +1053,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.Operand> leftOperands_ =
       java.util.Collections.emptyList();
     private void ensureLeftOperandsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         leftOperands_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.Operand>(leftOperands_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1286,7 +1260,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLeftOperands() {
       if (leftOperandsBuilder_ == null) {
         leftOperands_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         leftOperandsBuilder_.clear();
@@ -1398,7 +1372,7 @@ private static final long serialVersionUID = 0L;
         leftOperandsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.Operand, com.google.ads.googleads.v11.common.Operand.Builder, com.google.ads.googleads.v11.common.OperandOrBuilder>(
                 leftOperands_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         leftOperands_ = null;
@@ -1409,9 +1383,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.Operand> rightOperands_ =
       java.util.Collections.emptyList();
     private void ensureRightOperandsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         rightOperands_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.Operand>(rightOperands_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1605,7 +1579,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRightOperands() {
       if (rightOperandsBuilder_ == null) {
         rightOperands_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         rightOperandsBuilder_.clear();
@@ -1710,7 +1684,7 @@ private static final long serialVersionUID = 0L;
         rightOperandsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.Operand, com.google.ads.googleads.v11.common.Operand.Builder, com.google.ads.googleads.v11.common.OperandOrBuilder>(
                 rightOperands_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         rightOperands_ = null;
@@ -1750,7 +1724,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MatchingFunction(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

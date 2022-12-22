@@ -34,79 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Payload(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.apigeeconnect.v1.HttpRequest.Builder subBuilder = null;
-            if (kindCase_ == 1) {
-              subBuilder = ((com.google.cloud.apigeeconnect.v1.HttpRequest) kind_).toBuilder();
-            }
-            kind_ =
-                input.readMessage(com.google.cloud.apigeeconnect.v1.HttpRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.apigeeconnect.v1.HttpRequest) kind_);
-              kind_ = subBuilder.buildPartial();
-            }
-            kindCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.apigeeconnect.v1.StreamInfo.Builder subBuilder = null;
-            if (kindCase_ == 2) {
-              subBuilder = ((com.google.cloud.apigeeconnect.v1.StreamInfo) kind_).toBuilder();
-            }
-            kind_ =
-                input.readMessage(com.google.cloud.apigeeconnect.v1.StreamInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.apigeeconnect.v1.StreamInfo) kind_);
-              kind_ = subBuilder.buildPartial();
-            }
-            kindCase_ = 2;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            kindCase_ = 3;
-            kind_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.apigeeconnect.v1.TetherProto.internal_static_google_cloud_apigeeconnect_v1_Payload_descriptor;
@@ -285,8 +212,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.cloud.apigeeconnect.v1.Action getAction() {
     if (kindCase_ == 3) {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.apigeeconnect.v1.Action result = com.google.cloud.apigeeconnect.v1.Action.valueOf(
+      com.google.cloud.apigeeconnect.v1.Action result = com.google.cloud.apigeeconnect.v1.Action.forNumber(
           (java.lang.Integer) kind_);
       return result == null ? com.google.cloud.apigeeconnect.v1.Action.UNRECOGNIZED : result;
     }
@@ -316,7 +242,7 @@ private static final long serialVersionUID = 0L;
     if (kindCase_ == 3) {
       output.writeEnum(3, ((java.lang.Integer) kind_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -337,7 +263,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, ((java.lang.Integer) kind_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -369,7 +295,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -396,7 +322,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -517,22 +443,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.apigeeconnect.v1.Payload.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (httpRequestBuilder_ != null) {
+        httpRequestBuilder_.clear();
+      }
+      if (streamInfoBuilder_ != null) {
+        streamInfoBuilder_.clear();
+      }
       kindCase_ = 0;
       kind_ = null;
       return this;
@@ -561,26 +489,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.apigeeconnect.v1.Payload buildPartial() {
       com.google.cloud.apigeeconnect.v1.Payload result = new com.google.cloud.apigeeconnect.v1.Payload(this);
-      if (kindCase_ == 1) {
-        if (httpRequestBuilder_ == null) {
-          result.kind_ = kind_;
-        } else {
-          result.kind_ = httpRequestBuilder_.build();
-        }
-      }
-      if (kindCase_ == 2) {
-        if (streamInfoBuilder_ == null) {
-          result.kind_ = kind_;
-        } else {
-          result.kind_ = streamInfoBuilder_.build();
-        }
-      }
-      if (kindCase_ == 3) {
-        result.kind_ = kind_;
-      }
-      result.kindCase_ = kindCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.apigeeconnect.v1.Payload result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.apigeeconnect.v1.Payload result) {
+      result.kindCase_ = kindCase_;
+      result.kind_ = this.kind_;
+      if (kindCase_ == 1 &&
+          httpRequestBuilder_ != null) {
+        result.kind_ = httpRequestBuilder_.build();
+      }
+      if (kindCase_ == 2 &&
+          streamInfoBuilder_ != null) {
+        result.kind_ = streamInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -644,7 +573,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -659,17 +588,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.apigeeconnect.v1.Payload parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHttpRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              kindCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getStreamInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              kindCase_ = 2;
+              break;
+            } // case 18
+            case 24: {
+              int rawValue = input.readEnum();
+              kindCase_ = 3;
+              kind_ = rawValue;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.apigeeconnect.v1.Payload) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int kindCase_ = 0;
@@ -687,6 +649,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.apigeeconnect.v1.HttpRequest, com.google.cloud.apigeeconnect.v1.HttpRequest.Builder, com.google.cloud.apigeeconnect.v1.HttpRequestOrBuilder> httpRequestBuilder_;
@@ -862,7 +825,7 @@ private static final long serialVersionUID = 0L;
         kind_ = null;
       }
       kindCase_ = 1;
-      onChanged();;
+      onChanged();
       return httpRequestBuilder_;
     }
 
@@ -1040,7 +1003,7 @@ private static final long serialVersionUID = 0L;
         kind_ = null;
       }
       kindCase_ = 2;
-      onChanged();;
+      onChanged();
       return streamInfoBuilder_;
     }
 
@@ -1097,8 +1060,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.apigeeconnect.v1.Action getAction() {
       if (kindCase_ == 3) {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.apigeeconnect.v1.Action result = com.google.cloud.apigeeconnect.v1.Action.valueOf(
+        com.google.cloud.apigeeconnect.v1.Action result = com.google.cloud.apigeeconnect.v1.Action.forNumber(
             (java.lang.Integer) kind_);
         return result == null ? com.google.cloud.apigeeconnect.v1.Action.UNRECOGNIZED : result;
       }
@@ -1171,7 +1133,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Payload(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

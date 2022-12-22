@@ -34,64 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CampaignDuration(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 16: {
-            bitField0_ |= 0x00000001;
-            durationInDays_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            com.google.ads.googleads.v10.common.DateRange.Builder subBuilder = null;
-            if (dateRange_ != null) {
-              subBuilder = dateRange_.toBuilder();
-            }
-            dateRange_ = input.readMessage(com.google.ads.googleads.v10.common.DateRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dateRange_);
-              dateRange_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.services.ReachPlanServiceProto.internal_static_google_ads_googleads_v10_services_CampaignDuration_descriptor;
@@ -107,7 +49,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int DURATION_IN_DAYS_FIELD_NUMBER = 2;
-  private int durationInDays_;
+  private int durationInDays_ = 0;
   /**
    * <pre>
    * The duration value in days.
@@ -182,7 +124,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.common.DateRangeOrBuilder getDateRangeOrBuilder() {
-    return getDateRange();
+    return dateRange_ == null ? com.google.ads.googleads.v10.common.DateRange.getDefaultInstance() : dateRange_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -205,7 +147,7 @@ private static final long serialVersionUID = 0L;
     if (dateRange_ != null) {
       output.writeMessage(3, getDateRange());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -222,7 +164,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getDateRange());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -247,7 +189,7 @@ private static final long serialVersionUID = 0L;
       if (!getDateRange()
           .equals(other.getDateRange())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -266,7 +208,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DATE_RANGE_FIELD_NUMBER;
       hash = (53 * hash) + getDateRange().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -387,28 +329,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.services.CampaignDuration.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       durationInDays_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (dateRangeBuilder_ == null) {
-        dateRange_ = null;
-      } else {
-        dateRange_ = null;
+      dateRange_ = null;
+      if (dateRangeBuilder_ != null) {
+        dateRangeBuilder_.dispose();
         dateRangeBuilder_ = null;
       }
       return this;
@@ -437,20 +373,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.services.CampaignDuration buildPartial() {
       com.google.ads.googleads.v10.services.CampaignDuration result = new com.google.ads.googleads.v10.services.CampaignDuration(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.services.CampaignDuration result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.durationInDays_ = durationInDays_;
         to_bitField0_ |= 0x00000001;
       }
-      if (dateRangeBuilder_ == null) {
-        result.dateRange_ = dateRange_;
-      } else {
-        result.dateRange_ = dateRangeBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dateRange_ = dateRangeBuilder_ == null
+            ? dateRange_
+            : dateRangeBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -503,7 +443,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDateRange()) {
         mergeDateRange(other.getDateRange());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -518,17 +458,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.services.CampaignDuration parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+              durationInDays_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getDateRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.services.CampaignDuration) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -571,8 +536,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDurationInDays(int value) {
-      bitField0_ |= 0x00000001;
+      
       durationInDays_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -608,7 +574,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dateRange field is set.
      */
     public boolean hasDateRange() {
-      return dateRangeBuilder_ != null || dateRange_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -646,11 +612,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dateRange_ = value;
-        onChanged();
       } else {
         dateRangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -668,11 +634,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.common.DateRange.Builder builderForValue) {
       if (dateRangeBuilder_ == null) {
         dateRange_ = builderForValue.build();
-        onChanged();
       } else {
         dateRangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -688,17 +654,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDateRange(com.google.ads.googleads.v10.common.DateRange value) {
       if (dateRangeBuilder_ == null) {
-        if (dateRange_ != null) {
-          dateRange_ =
-            com.google.ads.googleads.v10.common.DateRange.newBuilder(dateRange_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          dateRange_ != null &&
+          dateRange_ != com.google.ads.googleads.v10.common.DateRange.getDefaultInstance()) {
+          getDateRangeBuilder().mergeFrom(value);
         } else {
           dateRange_ = value;
         }
-        onChanged();
       } else {
         dateRangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -713,14 +680,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.DateRange date_range = 3;</code>
      */
     public Builder clearDateRange() {
-      if (dateRangeBuilder_ == null) {
-        dateRange_ = null;
-        onChanged();
-      } else {
-        dateRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      dateRange_ = null;
+      if (dateRangeBuilder_ != null) {
+        dateRangeBuilder_.dispose();
         dateRangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -735,7 +701,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.DateRange date_range = 3;</code>
      */
     public com.google.ads.googleads.v10.common.DateRange.Builder getDateRangeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDateRangeFieldBuilder().getBuilder();
     }
@@ -815,7 +781,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CampaignDuration(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

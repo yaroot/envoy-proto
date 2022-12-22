@@ -241,4 +241,34 @@ public interface ResourceOrBuilder extends
    * <code>.envoy.service.discovery.v3.Resource.CacheControl cache_control = 7;</code>
    */
   io.envoyproxy.envoy.service.discovery.v3.Resource.CacheControlOrBuilder getCacheControlOrBuilder();
+
+  /**
+   * <pre>
+   * The Metadata field can be used to provide additional information for the resource.
+   * E.g. the trace data for debugging.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.Metadata metadata = 9;</code>
+   * @return Whether the metadata field is set.
+   */
+  boolean hasMetadata();
+  /**
+   * <pre>
+   * The Metadata field can be used to provide additional information for the resource.
+   * E.g. the trace data for debugging.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.Metadata metadata = 9;</code>
+   * @return The metadata.
+   */
+  io.envoyproxy.envoy.config.core.v3.Metadata getMetadata();
+  /**
+   * <pre>
+   * The Metadata field can be used to provide additional information for the resource.
+   * E.g. the trace data for debugging.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.Metadata metadata = 9;</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.MetadataOrBuilder getMetadataOrBuilder();
 }

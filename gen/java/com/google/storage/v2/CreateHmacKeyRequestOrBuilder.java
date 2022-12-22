@@ -9,9 +9,9 @@ public interface CreateHmacKeyRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The project that the HMAC-owning service account lives in, in the format of
-   * "projects/&lt;projectIdentifier&gt;".
-   * &lt;projectIdentifier&gt; can be the project ID or project number.
+   * Required. The project that the HMAC-owning service account lives in, in the
+   * format of "projects/&lt;projectIdentifier&gt;". &lt;projectIdentifier&gt; can be the
+   * project ID or project number.
    * </pre>
    *
    * <code>string project = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,9 +20,9 @@ public interface CreateHmacKeyRequestOrBuilder extends
   java.lang.String getProject();
   /**
    * <pre>
-   * Required. The project that the HMAC-owning service account lives in, in the format of
-   * "projects/&lt;projectIdentifier&gt;".
-   * &lt;projectIdentifier&gt; can be the project ID or project number.
+   * Required. The project that the HMAC-owning service account lives in, in the
+   * format of "projects/&lt;projectIdentifier&gt;". &lt;projectIdentifier&gt; can be the
+   * project ID or project number.
    * </pre>
    *
    * <code>string project = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

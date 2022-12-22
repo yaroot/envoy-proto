@@ -10,7 +10,7 @@ public interface ProcessorOrBuilder extends
   /**
    * <pre>
    * Output only. Immutable. The resource name of the processor.
-   * Format: projects/{project}/locations/{location}/processors/{processor}
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -20,7 +20,7 @@ public interface ProcessorOrBuilder extends
   /**
    * <pre>
    * Output only. Immutable. The resource name of the processor.
-   * Format: projects/{project}/locations/{location}/processors/{processor}
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -31,7 +31,9 @@ public interface ProcessorOrBuilder extends
 
   /**
    * <pre>
-   * The processor type.
+   * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
+   * To get a list of processors types, see
+   * [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
    * </pre>
    *
    * <code>string type = 2;</code>
@@ -40,7 +42,9 @@ public interface ProcessorOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * The processor type.
+   * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
+   * To get a list of processors types, see
+   * [FetchProcessorTypes][google.cloud.documentai.v1beta3.DocumentProcessorService.FetchProcessorTypes].
    * </pre>
    *
    * <code>string type = 2;</code>
@@ -93,7 +97,7 @@ public interface ProcessorOrBuilder extends
    * The default processor version.
    * </pre>
    *
-   * <code>string default_processor_version = 9;</code>
+   * <code>string default_processor_version = 9 [(.google.api.resource_reference) = { ... }</code>
    * @return The defaultProcessorVersion.
    */
   java.lang.String getDefaultProcessorVersion();
@@ -102,7 +106,7 @@ public interface ProcessorOrBuilder extends
    * The default processor version.
    * </pre>
    *
-   * <code>string default_processor_version = 9;</code>
+   * <code>string default_processor_version = 9 [(.google.api.resource_reference) = { ... }</code>
    * @return The bytes for defaultProcessorVersion.
    */
   com.google.protobuf.ByteString
@@ -110,7 +114,8 @@ public interface ProcessorOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Immutable. The http endpoint that can be called to invoke processing.
+   * Output only. Immutable. The http endpoint that can be called to invoke
+   * processing.
    * </pre>
    *
    * <code>string process_endpoint = 6 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -119,7 +124,8 @@ public interface ProcessorOrBuilder extends
   java.lang.String getProcessEndpoint();
   /**
    * <pre>
-   * Output only. Immutable. The http endpoint that can be called to invoke processing.
+   * Output only. Immutable. The http endpoint that can be called to invoke
+   * processing.
    * </pre>
    *
    * <code>string process_endpoint = 6 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.field_behavior) = IMMUTABLE];</code>

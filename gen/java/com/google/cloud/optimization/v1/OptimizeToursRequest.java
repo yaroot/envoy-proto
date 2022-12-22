@@ -41,178 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OptimizeToursRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeout_ != null) {
-              subBuilder = timeout_.toBuilder();
-            }
-            timeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeout_);
-              timeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.optimization.v1.ShipmentModel.Builder subBuilder = null;
-            if (model_ != null) {
-              subBuilder = model_.toBuilder();
-            }
-            model_ = input.readMessage(com.google.cloud.optimization.v1.ShipmentModel.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(model_);
-              model_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            solvingMode_ = rawValue;
-            break;
-          }
-          case 40: {
-            bitField0_ |= 0x00000001;
-            maxValidationErrors_ = input.readInt32();
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            searchMode_ = rawValue;
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              injectedFirstSolutionRoutes_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            injectedFirstSolutionRoutes_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            com.google.cloud.optimization.v1.InjectedSolutionConstraint.Builder subBuilder = null;
-            if (injectedSolutionConstraint_ != null) {
-              subBuilder = injectedSolutionConstraint_.toBuilder();
-            }
-            injectedSolutionConstraint_ = input.readMessage(com.google.cloud.optimization.v1.InjectedSolutionConstraint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(injectedSolutionConstraint_);
-              injectedSolutionConstraint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              refreshDetailsRoutes_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            refreshDetailsRoutes_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.parser(), extensionRegistry));
-            break;
-          }
-          case 80: {
-
-            interpretInjectedSolutionsUsingLabels_ = input.readBool();
-            break;
-          }
-          case 88: {
-
-            considerRoadTraffic_ = input.readBool();
-            break;
-          }
-          case 96: {
-
-            populatePolylines_ = input.readBool();
-            break;
-          }
-          case 104: {
-
-            populateTransitionPolylines_ = input.readBool();
-            break;
-          }
-          case 112: {
-
-            allowLargeDeadlineDespiteInterruptionRisk_ = input.readBool();
-            break;
-          }
-          case 120: {
-
-            useGeodesicDistances_ = input.readBool();
-            break;
-          }
-          case 129: {
-            bitField0_ |= 0x00000002;
-            geodesicMetersPerSecond_ = input.readDouble();
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            label_ = s;
-            break;
-          }
-          case 160: {
-
-            populateTravelStepPolylines_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        injectedFirstSolutionRoutes_ = java.util.Collections.unmodifiableList(injectedFirstSolutionRoutes_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        refreshDetailsRoutes_ = java.util.Collections.unmodifiableList(refreshDetailsRoutes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_OptimizeToursRequest_descriptor;
@@ -230,8 +58,9 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Defines how the solver should handle the request. In all modes but
    * `VALIDATE_ONLY`, if the request is invalid, you will receive an
-   * `INVALID_REQUEST` error. See [max_validation_errors][google.cloud.optimization.v1.OptimizeToursRequest.max_validation_errors] to cap the number of
-   * errors returned.
+   * `INVALID_REQUEST` error. See
+   * [max_validation_errors][google.cloud.optimization.v1.OptimizeToursRequest.max_validation_errors]
+   * to cap the number of errors returned.
    * </pre>
    *
    * Protobuf enum {@code google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode}
@@ -536,7 +365,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Target project and location to make a call.
@@ -632,7 +462,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeoutOrBuilder() {
-    return getTimeout();
+    return timeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeout_;
   }
 
   public static final int MODEL_FIELD_NUMBER = 3;
@@ -670,11 +500,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.ShipmentModelOrBuilder getModelOrBuilder() {
-    return getModel();
+    return model_ == null ? com.google.cloud.optimization.v1.ShipmentModel.getDefaultInstance() : model_;
   }
 
   public static final int SOLVING_MODE_FIELD_NUMBER = 4;
-  private int solvingMode_;
+  private int solvingMode_ = 0;
   /**
    * <pre>
    * By default, the solving mode is `DEFAULT_SOLVE` (0).
@@ -695,13 +525,12 @@ private static final long serialVersionUID = 0L;
    * @return The solvingMode.
    */
   @java.lang.Override public com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode getSolvingMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode result = com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode.valueOf(solvingMode_);
+    com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode result = com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode.forNumber(solvingMode_);
     return result == null ? com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode.UNRECOGNIZED : result;
   }
 
   public static final int MAX_VALIDATION_ERRORS_FIELD_NUMBER = 5;
-  private int maxValidationErrors_;
+  private int maxValidationErrors_ = 0;
   /**
    * <pre>
    * Truncates the number of validation errors returned. Those errors are
@@ -740,7 +569,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEARCH_MODE_FIELD_NUMBER = 6;
-  private int searchMode_;
+  private int searchMode_ = 0;
   /**
    * <pre>
    * Search mode used to solve the request.
@@ -761,12 +590,12 @@ private static final long serialVersionUID = 0L;
    * @return The searchMode.
    */
   @java.lang.Override public com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode getSearchMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode result = com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode.valueOf(searchMode_);
+    com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode result = com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode.forNumber(searchMode_);
     return result == null ? com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode.UNRECOGNIZED : result;
   }
 
   public static final int INJECTED_FIRST_SOLUTION_ROUTES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute> injectedFirstSolutionRoutes_;
   /**
    * <pre>
@@ -788,8 +617,9 @@ private static final long serialVersionUID = 0L;
    *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
    *     &lt;= vehicle_end_time`).
    *   * a shipment may only be performed on a vehicle that is allowed. A
-   *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-   *     its `vehicle_index` is included in
+   *     vehicle is allowed if
+   *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+   *     is empty or its `vehicle_index` is included in
    *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
    * If the injected solution is not feasible, a validation error is not
    * necessarily returned and an error indicating infeasibility may be returned
@@ -822,8 +652,9 @@ private static final long serialVersionUID = 0L;
    *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
    *     &lt;= vehicle_end_time`).
    *   * a shipment may only be performed on a vehicle that is allowed. A
-   *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-   *     its `vehicle_index` is included in
+   *     vehicle is allowed if
+   *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+   *     is empty or its `vehicle_index` is included in
    *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
    * If the injected solution is not feasible, a validation error is not
    * necessarily returned and an error indicating infeasibility may be returned
@@ -857,8 +688,9 @@ private static final long serialVersionUID = 0L;
    *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
    *     &lt;= vehicle_end_time`).
    *   * a shipment may only be performed on a vehicle that is allowed. A
-   *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-   *     its `vehicle_index` is included in
+   *     vehicle is allowed if
+   *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+   *     is empty or its `vehicle_index` is included in
    *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
    * If the injected solution is not feasible, a validation error is not
    * necessarily returned and an error indicating infeasibility may be returned
@@ -891,8 +723,9 @@ private static final long serialVersionUID = 0L;
    *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
    *     &lt;= vehicle_end_time`).
    *   * a shipment may only be performed on a vehicle that is allowed. A
-   *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-   *     its `vehicle_index` is included in
+   *     vehicle is allowed if
+   *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+   *     is empty or its `vehicle_index` is included in
    *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
    * If the injected solution is not feasible, a validation error is not
    * necessarily returned and an error indicating infeasibility may be returned
@@ -925,8 +758,9 @@ private static final long serialVersionUID = 0L;
    *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
    *     &lt;= vehicle_end_time`).
    *   * a shipment may only be performed on a vehicle that is allowed. A
-   *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-   *     its `vehicle_index` is included in
+   *     vehicle is allowed if
+   *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+   *     is empty or its `vehicle_index` is included in
    *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
    * If the injected solution is not feasible, a validation error is not
    * necessarily returned and an error indicating infeasibility may be returned
@@ -994,10 +828,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.InjectedSolutionConstraintOrBuilder getInjectedSolutionConstraintOrBuilder() {
-    return getInjectedSolutionConstraint();
+    return injectedSolutionConstraint_ == null ? com.google.cloud.optimization.v1.InjectedSolutionConstraint.getDefaultInstance() : injectedSolutionConstraint_;
   }
 
   public static final int REFRESH_DETAILS_ROUTES_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute> refreshDetailsRoutes_;
   /**
    * <pre>
@@ -1113,20 +948,31 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTERPRET_INJECTED_SOLUTIONS_USING_LABELS_FIELD_NUMBER = 10;
-  private boolean interpretInjectedSolutionsUsingLabels_;
+  private boolean interpretInjectedSolutionsUsingLabels_ = false;
   /**
    * <pre>
    * If true:
-   *   * uses [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label] instead of `vehicle_index` to
+   *   * uses
+   *   [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label]
+   *   instead of `vehicle_index` to
    *     match routes in an injected solution with vehicles in the request;
-   *     reuses the mapping of original [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index] to new
-   *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index] to update
+   *     reuses the mapping of original
+   *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
+   *     to new
+   *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
+   *     to update
    *     [ConstraintRelaxation.vehicle_indices][google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.vehicle_indices]
    *     if non-empty, but the mapping must be unambiguous (i.e., multiple
    *     `ShipmentRoute`s must not share the same original `vehicle_index`).
-   *   * uses [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label] instead of `shipment_index`
+   *   * uses
+   *   [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label]
+   *   instead of `shipment_index`
    *     to match visits in an injected solution with shipments in the request;
-   *   * uses [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] instead of [SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index] to
+   *   * uses
+   *   [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
+   *   instead of
+   *   [SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index]
+   *   to
    *     match skipped shipments in the injected solution with request
    *     shipments.
    * This interpretation applies to the `injected_first_solution_routes`,
@@ -1136,8 +982,10 @@ private static final long serialVersionUID = 0L;
    * vehicles have been removed from or added to the request.
    * If true, labels in the following categories must appear at most once in
    * their category:
-   *   * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] in the request;
-   *   * [Shipment.label][google.cloud.optimization.v1.Shipment.label] in the request;
+   *   * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] in the
+   *   request;
+   *   * [Shipment.label][google.cloud.optimization.v1.Shipment.label] in the
+   *   request;
    *   * [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label] in the injected solution;
    *   * [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] and [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label] in
    *     the injected solution (except pickup/delivery visit pairs, whose
@@ -1146,18 +994,21 @@ private static final long serialVersionUID = 0L;
    * request vehicle, the corresponding route is removed from the solution
    * along with its visits. If a `shipment_label` in the injected solution does
    * not correspond to a request shipment, the corresponding visit is removed
-   * from the solution. If a [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] in the injected solution
-   * does not correspond to a request shipment, the `SkippedShipment` is removed
-   * from the solution.
+   * from the solution. If a
+   * [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
+   * in the injected solution does not correspond to a request shipment, the
+   * `SkippedShipment` is removed from the solution.
    * Removing route visits or entire routes from an injected solution may
    * have an effect on the implied constraints, which may lead to change in
    * solution, validation errors, or infeasibility.
-   * NOTE: The caller must ensure that each [Vehicle.label][google.cloud.optimization.v1.Vehicle.label]
-   * (resp. [Shipment.label][google.cloud.optimization.v1.Shipment.label]) uniquely identifies a vehicle (resp. shipment)
-   * entity used across the two relevant requests: the past request that
-   * produced the `OptimizeToursResponse` used in the injected solution and the
-   * current request that includes the injected solution. The uniqueness checks
-   * described above are not enough to guarantee this requirement.
+   * NOTE: The caller must ensure that each
+   * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] (resp.
+   * [Shipment.label][google.cloud.optimization.v1.Shipment.label]) uniquely
+   * identifies a vehicle (resp. shipment) entity used across the two relevant
+   * requests: the past request that produced the `OptimizeToursResponse` used
+   * in the injected solution and the current request that includes the injected
+   * solution. The uniqueness checks described above are not enough to guarantee
+   * this requirement.
    * </pre>
    *
    * <code>bool interpret_injected_solutions_using_labels = 10;</code>
@@ -1169,15 +1020,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONSIDER_ROAD_TRAFFIC_FIELD_NUMBER = 11;
-  private boolean considerRoadTraffic_;
+  private boolean considerRoadTraffic_ = false;
   /**
    * <pre>
    * Consider traffic estimation in calculating `ShipmentRoute` fields
    * [Transition.travel_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_duration],
    * [Visit.start_time][google.cloud.optimization.v1.ShipmentRoute.Visit.start_time],
    * and `vehicle_end_time`; in setting the
-   * [ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities] field, and in calculating the
-   * [OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost] field.
+   * [ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities]
+   * field, and in calculating the
+   * [OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost]
+   * field.
    * </pre>
    *
    * <code>bool consider_road_traffic = 11;</code>
@@ -1189,7 +1042,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POPULATE_POLYLINES_FIELD_NUMBER = 12;
-  private boolean populatePolylines_;
+  private boolean populatePolylines_ = false;
   /**
    * <pre>
    * If true, polylines will be populated in response `ShipmentRoute`s.
@@ -1204,7 +1057,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POPULATE_TRANSITION_POLYLINES_FIELD_NUMBER = 13;
-  private boolean populateTransitionPolylines_;
+  private boolean populateTransitionPolylines_ = false;
   /**
    * <pre>
    * If true, polylines will be populated in response
@@ -1222,7 +1075,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_LARGE_DEADLINE_DESPITE_INTERRUPTION_RISK_FIELD_NUMBER = 14;
-  private boolean allowLargeDeadlineDespiteInterruptionRisk_;
+  private boolean allowLargeDeadlineDespiteInterruptionRisk_ = false;
   /**
    * <pre>
    * If this is set, then the request can have a deadline
@@ -1241,7 +1094,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_GEODESIC_DISTANCES_FIELD_NUMBER = 15;
-  private boolean useGeodesicDistances_;
+  private boolean useGeodesicDistances_ = false;
   /**
    * <pre>
    * If true, travel distances will be computed using geodesic distances instead
@@ -1258,7 +1111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GEODESIC_METERS_PER_SECOND_FIELD_NUMBER = 16;
-  private double geodesicMetersPerSecond_;
+  private double geodesicMetersPerSecond_ = 0D;
   /**
    * <pre>
    * When `use_geodesic_distances` is true, this field must be set and defines
@@ -1289,7 +1142,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LABEL_FIELD_NUMBER = 17;
-  private volatile java.lang.Object label_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object label_ = "";
   /**
    * <pre>
    * Label that may be used to identify this request, reported back in the
@@ -1337,18 +1191,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POPULATE_TRAVEL_STEP_POLYLINES_FIELD_NUMBER = 20;
-  private boolean populateTravelStepPolylines_;
+  private boolean populateTravelStepPolylines_ = false;
   /**
    * <pre>
-   * Deprecated: Use [OptimizeToursRequest.populate_transition_polylines][] instead.
-   * If true, polylines will be populated in response
-   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]. Note that in this case, the polylines will
-   * also be populated in the deprecated `travel_steps`.
+   * Deprecated: Use [OptimizeToursRequest.populate_transition_polylines][]
+   * instead. If true, polylines will be populated in response
+   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions].
+   * Note that in this case, the polylines will also be populated in the
+   * deprecated `travel_steps`.
    * </pre>
    *
    * <code>bool populate_travel_step_polylines = 20 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.OptimizeToursRequest.populate_travel_step_polylines is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=327
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=350
    * @return The populateTravelStepPolylines.
    */
   @java.lang.Override
@@ -1424,7 +1279,7 @@ private static final long serialVersionUID = 0L;
     if (populateTravelStepPolylines_ != false) {
       output.writeBool(20, populateTravelStepPolylines_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1503,7 +1358,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(20, populateTravelStepPolylines_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1568,7 +1423,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLabel())) return false;
     if (getPopulateTravelStepPolylines()
         != other.getPopulateTravelStepPolylines()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1637,7 +1492,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + POPULATE_TRAVEL_STEP_POLYLINES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getPopulateTravelStepPolylines());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1759,80 +1614,60 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.OptimizeToursRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInjectedFirstSolutionRoutesFieldBuilder();
-        getRefreshDetailsRoutesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-      } else {
-        timeout_ = null;
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
-      if (modelBuilder_ == null) {
-        model_ = null;
-      } else {
-        model_ = null;
+      model_ = null;
+      if (modelBuilder_ != null) {
+        modelBuilder_.dispose();
         modelBuilder_ = null;
       }
       solvingMode_ = 0;
-
       maxValidationErrors_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
       searchMode_ = 0;
-
       if (injectedFirstSolutionRoutesBuilder_ == null) {
         injectedFirstSolutionRoutes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        injectedFirstSolutionRoutes_ = null;
         injectedFirstSolutionRoutesBuilder_.clear();
       }
-      if (injectedSolutionConstraintBuilder_ == null) {
-        injectedSolutionConstraint_ = null;
-      } else {
-        injectedSolutionConstraint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      injectedSolutionConstraint_ = null;
+      if (injectedSolutionConstraintBuilder_ != null) {
+        injectedSolutionConstraintBuilder_.dispose();
         injectedSolutionConstraintBuilder_ = null;
       }
       if (refreshDetailsRoutesBuilder_ == null) {
         refreshDetailsRoutes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        refreshDetailsRoutes_ = null;
         refreshDetailsRoutesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
       interpretInjectedSolutionsUsingLabels_ = false;
-
       considerRoadTraffic_ = false;
-
       populatePolylines_ = false;
-
       populateTransitionPolylines_ = false;
-
       allowLargeDeadlineDespiteInterruptionRisk_ = false;
-
       useGeodesicDistances_ = false;
-
       geodesicMetersPerSecond_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000008);
       label_ = "";
-
       populateTravelStepPolylines_ = false;
-
       return this;
     }
 
@@ -1859,63 +1694,93 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.OptimizeToursRequest buildPartial() {
       com.google.cloud.optimization.v1.OptimizeToursRequest result = new com.google.cloud.optimization.v1.OptimizeToursRequest(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.parent_ = parent_;
-      if (timeoutBuilder_ == null) {
-        result.timeout_ = timeout_;
-      } else {
-        result.timeout_ = timeoutBuilder_.build();
-      }
-      if (modelBuilder_ == null) {
-        result.model_ = model_;
-      } else {
-        result.model_ = modelBuilder_.build();
-      }
-      result.solvingMode_ = solvingMode_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.maxValidationErrors_ = maxValidationErrors_;
-        to_bitField0_ |= 0x00000001;
-      }
-      result.searchMode_ = searchMode_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.OptimizeToursRequest result) {
       if (injectedFirstSolutionRoutesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           injectedFirstSolutionRoutes_ = java.util.Collections.unmodifiableList(injectedFirstSolutionRoutes_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.injectedFirstSolutionRoutes_ = injectedFirstSolutionRoutes_;
       } else {
         result.injectedFirstSolutionRoutes_ = injectedFirstSolutionRoutesBuilder_.build();
       }
-      if (injectedSolutionConstraintBuilder_ == null) {
-        result.injectedSolutionConstraint_ = injectedSolutionConstraint_;
-      } else {
-        result.injectedSolutionConstraint_ = injectedSolutionConstraintBuilder_.build();
-      }
       if (refreshDetailsRoutesBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           refreshDetailsRoutes_ = java.util.Collections.unmodifiableList(refreshDetailsRoutes_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.refreshDetailsRoutes_ = refreshDetailsRoutes_;
       } else {
         result.refreshDetailsRoutes_ = refreshDetailsRoutesBuilder_.build();
       }
-      result.interpretInjectedSolutionsUsingLabels_ = interpretInjectedSolutionsUsingLabels_;
-      result.considerRoadTraffic_ = considerRoadTraffic_;
-      result.populatePolylines_ = populatePolylines_;
-      result.populateTransitionPolylines_ = populateTransitionPolylines_;
-      result.allowLargeDeadlineDespiteInterruptionRisk_ = allowLargeDeadlineDespiteInterruptionRisk_;
-      result.useGeodesicDistances_ = useGeodesicDistances_;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.OptimizeToursRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.timeout_ = timeoutBuilder_ == null
+            ? timeout_
+            : timeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.model_ = modelBuilder_ == null
+            ? model_
+            : modelBuilder_.build();
+      }
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.solvingMode_ = solvingMode_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.maxValidationErrors_ = maxValidationErrors_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.searchMode_ = searchMode_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.injectedSolutionConstraint_ = injectedSolutionConstraintBuilder_ == null
+            ? injectedSolutionConstraint_
+            : injectedSolutionConstraintBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.interpretInjectedSolutionsUsingLabels_ = interpretInjectedSolutionsUsingLabels_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.considerRoadTraffic_ = considerRoadTraffic_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.populatePolylines_ = populatePolylines_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.populateTransitionPolylines_ = populateTransitionPolylines_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.allowLargeDeadlineDespiteInterruptionRisk_ = allowLargeDeadlineDespiteInterruptionRisk_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.useGeodesicDistances_ = useGeodesicDistances_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
         result.geodesicMetersPerSecond_ = geodesicMetersPerSecond_;
         to_bitField0_ |= 0x00000002;
       }
-      result.label_ = label_;
-      result.populateTravelStepPolylines_ = populateTravelStepPolylines_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.label_ = label_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.populateTravelStepPolylines_ = populateTravelStepPolylines_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1964,6 +1829,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.optimization.v1.OptimizeToursRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTimeout()) {
@@ -1985,7 +1851,7 @@ private static final long serialVersionUID = 0L;
         if (!other.injectedFirstSolutionRoutes_.isEmpty()) {
           if (injectedFirstSolutionRoutes_.isEmpty()) {
             injectedFirstSolutionRoutes_ = other.injectedFirstSolutionRoutes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureInjectedFirstSolutionRoutesIsMutable();
             injectedFirstSolutionRoutes_.addAll(other.injectedFirstSolutionRoutes_);
@@ -1998,7 +1864,7 @@ private static final long serialVersionUID = 0L;
             injectedFirstSolutionRoutesBuilder_.dispose();
             injectedFirstSolutionRoutesBuilder_ = null;
             injectedFirstSolutionRoutes_ = other.injectedFirstSolutionRoutes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
             injectedFirstSolutionRoutesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getInjectedFirstSolutionRoutesFieldBuilder() : null;
@@ -2014,7 +1880,7 @@ private static final long serialVersionUID = 0L;
         if (!other.refreshDetailsRoutes_.isEmpty()) {
           if (refreshDetailsRoutes_.isEmpty()) {
             refreshDetailsRoutes_ = other.refreshDetailsRoutes_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureRefreshDetailsRoutesIsMutable();
             refreshDetailsRoutes_.addAll(other.refreshDetailsRoutes_);
@@ -2027,7 +1893,7 @@ private static final long serialVersionUID = 0L;
             refreshDetailsRoutesBuilder_.dispose();
             refreshDetailsRoutesBuilder_ = null;
             refreshDetailsRoutes_ = other.refreshDetailsRoutes_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000100);
             refreshDetailsRoutesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRefreshDetailsRoutesFieldBuilder() : null;
@@ -2059,12 +1925,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLabel().isEmpty()) {
         label_ = other.label_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       if (other.getPopulateTravelStepPolylines() != false) {
         setPopulateTravelStepPolylines(other.getPopulateTravelStepPolylines());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2079,17 +1946,142 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.OptimizeToursRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getModelFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              solvingMode_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              maxValidationErrors_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              searchMode_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              com.google.cloud.optimization.v1.ShipmentRoute m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentRoute.parser(),
+                      extensionRegistry);
+              if (injectedFirstSolutionRoutesBuilder_ == null) {
+                ensureInjectedFirstSolutionRoutesIsMutable();
+                injectedFirstSolutionRoutes_.add(m);
+              } else {
+                injectedFirstSolutionRoutesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getInjectedSolutionConstraintFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              com.google.cloud.optimization.v1.ShipmentRoute m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentRoute.parser(),
+                      extensionRegistry);
+              if (refreshDetailsRoutesBuilder_ == null) {
+                ensureRefreshDetailsRoutesIsMutable();
+                refreshDetailsRoutes_.add(m);
+              } else {
+                refreshDetailsRoutesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 80: {
+              interpretInjectedSolutionsUsingLabels_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              considerRoadTraffic_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              populatePolylines_ = input.readBool();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 104: {
+              populateTransitionPolylines_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 112: {
+              allowLargeDeadlineDespiteInterruptionRisk_ = input.readBool();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 120: {
+              useGeodesicDistances_ = input.readBool();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 120
+            case 129: {
+              geodesicMetersPerSecond_ = input.readDouble();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 129
+            case 138: {
+              label_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            case 160: {
+              populateTravelStepPolylines_ = input.readBool();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 160
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.OptimizeToursRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2153,11 +2145,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2172,8 +2162,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2190,12 +2180,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2216,7 +2204,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeout field is set.
      */
     public boolean hasTimeout() {
-      return timeoutBuilder_ != null || timeout_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2254,11 +2242,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeout_ = value;
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2276,11 +2264,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeoutBuilder_ == null) {
         timeout_ = builderForValue.build();
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2296,17 +2284,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeout(com.google.protobuf.Duration value) {
       if (timeoutBuilder_ == null) {
-        if (timeout_ != null) {
-          timeout_ =
-            com.google.protobuf.Duration.newBuilder(timeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          timeout_ != null &&
+          timeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeoutBuilder().mergeFrom(value);
         } else {
           timeout_ = value;
         }
-        onChanged();
       } else {
         timeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2321,14 +2310,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 2;</code>
      */
     public Builder clearTimeout() {
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-        onChanged();
-      } else {
-        timeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2343,7 +2331,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTimeoutFieldBuilder().getBuilder();
     }
@@ -2403,7 +2391,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the model field is set.
      */
     public boolean hasModel() {
-      return modelBuilder_ != null || model_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2433,11 +2421,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         model_ = value;
-        onChanged();
       } else {
         modelBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2451,11 +2439,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.ShipmentModel.Builder builderForValue) {
       if (modelBuilder_ == null) {
         model_ = builderForValue.build();
-        onChanged();
       } else {
         modelBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2467,17 +2455,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeModel(com.google.cloud.optimization.v1.ShipmentModel value) {
       if (modelBuilder_ == null) {
-        if (model_ != null) {
-          model_ =
-            com.google.cloud.optimization.v1.ShipmentModel.newBuilder(model_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          model_ != null &&
+          model_ != com.google.cloud.optimization.v1.ShipmentModel.getDefaultInstance()) {
+          getModelBuilder().mergeFrom(value);
         } else {
           model_ = value;
         }
-        onChanged();
       } else {
         modelBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2488,14 +2477,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.ShipmentModel model = 3;</code>
      */
     public Builder clearModel() {
-      if (modelBuilder_ == null) {
-        model_ = null;
-        onChanged();
-      } else {
-        model_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      model_ = null;
+      if (modelBuilder_ != null) {
+        modelBuilder_.dispose();
         modelBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2506,7 +2494,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.ShipmentModel model = 3;</code>
      */
     public com.google.cloud.optimization.v1.ShipmentModel.Builder getModelBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getModelFieldBuilder().getBuilder();
     }
@@ -2568,8 +2556,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSolvingModeValue(int value) {
-      
       solvingMode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2583,8 +2571,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode getSolvingMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode result = com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode.valueOf(solvingMode_);
+      com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode result = com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode.forNumber(solvingMode_);
       return result == null ? com.google.cloud.optimization.v1.OptimizeToursRequest.SolvingMode.UNRECOGNIZED : result;
     }
     /**
@@ -2600,7 +2587,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       solvingMode_ = value.getNumber();
       onChanged();
       return this;
@@ -2614,7 +2601,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSolvingMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       solvingMode_ = 0;
       onChanged();
       return this;
@@ -2637,7 +2624,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasMaxValidationErrors() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2673,8 +2660,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxValidationErrors(int value) {
-      bitField0_ |= 0x00000001;
+      
       maxValidationErrors_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2693,7 +2681,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxValidationErrors() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       maxValidationErrors_ = 0;
       onChanged();
       return this;
@@ -2721,8 +2709,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSearchModeValue(int value) {
-      
       searchMode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2736,8 +2724,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode getSearchMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode result = com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode.valueOf(searchMode_);
+      com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode result = com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode.forNumber(searchMode_);
       return result == null ? com.google.cloud.optimization.v1.OptimizeToursRequest.SearchMode.UNRECOGNIZED : result;
     }
     /**
@@ -2753,7 +2740,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       searchMode_ = value.getNumber();
       onChanged();
       return this;
@@ -2767,7 +2754,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSearchMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       searchMode_ = 0;
       onChanged();
       return this;
@@ -2776,9 +2763,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute> injectedFirstSolutionRoutes_ =
       java.util.Collections.emptyList();
     private void ensureInjectedFirstSolutionRoutesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         injectedFirstSolutionRoutes_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute>(injectedFirstSolutionRoutes_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2805,8 +2792,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -2842,8 +2830,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -2879,8 +2868,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -2916,8 +2906,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -2960,8 +2951,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3001,8 +2993,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3044,8 +3037,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3088,8 +3082,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3129,8 +3124,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3170,8 +3166,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3212,8 +3209,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3225,7 +3223,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearInjectedFirstSolutionRoutes() {
       if (injectedFirstSolutionRoutesBuilder_ == null) {
         injectedFirstSolutionRoutes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         injectedFirstSolutionRoutesBuilder_.clear();
@@ -3252,8 +3250,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3292,8 +3291,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3326,8 +3326,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3363,8 +3364,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3401,8 +3403,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3435,8 +3438,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3470,8 +3474,9 @@ private static final long serialVersionUID = 0L;
      *     &lt;= visits[0].start_time &lt;= visits[1].start_time ...
      *     &lt;= vehicle_end_time`).
      *   * a shipment may only be performed on a vehicle that is allowed. A
-     *     vehicle is allowed if [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices] is empty or
-     *     its `vehicle_index` is included in
+     *     vehicle is allowed if
+     *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices]
+     *     is empty or its `vehicle_index` is included in
      *     [Shipment.allowed_vehicle_indices][google.cloud.optimization.v1.Shipment.allowed_vehicle_indices].
      * If the injected solution is not feasible, a validation error is not
      * necessarily returned and an error indicating infeasibility may be returned
@@ -3491,7 +3496,7 @@ private static final long serialVersionUID = 0L;
         injectedFirstSolutionRoutesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentRoute, com.google.cloud.optimization.v1.ShipmentRoute.Builder, com.google.cloud.optimization.v1.ShipmentRouteOrBuilder>(
                 injectedFirstSolutionRoutes_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         injectedFirstSolutionRoutes_ = null;
@@ -3517,7 +3522,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the injectedSolutionConstraint field is set.
      */
     public boolean hasInjectedSolutionConstraint() {
-      return injectedSolutionConstraintBuilder_ != null || injectedSolutionConstraint_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3559,11 +3564,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         injectedSolutionConstraint_ = value;
-        onChanged();
       } else {
         injectedSolutionConstraintBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3583,11 +3588,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.InjectedSolutionConstraint.Builder builderForValue) {
       if (injectedSolutionConstraintBuilder_ == null) {
         injectedSolutionConstraint_ = builderForValue.build();
-        onChanged();
       } else {
         injectedSolutionConstraintBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3605,17 +3610,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInjectedSolutionConstraint(com.google.cloud.optimization.v1.InjectedSolutionConstraint value) {
       if (injectedSolutionConstraintBuilder_ == null) {
-        if (injectedSolutionConstraint_ != null) {
-          injectedSolutionConstraint_ =
-            com.google.cloud.optimization.v1.InjectedSolutionConstraint.newBuilder(injectedSolutionConstraint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          injectedSolutionConstraint_ != null &&
+          injectedSolutionConstraint_ != com.google.cloud.optimization.v1.InjectedSolutionConstraint.getDefaultInstance()) {
+          getInjectedSolutionConstraintBuilder().mergeFrom(value);
         } else {
           injectedSolutionConstraint_ = value;
         }
-        onChanged();
       } else {
         injectedSolutionConstraintBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3632,14 +3638,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.InjectedSolutionConstraint injected_solution_constraint = 8;</code>
      */
     public Builder clearInjectedSolutionConstraint() {
-      if (injectedSolutionConstraintBuilder_ == null) {
-        injectedSolutionConstraint_ = null;
-        onChanged();
-      } else {
-        injectedSolutionConstraint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      injectedSolutionConstraint_ = null;
+      if (injectedSolutionConstraintBuilder_ != null) {
+        injectedSolutionConstraintBuilder_.dispose();
         injectedSolutionConstraintBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3656,7 +3661,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.InjectedSolutionConstraint injected_solution_constraint = 8;</code>
      */
     public com.google.cloud.optimization.v1.InjectedSolutionConstraint.Builder getInjectedSolutionConstraintBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getInjectedSolutionConstraintFieldBuilder().getBuilder();
     }
@@ -3711,9 +3716,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute> refreshDetailsRoutes_ =
       java.util.Collections.emptyList();
     private void ensureRefreshDetailsRoutesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         refreshDetailsRoutes_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute>(refreshDetailsRoutes_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -4028,7 +4033,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRefreshDetailsRoutes() {
       if (refreshDetailsRoutesBuilder_ == null) {
         refreshDetailsRoutes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         refreshDetailsRoutesBuilder_.clear();
@@ -4210,7 +4215,7 @@ private static final long serialVersionUID = 0L;
         refreshDetailsRoutesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentRoute, com.google.cloud.optimization.v1.ShipmentRoute.Builder, com.google.cloud.optimization.v1.ShipmentRouteOrBuilder>(
                 refreshDetailsRoutes_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         refreshDetailsRoutes_ = null;
@@ -4222,16 +4227,27 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * If true:
-     *   * uses [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label] instead of `vehicle_index` to
+     *   * uses
+     *   [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label]
+     *   instead of `vehicle_index` to
      *     match routes in an injected solution with vehicles in the request;
-     *     reuses the mapping of original [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index] to new
-     *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index] to update
+     *     reuses the mapping of original
+     *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
+     *     to new
+     *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
+     *     to update
      *     [ConstraintRelaxation.vehicle_indices][google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.vehicle_indices]
      *     if non-empty, but the mapping must be unambiguous (i.e., multiple
      *     `ShipmentRoute`s must not share the same original `vehicle_index`).
-     *   * uses [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label] instead of `shipment_index`
+     *   * uses
+     *   [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label]
+     *   instead of `shipment_index`
      *     to match visits in an injected solution with shipments in the request;
-     *   * uses [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] instead of [SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index] to
+     *   * uses
+     *   [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
+     *   instead of
+     *   [SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index]
+     *   to
      *     match skipped shipments in the injected solution with request
      *     shipments.
      * This interpretation applies to the `injected_first_solution_routes`,
@@ -4241,8 +4257,10 @@ private static final long serialVersionUID = 0L;
      * vehicles have been removed from or added to the request.
      * If true, labels in the following categories must appear at most once in
      * their category:
-     *   * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] in the request;
-     *   * [Shipment.label][google.cloud.optimization.v1.Shipment.label] in the request;
+     *   * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] in the
+     *   request;
+     *   * [Shipment.label][google.cloud.optimization.v1.Shipment.label] in the
+     *   request;
      *   * [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label] in the injected solution;
      *   * [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] and [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label] in
      *     the injected solution (except pickup/delivery visit pairs, whose
@@ -4251,18 +4269,21 @@ private static final long serialVersionUID = 0L;
      * request vehicle, the corresponding route is removed from the solution
      * along with its visits. If a `shipment_label` in the injected solution does
      * not correspond to a request shipment, the corresponding visit is removed
-     * from the solution. If a [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] in the injected solution
-     * does not correspond to a request shipment, the `SkippedShipment` is removed
-     * from the solution.
+     * from the solution. If a
+     * [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
+     * in the injected solution does not correspond to a request shipment, the
+     * `SkippedShipment` is removed from the solution.
      * Removing route visits or entire routes from an injected solution may
      * have an effect on the implied constraints, which may lead to change in
      * solution, validation errors, or infeasibility.
-     * NOTE: The caller must ensure that each [Vehicle.label][google.cloud.optimization.v1.Vehicle.label]
-     * (resp. [Shipment.label][google.cloud.optimization.v1.Shipment.label]) uniquely identifies a vehicle (resp. shipment)
-     * entity used across the two relevant requests: the past request that
-     * produced the `OptimizeToursResponse` used in the injected solution and the
-     * current request that includes the injected solution. The uniqueness checks
-     * described above are not enough to guarantee this requirement.
+     * NOTE: The caller must ensure that each
+     * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] (resp.
+     * [Shipment.label][google.cloud.optimization.v1.Shipment.label]) uniquely
+     * identifies a vehicle (resp. shipment) entity used across the two relevant
+     * requests: the past request that produced the `OptimizeToursResponse` used
+     * in the injected solution and the current request that includes the injected
+     * solution. The uniqueness checks described above are not enough to guarantee
+     * this requirement.
      * </pre>
      *
      * <code>bool interpret_injected_solutions_using_labels = 10;</code>
@@ -4275,16 +4296,27 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * If true:
-     *   * uses [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label] instead of `vehicle_index` to
+     *   * uses
+     *   [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label]
+     *   instead of `vehicle_index` to
      *     match routes in an injected solution with vehicles in the request;
-     *     reuses the mapping of original [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index] to new
-     *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index] to update
+     *     reuses the mapping of original
+     *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
+     *     to new
+     *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
+     *     to update
      *     [ConstraintRelaxation.vehicle_indices][google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.vehicle_indices]
      *     if non-empty, but the mapping must be unambiguous (i.e., multiple
      *     `ShipmentRoute`s must not share the same original `vehicle_index`).
-     *   * uses [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label] instead of `shipment_index`
+     *   * uses
+     *   [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label]
+     *   instead of `shipment_index`
      *     to match visits in an injected solution with shipments in the request;
-     *   * uses [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] instead of [SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index] to
+     *   * uses
+     *   [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
+     *   instead of
+     *   [SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index]
+     *   to
      *     match skipped shipments in the injected solution with request
      *     shipments.
      * This interpretation applies to the `injected_first_solution_routes`,
@@ -4294,8 +4326,10 @@ private static final long serialVersionUID = 0L;
      * vehicles have been removed from or added to the request.
      * If true, labels in the following categories must appear at most once in
      * their category:
-     *   * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] in the request;
-     *   * [Shipment.label][google.cloud.optimization.v1.Shipment.label] in the request;
+     *   * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] in the
+     *   request;
+     *   * [Shipment.label][google.cloud.optimization.v1.Shipment.label] in the
+     *   request;
      *   * [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label] in the injected solution;
      *   * [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] and [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label] in
      *     the injected solution (except pickup/delivery visit pairs, whose
@@ -4304,18 +4338,21 @@ private static final long serialVersionUID = 0L;
      * request vehicle, the corresponding route is removed from the solution
      * along with its visits. If a `shipment_label` in the injected solution does
      * not correspond to a request shipment, the corresponding visit is removed
-     * from the solution. If a [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] in the injected solution
-     * does not correspond to a request shipment, the `SkippedShipment` is removed
-     * from the solution.
+     * from the solution. If a
+     * [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
+     * in the injected solution does not correspond to a request shipment, the
+     * `SkippedShipment` is removed from the solution.
      * Removing route visits or entire routes from an injected solution may
      * have an effect on the implied constraints, which may lead to change in
      * solution, validation errors, or infeasibility.
-     * NOTE: The caller must ensure that each [Vehicle.label][google.cloud.optimization.v1.Vehicle.label]
-     * (resp. [Shipment.label][google.cloud.optimization.v1.Shipment.label]) uniquely identifies a vehicle (resp. shipment)
-     * entity used across the two relevant requests: the past request that
-     * produced the `OptimizeToursResponse` used in the injected solution and the
-     * current request that includes the injected solution. The uniqueness checks
-     * described above are not enough to guarantee this requirement.
+     * NOTE: The caller must ensure that each
+     * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] (resp.
+     * [Shipment.label][google.cloud.optimization.v1.Shipment.label]) uniquely
+     * identifies a vehicle (resp. shipment) entity used across the two relevant
+     * requests: the past request that produced the `OptimizeToursResponse` used
+     * in the injected solution and the current request that includes the injected
+     * solution. The uniqueness checks described above are not enough to guarantee
+     * this requirement.
      * </pre>
      *
      * <code>bool interpret_injected_solutions_using_labels = 10;</code>
@@ -4325,22 +4362,34 @@ private static final long serialVersionUID = 0L;
     public Builder setInterpretInjectedSolutionsUsingLabels(boolean value) {
       
       interpretInjectedSolutionsUsingLabels_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * If true:
-     *   * uses [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label] instead of `vehicle_index` to
+     *   * uses
+     *   [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label]
+     *   instead of `vehicle_index` to
      *     match routes in an injected solution with vehicles in the request;
-     *     reuses the mapping of original [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index] to new
-     *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index] to update
+     *     reuses the mapping of original
+     *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
+     *     to new
+     *     [ShipmentRoute.vehicle_index][google.cloud.optimization.v1.ShipmentRoute.vehicle_index]
+     *     to update
      *     [ConstraintRelaxation.vehicle_indices][google.cloud.optimization.v1.InjectedSolutionConstraint.ConstraintRelaxation.vehicle_indices]
      *     if non-empty, but the mapping must be unambiguous (i.e., multiple
      *     `ShipmentRoute`s must not share the same original `vehicle_index`).
-     *   * uses [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label] instead of `shipment_index`
+     *   * uses
+     *   [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label]
+     *   instead of `shipment_index`
      *     to match visits in an injected solution with shipments in the request;
-     *   * uses [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] instead of [SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index] to
+     *   * uses
+     *   [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
+     *   instead of
+     *   [SkippedShipment.index][google.cloud.optimization.v1.SkippedShipment.index]
+     *   to
      *     match skipped shipments in the injected solution with request
      *     shipments.
      * This interpretation applies to the `injected_first_solution_routes`,
@@ -4350,8 +4399,10 @@ private static final long serialVersionUID = 0L;
      * vehicles have been removed from or added to the request.
      * If true, labels in the following categories must appear at most once in
      * their category:
-     *   * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] in the request;
-     *   * [Shipment.label][google.cloud.optimization.v1.Shipment.label] in the request;
+     *   * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] in the
+     *   request;
+     *   * [Shipment.label][google.cloud.optimization.v1.Shipment.label] in the
+     *   request;
      *   * [ShipmentRoute.vehicle_label][google.cloud.optimization.v1.ShipmentRoute.vehicle_label] in the injected solution;
      *   * [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] and [ShipmentRoute.Visit.shipment_label][google.cloud.optimization.v1.ShipmentRoute.Visit.shipment_label] in
      *     the injected solution (except pickup/delivery visit pairs, whose
@@ -4360,25 +4411,28 @@ private static final long serialVersionUID = 0L;
      * request vehicle, the corresponding route is removed from the solution
      * along with its visits. If a `shipment_label` in the injected solution does
      * not correspond to a request shipment, the corresponding visit is removed
-     * from the solution. If a [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label] in the injected solution
-     * does not correspond to a request shipment, the `SkippedShipment` is removed
-     * from the solution.
+     * from the solution. If a
+     * [SkippedShipment.label][google.cloud.optimization.v1.SkippedShipment.label]
+     * in the injected solution does not correspond to a request shipment, the
+     * `SkippedShipment` is removed from the solution.
      * Removing route visits or entire routes from an injected solution may
      * have an effect on the implied constraints, which may lead to change in
      * solution, validation errors, or infeasibility.
-     * NOTE: The caller must ensure that each [Vehicle.label][google.cloud.optimization.v1.Vehicle.label]
-     * (resp. [Shipment.label][google.cloud.optimization.v1.Shipment.label]) uniquely identifies a vehicle (resp. shipment)
-     * entity used across the two relevant requests: the past request that
-     * produced the `OptimizeToursResponse` used in the injected solution and the
-     * current request that includes the injected solution. The uniqueness checks
-     * described above are not enough to guarantee this requirement.
+     * NOTE: The caller must ensure that each
+     * [Vehicle.label][google.cloud.optimization.v1.Vehicle.label] (resp.
+     * [Shipment.label][google.cloud.optimization.v1.Shipment.label]) uniquely
+     * identifies a vehicle (resp. shipment) entity used across the two relevant
+     * requests: the past request that produced the `OptimizeToursResponse` used
+     * in the injected solution and the current request that includes the injected
+     * solution. The uniqueness checks described above are not enough to guarantee
+     * this requirement.
      * </pre>
      *
      * <code>bool interpret_injected_solutions_using_labels = 10;</code>
      * @return This builder for chaining.
      */
     public Builder clearInterpretInjectedSolutionsUsingLabels() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       interpretInjectedSolutionsUsingLabels_ = false;
       onChanged();
       return this;
@@ -4391,8 +4445,10 @@ private static final long serialVersionUID = 0L;
      * [Transition.travel_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_duration],
      * [Visit.start_time][google.cloud.optimization.v1.ShipmentRoute.Visit.start_time],
      * and `vehicle_end_time`; in setting the
-     * [ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities] field, and in calculating the
-     * [OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost] field.
+     * [ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities]
+     * field, and in calculating the
+     * [OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost]
+     * field.
      * </pre>
      *
      * <code>bool consider_road_traffic = 11;</code>
@@ -4408,8 +4464,10 @@ private static final long serialVersionUID = 0L;
      * [Transition.travel_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_duration],
      * [Visit.start_time][google.cloud.optimization.v1.ShipmentRoute.Visit.start_time],
      * and `vehicle_end_time`; in setting the
-     * [ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities] field, and in calculating the
-     * [OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost] field.
+     * [ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities]
+     * field, and in calculating the
+     * [OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost]
+     * field.
      * </pre>
      *
      * <code>bool consider_road_traffic = 11;</code>
@@ -4419,6 +4477,7 @@ private static final long serialVersionUID = 0L;
     public Builder setConsiderRoadTraffic(boolean value) {
       
       considerRoadTraffic_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4428,15 +4487,17 @@ private static final long serialVersionUID = 0L;
      * [Transition.travel_duration][google.cloud.optimization.v1.ShipmentRoute.Transition.travel_duration],
      * [Visit.start_time][google.cloud.optimization.v1.ShipmentRoute.Visit.start_time],
      * and `vehicle_end_time`; in setting the
-     * [ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities] field, and in calculating the
-     * [OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost] field.
+     * [ShipmentRoute.has_traffic_infeasibilities][google.cloud.optimization.v1.ShipmentRoute.has_traffic_infeasibilities]
+     * field, and in calculating the
+     * [OptimizeToursResponse.total_cost][google.cloud.optimization.v1.OptimizeToursResponse.total_cost]
+     * field.
      * </pre>
      *
      * <code>bool consider_road_traffic = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearConsiderRoadTraffic() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       considerRoadTraffic_ = false;
       onChanged();
       return this;
@@ -4467,6 +4528,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPopulatePolylines(boolean value) {
       
       populatePolylines_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4479,7 +4541,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPopulatePolylines() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       populatePolylines_ = false;
       onChanged();
       return this;
@@ -4516,6 +4578,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPopulateTransitionPolylines(boolean value) {
       
       populateTransitionPolylines_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -4531,7 +4594,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPopulateTransitionPolylines() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       populateTransitionPolylines_ = false;
       onChanged();
       return this;
@@ -4570,6 +4633,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowLargeDeadlineDespiteInterruptionRisk(boolean value) {
       
       allowLargeDeadlineDespiteInterruptionRisk_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -4586,7 +4650,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowLargeDeadlineDespiteInterruptionRisk() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       allowLargeDeadlineDespiteInterruptionRisk_ = false;
       onChanged();
       return this;
@@ -4621,6 +4685,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseGeodesicDistances(boolean value) {
       
       useGeodesicDistances_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -4635,7 +4700,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseGeodesicDistances() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       useGeodesicDistances_ = false;
       onChanged();
       return this;
@@ -4654,7 +4719,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasGeodesicMetersPerSecond() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -4682,8 +4747,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGeodesicMetersPerSecond(double value) {
-      bitField0_ |= 0x00000008;
+      
       geodesicMetersPerSecond_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -4698,7 +4764,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGeodesicMetersPerSecond() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00008000);
       geodesicMetersPerSecond_ = 0D;
       onChanged();
       return this;
@@ -4760,11 +4826,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       label_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4778,8 +4842,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLabel() {
-      
       label_ = getDefaultInstance().getLabel();
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -4795,12 +4859,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       label_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4808,15 +4870,16 @@ private static final long serialVersionUID = 0L;
     private boolean populateTravelStepPolylines_ ;
     /**
      * <pre>
-     * Deprecated: Use [OptimizeToursRequest.populate_transition_polylines][] instead.
-     * If true, polylines will be populated in response
-     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]. Note that in this case, the polylines will
-     * also be populated in the deprecated `travel_steps`.
+     * Deprecated: Use [OptimizeToursRequest.populate_transition_polylines][]
+     * instead. If true, polylines will be populated in response
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions].
+     * Note that in this case, the polylines will also be populated in the
+     * deprecated `travel_steps`.
      * </pre>
      *
      * <code>bool populate_travel_step_polylines = 20 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.OptimizeToursRequest.populate_travel_step_polylines is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=327
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=350
      * @return The populateTravelStepPolylines.
      */
     @java.lang.Override
@@ -4825,39 +4888,42 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Deprecated: Use [OptimizeToursRequest.populate_transition_polylines][] instead.
-     * If true, polylines will be populated in response
-     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]. Note that in this case, the polylines will
-     * also be populated in the deprecated `travel_steps`.
+     * Deprecated: Use [OptimizeToursRequest.populate_transition_polylines][]
+     * instead. If true, polylines will be populated in response
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions].
+     * Note that in this case, the polylines will also be populated in the
+     * deprecated `travel_steps`.
      * </pre>
      *
      * <code>bool populate_travel_step_polylines = 20 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.OptimizeToursRequest.populate_travel_step_polylines is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=327
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=350
      * @param value The populateTravelStepPolylines to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setPopulateTravelStepPolylines(boolean value) {
       
       populateTravelStepPolylines_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Deprecated: Use [OptimizeToursRequest.populate_transition_polylines][] instead.
-     * If true, polylines will be populated in response
-     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]. Note that in this case, the polylines will
-     * also be populated in the deprecated `travel_steps`.
+     * Deprecated: Use [OptimizeToursRequest.populate_transition_polylines][]
+     * instead. If true, polylines will be populated in response
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions].
+     * Note that in this case, the polylines will also be populated in the
+     * deprecated `travel_steps`.
      * </pre>
      *
      * <code>bool populate_travel_step_polylines = 20 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.OptimizeToursRequest.populate_travel_step_polylines is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=327
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=350
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearPopulateTravelStepPolylines() {
-      
+      bitField0_ = (bitField0_ & ~0x00020000);
       populateTravelStepPolylines_ = false;
       onChanged();
       return this;
@@ -4895,7 +4961,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OptimizeToursRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

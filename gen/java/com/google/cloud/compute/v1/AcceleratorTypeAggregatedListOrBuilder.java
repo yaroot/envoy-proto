@@ -75,7 +75,6 @@ public interface AcceleratorTypeAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.AcceleratorTypesScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.AcceleratorTypesScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.AcceleratorTypesScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.AcceleratorTypesScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.AcceleratorTypesScopedList getItemsOrThrow(
       java.lang.String key);
 

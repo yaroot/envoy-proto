@@ -133,7 +133,6 @@ public interface AdStitchDetailOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 com.google.protobuf.Value getMediaOrDefault(
       java.lang.String key,
@@ -146,7 +145,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   com.google.protobuf.Value getMediaOrThrow(
       java.lang.String key);
 }

@@ -99,6 +99,16 @@ public final class ConfigDumpSharedProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_envoy_admin_v3_EndpointsConfigDump_DynamicEndpointConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_admin_v3_EcdsConfigDump_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_admin_v3_EcdsConfigDump_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_admin_v3_EcdsConfigDump_EcdsFilterConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_admin_v3_EcdsConfigDump_EcdsFilterConfig_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -220,13 +230,24 @@ public final class ConfigDumpSharedProto {
       "protobuf.Timestamp\0227\n\013error_state\030\004 \001(\0132" +
       "\".envoy.admin.v3.UpdateFailureState\022;\n\rc" +
       "lient_status\030\005 \001(\0162$.envoy.admin.v3.Clie" +
-      "ntResourceStatus*]\n\024ClientResourceStatus" +
-      "\022\013\n\007UNKNOWN\020\000\022\r\n\tREQUESTED\020\001\022\022\n\016DOES_NOT" +
-      "_EXIST\020\002\022\t\n\005ACKED\020\003\022\n\n\006NACKED\020\004B~\n\034io.en" +
-      "voyproxy.envoy.admin.v3B\025ConfigDumpShare" +
-      "dProtoP\001Z=github.com/envoyproxy/go-contr" +
-      "ol-plane/envoy/admin/v3;adminv3\272\200\310\321\006\002\020\002b" +
-      "\006proto3"
+      "ntResourceStatus\"\274\003\n\016EcdsConfigDump\022E\n\014e" +
+      "cds_filters\030\001 \003(\0132/.envoy.admin.v3.EcdsC" +
+      "onfigDump.EcdsFilterConfig\032\267\002\n\020EcdsFilte" +
+      "rConfig\022\024\n\014version_info\030\001 \001(\t\022)\n\013ecds_fi" +
+      "lter\030\002 \001(\0132\024.google.protobuf.Any\0220\n\014last" +
+      "_updated\030\003 \001(\0132\032.google.protobuf.Timesta" +
+      "mp\0227\n\013error_state\030\004 \001(\0132\".envoy.admin.v3" +
+      ".UpdateFailureState\022;\n\rclient_status\030\005 \001" +
+      "(\0162$.envoy.admin.v3.ClientResourceStatus" +
+      "::\232\305\210\0365\n3envoy.admin.v2alpha.EcdsConfigD" +
+      "ump.EcdsFilterConfig:)\232\305\210\036$\n\"envoy.admin" +
+      ".v2alpha.EcdsConfigDump*]\n\024ClientResourc" +
+      "eStatus\022\013\n\007UNKNOWN\020\000\022\r\n\tREQUESTED\020\001\022\022\n\016D" +
+      "OES_NOT_EXIST\020\002\022\t\n\005ACKED\020\003\022\n\n\006NACKED\020\004B~" +
+      "\n\034io.envoyproxy.envoy.admin.v3B\025ConfigDu" +
+      "mpSharedProtoP\001Z=github.com/envoyproxy/g" +
+      "o-control-plane/envoy/admin/v3;adminv3\272\200" +
+      "\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -338,6 +359,18 @@ public final class ConfigDumpSharedProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_admin_v3_EndpointsConfigDump_DynamicEndpointConfig_descriptor,
         new java.lang.String[] { "VersionInfo", "EndpointConfig", "LastUpdated", "ErrorState", "ClientStatus", });
+    internal_static_envoy_admin_v3_EcdsConfigDump_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_envoy_admin_v3_EcdsConfigDump_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_admin_v3_EcdsConfigDump_descriptor,
+        new java.lang.String[] { "EcdsFilters", });
+    internal_static_envoy_admin_v3_EcdsConfigDump_EcdsFilterConfig_descriptor =
+      internal_static_envoy_admin_v3_EcdsConfigDump_descriptor.getNestedTypes().get(0);
+    internal_static_envoy_admin_v3_EcdsConfigDump_EcdsFilterConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_admin_v3_EcdsConfigDump_EcdsFilterConfig_descriptor,
+        new java.lang.String[] { "VersionInfo", "EcdsFilter", "LastUpdated", "ErrorState", "ClientStatus", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);

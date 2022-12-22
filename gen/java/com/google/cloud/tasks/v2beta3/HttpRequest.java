@@ -58,104 +58,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            url_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            httpMethod_ = rawValue;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              headers_ = com.google.protobuf.MapField.newMapField(
-                  HeadersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            headers__ = input.readMessage(
-                HeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            headers_.getMutableMap().put(
-                headers__.getKey(), headers__.getValue());
-            break;
-          }
-          case 34: {
-
-            body_ = input.readBytes();
-            break;
-          }
-          case 42: {
-            com.google.cloud.tasks.v2beta3.OAuthToken.Builder subBuilder = null;
-            if (authorizationHeaderCase_ == 5) {
-              subBuilder = ((com.google.cloud.tasks.v2beta3.OAuthToken) authorizationHeader_).toBuilder();
-            }
-            authorizationHeader_ =
-                input.readMessage(com.google.cloud.tasks.v2beta3.OAuthToken.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.tasks.v2beta3.OAuthToken) authorizationHeader_);
-              authorizationHeader_ = subBuilder.buildPartial();
-            }
-            authorizationHeaderCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.cloud.tasks.v2beta3.OidcToken.Builder subBuilder = null;
-            if (authorizationHeaderCase_ == 6) {
-              subBuilder = ((com.google.cloud.tasks.v2beta3.OidcToken) authorizationHeader_).toBuilder();
-            }
-            authorizationHeader_ =
-                input.readMessage(com.google.cloud.tasks.v2beta3.OidcToken.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.tasks.v2beta3.OidcToken) authorizationHeader_);
-              authorizationHeader_ = subBuilder.buildPartial();
-            }
-            authorizationHeaderCase_ = 6;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.tasks.v2beta3.TargetProto.internal_static_google_cloud_tasks_v2beta3_HttpRequest_descriptor;
@@ -223,7 +125,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URL_FIELD_NUMBER = 1;
-  private volatile java.lang.Object url_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object url_ = "";
   /**
    * <pre>
    * Required. The full url path that the request will be sent to.
@@ -281,7 +184,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HTTP_METHOD_FIELD_NUMBER = 2;
-  private int httpMethod_;
+  private int httpMethod_ = 0;
   /**
    * <pre>
    * The HTTP method to use for the request. The default is POST.
@@ -302,8 +205,7 @@ private static final long serialVersionUID = 0L;
    * @return The httpMethod.
    */
   @java.lang.Override public com.google.cloud.tasks.v2beta3.HttpMethod getHttpMethod() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.tasks.v2beta3.HttpMethod result = com.google.cloud.tasks.v2beta3.HttpMethod.valueOf(httpMethod_);
+    com.google.cloud.tasks.v2beta3.HttpMethod result = com.google.cloud.tasks.v2beta3.HttpMethod.forNumber(httpMethod_);
     return result == null ? com.google.cloud.tasks.v2beta3.HttpMethod.UNRECOGNIZED : result;
   }
 
@@ -319,6 +221,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> headers_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -329,7 +232,6 @@ private static final long serialVersionUID = 0L;
     }
     return headers_;
   }
-
   public int getHeadersCount() {
     return internalGetHeaders().getMap().size();
   }
@@ -360,7 +262,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; headers = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsHeaders(
       java.lang.String key) {
@@ -403,7 +304,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; headers = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getHeadersMap() {
     return internalGetHeaders().getMap();
   }
@@ -435,10 +335,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; headers = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getHeadersOrDefault(
+  public /* nullable */
+java.lang.String getHeadersOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetHeaders().getMap();
@@ -472,7 +373,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; headers = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getHeadersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -485,7 +385,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BODY_FIELD_NUMBER = 4;
-  private com.google.protobuf.ByteString body_;
+  private com.google.protobuf.ByteString body_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * HTTP request body.
@@ -656,7 +556,7 @@ private static final long serialVersionUID = 0L;
     if (authorizationHeaderCase_ == 6) {
       output.writeMessage(6, (com.google.cloud.tasks.v2beta3.OidcToken) authorizationHeader_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -694,7 +594,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, (com.google.cloud.tasks.v2beta3.OidcToken) authorizationHeader_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -729,7 +629,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -762,7 +662,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -926,29 +826,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.tasks.v2beta3.HttpRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       url_ = "";
-
       httpMethod_ = 0;
-
       internalGetMutableHeaders().clear();
       body_ = com.google.protobuf.ByteString.EMPTY;
-
+      if (oauthTokenBuilder_ != null) {
+        oauthTokenBuilder_.clear();
+      }
+      if (oidcTokenBuilder_ != null) {
+        oidcTokenBuilder_.clear();
+      }
       authorizationHeaderCase_ = 0;
       authorizationHeader_ = null;
       return this;
@@ -977,29 +876,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.tasks.v2beta3.HttpRequest buildPartial() {
       com.google.cloud.tasks.v2beta3.HttpRequest result = new com.google.cloud.tasks.v2beta3.HttpRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.url_ = url_;
-      result.httpMethod_ = httpMethod_;
-      result.headers_ = internalGetHeaders();
-      result.headers_.makeImmutable();
-      result.body_ = body_;
-      if (authorizationHeaderCase_ == 5) {
-        if (oauthTokenBuilder_ == null) {
-          result.authorizationHeader_ = authorizationHeader_;
-        } else {
-          result.authorizationHeader_ = oauthTokenBuilder_.build();
-        }
-      }
-      if (authorizationHeaderCase_ == 6) {
-        if (oidcTokenBuilder_ == null) {
-          result.authorizationHeader_ = authorizationHeader_;
-        } else {
-          result.authorizationHeader_ = oidcTokenBuilder_.build();
-        }
-      }
-      result.authorizationHeaderCase_ = authorizationHeaderCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.tasks.v2beta3.HttpRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.url_ = url_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.httpMethod_ = httpMethod_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.headers_ = internalGetHeaders();
+        result.headers_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.body_ = body_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.tasks.v2beta3.HttpRequest result) {
+      result.authorizationHeaderCase_ = authorizationHeaderCase_;
+      result.authorizationHeader_ = this.authorizationHeader_;
+      if (authorizationHeaderCase_ == 5 &&
+          oauthTokenBuilder_ != null) {
+        result.authorizationHeader_ = oauthTokenBuilder_.build();
+      }
+      if (authorizationHeaderCase_ == 6 &&
+          oidcTokenBuilder_ != null) {
+        result.authorizationHeader_ = oidcTokenBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1048,6 +958,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.tasks.v2beta3.HttpRequest.getDefaultInstance()) return this;
       if (!other.getUrl().isEmpty()) {
         url_ = other.url_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.httpMethod_ != 0) {
@@ -1055,6 +966,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableHeaders().mergeFrom(
           other.internalGetHeaders());
+      bitField0_ |= 0x00000004;
       if (other.getBody() != com.google.protobuf.ByteString.EMPTY) {
         setBody(other.getBody());
       }
@@ -1071,7 +983,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1086,17 +998,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.tasks.v2beta3.HttpRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              url_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              httpMethod_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              headers__ = input.readMessage(
+                  HeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableHeaders().getMutableMap().put(
+                  headers__.getKey(), headers__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              body_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getOauthTokenFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              authorizationHeaderCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getOidcTokenFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              authorizationHeaderCase_ = 6;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.tasks.v2beta3.HttpRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int authorizationHeaderCase_ = 0;
@@ -1187,11 +1150,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       url_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1210,8 +1171,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUrl() {
-      
       url_ = getDefaultInstance().getUrl();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1232,12 +1193,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       url_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1264,8 +1223,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHttpMethodValue(int value) {
-      
       httpMethod_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1279,8 +1238,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.tasks.v2beta3.HttpMethod getHttpMethod() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.tasks.v2beta3.HttpMethod result = com.google.cloud.tasks.v2beta3.HttpMethod.valueOf(httpMethod_);
+      com.google.cloud.tasks.v2beta3.HttpMethod result = com.google.cloud.tasks.v2beta3.HttpMethod.forNumber(httpMethod_);
       return result == null ? com.google.cloud.tasks.v2beta3.HttpMethod.UNRECOGNIZED : result;
     }
     /**
@@ -1296,7 +1254,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       httpMethod_ = value.getNumber();
       onChanged();
       return this;
@@ -1310,7 +1268,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHttpMethod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       httpMethod_ = 0;
       onChanged();
       return this;
@@ -1319,7 +1277,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> headers_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetHeaders() {
+        internalGetHeaders() {
       if (headers_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             HeadersDefaultEntryHolder.defaultEntry);
@@ -1327,8 +1285,7 @@ private static final long serialVersionUID = 0L;
       return headers_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableHeaders() {
-      onChanged();;
+        internalGetMutableHeaders() {
       if (headers_ == null) {
         headers_ = com.google.protobuf.MapField.newMapField(
             HeadersDefaultEntryHolder.defaultEntry);
@@ -1336,9 +1293,10 @@ private static final long serialVersionUID = 0L;
       if (!headers_.isMutable()) {
         headers_ = headers_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return headers_;
     }
-
     public int getHeadersCount() {
       return internalGetHeaders().getMap().size();
     }
@@ -1369,7 +1327,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsHeaders(
         java.lang.String key) {
@@ -1412,7 +1369,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getHeadersMap() {
       return internalGetHeaders().getMap();
     }
@@ -1444,10 +1400,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getHeadersOrDefault(
+    public /* nullable */
+java.lang.String getHeadersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetHeaders().getMap();
@@ -1481,7 +1438,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getHeadersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1492,8 +1448,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearHeaders() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableHeaders().getMutableMap()
           .clear();
       return this;
@@ -1525,7 +1481,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
-
     public Builder removeHeaders(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1538,7 +1493,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableHeaders() {
+        getMutableHeaders() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableHeaders().getMutableMap();
     }
     /**
@@ -1572,12 +1528,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableHeaders().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1607,11 +1561,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; headers = 3;</code>
      */
-
     public Builder putAllHeaders(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableHeaders().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -1644,11 +1598,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBody(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       body_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1664,7 +1616,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBody() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       body_ = getDefaultInstance().getBody();
       onChanged();
       return this;
@@ -1889,7 +1841,7 @@ private static final long serialVersionUID = 0L;
         authorizationHeader_ = null;
       }
       authorizationHeaderCase_ = 5;
-      onChanged();;
+      onChanged();
       return oauthTokenBuilder_;
     }
 
@@ -2121,7 +2073,7 @@ private static final long serialVersionUID = 0L;
         authorizationHeader_ = null;
       }
       authorizationHeaderCase_ = 6;
-      onChanged();;
+      onChanged();
       return oidcTokenBuilder_;
     }
     @java.lang.Override
@@ -2157,7 +2109,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

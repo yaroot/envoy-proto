@@ -38,107 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DenyRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              deniedPrincipals_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            deniedPrincipals_.add(s);
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              exceptionPrincipals_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            exceptionPrincipals_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              deniedPermissions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            deniedPermissions_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              exceptionPermissions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            exceptionPermissions_.add(s);
-            break;
-          }
-          case 42: {
-            com.google.type.Expr.Builder subBuilder = null;
-            if (denialCondition_ != null) {
-              subBuilder = denialCondition_.toBuilder();
-            }
-            denialCondition_ = input.readMessage(com.google.type.Expr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(denialCondition_);
-              denialCondition_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        deniedPrincipals_ = deniedPrincipals_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        exceptionPrincipals_ = exceptionPrincipals_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        deniedPermissions_ = deniedPermissions_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        exceptionPermissions_ = exceptionPermissions_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.iam.v2beta.DenyRuleProto.internal_static_google_iam_v2beta_DenyRule_descriptor;
@@ -153,13 +52,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DENIED_PRINCIPALS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList deniedPrincipals_;
   /**
    * <pre>
    * The identities that are prevented from using one or more permissions on
    * Google Cloud resources. This field can contain the following values:
    * * `principalSet://goog/public:all`: A special identifier that represents
-   *   any user who is on the internet, even if they do not have a Google
+   *   any principal that is on the internet, even if they do not have a Google
    *   Account or are not logged in.
    * * `principal://goog/subject/{email_id}`: A specific Google Account.
    *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -202,7 +102,7 @@ private static final long serialVersionUID = 0L;
    * The identities that are prevented from using one or more permissions on
    * Google Cloud resources. This field can contain the following values:
    * * `principalSet://goog/public:all`: A special identifier that represents
-   *   any user who is on the internet, even if they do not have a Google
+   *   any principal that is on the internet, even if they do not have a Google
    *   Account or are not logged in.
    * * `principal://goog/subject/{email_id}`: A specific Google Account.
    *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -244,7 +144,7 @@ private static final long serialVersionUID = 0L;
    * The identities that are prevented from using one or more permissions on
    * Google Cloud resources. This field can contain the following values:
    * * `principalSet://goog/public:all`: A special identifier that represents
-   *   any user who is on the internet, even if they do not have a Google
+   *   any principal that is on the internet, even if they do not have a Google
    *   Account or are not logged in.
    * * `principal://goog/subject/{email_id}`: A specific Google Account.
    *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -287,7 +187,7 @@ private static final long serialVersionUID = 0L;
    * The identities that are prevented from using one or more permissions on
    * Google Cloud resources. This field can contain the following values:
    * * `principalSet://goog/public:all`: A special identifier that represents
-   *   any user who is on the internet, even if they do not have a Google
+   *   any principal that is on the internet, even if they do not have a Google
    *   Account or are not logged in.
    * * `principal://goog/subject/{email_id}`: A specific Google Account.
    *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -328,6 +228,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXCEPTION_PRINCIPALS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList exceptionPrincipals_;
   /**
    * <pre>
@@ -403,6 +304,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DENIED_PERMISSIONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList deniedPermissions_;
   /**
    * <pre>
@@ -466,6 +368,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXCEPTION_PERMISSIONS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList exceptionPermissions_;
   /**
    * <pre>
@@ -595,7 +498,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.ExprOrBuilder getDenialConditionOrBuilder() {
-    return getDenialCondition();
+    return denialCondition_ == null ? com.google.type.Expr.getDefaultInstance() : denialCondition_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -627,7 +530,7 @@ private static final long serialVersionUID = 0L;
     if (denialCondition_ != null) {
       output.writeMessage(5, getDenialCondition());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -672,7 +575,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getDenialCondition());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -700,7 +603,7 @@ private static final long serialVersionUID = 0L;
       if (!getDenialCondition()
           .equals(other.getDenialCondition())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -731,7 +634,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DENIAL_CONDITION_FIELD_NUMBER;
       hash = (53 * hash) + getDenialCondition().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -852,22 +755,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.iam.v2beta.DenyRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       deniedPrincipals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       exceptionPrincipals_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -876,10 +775,9 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000004);
       exceptionPermissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
-      if (denialConditionBuilder_ == null) {
-        denialCondition_ = null;
-      } else {
-        denialCondition_ = null;
+      denialCondition_ = null;
+      if (denialConditionBuilder_ != null) {
+        denialConditionBuilder_.dispose();
         denialConditionBuilder_ = null;
       }
       return this;
@@ -908,7 +806,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.v2beta.DenyRule buildPartial() {
       com.google.iam.v2beta.DenyRule result = new com.google.iam.v2beta.DenyRule(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.iam.v2beta.DenyRule result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         deniedPrincipals_ = deniedPrincipals_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -929,13 +833,15 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.exceptionPermissions_ = exceptionPermissions_;
-      if (denialConditionBuilder_ == null) {
-        result.denialCondition_ = denialCondition_;
-      } else {
-        result.denialCondition_ = denialConditionBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.iam.v2beta.DenyRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.denialCondition_ = denialConditionBuilder_ == null
+            ? denialCondition_
+            : denialConditionBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -1025,7 +931,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDenialCondition()) {
         mergeDenialCondition(other.getDenialCondition());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1040,17 +946,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.v2beta.DenyRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDeniedPrincipalsIsMutable();
+              deniedPrincipals_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureExceptionPrincipalsIsMutable();
+              exceptionPrincipals_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDeniedPermissionsIsMutable();
+              deniedPermissions_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureExceptionPermissionsIsMutable();
+              exceptionPermissions_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDenialConditionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.v2beta.DenyRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1067,7 +1017,7 @@ private static final long serialVersionUID = 0L;
      * The identities that are prevented from using one or more permissions on
      * Google Cloud resources. This field can contain the following values:
      * * `principalSet://goog/public:all`: A special identifier that represents
-     *   any user who is on the internet, even if they do not have a Google
+     *   any principal that is on the internet, even if they do not have a Google
      *   Account or are not logged in.
      * * `principal://goog/subject/{email_id}`: A specific Google Account.
      *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -1110,7 +1060,7 @@ private static final long serialVersionUID = 0L;
      * The identities that are prevented from using one or more permissions on
      * Google Cloud resources. This field can contain the following values:
      * * `principalSet://goog/public:all`: A special identifier that represents
-     *   any user who is on the internet, even if they do not have a Google
+     *   any principal that is on the internet, even if they do not have a Google
      *   Account or are not logged in.
      * * `principal://goog/subject/{email_id}`: A specific Google Account.
      *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -1152,7 +1102,7 @@ private static final long serialVersionUID = 0L;
      * The identities that are prevented from using one or more permissions on
      * Google Cloud resources. This field can contain the following values:
      * * `principalSet://goog/public:all`: A special identifier that represents
-     *   any user who is on the internet, even if they do not have a Google
+     *   any principal that is on the internet, even if they do not have a Google
      *   Account or are not logged in.
      * * `principal://goog/subject/{email_id}`: A specific Google Account.
      *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -1195,7 +1145,7 @@ private static final long serialVersionUID = 0L;
      * The identities that are prevented from using one or more permissions on
      * Google Cloud resources. This field can contain the following values:
      * * `principalSet://goog/public:all`: A special identifier that represents
-     *   any user who is on the internet, even if they do not have a Google
+     *   any principal that is on the internet, even if they do not have a Google
      *   Account or are not logged in.
      * * `principal://goog/subject/{email_id}`: A specific Google Account.
      *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -1239,7 +1189,7 @@ private static final long serialVersionUID = 0L;
      * The identities that are prevented from using one or more permissions on
      * Google Cloud resources. This field can contain the following values:
      * * `principalSet://goog/public:all`: A special identifier that represents
-     *   any user who is on the internet, even if they do not have a Google
+     *   any principal that is on the internet, even if they do not have a Google
      *   Account or are not logged in.
      * * `principal://goog/subject/{email_id}`: A specific Google Account.
      *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -1277,10 +1227,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeniedPrincipals(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeniedPrincipalsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDeniedPrincipalsIsMutable();
       deniedPrincipals_.set(index, value);
       onChanged();
       return this;
@@ -1290,7 +1238,7 @@ private static final long serialVersionUID = 0L;
      * The identities that are prevented from using one or more permissions on
      * Google Cloud resources. This field can contain the following values:
      * * `principalSet://goog/public:all`: A special identifier that represents
-     *   any user who is on the internet, even if they do not have a Google
+     *   any principal that is on the internet, even if they do not have a Google
      *   Account or are not logged in.
      * * `principal://goog/subject/{email_id}`: A specific Google Account.
      *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -1327,10 +1275,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDeniedPrincipals(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeniedPrincipalsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDeniedPrincipalsIsMutable();
       deniedPrincipals_.add(value);
       onChanged();
       return this;
@@ -1340,7 +1286,7 @@ private static final long serialVersionUID = 0L;
      * The identities that are prevented from using one or more permissions on
      * Google Cloud resources. This field can contain the following values:
      * * `principalSet://goog/public:all`: A special identifier that represents
-     *   any user who is on the internet, even if they do not have a Google
+     *   any principal that is on the internet, even if they do not have a Google
      *   Account or are not logged in.
      * * `principal://goog/subject/{email_id}`: A specific Google Account.
      *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -1388,7 +1334,7 @@ private static final long serialVersionUID = 0L;
      * The identities that are prevented from using one or more permissions on
      * Google Cloud resources. This field can contain the following values:
      * * `principalSet://goog/public:all`: A special identifier that represents
-     *   any user who is on the internet, even if they do not have a Google
+     *   any principal that is on the internet, even if they do not have a Google
      *   Account or are not logged in.
      * * `principal://goog/subject/{email_id}`: A specific Google Account.
      *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -1433,7 +1379,7 @@ private static final long serialVersionUID = 0L;
      * The identities that are prevented from using one or more permissions on
      * Google Cloud resources. This field can contain the following values:
      * * `principalSet://goog/public:all`: A special identifier that represents
-     *   any user who is on the internet, even if they do not have a Google
+     *   any principal that is on the internet, even if they do not have a Google
      *   Account or are not logged in.
      * * `principal://goog/subject/{email_id}`: A specific Google Account.
      *   Includes Gmail, Cloud Identity, and Google Workspace user accounts. For
@@ -1470,10 +1416,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDeniedPrincipalsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDeniedPrincipalsIsMutable();
       deniedPrincipals_.add(value);
       onChanged();
@@ -1577,10 +1521,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExceptionPrincipals(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExceptionPrincipalsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExceptionPrincipalsIsMutable();
       exceptionPrincipals_.set(index, value);
       onChanged();
       return this;
@@ -1602,10 +1544,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExceptionPrincipals(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExceptionPrincipalsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExceptionPrincipalsIsMutable();
       exceptionPrincipals_.add(value);
       onChanged();
       return this;
@@ -1670,10 +1610,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExceptionPrincipalsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureExceptionPrincipalsIsMutable();
       exceptionPrincipals_.add(value);
       onChanged();
@@ -1762,10 +1700,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeniedPermissions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeniedPermissionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDeniedPermissionsIsMutable();
       deniedPermissions_.set(index, value);
       onChanged();
       return this;
@@ -1784,10 +1720,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDeniedPermissions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeniedPermissionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDeniedPermissionsIsMutable();
       deniedPermissions_.add(value);
       onChanged();
       return this;
@@ -1843,10 +1777,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDeniedPermissionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDeniedPermissionsIsMutable();
       deniedPermissions_.add(value);
       onChanged();
@@ -1945,10 +1877,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExceptionPermissions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExceptionPermissionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExceptionPermissionsIsMutable();
       exceptionPermissions_.set(index, value);
       onChanged();
       return this;
@@ -1969,10 +1899,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExceptionPermissions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExceptionPermissionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExceptionPermissionsIsMutable();
       exceptionPermissions_.add(value);
       onChanged();
       return this;
@@ -2034,10 +1962,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExceptionPermissionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureExceptionPermissionsIsMutable();
       exceptionPermissions_.add(value);
       onChanged();
@@ -2064,7 +1990,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the denialCondition field is set.
      */
     public boolean hasDenialCondition() {
-      return denialConditionBuilder_ != null || denialCondition_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2110,11 +2036,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         denialCondition_ = value;
-        onChanged();
       } else {
         denialConditionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2136,11 +2062,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.Expr.Builder builderForValue) {
       if (denialConditionBuilder_ == null) {
         denialCondition_ = builderForValue.build();
-        onChanged();
       } else {
         denialConditionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2160,17 +2086,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDenialCondition(com.google.type.Expr value) {
       if (denialConditionBuilder_ == null) {
-        if (denialCondition_ != null) {
-          denialCondition_ =
-            com.google.type.Expr.newBuilder(denialCondition_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          denialCondition_ != null &&
+          denialCondition_ != com.google.type.Expr.getDefaultInstance()) {
+          getDenialConditionBuilder().mergeFrom(value);
         } else {
           denialCondition_ = value;
         }
-        onChanged();
       } else {
         denialConditionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2189,14 +2116,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Expr denial_condition = 5;</code>
      */
     public Builder clearDenialCondition() {
-      if (denialConditionBuilder_ == null) {
-        denialCondition_ = null;
-        onChanged();
-      } else {
-        denialCondition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      denialCondition_ = null;
+      if (denialConditionBuilder_ != null) {
+        denialConditionBuilder_.dispose();
         denialConditionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2215,7 +2141,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Expr denial_condition = 5;</code>
      */
     public com.google.type.Expr.Builder getDenialConditionBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getDenialConditionFieldBuilder().getBuilder();
     }
@@ -2303,7 +2229,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DenyRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

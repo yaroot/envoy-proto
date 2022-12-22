@@ -75,7 +75,6 @@ public interface NetworkEndpointGroupAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.NetworkEndpointGroupsScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.NetworkEndpointGroupsScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.NetworkEndpointGroupsScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.NetworkEndpointGroupsScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.NetworkEndpointGroupsScopedList getItemsOrThrow(
       java.lang.String key);
 

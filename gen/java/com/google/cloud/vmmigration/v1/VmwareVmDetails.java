@@ -42,113 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VmwareVmDetails(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vmId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            datacenterId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            datacenterDescription_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uuid_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            powerState_ = rawValue;
-            break;
-          }
-          case 56: {
-
-            cpuCount_ = input.readInt32();
-            break;
-          }
-          case 64: {
-
-            memoryMb_ = input.readInt32();
-            break;
-          }
-          case 72: {
-
-            diskCount_ = input.readInt32();
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            guestDescription_ = s;
-            break;
-          }
-          case 96: {
-
-            committedStorageMb_ = input.readInt64();
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-
-            bootOption_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vmmigration.v1.VmMigrationProto.internal_static_google_cloud_vmmigration_v1_VmwareVmDetails_descriptor;
@@ -470,7 +363,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object vmId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vmId_ = "";
   /**
    * <pre>
    * The VM's id in the source (note that this is not the MigratingVm's id).
@@ -518,7 +412,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATACENTER_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object datacenterId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object datacenterId_ = "";
   /**
    * <pre>
    * The id of the vCenter's datacenter this VM is contained in.
@@ -564,7 +459,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATACENTER_DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object datacenterDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object datacenterDescription_ = "";
   /**
    * <pre>
    * The descriptive name of the vCenter's datacenter this VM is contained in.
@@ -610,7 +506,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UUID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object uuid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uuid_ = "";
   /**
    * <pre>
    * The unique identifier of the VM in vCenter.
@@ -656,7 +553,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The display name of the VM. Note that this is not necessarily unique.
@@ -702,7 +600,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POWER_STATE_FIELD_NUMBER = 6;
-  private int powerState_;
+  private int powerState_ = 0;
   /**
    * <pre>
    * The power state of the VM at the moment list was taken.
@@ -723,13 +621,12 @@ private static final long serialVersionUID = 0L;
    * @return The powerState.
    */
   @java.lang.Override public com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState getPowerState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState result = com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState.valueOf(powerState_);
+    com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState result = com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState.forNumber(powerState_);
     return result == null ? com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState.UNRECOGNIZED : result;
   }
 
   public static final int CPU_COUNT_FIELD_NUMBER = 7;
-  private int cpuCount_;
+  private int cpuCount_ = 0;
   /**
    * <pre>
    * The number of cpus in the VM.
@@ -744,7 +641,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMORY_MB_FIELD_NUMBER = 8;
-  private int memoryMb_;
+  private int memoryMb_ = 0;
   /**
    * <pre>
    * The size of the memory of the VM in MB.
@@ -759,7 +656,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_COUNT_FIELD_NUMBER = 9;
-  private int diskCount_;
+  private int diskCount_ = 0;
   /**
    * <pre>
    * The number of disks the VM has.
@@ -774,7 +671,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMMITTED_STORAGE_MB_FIELD_NUMBER = 12;
-  private long committedStorageMb_;
+  private long committedStorageMb_ = 0L;
   /**
    * <pre>
    * The total size of the storage allocated to the VM in MB.
@@ -789,7 +686,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GUEST_DESCRIPTION_FIELD_NUMBER = 11;
-  private volatile java.lang.Object guestDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object guestDescription_ = "";
   /**
    * <pre>
    * The VM's OS. See for example
@@ -839,7 +737,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOOT_OPTION_FIELD_NUMBER = 13;
-  private int bootOption_;
+  private int bootOption_ = 0;
   /**
    * <pre>
    * Output only. The VM Boot Option.
@@ -860,8 +758,7 @@ private static final long serialVersionUID = 0L;
    * @return The bootOption.
    */
   @java.lang.Override public com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption getBootOption() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption result = com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption.valueOf(bootOption_);
+    com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption result = com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption.forNumber(bootOption_);
     return result == null ? com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption.UNRECOGNIZED : result;
   }
 
@@ -915,7 +812,7 @@ private static final long serialVersionUID = 0L;
     if (bootOption_ != com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption.BOOT_OPTION_UNSPECIFIED.getNumber()) {
       output.writeEnum(13, bootOption_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -966,7 +863,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(13, bootOption_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1003,7 +900,7 @@ private static final long serialVersionUID = 0L;
     if (!getGuestDescription()
         .equals(other.getGuestDescription())) return false;
     if (bootOption_ != other.bootOption_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1039,7 +936,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getGuestDescription().hashCode();
     hash = (37 * hash) + BOOT_OPTION_FIELD_NUMBER;
     hash = (53 * hash) + bootOption_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1160,46 +1057,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vmmigration.v1.VmwareVmDetails.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       vmId_ = "";
-
       datacenterId_ = "";
-
       datacenterDescription_ = "";
-
       uuid_ = "";
-
       displayName_ = "";
-
       powerState_ = 0;
-
       cpuCount_ = 0;
-
       memoryMb_ = 0;
-
       diskCount_ = 0;
-
       committedStorageMb_ = 0L;
-
       guestDescription_ = "";
-
       bootOption_ = 0;
-
       return this;
     }
 
@@ -1226,20 +1107,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vmmigration.v1.VmwareVmDetails buildPartial() {
       com.google.cloud.vmmigration.v1.VmwareVmDetails result = new com.google.cloud.vmmigration.v1.VmwareVmDetails(this);
-      result.vmId_ = vmId_;
-      result.datacenterId_ = datacenterId_;
-      result.datacenterDescription_ = datacenterDescription_;
-      result.uuid_ = uuid_;
-      result.displayName_ = displayName_;
-      result.powerState_ = powerState_;
-      result.cpuCount_ = cpuCount_;
-      result.memoryMb_ = memoryMb_;
-      result.diskCount_ = diskCount_;
-      result.committedStorageMb_ = committedStorageMb_;
-      result.guestDescription_ = guestDescription_;
-      result.bootOption_ = bootOption_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.vmmigration.v1.VmwareVmDetails result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.vmId_ = vmId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.datacenterId_ = datacenterId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.datacenterDescription_ = datacenterDescription_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.uuid_ = uuid_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.powerState_ = powerState_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.cpuCount_ = cpuCount_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.memoryMb_ = memoryMb_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.diskCount_ = diskCount_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.committedStorageMb_ = committedStorageMb_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.guestDescription_ = guestDescription_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.bootOption_ = bootOption_;
+      }
     }
 
     @java.lang.Override
@@ -1288,22 +1198,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.vmmigration.v1.VmwareVmDetails.getDefaultInstance()) return this;
       if (!other.getVmId().isEmpty()) {
         vmId_ = other.vmId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDatacenterId().isEmpty()) {
         datacenterId_ = other.datacenterId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDatacenterDescription().isEmpty()) {
         datacenterDescription_ = other.datacenterDescription_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getUuid().isEmpty()) {
         uuid_ = other.uuid_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.powerState_ != 0) {
@@ -1323,12 +1238,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getGuestDescription().isEmpty()) {
         guestDescription_ = other.guestDescription_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.bootOption_ != 0) {
         setBootOptionValue(other.getBootOptionValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1343,19 +1259,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vmmigration.v1.VmwareVmDetails parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              vmId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              datacenterId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              datacenterDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              uuid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              powerState_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              cpuCount_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              memoryMb_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              diskCount_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 90: {
+              guestDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 96: {
+              committedStorageMb_ = input.readInt64();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 96
+            case 104: {
+              bootOption_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 104
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vmmigration.v1.VmwareVmDetails) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object vmId_ = "";
     /**
@@ -1413,11 +1403,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vmId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1431,8 +1419,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVmId() {
-      
       vmId_ = getDefaultInstance().getVmId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1448,12 +1436,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vmId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1511,11 +1497,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatacenterId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       datacenterId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1528,8 +1512,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatacenterId() {
-      
       datacenterId_ = getDefaultInstance().getDatacenterId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1544,12 +1528,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatacenterIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       datacenterId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1607,11 +1589,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatacenterDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       datacenterDescription_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1624,8 +1604,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatacenterDescription() {
-      
       datacenterDescription_ = getDefaultInstance().getDatacenterDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1640,12 +1620,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatacenterDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       datacenterDescription_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1703,11 +1681,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUuid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uuid_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1720,8 +1696,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUuid() {
-      
       uuid_ = getDefaultInstance().getUuid();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1736,12 +1712,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUuidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uuid_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1799,11 +1773,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1816,8 +1788,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1832,12 +1804,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1864,8 +1834,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPowerStateValue(int value) {
-      
       powerState_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1879,8 +1849,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState getPowerState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState result = com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState.valueOf(powerState_);
+      com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState result = com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState.forNumber(powerState_);
       return result == null ? com.google.cloud.vmmigration.v1.VmwareVmDetails.PowerState.UNRECOGNIZED : result;
     }
     /**
@@ -1896,7 +1865,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       powerState_ = value.getNumber();
       onChanged();
       return this;
@@ -1910,7 +1879,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPowerState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       powerState_ = 0;
       onChanged();
       return this;
@@ -1941,6 +1910,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCpuCount(int value) {
       
       cpuCount_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1953,7 +1923,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCpuCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       cpuCount_ = 0;
       onChanged();
       return this;
@@ -1984,6 +1954,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMemoryMb(int value) {
       
       memoryMb_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1996,7 +1967,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMemoryMb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       memoryMb_ = 0;
       onChanged();
       return this;
@@ -2027,6 +1998,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDiskCount(int value) {
       
       diskCount_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2039,7 +2011,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiskCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       diskCount_ = 0;
       onChanged();
       return this;
@@ -2070,6 +2042,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCommittedStorageMb(long value) {
       
       committedStorageMb_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2082,7 +2055,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCommittedStorageMb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       committedStorageMb_ = 0L;
       onChanged();
       return this;
@@ -2147,11 +2120,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGuestDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       guestDescription_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2166,8 +2137,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGuestDescription() {
-      
       guestDescription_ = getDefaultInstance().getGuestDescription();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2184,12 +2155,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGuestDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       guestDescription_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2216,8 +2185,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBootOptionValue(int value) {
-      
       bootOption_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2231,8 +2200,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption getBootOption() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption result = com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption.valueOf(bootOption_);
+      com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption result = com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption.forNumber(bootOption_);
       return result == null ? com.google.cloud.vmmigration.v1.VmwareVmDetails.BootOption.UNRECOGNIZED : result;
     }
     /**
@@ -2248,7 +2216,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000800;
       bootOption_ = value.getNumber();
       onChanged();
       return this;
@@ -2262,7 +2230,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBootOption() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       bootOption_ = 0;
       onChanged();
       return this;
@@ -2300,7 +2268,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VmwareVmDetails(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

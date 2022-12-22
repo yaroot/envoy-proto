@@ -36,83 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PersistenceConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            persistenceMode_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            rdbSnapshotPeriod_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (rdbNextSnapshotTime_ != null) {
-              subBuilder = rdbNextSnapshotTime_.toBuilder();
-            }
-            rdbNextSnapshotTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rdbNextSnapshotTime_);
-              rdbNextSnapshotTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (rdbSnapshotStartTime_ != null) {
-              subBuilder = rdbSnapshotStartTime_.toBuilder();
-            }
-            rdbSnapshotStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rdbSnapshotStartTime_);
-              rdbSnapshotStartTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.redis.v1beta1.CloudRedisServiceBetaProto.internal_static_google_cloud_redis_v1beta1_PersistenceConfig_descriptor;
@@ -453,7 +376,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERSISTENCE_MODE_FIELD_NUMBER = 1;
-  private int persistenceMode_;
+  private int persistenceMode_ = 0;
   /**
    * <pre>
    * Optional. Controls whether Persistence features are enabled.
@@ -476,13 +399,12 @@ private static final long serialVersionUID = 0L;
    * @return The persistenceMode.
    */
   @java.lang.Override public com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode getPersistenceMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode result = com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode.valueOf(persistenceMode_);
+    com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode result = com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode.forNumber(persistenceMode_);
     return result == null ? com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode.UNRECOGNIZED : result;
   }
 
   public static final int RDB_SNAPSHOT_PERIOD_FIELD_NUMBER = 2;
-  private int rdbSnapshotPeriod_;
+  private int rdbSnapshotPeriod_ = 0;
   /**
    * <pre>
    * Optional. Period between RDB snapshots. Snapshots will be attempted every period
@@ -513,8 +435,7 @@ private static final long serialVersionUID = 0L;
    * @return The rdbSnapshotPeriod.
    */
   @java.lang.Override public com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod getRdbSnapshotPeriod() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod result = com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod.valueOf(rdbSnapshotPeriod_);
+    com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod result = com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod.forNumber(rdbSnapshotPeriod_);
     return result == null ? com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod.UNRECOGNIZED : result;
   }
 
@@ -553,7 +474,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRdbNextSnapshotTimeOrBuilder() {
-    return getRdbNextSnapshotTime();
+    return rdbNextSnapshotTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : rdbNextSnapshotTime_;
   }
 
   public static final int RDB_SNAPSHOT_START_TIME_FIELD_NUMBER = 5;
@@ -597,7 +518,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRdbSnapshotStartTimeOrBuilder() {
-    return getRdbSnapshotStartTime();
+    return rdbSnapshotStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : rdbSnapshotStartTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -626,7 +547,7 @@ private static final long serialVersionUID = 0L;
     if (rdbSnapshotStartTime_ != null) {
       output.writeMessage(5, getRdbSnapshotStartTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -651,7 +572,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getRdbSnapshotStartTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -678,7 +599,7 @@ private static final long serialVersionUID = 0L;
       if (!getRdbSnapshotStartTime()
           .equals(other.getRdbSnapshotStartTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -701,7 +622,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RDB_SNAPSHOT_START_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getRdbSnapshotStartTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -822,36 +743,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.redis.v1beta1.PersistenceConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       persistenceMode_ = 0;
-
       rdbSnapshotPeriod_ = 0;
-
-      if (rdbNextSnapshotTimeBuilder_ == null) {
-        rdbNextSnapshotTime_ = null;
-      } else {
-        rdbNextSnapshotTime_ = null;
+      rdbNextSnapshotTime_ = null;
+      if (rdbNextSnapshotTimeBuilder_ != null) {
+        rdbNextSnapshotTimeBuilder_.dispose();
         rdbNextSnapshotTimeBuilder_ = null;
       }
-      if (rdbSnapshotStartTimeBuilder_ == null) {
-        rdbSnapshotStartTime_ = null;
-      } else {
-        rdbSnapshotStartTime_ = null;
+      rdbSnapshotStartTime_ = null;
+      if (rdbSnapshotStartTimeBuilder_ != null) {
+        rdbSnapshotStartTimeBuilder_.dispose();
         rdbSnapshotStartTimeBuilder_ = null;
       }
       return this;
@@ -880,20 +793,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.PersistenceConfig buildPartial() {
       com.google.cloud.redis.v1beta1.PersistenceConfig result = new com.google.cloud.redis.v1beta1.PersistenceConfig(this);
-      result.persistenceMode_ = persistenceMode_;
-      result.rdbSnapshotPeriod_ = rdbSnapshotPeriod_;
-      if (rdbNextSnapshotTimeBuilder_ == null) {
-        result.rdbNextSnapshotTime_ = rdbNextSnapshotTime_;
-      } else {
-        result.rdbNextSnapshotTime_ = rdbNextSnapshotTimeBuilder_.build();
-      }
-      if (rdbSnapshotStartTimeBuilder_ == null) {
-        result.rdbSnapshotStartTime_ = rdbSnapshotStartTime_;
-      } else {
-        result.rdbSnapshotStartTime_ = rdbSnapshotStartTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.redis.v1beta1.PersistenceConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.persistenceMode_ = persistenceMode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.rdbSnapshotPeriod_ = rdbSnapshotPeriod_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.rdbNextSnapshotTime_ = rdbNextSnapshotTimeBuilder_ == null
+            ? rdbNextSnapshotTime_
+            : rdbNextSnapshotTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.rdbSnapshotStartTime_ = rdbSnapshotStartTimeBuilder_ == null
+            ? rdbSnapshotStartTime_
+            : rdbSnapshotStartTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -952,7 +874,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRdbSnapshotStartTime()) {
         mergeRdbSnapshotStartTime(other.getRdbSnapshotStartTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -967,19 +889,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.redis.v1beta1.PersistenceConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              persistenceMode_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              rdbSnapshotPeriod_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 34: {
+              input.readMessage(
+                  getRdbNextSnapshotTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getRdbSnapshotStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.redis.v1beta1.PersistenceConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int persistenceMode_ = 0;
     /**
@@ -1005,8 +965,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPersistenceModeValue(int value) {
-      
       persistenceMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1021,8 +981,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode getPersistenceMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode result = com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode.valueOf(persistenceMode_);
+      com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode result = com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode.forNumber(persistenceMode_);
       return result == null ? com.google.cloud.redis.v1beta1.PersistenceConfig.PersistenceMode.UNRECOGNIZED : result;
     }
     /**
@@ -1039,7 +998,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       persistenceMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1054,7 +1013,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPersistenceMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       persistenceMode_ = 0;
       onChanged();
       return this;
@@ -1092,8 +1051,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRdbSnapshotPeriodValue(int value) {
-      
       rdbSnapshotPeriod_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1112,8 +1071,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod getRdbSnapshotPeriod() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod result = com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod.valueOf(rdbSnapshotPeriod_);
+      com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod result = com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod.forNumber(rdbSnapshotPeriod_);
       return result == null ? com.google.cloud.redis.v1beta1.PersistenceConfig.SnapshotPeriod.UNRECOGNIZED : result;
     }
     /**
@@ -1134,7 +1092,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       rdbSnapshotPeriod_ = value.getNumber();
       onChanged();
       return this;
@@ -1153,7 +1111,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRdbSnapshotPeriod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       rdbSnapshotPeriod_ = 0;
       onChanged();
       return this;
@@ -1171,7 +1129,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rdbNextSnapshotTime field is set.
      */
     public boolean hasRdbNextSnapshotTime() {
-      return rdbNextSnapshotTimeBuilder_ != null || rdbNextSnapshotTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1201,11 +1159,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rdbNextSnapshotTime_ = value;
-        onChanged();
       } else {
         rdbNextSnapshotTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1219,11 +1177,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (rdbNextSnapshotTimeBuilder_ == null) {
         rdbNextSnapshotTime_ = builderForValue.build();
-        onChanged();
       } else {
         rdbNextSnapshotTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1235,17 +1193,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRdbNextSnapshotTime(com.google.protobuf.Timestamp value) {
       if (rdbNextSnapshotTimeBuilder_ == null) {
-        if (rdbNextSnapshotTime_ != null) {
-          rdbNextSnapshotTime_ =
-            com.google.protobuf.Timestamp.newBuilder(rdbNextSnapshotTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          rdbNextSnapshotTime_ != null &&
+          rdbNextSnapshotTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRdbNextSnapshotTimeBuilder().mergeFrom(value);
         } else {
           rdbNextSnapshotTime_ = value;
         }
-        onChanged();
       } else {
         rdbNextSnapshotTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1256,14 +1215,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp rdb_next_snapshot_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearRdbNextSnapshotTime() {
-      if (rdbNextSnapshotTimeBuilder_ == null) {
-        rdbNextSnapshotTime_ = null;
-        onChanged();
-      } else {
-        rdbNextSnapshotTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      rdbNextSnapshotTime_ = null;
+      if (rdbNextSnapshotTimeBuilder_ != null) {
+        rdbNextSnapshotTimeBuilder_.dispose();
         rdbNextSnapshotTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1274,7 +1232,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp rdb_next_snapshot_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getRdbNextSnapshotTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRdbNextSnapshotTimeFieldBuilder().getBuilder();
     }
@@ -1328,7 +1286,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rdbSnapshotStartTime field is set.
      */
     public boolean hasRdbSnapshotStartTime() {
-      return rdbSnapshotStartTimeBuilder_ != null || rdbSnapshotStartTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1362,11 +1320,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rdbSnapshotStartTime_ = value;
-        onChanged();
       } else {
         rdbSnapshotStartTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1382,11 +1340,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (rdbSnapshotStartTimeBuilder_ == null) {
         rdbSnapshotStartTime_ = builderForValue.build();
-        onChanged();
       } else {
         rdbSnapshotStartTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1400,17 +1358,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRdbSnapshotStartTime(com.google.protobuf.Timestamp value) {
       if (rdbSnapshotStartTimeBuilder_ == null) {
-        if (rdbSnapshotStartTime_ != null) {
-          rdbSnapshotStartTime_ =
-            com.google.protobuf.Timestamp.newBuilder(rdbSnapshotStartTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          rdbSnapshotStartTime_ != null &&
+          rdbSnapshotStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRdbSnapshotStartTimeBuilder().mergeFrom(value);
         } else {
           rdbSnapshotStartTime_ = value;
         }
-        onChanged();
       } else {
         rdbSnapshotStartTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1423,14 +1382,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp rdb_snapshot_start_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearRdbSnapshotStartTime() {
-      if (rdbSnapshotStartTimeBuilder_ == null) {
-        rdbSnapshotStartTime_ = null;
-        onChanged();
-      } else {
-        rdbSnapshotStartTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      rdbSnapshotStartTime_ = null;
+      if (rdbSnapshotStartTimeBuilder_ != null) {
+        rdbSnapshotStartTimeBuilder_.dispose();
         rdbSnapshotStartTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1443,7 +1401,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp rdb_snapshot_start_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Timestamp.Builder getRdbSnapshotStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRdbSnapshotStartTimeFieldBuilder().getBuilder();
     }
@@ -1519,7 +1477,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PersistenceConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

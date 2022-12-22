@@ -20,7 +20,7 @@ public interface SignBlobRequestOrBuilder extends
    *
    * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
    * @deprecated google.iam.admin.v1.SignBlobRequest.name is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=856
+   *     See google/iam/admin/v1/iam.proto;l=974
    * @return The name.
    */
   @java.lang.Deprecated java.lang.String getName();
@@ -37,7 +37,7 @@ public interface SignBlobRequestOrBuilder extends
    *
    * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
    * @deprecated google.iam.admin.v1.SignBlobRequest.name is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=856
+   *     See google/iam/admin/v1/iam.proto;l=974
    * @return The bytes for name.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -52,7 +52,7 @@ public interface SignBlobRequestOrBuilder extends
    *
    * <code>bytes bytes_to_sign = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.iam.admin.v1.SignBlobRequest.bytes_to_sign is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=868
+   *     See google/iam/admin/v1/iam.proto;l=986
    * @return The bytesToSign.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString getBytesToSign();

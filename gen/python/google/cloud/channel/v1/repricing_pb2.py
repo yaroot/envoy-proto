@@ -18,7 +18,7 @@ from google.type import date_pb2 as google_dot_type_dot_date__pb2
 from google.type import decimal_pb2 as google_dot_type_dot_decimal__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/channel/v1/repricing.proto\x12\x17google.cloud.channel.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16google/type/date.proto\x1a\x19google/type/decimal.proto\"\xc5\x02\n\x17\x43ustomerRepricingConfig\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12G\n\x10repricing_config\x18\x02 \x01(\x0b\x32(.google.cloud.channel.v1.RepricingConfigB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:\x97\x01\xea\x41\x93\x01\n3cloudchannel.googleapis.com/CustomerRepricingConfig\x12\\accounts/{account}/customers/{customer}/customerRepricingConfigs/{customer_repricing_config}\"\xef\x02\n\x1d\x43hannelPartnerRepricingConfig\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12G\n\x10repricing_config\x18\x02 \x01(\x0b\x32(.google.cloud.channel.v1.RepricingConfigB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:\xbb\x01\xea\x41\xb7\x01\n9cloudchannel.googleapis.com/ChannelPartnerRepricingConfig\x12zaccounts/{account}/channelPartnerLinks/{channel_partner}/channelPartnerRepricingConfigs/{channel_partner_repricing_config}\"\xb0\x04\n\x0fRepricingConfig\x12\x62\n\x17\x65ntitlement_granularity\x18\x04 \x01(\x0b\x32?.google.cloud.channel.v1.RepricingConfig.EntitlementGranularityH\x00\x12i\n\x1b\x63hannel_partner_granularity\x18\x05 \x01(\x0b\x32\x42.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularityH\x00\x12\x37\n\x17\x65\x66\x66\x65\x63tive_invoice_month\x18\x01 \x01(\x0b\x32\x11.google.type.DateB\x03\xe0\x41\x02\x12\x45\n\nadjustment\x18\x02 \x01(\x0b\x32,.google.cloud.channel.v1.RepricingAdjustmentB\x03\xe0\x41\x02\x12\x45\n\x0frebilling_basis\x18\x03 \x01(\x0e\x32\'.google.cloud.channel.v1.RebillingBasisB\x03\xe0\x41\x02\x1a[\n\x16\x45ntitlementGranularity\x12\x41\n\x0b\x65ntitlement\x18\x01 \x01(\tB,\xfa\x41)\n\'cloudchannel.googleapis.com/Entitlement\x1a\x1b\n\x19\x43hannelPartnerGranularityB\r\n\x0bgranularity\"s\n\x13RepricingAdjustment\x12N\n\x15percentage_adjustment\x18\x02 \x01(\x0b\x32-.google.cloud.channel.v1.PercentageAdjustmentH\x00\x42\x0c\n\nadjustment\"@\n\x14PercentageAdjustment\x12(\n\npercentage\x18\x02 \x01(\x0b\x32\x14.google.type.Decimal*]\n\x0eRebillingBasis\x12\x1f\n\x1bREBILLING_BASIS_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x43OST_AT_LIST\x10\x01\x12\x18\n\x14\x44IRECT_CUSTOMER_COST\x10\x02\x42o\n\x1b\x63om.google.cloud.channel.v1B\x0eRepricingProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/channel/v1;channelb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/channel/v1/repricing.proto\x12\x17google.cloud.channel.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16google/type/date.proto\x1a\x19google/type/decimal.proto\"\xc5\x02\n\x17\x43ustomerRepricingConfig\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12G\n\x10repricing_config\x18\x02 \x01(\x0b\x32(.google.cloud.channel.v1.RepricingConfigB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:\x97\x01\xea\x41\x93\x01\n3cloudchannel.googleapis.com/CustomerRepricingConfig\x12\\accounts/{account}/customers/{customer}/customerRepricingConfigs/{customer_repricing_config}\"\xef\x02\n\x1d\x43hannelPartnerRepricingConfig\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12G\n\x10repricing_config\x18\x02 \x01(\x0b\x32(.google.cloud.channel.v1.RepricingConfigB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:\xbb\x01\xea\x41\xb7\x01\n9cloudchannel.googleapis.com/ChannelPartnerRepricingConfig\x12zaccounts/{account}/channelPartnerLinks/{channel_partner}/channelPartnerRepricingConfigs/{channel_partner_repricing_config}\"\xfd\x04\n\x0fRepricingConfig\x12\x62\n\x17\x65ntitlement_granularity\x18\x04 \x01(\x0b\x32?.google.cloud.channel.v1.RepricingConfig.EntitlementGranularityH\x00\x12i\n\x1b\x63hannel_partner_granularity\x18\x05 \x01(\x0b\x32\x42.google.cloud.channel.v1.RepricingConfig.ChannelPartnerGranularityH\x00\x12\x37\n\x17\x65\x66\x66\x65\x63tive_invoice_month\x18\x01 \x01(\x0b\x32\x11.google.type.DateB\x03\xe0\x41\x02\x12\x45\n\nadjustment\x18\x02 \x01(\x0b\x32,.google.cloud.channel.v1.RepricingAdjustmentB\x03\xe0\x41\x02\x12\x45\n\x0frebilling_basis\x18\x03 \x01(\x0e\x32\'.google.cloud.channel.v1.RebillingBasisB\x03\xe0\x41\x02\x12K\n\x15\x63onditional_overrides\x18\x06 \x03(\x0b\x32,.google.cloud.channel.v1.ConditionalOverride\x1a[\n\x16\x45ntitlementGranularity\x12\x41\n\x0b\x65ntitlement\x18\x01 \x01(\tB,\xfa\x41)\n\'cloudchannel.googleapis.com/Entitlement\x1a\x1b\n\x19\x43hannelPartnerGranularityB\r\n\x0bgranularity\"s\n\x13RepricingAdjustment\x12N\n\x15percentage_adjustment\x18\x02 \x01(\x0b\x32-.google.cloud.channel.v1.PercentageAdjustmentH\x00\x42\x0c\n\nadjustment\"@\n\x14PercentageAdjustment\x12(\n\npercentage\x18\x02 \x01(\x0b\x32\x14.google.type.Decimal\"\xf2\x01\n\x13\x43onditionalOverride\x12\x45\n\nadjustment\x18\x01 \x01(\x0b\x32,.google.cloud.channel.v1.RepricingAdjustmentB\x03\xe0\x41\x02\x12\x45\n\x0frebilling_basis\x18\x02 \x01(\x0e\x32\'.google.cloud.channel.v1.RebillingBasisB\x03\xe0\x41\x02\x12M\n\x13repricing_condition\x18\x03 \x01(\x0b\x32+.google.cloud.channel.v1.RepricingConditionB\x03\xe0\x41\x02\"l\n\x12RepricingCondition\x12I\n\x13sku_group_condition\x18\x01 \x01(\x0b\x32*.google.cloud.channel.v1.SkuGroupConditionH\x00\x42\x0b\n\tcondition\"&\n\x11SkuGroupCondition\x12\x11\n\tsku_group\x18\x01 \x01(\t*]\n\x0eRebillingBasis\x12\x1f\n\x1bREBILLING_BASIS_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x43OST_AT_LIST\x10\x01\x12\x18\n\x14\x44IRECT_CUSTOMER_COST\x10\x02\x42o\n\x1b\x63om.google.cloud.channel.v1B\x0eRepricingProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/channel/v1;channelb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.channel.v1.repricing_pb2', globals())
@@ -50,20 +50,32 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _REPRICINGCONFIG.fields_by_name['adjustment']._serialized_options = b'\340A\002'
   _REPRICINGCONFIG.fields_by_name['rebilling_basis']._options = None
   _REPRICINGCONFIG.fields_by_name['rebilling_basis']._serialized_options = b'\340A\002'
-  _REBILLINGBASIS._serialized_start=1656
-  _REBILLINGBASIS._serialized_end=1749
+  _CONDITIONALOVERRIDE.fields_by_name['adjustment']._options = None
+  _CONDITIONALOVERRIDE.fields_by_name['adjustment']._serialized_options = b'\340A\002'
+  _CONDITIONALOVERRIDE.fields_by_name['rebilling_basis']._options = None
+  _CONDITIONALOVERRIDE.fields_by_name['rebilling_basis']._serialized_options = b'\340A\002'
+  _CONDITIONALOVERRIDE.fields_by_name['repricing_condition']._options = None
+  _CONDITIONALOVERRIDE.fields_by_name['repricing_condition']._serialized_options = b'\340A\002'
+  _REBILLINGBASIS._serialized_start=2128
+  _REBILLINGBASIS._serialized_end=2221
   _CUSTOMERREPRICINGCONFIG._serialized_start=213
   _CUSTOMERREPRICINGCONFIG._serialized_end=538
   _CHANNELPARTNERREPRICINGCONFIG._serialized_start=541
   _CHANNELPARTNERREPRICINGCONFIG._serialized_end=908
   _REPRICINGCONFIG._serialized_start=911
-  _REPRICINGCONFIG._serialized_end=1471
-  _REPRICINGCONFIG_ENTITLEMENTGRANULARITY._serialized_start=1336
-  _REPRICINGCONFIG_ENTITLEMENTGRANULARITY._serialized_end=1427
-  _REPRICINGCONFIG_CHANNELPARTNERGRANULARITY._serialized_start=1429
-  _REPRICINGCONFIG_CHANNELPARTNERGRANULARITY._serialized_end=1456
-  _REPRICINGADJUSTMENT._serialized_start=1473
-  _REPRICINGADJUSTMENT._serialized_end=1588
-  _PERCENTAGEADJUSTMENT._serialized_start=1590
-  _PERCENTAGEADJUSTMENT._serialized_end=1654
+  _REPRICINGCONFIG._serialized_end=1548
+  _REPRICINGCONFIG_ENTITLEMENTGRANULARITY._serialized_start=1413
+  _REPRICINGCONFIG_ENTITLEMENTGRANULARITY._serialized_end=1504
+  _REPRICINGCONFIG_CHANNELPARTNERGRANULARITY._serialized_start=1506
+  _REPRICINGCONFIG_CHANNELPARTNERGRANULARITY._serialized_end=1533
+  _REPRICINGADJUSTMENT._serialized_start=1550
+  _REPRICINGADJUSTMENT._serialized_end=1665
+  _PERCENTAGEADJUSTMENT._serialized_start=1667
+  _PERCENTAGEADJUSTMENT._serialized_end=1731
+  _CONDITIONALOVERRIDE._serialized_start=1734
+  _CONDITIONALOVERRIDE._serialized_end=1976
+  _REPRICINGCONDITION._serialized_start=1978
+  _REPRICINGCONDITION._serialized_end=2086
+  _SKUGROUPCONDITION._serialized_start=2088
+  _SKUGROUPCONDITION._serialized_end=2126
 # @@protoc_insertion_point(module_scope)

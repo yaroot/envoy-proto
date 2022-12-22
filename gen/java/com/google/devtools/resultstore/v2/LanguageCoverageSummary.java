@@ -35,77 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LanguageCoverageSummary(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            language_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.devtools.resultstore.v2.LineCoverageSummary.Builder subBuilder = null;
-            if (lineSummary_ != null) {
-              subBuilder = lineSummary_.toBuilder();
-            }
-            lineSummary_ = input.readMessage(com.google.devtools.resultstore.v2.LineCoverageSummary.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lineSummary_);
-              lineSummary_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.devtools.resultstore.v2.BranchCoverageSummary.Builder subBuilder = null;
-            if (branchSummary_ != null) {
-              subBuilder = branchSummary_.toBuilder();
-            }
-            branchSummary_ = input.readMessage(com.google.devtools.resultstore.v2.BranchCoverageSummary.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(branchSummary_);
-              branchSummary_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.resultstore.v2.CoverageSummaryProto.internal_static_google_devtools_resultstore_v2_LanguageCoverageSummary_descriptor;
@@ -120,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_FIELD_NUMBER = 1;
-  private int language_;
+  private int language_ = 0;
   /**
    * <pre>
    * This summary is for all files written in this programming language.
@@ -141,8 +70,7 @@ private static final long serialVersionUID = 0L;
    * @return The language.
    */
   @java.lang.Override public com.google.devtools.resultstore.v2.Language getLanguage() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.resultstore.v2.Language result = com.google.devtools.resultstore.v2.Language.valueOf(language_);
+    com.google.devtools.resultstore.v2.Language result = com.google.devtools.resultstore.v2.Language.forNumber(language_);
     return result == null ? com.google.devtools.resultstore.v2.Language.UNRECOGNIZED : result;
   }
 
@@ -181,7 +109,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.resultstore.v2.LineCoverageSummaryOrBuilder getLineSummaryOrBuilder() {
-    return getLineSummary();
+    return lineSummary_ == null ? com.google.devtools.resultstore.v2.LineCoverageSummary.getDefaultInstance() : lineSummary_;
   }
 
   public static final int BRANCH_SUMMARY_FIELD_NUMBER = 3;
@@ -219,7 +147,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.resultstore.v2.BranchCoverageSummaryOrBuilder getBranchSummaryOrBuilder() {
-    return getBranchSummary();
+    return branchSummary_ == null ? com.google.devtools.resultstore.v2.BranchCoverageSummary.getDefaultInstance() : branchSummary_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -245,7 +173,7 @@ private static final long serialVersionUID = 0L;
     if (branchSummary_ != null) {
       output.writeMessage(3, getBranchSummary());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -266,7 +194,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getBranchSummary());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -292,7 +220,7 @@ private static final long serialVersionUID = 0L;
       if (!getBranchSummary()
           .equals(other.getBranchSummary())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -313,7 +241,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BRANCH_SUMMARY_FIELD_NUMBER;
       hash = (53 * hash) + getBranchSummary().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -434,34 +362,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.resultstore.v2.LanguageCoverageSummary.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       language_ = 0;
-
-      if (lineSummaryBuilder_ == null) {
-        lineSummary_ = null;
-      } else {
-        lineSummary_ = null;
+      lineSummary_ = null;
+      if (lineSummaryBuilder_ != null) {
+        lineSummaryBuilder_.dispose();
         lineSummaryBuilder_ = null;
       }
-      if (branchSummaryBuilder_ == null) {
-        branchSummary_ = null;
-      } else {
-        branchSummary_ = null;
+      branchSummary_ = null;
+      if (branchSummaryBuilder_ != null) {
+        branchSummaryBuilder_.dispose();
         branchSummaryBuilder_ = null;
       }
       return this;
@@ -490,19 +411,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.resultstore.v2.LanguageCoverageSummary buildPartial() {
       com.google.devtools.resultstore.v2.LanguageCoverageSummary result = new com.google.devtools.resultstore.v2.LanguageCoverageSummary(this);
-      result.language_ = language_;
-      if (lineSummaryBuilder_ == null) {
-        result.lineSummary_ = lineSummary_;
-      } else {
-        result.lineSummary_ = lineSummaryBuilder_.build();
-      }
-      if (branchSummaryBuilder_ == null) {
-        result.branchSummary_ = branchSummary_;
-      } else {
-        result.branchSummary_ = branchSummaryBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.resultstore.v2.LanguageCoverageSummary result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.language_ = language_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.lineSummary_ = lineSummaryBuilder_ == null
+            ? lineSummary_
+            : lineSummaryBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.branchSummary_ = branchSummaryBuilder_ == null
+            ? branchSummary_
+            : branchSummaryBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -558,7 +486,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasBranchSummary()) {
         mergeBranchSummary(other.getBranchSummary());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -573,19 +501,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.resultstore.v2.LanguageCoverageSummary parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              language_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getLineSummaryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBranchSummaryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.resultstore.v2.LanguageCoverageSummary) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int language_ = 0;
     /**
@@ -609,8 +570,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLanguageValue(int value) {
-      
       language_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -624,8 +585,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.resultstore.v2.Language getLanguage() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.resultstore.v2.Language result = com.google.devtools.resultstore.v2.Language.valueOf(language_);
+      com.google.devtools.resultstore.v2.Language result = com.google.devtools.resultstore.v2.Language.forNumber(language_);
       return result == null ? com.google.devtools.resultstore.v2.Language.UNRECOGNIZED : result;
     }
     /**
@@ -641,7 +601,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       language_ = value.getNumber();
       onChanged();
       return this;
@@ -655,7 +615,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       language_ = 0;
       onChanged();
       return this;
@@ -673,7 +633,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lineSummary field is set.
      */
     public boolean hasLineSummary() {
-      return lineSummaryBuilder_ != null || lineSummary_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -703,11 +663,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lineSummary_ = value;
-        onChanged();
       } else {
         lineSummaryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -721,11 +681,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.resultstore.v2.LineCoverageSummary.Builder builderForValue) {
       if (lineSummaryBuilder_ == null) {
         lineSummary_ = builderForValue.build();
-        onChanged();
       } else {
         lineSummaryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -737,17 +697,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLineSummary(com.google.devtools.resultstore.v2.LineCoverageSummary value) {
       if (lineSummaryBuilder_ == null) {
-        if (lineSummary_ != null) {
-          lineSummary_ =
-            com.google.devtools.resultstore.v2.LineCoverageSummary.newBuilder(lineSummary_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          lineSummary_ != null &&
+          lineSummary_ != com.google.devtools.resultstore.v2.LineCoverageSummary.getDefaultInstance()) {
+          getLineSummaryBuilder().mergeFrom(value);
         } else {
           lineSummary_ = value;
         }
-        onChanged();
       } else {
         lineSummaryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -758,14 +719,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.LineCoverageSummary line_summary = 2;</code>
      */
     public Builder clearLineSummary() {
-      if (lineSummaryBuilder_ == null) {
-        lineSummary_ = null;
-        onChanged();
-      } else {
-        lineSummary_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      lineSummary_ = null;
+      if (lineSummaryBuilder_ != null) {
+        lineSummaryBuilder_.dispose();
         lineSummaryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -776,7 +736,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.LineCoverageSummary line_summary = 2;</code>
      */
     public com.google.devtools.resultstore.v2.LineCoverageSummary.Builder getLineSummaryBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getLineSummaryFieldBuilder().getBuilder();
     }
@@ -828,7 +788,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the branchSummary field is set.
      */
     public boolean hasBranchSummary() {
-      return branchSummaryBuilder_ != null || branchSummary_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -858,11 +818,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         branchSummary_ = value;
-        onChanged();
       } else {
         branchSummaryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -876,11 +836,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.resultstore.v2.BranchCoverageSummary.Builder builderForValue) {
       if (branchSummaryBuilder_ == null) {
         branchSummary_ = builderForValue.build();
-        onChanged();
       } else {
         branchSummaryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -892,17 +852,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBranchSummary(com.google.devtools.resultstore.v2.BranchCoverageSummary value) {
       if (branchSummaryBuilder_ == null) {
-        if (branchSummary_ != null) {
-          branchSummary_ =
-            com.google.devtools.resultstore.v2.BranchCoverageSummary.newBuilder(branchSummary_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          branchSummary_ != null &&
+          branchSummary_ != com.google.devtools.resultstore.v2.BranchCoverageSummary.getDefaultInstance()) {
+          getBranchSummaryBuilder().mergeFrom(value);
         } else {
           branchSummary_ = value;
         }
-        onChanged();
       } else {
         branchSummaryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -913,14 +874,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.BranchCoverageSummary branch_summary = 3;</code>
      */
     public Builder clearBranchSummary() {
-      if (branchSummaryBuilder_ == null) {
-        branchSummary_ = null;
-        onChanged();
-      } else {
-        branchSummary_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      branchSummary_ = null;
+      if (branchSummaryBuilder_ != null) {
+        branchSummaryBuilder_.dispose();
         branchSummaryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -931,7 +891,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.resultstore.v2.BranchCoverageSummary branch_summary = 3;</code>
      */
     public com.google.devtools.resultstore.v2.BranchCoverageSummary.Builder getBranchSummaryBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getBranchSummaryFieldBuilder().getBuilder();
     }
@@ -1003,7 +963,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LanguageCoverageSummary(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

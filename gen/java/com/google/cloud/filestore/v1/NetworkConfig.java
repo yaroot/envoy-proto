@@ -38,96 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NetworkConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            network_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              modes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            modes_.add(rawValue);
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                modes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              modes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            reservedIpRange_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              ipAddresses_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            ipAddresses_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        modes_ = java.util.Collections.unmodifiableList(modes_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        ipAddresses_ = ipAddresses_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.filestore.v1.CloudFilestoreServiceProto.internal_static_google_cloud_filestore_v1_NetworkConfig_descriptor;
@@ -270,7 +180,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 1;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * The name of the Google Compute Engine
@@ -320,14 +231,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> modes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.filestore.v1.NetworkConfig.AddressMode> modes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.filestore.v1.NetworkConfig.AddressMode>() {
             public com.google.cloud.filestore.v1.NetworkConfig.AddressMode convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.filestore.v1.NetworkConfig.AddressMode result = com.google.cloud.filestore.v1.NetworkConfig.AddressMode.valueOf(from);
+              com.google.cloud.filestore.v1.NetworkConfig.AddressMode result = com.google.cloud.filestore.v1.NetworkConfig.AddressMode.forNumber(from);
               return result == null ? com.google.cloud.filestore.v1.NetworkConfig.AddressMode.UNRECOGNIZED : result;
             }
           };
@@ -403,7 +314,8 @@ private static final long serialVersionUID = 0L;
   private int modesMemoizedSerializedSize;
 
   public static final int RESERVED_IP_RANGE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object reservedIpRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object reservedIpRange_ = "";
   /**
    * <pre>
    * A /29 CIDR block in one of the
@@ -461,6 +373,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_ADDRESSES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList ipAddresses_;
   /**
    * <pre>
@@ -554,7 +467,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < ipAddresses_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, ipAddresses_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -589,7 +502,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getIpAddressesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -611,7 +524,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getReservedIpRange())) return false;
     if (!getIpAddressesList()
         .equals(other.getIpAddressesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -634,7 +547,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + IP_ADDRESSES_FIELD_NUMBER;
       hash = (53 * hash) + getIpAddressesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -755,30 +668,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.filestore.v1.NetworkConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       network_ = "";
-
       modes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      reservedIpRange_ = "";
-
-      ipAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
+      reservedIpRange_ = "";
+      ipAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -805,21 +712,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.filestore.v1.NetworkConfig buildPartial() {
       com.google.cloud.filestore.v1.NetworkConfig result = new com.google.cloud.filestore.v1.NetworkConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.network_ = network_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        modes_ = java.util.Collections.unmodifiableList(modes_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.modes_ = modes_;
-      result.reservedIpRange_ = reservedIpRange_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        ipAddresses_ = ipAddresses_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.ipAddresses_ = ipAddresses_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.filestore.v1.NetworkConfig result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        modes_ = java.util.Collections.unmodifiableList(modes_);
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.modes_ = modes_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        ipAddresses_ = ipAddresses_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.ipAddresses_ = ipAddresses_;
+    }
+
+    private void buildPartial0(com.google.cloud.filestore.v1.NetworkConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.reservedIpRange_ = reservedIpRange_;
+      }
     }
 
     @java.lang.Override
@@ -868,12 +787,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.filestore.v1.NetworkConfig.getDefaultInstance()) return this;
       if (!other.getNetwork().isEmpty()) {
         network_ = other.network_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.modes_.isEmpty()) {
         if (modes_.isEmpty()) {
           modes_ = other.modes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureModesIsMutable();
           modes_.addAll(other.modes_);
@@ -882,19 +802,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getReservedIpRange().isEmpty()) {
         reservedIpRange_ = other.reservedIpRange_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.ipAddresses_.isEmpty()) {
         if (ipAddresses_.isEmpty()) {
           ipAddresses_ = other.ipAddresses_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureIpAddressesIsMutable();
           ipAddresses_.addAll(other.ipAddresses_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -909,17 +830,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.filestore.v1.NetworkConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureModesIsMutable();
+              modes_.add(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureModesIsMutable();
+                modes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 26
+            case 34: {
+              reservedIpRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIpAddressesIsMutable();
+              ipAddresses_.add(s);
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.filestore.v1.NetworkConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -983,11 +950,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1002,8 +967,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1020,12 +985,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1033,9 +996,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> modes_ =
       java.util.Collections.emptyList();
     private void ensureModesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         modes_ = new java.util.ArrayList<java.lang.Integer>(modes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
       }
     }
     /**
@@ -1146,7 +1109,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearModes() {
       modes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1301,11 +1264,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReservedIpRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       reservedIpRange_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1324,8 +1285,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReservedIpRange() {
-      
       reservedIpRange_ = getDefaultInstance().getReservedIpRange();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1346,21 +1307,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReservedIpRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       reservedIpRange_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList ipAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureIpAddressesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         ipAddresses_ = new com.google.protobuf.LazyStringArrayList(ipAddresses_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1438,10 +1397,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpAddresses(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpAddressesIsMutable();
       ipAddresses_.set(index, value);
       onChanged();
       return this;
@@ -1460,10 +1417,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpAddresses(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpAddressesIsMutable();
       ipAddresses_.add(value);
       onChanged();
       return this;
@@ -1501,7 +1456,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearIpAddresses() {
       ipAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1519,10 +1474,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpAddressesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIpAddressesIsMutable();
       ipAddresses_.add(value);
       onChanged();
@@ -1561,7 +1514,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NetworkConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

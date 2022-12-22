@@ -109,7 +109,7 @@ public interface TriggerOrBuilder extends
 
   /**
    * <pre>
-   * Required. null The list of filters that applies to event attributes. Only events that
+   * Required. Unordered list. The list of filters that applies to event attributes. Only events that
    * match all the provided filters are sent to the destination.
    * </pre>
    *
@@ -119,7 +119,7 @@ public interface TriggerOrBuilder extends
       getEventFiltersList();
   /**
    * <pre>
-   * Required. null The list of filters that applies to event attributes. Only events that
+   * Required. Unordered list. The list of filters that applies to event attributes. Only events that
    * match all the provided filters are sent to the destination.
    * </pre>
    *
@@ -128,7 +128,7 @@ public interface TriggerOrBuilder extends
   com.google.cloud.eventarc.v1.EventFilter getEventFilters(int index);
   /**
    * <pre>
-   * Required. null The list of filters that applies to event attributes. Only events that
+   * Required. Unordered list. The list of filters that applies to event attributes. Only events that
    * match all the provided filters are sent to the destination.
    * </pre>
    *
@@ -137,7 +137,7 @@ public interface TriggerOrBuilder extends
   int getEventFiltersCount();
   /**
    * <pre>
-   * Required. null The list of filters that applies to event attributes. Only events that
+   * Required. Unordered list. The list of filters that applies to event attributes. Only events that
    * match all the provided filters are sent to the destination.
    * </pre>
    *
@@ -147,7 +147,7 @@ public interface TriggerOrBuilder extends
       getEventFiltersOrBuilderList();
   /**
    * <pre>
-   * Required. null The list of filters that applies to event attributes. Only events that
+   * Required. Unordered list. The list of filters that applies to event attributes. Only events that
    * match all the provided filters are sent to the destination.
    * </pre>
    *
@@ -300,7 +300,6 @@ public interface TriggerOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -313,7 +312,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -340,6 +338,60 @@ java.lang.String defaultValue);
    */
   com.google.protobuf.ByteString
       getChannelBytes();
+
+  /**
+   * <pre>
+   * Output only. The reason(s) why a trigger is in FAILED state.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.eventarc.v1.StateCondition&gt; conditions = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  int getConditionsCount();
+  /**
+   * <pre>
+   * Output only. The reason(s) why a trigger is in FAILED state.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.eventarc.v1.StateCondition&gt; conditions = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  boolean containsConditions(
+      java.lang.String key);
+  /**
+   * Use {@link #getConditionsMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, com.google.cloud.eventarc.v1.StateCondition>
+  getConditions();
+  /**
+   * <pre>
+   * Output only. The reason(s) why a trigger is in FAILED state.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.eventarc.v1.StateCondition&gt; conditions = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  java.util.Map<java.lang.String, com.google.cloud.eventarc.v1.StateCondition>
+  getConditionsMap();
+  /**
+   * <pre>
+   * Output only. The reason(s) why a trigger is in FAILED state.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.eventarc.v1.StateCondition&gt; conditions = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  /* nullable */
+com.google.cloud.eventarc.v1.StateCondition getConditionsOrDefault(
+      java.lang.String key,
+      /* nullable */
+com.google.cloud.eventarc.v1.StateCondition defaultValue);
+  /**
+   * <pre>
+   * Output only. The reason(s) why a trigger is in FAILED state.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.eventarc.v1.StateCondition&gt; conditions = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.cloud.eventarc.v1.StateCondition getConditionsOrThrow(
+      java.lang.String key);
 
   /**
    * <pre>

@@ -38,51 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AwsInstancePlacement(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            tenancy_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AwsResourcesProto.internal_static_google_cloud_gkemulticloud_v1_AwsInstancePlacement_descriptor;
@@ -259,7 +214,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TENANCY_FIELD_NUMBER = 1;
-  private int tenancy_;
+  private int tenancy_ = 0;
   /**
    * <pre>
    * Required. The tenancy for instance.
@@ -280,8 +235,7 @@ private static final long serialVersionUID = 0L;
    * @return The tenancy.
    */
   @java.lang.Override public com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy getTenancy() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy result = com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy.valueOf(tenancy_);
+    com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy result = com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy.forNumber(tenancy_);
     return result == null ? com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy.UNRECOGNIZED : result;
   }
 
@@ -302,7 +256,7 @@ private static final long serialVersionUID = 0L;
     if (tenancy_ != com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy.TENANCY_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, tenancy_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -315,7 +269,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, tenancy_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -331,7 +285,7 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.gkemulticloud.v1.AwsInstancePlacement other = (com.google.cloud.gkemulticloud.v1.AwsInstancePlacement) obj;
 
     if (tenancy_ != other.tenancy_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -344,7 +298,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + TENANCY_FIELD_NUMBER;
     hash = (53 * hash) + tenancy_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -468,24 +422,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       tenancy_ = 0;
-
       return this;
     }
 
@@ -512,9 +461,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AwsInstancePlacement buildPartial() {
       com.google.cloud.gkemulticloud.v1.AwsInstancePlacement result = new com.google.cloud.gkemulticloud.v1.AwsInstancePlacement(this);
-      result.tenancy_ = tenancy_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.AwsInstancePlacement result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tenancy_ = tenancy_;
+      }
     }
 
     @java.lang.Override
@@ -564,7 +520,7 @@ private static final long serialVersionUID = 0L;
       if (other.tenancy_ != 0) {
         setTenancyValue(other.getTenancyValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -579,19 +535,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.AwsInstancePlacement parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              tenancy_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.AwsInstancePlacement) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int tenancy_ = 0;
     /**
@@ -615,8 +590,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTenancyValue(int value) {
-      
       tenancy_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -630,8 +605,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy getTenancy() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy result = com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy.valueOf(tenancy_);
+      com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy result = com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy.forNumber(tenancy_);
       return result == null ? com.google.cloud.gkemulticloud.v1.AwsInstancePlacement.Tenancy.UNRECOGNIZED : result;
     }
     /**
@@ -647,7 +621,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       tenancy_ = value.getNumber();
       onChanged();
       return this;
@@ -661,7 +635,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTenancy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       tenancy_ = 0;
       onChanged();
       return this;
@@ -699,7 +673,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AwsInstancePlacement(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

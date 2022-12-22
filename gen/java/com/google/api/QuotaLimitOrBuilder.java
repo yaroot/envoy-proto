@@ -231,7 +231,6 @@ public interface QuotaLimitOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; values = 10;</code>
    */
-
   long getValuesOrDefault(
       java.lang.String key,
       long defaultValue);
@@ -244,7 +243,6 @@ public interface QuotaLimitOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; values = 10;</code>
    */
-
   long getValuesOrThrow(
       java.lang.String key);
 

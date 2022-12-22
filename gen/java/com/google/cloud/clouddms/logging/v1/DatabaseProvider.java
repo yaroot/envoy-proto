@@ -36,6 +36,22 @@ public enum DatabaseProvider
    * <code>RDS = 2;</code>
    */
   RDS(2),
+  /**
+   * <pre>
+   * Amazon Aurora.
+   * </pre>
+   *
+   * <code>AURORA = 3;</code>
+   */
+  AURORA(3),
+  /**
+   * <pre>
+   * AlloyDB.
+   * </pre>
+   *
+   * <code>ALLOYDB = 4;</code>
+   */
+  ALLOYDB(4),
   UNRECOGNIZED(-1),
   ;
 
@@ -63,6 +79,22 @@ public enum DatabaseProvider
    * <code>RDS = 2;</code>
    */
   public static final int RDS_VALUE = 2;
+  /**
+   * <pre>
+   * Amazon Aurora.
+   * </pre>
+   *
+   * <code>AURORA = 3;</code>
+   */
+  public static final int AURORA_VALUE = 3;
+  /**
+   * <pre>
+   * AlloyDB.
+   * </pre>
+   *
+   * <code>ALLOYDB = 4;</code>
+   */
+  public static final int ALLOYDB_VALUE = 4;
 
 
   public final int getNumber() {
@@ -92,6 +124,8 @@ public enum DatabaseProvider
       case 0: return DATABASE_PROVIDER_UNSPECIFIED;
       case 1: return CLOUDSQL;
       case 2: return RDS;
+      case 3: return AURORA;
+      case 4: return ALLOYDB;
       default: return null;
     }
   }

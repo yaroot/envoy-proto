@@ -38,118 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NetworkConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            network_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subnetwork_ = s;
-            break;
-          }
-          case 40: {
-
-            enableIntraNodeVisibility_ = input.readBool();
-            break;
-          }
-          case 58: {
-            com.google.container.v1.DefaultSnatStatus.Builder subBuilder = null;
-            if (defaultSnatStatus_ != null) {
-              subBuilder = defaultSnatStatus_.toBuilder();
-            }
-            defaultSnatStatus_ = input.readMessage(com.google.container.v1.DefaultSnatStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(defaultSnatStatus_);
-              defaultSnatStatus_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-
-            enableL4IlbSubsetting_ = input.readBool();
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            datapathProvider_ = rawValue;
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            privateIpv6GoogleAccess_ = rawValue;
-            break;
-          }
-          case 106: {
-            com.google.container.v1.DNSConfig.Builder subBuilder = null;
-            if (dnsConfig_ != null) {
-              subBuilder = dnsConfig_.toBuilder();
-            }
-            dnsConfig_ = input.readMessage(com.google.container.v1.DNSConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dnsConfig_);
-              dnsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.container.v1.ServiceExternalIPsConfig.Builder subBuilder = null;
-            if (serviceExternalIpsConfig_ != null) {
-              subBuilder = serviceExternalIpsConfig_.toBuilder();
-            }
-            serviceExternalIpsConfig_ = input.readMessage(com.google.container.v1.ServiceExternalIPsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(serviceExternalIpsConfig_);
-              serviceExternalIpsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1.ClusterServiceProto.internal_static_google_container_v1_NetworkConfig_descriptor;
@@ -164,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 1;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * Output only. The relative name of the Google Compute Engine
@@ -216,7 +105,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBNETWORK_FIELD_NUMBER = 2;
-  private volatile java.lang.Object subnetwork_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subnetwork_ = "";
   /**
    * <pre>
    * Output only. The relative name of the Google Compute Engine
@@ -268,7 +158,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_INTRA_NODE_VISIBILITY_FIELD_NUMBER = 5;
-  private boolean enableIntraNodeVisibility_;
+  private boolean enableIntraNodeVisibility_ = false;
   /**
    * <pre>
    * Whether Intra-node visibility is enabled for this cluster.
@@ -327,11 +217,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.DefaultSnatStatusOrBuilder getDefaultSnatStatusOrBuilder() {
-    return getDefaultSnatStatus();
+    return defaultSnatStatus_ == null ? com.google.container.v1.DefaultSnatStatus.getDefaultInstance() : defaultSnatStatus_;
   }
 
   public static final int ENABLE_L4ILB_SUBSETTING_FIELD_NUMBER = 10;
-  private boolean enableL4IlbSubsetting_;
+  private boolean enableL4IlbSubsetting_ = false;
   /**
    * <pre>
    * Whether L4ILB Subsetting is enabled for this cluster.
@@ -346,7 +236,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATAPATH_PROVIDER_FIELD_NUMBER = 11;
-  private int datapathProvider_;
+  private int datapathProvider_ = 0;
   /**
    * <pre>
    * The desired datapath provider for this cluster. By default, uses the
@@ -369,13 +259,12 @@ private static final long serialVersionUID = 0L;
    * @return The datapathProvider.
    */
   @java.lang.Override public com.google.container.v1.DatapathProvider getDatapathProvider() {
-    @SuppressWarnings("deprecation")
-    com.google.container.v1.DatapathProvider result = com.google.container.v1.DatapathProvider.valueOf(datapathProvider_);
+    com.google.container.v1.DatapathProvider result = com.google.container.v1.DatapathProvider.forNumber(datapathProvider_);
     return result == null ? com.google.container.v1.DatapathProvider.UNRECOGNIZED : result;
   }
 
   public static final int PRIVATE_IPV6_GOOGLE_ACCESS_FIELD_NUMBER = 12;
-  private int privateIpv6GoogleAccess_;
+  private int privateIpv6GoogleAccess_ = 0;
   /**
    * <pre>
    * The desired state of IPv6 connectivity to Google Services.
@@ -400,8 +289,7 @@ private static final long serialVersionUID = 0L;
    * @return The privateIpv6GoogleAccess.
    */
   @java.lang.Override public com.google.container.v1.PrivateIPv6GoogleAccess getPrivateIpv6GoogleAccess() {
-    @SuppressWarnings("deprecation")
-    com.google.container.v1.PrivateIPv6GoogleAccess result = com.google.container.v1.PrivateIPv6GoogleAccess.valueOf(privateIpv6GoogleAccess_);
+    com.google.container.v1.PrivateIPv6GoogleAccess result = com.google.container.v1.PrivateIPv6GoogleAccess.forNumber(privateIpv6GoogleAccess_);
     return result == null ? com.google.container.v1.PrivateIPv6GoogleAccess.UNRECOGNIZED : result;
   }
 
@@ -440,7 +328,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.DNSConfigOrBuilder getDnsConfigOrBuilder() {
-    return getDnsConfig();
+    return dnsConfig_ == null ? com.google.container.v1.DNSConfig.getDefaultInstance() : dnsConfig_;
   }
 
   public static final int SERVICE_EXTERNAL_IPS_CONFIG_FIELD_NUMBER = 15;
@@ -481,7 +369,48 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.ServiceExternalIPsConfigOrBuilder getServiceExternalIpsConfigOrBuilder() {
-    return getServiceExternalIpsConfig();
+    return serviceExternalIpsConfig_ == null ? com.google.container.v1.ServiceExternalIPsConfig.getDefaultInstance() : serviceExternalIpsConfig_;
+  }
+
+  public static final int GATEWAY_API_CONFIG_FIELD_NUMBER = 16;
+  private com.google.container.v1.GatewayAPIConfig gatewayApiConfig_;
+  /**
+   * <pre>
+   * GatewayAPIConfig contains the desired config of Gateway API on this
+   * cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+   * @return Whether the gatewayApiConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasGatewayApiConfig() {
+    return gatewayApiConfig_ != null;
+  }
+  /**
+   * <pre>
+   * GatewayAPIConfig contains the desired config of Gateway API on this
+   * cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+   * @return The gatewayApiConfig.
+   */
+  @java.lang.Override
+  public com.google.container.v1.GatewayAPIConfig getGatewayApiConfig() {
+    return gatewayApiConfig_ == null ? com.google.container.v1.GatewayAPIConfig.getDefaultInstance() : gatewayApiConfig_;
+  }
+  /**
+   * <pre>
+   * GatewayAPIConfig contains the desired config of Gateway API on this
+   * cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+   */
+  @java.lang.Override
+  public com.google.container.v1.GatewayAPIConfigOrBuilder getGatewayApiConfigOrBuilder() {
+    return gatewayApiConfig_ == null ? com.google.container.v1.GatewayAPIConfig.getDefaultInstance() : gatewayApiConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -525,7 +454,10 @@ private static final long serialVersionUID = 0L;
     if (serviceExternalIpsConfig_ != null) {
       output.writeMessage(15, getServiceExternalIpsConfig());
     }
-    unknownFields.writeTo(output);
+    if (gatewayApiConfig_ != null) {
+      output.writeMessage(16, getGatewayApiConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -568,7 +500,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getServiceExternalIpsConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (gatewayApiConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(16, getGatewayApiConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -608,7 +544,12 @@ private static final long serialVersionUID = 0L;
       if (!getServiceExternalIpsConfig()
           .equals(other.getServiceExternalIpsConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasGatewayApiConfig() != other.hasGatewayApiConfig()) return false;
+    if (hasGatewayApiConfig()) {
+      if (!getGatewayApiConfig()
+          .equals(other.getGatewayApiConfig())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -645,7 +586,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SERVICE_EXTERNAL_IPS_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getServiceExternalIpsConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasGatewayApiConfig()) {
+      hash = (37 * hash) + GATEWAY_API_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getGatewayApiConfig().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -766,51 +711,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1.NetworkConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       network_ = "";
-
       subnetwork_ = "";
-
       enableIntraNodeVisibility_ = false;
-
-      if (defaultSnatStatusBuilder_ == null) {
-        defaultSnatStatus_ = null;
-      } else {
-        defaultSnatStatus_ = null;
+      defaultSnatStatus_ = null;
+      if (defaultSnatStatusBuilder_ != null) {
+        defaultSnatStatusBuilder_.dispose();
         defaultSnatStatusBuilder_ = null;
       }
       enableL4IlbSubsetting_ = false;
-
       datapathProvider_ = 0;
-
       privateIpv6GoogleAccess_ = 0;
-
-      if (dnsConfigBuilder_ == null) {
-        dnsConfig_ = null;
-      } else {
-        dnsConfig_ = null;
+      dnsConfig_ = null;
+      if (dnsConfigBuilder_ != null) {
+        dnsConfigBuilder_.dispose();
         dnsConfigBuilder_ = null;
       }
-      if (serviceExternalIpsConfigBuilder_ == null) {
-        serviceExternalIpsConfig_ = null;
-      } else {
-        serviceExternalIpsConfig_ = null;
+      serviceExternalIpsConfig_ = null;
+      if (serviceExternalIpsConfigBuilder_ != null) {
+        serviceExternalIpsConfigBuilder_.dispose();
         serviceExternalIpsConfigBuilder_ = null;
+      }
+      gatewayApiConfig_ = null;
+      if (gatewayApiConfigBuilder_ != null) {
+        gatewayApiConfigBuilder_.dispose();
+        gatewayApiConfigBuilder_ = null;
       }
       return this;
     }
@@ -838,29 +775,51 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1.NetworkConfig buildPartial() {
       com.google.container.v1.NetworkConfig result = new com.google.container.v1.NetworkConfig(this);
-      result.network_ = network_;
-      result.subnetwork_ = subnetwork_;
-      result.enableIntraNodeVisibility_ = enableIntraNodeVisibility_;
-      if (defaultSnatStatusBuilder_ == null) {
-        result.defaultSnatStatus_ = defaultSnatStatus_;
-      } else {
-        result.defaultSnatStatus_ = defaultSnatStatusBuilder_.build();
-      }
-      result.enableL4IlbSubsetting_ = enableL4IlbSubsetting_;
-      result.datapathProvider_ = datapathProvider_;
-      result.privateIpv6GoogleAccess_ = privateIpv6GoogleAccess_;
-      if (dnsConfigBuilder_ == null) {
-        result.dnsConfig_ = dnsConfig_;
-      } else {
-        result.dnsConfig_ = dnsConfigBuilder_.build();
-      }
-      if (serviceExternalIpsConfigBuilder_ == null) {
-        result.serviceExternalIpsConfig_ = serviceExternalIpsConfig_;
-      } else {
-        result.serviceExternalIpsConfig_ = serviceExternalIpsConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1.NetworkConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.subnetwork_ = subnetwork_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.enableIntraNodeVisibility_ = enableIntraNodeVisibility_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.defaultSnatStatus_ = defaultSnatStatusBuilder_ == null
+            ? defaultSnatStatus_
+            : defaultSnatStatusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.enableL4IlbSubsetting_ = enableL4IlbSubsetting_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.datapathProvider_ = datapathProvider_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.privateIpv6GoogleAccess_ = privateIpv6GoogleAccess_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.dnsConfig_ = dnsConfigBuilder_ == null
+            ? dnsConfig_
+            : dnsConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.serviceExternalIpsConfig_ = serviceExternalIpsConfigBuilder_ == null
+            ? serviceExternalIpsConfig_
+            : serviceExternalIpsConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.gatewayApiConfig_ = gatewayApiConfigBuilder_ == null
+            ? gatewayApiConfig_
+            : gatewayApiConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -909,10 +868,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.container.v1.NetworkConfig.getDefaultInstance()) return this;
       if (!other.getNetwork().isEmpty()) {
         network_ = other.network_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSubnetwork().isEmpty()) {
         subnetwork_ = other.subnetwork_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getEnableIntraNodeVisibility() != false) {
@@ -936,7 +897,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasServiceExternalIpsConfig()) {
         mergeServiceExternalIpsConfig(other.getServiceExternalIpsConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasGatewayApiConfig()) {
+        mergeGatewayApiConfig(other.getGatewayApiConfig());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -951,19 +915,91 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1.NetworkConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              subnetwork_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 40: {
+              enableIntraNodeVisibility_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 40
+            case 58: {
+              input.readMessage(
+                  getDefaultSnatStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 80: {
+              enableL4IlbSubsetting_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 80
+            case 88: {
+              datapathProvider_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 88
+            case 96: {
+              privateIpv6GoogleAccess_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 96
+            case 106: {
+              input.readMessage(
+                  getDnsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 106
+            case 122: {
+              input.readMessage(
+                  getServiceExternalIpsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getGatewayApiConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 130
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1.NetworkConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object network_ = "";
     /**
@@ -1027,11 +1063,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1047,8 +1081,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1066,12 +1100,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1138,11 +1170,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subnetwork_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1158,8 +1188,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubnetwork() {
-      
       subnetwork_ = getDefaultInstance().getSubnetwork();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1177,12 +1207,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subnetwork_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1214,6 +1242,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableIntraNodeVisibility(boolean value) {
       
       enableIntraNodeVisibility_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1227,7 +1256,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableIntraNodeVisibility() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       enableIntraNodeVisibility_ = false;
       onChanged();
       return this;
@@ -1248,7 +1277,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the defaultSnatStatus field is set.
      */
     public boolean hasDefaultSnatStatus() {
-      return defaultSnatStatusBuilder_ != null || defaultSnatStatus_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1284,11 +1313,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         defaultSnatStatus_ = value;
-        onChanged();
       } else {
         defaultSnatStatusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1305,11 +1334,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.DefaultSnatStatus.Builder builderForValue) {
       if (defaultSnatStatusBuilder_ == null) {
         defaultSnatStatus_ = builderForValue.build();
-        onChanged();
       } else {
         defaultSnatStatusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1324,17 +1353,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDefaultSnatStatus(com.google.container.v1.DefaultSnatStatus value) {
       if (defaultSnatStatusBuilder_ == null) {
-        if (defaultSnatStatus_ != null) {
-          defaultSnatStatus_ =
-            com.google.container.v1.DefaultSnatStatus.newBuilder(defaultSnatStatus_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          defaultSnatStatus_ != null &&
+          defaultSnatStatus_ != com.google.container.v1.DefaultSnatStatus.getDefaultInstance()) {
+          getDefaultSnatStatusBuilder().mergeFrom(value);
         } else {
           defaultSnatStatus_ = value;
         }
-        onChanged();
       } else {
         defaultSnatStatusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1348,14 +1378,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DefaultSnatStatus default_snat_status = 7;</code>
      */
     public Builder clearDefaultSnatStatus() {
-      if (defaultSnatStatusBuilder_ == null) {
-        defaultSnatStatus_ = null;
-        onChanged();
-      } else {
-        defaultSnatStatus_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      defaultSnatStatus_ = null;
+      if (defaultSnatStatusBuilder_ != null) {
+        defaultSnatStatusBuilder_.dispose();
         defaultSnatStatusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1369,7 +1398,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DefaultSnatStatus default_snat_status = 7;</code>
      */
     public com.google.container.v1.DefaultSnatStatus.Builder getDefaultSnatStatusBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDefaultSnatStatusFieldBuilder().getBuilder();
     }
@@ -1440,6 +1469,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableL4IlbSubsetting(boolean value) {
       
       enableL4IlbSubsetting_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1452,7 +1482,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableL4IlbSubsetting() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       enableL4IlbSubsetting_ = false;
       onChanged();
       return this;
@@ -1482,8 +1512,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDatapathProviderValue(int value) {
-      
       datapathProvider_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1498,8 +1528,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.container.v1.DatapathProvider getDatapathProvider() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1.DatapathProvider result = com.google.container.v1.DatapathProvider.valueOf(datapathProvider_);
+      com.google.container.v1.DatapathProvider result = com.google.container.v1.DatapathProvider.forNumber(datapathProvider_);
       return result == null ? com.google.container.v1.DatapathProvider.UNRECOGNIZED : result;
     }
     /**
@@ -1516,7 +1545,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       datapathProvider_ = value.getNumber();
       onChanged();
       return this;
@@ -1531,7 +1560,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatapathProvider() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       datapathProvider_ = 0;
       onChanged();
       return this;
@@ -1563,8 +1592,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPrivateIpv6GoogleAccessValue(int value) {
-      
       privateIpv6GoogleAccess_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1580,8 +1609,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.container.v1.PrivateIPv6GoogleAccess getPrivateIpv6GoogleAccess() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1.PrivateIPv6GoogleAccess result = com.google.container.v1.PrivateIPv6GoogleAccess.valueOf(privateIpv6GoogleAccess_);
+      com.google.container.v1.PrivateIPv6GoogleAccess result = com.google.container.v1.PrivateIPv6GoogleAccess.forNumber(privateIpv6GoogleAccess_);
       return result == null ? com.google.container.v1.PrivateIPv6GoogleAccess.UNRECOGNIZED : result;
     }
     /**
@@ -1599,7 +1627,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       privateIpv6GoogleAccess_ = value.getNumber();
       onChanged();
       return this;
@@ -1615,7 +1643,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrivateIpv6GoogleAccess() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       privateIpv6GoogleAccess_ = 0;
       onChanged();
       return this;
@@ -1633,7 +1661,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dnsConfig field is set.
      */
     public boolean hasDnsConfig() {
-      return dnsConfigBuilder_ != null || dnsConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1663,11 +1691,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dnsConfig_ = value;
-        onChanged();
       } else {
         dnsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1681,11 +1709,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.DNSConfig.Builder builderForValue) {
       if (dnsConfigBuilder_ == null) {
         dnsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         dnsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1697,17 +1725,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDnsConfig(com.google.container.v1.DNSConfig value) {
       if (dnsConfigBuilder_ == null) {
-        if (dnsConfig_ != null) {
-          dnsConfig_ =
-            com.google.container.v1.DNSConfig.newBuilder(dnsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          dnsConfig_ != null &&
+          dnsConfig_ != com.google.container.v1.DNSConfig.getDefaultInstance()) {
+          getDnsConfigBuilder().mergeFrom(value);
         } else {
           dnsConfig_ = value;
         }
-        onChanged();
       } else {
         dnsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1718,14 +1747,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DNSConfig dns_config = 13;</code>
      */
     public Builder clearDnsConfig() {
-      if (dnsConfigBuilder_ == null) {
-        dnsConfig_ = null;
-        onChanged();
-      } else {
-        dnsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      dnsConfig_ = null;
+      if (dnsConfigBuilder_ != null) {
+        dnsConfigBuilder_.dispose();
         dnsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1736,7 +1764,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DNSConfig dns_config = 13;</code>
      */
     public com.google.container.v1.DNSConfig.Builder getDnsConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDnsConfigFieldBuilder().getBuilder();
     }
@@ -1789,7 +1817,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the serviceExternalIpsConfig field is set.
      */
     public boolean hasServiceExternalIpsConfig() {
-      return serviceExternalIpsConfigBuilder_ != null || serviceExternalIpsConfig_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -1821,11 +1849,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         serviceExternalIpsConfig_ = value;
-        onChanged();
       } else {
         serviceExternalIpsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1840,11 +1868,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.ServiceExternalIPsConfig.Builder builderForValue) {
       if (serviceExternalIpsConfigBuilder_ == null) {
         serviceExternalIpsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         serviceExternalIpsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1857,17 +1885,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeServiceExternalIpsConfig(com.google.container.v1.ServiceExternalIPsConfig value) {
       if (serviceExternalIpsConfigBuilder_ == null) {
-        if (serviceExternalIpsConfig_ != null) {
-          serviceExternalIpsConfig_ =
-            com.google.container.v1.ServiceExternalIPsConfig.newBuilder(serviceExternalIpsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          serviceExternalIpsConfig_ != null &&
+          serviceExternalIpsConfig_ != com.google.container.v1.ServiceExternalIPsConfig.getDefaultInstance()) {
+          getServiceExternalIpsConfigBuilder().mergeFrom(value);
         } else {
           serviceExternalIpsConfig_ = value;
         }
-        onChanged();
       } else {
         serviceExternalIpsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1879,14 +1908,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ServiceExternalIPsConfig service_external_ips_config = 15;</code>
      */
     public Builder clearServiceExternalIpsConfig() {
-      if (serviceExternalIpsConfigBuilder_ == null) {
-        serviceExternalIpsConfig_ = null;
-        onChanged();
-      } else {
-        serviceExternalIpsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      serviceExternalIpsConfig_ = null;
+      if (serviceExternalIpsConfigBuilder_ != null) {
+        serviceExternalIpsConfigBuilder_.dispose();
         serviceExternalIpsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1898,7 +1926,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ServiceExternalIPsConfig service_external_ips_config = 15;</code>
      */
     public com.google.container.v1.ServiceExternalIPsConfig.Builder getServiceExternalIpsConfigBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getServiceExternalIpsConfigFieldBuilder().getBuilder();
     }
@@ -1939,6 +1967,170 @@ private static final long serialVersionUID = 0L;
       }
       return serviceExternalIpsConfigBuilder_;
     }
+
+    private com.google.container.v1.GatewayAPIConfig gatewayApiConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1.GatewayAPIConfig, com.google.container.v1.GatewayAPIConfig.Builder, com.google.container.v1.GatewayAPIConfigOrBuilder> gatewayApiConfigBuilder_;
+    /**
+     * <pre>
+     * GatewayAPIConfig contains the desired config of Gateway API on this
+     * cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+     * @return Whether the gatewayApiConfig field is set.
+     */
+    public boolean hasGatewayApiConfig() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <pre>
+     * GatewayAPIConfig contains the desired config of Gateway API on this
+     * cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+     * @return The gatewayApiConfig.
+     */
+    public com.google.container.v1.GatewayAPIConfig getGatewayApiConfig() {
+      if (gatewayApiConfigBuilder_ == null) {
+        return gatewayApiConfig_ == null ? com.google.container.v1.GatewayAPIConfig.getDefaultInstance() : gatewayApiConfig_;
+      } else {
+        return gatewayApiConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * GatewayAPIConfig contains the desired config of Gateway API on this
+     * cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+     */
+    public Builder setGatewayApiConfig(com.google.container.v1.GatewayAPIConfig value) {
+      if (gatewayApiConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        gatewayApiConfig_ = value;
+      } else {
+        gatewayApiConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * GatewayAPIConfig contains the desired config of Gateway API on this
+     * cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+     */
+    public Builder setGatewayApiConfig(
+        com.google.container.v1.GatewayAPIConfig.Builder builderForValue) {
+      if (gatewayApiConfigBuilder_ == null) {
+        gatewayApiConfig_ = builderForValue.build();
+      } else {
+        gatewayApiConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * GatewayAPIConfig contains the desired config of Gateway API on this
+     * cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+     */
+    public Builder mergeGatewayApiConfig(com.google.container.v1.GatewayAPIConfig value) {
+      if (gatewayApiConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000200) != 0) &&
+          gatewayApiConfig_ != null &&
+          gatewayApiConfig_ != com.google.container.v1.GatewayAPIConfig.getDefaultInstance()) {
+          getGatewayApiConfigBuilder().mergeFrom(value);
+        } else {
+          gatewayApiConfig_ = value;
+        }
+      } else {
+        gatewayApiConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * GatewayAPIConfig contains the desired config of Gateway API on this
+     * cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+     */
+    public Builder clearGatewayApiConfig() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      gatewayApiConfig_ = null;
+      if (gatewayApiConfigBuilder_ != null) {
+        gatewayApiConfigBuilder_.dispose();
+        gatewayApiConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * GatewayAPIConfig contains the desired config of Gateway API on this
+     * cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+     */
+    public com.google.container.v1.GatewayAPIConfig.Builder getGatewayApiConfigBuilder() {
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return getGatewayApiConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * GatewayAPIConfig contains the desired config of Gateway API on this
+     * cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+     */
+    public com.google.container.v1.GatewayAPIConfigOrBuilder getGatewayApiConfigOrBuilder() {
+      if (gatewayApiConfigBuilder_ != null) {
+        return gatewayApiConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return gatewayApiConfig_ == null ?
+            com.google.container.v1.GatewayAPIConfig.getDefaultInstance() : gatewayApiConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * GatewayAPIConfig contains the desired config of Gateway API on this
+     * cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1.GatewayAPIConfig, com.google.container.v1.GatewayAPIConfig.Builder, com.google.container.v1.GatewayAPIConfigOrBuilder> 
+        getGatewayApiConfigFieldBuilder() {
+      if (gatewayApiConfigBuilder_ == null) {
+        gatewayApiConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.container.v1.GatewayAPIConfig, com.google.container.v1.GatewayAPIConfig.Builder, com.google.container.v1.GatewayAPIConfigOrBuilder>(
+                getGatewayApiConfig(),
+                getParentForChildren(),
+                isClean());
+        gatewayApiConfig_ = null;
+      }
+      return gatewayApiConfigBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1972,7 +2164,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NetworkConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

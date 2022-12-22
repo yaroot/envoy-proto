@@ -127,8 +127,8 @@ public interface AssetOrBuilder extends
    * effectively policy is the union of both the policy set on this resource
    * and each policy set on all of the resource's ancestry resource levels in
    * the hierarchy. See
-   * [this topic](https://cloud.google.com/iam/docs/policies#inheritance) for
-   * more information.
+   * [this topic](https://cloud.google.com/iam/help/allow-policies/inheritance)
+   * for more information.
    * </pre>
    *
    * <code>.google.iam.v1.Policy iam_policy = 4;</code>
@@ -144,8 +144,8 @@ public interface AssetOrBuilder extends
    * effectively policy is the union of both the policy set on this resource
    * and each policy set on all of the resource's ancestry resource levels in
    * the hierarchy. See
-   * [this topic](https://cloud.google.com/iam/docs/policies#inheritance) for
-   * more information.
+   * [this topic](https://cloud.google.com/iam/help/allow-policies/inheritance)
+   * for more information.
    * </pre>
    *
    * <code>.google.iam.v1.Policy iam_policy = 4;</code>
@@ -161,8 +161,8 @@ public interface AssetOrBuilder extends
    * effectively policy is the union of both the policy set on this resource
    * and each policy set on all of the resource's ancestry resource levels in
    * the hierarchy. See
-   * [this topic](https://cloud.google.com/iam/docs/policies#inheritance) for
-   * more information.
+   * [this topic](https://cloud.google.com/iam/help/allow-policies/inheritance)
+   * for more information.
    * </pre>
    *
    * <code>.google.iam.v1.Policy iam_policy = 4;</code>
@@ -362,7 +362,7 @@ public interface AssetOrBuilder extends
    *
    * <code>.google.cloud.asset.v1.RelatedAssets related_assets = 13 [deprecated = true];</code>
    * @deprecated google.cloud.asset.v1.Asset.related_assets is deprecated.
-   *     See google/cloud/asset/v1/assets.proto;l=167
+   *     See google/cloud/asset/v1/assets.proto;l=166
    * @return Whether the relatedAssets field is set.
    */
   @java.lang.Deprecated boolean hasRelatedAssets();
@@ -377,7 +377,7 @@ public interface AssetOrBuilder extends
    *
    * <code>.google.cloud.asset.v1.RelatedAssets related_assets = 13 [deprecated = true];</code>
    * @deprecated google.cloud.asset.v1.Asset.related_assets is deprecated.
-   *     See google/cloud/asset/v1/assets.proto;l=167
+   *     See google/cloud/asset/v1/assets.proto;l=166
    * @return The relatedAssets.
    */
   @java.lang.Deprecated com.google.cloud.asset.v1.RelatedAssets getRelatedAssets();

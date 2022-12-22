@@ -112,7 +112,6 @@ public interface ServiceConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; environment_variables = 4;</code>
    */
-
   /* nullable */
 java.lang.String getEnvironmentVariablesOrDefault(
       java.lang.String key,
@@ -125,7 +124,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; environment_variables = 4;</code>
    */
-
   java.lang.String getEnvironmentVariablesOrThrow(
       java.lang.String key);
 

@@ -51,108 +51,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DateTime(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            year_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            month_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            day_ = input.readInt32();
-            break;
-          }
-          case 32: {
-
-            hours_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            minutes_ = input.readInt32();
-            break;
-          }
-          case 48: {
-
-            seconds_ = input.readInt32();
-            break;
-          }
-          case 56: {
-
-            nanos_ = input.readInt32();
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeOffsetCase_ == 8) {
-              subBuilder = ((com.google.protobuf.Duration) timeOffset_).toBuilder();
-            }
-            timeOffset_ =
-                input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Duration) timeOffset_);
-              timeOffset_ = subBuilder.buildPartial();
-            }
-            timeOffsetCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.type.TimeZone.Builder subBuilder = null;
-            if (timeOffsetCase_ == 9) {
-              subBuilder = ((com.google.type.TimeZone) timeOffset_).toBuilder();
-            }
-            timeOffset_ =
-                input.readMessage(com.google.type.TimeZone.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.type.TimeZone) timeOffset_);
-              timeOffset_ = subBuilder.buildPartial();
-            }
-            timeOffsetCase_ = 9;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.type.DateTimeProto.internal_static_google_type_DateTime_descriptor;
@@ -208,7 +106,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int YEAR_FIELD_NUMBER = 1;
-  private int year_;
+  private int year_ = 0;
   /**
    * <pre>
    * Optional. Year of date. Must be from 1 to 9999, or 0 if specifying a
@@ -224,7 +122,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MONTH_FIELD_NUMBER = 2;
-  private int month_;
+  private int month_ = 0;
   /**
    * <pre>
    * Required. Month of year. Must be from 1 to 12.
@@ -239,7 +137,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DAY_FIELD_NUMBER = 3;
-  private int day_;
+  private int day_ = 0;
   /**
    * <pre>
    * Required. Day of month. Must be from 1 to 31 and valid for the year and
@@ -255,7 +153,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOURS_FIELD_NUMBER = 4;
-  private int hours_;
+  private int hours_ = 0;
   /**
    * <pre>
    * Required. Hours of day in 24 hour format. Should be from 0 to 23. An API
@@ -272,7 +170,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINUTES_FIELD_NUMBER = 5;
-  private int minutes_;
+  private int minutes_ = 0;
   /**
    * <pre>
    * Required. Minutes of hour of day. Must be from 0 to 59.
@@ -287,7 +185,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECONDS_FIELD_NUMBER = 6;
-  private int seconds_;
+  private int seconds_ = 0;
   /**
    * <pre>
    * Required. Seconds of minutes of the time. Must normally be from 0 to 59. An
@@ -303,7 +201,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NANOS_FIELD_NUMBER = 7;
-  private int nanos_;
+  private int nanos_ = 0;
   /**
    * <pre>
    * Required. Fractions of seconds in nanoseconds. Must be from 0 to
@@ -451,7 +349,7 @@ private static final long serialVersionUID = 0L;
     if (timeOffsetCase_ == 9) {
       output.writeMessage(9, (com.google.type.TimeZone) timeOffset_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -496,7 +394,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, (com.google.type.TimeZone) timeOffset_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -538,7 +436,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -575,7 +473,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -713,36 +611,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.type.DateTime.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       year_ = 0;
-
       month_ = 0;
-
       day_ = 0;
-
       hours_ = 0;
-
       minutes_ = 0;
-
       seconds_ = 0;
-
       nanos_ = 0;
-
+      if (utcOffsetBuilder_ != null) {
+        utcOffsetBuilder_.clear();
+      }
+      if (timeZoneBuilder_ != null) {
+        timeZoneBuilder_.clear();
+      }
       timeOffsetCase_ = 0;
       timeOffset_ = null;
       return this;
@@ -771,30 +664,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.type.DateTime buildPartial() {
       com.google.type.DateTime result = new com.google.type.DateTime(this);
-      result.year_ = year_;
-      result.month_ = month_;
-      result.day_ = day_;
-      result.hours_ = hours_;
-      result.minutes_ = minutes_;
-      result.seconds_ = seconds_;
-      result.nanos_ = nanos_;
-      if (timeOffsetCase_ == 8) {
-        if (utcOffsetBuilder_ == null) {
-          result.timeOffset_ = timeOffset_;
-        } else {
-          result.timeOffset_ = utcOffsetBuilder_.build();
-        }
-      }
-      if (timeOffsetCase_ == 9) {
-        if (timeZoneBuilder_ == null) {
-          result.timeOffset_ = timeOffset_;
-        } else {
-          result.timeOffset_ = timeZoneBuilder_.build();
-        }
-      }
-      result.timeOffsetCase_ = timeOffsetCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.type.DateTime result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.year_ = year_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.month_ = month_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.day_ = day_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.hours_ = hours_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.minutes_ = minutes_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.seconds_ = seconds_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.nanos_ = nanos_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.type.DateTime result) {
+      result.timeOffsetCase_ = timeOffsetCase_;
+      result.timeOffset_ = this.timeOffset_;
+      if (timeOffsetCase_ == 8 &&
+          utcOffsetBuilder_ != null) {
+        result.timeOffset_ = utcOffsetBuilder_.build();
+      }
+      if (timeOffsetCase_ == 9 &&
+          timeZoneBuilder_ != null) {
+        result.timeOffset_ = timeZoneBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -875,7 +786,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -890,17 +801,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.type.DateTime parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              year_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              month_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              day_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              hours_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              minutes_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              seconds_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              nanos_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getUtcOffsetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              timeOffsetCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getTimeZoneFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              timeOffsetCase_ = 9;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.type.DateTime) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int timeOffsetCase_ = 0;
@@ -918,6 +891,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int year_ ;
     /**
@@ -946,6 +920,7 @@ private static final long serialVersionUID = 0L;
     public Builder setYear(int value) {
       
       year_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -959,7 +934,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearYear() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       year_ = 0;
       onChanged();
       return this;
@@ -990,6 +965,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMonth(int value) {
       
       month_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1002,7 +978,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMonth() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       month_ = 0;
       onChanged();
       return this;
@@ -1035,6 +1011,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDay(int value) {
       
       day_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1048,7 +1025,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDay() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       day_ = 0;
       onChanged();
       return this;
@@ -1083,6 +1060,7 @@ private static final long serialVersionUID = 0L;
     public Builder setHours(int value) {
       
       hours_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1097,7 +1075,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHours() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       hours_ = 0;
       onChanged();
       return this;
@@ -1128,6 +1106,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinutes(int value) {
       
       minutes_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1140,7 +1119,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinutes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       minutes_ = 0;
       onChanged();
       return this;
@@ -1173,6 +1152,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSeconds(int value) {
       
       seconds_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1186,7 +1166,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSeconds() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       seconds_ = 0;
       onChanged();
       return this;
@@ -1219,6 +1199,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNanos(int value) {
       
       nanos_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1232,7 +1213,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNanos() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       nanos_ = 0;
       onChanged();
       return this;
@@ -1430,7 +1411,7 @@ private static final long serialVersionUID = 0L;
         timeOffset_ = null;
       }
       timeOffsetCase_ = 8;
-      onChanged();;
+      onChanged();
       return utcOffsetBuilder_;
     }
 
@@ -1608,7 +1589,7 @@ private static final long serialVersionUID = 0L;
         timeOffset_ = null;
       }
       timeOffsetCase_ = 9;
-      onChanged();;
+      onChanged();
       return timeZoneBuilder_;
     }
     @java.lang.Override
@@ -1644,7 +1625,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DateTime(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

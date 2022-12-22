@@ -80,48 +80,46 @@ public final class DatasetMetadataProto {
     java.lang.String[] descriptorData = {
       "\n=google/cloud/aiplatform/v1beta1/schema" +
       "/dataset_metadata.proto\022&google.cloud.ai" +
-      "platform.v1beta1.schema\032\034google/api/anno" +
-      "tations.proto\"H\n\024ImageDatasetMetadata\022\034\n" +
-      "\024data_item_schema_uri\030\001 \001(\t\022\022\n\ngcs_bucke" +
-      "t\030\002 \001(\t\"G\n\023TextDatasetMetadata\022\034\n\024data_i" +
-      "tem_schema_uri\030\001 \001(\t\022\022\n\ngcs_bucket\030\002 \001(\t" +
-      "\"H\n\024VideoDatasetMetadata\022\034\n\024data_item_sc" +
-      "hema_uri\030\001 \001(\t\022\022\n\ngcs_bucket\030\002 \001(\t\"\223\003\n\025T" +
-      "ablesDatasetMetadata\022_\n\014input_config\030\001 \001" +
-      "(\0132I.google.cloud.aiplatform.v1beta1.sch" +
-      "ema.TablesDatasetMetadata.InputConfig\032\337\001" +
-      "\n\013InputConfig\022]\n\ngcs_source\030\001 \001(\0132G.goog" +
-      "le.cloud.aiplatform.v1beta1.schema.Table" +
-      "sDatasetMetadata.GcsSourceH\000\022g\n\017bigquery" +
-      "_source\030\002 \001(\0132L.google.cloud.aiplatform." +
-      "v1beta1.schema.TablesDatasetMetadata.Big" +
-      "QuerySourceH\000B\010\n\006source\032\030\n\tGcsSource\022\013\n\003" +
-      "uri\030\001 \003(\t\032\035\n\016BigQuerySource\022\013\n\003uri\030\001 \001(\t" +
-      "\"\337\003\n\031TimeSeriesDatasetMetadata\022c\n\014input_" +
-      "config\030\001 \001(\0132M.google.cloud.aiplatform.v" +
-      "1beta1.schema.TimeSeriesDatasetMetadata." +
-      "InputConfig\022%\n\035time_series_identifier_co" +
-      "lumn\030\002 \001(\t\022\023\n\013time_column\030\003 \001(\t\032\347\001\n\013Inpu" +
-      "tConfig\022a\n\ngcs_source\030\001 \001(\0132K.google.clo" +
-      "ud.aiplatform.v1beta1.schema.TimeSeriesD" +
-      "atasetMetadata.GcsSourceH\000\022k\n\017bigquery_s" +
-      "ource\030\002 \001(\0132P.google.cloud.aiplatform.v1" +
-      "beta1.schema.TimeSeriesDatasetMetadata.B" +
-      "igQuerySourceH\000B\010\n\006source\032\030\n\tGcsSource\022\013" +
-      "\n\003uri\030\001 \003(\t\032\035\n\016BigQuerySource\022\013\n\003uri\030\001 \001" +
-      "(\tB\221\002\n*com.google.cloud.aiplatform.v1bet" +
-      "a1.schemaB\024DatasetMetadataProtoP\001ZLgoogl" +
-      "e.golang.org/genproto/googleapis/cloud/a" +
-      "iplatform/v1beta1/schema;schema\252\002&Google" +
-      ".Cloud.AIPlatform.V1Beta1.Schema\312\002&Googl" +
-      "e\\Cloud\\AIPlatform\\V1beta1\\Schema\352\002*Goog" +
-      "le::Cloud::AIPlatform::V1beta1::Schemab\006" +
-      "proto3"
+      "platform.v1beta1.schema\"H\n\024ImageDatasetM" +
+      "etadata\022\034\n\024data_item_schema_uri\030\001 \001(\t\022\022\n" +
+      "\ngcs_bucket\030\002 \001(\t\"G\n\023TextDatasetMetadata" +
+      "\022\034\n\024data_item_schema_uri\030\001 \001(\t\022\022\n\ngcs_bu" +
+      "cket\030\002 \001(\t\"H\n\024VideoDatasetMetadata\022\034\n\024da" +
+      "ta_item_schema_uri\030\001 \001(\t\022\022\n\ngcs_bucket\030\002" +
+      " \001(\t\"\223\003\n\025TablesDatasetMetadata\022_\n\014input_" +
+      "config\030\001 \001(\0132I.google.cloud.aiplatform.v" +
+      "1beta1.schema.TablesDatasetMetadata.Inpu" +
+      "tConfig\032\337\001\n\013InputConfig\022]\n\ngcs_source\030\001 " +
+      "\001(\0132G.google.cloud.aiplatform.v1beta1.sc" +
+      "hema.TablesDatasetMetadata.GcsSourceH\000\022g" +
+      "\n\017bigquery_source\030\002 \001(\0132L.google.cloud.a" +
+      "iplatform.v1beta1.schema.TablesDatasetMe" +
+      "tadata.BigQuerySourceH\000B\010\n\006source\032\030\n\tGcs" +
+      "Source\022\013\n\003uri\030\001 \003(\t\032\035\n\016BigQuerySource\022\013\n" +
+      "\003uri\030\001 \001(\t\"\337\003\n\031TimeSeriesDatasetMetadata" +
+      "\022c\n\014input_config\030\001 \001(\0132M.google.cloud.ai" +
+      "platform.v1beta1.schema.TimeSeriesDatase" +
+      "tMetadata.InputConfig\022%\n\035time_series_ide" +
+      "ntifier_column\030\002 \001(\t\022\023\n\013time_column\030\003 \001(" +
+      "\t\032\347\001\n\013InputConfig\022a\n\ngcs_source\030\001 \001(\0132K." +
+      "google.cloud.aiplatform.v1beta1.schema.T" +
+      "imeSeriesDatasetMetadata.GcsSourceH\000\022k\n\017" +
+      "bigquery_source\030\002 \001(\0132P.google.cloud.aip" +
+      "latform.v1beta1.schema.TimeSeriesDataset" +
+      "Metadata.BigQuerySourceH\000B\010\n\006source\032\030\n\tG" +
+      "csSource\022\013\n\003uri\030\001 \003(\t\032\035\n\016BigQuerySource\022" +
+      "\013\n\003uri\030\001 \001(\tB\221\002\n*com.google.cloud.aiplat" +
+      "form.v1beta1.schemaB\024DatasetMetadataProt" +
+      "oP\001ZLgoogle.golang.org/genproto/googleap" +
+      "is/cloud/aiplatform/v1beta1/schema;schem" +
+      "a\252\002&Google.Cloud.AIPlatform.V1Beta1.Sche" +
+      "ma\312\002&Google\\Cloud\\AIPlatform\\V1beta1\\Sch" +
+      "ema\352\002*Google::Cloud::AIPlatform::V1beta1" +
+      "::Schemab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_cloud_aiplatform_v1beta1_schema_ImageDatasetMetadata_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -189,7 +187,6 @@ public final class DatasetMetadataProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_aiplatform_v1beta1_schema_TimeSeriesDatasetMetadata_BigQuerySource_descriptor,
         new java.lang.String[] { "Uri", });
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

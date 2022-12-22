@@ -58,57 +58,61 @@ public final class RouteProto {
       "ewport.proto\032%google/maps/routing/v2/loc" +
       "ation.proto\0323google/maps/routing/v2/navi" +
       "gation_instruction.proto\032%google/maps/ro" +
-      "uting/v2/polyline.proto\0323google/maps/rou" +
-      "ting/v2/speed_reading_interval.proto\032&go" +
-      "ogle/maps/routing/v2/toll_info.proto\032\036go" +
-      "ogle/protobuf/duration.proto\"\377\002\n\005Route\022." +
-      "\n\004legs\030\001 \003(\0132 .google.maps.routing.v2.Ro" +
-      "uteLeg\022\027\n\017distance_meters\030\002 \001(\005\022+\n\010durat" +
-      "ion\030\003 \001(\0132\031.google.protobuf.Duration\0222\n\017" +
-      "static_duration\030\004 \001(\0132\031.google.protobuf." +
-      "Duration\0222\n\010polyline\030\005 \001(\0132 .google.maps" +
-      ".routing.v2.Polyline\022\023\n\013description\030\006 \001(" +
-      "\t\022\020\n\010warnings\030\007 \003(\t\022+\n\010viewport\030\010 \001(\0132\031." +
-      "google.geo.type.Viewport\022D\n\017travel_advis" +
-      "ory\030\t \001(\0132+.google.maps.routing.v2.Route" +
-      "TravelAdvisory\"\231\001\n\023RouteTravelAdvisory\0223" +
-      "\n\ttoll_info\030\002 \001(\0132 .google.maps.routing." +
-      "v2.TollInfo\022M\n\027speed_reading_intervals\030\003" +
-      " \003(\0132,.google.maps.routing.v2.SpeedReadi" +
-      "ngInterval\"\234\001\n\026RouteLegTravelAdvisory\0223\n" +
-      "\ttoll_info\030\001 \001(\0132 .google.maps.routing.v" +
-      "2.TollInfo\022M\n\027speed_reading_intervals\030\002 " +
-      "\003(\0132,.google.maps.routing.v2.SpeedReadin" +
-      "gInterval\"k\n\032RouteLegStepTravelAdvisory\022" +
-      "M\n\027speed_reading_intervals\030\001 \003(\0132,.googl" +
-      "e.maps.routing.v2.SpeedReadingInterval\"\250" +
-      "\003\n\010RouteLeg\022\027\n\017distance_meters\030\001 \001(\005\022+\n\010" +
-      "duration\030\002 \001(\0132\031.google.protobuf.Duratio" +
-      "n\0222\n\017static_duration\030\003 \001(\0132\031.google.prot" +
-      "obuf.Duration\0222\n\010polyline\030\004 \001(\0132 .google" +
-      ".maps.routing.v2.Polyline\0228\n\016start_locat" +
-      "ion\030\005 \001(\0132 .google.maps.routing.v2.Locat" +
-      "ion\0226\n\014end_location\030\006 \001(\0132 .google.maps." +
-      "routing.v2.Location\0223\n\005steps\030\007 \003(\0132$.goo" +
-      "gle.maps.routing.v2.RouteLegStep\022G\n\017trav" +
-      "el_advisory\030\010 \001(\0132..google.maps.routing." +
-      "v2.RouteLegTravelAdvisory\"\235\003\n\014RouteLegSt" +
-      "ep\022\027\n\017distance_meters\030\001 \001(\005\0222\n\017static_du" +
-      "ration\030\002 \001(\0132\031.google.protobuf.Duration\022" +
-      "2\n\010polyline\030\003 \001(\0132 .google.maps.routing." +
-      "v2.Polyline\0228\n\016start_location\030\004 \001(\0132 .go" +
-      "ogle.maps.routing.v2.Location\0226\n\014end_loc" +
-      "ation\030\005 \001(\0132 .google.maps.routing.v2.Loc" +
-      "ation\022M\n\026navigation_instruction\030\006 \001(\0132-." +
-      "google.maps.routing.v2.NavigationInstruc" +
-      "tion\022K\n\017travel_advisory\030\007 \001(\01322.google.m" +
-      "aps.routing.v2.RouteLegStepTravelAdvisor" +
-      "yB\302\001\n\032com.google.maps.routing.v2B\nRouteP" +
-      "rotoP\001Z=google.golang.org/genproto/googl" +
-      "eapis/maps/routing/v2;routing\370\001\001\242\002\005GMRV2" +
-      "\252\002\026Google.Maps.Routing.V2\312\002\026Google\\Maps\\" +
-      "Routing\\V2\352\002\031Google::Maps::Routing::V2b\006" +
-      "proto3"
+      "uting/v2/polyline.proto\032(google/maps/rou" +
+      "ting/v2/route_label.proto\0323google/maps/r" +
+      "outing/v2/speed_reading_interval.proto\032&" +
+      "google/maps/routing/v2/toll_info.proto\032\036" +
+      "google/protobuf/duration.proto\"\316\003\n\005Route" +
+      "\0228\n\014route_labels\030\r \003(\0162\".google.maps.rou" +
+      "ting.v2.RouteLabel\022.\n\004legs\030\001 \003(\0132 .googl" +
+      "e.maps.routing.v2.RouteLeg\022\027\n\017distance_m" +
+      "eters\030\002 \001(\005\022+\n\010duration\030\003 \001(\0132\031.google.p" +
+      "rotobuf.Duration\0222\n\017static_duration\030\004 \001(" +
+      "\0132\031.google.protobuf.Duration\0222\n\010polyline" +
+      "\030\005 \001(\0132 .google.maps.routing.v2.Polyline" +
+      "\022\023\n\013description\030\006 \001(\t\022\020\n\010warnings\030\007 \003(\t\022" +
+      "+\n\010viewport\030\010 \001(\0132\031.google.geo.type.View" +
+      "port\022D\n\017travel_advisory\030\t \001(\0132+.google.m" +
+      "aps.routing.v2.RouteTravelAdvisory\022\023\n\013ro" +
+      "ute_token\030\014 \001(\t\"\277\001\n\023RouteTravelAdvisory\022" +
+      "3\n\ttoll_info\030\002 \001(\0132 .google.maps.routing" +
+      ".v2.TollInfo\022M\n\027speed_reading_intervals\030" +
+      "\003 \003(\0132,.google.maps.routing.v2.SpeedRead" +
+      "ingInterval\022$\n\034fuel_consumption_microlit" +
+      "ers\030\005 \001(\003\"\234\001\n\026RouteLegTravelAdvisory\0223\n\t" +
+      "toll_info\030\001 \001(\0132 .google.maps.routing.v2" +
+      ".TollInfo\022M\n\027speed_reading_intervals\030\002 \003" +
+      "(\0132,.google.maps.routing.v2.SpeedReading" +
+      "Interval\"k\n\032RouteLegStepTravelAdvisory\022M" +
+      "\n\027speed_reading_intervals\030\001 \003(\0132,.google" +
+      ".maps.routing.v2.SpeedReadingInterval\"\250\003" +
+      "\n\010RouteLeg\022\027\n\017distance_meters\030\001 \001(\005\022+\n\010d" +
+      "uration\030\002 \001(\0132\031.google.protobuf.Duration" +
+      "\0222\n\017static_duration\030\003 \001(\0132\031.google.proto" +
+      "buf.Duration\0222\n\010polyline\030\004 \001(\0132 .google." +
+      "maps.routing.v2.Polyline\0228\n\016start_locati" +
+      "on\030\005 \001(\0132 .google.maps.routing.v2.Locati" +
+      "on\0226\n\014end_location\030\006 \001(\0132 .google.maps.r" +
+      "outing.v2.Location\0223\n\005steps\030\007 \003(\0132$.goog" +
+      "le.maps.routing.v2.RouteLegStep\022G\n\017trave" +
+      "l_advisory\030\010 \001(\0132..google.maps.routing.v" +
+      "2.RouteLegTravelAdvisory\"\235\003\n\014RouteLegSte" +
+      "p\022\027\n\017distance_meters\030\001 \001(\005\0222\n\017static_dur" +
+      "ation\030\002 \001(\0132\031.google.protobuf.Duration\0222" +
+      "\n\010polyline\030\003 \001(\0132 .google.maps.routing.v" +
+      "2.Polyline\0228\n\016start_location\030\004 \001(\0132 .goo" +
+      "gle.maps.routing.v2.Location\0226\n\014end_loca" +
+      "tion\030\005 \001(\0132 .google.maps.routing.v2.Loca" +
+      "tion\022M\n\026navigation_instruction\030\006 \001(\0132-.g" +
+      "oogle.maps.routing.v2.NavigationInstruct" +
+      "ion\022K\n\017travel_advisory\030\007 \001(\01322.google.ma" +
+      "ps.routing.v2.RouteLegStepTravelAdvisory" +
+      "B\302\001\n\032com.google.maps.routing.v2B\nRoutePr" +
+      "otoP\001Z=google.golang.org/genproto/google" +
+      "apis/maps/routing/v2;routing\370\001\001\242\002\005GMRV2\252" +
+      "\002\026Google.Maps.Routing.V2\312\002\026Google\\Maps\\R" +
+      "outing\\V2\352\002\031Google::Maps::Routing::V2b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -117,6 +121,7 @@ public final class RouteProto {
           com.google.maps.routing.v2.LocationProto.getDescriptor(),
           com.google.maps.routing.v2.NavigationInstructionProto.getDescriptor(),
           com.google.maps.routing.v2.PolylineProto.getDescriptor(),
+          com.google.maps.routing.v2.RouteLabelProto.getDescriptor(),
           com.google.maps.routing.v2.SpeedReadingIntervalProto.getDescriptor(),
           com.google.maps.routing.v2.TollInfoProto.getDescriptor(),
           com.google.protobuf.DurationProto.getDescriptor(),
@@ -126,13 +131,13 @@ public final class RouteProto {
     internal_static_google_maps_routing_v2_Route_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_maps_routing_v2_Route_descriptor,
-        new java.lang.String[] { "Legs", "DistanceMeters", "Duration", "StaticDuration", "Polyline", "Description", "Warnings", "Viewport", "TravelAdvisory", });
+        new java.lang.String[] { "RouteLabels", "Legs", "DistanceMeters", "Duration", "StaticDuration", "Polyline", "Description", "Warnings", "Viewport", "TravelAdvisory", "RouteToken", });
     internal_static_google_maps_routing_v2_RouteTravelAdvisory_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_google_maps_routing_v2_RouteTravelAdvisory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_maps_routing_v2_RouteTravelAdvisory_descriptor,
-        new java.lang.String[] { "TollInfo", "SpeedReadingIntervals", });
+        new java.lang.String[] { "TollInfo", "SpeedReadingIntervals", "FuelConsumptionMicroliters", });
     internal_static_google_maps_routing_v2_RouteLegTravelAdvisory_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_google_maps_routing_v2_RouteLegTravelAdvisory_fieldAccessorTable = new
@@ -161,6 +166,7 @@ public final class RouteProto {
     com.google.maps.routing.v2.LocationProto.getDescriptor();
     com.google.maps.routing.v2.NavigationInstructionProto.getDescriptor();
     com.google.maps.routing.v2.PolylineProto.getDescriptor();
+    com.google.maps.routing.v2.RouteLabelProto.getDescriptor();
     com.google.maps.routing.v2.SpeedReadingIntervalProto.getDescriptor();
     com.google.maps.routing.v2.TollInfoProto.getDescriptor();
     com.google.protobuf.DurationProto.getDescriptor();

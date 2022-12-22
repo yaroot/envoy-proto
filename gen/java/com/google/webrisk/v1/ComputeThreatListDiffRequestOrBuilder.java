@@ -9,7 +9,9 @@ public interface ComputeThreatListDiffRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The threat list to update. Only a single ThreatType should be specified.
+   * Required. The threat list to update. Only a single ThreatType should be specified
+   * per request. If you want to handle multiple ThreatTypes, you must make one
+   * request per ThreatType.
    * </pre>
    *
    * <code>.google.cloud.webrisk.v1.ThreatType threat_type = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -18,7 +20,9 @@ public interface ComputeThreatListDiffRequestOrBuilder extends
   int getThreatTypeValue();
   /**
    * <pre>
-   * Required. The threat list to update. Only a single ThreatType should be specified.
+   * Required. The threat list to update. Only a single ThreatType should be specified
+   * per request. If you want to handle multiple ThreatTypes, you must make one
+   * request per ThreatType.
    * </pre>
    *
    * <code>.google.cloud.webrisk.v1.ThreatType threat_type = 1 [(.google.api.field_behavior) = REQUIRED];</code>

@@ -37,76 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Usage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              requirements_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            requirements_.add(s);
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              rules_ = new java.util.ArrayList<com.google.api.UsageRule>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            rules_.add(
-                input.readMessage(com.google.api.UsageRule.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            producerNotificationChannel_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        requirements_ = requirements_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        rules_ = java.util.Collections.unmodifiableList(rules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.UsageProto.internal_static_google_api_Usage_descriptor;
@@ -121,6 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIREMENTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList requirements_;
   /**
    * <pre>
@@ -200,6 +131,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RULES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.UsageRule> rules_;
   /**
    * <pre>
@@ -265,7 +197,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRODUCER_NOTIFICATION_CHANNEL_FIELD_NUMBER = 7;
-  private volatile java.lang.Object producerNotificationChannel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object producerNotificationChannel_ = "";
   /**
    * <pre>
    * The full resource name of a channel used for sending notifications to the
@@ -345,7 +278,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(producerNotificationChannel_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, producerNotificationChannel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -369,7 +302,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(producerNotificationChannel_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, producerNotificationChannel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -390,7 +323,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRulesList())) return false;
     if (!getProducerNotificationChannel()
         .equals(other.getProducerNotificationChannel())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -411,7 +344,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PRODUCER_NOTIFICATION_CHANNEL_FIELD_NUMBER;
     hash = (53 * hash) + getProducerNotificationChannel().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -532,33 +465,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.Usage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRulesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       requirements_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       if (rulesBuilder_ == null) {
         rules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        rules_ = null;
         rulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       producerNotificationChannel_ = "";
-
       return this;
     }
 
@@ -585,7 +513,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.Usage buildPartial() {
       com.google.api.Usage result = new com.google.api.Usage(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.api.Usage result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         requirements_ = requirements_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -600,9 +534,13 @@ private static final long serialVersionUID = 0L;
       } else {
         result.rules_ = rulesBuilder_.build();
       }
-      result.producerNotificationChannel_ = producerNotificationChannel_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.api.Usage result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.producerNotificationChannel_ = producerNotificationChannel_;
+      }
     }
 
     @java.lang.Override
@@ -687,9 +625,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProducerNotificationChannel().isEmpty()) {
         producerNotificationChannel_ = other.producerNotificationChannel_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -704,17 +643,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.Usage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRequirementsIsMutable();
+              requirements_.add(s);
+              break;
+            } // case 10
+            case 50: {
+              com.google.api.UsageRule m =
+                  input.readMessage(
+                      com.google.api.UsageRule.parser(),
+                      extensionRegistry);
+              if (rulesBuilder_ == null) {
+                ensureRulesIsMutable();
+                rules_.add(m);
+              } else {
+                rulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              producerNotificationChannel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.Usage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -821,10 +797,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequirements(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequirementsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequirementsIsMutable();
       requirements_.set(index, value);
       onChanged();
       return this;
@@ -847,10 +821,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequirements(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequirementsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequirementsIsMutable();
       requirements_.add(value);
       onChanged();
       return this;
@@ -918,10 +890,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequirementsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRequirementsIsMutable();
       requirements_.add(value);
       onChanged();
@@ -1329,11 +1299,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProducerNotificationChannel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       producerNotificationChannel_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1352,8 +1320,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProducerNotificationChannel() {
-      
       producerNotificationChannel_ = getDefaultInstance().getProducerNotificationChannel();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1374,12 +1342,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProducerNotificationChannelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       producerNotificationChannel_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1416,7 +1382,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Usage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

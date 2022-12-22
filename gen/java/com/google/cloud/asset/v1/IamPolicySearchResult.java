@@ -39,108 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IamPolicySearchResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resource_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case 26: {
-            com.google.iam.v1.Policy.Builder subBuilder = null;
-            if (policy_ != null) {
-              subBuilder = policy_.toBuilder();
-            }
-            policy_ = input.readMessage(com.google.iam.v1.Policy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(policy_);
-              policy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Builder subBuilder = null;
-            if (explanation_ != null) {
-              subBuilder = explanation_.toBuilder();
-            }
-            explanation_ = input.readMessage(com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(explanation_);
-              explanation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            assetType_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              folders_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            folders_.add(s);
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            organization_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        folders_ = folders_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.asset.v1.AssetProto.internal_static_google_cloud_asset_v1_IamPolicySearchResult_descriptor;
@@ -221,7 +119,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
      */
-
     /* nullable */
 com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions getMatchedPermissionsOrDefault(
         java.lang.String key,
@@ -240,7 +137,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      *
      * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
      */
-
     com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions getMatchedPermissionsOrThrow(
         java.lang.String key);
   }
@@ -274,59 +170,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Explanation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                matchedPermissions_ = com.google.protobuf.MapField.newMapField(
-                    MatchedPermissionsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions>
-              matchedPermissions__ = input.readMessage(
-                  MatchedPermissionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              matchedPermissions_.getMutableMap().put(
-                  matchedPermissions__.getKey(), matchedPermissions__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -430,58 +273,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Permissions(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  permissions_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                permissions_.add(s);
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            permissions_ = permissions_.getUnmodifiableView();
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.asset.v1.AssetProto.internal_static_google_cloud_asset_v1_IamPolicySearchResult_Explanation_Permissions_descriptor;
@@ -496,6 +287,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       }
 
       public static final int PERMISSIONS_FIELD_NUMBER = 1;
+      @SuppressWarnings("serial")
       private com.google.protobuf.LazyStringList permissions_;
       /**
        * <pre>
@@ -563,7 +355,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         for (int i = 0; i < permissions_.size(); i++) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, permissions_.getRaw(i));
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -580,7 +372,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
           size += dataSize;
           size += 1 * getPermissionsList().size();
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -597,7 +389,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
 
         if (!getPermissionsList()
             .equals(other.getPermissionsList())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -612,7 +404,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
           hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
           hash = (53 * hash) + getPermissionsList().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -733,22 +525,18 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
 
         // Construct using com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           permissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
           bitField0_ = (bitField0_ & ~0x00000001);
           return this;
@@ -777,14 +565,22 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         @java.lang.Override
         public com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions buildPartial() {
           com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions result = new com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions(this);
-          int from_bitField0_ = bitField0_;
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions result) {
           if (((bitField0_ & 0x00000001) != 0)) {
             permissions_ = permissions_.getUnmodifiableView();
             bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.permissions_ = permissions_;
-          onBuilt();
-          return result;
+        }
+
+        private void buildPartial0(com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions result) {
+          int from_bitField0_ = bitField0_;
         }
 
         @java.lang.Override
@@ -841,7 +637,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
             }
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -856,17 +652,36 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  ensurePermissionsIsMutable();
+                  permissions_.add(s);
+                  break;
+                } // case 10
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -938,10 +753,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
          */
         public Builder setPermissions(
             int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePermissionsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensurePermissionsIsMutable();
           permissions_.set(index, value);
           onChanged();
           return this;
@@ -957,10 +770,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
          */
         public Builder addPermissions(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePermissionsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensurePermissionsIsMutable();
           permissions_.add(value);
           onChanged();
           return this;
@@ -1007,10 +818,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
          */
         public Builder addPermissionsBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           ensurePermissionsIsMutable();
           permissions_.add(value);
           onChanged();
@@ -1049,7 +858,18 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Permissions(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1081,6 +901,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions> matchedPermissions_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions>
@@ -1091,7 +912,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       }
       return matchedPermissions_;
     }
-
     public int getMatchedPermissionsCount() {
       return internalGetMatchedPermissions().getMap().size();
     }
@@ -1108,7 +928,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      *
      * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsMatchedPermissions(
         java.lang.String key) {
@@ -1137,7 +956,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions> getMatchedPermissionsMap() {
       return internalGetMatchedPermissions().getMap();
     }
@@ -1155,10 +973,11 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions getMatchedPermissionsOrDefault(
+    public /* nullable */
+com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions getMatchedPermissionsOrDefault(
         java.lang.String key,
-        com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultValue) {
+        /* nullable */
+com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions> map =
           internalGetMatchedPermissions().getMap();
@@ -1178,7 +997,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions getMatchedPermissionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1210,7 +1028,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
           internalGetMatchedPermissions(),
           MatchedPermissionsDefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1229,7 +1047,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, matchedPermissions__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1246,7 +1064,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
 
       if (!internalGetMatchedPermissions().equals(
           other.internalGetMatchedPermissions())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1261,7 +1079,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         hash = (37 * hash) + MATCHED_PERMISSIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMatchedPermissions().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1404,22 +1222,18 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
 
       // Construct using com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableMatchedPermissions().clear();
         return this;
       }
@@ -1447,11 +1261,17 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       @java.lang.Override
       public com.google.cloud.asset.v1.IamPolicySearchResult.Explanation buildPartial() {
         com.google.cloud.asset.v1.IamPolicySearchResult.Explanation result = new com.google.cloud.asset.v1.IamPolicySearchResult.Explanation(this);
-        int from_bitField0_ = bitField0_;
-        result.matchedPermissions_ = internalGetMatchedPermissions();
-        result.matchedPermissions_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.asset.v1.IamPolicySearchResult.Explanation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.matchedPermissions_ = internalGetMatchedPermissions();
+          result.matchedPermissions_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -1500,7 +1320,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         if (other == com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.getDefaultInstance()) return this;
         internalGetMutableMatchedPermissions().mergeFrom(
             other.internalGetMatchedPermissions());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1515,17 +1336,39 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.asset.v1.IamPolicySearchResult.Explanation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions>
+                matchedPermissions__ = input.readMessage(
+                    MatchedPermissionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMatchedPermissions().getMutableMap().put(
+                    matchedPermissions__.getKey(), matchedPermissions__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.asset.v1.IamPolicySearchResult.Explanation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1533,7 +1376,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions> matchedPermissions_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions>
-      internalGetMatchedPermissions() {
+          internalGetMatchedPermissions() {
         if (matchedPermissions_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MatchedPermissionsDefaultEntryHolder.defaultEntry);
@@ -1541,8 +1384,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         return matchedPermissions_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions>
-      internalGetMutableMatchedPermissions() {
-        onChanged();;
+          internalGetMutableMatchedPermissions() {
         if (matchedPermissions_ == null) {
           matchedPermissions_ = com.google.protobuf.MapField.newMapField(
               MatchedPermissionsDefaultEntryHolder.defaultEntry);
@@ -1550,9 +1392,10 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         if (!matchedPermissions_.isMutable()) {
           matchedPermissions_ = matchedPermissions_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return matchedPermissions_;
       }
-
       public int getMatchedPermissionsCount() {
         return internalGetMatchedPermissions().getMap().size();
       }
@@ -1569,7 +1412,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
        *
        * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsMatchedPermissions(
           java.lang.String key) {
@@ -1598,7 +1440,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
        * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions> getMatchedPermissionsMap() {
         return internalGetMatchedPermissions().getMap();
       }
@@ -1616,10 +1457,11 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
        * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions getMatchedPermissionsOrDefault(
+      public /* nullable */
+com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions getMatchedPermissionsOrDefault(
           java.lang.String key,
-          com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultValue) {
+          /* nullable */
+com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions> map =
             internalGetMatchedPermissions().getMap();
@@ -1639,7 +1481,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
        * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions getMatchedPermissionsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1650,8 +1491,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         }
         return map.get(key);
       }
-
       public Builder clearMatchedPermissions() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableMatchedPermissions().getMutableMap()
             .clear();
         return this;
@@ -1669,7 +1510,6 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
        *
        * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
        */
-
       public Builder removeMatchedPermissions(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1682,7 +1522,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions>
-      getMutableMatchedPermissions() {
+          getMutableMatchedPermissions() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableMatchedPermissions().getMutableMap();
       }
       /**
@@ -1702,12 +1543,10 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
           java.lang.String key,
           com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMatchedPermissions().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -1723,11 +1562,11 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
        *
        * <code>map&lt;string, .google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions&gt; matched_permissions = 1;</code>
        */
-
       public Builder putAllMatchedPermissions(
           java.util.Map<java.lang.String, com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions> values) {
         internalGetMutableMatchedPermissions().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -1763,7 +1602,18 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Explanation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1784,7 +1634,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
   }
 
   public static final int RESOURCE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resource_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resource_ = "";
   /**
    * <pre>
    * The full resource name of the resource associated with this IAM policy.
@@ -1844,7 +1695,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
   }
 
   public static final int ASSET_TYPE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object assetType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object assetType_ = "";
   /**
    * <pre>
    * The type of the resource associated with this IAM policy. Example:
@@ -1896,7 +1748,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
   }
 
   public static final int PROJECT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * The project that the associated GCP resource belongs to, in the form of
@@ -1954,6 +1807,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
   }
 
   public static final int FOLDERS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList folders_;
   /**
    * <pre>
@@ -2029,7 +1883,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
   }
 
   public static final int ORGANIZATION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object organization_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object organization_ = "";
   /**
    * <pre>
    * The organization that the IAM policy belongs to, in the form
@@ -2154,7 +2009,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
    */
   @java.lang.Override
   public com.google.iam.v1.PolicyOrBuilder getPolicyOrBuilder() {
-    return getPolicy();
+    return policy_ == null ? com.google.iam.v1.Policy.getDefaultInstance() : policy_;
   }
 
   public static final int EXPLANATION_FIELD_NUMBER = 4;
@@ -2195,7 +2050,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
    */
   @java.lang.Override
   public com.google.cloud.asset.v1.IamPolicySearchResult.ExplanationOrBuilder getExplanationOrBuilder() {
-    return getExplanation();
+    return explanation_ == null ? com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.getDefaultInstance() : explanation_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2233,7 +2088,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(organization_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, organization_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2270,7 +2125,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(organization_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, organization_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2305,7 +2160,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       if (!getExplanation()
           .equals(other.getExplanation())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2336,7 +2191,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       hash = (37 * hash) + EXPLANATION_FIELD_NUMBER;
       hash = (53 * hash) + getExplanation().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2457,42 +2312,32 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
 
     // Construct using com.google.cloud.asset.v1.IamPolicySearchResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resource_ = "";
-
       assetType_ = "";
-
       project_ = "";
-
       folders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       organization_ = "";
-
-      if (policyBuilder_ == null) {
-        policy_ = null;
-      } else {
-        policy_ = null;
+      policy_ = null;
+      if (policyBuilder_ != null) {
+        policyBuilder_.dispose();
         policyBuilder_ = null;
       }
-      if (explanationBuilder_ == null) {
-        explanation_ = null;
-      } else {
-        explanation_ = null;
+      explanation_ = null;
+      if (explanationBuilder_ != null) {
+        explanationBuilder_.dispose();
         explanationBuilder_ = null;
       }
       return this;
@@ -2521,28 +2366,44 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
     @java.lang.Override
     public com.google.cloud.asset.v1.IamPolicySearchResult buildPartial() {
       com.google.cloud.asset.v1.IamPolicySearchResult result = new com.google.cloud.asset.v1.IamPolicySearchResult(this);
-      int from_bitField0_ = bitField0_;
-      result.resource_ = resource_;
-      result.assetType_ = assetType_;
-      result.project_ = project_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        folders_ = folders_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.folders_ = folders_;
-      result.organization_ = organization_;
-      if (policyBuilder_ == null) {
-        result.policy_ = policy_;
-      } else {
-        result.policy_ = policyBuilder_.build();
-      }
-      if (explanationBuilder_ == null) {
-        result.explanation_ = explanation_;
-      } else {
-        result.explanation_ = explanationBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.asset.v1.IamPolicySearchResult result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        folders_ = folders_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.folders_ = folders_;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.IamPolicySearchResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resource_ = resource_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.assetType_ = assetType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.organization_ = organization_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.policy_ = policyBuilder_ == null
+            ? policy_
+            : policyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.explanation_ = explanationBuilder_ == null
+            ? explanation_
+            : explanationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2591,20 +2452,23 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       if (other == com.google.cloud.asset.v1.IamPolicySearchResult.getDefaultInstance()) return this;
       if (!other.getResource().isEmpty()) {
         resource_ = other.resource_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAssetType().isEmpty()) {
         assetType_ = other.assetType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.folders_.isEmpty()) {
         if (folders_.isEmpty()) {
           folders_ = other.folders_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureFoldersIsMutable();
           folders_.addAll(other.folders_);
@@ -2613,6 +2477,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       }
       if (!other.getOrganization().isEmpty()) {
         organization_ = other.organization_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasPolicy()) {
@@ -2621,7 +2486,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
       if (other.hasExplanation()) {
         mergeExplanation(other.getExplanation());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2636,17 +2501,70 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.IamPolicySearchResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resource_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getExplanationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 34
+            case 42: {
+              assetType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFoldersIsMutable();
+              folders_.add(s);
+              break;
+            } // case 50
+            case 58: {
+              organization_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.IamPolicySearchResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2725,11 +2643,9 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder setResource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resource_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2749,8 +2665,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * @return This builder for chaining.
      */
     public Builder clearResource() {
-      
       resource_ = getDefaultInstance().getResource();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2772,12 +2688,10 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder setResourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resource_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2844,11 +2758,9 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder setAssetType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       assetType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2864,8 +2776,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * @return This builder for chaining.
      */
     public Builder clearAssetType() {
-      
       assetType_ = getDefaultInstance().getAssetType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2883,12 +2795,10 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder setAssetTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       assetType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2964,11 +2874,9 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2987,8 +2895,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3009,21 +2917,19 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList folders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFoldersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         folders_ = new com.google.protobuf.LazyStringArrayList(folders_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -3116,10 +3022,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder setFolders(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFoldersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFoldersIsMutable();
       folders_.set(index, value);
       onChanged();
       return this;
@@ -3141,10 +3045,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder addFolders(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFoldersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFoldersIsMutable();
       folders_.add(value);
       onChanged();
       return this;
@@ -3188,7 +3090,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder clearFolders() {
       folders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3209,10 +3111,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder addFoldersBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFoldersIsMutable();
       folders_.add(value);
       onChanged();
@@ -3290,11 +3190,9 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder setOrganization(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       organization_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3313,8 +3211,8 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * @return This builder for chaining.
      */
     public Builder clearOrganization() {
-      
       organization_ = getDefaultInstance().getOrganization();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3335,12 +3233,10 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder setOrganizationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       organization_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3368,7 +3264,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * @return Whether the policy field is set.
      */
     public boolean hasPolicy() {
-      return policyBuilder_ != null || policy_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3420,11 +3316,11 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
           throw new NullPointerException();
         }
         policy_ = value;
-        onChanged();
       } else {
         policyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3449,11 +3345,11 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         com.google.iam.v1.Policy.Builder builderForValue) {
       if (policyBuilder_ == null) {
         policy_ = builderForValue.build();
-        onChanged();
       } else {
         policyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3476,17 +3372,18 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder mergePolicy(com.google.iam.v1.Policy value) {
       if (policyBuilder_ == null) {
-        if (policy_ != null) {
-          policy_ =
-            com.google.iam.v1.Policy.newBuilder(policy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          policy_ != null &&
+          policy_ != com.google.iam.v1.Policy.getDefaultInstance()) {
+          getPolicyBuilder().mergeFrom(value);
         } else {
           policy_ = value;
         }
-        onChanged();
       } else {
         policyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3508,14 +3405,13 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * <code>.google.iam.v1.Policy policy = 3;</code>
      */
     public Builder clearPolicy() {
-      if (policyBuilder_ == null) {
-        policy_ = null;
-        onChanged();
-      } else {
-        policy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      policy_ = null;
+      if (policyBuilder_ != null) {
+        policyBuilder_.dispose();
         policyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3537,7 +3433,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * <code>.google.iam.v1.Policy policy = 3;</code>
      */
     public com.google.iam.v1.Policy.Builder getPolicyBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getPolicyFieldBuilder().getBuilder();
     }
@@ -3612,7 +3508,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * @return Whether the explanation field is set.
      */
     public boolean hasExplanation() {
-      return explanationBuilder_ != null || explanation_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3644,11 +3540,11 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
           throw new NullPointerException();
         }
         explanation_ = value;
-        onChanged();
       } else {
         explanationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3663,11 +3559,11 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Builder builderForValue) {
       if (explanationBuilder_ == null) {
         explanation_ = builderForValue.build();
-        onChanged();
       } else {
         explanationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3680,17 +3576,18 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      */
     public Builder mergeExplanation(com.google.cloud.asset.v1.IamPolicySearchResult.Explanation value) {
       if (explanationBuilder_ == null) {
-        if (explanation_ != null) {
-          explanation_ =
-            com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.newBuilder(explanation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          explanation_ != null &&
+          explanation_ != com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.getDefaultInstance()) {
+          getExplanationBuilder().mergeFrom(value);
         } else {
           explanation_ = value;
         }
-        onChanged();
       } else {
         explanationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3702,14 +3599,13 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * <code>.google.cloud.asset.v1.IamPolicySearchResult.Explanation explanation = 4;</code>
      */
     public Builder clearExplanation() {
-      if (explanationBuilder_ == null) {
-        explanation_ = null;
-        onChanged();
-      } else {
-        explanation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      explanation_ = null;
+      if (explanationBuilder_ != null) {
+        explanationBuilder_.dispose();
         explanationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3721,7 +3617,7 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
      * <code>.google.cloud.asset.v1.IamPolicySearchResult.Explanation explanation = 4;</code>
      */
     public com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Builder getExplanationBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getExplanationFieldBuilder().getBuilder();
     }
@@ -3795,7 +3691,18 @@ com.google.cloud.asset.v1.IamPolicySearchResult.Explanation.Permissions defaultV
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IamPolicySearchResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

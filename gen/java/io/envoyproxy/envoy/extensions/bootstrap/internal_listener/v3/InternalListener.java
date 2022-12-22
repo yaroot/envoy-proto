@@ -34,45 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InternalListener(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListenerProto.internal_static_envoy_extensions_bootstrap_internal_listener_v3_InternalListener_descriptor;
@@ -84,6 +45,53 @@ private static final long serialVersionUID = 0L;
     return io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListenerProto.internal_static_envoy_extensions_bootstrap_internal_listener_v3_InternalListener_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener.class, io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener.Builder.class);
+  }
+
+  public static final int BUFFER_SIZE_KB_FIELD_NUMBER = 1;
+  private com.google.protobuf.UInt32Value bufferSizeKb_;
+  /**
+   * <pre>
+   * The internal listener client connection buffer size in KiB.
+   * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+   * 5 KiB = 5 * 1024 bytes.
+   * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+   * @return Whether the bufferSizeKb field is set.
+   */
+  @java.lang.Override
+  public boolean hasBufferSizeKb() {
+    return bufferSizeKb_ != null;
+  }
+  /**
+   * <pre>
+   * The internal listener client connection buffer size in KiB.
+   * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+   * 5 KiB = 5 * 1024 bytes.
+   * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+   * @return The bufferSizeKb.
+   */
+  @java.lang.Override
+  public com.google.protobuf.UInt32Value getBufferSizeKb() {
+    return bufferSizeKb_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : bufferSizeKb_;
+  }
+  /**
+   * <pre>
+   * The internal listener client connection buffer size in KiB.
+   * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+   * 5 KiB = 5 * 1024 bytes.
+   * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.UInt32ValueOrBuilder getBufferSizeKbOrBuilder() {
+    return bufferSizeKb_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : bufferSizeKb_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -100,7 +108,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    unknownFields.writeTo(output);
+    if (bufferSizeKb_ != null) {
+      output.writeMessage(1, getBufferSizeKb());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -109,7 +120,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    size += unknownFields.getSerializedSize();
+    if (bufferSizeKb_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getBufferSizeKb());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -124,7 +139,12 @@ private static final long serialVersionUID = 0L;
     }
     io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener other = (io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener) obj;
 
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasBufferSizeKb() != other.hasBufferSizeKb()) return false;
+    if (hasBufferSizeKb()) {
+      if (!getBufferSizeKb()
+          .equals(other.getBufferSizeKb())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -135,7 +155,11 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasBufferSizeKb()) {
+      hash = (37 * hash) + BUFFER_SIZE_KB_FIELD_NUMBER;
+      hash = (53 * hash) + getBufferSizeKb().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -256,22 +280,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      bufferSizeKb_ = null;
+      if (bufferSizeKbBuilder_ != null) {
+        bufferSizeKbBuilder_.dispose();
+        bufferSizeKbBuilder_ = null;
+      }
       return this;
     }
 
@@ -298,8 +323,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener buildPartial() {
       io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener result = new io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.bufferSizeKb_ = bufferSizeKbBuilder_ == null
+            ? bufferSizeKb_
+            : bufferSizeKbBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -346,7 +381,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener other) {
       if (other == io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener.getDefaultInstance()) return this;
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasBufferSizeKb()) {
+        mergeBufferSizeKb(other.getBufferSizeKb());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -361,18 +399,221 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getBufferSizeKbFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3.InternalListener) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
+    }
+    private int bitField0_;
+
+    private com.google.protobuf.UInt32Value bufferSizeKb_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> bufferSizeKbBuilder_;
+    /**
+     * <pre>
+     * The internal listener client connection buffer size in KiB.
+     * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+     * 5 KiB = 5 * 1024 bytes.
+     * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+     * </pre>
+     *
+     * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+     * @return Whether the bufferSizeKb field is set.
+     */
+    public boolean hasBufferSizeKb() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * The internal listener client connection buffer size in KiB.
+     * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+     * 5 KiB = 5 * 1024 bytes.
+     * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+     * </pre>
+     *
+     * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+     * @return The bufferSizeKb.
+     */
+    public com.google.protobuf.UInt32Value getBufferSizeKb() {
+      if (bufferSizeKbBuilder_ == null) {
+        return bufferSizeKb_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : bufferSizeKb_;
+      } else {
+        return bufferSizeKbBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The internal listener client connection buffer size in KiB.
+     * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+     * 5 KiB = 5 * 1024 bytes.
+     * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+     * </pre>
+     *
+     * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+     */
+    public Builder setBufferSizeKb(com.google.protobuf.UInt32Value value) {
+      if (bufferSizeKbBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bufferSizeKb_ = value;
+      } else {
+        bufferSizeKbBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The internal listener client connection buffer size in KiB.
+     * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+     * 5 KiB = 5 * 1024 bytes.
+     * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+     * </pre>
+     *
+     * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+     */
+    public Builder setBufferSizeKb(
+        com.google.protobuf.UInt32Value.Builder builderForValue) {
+      if (bufferSizeKbBuilder_ == null) {
+        bufferSizeKb_ = builderForValue.build();
+      } else {
+        bufferSizeKbBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The internal listener client connection buffer size in KiB.
+     * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+     * 5 KiB = 5 * 1024 bytes.
+     * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+     * </pre>
+     *
+     * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+     */
+    public Builder mergeBufferSizeKb(com.google.protobuf.UInt32Value value) {
+      if (bufferSizeKbBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0) &&
+          bufferSizeKb_ != null &&
+          bufferSizeKb_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getBufferSizeKbBuilder().mergeFrom(value);
+        } else {
+          bufferSizeKb_ = value;
+        }
+      } else {
+        bufferSizeKbBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The internal listener client connection buffer size in KiB.
+     * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+     * 5 KiB = 5 * 1024 bytes.
+     * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+     * </pre>
+     *
+     * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+     */
+    public Builder clearBufferSizeKb() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      bufferSizeKb_ = null;
+      if (bufferSizeKbBuilder_ != null) {
+        bufferSizeKbBuilder_.dispose();
+        bufferSizeKbBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The internal listener client connection buffer size in KiB.
+     * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+     * 5 KiB = 5 * 1024 bytes.
+     * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+     * </pre>
+     *
+     * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+     */
+    public com.google.protobuf.UInt32Value.Builder getBufferSizeKbBuilder() {
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return getBufferSizeKbFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The internal listener client connection buffer size in KiB.
+     * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+     * 5 KiB = 5 * 1024 bytes.
+     * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+     * </pre>
+     *
+     * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+     */
+    public com.google.protobuf.UInt32ValueOrBuilder getBufferSizeKbOrBuilder() {
+      if (bufferSizeKbBuilder_ != null) {
+        return bufferSizeKbBuilder_.getMessageOrBuilder();
+      } else {
+        return bufferSizeKb_ == null ?
+            com.google.protobuf.UInt32Value.getDefaultInstance() : bufferSizeKb_;
+      }
+    }
+    /**
+     * <pre>
+     * The internal listener client connection buffer size in KiB.
+     * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+     * 5 KiB = 5 * 1024 bytes.
+     * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+     * </pre>
+     *
+     * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> 
+        getBufferSizeKbFieldBuilder() {
+      if (bufferSizeKbBuilder_ == null) {
+        bufferSizeKbBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>(
+                getBufferSizeKb(),
+                getParentForChildren(),
+                isClean());
+        bufferSizeKb_ = null;
+      }
+      return bufferSizeKbBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -407,7 +648,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InternalListener(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

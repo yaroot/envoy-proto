@@ -38,122 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RestoreConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            volumeDataRestorePolicy_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            clusterResourceConflictPolicy_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            namespacedResourceRestoreMode_ = rawValue;
-            break;
-          }
-          case 34: {
-            google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope.Builder subBuilder = null;
-            if (clusterResourceRestoreScope_ != null) {
-              subBuilder = clusterResourceRestoreScope_.toBuilder();
-            }
-            clusterResourceRestoreScope_ = input.readMessage(google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(clusterResourceRestoreScope_);
-              clusterResourceRestoreScope_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-            namespacedResourceRestoreScope_ = input.readBool();
-            namespacedResourceRestoreScopeCase_ = 5;
-            break;
-          }
-          case 50: {
-            google.cloud.gkebackup.logging.v1.Namespaces.Builder subBuilder = null;
-            if (namespacedResourceRestoreScopeCase_ == 6) {
-              subBuilder = ((google.cloud.gkebackup.logging.v1.Namespaces) namespacedResourceRestoreScope_).toBuilder();
-            }
-            namespacedResourceRestoreScope_ =
-                input.readMessage(google.cloud.gkebackup.logging.v1.Namespaces.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((google.cloud.gkebackup.logging.v1.Namespaces) namespacedResourceRestoreScope_);
-              namespacedResourceRestoreScope_ = subBuilder.buildPartial();
-            }
-            namespacedResourceRestoreScopeCase_ = 6;
-            break;
-          }
-          case 58: {
-            google.cloud.gkebackup.logging.v1.NamespacedNames.Builder subBuilder = null;
-            if (namespacedResourceRestoreScopeCase_ == 7) {
-              subBuilder = ((google.cloud.gkebackup.logging.v1.NamespacedNames) namespacedResourceRestoreScope_).toBuilder();
-            }
-            namespacedResourceRestoreScope_ =
-                input.readMessage(google.cloud.gkebackup.logging.v1.NamespacedNames.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((google.cloud.gkebackup.logging.v1.NamespacedNames) namespacedResourceRestoreScope_);
-              namespacedResourceRestoreScope_ = subBuilder.buildPartial();
-            }
-            namespacedResourceRestoreScopeCase_ = 7;
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              substitutionRules_ = new java.util.ArrayList<google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            substitutionRules_.add(
-                input.readMessage(google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        substitutionRules_ = java.util.Collections.unmodifiableList(substitutionRules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.cloud.gkebackup.logging.v1.LoggedRestorePlanProto.internal_static_google_cloud_gkebackup_logging_v1_RestoreConfig_descriptor;
@@ -746,57 +630,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GroupKind(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              resourceGroup_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              resourceKind_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return google.cloud.gkebackup.logging.v1.LoggedRestorePlanProto.internal_static_google_cloud_gkebackup_logging_v1_RestoreConfig_GroupKind_descriptor;
@@ -811,7 +644,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESOURCE_GROUP_FIELD_NUMBER = 1;
-    private volatile java.lang.Object resourceGroup_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object resourceGroup_ = "";
     /**
      * <pre>
      * API group string of a Kubernetes resource, e.g.
@@ -861,7 +695,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESOURCE_KIND_FIELD_NUMBER = 2;
-    private volatile java.lang.Object resourceKind_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object resourceKind_ = "";
     /**
      * <pre>
      * Kind of a Kubernetes resource, e.g.
@@ -928,7 +763,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resourceKind_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, resourceKind_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -943,7 +778,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resourceKind_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, resourceKind_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -962,7 +797,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getResourceGroup())) return false;
       if (!getResourceKind()
           .equals(other.getResourceKind())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -977,7 +812,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getResourceGroup().hashCode();
       hash = (37 * hash) + RESOURCE_KIND_FIELD_NUMBER;
       hash = (53 * hash) + getResourceKind().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1100,26 +935,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         resourceGroup_ = "";
-
         resourceKind_ = "";
-
         return this;
       }
 
@@ -1146,10 +975,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind buildPartial() {
         google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind result = new google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind(this);
-        result.resourceGroup_ = resourceGroup_;
-        result.resourceKind_ = resourceKind_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.resourceGroup_ = resourceGroup_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.resourceKind_ = resourceKind_;
+        }
       }
 
       @java.lang.Override
@@ -1198,13 +1036,15 @@ private static final long serialVersionUID = 0L;
         if (other == google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind.getDefaultInstance()) return this;
         if (!other.getResourceGroup().isEmpty()) {
           resourceGroup_ = other.resourceGroup_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getResourceKind().isEmpty()) {
           resourceKind_ = other.resourceKind_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1219,19 +1059,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                resourceGroup_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                resourceKind_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object resourceGroup_ = "";
       /**
@@ -1292,11 +1156,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setResourceGroup(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         resourceGroup_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1311,8 +1173,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearResourceGroup() {
-        
         resourceGroup_ = getDefaultInstance().getResourceGroup();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1329,12 +1191,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setResourceGroupBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         resourceGroup_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1395,11 +1255,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setResourceKind(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         resourceKind_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1413,8 +1271,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearResourceKind() {
-        
         resourceKind_ = getDefaultInstance().getResourceKind();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1430,12 +1288,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setResourceKindBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         resourceKind_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1472,7 +1328,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GroupKind(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1587,58 +1454,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClusterResourceRestoreScope(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                selectedGroupKinds_ = new java.util.ArrayList<google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              selectedGroupKinds_.add(
-                  input.readMessage(google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          selectedGroupKinds_ = java.util.Collections.unmodifiableList(selectedGroupKinds_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return google.cloud.gkebackup.logging.v1.LoggedRestorePlanProto.internal_static_google_cloud_gkebackup_logging_v1_RestoreConfig_ClusterResourceRestoreScope_descriptor;
@@ -1653,6 +1468,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SELECTED_GROUP_KINDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind> selectedGroupKinds_;
     /**
      * <pre>
@@ -1744,7 +1560,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < selectedGroupKinds_.size(); i++) {
         output.writeMessage(1, selectedGroupKinds_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1757,7 +1573,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, selectedGroupKinds_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1774,7 +1590,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getSelectedGroupKindsList()
           .equals(other.getSelectedGroupKindsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1789,7 +1605,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SELECTED_GROUP_KINDS_FIELD_NUMBER;
         hash = (53 * hash) + getSelectedGroupKindsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1910,29 +1726,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getSelectedGroupKindsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (selectedGroupKindsBuilder_ == null) {
           selectedGroupKinds_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          selectedGroupKinds_ = null;
           selectedGroupKindsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1959,7 +1771,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope buildPartial() {
         google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope result = new google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope result) {
         if (selectedGroupKindsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             selectedGroupKinds_ = java.util.Collections.unmodifiableList(selectedGroupKinds_);
@@ -1969,8 +1787,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.selectedGroupKinds_ = selectedGroupKindsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -2043,7 +1863,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2058,17 +1878,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind m =
+                    input.readMessage(
+                        google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind.parser(),
+                        extensionRegistry);
+                if (selectedGroupKindsBuilder_ == null) {
+                  ensureSelectedGroupKindsIsMutable();
+                  selectedGroupKinds_.add(m);
+                } else {
+                  selectedGroupKindsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2471,7 +2317,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClusterResourceRestoreScope(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2754,88 +2611,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SubstitutionRule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                targetNamespaces_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              targetNamespaces_.add(s);
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                targetGroupKinds_ = new java.util.ArrayList<google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              targetGroupKinds_.add(
-                  input.readMessage(google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              targetJsonPath_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              originalValuePattern_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              newValue_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          targetNamespaces_ = targetNamespaces_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          targetGroupKinds_ = java.util.Collections.unmodifiableList(targetGroupKinds_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return google.cloud.gkebackup.logging.v1.LoggedRestorePlanProto.internal_static_google_cloud_gkebackup_logging_v1_RestoreConfig_SubstitutionRule_descriptor;
@@ -2850,6 +2625,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TARGET_NAMESPACES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList targetNamespaces_;
     /**
      * <pre>
@@ -2925,6 +2701,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TARGET_GROUP_KINDS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind> targetGroupKinds_;
     /**
      * <pre>
@@ -3005,7 +2782,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TARGET_JSON_PATH_FIELD_NUMBER = 3;
-    private volatile java.lang.Object targetJsonPath_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object targetJsonPath_ = "";
     /**
      * <pre>
      * This is a [JSONPath]
@@ -3063,7 +2841,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ORIGINAL_VALUE_PATTERN_FIELD_NUMBER = 4;
-    private volatile java.lang.Object originalValuePattern_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object originalValuePattern_ = "";
     /**
      * <pre>
      * (Filtering parameter) This is a [regular expression]
@@ -3125,7 +2904,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NEW_VALUE_FIELD_NUMBER = 5;
-    private volatile java.lang.Object newValue_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object newValue_ = "";
     /**
      * <pre>
      * This is the new value to set for any fields that pass the filtering and
@@ -3203,7 +2983,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newValue_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, newValue_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3233,7 +3013,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newValue_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, newValue_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3258,7 +3038,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getOriginalValuePattern())) return false;
       if (!getNewValue()
           .equals(other.getNewValue())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3283,7 +3063,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getOriginalValuePattern().hashCode();
       hash = (37 * hash) + NEW_VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getNewValue().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3406,37 +3186,30 @@ private static final long serialVersionUID = 0L;
 
       // Construct using google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getTargetGroupKindsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         targetNamespaces_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (targetGroupKindsBuilder_ == null) {
           targetGroupKinds_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          targetGroupKinds_ = null;
           targetGroupKindsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         targetJsonPath_ = "";
-
         originalValuePattern_ = "";
-
         newValue_ = "";
-
         return this;
       }
 
@@ -3463,7 +3236,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule buildPartial() {
         google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule result = new google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           targetNamespaces_ = targetNamespaces_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -3478,11 +3257,19 @@ private static final long serialVersionUID = 0L;
         } else {
           result.targetGroupKinds_ = targetGroupKindsBuilder_.build();
         }
-        result.targetJsonPath_ = targetJsonPath_;
-        result.originalValuePattern_ = originalValuePattern_;
-        result.newValue_ = newValue_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.targetJsonPath_ = targetJsonPath_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.originalValuePattern_ = originalValuePattern_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.newValue_ = newValue_;
+        }
       }
 
       @java.lang.Override
@@ -3567,17 +3354,20 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getTargetJsonPath().isEmpty()) {
           targetJsonPath_ = other.targetJsonPath_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getOriginalValuePattern().isEmpty()) {
           originalValuePattern_ = other.originalValuePattern_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getNewValue().isEmpty()) {
           newValue_ = other.newValue_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3592,17 +3382,64 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTargetNamespacesIsMutable();
+                targetNamespaces_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind m =
+                    input.readMessage(
+                        google.cloud.gkebackup.logging.v1.RestoreConfig.GroupKind.parser(),
+                        extensionRegistry);
+                if (targetGroupKindsBuilder_ == null) {
+                  ensureTargetGroupKindsIsMutable();
+                  targetGroupKinds_.add(m);
+                } else {
+                  targetGroupKindsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                targetJsonPath_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                originalValuePattern_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                newValue_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3704,10 +3541,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTargetNamespaces(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTargetNamespacesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTargetNamespacesIsMutable();
         targetNamespaces_.set(index, value);
         onChanged();
         return this;
@@ -3729,10 +3564,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addTargetNamespaces(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTargetNamespacesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTargetNamespacesIsMutable();
         targetNamespaces_.add(value);
         onChanged();
         return this;
@@ -3797,10 +3630,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addTargetNamespacesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureTargetNamespacesIsMutable();
         targetNamespaces_.add(value);
         onChanged();
@@ -4262,11 +4093,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTargetJsonPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         targetJsonPath_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4285,8 +4114,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTargetJsonPath() {
-        
         targetJsonPath_ = getDefaultInstance().getTargetJsonPath();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -4307,12 +4136,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTargetJsonPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         targetJsonPath_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4394,11 +4221,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOriginalValuePattern(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         originalValuePattern_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -4419,8 +4244,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOriginalValuePattern() {
-        
         originalValuePattern_ = getDefaultInstance().getOriginalValuePattern();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -4443,12 +4268,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOriginalValuePatternBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         originalValuePattern_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -4512,11 +4335,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNewValue(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         newValue_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -4531,8 +4352,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearNewValue() {
-        
         newValue_ = getDefaultInstance().getNewValue();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -4549,12 +4370,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNewValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         newValue_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -4591,7 +4410,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SubstitutionRule(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4655,7 +4485,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VOLUME_DATA_RESTORE_POLICY_FIELD_NUMBER = 1;
-  private int volumeDataRestorePolicy_;
+  private int volumeDataRestorePolicy_ = 0;
   /**
    * <pre>
    * Specifies the mechanism to be used to restore volume data.
@@ -4680,13 +4510,12 @@ private static final long serialVersionUID = 0L;
    * @return The volumeDataRestorePolicy.
    */
   @java.lang.Override public google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy getVolumeDataRestorePolicy() {
-    @SuppressWarnings("deprecation")
-    google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy result = google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy.valueOf(volumeDataRestorePolicy_);
+    google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy result = google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy.forNumber(volumeDataRestorePolicy_);
     return result == null ? google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy.UNRECOGNIZED : result;
   }
 
   public static final int CLUSTER_RESOURCE_CONFLICT_POLICY_FIELD_NUMBER = 2;
-  private int clusterResourceConflictPolicy_;
+  private int clusterResourceConflictPolicy_ = 0;
   /**
    * <pre>
    * Defines the behavior for handling the situation where cluster-scoped
@@ -4713,13 +4542,12 @@ private static final long serialVersionUID = 0L;
    * @return The clusterResourceConflictPolicy.
    */
   @java.lang.Override public google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy getClusterResourceConflictPolicy() {
-    @SuppressWarnings("deprecation")
-    google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy result = google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy.valueOf(clusterResourceConflictPolicy_);
+    google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy result = google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy.forNumber(clusterResourceConflictPolicy_);
     return result == null ? google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy.UNRECOGNIZED : result;
   }
 
   public static final int NAMESPACED_RESOURCE_RESTORE_MODE_FIELD_NUMBER = 3;
-  private int namespacedResourceRestoreMode_;
+  private int namespacedResourceRestoreMode_ = 0;
   /**
    * <pre>
    * Defines the behavior for handling the situation where sets of namespaced
@@ -4748,8 +4576,7 @@ private static final long serialVersionUID = 0L;
    * @return The namespacedResourceRestoreMode.
    */
   @java.lang.Override public google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode getNamespacedResourceRestoreMode() {
-    @SuppressWarnings("deprecation")
-    google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode result = google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode.valueOf(namespacedResourceRestoreMode_);
+    google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode result = google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode.forNumber(namespacedResourceRestoreMode_);
     return result == null ? google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode.UNRECOGNIZED : result;
   }
 
@@ -4791,7 +4618,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScopeOrBuilder getClusterResourceRestoreScopeOrBuilder() {
-    return getClusterResourceRestoreScope();
+    return clusterResourceRestoreScope_ == null ? google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope.getDefaultInstance() : clusterResourceRestoreScope_;
   }
 
   public static final int ALL_NAMESPACES_FIELD_NUMBER = 5;
@@ -4921,6 +4748,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBSTITUTION_RULES_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule> substitutionRules_;
   /**
    * <pre>
@@ -5039,7 +4867,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < substitutionRules_.size(); i++) {
       output.writeMessage(8, substitutionRules_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -5081,7 +4909,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, substitutionRules_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -5123,7 +4951,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -5165,7 +4993,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -5286,41 +5114,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.cloud.gkebackup.logging.v1.RestoreConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSubstitutionRulesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       volumeDataRestorePolicy_ = 0;
-
       clusterResourceConflictPolicy_ = 0;
-
       namespacedResourceRestoreMode_ = 0;
-
-      if (clusterResourceRestoreScopeBuilder_ == null) {
-        clusterResourceRestoreScope_ = null;
-      } else {
-        clusterResourceRestoreScope_ = null;
+      clusterResourceRestoreScope_ = null;
+      if (clusterResourceRestoreScopeBuilder_ != null) {
+        clusterResourceRestoreScopeBuilder_.dispose();
         clusterResourceRestoreScopeBuilder_ = null;
+      }
+      if (selectedNamespacesBuilder_ != null) {
+        selectedNamespacesBuilder_.clear();
+      }
+      if (selectedApplicationsBuilder_ != null) {
+        selectedApplicationsBuilder_.clear();
       }
       if (substitutionRulesBuilder_ == null) {
         substitutionRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        substitutionRules_ = null;
         substitutionRulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       namespacedResourceRestoreScopeCase_ = 0;
       namespacedResourceRestoreScope_ = null;
       return this;
@@ -5349,44 +5175,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.cloud.gkebackup.logging.v1.RestoreConfig buildPartial() {
       google.cloud.gkebackup.logging.v1.RestoreConfig result = new google.cloud.gkebackup.logging.v1.RestoreConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.volumeDataRestorePolicy_ = volumeDataRestorePolicy_;
-      result.clusterResourceConflictPolicy_ = clusterResourceConflictPolicy_;
-      result.namespacedResourceRestoreMode_ = namespacedResourceRestoreMode_;
-      if (clusterResourceRestoreScopeBuilder_ == null) {
-        result.clusterResourceRestoreScope_ = clusterResourceRestoreScope_;
-      } else {
-        result.clusterResourceRestoreScope_ = clusterResourceRestoreScopeBuilder_.build();
-      }
-      if (namespacedResourceRestoreScopeCase_ == 5) {
-        result.namespacedResourceRestoreScope_ = namespacedResourceRestoreScope_;
-      }
-      if (namespacedResourceRestoreScopeCase_ == 6) {
-        if (selectedNamespacesBuilder_ == null) {
-          result.namespacedResourceRestoreScope_ = namespacedResourceRestoreScope_;
-        } else {
-          result.namespacedResourceRestoreScope_ = selectedNamespacesBuilder_.build();
-        }
-      }
-      if (namespacedResourceRestoreScopeCase_ == 7) {
-        if (selectedApplicationsBuilder_ == null) {
-          result.namespacedResourceRestoreScope_ = namespacedResourceRestoreScope_;
-        } else {
-          result.namespacedResourceRestoreScope_ = selectedApplicationsBuilder_.build();
-        }
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(google.cloud.gkebackup.logging.v1.RestoreConfig result) {
       if (substitutionRulesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           substitutionRules_ = java.util.Collections.unmodifiableList(substitutionRules_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.substitutionRules_ = substitutionRules_;
       } else {
         result.substitutionRules_ = substitutionRulesBuilder_.build();
       }
+    }
+
+    private void buildPartial0(google.cloud.gkebackup.logging.v1.RestoreConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.volumeDataRestorePolicy_ = volumeDataRestorePolicy_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.clusterResourceConflictPolicy_ = clusterResourceConflictPolicy_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.namespacedResourceRestoreMode_ = namespacedResourceRestoreMode_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.clusterResourceRestoreScope_ = clusterResourceRestoreScopeBuilder_ == null
+            ? clusterResourceRestoreScope_
+            : clusterResourceRestoreScopeBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(google.cloud.gkebackup.logging.v1.RestoreConfig result) {
       result.namespacedResourceRestoreScopeCase_ = namespacedResourceRestoreScopeCase_;
-      onBuilt();
-      return result;
+      result.namespacedResourceRestoreScope_ = this.namespacedResourceRestoreScope_;
+      if (namespacedResourceRestoreScopeCase_ == 6 &&
+          selectedNamespacesBuilder_ != null) {
+        result.namespacedResourceRestoreScope_ = selectedNamespacesBuilder_.build();
+      }
+      if (namespacedResourceRestoreScopeCase_ == 7 &&
+          selectedApplicationsBuilder_ != null) {
+        result.namespacedResourceRestoreScope_ = selectedApplicationsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -5449,7 +5285,7 @@ private static final long serialVersionUID = 0L;
         if (!other.substitutionRules_.isEmpty()) {
           if (substitutionRules_.isEmpty()) {
             substitutionRules_ = other.substitutionRules_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureSubstitutionRulesIsMutable();
             substitutionRules_.addAll(other.substitutionRules_);
@@ -5462,7 +5298,7 @@ private static final long serialVersionUID = 0L;
             substitutionRulesBuilder_.dispose();
             substitutionRulesBuilder_ = null;
             substitutionRules_ = other.substitutionRules_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
             substitutionRulesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSubstitutionRulesFieldBuilder() : null;
@@ -5488,7 +5324,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -5503,17 +5339,84 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.cloud.gkebackup.logging.v1.RestoreConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              volumeDataRestorePolicy_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              clusterResourceConflictPolicy_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              namespacedResourceRestoreMode_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getClusterResourceRestoreScopeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              namespacedResourceRestoreScope_ = input.readBool();
+              namespacedResourceRestoreScopeCase_ = 5;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getSelectedNamespacesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              namespacedResourceRestoreScopeCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getSelectedApplicationsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              namespacedResourceRestoreScopeCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule m =
+                  input.readMessage(
+                      google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule.parser(),
+                      extensionRegistry);
+              if (substitutionRulesBuilder_ == null) {
+                ensureSubstitutionRulesIsMutable();
+                substitutionRules_.add(m);
+              } else {
+                substitutionRulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.cloud.gkebackup.logging.v1.RestoreConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int namespacedResourceRestoreScopeCase_ = 0;
@@ -5559,8 +5462,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVolumeDataRestorePolicyValue(int value) {
-      
       volumeDataRestorePolicy_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -5576,8 +5479,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy getVolumeDataRestorePolicy() {
-      @SuppressWarnings("deprecation")
-      google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy result = google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy.valueOf(volumeDataRestorePolicy_);
+      google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy result = google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy.forNumber(volumeDataRestorePolicy_);
       return result == null ? google.cloud.gkebackup.logging.v1.RestoreConfig.VolumeDataRestorePolicy.UNRECOGNIZED : result;
     }
     /**
@@ -5595,7 +5497,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       volumeDataRestorePolicy_ = value.getNumber();
       onChanged();
       return this;
@@ -5611,7 +5513,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVolumeDataRestorePolicy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       volumeDataRestorePolicy_ = 0;
       onChanged();
       return this;
@@ -5645,8 +5547,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setClusterResourceConflictPolicyValue(int value) {
-      
       clusterResourceConflictPolicy_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -5663,8 +5565,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy getClusterResourceConflictPolicy() {
-      @SuppressWarnings("deprecation")
-      google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy result = google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy.valueOf(clusterResourceConflictPolicy_);
+      google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy result = google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy.forNumber(clusterResourceConflictPolicy_);
       return result == null ? google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceConflictPolicy.UNRECOGNIZED : result;
     }
     /**
@@ -5683,7 +5584,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       clusterResourceConflictPolicy_ = value.getNumber();
       onChanged();
       return this;
@@ -5700,7 +5601,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClusterResourceConflictPolicy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       clusterResourceConflictPolicy_ = 0;
       onChanged();
       return this;
@@ -5736,8 +5637,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNamespacedResourceRestoreModeValue(int value) {
-      
       namespacedResourceRestoreMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5755,8 +5656,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode getNamespacedResourceRestoreMode() {
-      @SuppressWarnings("deprecation")
-      google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode result = google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode.valueOf(namespacedResourceRestoreMode_);
+      google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode result = google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode.forNumber(namespacedResourceRestoreMode_);
       return result == null ? google.cloud.gkebackup.logging.v1.RestoreConfig.NamespacedResourceRestoreMode.UNRECOGNIZED : result;
     }
     /**
@@ -5776,7 +5676,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       namespacedResourceRestoreMode_ = value.getNumber();
       onChanged();
       return this;
@@ -5794,7 +5694,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNamespacedResourceRestoreMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       namespacedResourceRestoreMode_ = 0;
       onChanged();
       return this;
@@ -5813,7 +5713,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the clusterResourceRestoreScope field is set.
      */
     public boolean hasClusterResourceRestoreScope() {
-      return clusterResourceRestoreScopeBuilder_ != null || clusterResourceRestoreScope_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -5845,11 +5745,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         clusterResourceRestoreScope_ = value;
-        onChanged();
       } else {
         clusterResourceRestoreScopeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -5864,11 +5764,11 @@ private static final long serialVersionUID = 0L;
         google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope.Builder builderForValue) {
       if (clusterResourceRestoreScopeBuilder_ == null) {
         clusterResourceRestoreScope_ = builderForValue.build();
-        onChanged();
       } else {
         clusterResourceRestoreScopeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -5881,17 +5781,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeClusterResourceRestoreScope(google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope value) {
       if (clusterResourceRestoreScopeBuilder_ == null) {
-        if (clusterResourceRestoreScope_ != null) {
-          clusterResourceRestoreScope_ =
-            google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope.newBuilder(clusterResourceRestoreScope_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          clusterResourceRestoreScope_ != null &&
+          clusterResourceRestoreScope_ != google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope.getDefaultInstance()) {
+          getClusterResourceRestoreScopeBuilder().mergeFrom(value);
         } else {
           clusterResourceRestoreScope_ = value;
         }
-        onChanged();
       } else {
         clusterResourceRestoreScopeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -5903,14 +5804,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope cluster_resource_restore_scope = 4;</code>
      */
     public Builder clearClusterResourceRestoreScope() {
-      if (clusterResourceRestoreScopeBuilder_ == null) {
-        clusterResourceRestoreScope_ = null;
-        onChanged();
-      } else {
-        clusterResourceRestoreScope_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      clusterResourceRestoreScope_ = null;
+      if (clusterResourceRestoreScopeBuilder_ != null) {
+        clusterResourceRestoreScopeBuilder_.dispose();
         clusterResourceRestoreScopeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5922,7 +5822,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope cluster_resource_restore_scope = 4;</code>
      */
     public google.cloud.gkebackup.logging.v1.RestoreConfig.ClusterResourceRestoreScope.Builder getClusterResourceRestoreScopeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getClusterResourceRestoreScopeFieldBuilder().getBuilder();
     }
@@ -6002,6 +5902,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAllNamespaces(boolean value) {
+      
       namespacedResourceRestoreScopeCase_ = 5;
       namespacedResourceRestoreScope_ = value;
       onChanged();
@@ -6208,7 +6109,7 @@ private static final long serialVersionUID = 0L;
         namespacedResourceRestoreScope_ = null;
       }
       namespacedResourceRestoreScopeCase_ = 6;
-      onChanged();;
+      onChanged();
       return selectedNamespacesBuilder_;
     }
 
@@ -6404,16 +6305,16 @@ private static final long serialVersionUID = 0L;
         namespacedResourceRestoreScope_ = null;
       }
       namespacedResourceRestoreScopeCase_ = 7;
-      onChanged();;
+      onChanged();
       return selectedApplicationsBuilder_;
     }
 
     private java.util.List<google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule> substitutionRules_ =
       java.util.Collections.emptyList();
     private void ensureSubstitutionRulesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         substitutionRules_ = new java.util.ArrayList<google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule>(substitutionRules_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -6651,7 +6552,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSubstitutionRules() {
       if (substitutionRulesBuilder_ == null) {
         substitutionRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         substitutionRulesBuilder_.clear();
@@ -6784,7 +6685,7 @@ private static final long serialVersionUID = 0L;
         substitutionRulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule, google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRule.Builder, google.cloud.gkebackup.logging.v1.RestoreConfig.SubstitutionRuleOrBuilder>(
                 substitutionRules_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         substitutionRules_ = null;
@@ -6824,7 +6725,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RestoreConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

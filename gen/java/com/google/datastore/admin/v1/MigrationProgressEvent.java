@@ -37,79 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MigrationProgressEvent(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            step_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails.Builder subBuilder = null;
-            if (stepDetailsCase_ == 2) {
-              subBuilder = ((com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails) stepDetails_).toBuilder();
-            }
-            stepDetails_ =
-                input.readMessage(com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails) stepDetails_);
-              stepDetails_ = subBuilder.buildPartial();
-            }
-            stepDetailsCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails.Builder subBuilder = null;
-            if (stepDetailsCase_ == 3) {
-              subBuilder = ((com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails) stepDetails_).toBuilder();
-            }
-            stepDetails_ =
-                input.readMessage(com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails) stepDetails_);
-              stepDetails_ = subBuilder.buildPartial();
-            }
-            stepDetailsCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.datastore.admin.v1.MigrationProto.internal_static_google_datastore_admin_v1_MigrationProgressEvent_descriptor;
@@ -342,51 +269,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PrepareStepDetails(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              concurrencyMode_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.datastore.admin.v1.MigrationProto.internal_static_google_datastore_admin_v1_MigrationProgressEvent_PrepareStepDetails_descriptor;
@@ -401,7 +283,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CONCURRENCY_MODE_FIELD_NUMBER = 1;
-    private int concurrencyMode_;
+    private int concurrencyMode_ = 0;
     /**
      * <pre>
      * The concurrency mode this database will use when it reaches the
@@ -424,8 +306,7 @@ private static final long serialVersionUID = 0L;
      * @return The concurrencyMode.
      */
     @java.lang.Override public com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode getConcurrencyMode() {
-      @SuppressWarnings("deprecation")
-      com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode result = com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.valueOf(concurrencyMode_);
+      com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode result = com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.forNumber(concurrencyMode_);
       return result == null ? com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.UNRECOGNIZED : result;
     }
 
@@ -446,7 +327,7 @@ private static final long serialVersionUID = 0L;
       if (concurrencyMode_ != com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.CONCURRENCY_MODE_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, concurrencyMode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -459,7 +340,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, concurrencyMode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -475,7 +356,7 @@ private static final long serialVersionUID = 0L;
       com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails other = (com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails) obj;
 
       if (concurrencyMode_ != other.concurrencyMode_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -488,7 +369,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CONCURRENCY_MODE_FIELD_NUMBER;
       hash = (53 * hash) + concurrencyMode_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -609,24 +490,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         concurrencyMode_ = 0;
-
         return this;
       }
 
@@ -653,9 +529,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails buildPartial() {
         com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails result = new com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails(this);
-        result.concurrencyMode_ = concurrencyMode_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.concurrencyMode_ = concurrencyMode_;
+        }
       }
 
       @java.lang.Override
@@ -705,7 +588,7 @@ private static final long serialVersionUID = 0L;
         if (other.concurrencyMode_ != 0) {
           setConcurrencyModeValue(other.getConcurrencyModeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -720,19 +603,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                concurrencyMode_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.datastore.admin.v1.MigrationProgressEvent.PrepareStepDetails) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int concurrencyMode_ = 0;
       /**
@@ -758,8 +660,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setConcurrencyModeValue(int value) {
-        
         concurrencyMode_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -774,8 +676,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode getConcurrencyMode() {
-        @SuppressWarnings("deprecation")
-        com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode result = com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.valueOf(concurrencyMode_);
+        com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode result = com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.forNumber(concurrencyMode_);
         return result == null ? com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.UNRECOGNIZED : result;
       }
       /**
@@ -792,7 +693,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         concurrencyMode_ = value.getNumber();
         onChanged();
         return this;
@@ -807,7 +708,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearConcurrencyMode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         concurrencyMode_ = 0;
         onChanged();
         return this;
@@ -845,7 +746,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PrepareStepDetails(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -920,51 +832,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RedirectWritesStepDetails(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              concurrencyMode_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.datastore.admin.v1.MigrationProto.internal_static_google_datastore_admin_v1_MigrationProgressEvent_RedirectWritesStepDetails_descriptor;
@@ -979,7 +846,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CONCURRENCY_MODE_FIELD_NUMBER = 1;
-    private int concurrencyMode_;
+    private int concurrencyMode_ = 0;
     /**
      * <pre>
      * Ths concurrency mode for this database.
@@ -1000,8 +867,7 @@ private static final long serialVersionUID = 0L;
      * @return The concurrencyMode.
      */
     @java.lang.Override public com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode getConcurrencyMode() {
-      @SuppressWarnings("deprecation")
-      com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode result = com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.valueOf(concurrencyMode_);
+      com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode result = com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.forNumber(concurrencyMode_);
       return result == null ? com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.UNRECOGNIZED : result;
     }
 
@@ -1022,7 +888,7 @@ private static final long serialVersionUID = 0L;
       if (concurrencyMode_ != com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.CONCURRENCY_MODE_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, concurrencyMode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1035,7 +901,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, concurrencyMode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1051,7 +917,7 @@ private static final long serialVersionUID = 0L;
       com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails other = (com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails) obj;
 
       if (concurrencyMode_ != other.concurrencyMode_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1064,7 +930,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CONCURRENCY_MODE_FIELD_NUMBER;
       hash = (53 * hash) + concurrencyMode_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1185,24 +1051,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         concurrencyMode_ = 0;
-
         return this;
       }
 
@@ -1229,9 +1090,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails buildPartial() {
         com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails result = new com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails(this);
-        result.concurrencyMode_ = concurrencyMode_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.concurrencyMode_ = concurrencyMode_;
+        }
       }
 
       @java.lang.Override
@@ -1281,7 +1149,7 @@ private static final long serialVersionUID = 0L;
         if (other.concurrencyMode_ != 0) {
           setConcurrencyModeValue(other.getConcurrencyModeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1296,19 +1164,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                concurrencyMode_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int concurrencyMode_ = 0;
       /**
@@ -1332,8 +1219,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setConcurrencyModeValue(int value) {
-        
         concurrencyMode_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1347,8 +1234,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode getConcurrencyMode() {
-        @SuppressWarnings("deprecation")
-        com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode result = com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.valueOf(concurrencyMode_);
+        com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode result = com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.forNumber(concurrencyMode_);
         return result == null ? com.google.datastore.admin.v1.MigrationProgressEvent.ConcurrencyMode.UNRECOGNIZED : result;
       }
       /**
@@ -1364,7 +1250,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         concurrencyMode_ = value.getNumber();
         onChanged();
         return this;
@@ -1378,7 +1264,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearConcurrencyMode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         concurrencyMode_ = 0;
         onChanged();
         return this;
@@ -1416,7 +1302,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RedirectWritesStepDetails(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1478,7 +1375,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STEP_FIELD_NUMBER = 1;
-  private int step_;
+  private int step_ = 0;
   /**
    * <pre>
    * The step that is starting.
@@ -1503,8 +1400,7 @@ private static final long serialVersionUID = 0L;
    * @return The step.
    */
   @java.lang.Override public com.google.datastore.admin.v1.MigrationStep getStep() {
-    @SuppressWarnings("deprecation")
-    com.google.datastore.admin.v1.MigrationStep result = com.google.datastore.admin.v1.MigrationStep.valueOf(step_);
+    com.google.datastore.admin.v1.MigrationStep result = com.google.datastore.admin.v1.MigrationStep.forNumber(step_);
     return result == null ? com.google.datastore.admin.v1.MigrationStep.UNRECOGNIZED : result;
   }
 
@@ -1617,7 +1513,7 @@ private static final long serialVersionUID = 0L;
     if (stepDetailsCase_ == 3) {
       output.writeMessage(3, (com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails) stepDetails_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1638,7 +1534,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.datastore.admin.v1.MigrationProgressEvent.RedirectWritesStepDetails) stepDetails_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1667,7 +1563,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1692,7 +1588,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1815,24 +1711,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.datastore.admin.v1.MigrationProgressEvent.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       step_ = 0;
-
+      if (prepareStepDetailsBuilder_ != null) {
+        prepareStepDetailsBuilder_.clear();
+      }
+      if (redirectWritesStepDetailsBuilder_ != null) {
+        redirectWritesStepDetailsBuilder_.clear();
+      }
       stepDetailsCase_ = 0;
       stepDetails_ = null;
       return this;
@@ -1861,24 +1758,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.datastore.admin.v1.MigrationProgressEvent buildPartial() {
       com.google.datastore.admin.v1.MigrationProgressEvent result = new com.google.datastore.admin.v1.MigrationProgressEvent(this);
-      result.step_ = step_;
-      if (stepDetailsCase_ == 2) {
-        if (prepareStepDetailsBuilder_ == null) {
-          result.stepDetails_ = stepDetails_;
-        } else {
-          result.stepDetails_ = prepareStepDetailsBuilder_.build();
-        }
-      }
-      if (stepDetailsCase_ == 3) {
-        if (redirectWritesStepDetailsBuilder_ == null) {
-          result.stepDetails_ = stepDetails_;
-        } else {
-          result.stepDetails_ = redirectWritesStepDetailsBuilder_.build();
-        }
-      }
-      result.stepDetailsCase_ = stepDetailsCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.datastore.admin.v1.MigrationProgressEvent result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.step_ = step_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.datastore.admin.v1.MigrationProgressEvent result) {
+      result.stepDetailsCase_ = stepDetailsCase_;
+      result.stepDetails_ = this.stepDetails_;
+      if (stepDetailsCase_ == 2 &&
+          prepareStepDetailsBuilder_ != null) {
+        result.stepDetails_ = prepareStepDetailsBuilder_.build();
+      }
+      if (stepDetailsCase_ == 3 &&
+          redirectWritesStepDetailsBuilder_ != null) {
+        result.stepDetails_ = redirectWritesStepDetailsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1941,7 +1844,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1956,17 +1859,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.datastore.admin.v1.MigrationProgressEvent parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              step_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getPrepareStepDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepDetailsCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRedirectWritesStepDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              stepDetailsCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.datastore.admin.v1.MigrationProgressEvent) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int stepDetailsCase_ = 0;
@@ -1984,6 +1919,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int step_ = 0;
     /**
@@ -2011,8 +1947,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStepValue(int value) {
-      
       step_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2028,8 +1964,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.datastore.admin.v1.MigrationStep getStep() {
-      @SuppressWarnings("deprecation")
-      com.google.datastore.admin.v1.MigrationStep result = com.google.datastore.admin.v1.MigrationStep.valueOf(step_);
+      com.google.datastore.admin.v1.MigrationStep result = com.google.datastore.admin.v1.MigrationStep.forNumber(step_);
       return result == null ? com.google.datastore.admin.v1.MigrationStep.UNRECOGNIZED : result;
     }
     /**
@@ -2047,7 +1982,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       step_ = value.getNumber();
       onChanged();
       return this;
@@ -2063,7 +1998,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStep() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       step_ = 0;
       onChanged();
       return this;
@@ -2243,7 +2178,7 @@ private static final long serialVersionUID = 0L;
         stepDetails_ = null;
       }
       stepDetailsCase_ = 2;
-      onChanged();;
+      onChanged();
       return prepareStepDetailsBuilder_;
     }
 
@@ -2421,7 +2356,7 @@ private static final long serialVersionUID = 0L;
         stepDetails_ = null;
       }
       stepDetailsCase_ = 3;
-      onChanged();;
+      onChanged();
       return redirectWritesStepDetailsBuilder_;
     }
     @java.lang.Override
@@ -2457,7 +2392,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MigrationProgressEvent(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

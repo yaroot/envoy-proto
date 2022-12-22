@@ -39,116 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AndroidTestLoop(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.devtools.testing.v1.FileReference.Builder subBuilder = null;
-            if (appUnderTestCase_ == 1) {
-              subBuilder = ((com.google.devtools.testing.v1.FileReference) appUnderTest_).toBuilder();
-            }
-            appUnderTest_ =
-                input.readMessage(com.google.devtools.testing.v1.FileReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.FileReference) appUnderTest_);
-              appUnderTest_ = subBuilder.buildPartial();
-            }
-            appUnderTestCase_ = 1;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            appPackageId_ = s;
-            break;
-          }
-          case 24: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              scenarios_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            scenarios_.addInt(input.readInt32());
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              scenarios_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              scenarios_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              scenarioLabels_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            scenarioLabels_.add(s);
-            break;
-          }
-          case 42: {
-            com.google.devtools.testing.v1.AppBundle.Builder subBuilder = null;
-            if (appUnderTestCase_ == 5) {
-              subBuilder = ((com.google.devtools.testing.v1.AppBundle) appUnderTest_).toBuilder();
-            }
-            appUnderTest_ =
-                input.readMessage(com.google.devtools.testing.v1.AppBundle.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.AppBundle) appUnderTest_);
-              appUnderTest_ = subBuilder.buildPartial();
-            }
-            appUnderTestCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        scenarios_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        scenarioLabels_ = scenarioLabels_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_AndroidTestLoop_descriptor;
@@ -290,7 +180,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APP_PACKAGE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object appPackageId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object appPackageId_ = "";
   /**
    * <pre>
    * The java package for the application under test.
@@ -338,6 +229,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCENARIOS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList scenarios_;
   /**
    * <pre>
@@ -384,6 +276,7 @@ private static final long serialVersionUID = 0L;
   private int scenariosMemoizedSerializedSize = -1;
 
   public static final int SCENARIO_LABELS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList scenarioLabels_;
   /**
    * <pre>
@@ -492,7 +385,7 @@ private static final long serialVersionUID = 0L;
     if (appUnderTestCase_ == 5) {
       output.writeMessage(5, (com.google.devtools.testing.v1.AppBundle) appUnderTest_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -534,7 +427,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (com.google.devtools.testing.v1.AppBundle) appUnderTest_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -568,7 +461,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -601,7 +494,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -724,28 +617,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.AndroidTestLoop.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (appApkBuilder_ != null) {
+        appApkBuilder_.clear();
+      }
+      if (appBundleBuilder_ != null) {
+        appBundleBuilder_.clear();
+      }
       appPackageId_ = "";
-
       scenarios_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       scenarioLabels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       appUnderTestCase_ = 0;
       appUnderTest_ = null;
       return this;
@@ -774,35 +667,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.AndroidTestLoop buildPartial() {
       com.google.devtools.testing.v1.AndroidTestLoop result = new com.google.devtools.testing.v1.AndroidTestLoop(this);
-      int from_bitField0_ = bitField0_;
-      if (appUnderTestCase_ == 1) {
-        if (appApkBuilder_ == null) {
-          result.appUnderTest_ = appUnderTest_;
-        } else {
-          result.appUnderTest_ = appApkBuilder_.build();
-        }
-      }
-      if (appUnderTestCase_ == 5) {
-        if (appBundleBuilder_ == null) {
-          result.appUnderTest_ = appUnderTest_;
-        } else {
-          result.appUnderTest_ = appBundleBuilder_.build();
-        }
-      }
-      result.appPackageId_ = appPackageId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        scenarios_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.scenarios_ = scenarios_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        scenarioLabels_ = scenarioLabels_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.scenarioLabels_ = scenarioLabels_;
-      result.appUnderTestCase_ = appUnderTestCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.testing.v1.AndroidTestLoop result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        scenarios_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.scenarios_ = scenarios_;
+      if (((bitField0_ & 0x00000010) != 0)) {
+        scenarioLabels_ = scenarioLabels_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.scenarioLabels_ = scenarioLabels_;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.AndroidTestLoop result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.appPackageId_ = appPackageId_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.devtools.testing.v1.AndroidTestLoop result) {
+      result.appUnderTestCase_ = appUnderTestCase_;
+      result.appUnderTest_ = this.appUnderTest_;
+      if (appUnderTestCase_ == 1 &&
+          appApkBuilder_ != null) {
+        result.appUnderTest_ = appApkBuilder_.build();
+      }
+      if (appUnderTestCase_ == 5 &&
+          appBundleBuilder_ != null) {
+        result.appUnderTest_ = appBundleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -851,12 +753,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.testing.v1.AndroidTestLoop.getDefaultInstance()) return this;
       if (!other.getAppPackageId().isEmpty()) {
         appPackageId_ = other.appPackageId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.scenarios_.isEmpty()) {
         if (scenarios_.isEmpty()) {
           scenarios_ = other.scenarios_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureScenariosIsMutable();
           scenarios_.addAll(other.scenarios_);
@@ -866,7 +769,7 @@ private static final long serialVersionUID = 0L;
       if (!other.scenarioLabels_.isEmpty()) {
         if (scenarioLabels_.isEmpty()) {
           scenarioLabels_ = other.scenarioLabels_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureScenarioLabelsIsMutable();
           scenarioLabels_.addAll(other.scenarioLabels_);
@@ -886,7 +789,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -901,17 +804,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.AndroidTestLoop parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAppApkFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              appUnderTestCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              appPackageId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 24: {
+              int v = input.readInt32();
+              ensureScenariosIsMutable();
+              scenarios_.addInt(v);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureScenariosIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                scenarios_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureScenarioLabelsIsMutable();
+              scenarioLabels_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAppBundleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              appUnderTestCase_ = 5;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.AndroidTestLoop) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int appUnderTestCase_ = 0;
@@ -1105,7 +1062,7 @@ private static final long serialVersionUID = 0L;
         appUnderTest_ = null;
       }
       appUnderTestCase_ = 1;
-      onChanged();;
+      onChanged();
       return appApkBuilder_;
     }
 
@@ -1283,7 +1240,7 @@ private static final long serialVersionUID = 0L;
         appUnderTest_ = null;
       }
       appUnderTestCase_ = 5;
-      onChanged();;
+      onChanged();
       return appBundleBuilder_;
     }
 
@@ -1343,11 +1300,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppPackageId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       appPackageId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1361,8 +1316,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAppPackageId() {
-      
       appPackageId_ = getDefaultInstance().getAppPackageId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1378,22 +1333,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppPackageIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       appPackageId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.Internal.IntList scenarios_ = emptyIntList();
     private void ensureScenariosIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         scenarios_ = mutableCopy(scenarios_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00000008;
+      }
     }
     /**
      * <pre>
@@ -1407,7 +1360,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Integer>
         getScenariosList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00000008) != 0) ?
                java.util.Collections.unmodifiableList(scenarios_) : scenarios_;
     }
     /**
@@ -1451,6 +1404,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setScenarios(
         int index, int value) {
+      
       ensureScenariosIsMutable();
       scenarios_.setInt(index, value);
       onChanged();
@@ -1468,6 +1422,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addScenarios(int value) {
+      
       ensureScenariosIsMutable();
       scenarios_.addInt(value);
       onChanged();
@@ -1504,16 +1459,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearScenarios() {
       scenarios_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList scenarioLabels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureScenarioLabelsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         scenarioLabels_ = new com.google.protobuf.LazyStringArrayList(scenarioLabels_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1606,10 +1561,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setScenarioLabels(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureScenarioLabelsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureScenarioLabelsIsMutable();
       scenarioLabels_.set(index, value);
       onChanged();
       return this;
@@ -1631,10 +1584,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addScenarioLabels(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureScenarioLabelsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureScenarioLabelsIsMutable();
       scenarioLabels_.add(value);
       onChanged();
       return this;
@@ -1678,7 +1629,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearScenarioLabels() {
       scenarioLabels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1699,10 +1650,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addScenarioLabelsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureScenarioLabelsIsMutable();
       scenarioLabels_.add(value);
       onChanged();
@@ -1741,7 +1690,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AndroidTestLoop(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -120,8 +120,8 @@ public interface VehicleMatchOrBuilder extends
 
   /**
    * <pre>
-   * Required. The straight-line distance between the vehicle and the pickup point
-   * specified in the request.
+   * Required. The straight-line distance between the vehicle and the pickup
+   * point specified in the request.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -130,8 +130,8 @@ public interface VehicleMatchOrBuilder extends
   boolean hasVehiclePickupStraightLineDistanceMeters();
   /**
    * <pre>
-   * Required. The straight-line distance between the vehicle and the pickup point
-   * specified in the request.
+   * Required. The straight-line distance between the vehicle and the pickup
+   * point specified in the request.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -140,8 +140,8 @@ public interface VehicleMatchOrBuilder extends
   com.google.protobuf.Int32Value getVehiclePickupStraightLineDistanceMeters();
   /**
    * <pre>
-   * Required. The straight-line distance between the vehicle and the pickup point
-   * specified in the request.
+   * Required. The straight-line distance between the vehicle and the pickup
+   * point specified in the request.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -259,8 +259,8 @@ public interface VehicleMatchOrBuilder extends
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>
@@ -272,8 +272,8 @@ public interface VehicleMatchOrBuilder extends
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>
@@ -284,8 +284,8 @@ public interface VehicleMatchOrBuilder extends
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>
@@ -296,8 +296,8 @@ public interface VehicleMatchOrBuilder extends
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>
@@ -309,8 +309,8 @@ public interface VehicleMatchOrBuilder extends
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>

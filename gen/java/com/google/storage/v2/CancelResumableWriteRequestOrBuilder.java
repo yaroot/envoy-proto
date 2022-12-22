@@ -9,8 +9,8 @@ public interface CancelResumableWriteRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The upload_id of the resumable upload to cancel. This should be copied
-   * from the `upload_id` field of `StartResumableWriteResponse`.
+   * Required. The upload_id of the resumable upload to cancel. This should be
+   * copied from the `upload_id` field of `StartResumableWriteResponse`.
    * </pre>
    *
    * <code>string upload_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -19,8 +19,8 @@ public interface CancelResumableWriteRequestOrBuilder extends
   java.lang.String getUploadId();
   /**
    * <pre>
-   * Required. The upload_id of the resumable upload to cancel. This should be copied
-   * from the `upload_id` field of `StartResumableWriteResponse`.
+   * Required. The upload_id of the resumable upload to cancel. This should be
+   * copied from the `upload_id` field of `StartResumableWriteResponse`.
    * </pre>
    *
    * <code>string upload_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>

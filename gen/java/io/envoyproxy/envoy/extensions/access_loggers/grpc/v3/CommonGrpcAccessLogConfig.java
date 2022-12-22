@@ -39,134 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CommonGrpcAccessLogConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            logName_ = s;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.core.v3.GrpcService.Builder subBuilder = null;
-            if (grpcService_ != null) {
-              subBuilder = grpcService_.toBuilder();
-            }
-            grpcService_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.GrpcService.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(grpcService_);
-              grpcService_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (bufferFlushInterval_ != null) {
-              subBuilder = bufferFlushInterval_.toBuilder();
-            }
-            bufferFlushInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(bufferFlushInterval_);
-              bufferFlushInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (bufferSizeBytes_ != null) {
-              subBuilder = bufferSizeBytes_.toBuilder();
-            }
-            bufferSizeBytes_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(bufferSizeBytes_);
-              bufferSizeBytes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              filterStateObjectsToLog_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            filterStateObjectsToLog_.add(s);
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            transportApiVersion_ = rawValue;
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.config.core.v3.RetryPolicy.Builder subBuilder = null;
-            if (grpcStreamRetryPolicy_ != null) {
-              subBuilder = grpcStreamRetryPolicy_.toBuilder();
-            }
-            grpcStreamRetryPolicy_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RetryPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(grpcStreamRetryPolicy_);
-              grpcStreamRetryPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              customTags_ = new java.util.ArrayList<io.envoyproxy.envoy.type.tracing.v3.CustomTag>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            customTags_.add(
-                input.readMessage(io.envoyproxy.envoy.type.tracing.v3.CustomTag.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        filterStateObjectsToLog_ = filterStateObjectsToLog_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        customTags_ = java.util.Collections.unmodifiableList(customTags_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.AlsProto.internal_static_envoy_extensions_access_loggers_grpc_v3_CommonGrpcAccessLogConfig_descriptor;
@@ -181,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOG_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object logName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object logName_ = "";
   /**
    * <pre>
    * The friendly name of the access log to be returned in :ref:`StreamAccessLogsMessage.Identifier
@@ -265,11 +138,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.GrpcServiceOrBuilder getGrpcServiceOrBuilder() {
-    return getGrpcService();
+    return grpcService_ == null ? io.envoyproxy.envoy.config.core.v3.GrpcService.getDefaultInstance() : grpcService_;
   }
 
   public static final int TRANSPORT_API_VERSION_FIELD_NUMBER = 6;
-  private int transportApiVersion_;
+  private int transportApiVersion_ = 0;
   /**
    * <pre>
    * API version for access logs service transport protocol. This describes the access logs service
@@ -292,8 +165,7 @@ private static final long serialVersionUID = 0L;
    * @return The transportApiVersion.
    */
   @java.lang.Override public io.envoyproxy.envoy.config.core.v3.ApiVersion getTransportApiVersion() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.config.core.v3.ApiVersion result = io.envoyproxy.envoy.config.core.v3.ApiVersion.valueOf(transportApiVersion_);
+    io.envoyproxy.envoy.config.core.v3.ApiVersion result = io.envoyproxy.envoy.config.core.v3.ApiVersion.forNumber(transportApiVersion_);
     return result == null ? io.envoyproxy.envoy.config.core.v3.ApiVersion.UNRECOGNIZED : result;
   }
 
@@ -338,7 +210,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getBufferFlushIntervalOrBuilder() {
-    return getBufferFlushInterval();
+    return bufferFlushInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : bufferFlushInterval_;
   }
 
   public static final int BUFFER_SIZE_BYTES_FIELD_NUMBER = 4;
@@ -382,10 +254,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getBufferSizeBytesOrBuilder() {
-    return getBufferSizeBytes();
+    return bufferSizeBytes_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : bufferSizeBytes_;
   }
 
   public static final int FILTER_STATE_OBJECTS_TO_LOG_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList filterStateObjectsToLog_;
   /**
    * <pre>
@@ -494,10 +367,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RetryPolicyOrBuilder getGrpcStreamRetryPolicyOrBuilder() {
-    return getGrpcStreamRetryPolicy();
+    return grpcStreamRetryPolicy_ == null ? io.envoyproxy.envoy.config.core.v3.RetryPolicy.getDefaultInstance() : grpcStreamRetryPolicy_;
   }
 
   public static final int CUSTOM_TAGS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.type.tracing.v3.CustomTag> customTags_;
   /**
    * <pre>
@@ -595,7 +469,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < customTags_.size(); i++) {
       output.writeMessage(8, customTags_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -639,7 +513,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, customTags_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -681,7 +555,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getCustomTagsList()
         .equals(other.getCustomTagsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -720,7 +594,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CUSTOM_TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getCustomTagsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -842,59 +716,49 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCustomTagsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       logName_ = "";
-
-      if (grpcServiceBuilder_ == null) {
-        grpcService_ = null;
-      } else {
-        grpcService_ = null;
+      grpcService_ = null;
+      if (grpcServiceBuilder_ != null) {
+        grpcServiceBuilder_.dispose();
         grpcServiceBuilder_ = null;
       }
       transportApiVersion_ = 0;
-
-      if (bufferFlushIntervalBuilder_ == null) {
-        bufferFlushInterval_ = null;
-      } else {
-        bufferFlushInterval_ = null;
+      bufferFlushInterval_ = null;
+      if (bufferFlushIntervalBuilder_ != null) {
+        bufferFlushIntervalBuilder_.dispose();
         bufferFlushIntervalBuilder_ = null;
       }
-      if (bufferSizeBytesBuilder_ == null) {
-        bufferSizeBytes_ = null;
-      } else {
-        bufferSizeBytes_ = null;
+      bufferSizeBytes_ = null;
+      if (bufferSizeBytesBuilder_ != null) {
+        bufferSizeBytesBuilder_.dispose();
         bufferSizeBytesBuilder_ = null;
       }
       filterStateObjectsToLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (grpcStreamRetryPolicyBuilder_ == null) {
-        grpcStreamRetryPolicy_ = null;
-      } else {
-        grpcStreamRetryPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      grpcStreamRetryPolicy_ = null;
+      if (grpcStreamRetryPolicyBuilder_ != null) {
+        grpcStreamRetryPolicyBuilder_.dispose();
         grpcStreamRetryPolicyBuilder_ = null;
       }
       if (customTagsBuilder_ == null) {
         customTags_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        customTags_ = null;
         customTagsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -921,45 +785,57 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig buildPartial() {
       io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig result = new io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.logName_ = logName_;
-      if (grpcServiceBuilder_ == null) {
-        result.grpcService_ = grpcService_;
-      } else {
-        result.grpcService_ = grpcServiceBuilder_.build();
-      }
-      result.transportApiVersion_ = transportApiVersion_;
-      if (bufferFlushIntervalBuilder_ == null) {
-        result.bufferFlushInterval_ = bufferFlushInterval_;
-      } else {
-        result.bufferFlushInterval_ = bufferFlushIntervalBuilder_.build();
-      }
-      if (bufferSizeBytesBuilder_ == null) {
-        result.bufferSizeBytes_ = bufferSizeBytes_;
-      } else {
-        result.bufferSizeBytes_ = bufferSizeBytesBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
         filterStateObjectsToLog_ = filterStateObjectsToLog_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.filterStateObjectsToLog_ = filterStateObjectsToLog_;
-      if (grpcStreamRetryPolicyBuilder_ == null) {
-        result.grpcStreamRetryPolicy_ = grpcStreamRetryPolicy_;
-      } else {
-        result.grpcStreamRetryPolicy_ = grpcStreamRetryPolicyBuilder_.build();
-      }
       if (customTagsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           customTags_ = java.util.Collections.unmodifiableList(customTags_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.customTags_ = customTags_;
       } else {
         result.customTags_ = customTagsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.logName_ = logName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.grpcService_ = grpcServiceBuilder_ == null
+            ? grpcService_
+            : grpcServiceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.transportApiVersion_ = transportApiVersion_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.bufferFlushInterval_ = bufferFlushIntervalBuilder_ == null
+            ? bufferFlushInterval_
+            : bufferFlushIntervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.bufferSizeBytes_ = bufferSizeBytesBuilder_ == null
+            ? bufferSizeBytes_
+            : bufferSizeBytesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.grpcStreamRetryPolicy_ = grpcStreamRetryPolicyBuilder_ == null
+            ? grpcStreamRetryPolicy_
+            : grpcStreamRetryPolicyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1008,6 +884,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.getDefaultInstance()) return this;
       if (!other.getLogName().isEmpty()) {
         logName_ = other.logName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasGrpcService()) {
@@ -1025,7 +902,7 @@ private static final long serialVersionUID = 0L;
       if (!other.filterStateObjectsToLog_.isEmpty()) {
         if (filterStateObjectsToLog_.isEmpty()) {
           filterStateObjectsToLog_ = other.filterStateObjectsToLog_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureFilterStateObjectsToLogIsMutable();
           filterStateObjectsToLog_.addAll(other.filterStateObjectsToLog_);
@@ -1039,7 +916,7 @@ private static final long serialVersionUID = 0L;
         if (!other.customTags_.isEmpty()) {
           if (customTags_.isEmpty()) {
             customTags_ = other.customTags_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureCustomTagsIsMutable();
             customTags_.addAll(other.customTags_);
@@ -1052,7 +929,7 @@ private static final long serialVersionUID = 0L;
             customTagsBuilder_.dispose();
             customTagsBuilder_ = null;
             customTags_ = other.customTags_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
             customTagsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCustomTagsFieldBuilder() : null;
@@ -1061,7 +938,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1076,17 +953,87 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              logName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getGrpcServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBufferFlushIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getBufferSizeBytesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFilterStateObjectsToLogIsMutable();
+              filterStateObjectsToLog_.add(s);
+              break;
+            } // case 42
+            case 48: {
+              transportApiVersion_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getGrpcStreamRetryPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              io.envoyproxy.envoy.type.tracing.v3.CustomTag m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.type.tracing.v3.CustomTag.parser(),
+                      extensionRegistry);
+              if (customTagsBuilder_ == null) {
+                ensureCustomTagsIsMutable();
+                customTags_.add(m);
+              } else {
+                customTagsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1150,11 +1097,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLogName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       logName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1169,8 +1114,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLogName() {
-      
       logName_ = getDefaultInstance().getLogName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1187,12 +1132,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLogNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       logName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1209,7 +1152,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the grpcService field is set.
      */
     public boolean hasGrpcService() {
-      return grpcServiceBuilder_ != null || grpcService_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1239,11 +1182,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         grpcService_ = value;
-        onChanged();
       } else {
         grpcServiceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1257,11 +1200,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.GrpcService.Builder builderForValue) {
       if (grpcServiceBuilder_ == null) {
         grpcService_ = builderForValue.build();
-        onChanged();
       } else {
         grpcServiceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1273,17 +1216,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGrpcService(io.envoyproxy.envoy.config.core.v3.GrpcService value) {
       if (grpcServiceBuilder_ == null) {
-        if (grpcService_ != null) {
-          grpcService_ =
-            io.envoyproxy.envoy.config.core.v3.GrpcService.newBuilder(grpcService_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          grpcService_ != null &&
+          grpcService_ != io.envoyproxy.envoy.config.core.v3.GrpcService.getDefaultInstance()) {
+          getGrpcServiceBuilder().mergeFrom(value);
         } else {
           grpcService_ = value;
         }
-        onChanged();
       } else {
         grpcServiceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1294,14 +1238,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.GrpcService grpc_service = 2 [(.validate.rules) = { ... }</code>
      */
     public Builder clearGrpcService() {
-      if (grpcServiceBuilder_ == null) {
-        grpcService_ = null;
-        onChanged();
-      } else {
-        grpcService_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      grpcService_ = null;
+      if (grpcServiceBuilder_ != null) {
+        grpcServiceBuilder_.dispose();
         grpcServiceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1312,7 +1255,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.GrpcService grpc_service = 2 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.core.v3.GrpcService.Builder getGrpcServiceBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getGrpcServiceFieldBuilder().getBuilder();
     }
@@ -1376,8 +1319,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTransportApiVersionValue(int value) {
-      
       transportApiVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1392,8 +1335,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.ApiVersion getTransportApiVersion() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.config.core.v3.ApiVersion result = io.envoyproxy.envoy.config.core.v3.ApiVersion.valueOf(transportApiVersion_);
+      io.envoyproxy.envoy.config.core.v3.ApiVersion result = io.envoyproxy.envoy.config.core.v3.ApiVersion.forNumber(transportApiVersion_);
       return result == null ? io.envoyproxy.envoy.config.core.v3.ApiVersion.UNRECOGNIZED : result;
     }
     /**
@@ -1410,7 +1352,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       transportApiVersion_ = value.getNumber();
       onChanged();
       return this;
@@ -1425,7 +1367,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransportApiVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       transportApiVersion_ = 0;
       onChanged();
       return this;
@@ -1445,7 +1387,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the bufferFlushInterval field is set.
      */
     public boolean hasBufferFlushInterval() {
-      return bufferFlushIntervalBuilder_ != null || bufferFlushInterval_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1479,11 +1421,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         bufferFlushInterval_ = value;
-        onChanged();
       } else {
         bufferFlushIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1499,11 +1441,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (bufferFlushIntervalBuilder_ == null) {
         bufferFlushInterval_ = builderForValue.build();
-        onChanged();
       } else {
         bufferFlushIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1517,17 +1459,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBufferFlushInterval(com.google.protobuf.Duration value) {
       if (bufferFlushIntervalBuilder_ == null) {
-        if (bufferFlushInterval_ != null) {
-          bufferFlushInterval_ =
-            com.google.protobuf.Duration.newBuilder(bufferFlushInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          bufferFlushInterval_ != null &&
+          bufferFlushInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getBufferFlushIntervalBuilder().mergeFrom(value);
         } else {
           bufferFlushInterval_ = value;
         }
-        onChanged();
       } else {
         bufferFlushIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1540,14 +1483,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration buffer_flush_interval = 3 [(.validate.rules) = { ... }</code>
      */
     public Builder clearBufferFlushInterval() {
-      if (bufferFlushIntervalBuilder_ == null) {
-        bufferFlushInterval_ = null;
-        onChanged();
-      } else {
-        bufferFlushInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      bufferFlushInterval_ = null;
+      if (bufferFlushIntervalBuilder_ != null) {
+        bufferFlushIntervalBuilder_.dispose();
         bufferFlushIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1560,7 +1502,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration buffer_flush_interval = 3 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getBufferFlushIntervalBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getBufferFlushIntervalFieldBuilder().getBuilder();
     }
@@ -1618,7 +1560,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the bufferSizeBytes field is set.
      */
     public boolean hasBufferSizeBytes() {
-      return bufferSizeBytesBuilder_ != null || bufferSizeBytes_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1652,11 +1594,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         bufferSizeBytes_ = value;
-        onChanged();
       } else {
         bufferSizeBytesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1672,11 +1614,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (bufferSizeBytesBuilder_ == null) {
         bufferSizeBytes_ = builderForValue.build();
-        onChanged();
       } else {
         bufferSizeBytesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1690,17 +1632,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBufferSizeBytes(com.google.protobuf.UInt32Value value) {
       if (bufferSizeBytesBuilder_ == null) {
-        if (bufferSizeBytes_ != null) {
-          bufferSizeBytes_ =
-            com.google.protobuf.UInt32Value.newBuilder(bufferSizeBytes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          bufferSizeBytes_ != null &&
+          bufferSizeBytes_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getBufferSizeBytesBuilder().mergeFrom(value);
         } else {
           bufferSizeBytes_ = value;
         }
-        onChanged();
       } else {
         bufferSizeBytesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1713,14 +1656,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value buffer_size_bytes = 4;</code>
      */
     public Builder clearBufferSizeBytes() {
-      if (bufferSizeBytesBuilder_ == null) {
-        bufferSizeBytes_ = null;
-        onChanged();
-      } else {
-        bufferSizeBytes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      bufferSizeBytes_ = null;
+      if (bufferSizeBytesBuilder_ != null) {
+        bufferSizeBytesBuilder_.dispose();
         bufferSizeBytesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1733,7 +1675,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value buffer_size_bytes = 4;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getBufferSizeBytesBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getBufferSizeBytesFieldBuilder().getBuilder();
     }
@@ -1779,9 +1721,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList filterStateObjectsToLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFilterStateObjectsToLogIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         filterStateObjectsToLog_ = new com.google.protobuf.LazyStringArrayList(filterStateObjectsToLog_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -1854,10 +1796,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterStateObjectsToLog(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFilterStateObjectsToLogIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFilterStateObjectsToLogIsMutable();
       filterStateObjectsToLog_.set(index, value);
       onChanged();
       return this;
@@ -1875,10 +1815,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFilterStateObjectsToLog(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFilterStateObjectsToLogIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFilterStateObjectsToLogIsMutable();
       filterStateObjectsToLog_.add(value);
       onChanged();
       return this;
@@ -1914,7 +1852,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFilterStateObjectsToLog() {
       filterStateObjectsToLog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1931,10 +1869,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFilterStateObjectsToLogBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFilterStateObjectsToLogIsMutable();
       filterStateObjectsToLog_.add(value);
       onChanged();
@@ -1958,7 +1894,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the grpcStreamRetryPolicy field is set.
      */
     public boolean hasGrpcStreamRetryPolicy() {
-      return grpcStreamRetryPolicyBuilder_ != null || grpcStreamRetryPolicy_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1998,11 +1934,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         grpcStreamRetryPolicy_ = value;
-        onChanged();
       } else {
         grpcStreamRetryPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2021,11 +1957,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RetryPolicy.Builder builderForValue) {
       if (grpcStreamRetryPolicyBuilder_ == null) {
         grpcStreamRetryPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         grpcStreamRetryPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2042,17 +1978,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGrpcStreamRetryPolicy(io.envoyproxy.envoy.config.core.v3.RetryPolicy value) {
       if (grpcStreamRetryPolicyBuilder_ == null) {
-        if (grpcStreamRetryPolicy_ != null) {
-          grpcStreamRetryPolicy_ =
-            io.envoyproxy.envoy.config.core.v3.RetryPolicy.newBuilder(grpcStreamRetryPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          grpcStreamRetryPolicy_ != null &&
+          grpcStreamRetryPolicy_ != io.envoyproxy.envoy.config.core.v3.RetryPolicy.getDefaultInstance()) {
+          getGrpcStreamRetryPolicyBuilder().mergeFrom(value);
         } else {
           grpcStreamRetryPolicy_ = value;
         }
-        onChanged();
       } else {
         grpcStreamRetryPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2068,14 +2005,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RetryPolicy grpc_stream_retry_policy = 7;</code>
      */
     public Builder clearGrpcStreamRetryPolicy() {
-      if (grpcStreamRetryPolicyBuilder_ == null) {
-        grpcStreamRetryPolicy_ = null;
-        onChanged();
-      } else {
-        grpcStreamRetryPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      grpcStreamRetryPolicy_ = null;
+      if (grpcStreamRetryPolicyBuilder_ != null) {
+        grpcStreamRetryPolicyBuilder_.dispose();
         grpcStreamRetryPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2091,7 +2027,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RetryPolicy grpc_stream_retry_policy = 7;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RetryPolicy.Builder getGrpcStreamRetryPolicyBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getGrpcStreamRetryPolicyFieldBuilder().getBuilder();
     }
@@ -2144,9 +2080,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.type.tracing.v3.CustomTag> customTags_ =
       java.util.Collections.emptyList();
     private void ensureCustomTagsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         customTags_ = new java.util.ArrayList<io.envoyproxy.envoy.type.tracing.v3.CustomTag>(customTags_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2340,7 +2276,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCustomTags() {
       if (customTagsBuilder_ == null) {
         customTags_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         customTagsBuilder_.clear();
@@ -2445,7 +2381,7 @@ private static final long serialVersionUID = 0L;
         customTagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.type.tracing.v3.CustomTag, io.envoyproxy.envoy.type.tracing.v3.CustomTag.Builder, io.envoyproxy.envoy.type.tracing.v3.CustomTagOrBuilder>(
                 customTags_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         customTags_ = null;
@@ -2485,7 +2421,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CommonGrpcAccessLogConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

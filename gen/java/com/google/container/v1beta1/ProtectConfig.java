@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ProtectConfig() {
+    workloadVulnerabilityMode_ = 0;
   }
 
   @java.lang.Override
@@ -35,59 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProtectConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.container.v1beta1.WorkloadConfig.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = workloadConfig_.toBuilder();
-            }
-            workloadConfig_ = input.readMessage(com.google.container.v1beta1.WorkloadConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(workloadConfig_);
-              workloadConfig_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_ProtectConfig_descriptor;
@@ -99,6 +47,151 @@ private static final long serialVersionUID = 0L;
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_ProtectConfig_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.container.v1beta1.ProtectConfig.class, com.google.container.v1beta1.ProtectConfig.Builder.class);
+  }
+
+  /**
+   * <pre>
+   * WorkloadVulnerabilityMode defines mode to perform vulnerability scanning.
+   * </pre>
+   *
+   * Protobuf enum {@code google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode}
+   */
+  public enum WorkloadVulnerabilityMode
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * Default value not specified.
+     * </pre>
+     *
+     * <code>WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED = 0;</code>
+     */
+    WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * Disables Workload Vulnerability Scanning feature on the cluster.
+     * </pre>
+     *
+     * <code>DISABLED = 1;</code>
+     */
+    DISABLED(1),
+    /**
+     * <pre>
+     * Applies basic vulnerability scanning settings for cluster workloads.
+     * </pre>
+     *
+     * <code>BASIC = 2;</code>
+     */
+    BASIC(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * Default value not specified.
+     * </pre>
+     *
+     * <code>WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED = 0;</code>
+     */
+    public static final int WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * Disables Workload Vulnerability Scanning feature on the cluster.
+     * </pre>
+     *
+     * <code>DISABLED = 1;</code>
+     */
+    public static final int DISABLED_VALUE = 1;
+    /**
+     * <pre>
+     * Applies basic vulnerability scanning settings for cluster workloads.
+     * </pre>
+     *
+     * <code>BASIC = 2;</code>
+     */
+    public static final int BASIC_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static WorkloadVulnerabilityMode valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static WorkloadVulnerabilityMode forNumber(int value) {
+      switch (value) {
+        case 0: return WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED;
+        case 1: return DISABLED;
+        case 2: return BASIC;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<WorkloadVulnerabilityMode>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        WorkloadVulnerabilityMode> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<WorkloadVulnerabilityMode>() {
+            public WorkloadVulnerabilityMode findValueByNumber(int number) {
+              return WorkloadVulnerabilityMode.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.container.v1beta1.ProtectConfig.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final WorkloadVulnerabilityMode[] VALUES = values();
+
+    public static WorkloadVulnerabilityMode valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private WorkloadVulnerabilityMode(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode)
   }
 
   private int bitField0_;
@@ -143,6 +236,43 @@ private static final long serialVersionUID = 0L;
     return workloadConfig_ == null ? com.google.container.v1beta1.WorkloadConfig.getDefaultInstance() : workloadConfig_;
   }
 
+  public static final int WORKLOAD_VULNERABILITY_MODE_FIELD_NUMBER = 2;
+  private int workloadVulnerabilityMode_ = 0;
+  /**
+   * <pre>
+   * Sets which mode to use for Protect workload vulnerability scanning feature.
+   * </pre>
+   *
+   * <code>optional .google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode workload_vulnerability_mode = 2;</code>
+   * @return Whether the workloadVulnerabilityMode field is set.
+   */
+  @java.lang.Override public boolean hasWorkloadVulnerabilityMode() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * Sets which mode to use for Protect workload vulnerability scanning feature.
+   * </pre>
+   *
+   * <code>optional .google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode workload_vulnerability_mode = 2;</code>
+   * @return The enum numeric value on the wire for workloadVulnerabilityMode.
+   */
+  @java.lang.Override public int getWorkloadVulnerabilityModeValue() {
+    return workloadVulnerabilityMode_;
+  }
+  /**
+   * <pre>
+   * Sets which mode to use for Protect workload vulnerability scanning feature.
+   * </pre>
+   *
+   * <code>optional .google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode workload_vulnerability_mode = 2;</code>
+   * @return The workloadVulnerabilityMode.
+   */
+  @java.lang.Override public com.google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode getWorkloadVulnerabilityMode() {
+    com.google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode result = com.google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode.forNumber(workloadVulnerabilityMode_);
+    return result == null ? com.google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -160,7 +290,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(1, getWorkloadConfig());
     }
-    unknownFields.writeTo(output);
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeEnum(2, workloadVulnerabilityMode_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -173,7 +306,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getWorkloadConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(2, workloadVulnerabilityMode_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -193,7 +330,11 @@ private static final long serialVersionUID = 0L;
       if (!getWorkloadConfig()
           .equals(other.getWorkloadConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasWorkloadVulnerabilityMode() != other.hasWorkloadVulnerabilityMode()) return false;
+    if (hasWorkloadVulnerabilityMode()) {
+      if (workloadVulnerabilityMode_ != other.workloadVulnerabilityMode_) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -208,7 +349,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WORKLOAD_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getWorkloadConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasWorkloadVulnerabilityMode()) {
+      hash = (37 * hash) + WORKLOAD_VULNERABILITY_MODE_FIELD_NUMBER;
+      hash = (53 * hash) + workloadVulnerabilityMode_;
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -347,12 +492,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (workloadConfigBuilder_ == null) {
-        workloadConfig_ = null;
-      } else {
-        workloadConfigBuilder_.clear();
+      bitField0_ = 0;
+      workloadConfig_ = null;
+      if (workloadConfigBuilder_ != null) {
+        workloadConfigBuilder_.dispose();
+        workloadConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      workloadVulnerabilityMode_ = 0;
       return this;
     }
 
@@ -379,19 +525,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.ProtectConfig buildPartial() {
       com.google.container.v1beta1.ProtectConfig result = new com.google.container.v1beta1.ProtectConfig(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.ProtectConfig result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (workloadConfigBuilder_ == null) {
-          result.workloadConfig_ = workloadConfig_;
-        } else {
-          result.workloadConfig_ = workloadConfigBuilder_.build();
-        }
+        result.workloadConfig_ = workloadConfigBuilder_ == null
+            ? workloadConfig_
+            : workloadConfigBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.workloadVulnerabilityMode_ = workloadVulnerabilityMode_;
+        to_bitField0_ |= 0x00000002;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -441,7 +593,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasWorkloadConfig()) {
         mergeWorkloadConfig(other.getWorkloadConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasWorkloadVulnerabilityMode()) {
+        setWorkloadVulnerabilityMode(other.getWorkloadVulnerabilityMode());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -456,17 +611,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.ProtectConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getWorkloadConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              workloadVulnerabilityMode_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.ProtectConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -516,11 +696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         workloadConfig_ = value;
-        onChanged();
       } else {
         workloadConfigBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -535,11 +715,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.WorkloadConfig.Builder builderForValue) {
       if (workloadConfigBuilder_ == null) {
         workloadConfig_ = builderForValue.build();
-        onChanged();
       } else {
         workloadConfigBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,18 +733,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeWorkloadConfig(com.google.container.v1beta1.WorkloadConfig value) {
       if (workloadConfigBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            workloadConfig_ != null &&
-            workloadConfig_ != com.google.container.v1beta1.WorkloadConfig.getDefaultInstance()) {
-          workloadConfig_ =
-            com.google.container.v1beta1.WorkloadConfig.newBuilder(workloadConfig_).mergeFrom(value).buildPartial();
+          workloadConfig_ != null &&
+          workloadConfig_ != com.google.container.v1beta1.WorkloadConfig.getDefaultInstance()) {
+          getWorkloadConfigBuilder().mergeFrom(value);
         } else {
           workloadConfig_ = value;
         }
-        onChanged();
       } else {
         workloadConfigBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -576,13 +755,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.container.v1beta1.WorkloadConfig workload_config = 1;</code>
      */
     public Builder clearWorkloadConfig() {
-      if (workloadConfigBuilder_ == null) {
-        workloadConfig_ = null;
-        onChanged();
-      } else {
-        workloadConfigBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      workloadConfig_ = null;
+      if (workloadConfigBuilder_ != null) {
+        workloadConfigBuilder_.dispose();
+        workloadConfigBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -635,6 +814,90 @@ private static final long serialVersionUID = 0L;
       }
       return workloadConfigBuilder_;
     }
+
+    private int workloadVulnerabilityMode_ = 0;
+    /**
+     * <pre>
+     * Sets which mode to use for Protect workload vulnerability scanning feature.
+     * </pre>
+     *
+     * <code>optional .google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode workload_vulnerability_mode = 2;</code>
+     * @return Whether the workloadVulnerabilityMode field is set.
+     */
+    @java.lang.Override public boolean hasWorkloadVulnerabilityMode() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Sets which mode to use for Protect workload vulnerability scanning feature.
+     * </pre>
+     *
+     * <code>optional .google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode workload_vulnerability_mode = 2;</code>
+     * @return The enum numeric value on the wire for workloadVulnerabilityMode.
+     */
+    @java.lang.Override public int getWorkloadVulnerabilityModeValue() {
+      return workloadVulnerabilityMode_;
+    }
+    /**
+     * <pre>
+     * Sets which mode to use for Protect workload vulnerability scanning feature.
+     * </pre>
+     *
+     * <code>optional .google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode workload_vulnerability_mode = 2;</code>
+     * @param value The enum numeric value on the wire for workloadVulnerabilityMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWorkloadVulnerabilityModeValue(int value) {
+      workloadVulnerabilityMode_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Sets which mode to use for Protect workload vulnerability scanning feature.
+     * </pre>
+     *
+     * <code>optional .google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode workload_vulnerability_mode = 2;</code>
+     * @return The workloadVulnerabilityMode.
+     */
+    @java.lang.Override
+    public com.google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode getWorkloadVulnerabilityMode() {
+      com.google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode result = com.google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode.forNumber(workloadVulnerabilityMode_);
+      return result == null ? com.google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Sets which mode to use for Protect workload vulnerability scanning feature.
+     * </pre>
+     *
+     * <code>optional .google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode workload_vulnerability_mode = 2;</code>
+     * @param value The workloadVulnerabilityMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWorkloadVulnerabilityMode(com.google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000002;
+      workloadVulnerabilityMode_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Sets which mode to use for Protect workload vulnerability scanning feature.
+     * </pre>
+     *
+     * <code>optional .google.container.v1beta1.ProtectConfig.WorkloadVulnerabilityMode workload_vulnerability_mode = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWorkloadVulnerabilityMode() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      workloadVulnerabilityMode_ = 0;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -668,7 +931,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProtectConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

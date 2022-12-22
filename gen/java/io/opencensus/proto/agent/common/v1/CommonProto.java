@@ -70,11 +70,11 @@ public final class CommonProto {
       "\001\022\013\n\007C_SHARP\020\002\022\n\n\006ERLANG\020\003\022\013\n\007GO_LANG\020\004\022" +
       "\010\n\004JAVA\020\005\022\013\n\007NODE_JS\020\006\022\007\n\003PHP\020\007\022\n\n\006PYTHO" +
       "N\020\010\022\010\n\004RUBY\020\t\022\n\n\006WEB_JS\020\n\"\033\n\013ServiceInfo" +
-      "\022\014\n\004name\030\001 \001(\tB\242\001\n#io.opencensus.proto.a" +
+      "\022\014\n\004name\030\001 \001(\tB\246\001\n#io.opencensus.proto.a" +
       "gent.common.v1B\013CommonProtoP\001ZIgithub.co" +
       "m/census-instrumentation/opencensus-prot" +
-      "o/gen-go/agent/common/v1\352\002 OpenCensus.Pr" +
-      "oto.Agent.Common.V1b\006proto3"
+      "o/gen-go/agent/common/v1\352\002$OpenCensus::P" +
+      "roto::Agent::Common::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

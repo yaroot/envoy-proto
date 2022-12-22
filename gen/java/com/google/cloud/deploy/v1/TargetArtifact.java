@@ -36,63 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TargetArtifact(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            skaffoldConfigPath_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            manifestPath_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            uriCase_ = 4;
-            uri_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.deploy.v1.CloudDeployProto.internal_static_google_cloud_deploy_v1_TargetArtifact_descriptor;
@@ -216,7 +159,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SKAFFOLD_CONFIG_PATH_FIELD_NUMBER = 2;
-  private volatile java.lang.Object skaffoldConfigPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object skaffoldConfigPath_ = "";
   /**
    * <pre>
    * Output only. File path of the resolved Skaffold configuration relative to the URI.
@@ -262,7 +206,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MANIFEST_PATH_FIELD_NUMBER = 3;
-  private volatile java.lang.Object manifestPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object manifestPath_ = "";
   /**
    * <pre>
    * Output only. File path of the rendered manifest relative to the URI.
@@ -330,7 +275,7 @@ private static final long serialVersionUID = 0L;
     if (uriCase_ == 4) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, uri_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -348,7 +293,7 @@ private static final long serialVersionUID = 0L;
     if (uriCase_ == 4) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, uri_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -376,7 +321,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -399,7 +344,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -520,26 +465,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.deploy.v1.TargetArtifact.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       skaffoldConfigPath_ = "";
-
       manifestPath_ = "";
-
       uriCase_ = 0;
       uri_ = null;
       return this;
@@ -568,14 +507,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.deploy.v1.TargetArtifact buildPartial() {
       com.google.cloud.deploy.v1.TargetArtifact result = new com.google.cloud.deploy.v1.TargetArtifact(this);
-      if (uriCase_ == 4) {
-        result.uri_ = uri_;
-      }
-      result.skaffoldConfigPath_ = skaffoldConfigPath_;
-      result.manifestPath_ = manifestPath_;
-      result.uriCase_ = uriCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.deploy.v1.TargetArtifact result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.skaffoldConfigPath_ = skaffoldConfigPath_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.manifestPath_ = manifestPath_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.deploy.v1.TargetArtifact result) {
+      result.uriCase_ = uriCase_;
+      result.uri_ = this.uri_;
     }
 
     @java.lang.Override
@@ -624,10 +574,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.deploy.v1.TargetArtifact.getDefaultInstance()) return this;
       if (!other.getSkaffoldConfigPath().isEmpty()) {
         skaffoldConfigPath_ = other.skaffoldConfigPath_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getManifestPath().isEmpty()) {
         manifestPath_ = other.manifestPath_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getUriCase()) {
@@ -641,7 +593,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -656,17 +608,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.deploy.v1.TargetArtifact parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              skaffoldConfigPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              manifestPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              uriCase_ = 4;
+              uri_ = s;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.deploy.v1.TargetArtifact) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int uriCase_ = 0;
@@ -684,6 +665,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -769,10 +751,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArtifactUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  uriCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      uriCase_ = 4;
       uri_ = value;
       onChanged();
       return this;
@@ -808,10 +788,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArtifactUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uriCase_ = 4;
       uri_ = value;
       onChanged();
@@ -871,11 +849,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSkaffoldConfigPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       skaffoldConfigPath_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -888,8 +864,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSkaffoldConfigPath() {
-      
       skaffoldConfigPath_ = getDefaultInstance().getSkaffoldConfigPath();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -904,12 +880,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSkaffoldConfigPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       skaffoldConfigPath_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -967,11 +941,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setManifestPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       manifestPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -984,8 +956,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearManifestPath() {
-      
       manifestPath_ = getDefaultInstance().getManifestPath();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1000,12 +972,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setManifestPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       manifestPath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1042,7 +1012,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TargetArtifact(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

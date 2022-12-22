@@ -396,156 +396,6 @@ public final class DeviceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Device(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              type_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                traits_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              traits_.add(s);
-              break;
-            }
-            case 34: {
-              com.google.home.graph.v1.DeviceProto.DeviceNames.Builder subBuilder = null;
-              if (name_ != null) {
-                subBuilder = name_.toBuilder();
-              }
-              name_ = input.readMessage(com.google.home.graph.v1.DeviceProto.DeviceNames.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(name_);
-                name_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 40: {
-
-              willReportState_ = input.readBool();
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              roomHint_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              structureHint_ = s;
-              break;
-            }
-            case 66: {
-              com.google.home.graph.v1.DeviceProto.DeviceInfo.Builder subBuilder = null;
-              if (deviceInfo_ != null) {
-                subBuilder = deviceInfo_.toBuilder();
-              }
-              deviceInfo_ = input.readMessage(com.google.home.graph.v1.DeviceProto.DeviceInfo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(deviceInfo_);
-                deviceInfo_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 74: {
-              com.google.protobuf.Struct.Builder subBuilder = null;
-              if (attributes_ != null) {
-                subBuilder = attributes_.toBuilder();
-              }
-              attributes_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(attributes_);
-                attributes_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 82: {
-              com.google.protobuf.Struct.Builder subBuilder = null;
-              if (customData_ != null) {
-                subBuilder = customData_.toBuilder();
-              }
-              customData_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(customData_);
-                customData_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 90: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                otherDeviceIds_ = new java.util.ArrayList<com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              otherDeviceIds_.add(
-                  input.readMessage(com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId.parser(), extensionRegistry));
-              break;
-            }
-            case 96: {
-
-              notificationSupportedByAgent_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          traits_ = traits_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          otherDeviceIds_ = java.util.Collections.unmodifiableList(otherDeviceIds_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.DeviceProto.internal_static_google_home_graph_v1_Device_descriptor;
@@ -560,7 +410,8 @@ public final class DeviceProto {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
     /**
      * <pre>
      * Third-party device ID.
@@ -606,7 +457,8 @@ public final class DeviceProto {
     }
 
     public static final int TYPE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object type_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object type_ = "";
     /**
      * <pre>
      * Hardware type of the device.
@@ -656,6 +508,7 @@ public final class DeviceProto {
     }
 
     public static final int TRAITS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList traits_;
     /**
      * <pre>
@@ -749,11 +602,11 @@ public final class DeviceProto {
      */
     @java.lang.Override
     public com.google.home.graph.v1.DeviceProto.DeviceNamesOrBuilder getNameOrBuilder() {
-      return getName();
+      return name_ == null ? com.google.home.graph.v1.DeviceProto.DeviceNames.getDefaultInstance() : name_;
     }
 
     public static final int WILL_REPORT_STATE_FIELD_NUMBER = 5;
-    private boolean willReportState_;
+    private boolean willReportState_ = false;
     /**
      * <pre>
      * Indicates whether your smart home Action will report state of this device
@@ -770,7 +623,8 @@ public final class DeviceProto {
     }
 
     public static final int ROOM_HINT_FIELD_NUMBER = 6;
-    private volatile java.lang.Object roomHint_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object roomHint_ = "";
     /**
      * <pre>
      * Suggested name for the room where this device is installed.
@@ -818,7 +672,8 @@ public final class DeviceProto {
     }
 
     public static final int STRUCTURE_HINT_FIELD_NUMBER = 7;
-    private volatile java.lang.Object structureHint_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object structureHint_ = "";
     /**
      * <pre>
      * Suggested name for the structure where this device is installed.
@@ -900,7 +755,7 @@ public final class DeviceProto {
      */
     @java.lang.Override
     public com.google.home.graph.v1.DeviceProto.DeviceInfoOrBuilder getDeviceInfoOrBuilder() {
-      return getDeviceInfo();
+      return deviceInfo_ == null ? com.google.home.graph.v1.DeviceProto.DeviceInfo.getDefaultInstance() : deviceInfo_;
     }
 
     public static final int ATTRIBUTES_FIELD_NUMBER = 9;
@@ -938,7 +793,7 @@ public final class DeviceProto {
      */
     @java.lang.Override
     public com.google.protobuf.StructOrBuilder getAttributesOrBuilder() {
-      return getAttributes();
+      return attributes_ == null ? com.google.protobuf.Struct.getDefaultInstance() : attributes_;
     }
 
     public static final int CUSTOM_DATA_FIELD_NUMBER = 10;
@@ -991,10 +846,11 @@ public final class DeviceProto {
      */
     @java.lang.Override
     public com.google.protobuf.StructOrBuilder getCustomDataOrBuilder() {
-      return getCustomData();
+      return customData_ == null ? com.google.protobuf.Struct.getDefaultInstance() : customData_;
     }
 
     public static final int OTHER_DEVICE_IDS_FIELD_NUMBER = 11;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId> otherDeviceIds_;
     /**
      * <pre>
@@ -1065,7 +921,7 @@ public final class DeviceProto {
     }
 
     public static final int NOTIFICATION_SUPPORTED_BY_AGENT_FIELD_NUMBER = 12;
-    private boolean notificationSupportedByAgent_;
+    private boolean notificationSupportedByAgent_ = false;
     /**
      * <pre>
      * Indicates whether your smart home Action will report notifications
@@ -1134,7 +990,7 @@ public final class DeviceProto {
       if (notificationSupportedByAgent_ != false) {
         output.writeBool(12, notificationSupportedByAgent_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1191,7 +1047,7 @@ public final class DeviceProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(12, notificationSupportedByAgent_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1242,7 +1098,7 @@ public final class DeviceProto {
           .equals(other.getOtherDeviceIdsList())) return false;
       if (getNotificationSupportedByAgent()
           != other.getNotificationSupportedByAgent()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1291,7 +1147,7 @@ public final class DeviceProto {
       hash = (37 * hash) + NOTIFICATION_SUPPORTED_BY_AGENT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNotificationSupportedByAgent());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1412,67 +1268,53 @@ public final class DeviceProto {
 
       // Construct using com.google.home.graph.v1.DeviceProto.Device.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getOtherDeviceIdsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = "";
-
         type_ = "";
-
         traits_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        if (nameBuilder_ == null) {
-          name_ = null;
-        } else {
-          name_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        name_ = null;
+        if (nameBuilder_ != null) {
+          nameBuilder_.dispose();
           nameBuilder_ = null;
         }
         willReportState_ = false;
-
         roomHint_ = "";
-
         structureHint_ = "";
-
-        if (deviceInfoBuilder_ == null) {
-          deviceInfo_ = null;
-        } else {
-          deviceInfo_ = null;
+        deviceInfo_ = null;
+        if (deviceInfoBuilder_ != null) {
+          deviceInfoBuilder_.dispose();
           deviceInfoBuilder_ = null;
         }
-        if (attributesBuilder_ == null) {
-          attributes_ = null;
-        } else {
-          attributes_ = null;
+        attributes_ = null;
+        if (attributesBuilder_ != null) {
+          attributesBuilder_.dispose();
           attributesBuilder_ = null;
         }
-        if (customDataBuilder_ == null) {
-          customData_ = null;
-        } else {
-          customData_ = null;
+        customData_ = null;
+        if (customDataBuilder_ != null) {
+          customDataBuilder_.dispose();
           customDataBuilder_ = null;
         }
         if (otherDeviceIdsBuilder_ == null) {
           otherDeviceIds_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          otherDeviceIds_ = null;
           otherDeviceIdsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000400);
         notificationSupportedByAgent_ = false;
-
         return this;
       }
 
@@ -1499,49 +1341,69 @@ public final class DeviceProto {
       @java.lang.Override
       public com.google.home.graph.v1.DeviceProto.Device buildPartial() {
         com.google.home.graph.v1.DeviceProto.Device result = new com.google.home.graph.v1.DeviceProto.Device(this);
-        int from_bitField0_ = bitField0_;
-        result.id_ = id_;
-        result.type_ = type_;
-        if (((bitField0_ & 0x00000001) != 0)) {
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.home.graph.v1.DeviceProto.Device result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           traits_ = traits_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.traits_ = traits_;
-        if (nameBuilder_ == null) {
-          result.name_ = name_;
-        } else {
-          result.name_ = nameBuilder_.build();
-        }
-        result.willReportState_ = willReportState_;
-        result.roomHint_ = roomHint_;
-        result.structureHint_ = structureHint_;
-        if (deviceInfoBuilder_ == null) {
-          result.deviceInfo_ = deviceInfo_;
-        } else {
-          result.deviceInfo_ = deviceInfoBuilder_.build();
-        }
-        if (attributesBuilder_ == null) {
-          result.attributes_ = attributes_;
-        } else {
-          result.attributes_ = attributesBuilder_.build();
-        }
-        if (customDataBuilder_ == null) {
-          result.customData_ = customData_;
-        } else {
-          result.customData_ = customDataBuilder_.build();
-        }
         if (otherDeviceIdsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000400) != 0)) {
             otherDeviceIds_ = java.util.Collections.unmodifiableList(otherDeviceIds_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000400);
           }
           result.otherDeviceIds_ = otherDeviceIds_;
         } else {
           result.otherDeviceIds_ = otherDeviceIdsBuilder_.build();
         }
-        result.notificationSupportedByAgent_ = notificationSupportedByAgent_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.DeviceProto.Device result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.name_ = nameBuilder_ == null
+              ? name_
+              : nameBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.willReportState_ = willReportState_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.roomHint_ = roomHint_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.structureHint_ = structureHint_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.deviceInfo_ = deviceInfoBuilder_ == null
+              ? deviceInfo_
+              : deviceInfoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.attributes_ = attributesBuilder_ == null
+              ? attributes_
+              : attributesBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.customData_ = customDataBuilder_ == null
+              ? customData_
+              : customDataBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.notificationSupportedByAgent_ = notificationSupportedByAgent_;
+        }
       }
 
       @java.lang.Override
@@ -1590,16 +1452,18 @@ public final class DeviceProto {
         if (other == com.google.home.graph.v1.DeviceProto.Device.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getType().isEmpty()) {
           type_ = other.type_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.traits_.isEmpty()) {
           if (traits_.isEmpty()) {
             traits_ = other.traits_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureTraitsIsMutable();
             traits_.addAll(other.traits_);
@@ -1614,10 +1478,12 @@ public final class DeviceProto {
         }
         if (!other.getRoomHint().isEmpty()) {
           roomHint_ = other.roomHint_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getStructureHint().isEmpty()) {
           structureHint_ = other.structureHint_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (other.hasDeviceInfo()) {
@@ -1633,7 +1499,7 @@ public final class DeviceProto {
           if (!other.otherDeviceIds_.isEmpty()) {
             if (otherDeviceIds_.isEmpty()) {
               otherDeviceIds_ = other.otherDeviceIds_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000400);
             } else {
               ensureOtherDeviceIdsIsMutable();
               otherDeviceIds_.addAll(other.otherDeviceIds_);
@@ -1646,7 +1512,7 @@ public final class DeviceProto {
               otherDeviceIdsBuilder_.dispose();
               otherDeviceIdsBuilder_ = null;
               otherDeviceIds_ = other.otherDeviceIds_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000400);
               otherDeviceIdsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getOtherDeviceIdsFieldBuilder() : null;
@@ -1658,7 +1524,7 @@ public final class DeviceProto {
         if (other.getNotificationSupportedByAgent() != false) {
           setNotificationSupportedByAgent(other.getNotificationSupportedByAgent());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1673,17 +1539,107 @@ public final class DeviceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.DeviceProto.Device parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                type_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTraitsIsMutable();
+                traits_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getNameFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                willReportState_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 50: {
+                roomHint_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                structureHint_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    getDeviceInfoFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                input.readMessage(
+                    getAttributesFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 82: {
+                input.readMessage(
+                    getCustomDataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId m =
+                    input.readMessage(
+                        com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId.parser(),
+                        extensionRegistry);
+                if (otherDeviceIdsBuilder_ == null) {
+                  ensureOtherDeviceIdsIsMutable();
+                  otherDeviceIds_.add(m);
+                } else {
+                  otherDeviceIdsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 90
+              case 96: {
+                notificationSupportedByAgent_ = input.readBool();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 96
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.DeviceProto.Device) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1741,11 +1697,9 @@ public final class DeviceProto {
        */
       public Builder setId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1758,8 +1712,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
         id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1774,12 +1728,10 @@ public final class DeviceProto {
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1843,11 +1795,9 @@ public final class DeviceProto {
        */
       public Builder setType(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         type_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1862,8 +1812,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
         type_ = getDefaultInstance().getType();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1880,21 +1830,19 @@ public final class DeviceProto {
        */
       public Builder setTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         type_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList traits_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTraitsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           traits_ = new com.google.protobuf.LazyStringArrayList(traits_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -1967,10 +1915,8 @@ public final class DeviceProto {
        */
       public Builder setTraits(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTraitsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTraitsIsMutable();
         traits_.set(index, value);
         onChanged();
         return this;
@@ -1988,10 +1934,8 @@ public final class DeviceProto {
        */
       public Builder addTraits(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTraitsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTraitsIsMutable();
         traits_.add(value);
         onChanged();
         return this;
@@ -2027,7 +1971,7 @@ public final class DeviceProto {
        */
       public Builder clearTraits() {
         traits_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -2044,10 +1988,8 @@ public final class DeviceProto {
        */
       public Builder addTraitsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureTraitsIsMutable();
         traits_.add(value);
         onChanged();
@@ -2066,7 +2008,7 @@ public final class DeviceProto {
        * @return Whether the name field is set.
        */
       public boolean hasName() {
-        return nameBuilder_ != null || name_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -2096,11 +2038,11 @@ public final class DeviceProto {
             throw new NullPointerException();
           }
           name_ = value;
-          onChanged();
         } else {
           nameBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2114,11 +2056,11 @@ public final class DeviceProto {
           com.google.home.graph.v1.DeviceProto.DeviceNames.Builder builderForValue) {
         if (nameBuilder_ == null) {
           name_ = builderForValue.build();
-          onChanged();
         } else {
           nameBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2130,17 +2072,18 @@ public final class DeviceProto {
        */
       public Builder mergeName(com.google.home.graph.v1.DeviceProto.DeviceNames value) {
         if (nameBuilder_ == null) {
-          if (name_ != null) {
-            name_ =
-              com.google.home.graph.v1.DeviceProto.DeviceNames.newBuilder(name_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            name_ != null &&
+            name_ != com.google.home.graph.v1.DeviceProto.DeviceNames.getDefaultInstance()) {
+            getNameBuilder().mergeFrom(value);
           } else {
             name_ = value;
           }
-          onChanged();
         } else {
           nameBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2151,14 +2094,13 @@ public final class DeviceProto {
        * <code>.google.home.graph.v1.DeviceNames name = 4;</code>
        */
       public Builder clearName() {
-        if (nameBuilder_ == null) {
-          name_ = null;
-          onChanged();
-        } else {
-          name_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        name_ = null;
+        if (nameBuilder_ != null) {
+          nameBuilder_.dispose();
           nameBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2169,7 +2111,7 @@ public final class DeviceProto {
        * <code>.google.home.graph.v1.DeviceNames name = 4;</code>
        */
       public com.google.home.graph.v1.DeviceProto.DeviceNames.Builder getNameBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getNameFieldBuilder().getBuilder();
       }
@@ -2238,6 +2180,7 @@ public final class DeviceProto {
       public Builder setWillReportState(boolean value) {
         
         willReportState_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2252,7 +2195,7 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearWillReportState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         willReportState_ = false;
         onChanged();
         return this;
@@ -2314,11 +2257,9 @@ public final class DeviceProto {
        */
       public Builder setRoomHint(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         roomHint_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2332,8 +2273,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearRoomHint() {
-        
         roomHint_ = getDefaultInstance().getRoomHint();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -2349,12 +2290,10 @@ public final class DeviceProto {
        */
       public Builder setRoomHintBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         roomHint_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2415,11 +2354,9 @@ public final class DeviceProto {
        */
       public Builder setStructureHint(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         structureHint_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2433,8 +2370,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearStructureHint() {
-        
         structureHint_ = getDefaultInstance().getStructureHint();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -2450,12 +2387,10 @@ public final class DeviceProto {
        */
       public Builder setStructureHintBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         structureHint_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2472,7 +2407,7 @@ public final class DeviceProto {
        * @return Whether the deviceInfo field is set.
        */
       public boolean hasDeviceInfo() {
-        return deviceInfoBuilder_ != null || deviceInfo_ != null;
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <pre>
@@ -2502,11 +2437,11 @@ public final class DeviceProto {
             throw new NullPointerException();
           }
           deviceInfo_ = value;
-          onChanged();
         } else {
           deviceInfoBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -2520,11 +2455,11 @@ public final class DeviceProto {
           com.google.home.graph.v1.DeviceProto.DeviceInfo.Builder builderForValue) {
         if (deviceInfoBuilder_ == null) {
           deviceInfo_ = builderForValue.build();
-          onChanged();
         } else {
           deviceInfoBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -2536,17 +2471,18 @@ public final class DeviceProto {
        */
       public Builder mergeDeviceInfo(com.google.home.graph.v1.DeviceProto.DeviceInfo value) {
         if (deviceInfoBuilder_ == null) {
-          if (deviceInfo_ != null) {
-            deviceInfo_ =
-              com.google.home.graph.v1.DeviceProto.DeviceInfo.newBuilder(deviceInfo_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000080) != 0) &&
+            deviceInfo_ != null &&
+            deviceInfo_ != com.google.home.graph.v1.DeviceProto.DeviceInfo.getDefaultInstance()) {
+            getDeviceInfoBuilder().mergeFrom(value);
           } else {
             deviceInfo_ = value;
           }
-          onChanged();
         } else {
           deviceInfoBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -2557,14 +2493,13 @@ public final class DeviceProto {
        * <code>.google.home.graph.v1.DeviceInfo device_info = 8;</code>
        */
       public Builder clearDeviceInfo() {
-        if (deviceInfoBuilder_ == null) {
-          deviceInfo_ = null;
-          onChanged();
-        } else {
-          deviceInfo_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        deviceInfo_ = null;
+        if (deviceInfoBuilder_ != null) {
+          deviceInfoBuilder_.dispose();
           deviceInfoBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2575,7 +2510,7 @@ public final class DeviceProto {
        * <code>.google.home.graph.v1.DeviceInfo device_info = 8;</code>
        */
       public com.google.home.graph.v1.DeviceProto.DeviceInfo.Builder getDeviceInfoBuilder() {
-        
+        bitField0_ |= 0x00000080;
         onChanged();
         return getDeviceInfoFieldBuilder().getBuilder();
       }
@@ -2627,7 +2562,7 @@ public final class DeviceProto {
        * @return Whether the attributes field is set.
        */
       public boolean hasAttributes() {
-        return attributesBuilder_ != null || attributes_ != null;
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -2657,11 +2592,11 @@ public final class DeviceProto {
             throw new NullPointerException();
           }
           attributes_ = value;
-          onChanged();
         } else {
           attributesBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -2675,11 +2610,11 @@ public final class DeviceProto {
           com.google.protobuf.Struct.Builder builderForValue) {
         if (attributesBuilder_ == null) {
           attributes_ = builderForValue.build();
-          onChanged();
         } else {
           attributesBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -2691,17 +2626,18 @@ public final class DeviceProto {
        */
       public Builder mergeAttributes(com.google.protobuf.Struct value) {
         if (attributesBuilder_ == null) {
-          if (attributes_ != null) {
-            attributes_ =
-              com.google.protobuf.Struct.newBuilder(attributes_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000100) != 0) &&
+            attributes_ != null &&
+            attributes_ != com.google.protobuf.Struct.getDefaultInstance()) {
+            getAttributesBuilder().mergeFrom(value);
           } else {
             attributes_ = value;
           }
-          onChanged();
         } else {
           attributesBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -2712,14 +2648,13 @@ public final class DeviceProto {
        * <code>.google.protobuf.Struct attributes = 9;</code>
        */
       public Builder clearAttributes() {
-        if (attributesBuilder_ == null) {
-          attributes_ = null;
-          onChanged();
-        } else {
-          attributes_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        attributes_ = null;
+        if (attributesBuilder_ != null) {
+          attributesBuilder_.dispose();
           attributesBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2730,7 +2665,7 @@ public final class DeviceProto {
        * <code>.google.protobuf.Struct attributes = 9;</code>
        */
       public com.google.protobuf.Struct.Builder getAttributesBuilder() {
-        
+        bitField0_ |= 0x00000100;
         onChanged();
         return getAttributesFieldBuilder().getBuilder();
       }
@@ -2787,7 +2722,7 @@ public final class DeviceProto {
        * @return Whether the customData field is set.
        */
       public boolean hasCustomData() {
-        return customDataBuilder_ != null || customData_ != null;
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
        * <pre>
@@ -2827,11 +2762,11 @@ public final class DeviceProto {
             throw new NullPointerException();
           }
           customData_ = value;
-          onChanged();
         } else {
           customDataBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -2850,11 +2785,11 @@ public final class DeviceProto {
           com.google.protobuf.Struct.Builder builderForValue) {
         if (customDataBuilder_ == null) {
           customData_ = builderForValue.build();
-          onChanged();
         } else {
           customDataBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -2871,17 +2806,18 @@ public final class DeviceProto {
        */
       public Builder mergeCustomData(com.google.protobuf.Struct value) {
         if (customDataBuilder_ == null) {
-          if (customData_ != null) {
-            customData_ =
-              com.google.protobuf.Struct.newBuilder(customData_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000200) != 0) &&
+            customData_ != null &&
+            customData_ != com.google.protobuf.Struct.getDefaultInstance()) {
+            getCustomDataBuilder().mergeFrom(value);
           } else {
             customData_ = value;
           }
-          onChanged();
         } else {
           customDataBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -2897,14 +2833,13 @@ public final class DeviceProto {
        * <code>.google.protobuf.Struct custom_data = 10;</code>
        */
       public Builder clearCustomData() {
-        if (customDataBuilder_ == null) {
-          customData_ = null;
-          onChanged();
-        } else {
-          customData_ = null;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        customData_ = null;
+        if (customDataBuilder_ != null) {
+          customDataBuilder_.dispose();
           customDataBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2920,7 +2855,7 @@ public final class DeviceProto {
        * <code>.google.protobuf.Struct custom_data = 10;</code>
        */
       public com.google.protobuf.Struct.Builder getCustomDataBuilder() {
-        
+        bitField0_ |= 0x00000200;
         onChanged();
         return getCustomDataFieldBuilder().getBuilder();
       }
@@ -2973,9 +2908,9 @@ public final class DeviceProto {
       private java.util.List<com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId> otherDeviceIds_ =
         java.util.Collections.emptyList();
       private void ensureOtherDeviceIdsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000400) != 0)) {
           otherDeviceIds_ = new java.util.ArrayList<com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId>(otherDeviceIds_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000400;
          }
       }
 
@@ -3191,7 +3126,7 @@ public final class DeviceProto {
       public Builder clearOtherDeviceIds() {
         if (otherDeviceIdsBuilder_ == null) {
           otherDeviceIds_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000400);
           onChanged();
         } else {
           otherDeviceIdsBuilder_.clear();
@@ -3310,7 +3245,7 @@ public final class DeviceProto {
           otherDeviceIdsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId, com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId.Builder, com.google.home.graph.v1.DeviceProto.AgentOtherDeviceIdOrBuilder>(
                   otherDeviceIds_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000400) != 0),
                   getParentForChildren(),
                   isClean());
           otherDeviceIds_ = null;
@@ -3353,6 +3288,7 @@ public final class DeviceProto {
       public Builder setNotificationSupportedByAgent(boolean value) {
         
         notificationSupportedByAgent_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -3370,7 +3306,7 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearNotificationSupportedByAgent() {
-        
+        bitField0_ = (bitField0_ & ~0x00000800);
         notificationSupportedByAgent_ = false;
         onChanged();
         return this;
@@ -3408,7 +3344,18 @@ public final class DeviceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Device(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3572,76 +3519,6 @@ public final class DeviceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeviceNames(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                nicknames_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              nicknames_.add(s);
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                defaultNames_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              defaultNames_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          nicknames_ = nicknames_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          defaultNames_ = defaultNames_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.DeviceProto.internal_static_google_home_graph_v1_DeviceNames_descriptor;
@@ -3656,7 +3533,8 @@ public final class DeviceProto {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Primary name of the device, generally provided by the user.
@@ -3702,6 +3580,7 @@ public final class DeviceProto {
     }
 
     public static final int NICKNAMES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList nicknames_;
     /**
      * <pre>
@@ -3753,6 +3632,7 @@ public final class DeviceProto {
     }
 
     public static final int DEFAULT_NAMES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList defaultNames_;
     /**
      * <pre>
@@ -3830,7 +3710,7 @@ public final class DeviceProto {
       for (int i = 0; i < defaultNames_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, defaultNames_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3858,7 +3738,7 @@ public final class DeviceProto {
         size += dataSize;
         size += 1 * getDefaultNamesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3879,7 +3759,7 @@ public final class DeviceProto {
           .equals(other.getNicknamesList())) return false;
       if (!getDefaultNamesList()
           .equals(other.getDefaultNamesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3900,7 +3780,7 @@ public final class DeviceProto {
         hash = (37 * hash) + DEFAULT_NAMES_FIELD_NUMBER;
         hash = (53 * hash) + getDefaultNamesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4021,28 +3901,23 @@ public final class DeviceProto {
 
       // Construct using com.google.home.graph.v1.DeviceProto.DeviceNames.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         nicknames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        defaultNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
+        defaultNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -4069,20 +3944,30 @@ public final class DeviceProto {
       @java.lang.Override
       public com.google.home.graph.v1.DeviceProto.DeviceNames buildPartial() {
         com.google.home.graph.v1.DeviceProto.DeviceNames result = new com.google.home.graph.v1.DeviceProto.DeviceNames(this);
-        int from_bitField0_ = bitField0_;
-        result.name_ = name_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          nicknames_ = nicknames_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.nicknames_ = nicknames_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          defaultNames_ = defaultNames_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.defaultNames_ = defaultNames_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.home.graph.v1.DeviceProto.DeviceNames result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          nicknames_ = nicknames_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.nicknames_ = nicknames_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          defaultNames_ = defaultNames_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.defaultNames_ = defaultNames_;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.DeviceProto.DeviceNames result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -4131,12 +4016,13 @@ public final class DeviceProto {
         if (other == com.google.home.graph.v1.DeviceProto.DeviceNames.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.nicknames_.isEmpty()) {
           if (nicknames_.isEmpty()) {
             nicknames_ = other.nicknames_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureNicknamesIsMutable();
             nicknames_.addAll(other.nicknames_);
@@ -4146,14 +4032,14 @@ public final class DeviceProto {
         if (!other.defaultNames_.isEmpty()) {
           if (defaultNames_.isEmpty()) {
             defaultNames_ = other.defaultNames_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureDefaultNamesIsMutable();
             defaultNames_.addAll(other.defaultNames_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4168,17 +4054,47 @@ public final class DeviceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.DeviceProto.DeviceNames parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureNicknamesIsMutable();
+                nicknames_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureDefaultNamesIsMutable();
+                defaultNames_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.DeviceProto.DeviceNames) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4236,11 +4152,9 @@ public final class DeviceProto {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4253,8 +4167,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4269,21 +4183,19 @@ public final class DeviceProto {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList nicknames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureNicknamesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           nicknames_ = new com.google.protobuf.LazyStringArrayList(nicknames_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -4346,10 +4258,8 @@ public final class DeviceProto {
        */
       public Builder setNicknames(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNicknamesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureNicknamesIsMutable();
         nicknames_.set(index, value);
         onChanged();
         return this;
@@ -4365,10 +4275,8 @@ public final class DeviceProto {
        */
       public Builder addNicknames(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNicknamesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureNicknamesIsMutable();
         nicknames_.add(value);
         onChanged();
         return this;
@@ -4400,7 +4308,7 @@ public final class DeviceProto {
        */
       public Builder clearNicknames() {
         nicknames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4415,10 +4323,8 @@ public final class DeviceProto {
        */
       public Builder addNicknamesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureNicknamesIsMutable();
         nicknames_.add(value);
         onChanged();
@@ -4427,9 +4333,9 @@ public final class DeviceProto {
 
       private com.google.protobuf.LazyStringList defaultNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureDefaultNamesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           defaultNames_ = new com.google.protobuf.LazyStringArrayList(defaultNames_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -4497,10 +4403,8 @@ public final class DeviceProto {
        */
       public Builder setDefaultNames(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDefaultNamesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDefaultNamesIsMutable();
         defaultNames_.set(index, value);
         onChanged();
         return this;
@@ -4517,10 +4421,8 @@ public final class DeviceProto {
        */
       public Builder addDefaultNames(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDefaultNamesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDefaultNamesIsMutable();
         defaultNames_.add(value);
         onChanged();
         return this;
@@ -4554,7 +4456,7 @@ public final class DeviceProto {
        */
       public Builder clearDefaultNames() {
         defaultNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -4570,10 +4472,8 @@ public final class DeviceProto {
        */
       public Builder addDefaultNamesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureDefaultNamesIsMutable();
         defaultNames_.add(value);
         onChanged();
@@ -4612,7 +4512,18 @@ public final class DeviceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeviceNames(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4751,69 +4662,6 @@ public final class DeviceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeviceInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              manufacturer_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              model_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              hwVersion_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              swVersion_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.DeviceProto.internal_static_google_home_graph_v1_DeviceInfo_descriptor;
@@ -4828,7 +4676,8 @@ public final class DeviceProto {
     }
 
     public static final int MANUFACTURER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object manufacturer_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object manufacturer_ = "";
     /**
      * <pre>
      * Device manufacturer.
@@ -4874,7 +4723,8 @@ public final class DeviceProto {
     }
 
     public static final int MODEL_FIELD_NUMBER = 2;
-    private volatile java.lang.Object model_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object model_ = "";
     /**
      * <pre>
      * Device model.
@@ -4920,7 +4770,8 @@ public final class DeviceProto {
     }
 
     public static final int HW_VERSION_FIELD_NUMBER = 3;
-    private volatile java.lang.Object hwVersion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object hwVersion_ = "";
     /**
      * <pre>
      * Device hardware version.
@@ -4966,7 +4817,8 @@ public final class DeviceProto {
     }
 
     public static final int SW_VERSION_FIELD_NUMBER = 4;
-    private volatile java.lang.Object swVersion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object swVersion_ = "";
     /**
      * <pre>
      * Device software version.
@@ -5037,7 +4889,7 @@ public final class DeviceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(swVersion_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, swVersion_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5058,7 +4910,7 @@ public final class DeviceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(swVersion_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, swVersion_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5081,7 +4933,7 @@ public final class DeviceProto {
           .equals(other.getHwVersion())) return false;
       if (!getSwVersion()
           .equals(other.getSwVersion())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5100,7 +4952,7 @@ public final class DeviceProto {
       hash = (53 * hash) + getHwVersion().hashCode();
       hash = (37 * hash) + SW_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getSwVersion().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5221,30 +5073,22 @@ public final class DeviceProto {
 
       // Construct using com.google.home.graph.v1.DeviceProto.DeviceInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         manufacturer_ = "";
-
         model_ = "";
-
         hwVersion_ = "";
-
         swVersion_ = "";
-
         return this;
       }
 
@@ -5271,12 +5115,25 @@ public final class DeviceProto {
       @java.lang.Override
       public com.google.home.graph.v1.DeviceProto.DeviceInfo buildPartial() {
         com.google.home.graph.v1.DeviceProto.DeviceInfo result = new com.google.home.graph.v1.DeviceProto.DeviceInfo(this);
-        result.manufacturer_ = manufacturer_;
-        result.model_ = model_;
-        result.hwVersion_ = hwVersion_;
-        result.swVersion_ = swVersion_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.DeviceProto.DeviceInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.manufacturer_ = manufacturer_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.model_ = model_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.hwVersion_ = hwVersion_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.swVersion_ = swVersion_;
+        }
       }
 
       @java.lang.Override
@@ -5325,21 +5182,25 @@ public final class DeviceProto {
         if (other == com.google.home.graph.v1.DeviceProto.DeviceInfo.getDefaultInstance()) return this;
         if (!other.getManufacturer().isEmpty()) {
           manufacturer_ = other.manufacturer_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getModel().isEmpty()) {
           model_ = other.model_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getHwVersion().isEmpty()) {
           hwVersion_ = other.hwVersion_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getSwVersion().isEmpty()) {
           swVersion_ = other.swVersion_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5354,19 +5215,53 @@ public final class DeviceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.DeviceProto.DeviceInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                manufacturer_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                model_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                hwVersion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                swVersion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.DeviceProto.DeviceInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object manufacturer_ = "";
       /**
@@ -5421,11 +5316,9 @@ public final class DeviceProto {
        */
       public Builder setManufacturer(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         manufacturer_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5438,8 +5331,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearManufacturer() {
-        
         manufacturer_ = getDefaultInstance().getManufacturer();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -5454,12 +5347,10 @@ public final class DeviceProto {
        */
       public Builder setManufacturerBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         manufacturer_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5517,11 +5408,9 @@ public final class DeviceProto {
        */
       public Builder setModel(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         model_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5534,8 +5423,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearModel() {
-        
         model_ = getDefaultInstance().getModel();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5550,12 +5439,10 @@ public final class DeviceProto {
        */
       public Builder setModelBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         model_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5613,11 +5500,9 @@ public final class DeviceProto {
        */
       public Builder setHwVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         hwVersion_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5630,8 +5515,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearHwVersion() {
-        
         hwVersion_ = getDefaultInstance().getHwVersion();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -5646,12 +5531,10 @@ public final class DeviceProto {
        */
       public Builder setHwVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         hwVersion_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5709,11 +5592,9 @@ public final class DeviceProto {
        */
       public Builder setSwVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         swVersion_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5726,8 +5607,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearSwVersion() {
-        
         swVersion_ = getDefaultInstance().getSwVersion();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -5742,12 +5623,10 @@ public final class DeviceProto {
        */
       public Builder setSwVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         swVersion_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5784,7 +5663,18 @@ public final class DeviceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeviceInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5881,57 +5771,6 @@ public final class DeviceProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AgentOtherDeviceId(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              agentId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              deviceId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.home.graph.v1.DeviceProto.internal_static_google_home_graph_v1_AgentOtherDeviceId_descriptor;
@@ -5946,7 +5785,8 @@ public final class DeviceProto {
     }
 
     public static final int AGENT_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object agentId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object agentId_ = "";
     /**
      * <pre>
      * Project ID for your smart home Action.
@@ -5992,7 +5832,8 @@ public final class DeviceProto {
     }
 
     public static final int DEVICE_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object deviceId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object deviceId_ = "";
     /**
      * <pre>
      * Unique third-party device ID.
@@ -6057,7 +5898,7 @@ public final class DeviceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deviceId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6072,7 +5913,7 @@ public final class DeviceProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, deviceId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6091,7 +5932,7 @@ public final class DeviceProto {
           .equals(other.getAgentId())) return false;
       if (!getDeviceId()
           .equals(other.getDeviceId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6106,7 +5947,7 @@ public final class DeviceProto {
       hash = (53 * hash) + getAgentId().hashCode();
       hash = (37 * hash) + DEVICE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getDeviceId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6227,26 +6068,20 @@ public final class DeviceProto {
 
       // Construct using com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         agentId_ = "";
-
         deviceId_ = "";
-
         return this;
       }
 
@@ -6273,10 +6108,19 @@ public final class DeviceProto {
       @java.lang.Override
       public com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId buildPartial() {
         com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId result = new com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId(this);
-        result.agentId_ = agentId_;
-        result.deviceId_ = deviceId_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.agentId_ = agentId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.deviceId_ = deviceId_;
+        }
       }
 
       @java.lang.Override
@@ -6325,13 +6169,15 @@ public final class DeviceProto {
         if (other == com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId.getDefaultInstance()) return this;
         if (!other.getAgentId().isEmpty()) {
           agentId_ = other.agentId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDeviceId().isEmpty()) {
           deviceId_ = other.deviceId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6346,19 +6192,43 @@ public final class DeviceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                agentId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                deviceId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.home.graph.v1.DeviceProto.AgentOtherDeviceId) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object agentId_ = "";
       /**
@@ -6413,11 +6283,9 @@ public final class DeviceProto {
        */
       public Builder setAgentId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         agentId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6430,8 +6298,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearAgentId() {
-        
         agentId_ = getDefaultInstance().getAgentId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6446,12 +6314,10 @@ public final class DeviceProto {
        */
       public Builder setAgentIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         agentId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6509,11 +6375,9 @@ public final class DeviceProto {
        */
       public Builder setDeviceId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         deviceId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6526,8 +6390,8 @@ public final class DeviceProto {
        * @return This builder for chaining.
        */
       public Builder clearDeviceId() {
-        
         deviceId_ = getDefaultInstance().getDeviceId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -6542,12 +6406,10 @@ public final class DeviceProto {
        */
       public Builder setDeviceIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         deviceId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6584,7 +6446,18 @@ public final class DeviceProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AgentOtherDeviceId(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

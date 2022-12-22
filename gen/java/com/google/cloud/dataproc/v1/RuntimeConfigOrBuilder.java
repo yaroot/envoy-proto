@@ -92,7 +92,6 @@ public interface RuntimeConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; properties = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getPropertiesOrDefault(
       java.lang.String key,
@@ -106,7 +105,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; properties = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getPropertiesOrThrow(
       java.lang.String key);
 }

@@ -11,7 +11,6 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.datalabeling.v1beta1 import annotation_pb2 as google_dot_cloud_dot_datalabeling_dot_v1beta1_dot_annotation__pb2
 from google.cloud.datalabeling.v1beta1 import annotation_spec_set_pb2 as google_dot_cloud_dot_datalabeling_dot_v1beta1_dot_annotation__spec__set__pb2
@@ -20,7 +19,7 @@ from google.cloud.datalabeling.v1beta1 import human_annotation_config_pb2 as goo
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/google/cloud/datalabeling/v1beta1/dataset.proto\x12!google.cloud.datalabeling.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a\x32google/cloud/datalabeling/v1beta1/annotation.proto\x1a;google/cloud/datalabeling/v1beta1/annotation_spec_set.proto\x1a\x35google/cloud/datalabeling/v1beta1/data_payloads.proto\x1a?google/cloud/datalabeling/v1beta1/human_annotation_config.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc0\x02\n\x07\x44\x61taset\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12/\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x45\n\rinput_configs\x18\x05 \x03(\x0b\x32..google.cloud.datalabeling.v1beta1.InputConfig\x12\x1a\n\x12\x62locking_resources\x18\x06 \x03(\t\x12\x17\n\x0f\x64\x61ta_item_count\x18\x07 \x01(\x03:O\xea\x41L\n#datalabeling.googleapis.com/Dataset\x12%projects/{project}/datasets/{dataset}\"\xf1\x03\n\x0bInputConfig\x12H\n\rtext_metadata\x18\x06 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.TextMetadataH\x00\x12\x42\n\ngcs_source\x18\x02 \x01(\x0b\x32,.google.cloud.datalabeling.v1beta1.GcsSourceH\x01\x12L\n\x0f\x62igquery_source\x18\x05 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.BigQuerySourceH\x01\x12>\n\tdata_type\x18\x01 \x01(\x0e\x32+.google.cloud.datalabeling.v1beta1.DataType\x12J\n\x0f\x61nnotation_type\x18\x03 \x01(\x0e\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationType\x12Z\n\x17\x63lassification_metadata\x18\x04 \x01(\x0b\x32\x39.google.cloud.datalabeling.v1beta1.ClassificationMetadataB\x14\n\x12\x64\x61ta_type_metadataB\x08\n\x06source\"%\n\x0cTextMetadata\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\"0\n\x16\x43lassificationMetadata\x12\x16\n\x0eis_multi_label\x18\x01 \x01(\x08\"1\n\tGcsSource\x12\x11\n\tinput_uri\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t\"#\n\x0e\x42igQuerySource\x12\x11\n\tinput_uri\x18\x01 \x01(\t\"\xc6\x01\n\x0cOutputConfig\x12L\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.GcsDestinationH\x00\x12Y\n\x16gcs_folder_destination\x18\x02 \x01(\x0b\x32\x37.google.cloud.datalabeling.v1beta1.GcsFolderDestinationH\x00\x42\r\n\x0b\x64\x65stination\"7\n\x0eGcsDestination\x12\x12\n\noutput_uri\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t\"1\n\x14GcsFolderDestination\x12\x19\n\x11output_folder_uri\x18\x01 \x01(\t\"\xe7\x02\n\x08\x44\x61taItem\x12H\n\rimage_payload\x18\x02 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.ImagePayloadH\x00\x12\x46\n\x0ctext_payload\x18\x03 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TextPayloadH\x00\x12H\n\rvideo_payload\x18\x04 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.VideoPayloadH\x00\x12\x0c\n\x04name\x18\x01 \x01(\t:f\xea\x41\x63\n$datalabeling.googleapis.com/DataItem\x12;projects/{project}/datasets/{dataset}/dataItems/{data_item}B\t\n\x07payload\"\xff\x04\n\x10\x41nnotatedDataset\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\t \x01(\t\x12N\n\x11\x61nnotation_source\x18\x03 \x01(\x0e\x32\x33.google.cloud.datalabeling.v1beta1.AnnotationSource\x12J\n\x0f\x61nnotation_type\x18\x08 \x01(\x0e\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationType\x12\x15\n\rexample_count\x18\x04 \x01(\x03\x12\x1f\n\x17\x63ompleted_example_count\x18\x05 \x01(\x03\x12\x42\n\x0blabel_stats\x18\x06 \x01(\x0b\x32-.google.cloud.datalabeling.v1beta1.LabelStats\x12/\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12M\n\x08metadata\x18\n \x01(\x0b\x32;.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata\x12\x1a\n\x12\x62locking_resources\x18\x0b \x03(\t:~\xea\x41{\n,datalabeling.googleapis.com/AnnotatedDataset\x12Kprojects/{project}/datasets/{dataset}/annotatedDatasets/{annotated_dataset}\"\x99\x01\n\nLabelStats\x12V\n\rexample_count\x18\x01 \x03(\x0b\x32?.google.cloud.datalabeling.v1beta1.LabelStats.ExampleCountEntry\x1a\x33\n\x11\x45xampleCountEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x03:\x02\x38\x01\"\xa2\x08\n\x18\x41nnotatedDatasetMetadata\x12\x63\n\x1bimage_classification_config\x18\x02 \x01(\x0b\x32<.google.cloud.datalabeling.v1beta1.ImageClassificationConfigH\x00\x12U\n\x14\x62ounding_poly_config\x18\x03 \x01(\x0b\x32\x35.google.cloud.datalabeling.v1beta1.BoundingPolyConfigH\x00\x12L\n\x0fpolyline_config\x18\x04 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.PolylineConfigH\x00\x12T\n\x13segmentation_config\x18\x05 \x01(\x0b\x32\x35.google.cloud.datalabeling.v1beta1.SegmentationConfigH\x00\x12\x63\n\x1bvideo_classification_config\x18\x06 \x01(\x0b\x32<.google.cloud.datalabeling.v1beta1.VideoClassificationConfigH\x00\x12[\n\x17object_detection_config\x18\x07 \x01(\x0b\x32\x38.google.cloud.datalabeling.v1beta1.ObjectDetectionConfigH\x00\x12Y\n\x16object_tracking_config\x18\x08 \x01(\x0b\x32\x37.google.cloud.datalabeling.v1beta1.ObjectTrackingConfigH\x00\x12\x46\n\x0c\x65vent_config\x18\t \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.EventConfigH\x00\x12\x61\n\x1atext_classification_config\x18\n \x01(\x0b\x32;.google.cloud.datalabeling.v1beta1.TextClassificationConfigH\x00\x12\x66\n\x1dtext_entity_extraction_config\x18\x0b \x01(\x0b\x32=.google.cloud.datalabeling.v1beta1.TextEntityExtractionConfigH\x00\x12Y\n\x17human_annotation_config\x18\x01 \x01(\x0b\x32\x38.google.cloud.datalabeling.v1beta1.HumanAnnotationConfigB\x1b\n\x19\x61nnotation_request_config\"\xce\x03\n\x07\x45xample\x12H\n\rimage_payload\x18\x02 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.ImagePayloadH\x00\x12\x46\n\x0ctext_payload\x18\x06 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TextPayloadH\x00\x12H\n\rvideo_payload\x18\x07 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.VideoPayloadH\x00\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x42\n\x0b\x61nnotations\x18\x05 \x03(\x0b\x32-.google.cloud.datalabeling.v1beta1.Annotation:\x89\x01\xea\x41\x85\x01\n#datalabeling.googleapis.com/Example\x12^projects/{project}/datasets/{dataset}/annotatedDatasets/{annotated_dataset}/examples/{example}B\t\n\x07payload*W\n\x08\x44\x61taType\x12\x19\n\x15\x44\x41TA_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05IMAGE\x10\x01\x12\t\n\x05VIDEO\x10\x02\x12\x08\n\x04TEXT\x10\x04\x12\x10\n\x0cGENERAL_DATA\x10\x06\x42\xe7\x01\n%com.google.cloud.datalabeling.v1beta1P\x01ZMgoogle.golang.org/genproto/googleapis/cloud/datalabeling/v1beta1;datalabeling\xaa\x02!Google.Cloud.DataLabeling.V1Beta1\xca\x02!Google\\Cloud\\DataLabeling\\V1beta1\xea\x02$Google::Cloud::DataLabeling::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/google/cloud/datalabeling/v1beta1/dataset.proto\x12!google.cloud.datalabeling.v1beta1\x1a\x19google/api/resource.proto\x1a\x32google/cloud/datalabeling/v1beta1/annotation.proto\x1a;google/cloud/datalabeling/v1beta1/annotation_spec_set.proto\x1a\x35google/cloud/datalabeling/v1beta1/data_payloads.proto\x1a?google/cloud/datalabeling/v1beta1/human_annotation_config.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc0\x02\n\x07\x44\x61taset\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12/\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x45\n\rinput_configs\x18\x05 \x03(\x0b\x32..google.cloud.datalabeling.v1beta1.InputConfig\x12\x1a\n\x12\x62locking_resources\x18\x06 \x03(\t\x12\x17\n\x0f\x64\x61ta_item_count\x18\x07 \x01(\x03:O\xea\x41L\n#datalabeling.googleapis.com/Dataset\x12%projects/{project}/datasets/{dataset}\"\xf1\x03\n\x0bInputConfig\x12H\n\rtext_metadata\x18\x06 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.TextMetadataH\x00\x12\x42\n\ngcs_source\x18\x02 \x01(\x0b\x32,.google.cloud.datalabeling.v1beta1.GcsSourceH\x01\x12L\n\x0f\x62igquery_source\x18\x05 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.BigQuerySourceH\x01\x12>\n\tdata_type\x18\x01 \x01(\x0e\x32+.google.cloud.datalabeling.v1beta1.DataType\x12J\n\x0f\x61nnotation_type\x18\x03 \x01(\x0e\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationType\x12Z\n\x17\x63lassification_metadata\x18\x04 \x01(\x0b\x32\x39.google.cloud.datalabeling.v1beta1.ClassificationMetadataB\x14\n\x12\x64\x61ta_type_metadataB\x08\n\x06source\"%\n\x0cTextMetadata\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\"0\n\x16\x43lassificationMetadata\x12\x16\n\x0eis_multi_label\x18\x01 \x01(\x08\"1\n\tGcsSource\x12\x11\n\tinput_uri\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t\"#\n\x0e\x42igQuerySource\x12\x11\n\tinput_uri\x18\x01 \x01(\t\"\xc6\x01\n\x0cOutputConfig\x12L\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.GcsDestinationH\x00\x12Y\n\x16gcs_folder_destination\x18\x02 \x01(\x0b\x32\x37.google.cloud.datalabeling.v1beta1.GcsFolderDestinationH\x00\x42\r\n\x0b\x64\x65stination\"7\n\x0eGcsDestination\x12\x12\n\noutput_uri\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t\"1\n\x14GcsFolderDestination\x12\x19\n\x11output_folder_uri\x18\x01 \x01(\t\"\xe7\x02\n\x08\x44\x61taItem\x12H\n\rimage_payload\x18\x02 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.ImagePayloadH\x00\x12\x46\n\x0ctext_payload\x18\x03 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TextPayloadH\x00\x12H\n\rvideo_payload\x18\x04 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.VideoPayloadH\x00\x12\x0c\n\x04name\x18\x01 \x01(\t:f\xea\x41\x63\n$datalabeling.googleapis.com/DataItem\x12;projects/{project}/datasets/{dataset}/dataItems/{data_item}B\t\n\x07payload\"\xff\x04\n\x10\x41nnotatedDataset\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\t \x01(\t\x12N\n\x11\x61nnotation_source\x18\x03 \x01(\x0e\x32\x33.google.cloud.datalabeling.v1beta1.AnnotationSource\x12J\n\x0f\x61nnotation_type\x18\x08 \x01(\x0e\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationType\x12\x15\n\rexample_count\x18\x04 \x01(\x03\x12\x1f\n\x17\x63ompleted_example_count\x18\x05 \x01(\x03\x12\x42\n\x0blabel_stats\x18\x06 \x01(\x0b\x32-.google.cloud.datalabeling.v1beta1.LabelStats\x12/\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12M\n\x08metadata\x18\n \x01(\x0b\x32;.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata\x12\x1a\n\x12\x62locking_resources\x18\x0b \x03(\t:~\xea\x41{\n,datalabeling.googleapis.com/AnnotatedDataset\x12Kprojects/{project}/datasets/{dataset}/annotatedDatasets/{annotated_dataset}\"\x99\x01\n\nLabelStats\x12V\n\rexample_count\x18\x01 \x03(\x0b\x32?.google.cloud.datalabeling.v1beta1.LabelStats.ExampleCountEntry\x1a\x33\n\x11\x45xampleCountEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x03:\x02\x38\x01\"\xa2\x08\n\x18\x41nnotatedDatasetMetadata\x12\x63\n\x1bimage_classification_config\x18\x02 \x01(\x0b\x32<.google.cloud.datalabeling.v1beta1.ImageClassificationConfigH\x00\x12U\n\x14\x62ounding_poly_config\x18\x03 \x01(\x0b\x32\x35.google.cloud.datalabeling.v1beta1.BoundingPolyConfigH\x00\x12L\n\x0fpolyline_config\x18\x04 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.PolylineConfigH\x00\x12T\n\x13segmentation_config\x18\x05 \x01(\x0b\x32\x35.google.cloud.datalabeling.v1beta1.SegmentationConfigH\x00\x12\x63\n\x1bvideo_classification_config\x18\x06 \x01(\x0b\x32<.google.cloud.datalabeling.v1beta1.VideoClassificationConfigH\x00\x12[\n\x17object_detection_config\x18\x07 \x01(\x0b\x32\x38.google.cloud.datalabeling.v1beta1.ObjectDetectionConfigH\x00\x12Y\n\x16object_tracking_config\x18\x08 \x01(\x0b\x32\x37.google.cloud.datalabeling.v1beta1.ObjectTrackingConfigH\x00\x12\x46\n\x0c\x65vent_config\x18\t \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.EventConfigH\x00\x12\x61\n\x1atext_classification_config\x18\n \x01(\x0b\x32;.google.cloud.datalabeling.v1beta1.TextClassificationConfigH\x00\x12\x66\n\x1dtext_entity_extraction_config\x18\x0b \x01(\x0b\x32=.google.cloud.datalabeling.v1beta1.TextEntityExtractionConfigH\x00\x12Y\n\x17human_annotation_config\x18\x01 \x01(\x0b\x32\x38.google.cloud.datalabeling.v1beta1.HumanAnnotationConfigB\x1b\n\x19\x61nnotation_request_config\"\xce\x03\n\x07\x45xample\x12H\n\rimage_payload\x18\x02 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.ImagePayloadH\x00\x12\x46\n\x0ctext_payload\x18\x06 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TextPayloadH\x00\x12H\n\rvideo_payload\x18\x07 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.VideoPayloadH\x00\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x42\n\x0b\x61nnotations\x18\x05 \x03(\x0b\x32-.google.cloud.datalabeling.v1beta1.Annotation:\x89\x01\xea\x41\x85\x01\n#datalabeling.googleapis.com/Example\x12^projects/{project}/datasets/{dataset}/annotatedDatasets/{annotated_dataset}/examples/{example}B\t\n\x07payload*W\n\x08\x44\x61taType\x12\x19\n\x15\x44\x41TA_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05IMAGE\x10\x01\x12\t\n\x05VIDEO\x10\x02\x12\x08\n\x04TEXT\x10\x04\x12\x10\n\x0cGENERAL_DATA\x10\x06\x42\xe7\x01\n%com.google.cloud.datalabeling.v1beta1P\x01ZMgoogle.golang.org/genproto/googleapis/cloud/datalabeling/v1beta1;datalabeling\xaa\x02!Google.Cloud.DataLabeling.V1Beta1\xca\x02!Google\\Cloud\\DataLabeling\\V1beta1\xea\x02$Google::Cloud::DataLabeling::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.datalabeling.v1beta1.dataset_pb2', globals())
@@ -38,36 +37,36 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LABELSTATS_EXAMPLECOUNTENTRY._serialized_options = b'8\001'
   _EXAMPLE._options = None
   _EXAMPLE._serialized_options = b'\352A\205\001\n#datalabeling.googleapis.com/Example\022^projects/{project}/datasets/{dataset}/annotatedDatasets/{annotated_dataset}/examples/{example}'
-  _DATATYPE._serialized_start=4404
-  _DATATYPE._serialized_end=4491
-  _DATASET._serialized_start=410
-  _DATASET._serialized_end=730
-  _INPUTCONFIG._serialized_start=733
-  _INPUTCONFIG._serialized_end=1230
-  _TEXTMETADATA._serialized_start=1232
-  _TEXTMETADATA._serialized_end=1269
-  _CLASSIFICATIONMETADATA._serialized_start=1271
-  _CLASSIFICATIONMETADATA._serialized_end=1319
-  _GCSSOURCE._serialized_start=1321
-  _GCSSOURCE._serialized_end=1370
-  _BIGQUERYSOURCE._serialized_start=1372
-  _BIGQUERYSOURCE._serialized_end=1407
-  _OUTPUTCONFIG._serialized_start=1410
-  _OUTPUTCONFIG._serialized_end=1608
-  _GCSDESTINATION._serialized_start=1610
-  _GCSDESTINATION._serialized_end=1665
-  _GCSFOLDERDESTINATION._serialized_start=1667
-  _GCSFOLDERDESTINATION._serialized_end=1716
-  _DATAITEM._serialized_start=1719
-  _DATAITEM._serialized_end=2078
-  _ANNOTATEDDATASET._serialized_start=2081
-  _ANNOTATEDDATASET._serialized_end=2720
-  _LABELSTATS._serialized_start=2723
-  _LABELSTATS._serialized_end=2876
-  _LABELSTATS_EXAMPLECOUNTENTRY._serialized_start=2825
-  _LABELSTATS_EXAMPLECOUNTENTRY._serialized_end=2876
-  _ANNOTATEDDATASETMETADATA._serialized_start=2879
-  _ANNOTATEDDATASETMETADATA._serialized_end=3937
-  _EXAMPLE._serialized_start=3940
-  _EXAMPLE._serialized_end=4402
+  _DATATYPE._serialized_start=4374
+  _DATATYPE._serialized_end=4461
+  _DATASET._serialized_start=380
+  _DATASET._serialized_end=700
+  _INPUTCONFIG._serialized_start=703
+  _INPUTCONFIG._serialized_end=1200
+  _TEXTMETADATA._serialized_start=1202
+  _TEXTMETADATA._serialized_end=1239
+  _CLASSIFICATIONMETADATA._serialized_start=1241
+  _CLASSIFICATIONMETADATA._serialized_end=1289
+  _GCSSOURCE._serialized_start=1291
+  _GCSSOURCE._serialized_end=1340
+  _BIGQUERYSOURCE._serialized_start=1342
+  _BIGQUERYSOURCE._serialized_end=1377
+  _OUTPUTCONFIG._serialized_start=1380
+  _OUTPUTCONFIG._serialized_end=1578
+  _GCSDESTINATION._serialized_start=1580
+  _GCSDESTINATION._serialized_end=1635
+  _GCSFOLDERDESTINATION._serialized_start=1637
+  _GCSFOLDERDESTINATION._serialized_end=1686
+  _DATAITEM._serialized_start=1689
+  _DATAITEM._serialized_end=2048
+  _ANNOTATEDDATASET._serialized_start=2051
+  _ANNOTATEDDATASET._serialized_end=2690
+  _LABELSTATS._serialized_start=2693
+  _LABELSTATS._serialized_end=2846
+  _LABELSTATS_EXAMPLECOUNTENTRY._serialized_start=2795
+  _LABELSTATS_EXAMPLECOUNTENTRY._serialized_end=2846
+  _ANNOTATEDDATASETMETADATA._serialized_start=2849
+  _ANNOTATEDDATASETMETADATA._serialized_end=3907
+  _EXAMPLE._serialized_start=3910
+  _EXAMPLE._serialized_end=4372
 # @@protoc_insertion_point(module_scope)

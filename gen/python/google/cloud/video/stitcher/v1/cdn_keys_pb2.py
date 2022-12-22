@@ -15,7 +15,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/video/stitcher/v1/cdn_keys.proto\x12\x1egoogle.cloud.video.stitcher.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"\xaf\x02\n\x06\x43\x64nKey\x12\x46\n\x0egoogle_cdn_key\x18\x05 \x01(\x0b\x32,.google.cloud.video.stitcher.v1.GoogleCdnKeyH\x00\x12\x46\n\x0e\x61kamai_cdn_key\x18\x06 \x01(\x0b\x32,.google.cloud.video.stitcher.v1.AkamaiCdnKeyH\x00\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08hostname\x18\x04 \x01(\t:c\xea\x41`\n#videostitcher.googleapis.com/CdnKey\x12\x39projects/{project}/locations/{location}/cdnKeys/{cdn_key}B\x10\n\x0e\x63\x64n_key_config\":\n\x0cGoogleCdnKey\x12\x18\n\x0bprivate_key\x18\x01 \x01(\x0c\x42\x03\xe0\x41\x04\x12\x10\n\x08key_name\x18\x02 \x01(\t\"&\n\x0c\x41kamaiCdnKey\x12\x16\n\ttoken_key\x18\x01 \x01(\x0c\x42\x03\xe0\x41\x04\x42|\n\"com.google.cloud.video.stitcher.v1B\x0c\x43\x64nKeysProtoP\x01ZFgoogle.golang.org/genproto/googleapis/cloud/video/stitcher/v1;stitcherb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/video/stitcher/v1/cdn_keys.proto\x12\x1egoogle.cloud.video.stitcher.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"\xf5\x02\n\x06\x43\x64nKey\x12\x46\n\x0egoogle_cdn_key\x18\x05 \x01(\x0b\x32,.google.cloud.video.stitcher.v1.GoogleCdnKeyH\x00\x12\x46\n\x0e\x61kamai_cdn_key\x18\x06 \x01(\x0b\x32,.google.cloud.video.stitcher.v1.AkamaiCdnKeyH\x00\x12\x44\n\rmedia_cdn_key\x18\x08 \x01(\x0b\x32+.google.cloud.video.stitcher.v1.MediaCdnKeyH\x00\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08hostname\x18\x04 \x01(\t:c\xea\x41`\n#videostitcher.googleapis.com/CdnKey\x12\x39projects/{project}/locations/{location}/cdnKeys/{cdn_key}B\x10\n\x0e\x63\x64n_key_config\":\n\x0cGoogleCdnKey\x12\x18\n\x0bprivate_key\x18\x01 \x01(\x0c\x42\x03\xe0\x41\x04\x12\x10\n\x08key_name\x18\x02 \x01(\t\"&\n\x0c\x41kamaiCdnKey\x12\x16\n\ttoken_key\x18\x01 \x01(\x0c\x42\x03\xe0\x41\x04\"9\n\x0bMediaCdnKey\x12\x18\n\x0bprivate_key\x18\x01 \x01(\x0c\x42\x03\xe0\x41\x04\x12\x10\n\x08key_name\x18\x02 \x01(\tB|\n\"com.google.cloud.video.stitcher.v1B\x0c\x43\x64nKeysProtoP\x01ZFgoogle.golang.org/genproto/googleapis/cloud/video/stitcher/v1;stitcherb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.video.stitcher.v1.cdn_keys_pb2', globals())
@@ -29,10 +29,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GOOGLECDNKEY.fields_by_name['private_key']._serialized_options = b'\340A\004'
   _AKAMAICDNKEY.fields_by_name['token_key']._options = None
   _AKAMAICDNKEY.fields_by_name['token_key']._serialized_options = b'\340A\004'
+  _MEDIACDNKEY.fields_by_name['private_key']._options = None
+  _MEDIACDNKEY.fields_by_name['private_key']._serialized_options = b'\340A\004'
   _CDNKEY._serialized_start=142
-  _CDNKEY._serialized_end=445
-  _GOOGLECDNKEY._serialized_start=447
-  _GOOGLECDNKEY._serialized_end=505
-  _AKAMAICDNKEY._serialized_start=507
-  _AKAMAICDNKEY._serialized_end=545
+  _CDNKEY._serialized_end=515
+  _GOOGLECDNKEY._serialized_start=517
+  _GOOGLECDNKEY._serialized_end=575
+  _AKAMAICDNKEY._serialized_start=577
+  _AKAMAICDNKEY._serialized_end=615
+  _MEDIACDNKEY._serialized_start=617
+  _MEDIACDNKEY._serialized_end=674
 # @@protoc_insertion_point(module_scope)

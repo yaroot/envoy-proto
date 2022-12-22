@@ -46,7 +46,6 @@ public interface EnvironmentOrBuilder extends
    *
    * <code>map&lt;string, string&gt; variables = 1;</code>
    */
-
   /* nullable */
 java.lang.String getVariablesOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; variables = 1;</code>
    */
-
   java.lang.String getVariablesOrThrow(
       java.lang.String key);
 }

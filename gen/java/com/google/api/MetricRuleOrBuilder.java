@@ -84,7 +84,6 @@ public interface MetricRuleOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
    */
-
   long getMetricCostsOrDefault(
       java.lang.String key,
       long defaultValue);
@@ -99,7 +98,6 @@ public interface MetricRuleOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
    */
-
   long getMetricCostsOrThrow(
       java.lang.String key);
 }

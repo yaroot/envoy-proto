@@ -34,72 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RouteObjective(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.maps.routes.v1.RouteObjective.RateCard.Builder subBuilder = null;
-            if (objectiveCase_ == 1) {
-              subBuilder = ((com.google.maps.routes.v1.RouteObjective.RateCard) objective_).toBuilder();
-            }
-            objective_ =
-                input.readMessage(com.google.maps.routes.v1.RouteObjective.RateCard.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.maps.routes.v1.RouteObjective.RateCard) objective_);
-              objective_ = subBuilder.buildPartial();
-            }
-            objectiveCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.maps.routes.v1.RouteObjective.CustomLayer.Builder subBuilder = null;
-            if (customLayer_ != null) {
-              subBuilder = customLayer_.toBuilder();
-            }
-            customLayer_ = input.readMessage(com.google.maps.routes.v1.RouteObjective.CustomLayer.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(customLayer_);
-              customLayer_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routes.v1.ComputeCustomRoutesRequestProto.internal_static_google_maps_routes_v1_RouteObjective_descriptor;
@@ -212,76 +146,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RateCard(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.Builder subBuilder = null;
-              if (costPerMinute_ != null) {
-                subBuilder = costPerMinute_.toBuilder();
-              }
-              costPerMinute_ = input.readMessage(com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(costPerMinute_);
-                costPerMinute_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.Builder subBuilder = null;
-              if (costPerKm_ != null) {
-                subBuilder = costPerKm_.toBuilder();
-              }
-              costPerKm_ = input.readMessage(com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(costPerKm_);
-                costPerKm_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
-
-              includeTolls_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.maps.routes.v1.ComputeCustomRoutesRequestProto.internal_static_google_maps_routes_v1_RouteObjective_RateCard_descriptor;
@@ -340,50 +204,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private MonetaryCost(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 9: {
-
-                value_ = input.readDouble();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.maps.routes.v1.ComputeCustomRoutesRequestProto.internal_static_google_maps_routes_v1_RouteObjective_RateCard_MonetaryCost_descriptor;
@@ -398,7 +218,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int VALUE_FIELD_NUMBER = 1;
-      private double value_;
+      private double value_ = 0D;
       /**
        * <pre>
        * Required. The cost value in local currency inferred from the request.
@@ -429,7 +249,7 @@ private static final long serialVersionUID = 0L;
         if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
           output.writeDouble(1, value_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -442,7 +262,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeDoubleSize(1, value_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -460,7 +280,7 @@ private static final long serialVersionUID = 0L;
         if (java.lang.Double.doubleToLongBits(getValue())
             != java.lang.Double.doubleToLongBits(
                 other.getValue())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -474,7 +294,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + VALUE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getValue()));
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -595,24 +415,19 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           value_ = 0D;
-
           return this;
         }
 
@@ -639,9 +454,16 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost buildPartial() {
           com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost result = new com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost(this);
-          result.value_ = value_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.value_ = value_;
+          }
         }
 
         @java.lang.Override
@@ -691,7 +513,7 @@ private static final long serialVersionUID = 0L;
           if (other.getValue() != 0D) {
             setValue(other.getValue());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -706,19 +528,38 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 9: {
+                  value_ = input.readDouble();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 9
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private double value_ ;
         /**
@@ -745,6 +586,7 @@ private static final long serialVersionUID = 0L;
         public Builder setValue(double value) {
           
           value_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -757,7 +599,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearValue() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           value_ = 0D;
           onChanged();
           return this;
@@ -795,7 +637,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MonetaryCost(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -850,7 +703,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCostOrBuilder getCostPerMinuteOrBuilder() {
-      return getCostPerMinute();
+      return costPerMinute_ == null ? com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.getDefaultInstance() : costPerMinute_;
     }
 
     public static final int COST_PER_KM_FIELD_NUMBER = 3;
@@ -888,11 +741,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCostOrBuilder getCostPerKmOrBuilder() {
-      return getCostPerKm();
+      return costPerKm_ == null ? com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.getDefaultInstance() : costPerKm_;
     }
 
     public static final int INCLUDE_TOLLS_FIELD_NUMBER = 4;
-    private boolean includeTolls_;
+    private boolean includeTolls_ = false;
     /**
      * <pre>
      * Optional. Whether to include toll cost in the overall cost.
@@ -929,7 +782,7 @@ private static final long serialVersionUID = 0L;
       if (includeTolls_ != false) {
         output.writeBool(4, includeTolls_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -950,7 +803,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, includeTolls_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -977,7 +830,7 @@ private static final long serialVersionUID = 0L;
       }
       if (getIncludeTolls()
           != other.getIncludeTolls()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -999,7 +852,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INCLUDE_TOLLS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIncludeTolls());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1120,36 +973,29 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.maps.routes.v1.RouteObjective.RateCard.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (costPerMinuteBuilder_ == null) {
-          costPerMinute_ = null;
-        } else {
-          costPerMinute_ = null;
+        bitField0_ = 0;
+        costPerMinute_ = null;
+        if (costPerMinuteBuilder_ != null) {
+          costPerMinuteBuilder_.dispose();
           costPerMinuteBuilder_ = null;
         }
-        if (costPerKmBuilder_ == null) {
-          costPerKm_ = null;
-        } else {
-          costPerKm_ = null;
+        costPerKm_ = null;
+        if (costPerKmBuilder_ != null) {
+          costPerKmBuilder_.dispose();
           costPerKmBuilder_ = null;
         }
         includeTolls_ = false;
-
         return this;
       }
 
@@ -1176,19 +1022,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.maps.routes.v1.RouteObjective.RateCard buildPartial() {
         com.google.maps.routes.v1.RouteObjective.RateCard result = new com.google.maps.routes.v1.RouteObjective.RateCard(this);
-        if (costPerMinuteBuilder_ == null) {
-          result.costPerMinute_ = costPerMinute_;
-        } else {
-          result.costPerMinute_ = costPerMinuteBuilder_.build();
-        }
-        if (costPerKmBuilder_ == null) {
-          result.costPerKm_ = costPerKm_;
-        } else {
-          result.costPerKm_ = costPerKmBuilder_.build();
-        }
-        result.includeTolls_ = includeTolls_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.maps.routes.v1.RouteObjective.RateCard result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.costPerMinute_ = costPerMinuteBuilder_ == null
+              ? costPerMinute_
+              : costPerMinuteBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.costPerKm_ = costPerKmBuilder_ == null
+              ? costPerKm_
+              : costPerKmBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.includeTolls_ = includeTolls_;
+        }
       }
 
       @java.lang.Override
@@ -1244,7 +1097,7 @@ private static final long serialVersionUID = 0L;
         if (other.getIncludeTolls() != false) {
           setIncludeTolls(other.getIncludeTolls());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1259,19 +1112,52 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.maps.routes.v1.RouteObjective.RateCard parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                input.readMessage(
+                    getCostPerMinuteFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getCostPerKmFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 26
+              case 32: {
+                includeTolls_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.maps.routes.v1.RouteObjective.RateCard) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost costPerMinute_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1285,7 +1171,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the costPerMinute field is set.
        */
       public boolean hasCostPerMinute() {
-        return costPerMinuteBuilder_ != null || costPerMinute_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1315,11 +1201,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           costPerMinute_ = value;
-          onChanged();
         } else {
           costPerMinuteBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1333,11 +1219,11 @@ private static final long serialVersionUID = 0L;
           com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.Builder builderForValue) {
         if (costPerMinuteBuilder_ == null) {
           costPerMinute_ = builderForValue.build();
-          onChanged();
         } else {
           costPerMinuteBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1349,17 +1235,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCostPerMinute(com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost value) {
         if (costPerMinuteBuilder_ == null) {
-          if (costPerMinute_ != null) {
-            costPerMinute_ =
-              com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.newBuilder(costPerMinute_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            costPerMinute_ != null &&
+            costPerMinute_ != com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.getDefaultInstance()) {
+            getCostPerMinuteBuilder().mergeFrom(value);
           } else {
             costPerMinute_ = value;
           }
-          onChanged();
         } else {
           costPerMinuteBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1370,14 +1257,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost cost_per_minute = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearCostPerMinute() {
-        if (costPerMinuteBuilder_ == null) {
-          costPerMinute_ = null;
-          onChanged();
-        } else {
-          costPerMinute_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        costPerMinute_ = null;
+        if (costPerMinuteBuilder_ != null) {
+          costPerMinuteBuilder_.dispose();
           costPerMinuteBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1388,7 +1274,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost cost_per_minute = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.Builder getCostPerMinuteBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getCostPerMinuteFieldBuilder().getBuilder();
       }
@@ -1440,7 +1326,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the costPerKm field is set.
        */
       public boolean hasCostPerKm() {
-        return costPerKmBuilder_ != null || costPerKm_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1470,11 +1356,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           costPerKm_ = value;
-          onChanged();
         } else {
           costPerKmBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1488,11 +1374,11 @@ private static final long serialVersionUID = 0L;
           com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.Builder builderForValue) {
         if (costPerKmBuilder_ == null) {
           costPerKm_ = builderForValue.build();
-          onChanged();
         } else {
           costPerKmBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1504,17 +1390,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCostPerKm(com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost value) {
         if (costPerKmBuilder_ == null) {
-          if (costPerKm_ != null) {
-            costPerKm_ =
-              com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.newBuilder(costPerKm_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            costPerKm_ != null &&
+            costPerKm_ != com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.getDefaultInstance()) {
+            getCostPerKmBuilder().mergeFrom(value);
           } else {
             costPerKm_ = value;
           }
-          onChanged();
         } else {
           costPerKmBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1525,14 +1412,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost cost_per_km = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearCostPerKm() {
-        if (costPerKmBuilder_ == null) {
-          costPerKm_ = null;
-          onChanged();
-        } else {
-          costPerKm_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        costPerKm_ = null;
+        if (costPerKmBuilder_ != null) {
+          costPerKmBuilder_.dispose();
           costPerKmBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1543,7 +1429,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost cost_per_km = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.maps.routes.v1.RouteObjective.RateCard.MonetaryCost.Builder getCostPerKmBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getCostPerKmFieldBuilder().getBuilder();
       }
@@ -1608,6 +1494,7 @@ private static final long serialVersionUID = 0L;
       public Builder setIncludeTolls(boolean value) {
         
         includeTolls_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1620,7 +1507,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearIncludeTolls() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         includeTolls_ = false;
         onChanged();
         return this;
@@ -1658,7 +1545,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RateCard(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1741,58 +1639,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CustomLayer(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo.Builder subBuilder = null;
-              if (datasetInfo_ != null) {
-                subBuilder = datasetInfo_.toBuilder();
-              }
-              datasetInfo_ = input.readMessage(com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(datasetInfo_);
-                datasetInfo_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.maps.routes.v1.ComputeCustomRoutesRequestProto.internal_static_google_maps_routes_v1_RouteObjective_CustomLayer_descriptor;
@@ -1868,51 +1714,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private DatasetInfo(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                datasetId_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.maps.routes.v1.ComputeCustomRoutesRequestProto.internal_static_google_maps_routes_v1_RouteObjective_CustomLayer_DatasetInfo_descriptor;
@@ -1927,7 +1728,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DATASET_ID_FIELD_NUMBER = 1;
-      private volatile java.lang.Object datasetId_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object datasetId_ = "";
       /**
        * <pre>
        * Required. ID of a customer uploaded dataset for which will be used to annotate or
@@ -1993,7 +1795,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(datasetId_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, datasetId_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2005,7 +1807,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(datasetId_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, datasetId_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2022,7 +1824,7 @@ private static final long serialVersionUID = 0L;
 
         if (!getDatasetId()
             .equals(other.getDatasetId())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2035,7 +1837,7 @@ private static final long serialVersionUID = 0L;
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + DATASET_ID_FIELD_NUMBER;
         hash = (53 * hash) + getDatasetId().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2158,24 +1960,19 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           datasetId_ = "";
-
           return this;
         }
 
@@ -2202,9 +1999,16 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo buildPartial() {
           com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo result = new com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo(this);
-          result.datasetId_ = datasetId_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.datasetId_ = datasetId_;
+          }
         }
 
         @java.lang.Override
@@ -2253,9 +2057,10 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo.getDefaultInstance()) return this;
           if (!other.getDatasetId().isEmpty()) {
             datasetId_ = other.datasetId_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2270,19 +2075,38 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  datasetId_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object datasetId_ = "";
         /**
@@ -2343,11 +2167,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDatasetId(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           datasetId_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2362,8 +2184,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearDatasetId() {
-          
           datasetId_ = getDefaultInstance().getDatasetId();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -2380,12 +2202,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDatasetIdBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           datasetId_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2422,7 +2242,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DatasetInfo(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2477,7 +2308,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfoOrBuilder getDatasetInfoOrBuilder() {
-      return getDatasetInfo();
+      return datasetInfo_ == null ? com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo.getDefaultInstance() : datasetInfo_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2497,7 +2328,7 @@ private static final long serialVersionUID = 0L;
       if (datasetInfo_ != null) {
         output.writeMessage(1, getDatasetInfo());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2510,7 +2341,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getDatasetInfo());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2530,7 +2361,7 @@ private static final long serialVersionUID = 0L;
         if (!getDatasetInfo()
             .equals(other.getDatasetInfo())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2545,7 +2376,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + DATASET_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getDatasetInfo().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2667,26 +2498,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.maps.routes.v1.RouteObjective.CustomLayer.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (datasetInfoBuilder_ == null) {
-          datasetInfo_ = null;
-        } else {
-          datasetInfo_ = null;
+        bitField0_ = 0;
+        datasetInfo_ = null;
+        if (datasetInfoBuilder_ != null) {
+          datasetInfoBuilder_.dispose();
           datasetInfoBuilder_ = null;
         }
         return this;
@@ -2715,13 +2541,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.maps.routes.v1.RouteObjective.CustomLayer buildPartial() {
         com.google.maps.routes.v1.RouteObjective.CustomLayer result = new com.google.maps.routes.v1.RouteObjective.CustomLayer(this);
-        if (datasetInfoBuilder_ == null) {
-          result.datasetInfo_ = datasetInfo_;
-        } else {
-          result.datasetInfo_ = datasetInfoBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.maps.routes.v1.RouteObjective.CustomLayer result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.datasetInfo_ = datasetInfoBuilder_ == null
+              ? datasetInfo_
+              : datasetInfoBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2771,7 +2602,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasDatasetInfo()) {
           mergeDatasetInfo(other.getDatasetInfo());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2786,19 +2617,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.maps.routes.v1.RouteObjective.CustomLayer parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getDatasetInfoFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.maps.routes.v1.RouteObjective.CustomLayer) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo datasetInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2812,7 +2664,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the datasetInfo field is set.
        */
       public boolean hasDatasetInfo() {
-        return datasetInfoBuilder_ != null || datasetInfo_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2842,11 +2694,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           datasetInfo_ = value;
-          onChanged();
         } else {
           datasetInfoBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2860,11 +2712,11 @@ private static final long serialVersionUID = 0L;
           com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo.Builder builderForValue) {
         if (datasetInfoBuilder_ == null) {
           datasetInfo_ = builderForValue.build();
-          onChanged();
         } else {
           datasetInfoBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2876,17 +2728,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeDatasetInfo(com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo value) {
         if (datasetInfoBuilder_ == null) {
-          if (datasetInfo_ != null) {
-            datasetInfo_ =
-              com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo.newBuilder(datasetInfo_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            datasetInfo_ != null &&
+            datasetInfo_ != com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo.getDefaultInstance()) {
+            getDatasetInfoBuilder().mergeFrom(value);
           } else {
             datasetInfo_ = value;
           }
-          onChanged();
         } else {
           datasetInfoBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2897,14 +2750,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo dataset_info = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearDatasetInfo() {
-        if (datasetInfoBuilder_ == null) {
-          datasetInfo_ = null;
-          onChanged();
-        } else {
-          datasetInfo_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        datasetInfo_ = null;
+        if (datasetInfoBuilder_ != null) {
+          datasetInfoBuilder_.dispose();
           datasetInfoBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2915,7 +2767,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo dataset_info = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.maps.routes.v1.RouteObjective.CustomLayer.DatasetInfo.Builder getDatasetInfoBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getDatasetInfoFieldBuilder().getBuilder();
       }
@@ -2987,7 +2839,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CustomLayer(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3139,7 +3002,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routes.v1.RouteObjective.CustomLayerOrBuilder getCustomLayerOrBuilder() {
-    return getCustomLayer();
+    return customLayer_ == null ? com.google.maps.routes.v1.RouteObjective.CustomLayer.getDefaultInstance() : customLayer_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3162,7 +3025,7 @@ private static final long serialVersionUID = 0L;
     if (customLayer_ != null) {
       output.writeMessage(2, getCustomLayer());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3179,7 +3042,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getCustomLayer());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3208,7 +3071,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3231,7 +3094,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3352,26 +3215,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routes.v1.RouteObjective.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (customLayerBuilder_ == null) {
-        customLayer_ = null;
-      } else {
-        customLayer_ = null;
+      bitField0_ = 0;
+      if (rateCardBuilder_ != null) {
+        rateCardBuilder_.clear();
+      }
+      customLayer_ = null;
+      if (customLayerBuilder_ != null) {
+        customLayerBuilder_.dispose();
         customLayerBuilder_ = null;
       }
       objectiveCase_ = 0;
@@ -3402,21 +3263,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routes.v1.RouteObjective buildPartial() {
       com.google.maps.routes.v1.RouteObjective result = new com.google.maps.routes.v1.RouteObjective(this);
-      if (objectiveCase_ == 1) {
-        if (rateCardBuilder_ == null) {
-          result.objective_ = objective_;
-        } else {
-          result.objective_ = rateCardBuilder_.build();
-        }
-      }
-      if (customLayerBuilder_ == null) {
-        result.customLayer_ = customLayer_;
-      } else {
-        result.customLayer_ = customLayerBuilder_.build();
-      }
-      result.objectiveCase_ = objectiveCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.routes.v1.RouteObjective result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.customLayer_ = customLayerBuilder_ == null
+            ? customLayer_
+            : customLayerBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.maps.routes.v1.RouteObjective result) {
+      result.objectiveCase_ = objectiveCase_;
+      result.objective_ = this.objective_;
+      if (objectiveCase_ == 1 &&
+          rateCardBuilder_ != null) {
+        result.objective_ = rateCardBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3475,7 +3343,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3490,17 +3358,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routes.v1.RouteObjective parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRateCardFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              objectiveCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCustomLayerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routes.v1.RouteObjective) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int objectiveCase_ = 0;
@@ -3518,6 +3413,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.maps.routes.v1.RouteObjective.RateCard, com.google.maps.routes.v1.RouteObjective.RateCard.Builder, com.google.maps.routes.v1.RouteObjective.RateCardOrBuilder> rateCardBuilder_;
@@ -3693,7 +3589,7 @@ private static final long serialVersionUID = 0L;
         objective_ = null;
       }
       objectiveCase_ = 1;
-      onChanged();;
+      onChanged();
       return rateCardBuilder_;
     }
 
@@ -3714,7 +3610,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the customLayer field is set.
      */
     public boolean hasCustomLayer() {
-      return customLayerBuilder_ != null || customLayer_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -3754,11 +3650,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         customLayer_ = value;
-        onChanged();
       } else {
         customLayerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3777,11 +3673,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routes.v1.RouteObjective.CustomLayer.Builder builderForValue) {
       if (customLayerBuilder_ == null) {
         customLayer_ = builderForValue.build();
-        onChanged();
       } else {
         customLayerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3798,17 +3694,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCustomLayer(com.google.maps.routes.v1.RouteObjective.CustomLayer value) {
       if (customLayerBuilder_ == null) {
-        if (customLayer_ != null) {
-          customLayer_ =
-            com.google.maps.routes.v1.RouteObjective.CustomLayer.newBuilder(customLayer_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          customLayer_ != null &&
+          customLayer_ != com.google.maps.routes.v1.RouteObjective.CustomLayer.getDefaultInstance()) {
+          getCustomLayerBuilder().mergeFrom(value);
         } else {
           customLayer_ = value;
         }
-        onChanged();
       } else {
         customLayerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3824,14 +3721,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.RouteObjective.CustomLayer custom_layer = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearCustomLayer() {
-      if (customLayerBuilder_ == null) {
-        customLayer_ = null;
-        onChanged();
-      } else {
-        customLayer_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      customLayer_ = null;
+      if (customLayerBuilder_ != null) {
+        customLayerBuilder_.dispose();
         customLayerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3847,7 +3743,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.RouteObjective.CustomLayer custom_layer = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.maps.routes.v1.RouteObjective.CustomLayer.Builder getCustomLayerBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCustomLayerFieldBuilder().getBuilder();
     }
@@ -3929,7 +3825,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RouteObjective(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

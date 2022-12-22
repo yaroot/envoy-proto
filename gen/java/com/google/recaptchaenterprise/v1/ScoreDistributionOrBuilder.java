@@ -54,7 +54,6 @@ public interface ScoreDistributionOrBuilder extends
    *
    * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
    */
-
   long getScoreBucketsOrDefault(
       int key,
       long defaultValue);
@@ -67,7 +66,6 @@ public interface ScoreDistributionOrBuilder extends
    *
    * <code>map&lt;int32, int64&gt; score_buckets = 1;</code>
    */
-
   long getScoreBucketsOrThrow(
       int key);
 }

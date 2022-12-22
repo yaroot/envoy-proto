@@ -21,6 +21,8 @@ private static final long serialVersionUID = 0L;
   }
   private ReviewDocumentResponse() {
     gcsDestination_ = "";
+    state_ = 0;
+    rejectionReason_ = "";
   }
 
   @java.lang.Override
@@ -35,51 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReviewDocumentResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gcsDestination_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.documentai.v1beta3.DocumentAiProcessorService.internal_static_google_cloud_documentai_v1beta3_ReviewDocumentResponse_descriptor;
@@ -93,11 +50,158 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.class, com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.Builder.class);
   }
 
-  public static final int GCS_DESTINATION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object gcsDestination_;
   /**
    * <pre>
-   * The Cloud Storage uri for the human reviewed document.
+   * Possible states of the review operation.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.documentai.v1beta3.ReviewDocumentResponse.State}
+   */
+  public enum State
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * The default value. This value is used if the state is omitted.
+     * </pre>
+     *
+     * <code>STATE_UNSPECIFIED = 0;</code>
+     */
+    STATE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * The review operation is rejected by the reviewer.
+     * </pre>
+     *
+     * <code>REJECTED = 1;</code>
+     */
+    REJECTED(1),
+    /**
+     * <pre>
+     * The review operation is succeeded.
+     * </pre>
+     *
+     * <code>SUCCEEDED = 2;</code>
+     */
+    SUCCEEDED(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * The default value. This value is used if the state is omitted.
+     * </pre>
+     *
+     * <code>STATE_UNSPECIFIED = 0;</code>
+     */
+    public static final int STATE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * The review operation is rejected by the reviewer.
+     * </pre>
+     *
+     * <code>REJECTED = 1;</code>
+     */
+    public static final int REJECTED_VALUE = 1;
+    /**
+     * <pre>
+     * The review operation is succeeded.
+     * </pre>
+     *
+     * <code>SUCCEEDED = 2;</code>
+     */
+    public static final int SUCCEEDED_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static State valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static State forNumber(int value) {
+      switch (value) {
+        case 0: return STATE_UNSPECIFIED;
+        case 1: return REJECTED;
+        case 2: return SUCCEEDED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<State>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        State> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<State>() {
+            public State findValueByNumber(int number) {
+              return State.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final State[] VALUES = values();
+
+    public static State valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private State(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.documentai.v1beta3.ReviewDocumentResponse.State)
+  }
+
+  public static final int GCS_DESTINATION_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gcsDestination_ = "";
+  /**
+   * <pre>
+   * The Cloud Storage uri for the human reviewed document if the review is
+   * succeeded.
    * </pre>
    *
    * <code>string gcs_destination = 1;</code>
@@ -118,7 +222,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The Cloud Storage uri for the human reviewed document.
+   * The Cloud Storage uri for the human reviewed document if the review is
+   * succeeded.
    * </pre>
    *
    * <code>string gcs_destination = 1;</code>
@@ -133,6 +238,79 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       gcsDestination_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int STATE_FIELD_NUMBER = 2;
+  private int state_ = 0;
+  /**
+   * <pre>
+   * The state of the review operation.
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State state = 2;</code>
+   * @return The enum numeric value on the wire for state.
+   */
+  @java.lang.Override public int getStateValue() {
+    return state_;
+  }
+  /**
+   * <pre>
+   * The state of the review operation.
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State state = 2;</code>
+   * @return The state.
+   */
+  @java.lang.Override public com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State getState() {
+    com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State result = com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State.forNumber(state_);
+    return result == null ? com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State.UNRECOGNIZED : result;
+  }
+
+  public static final int REJECTION_REASON_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object rejectionReason_ = "";
+  /**
+   * <pre>
+   * The reason why the review is rejected by reviewer.
+   * </pre>
+   *
+   * <code>string rejection_reason = 3;</code>
+   * @return The rejectionReason.
+   */
+  @java.lang.Override
+  public java.lang.String getRejectionReason() {
+    java.lang.Object ref = rejectionReason_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      rejectionReason_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The reason why the review is rejected by reviewer.
+   * </pre>
+   *
+   * <code>string rejection_reason = 3;</code>
+   * @return The bytes for rejectionReason.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRejectionReasonBytes() {
+    java.lang.Object ref = rejectionReason_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      rejectionReason_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -156,7 +334,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gcsDestination_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, gcsDestination_);
     }
-    unknownFields.writeTo(output);
+    if (state_ != com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State.STATE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(2, state_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rejectionReason_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, rejectionReason_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -168,7 +352,14 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gcsDestination_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, gcsDestination_);
     }
-    size += unknownFields.getSerializedSize();
+    if (state_ != com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State.STATE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(2, state_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rejectionReason_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, rejectionReason_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -185,7 +376,10 @@ private static final long serialVersionUID = 0L;
 
     if (!getGcsDestination()
         .equals(other.getGcsDestination())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (state_ != other.state_) return false;
+    if (!getRejectionReason()
+        .equals(other.getRejectionReason())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -198,7 +392,11 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + GCS_DESTINATION_FIELD_NUMBER;
     hash = (53 * hash) + getGcsDestination().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + STATE_FIELD_NUMBER;
+    hash = (53 * hash) + state_;
+    hash = (37 * hash) + REJECTION_REASON_FIELD_NUMBER;
+    hash = (53 * hash) + getRejectionReason().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -319,24 +517,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       gcsDestination_ = "";
-
+      state_ = 0;
+      rejectionReason_ = "";
       return this;
     }
 
@@ -363,9 +558,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.documentai.v1beta3.ReviewDocumentResponse buildPartial() {
       com.google.cloud.documentai.v1beta3.ReviewDocumentResponse result = new com.google.cloud.documentai.v1beta3.ReviewDocumentResponse(this);
-      result.gcsDestination_ = gcsDestination_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.documentai.v1beta3.ReviewDocumentResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.gcsDestination_ = gcsDestination_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.rejectionReason_ = rejectionReason_;
+      }
     }
 
     @java.lang.Override
@@ -414,9 +622,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.getDefaultInstance()) return this;
       if (!other.getGcsDestination().isEmpty()) {
         gcsDestination_ = other.gcsDestination_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.state_ != 0) {
+        setStateValue(other.getStateValue());
+      }
+      if (!other.getRejectionReason().isEmpty()) {
+        rejectionReason_ = other.rejectionReason_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -431,24 +648,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.documentai.v1beta3.ReviewDocumentResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              gcsDestination_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              rejectionReason_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.documentai.v1beta3.ReviewDocumentResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object gcsDestination_ = "";
     /**
      * <pre>
-     * The Cloud Storage uri for the human reviewed document.
+     * The Cloud Storage uri for the human reviewed document if the review is
+     * succeeded.
      * </pre>
      *
      * <code>string gcs_destination = 1;</code>
@@ -468,7 +715,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Cloud Storage uri for the human reviewed document.
+     * The Cloud Storage uri for the human reviewed document if the review is
+     * succeeded.
      * </pre>
      *
      * <code>string gcs_destination = 1;</code>
@@ -489,7 +737,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Cloud Storage uri for the human reviewed document.
+     * The Cloud Storage uri for the human reviewed document if the review is
+     * succeeded.
      * </pre>
      *
      * <code>string gcs_destination = 1;</code>
@@ -498,31 +747,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcsDestination(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gcsDestination_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The Cloud Storage uri for the human reviewed document.
+     * The Cloud Storage uri for the human reviewed document if the review is
+     * succeeded.
      * </pre>
      *
      * <code>string gcs_destination = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearGcsDestination() {
-      
       gcsDestination_ = getDefaultInstance().getGcsDestination();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The Cloud Storage uri for the human reviewed document.
+     * The Cloud Storage uri for the human reviewed document if the review is
+     * succeeded.
      * </pre>
      *
      * <code>string gcs_destination = 1;</code>
@@ -531,12 +780,175 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcsDestinationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gcsDestination_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
+    private int state_ = 0;
+    /**
+     * <pre>
+     * The state of the review operation.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State state = 2;</code>
+     * @return The enum numeric value on the wire for state.
+     */
+    @java.lang.Override public int getStateValue() {
+      return state_;
+    }
+    /**
+     * <pre>
+     * The state of the review operation.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State state = 2;</code>
+     * @param value The enum numeric value on the wire for state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStateValue(int value) {
+      state_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The state of the review operation.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State state = 2;</code>
+     * @return The state.
+     */
+    @java.lang.Override
+    public com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State getState() {
+      com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State result = com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State.forNumber(state_);
+      return result == null ? com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * The state of the review operation.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State state = 2;</code>
+     * @param value The state to set.
+     * @return This builder for chaining.
+     */
+    public Builder setState(com.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000002;
+      state_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The state of the review operation.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State state = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearState() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      state_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object rejectionReason_ = "";
+    /**
+     * <pre>
+     * The reason why the review is rejected by reviewer.
+     * </pre>
+     *
+     * <code>string rejection_reason = 3;</code>
+     * @return The rejectionReason.
+     */
+    public java.lang.String getRejectionReason() {
+      java.lang.Object ref = rejectionReason_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rejectionReason_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The reason why the review is rejected by reviewer.
+     * </pre>
+     *
+     * <code>string rejection_reason = 3;</code>
+     * @return The bytes for rejectionReason.
+     */
+    public com.google.protobuf.ByteString
+        getRejectionReasonBytes() {
+      java.lang.Object ref = rejectionReason_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rejectionReason_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The reason why the review is rejected by reviewer.
+     * </pre>
+     *
+     * <code>string rejection_reason = 3;</code>
+     * @param value The rejectionReason to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRejectionReason(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      rejectionReason_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The reason why the review is rejected by reviewer.
+     * </pre>
+     *
+     * <code>string rejection_reason = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRejectionReason() {
+      rejectionReason_ = getDefaultInstance().getRejectionReason();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The reason why the review is rejected by reviewer.
+     * </pre>
+     *
+     * <code>string rejection_reason = 3;</code>
+     * @param value The bytes for rejectionReason to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRejectionReasonBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      rejectionReason_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -573,7 +985,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReviewDocumentResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

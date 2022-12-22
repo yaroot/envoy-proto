@@ -36,115 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Topic(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 26: {
-            com.google.pubsub.v1.MessageStoragePolicy.Builder subBuilder = null;
-            if (messageStoragePolicy_ != null) {
-              subBuilder = messageStoragePolicy_.toBuilder();
-            }
-            messageStoragePolicy_ = input.readMessage(com.google.pubsub.v1.MessageStoragePolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(messageStoragePolicy_);
-              messageStoragePolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kmsKeyName_ = s;
-            break;
-          }
-          case 50: {
-            com.google.pubsub.v1.SchemaSettings.Builder subBuilder = null;
-            if (schemaSettings_ != null) {
-              subBuilder = schemaSettings_.toBuilder();
-            }
-            schemaSettings_ = input.readMessage(com.google.pubsub.v1.SchemaSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(schemaSettings_);
-              schemaSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-
-            satisfiesPzs_ = input.readBool();
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (messageRetentionDuration_ != null) {
-              subBuilder = messageRetentionDuration_.toBuilder();
-            }
-            messageRetentionDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(messageRetentionDuration_);
-              messageRetentionDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.pubsub.v1.PubsubProto.internal_static_google_pubsub_v1_Topic_descriptor;
@@ -171,7 +62,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The name of the topic. It must have the format
@@ -238,6 +130,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -248,7 +141,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -260,7 +152,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -284,7 +175,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -297,10 +187,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -315,7 +206,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -368,11 +258,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.pubsub.v1.MessageStoragePolicyOrBuilder getMessageStoragePolicyOrBuilder() {
-    return getMessageStoragePolicy();
+    return messageStoragePolicy_ == null ? com.google.pubsub.v1.MessageStoragePolicy.getDefaultInstance() : messageStoragePolicy_;
   }
 
   public static final int KMS_KEY_NAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object kmsKeyName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyName_ = "";
   /**
    * <pre>
    * The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -456,11 +347,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.pubsub.v1.SchemaSettingsOrBuilder getSchemaSettingsOrBuilder() {
-    return getSchemaSettings();
+    return schemaSettings_ == null ? com.google.pubsub.v1.SchemaSettings.getDefaultInstance() : schemaSettings_;
   }
 
   public static final int SATISFIES_PZS_FIELD_NUMBER = 7;
-  private boolean satisfiesPzs_;
+  private boolean satisfiesPzs_ = false;
   /**
    * <pre>
    * Reserved for future use. This field is set only in responses from the
@@ -531,7 +422,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMessageRetentionDurationOrBuilder() {
-    return getMessageRetentionDuration();
+    return messageRetentionDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : messageRetentionDuration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -572,7 +463,7 @@ private static final long serialVersionUID = 0L;
     if (messageRetentionDuration_ != null) {
       output.writeMessage(8, getMessageRetentionDuration());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -613,7 +504,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getMessageRetentionDuration());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -651,7 +542,7 @@ private static final long serialVersionUID = 0L;
       if (!getMessageRetentionDuration()
           .equals(other.getMessageRetentionDuration())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -685,7 +576,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MESSAGE_RETENTION_DURATION_FIELD_NUMBER;
       hash = (53 * hash) + getMessageRetentionDuration().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -828,45 +719,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.pubsub.v1.Topic.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       internalGetMutableLabels().clear();
-      if (messageStoragePolicyBuilder_ == null) {
-        messageStoragePolicy_ = null;
-      } else {
-        messageStoragePolicy_ = null;
+      messageStoragePolicy_ = null;
+      if (messageStoragePolicyBuilder_ != null) {
+        messageStoragePolicyBuilder_.dispose();
         messageStoragePolicyBuilder_ = null;
       }
       kmsKeyName_ = "";
-
-      if (schemaSettingsBuilder_ == null) {
-        schemaSettings_ = null;
-      } else {
-        schemaSettings_ = null;
+      schemaSettings_ = null;
+      if (schemaSettingsBuilder_ != null) {
+        schemaSettingsBuilder_.dispose();
         schemaSettingsBuilder_ = null;
       }
       satisfiesPzs_ = false;
-
-      if (messageRetentionDurationBuilder_ == null) {
-        messageRetentionDuration_ = null;
-      } else {
-        messageRetentionDuration_ = null;
+      messageRetentionDuration_ = null;
+      if (messageRetentionDurationBuilder_ != null) {
+        messageRetentionDurationBuilder_.dispose();
         messageRetentionDurationBuilder_ = null;
       }
       return this;
@@ -895,29 +776,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.pubsub.v1.Topic buildPartial() {
       com.google.pubsub.v1.Topic result = new com.google.pubsub.v1.Topic(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (messageStoragePolicyBuilder_ == null) {
-        result.messageStoragePolicy_ = messageStoragePolicy_;
-      } else {
-        result.messageStoragePolicy_ = messageStoragePolicyBuilder_.build();
-      }
-      result.kmsKeyName_ = kmsKeyName_;
-      if (schemaSettingsBuilder_ == null) {
-        result.schemaSettings_ = schemaSettings_;
-      } else {
-        result.schemaSettings_ = schemaSettingsBuilder_.build();
-      }
-      result.satisfiesPzs_ = satisfiesPzs_;
-      if (messageRetentionDurationBuilder_ == null) {
-        result.messageRetentionDuration_ = messageRetentionDuration_;
-      } else {
-        result.messageRetentionDuration_ = messageRetentionDurationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.pubsub.v1.Topic result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.messageStoragePolicy_ = messageStoragePolicyBuilder_ == null
+            ? messageStoragePolicy_
+            : messageStoragePolicyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.kmsKeyName_ = kmsKeyName_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.schemaSettings_ = schemaSettingsBuilder_ == null
+            ? schemaSettings_
+            : schemaSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.satisfiesPzs_ = satisfiesPzs_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.messageRetentionDuration_ = messageRetentionDurationBuilder_ == null
+            ? messageRetentionDuration_
+            : messageRetentionDurationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -966,15 +859,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.pubsub.v1.Topic.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000002;
       if (other.hasMessageStoragePolicy()) {
         mergeMessageStoragePolicy(other.getMessageStoragePolicy());
       }
       if (!other.getKmsKeyName().isEmpty()) {
         kmsKeyName_ = other.kmsKeyName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasSchemaSettings()) {
@@ -986,7 +882,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMessageRetentionDuration()) {
         mergeMessageRetentionDuration(other.getMessageRetentionDuration());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1001,17 +897,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.pubsub.v1.Topic parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getMessageStoragePolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              kmsKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getSchemaSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 56: {
+              satisfiesPzs_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getMessageRetentionDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.pubsub.v1.Topic) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1084,11 +1038,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1106,8 +1058,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1127,12 +1079,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1140,7 +1090,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1148,8 +1098,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1157,9 +1106,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -1171,7 +1121,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -1195,7 +1144,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -1208,10 +1156,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -1226,7 +1175,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1237,8 +1185,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -1251,7 +1199,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1264,7 +1211,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -1279,12 +1227,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1295,11 +1241,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 2;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -1317,7 +1263,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the messageStoragePolicy field is set.
      */
     public boolean hasMessageStoragePolicy() {
-      return messageStoragePolicyBuilder_ != null || messageStoragePolicy_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1351,11 +1297,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         messageStoragePolicy_ = value;
-        onChanged();
       } else {
         messageStoragePolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1371,11 +1317,11 @@ private static final long serialVersionUID = 0L;
         com.google.pubsub.v1.MessageStoragePolicy.Builder builderForValue) {
       if (messageStoragePolicyBuilder_ == null) {
         messageStoragePolicy_ = builderForValue.build();
-        onChanged();
       } else {
         messageStoragePolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1389,17 +1335,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMessageStoragePolicy(com.google.pubsub.v1.MessageStoragePolicy value) {
       if (messageStoragePolicyBuilder_ == null) {
-        if (messageStoragePolicy_ != null) {
-          messageStoragePolicy_ =
-            com.google.pubsub.v1.MessageStoragePolicy.newBuilder(messageStoragePolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          messageStoragePolicy_ != null &&
+          messageStoragePolicy_ != com.google.pubsub.v1.MessageStoragePolicy.getDefaultInstance()) {
+          getMessageStoragePolicyBuilder().mergeFrom(value);
         } else {
           messageStoragePolicy_ = value;
         }
-        onChanged();
       } else {
         messageStoragePolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1412,14 +1359,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.MessageStoragePolicy message_storage_policy = 3;</code>
      */
     public Builder clearMessageStoragePolicy() {
-      if (messageStoragePolicyBuilder_ == null) {
-        messageStoragePolicy_ = null;
-        onChanged();
-      } else {
-        messageStoragePolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      messageStoragePolicy_ = null;
+      if (messageStoragePolicyBuilder_ != null) {
+        messageStoragePolicyBuilder_.dispose();
         messageStoragePolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1432,7 +1378,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.MessageStoragePolicy message_storage_policy = 3;</code>
      */
     public com.google.pubsub.v1.MessageStoragePolicy.Builder getMessageStoragePolicyBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMessageStoragePolicyFieldBuilder().getBuilder();
     }
@@ -1535,11 +1481,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1554,8 +1498,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKmsKeyName() {
-      
       kmsKeyName_ = getDefaultInstance().getKmsKeyName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1572,12 +1516,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1594,7 +1536,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the schemaSettings field is set.
      */
     public boolean hasSchemaSettings() {
-      return schemaSettingsBuilder_ != null || schemaSettings_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1624,11 +1566,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         schemaSettings_ = value;
-        onChanged();
       } else {
         schemaSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1642,11 +1584,11 @@ private static final long serialVersionUID = 0L;
         com.google.pubsub.v1.SchemaSettings.Builder builderForValue) {
       if (schemaSettingsBuilder_ == null) {
         schemaSettings_ = builderForValue.build();
-        onChanged();
       } else {
         schemaSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1658,17 +1600,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSchemaSettings(com.google.pubsub.v1.SchemaSettings value) {
       if (schemaSettingsBuilder_ == null) {
-        if (schemaSettings_ != null) {
-          schemaSettings_ =
-            com.google.pubsub.v1.SchemaSettings.newBuilder(schemaSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          schemaSettings_ != null &&
+          schemaSettings_ != com.google.pubsub.v1.SchemaSettings.getDefaultInstance()) {
+          getSchemaSettingsBuilder().mergeFrom(value);
         } else {
           schemaSettings_ = value;
         }
-        onChanged();
       } else {
         schemaSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1679,14 +1622,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.SchemaSettings schema_settings = 6;</code>
      */
     public Builder clearSchemaSettings() {
-      if (schemaSettingsBuilder_ == null) {
-        schemaSettings_ = null;
-        onChanged();
-      } else {
-        schemaSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      schemaSettings_ = null;
+      if (schemaSettingsBuilder_ != null) {
+        schemaSettingsBuilder_.dispose();
         schemaSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1697,7 +1639,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.pubsub.v1.SchemaSettings schema_settings = 6;</code>
      */
     public com.google.pubsub.v1.SchemaSettings.Builder getSchemaSettingsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getSchemaSettingsFieldBuilder().getBuilder();
     }
@@ -1764,6 +1706,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSatisfiesPzs(boolean value) {
       
       satisfiesPzs_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1777,7 +1720,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSatisfiesPzs() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       satisfiesPzs_ = false;
       onChanged();
       return this;
@@ -1802,7 +1745,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the messageRetentionDuration field is set.
      */
     public boolean hasMessageRetentionDuration() {
-      return messageRetentionDurationBuilder_ != null || messageRetentionDuration_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1846,11 +1789,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         messageRetentionDuration_ = value;
-        onChanged();
       } else {
         messageRetentionDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1871,11 +1814,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (messageRetentionDurationBuilder_ == null) {
         messageRetentionDuration_ = builderForValue.build();
-        onChanged();
       } else {
         messageRetentionDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1894,17 +1837,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMessageRetentionDuration(com.google.protobuf.Duration value) {
       if (messageRetentionDurationBuilder_ == null) {
-        if (messageRetentionDuration_ != null) {
-          messageRetentionDuration_ =
-            com.google.protobuf.Duration.newBuilder(messageRetentionDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          messageRetentionDuration_ != null &&
+          messageRetentionDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMessageRetentionDurationBuilder().mergeFrom(value);
         } else {
           messageRetentionDuration_ = value;
         }
-        onChanged();
       } else {
         messageRetentionDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1922,14 +1866,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration message_retention_duration = 8;</code>
      */
     public Builder clearMessageRetentionDuration() {
-      if (messageRetentionDurationBuilder_ == null) {
-        messageRetentionDuration_ = null;
-        onChanged();
-      } else {
-        messageRetentionDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      messageRetentionDuration_ = null;
+      if (messageRetentionDurationBuilder_ != null) {
+        messageRetentionDurationBuilder_.dispose();
         messageRetentionDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1947,7 +1890,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration message_retention_duration = 8;</code>
      */
     public com.google.protobuf.Duration.Builder getMessageRetentionDurationBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getMessageRetentionDurationFieldBuilder().getBuilder();
     }
@@ -2033,7 +1976,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Topic(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

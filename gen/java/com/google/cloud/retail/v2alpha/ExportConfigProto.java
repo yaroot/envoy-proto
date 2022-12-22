@@ -44,6 +44,11 @@ public final class ExportConfigProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_retail_v2alpha_BigQueryOutputResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_retail_v2alpha_GcsOutputResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_retail_v2alpha_GcsOutputResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -72,17 +77,20 @@ public final class ExportConfigProto {
       ".rpc.Status\022F\n\rerrors_config\030\002 \001(\0132/.goo" +
       "gle.cloud.retail.v2alpha.ExportErrorsCon" +
       "fig\022@\n\routput_result\030\003 \001(\0132).google.clou" +
-      "d.retail.v2alpha.OutputResult\"Z\n\014OutputR" +
-      "esult\022J\n\017bigquery_result\030\001 \003(\01321.google." +
-      "cloud.retail.v2alpha.BigQueryOutputResul" +
-      "t\"<\n\024BigQueryOutputResult\022\022\n\ndataset_id\030" +
-      "\001 \001(\t\022\020\n\010table_id\030\002 \001(\tB\337\001\n\037com.google.c" +
-      "loud.retail.v2alphaB\021ExportConfigProtoP\001" +
-      "ZAgoogle.golang.org/genproto/googleapis/" +
-      "cloud/retail/v2alpha;retail\242\002\006RETAIL\252\002\033G" +
-      "oogle.Cloud.Retail.V2Alpha\312\002\033Google\\Clou" +
-      "d\\Retail\\V2alpha\352\002\036Google::Cloud::Retail" +
-      "::V2alphab\006proto3"
+      "d.retail.v2alpha.OutputResult\"\234\001\n\014Output" +
+      "Result\022J\n\017bigquery_result\030\001 \003(\01321.google" +
+      ".cloud.retail.v2alpha.BigQueryOutputResu" +
+      "lt\022@\n\ngcs_result\030\002 \003(\0132,.google.cloud.re" +
+      "tail.v2alpha.GcsOutputResult\"<\n\024BigQuery" +
+      "OutputResult\022\022\n\ndataset_id\030\001 \001(\t\022\020\n\010tabl" +
+      "e_id\030\002 \001(\t\"%\n\017GcsOutputResult\022\022\n\noutput_" +
+      "uri\030\001 \001(\tB\337\001\n\037com.google.cloud.retail.v2" +
+      "alphaB\021ExportConfigProtoP\001ZAgoogle.golan" +
+      "g.org/genproto/googleapis/cloud/retail/v" +
+      "2alpha;retail\242\002\006RETAIL\252\002\033Google.Cloud.Re" +
+      "tail.V2Alpha\312\002\033Google\\Cloud\\Retail\\V2alp" +
+      "ha\352\002\036Google::Cloud::Retail::V2alphab\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -121,13 +129,19 @@ public final class ExportConfigProto {
     internal_static_google_cloud_retail_v2alpha_OutputResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_retail_v2alpha_OutputResult_descriptor,
-        new java.lang.String[] { "BigqueryResult", });
+        new java.lang.String[] { "BigqueryResult", "GcsResult", });
     internal_static_google_cloud_retail_v2alpha_BigQueryOutputResult_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_google_cloud_retail_v2alpha_BigQueryOutputResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_retail_v2alpha_BigQueryOutputResult_descriptor,
         new java.lang.String[] { "DatasetId", "TableId", });
+    internal_static_google_cloud_retail_v2alpha_GcsOutputResult_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_google_cloud_retail_v2alpha_GcsOutputResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_retail_v2alpha_GcsOutputResult_descriptor,
+        new java.lang.String[] { "OutputUri", });
     com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.api.ResourceProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

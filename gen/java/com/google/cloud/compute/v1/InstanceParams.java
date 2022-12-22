@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InstanceParams(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case -1273597982: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              resourceManagerTags_ = com.google.protobuf.MapField.newMapField(
-                  ResourceManagerTagsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            resourceManagerTags__ = input.readMessage(
-                ResourceManagerTagsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            resourceManagerTags_.getMutableMap().put(
-                resourceManagerTags__.getKey(), resourceManagerTags__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_InstanceParams_descriptor;
@@ -124,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> resourceManagerTags_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -134,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return resourceManagerTags_;
   }
-
   public int getResourceManagerTagsCount() {
     return internalGetResourceManagerTags().getMap().size();
   }
@@ -145,7 +92,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
    */
-
   @java.lang.Override
   public boolean containsResourceManagerTags(
       java.lang.String key) {
@@ -168,7 +114,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getResourceManagerTagsMap() {
     return internalGetResourceManagerTags().getMap();
   }
@@ -180,10 +125,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getResourceManagerTagsOrDefault(
+  public /* nullable */
+java.lang.String getResourceManagerTagsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetResourceManagerTags().getMap();
@@ -197,7 +143,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
    */
   @java.lang.Override
-
   public java.lang.String getResourceManagerTagsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -229,7 +174,7 @@ private static final long serialVersionUID = 0L;
         internalGetResourceManagerTags(),
         ResourceManagerTagsDefaultEntryHolder.defaultEntry,
         377671164);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -248,7 +193,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(377671164, resourceManagerTags__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -265,7 +210,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetResourceManagerTags().equals(
         other.internalGetResourceManagerTags())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -280,7 +225,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESOURCE_MANAGER_TAGS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetResourceManagerTags().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -423,22 +368,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.InstanceParams.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableResourceManagerTags().clear();
       return this;
     }
@@ -466,11 +407,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.InstanceParams buildPartial() {
       com.google.cloud.compute.v1.InstanceParams result = new com.google.cloud.compute.v1.InstanceParams(this);
-      int from_bitField0_ = bitField0_;
-      result.resourceManagerTags_ = internalGetResourceManagerTags();
-      result.resourceManagerTags_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.InstanceParams result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceManagerTags_ = internalGetResourceManagerTags();
+        result.resourceManagerTags_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -519,7 +466,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.compute.v1.InstanceParams.getDefaultInstance()) return this;
       internalGetMutableResourceManagerTags().mergeFrom(
           other.internalGetResourceManagerTags());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -534,17 +482,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.InstanceParams parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case -1273597982: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              resourceManagerTags__ = input.readMessage(
+                  ResourceManagerTagsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableResourceManagerTags().getMutableMap().put(
+                  resourceManagerTags__.getKey(), resourceManagerTags__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1273597982
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.InstanceParams) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -552,7 +522,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> resourceManagerTags_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetResourceManagerTags() {
+        internalGetResourceManagerTags() {
       if (resourceManagerTags_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ResourceManagerTagsDefaultEntryHolder.defaultEntry);
@@ -560,8 +530,7 @@ private static final long serialVersionUID = 0L;
       return resourceManagerTags_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableResourceManagerTags() {
-      onChanged();;
+        internalGetMutableResourceManagerTags() {
       if (resourceManagerTags_ == null) {
         resourceManagerTags_ = com.google.protobuf.MapField.newMapField(
             ResourceManagerTagsDefaultEntryHolder.defaultEntry);
@@ -569,9 +538,10 @@ private static final long serialVersionUID = 0L;
       if (!resourceManagerTags_.isMutable()) {
         resourceManagerTags_ = resourceManagerTags_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return resourceManagerTags_;
     }
-
     public int getResourceManagerTagsCount() {
       return internalGetResourceManagerTags().getMap().size();
     }
@@ -582,7 +552,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
      */
-
     @java.lang.Override
     public boolean containsResourceManagerTags(
         java.lang.String key) {
@@ -605,7 +574,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getResourceManagerTagsMap() {
       return internalGetResourceManagerTags().getMap();
     }
@@ -617,10 +585,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getResourceManagerTagsOrDefault(
+    public /* nullable */
+java.lang.String getResourceManagerTagsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetResourceManagerTags().getMap();
@@ -634,7 +603,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
      */
     @java.lang.Override
-
     public java.lang.String getResourceManagerTagsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -645,8 +613,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearResourceManagerTags() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableResourceManagerTags().getMutableMap()
           .clear();
       return this;
@@ -658,7 +626,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
      */
-
     public Builder removeResourceManagerTags(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -671,7 +638,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableResourceManagerTags() {
+        getMutableResourceManagerTags() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableResourceManagerTags().getMutableMap();
     }
     /**
@@ -685,12 +653,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableResourceManagerTags().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -700,11 +666,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; resource_manager_tags = 377671164;</code>
      */
-
     public Builder putAllResourceManagerTags(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableResourceManagerTags().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -740,7 +706,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InstanceParams(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

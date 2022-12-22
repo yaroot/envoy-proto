@@ -72,7 +72,6 @@ public interface AuditDataOrBuilder extends
    *
    * <code>map&lt;string, string&gt; event_data = 2;</code>
    */
-
   /* nullable */
 java.lang.String getEventDataOrDefault(
       java.lang.String key,
@@ -86,7 +85,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; event_data = 2;</code>
    */
-
   java.lang.String getEventDataOrThrow(
       java.lang.String key);
 }

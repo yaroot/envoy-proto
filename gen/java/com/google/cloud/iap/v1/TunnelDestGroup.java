@@ -37,76 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TunnelDestGroup(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              cidrs_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            cidrs_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              fqdns_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            fqdns_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        cidrs_ = cidrs_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        fqdns_ = fqdns_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iap.v1.Service.internal_static_google_cloud_iap_v1_TunnelDestGroup_descriptor;
@@ -121,11 +51,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the
-   * project.
+   * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+   * within the project and contain only lower case letters (a-z) and dashes
+   * (-).
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -146,8 +78,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the
-   * project.
+   * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+   * within the project and contain only lower case letters (a-z) and dashes
+   * (-).
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -169,10 +102,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CIDRS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList cidrs_;
   /**
    * <pre>
-   * null List of CIDRs that this group applies to.
+   * Unordered list. List of CIDRs that this group applies to.
    * </pre>
    *
    * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -184,7 +118,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * null List of CIDRs that this group applies to.
+   * Unordered list. List of CIDRs that this group applies to.
    * </pre>
    *
    * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -195,7 +129,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * null List of CIDRs that this group applies to.
+   * Unordered list. List of CIDRs that this group applies to.
    * </pre>
    *
    * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -207,7 +141,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * null List of CIDRs that this group applies to.
+   * Unordered list. List of CIDRs that this group applies to.
    * </pre>
    *
    * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -220,10 +154,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FQDNS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList fqdns_;
   /**
    * <pre>
-   * null List of FQDNs that this group applies to.
+   * Unordered list. List of FQDNs that this group applies to.
    * </pre>
    *
    * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -235,7 +170,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * null List of FQDNs that this group applies to.
+   * Unordered list. List of FQDNs that this group applies to.
    * </pre>
    *
    * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -246,7 +181,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * null List of FQDNs that this group applies to.
+   * Unordered list. List of FQDNs that this group applies to.
    * </pre>
    *
    * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -258,7 +193,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * null List of FQDNs that this group applies to.
+   * Unordered list. List of FQDNs that this group applies to.
    * </pre>
    *
    * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -293,7 +228,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < fqdns_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fqdns_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -321,7 +256,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getFqdnsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -342,7 +277,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCidrsList())) return false;
     if (!getFqdnsList()
         .equals(other.getFqdnsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -363,7 +298,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FQDNS_FIELD_NUMBER;
       hash = (53 * hash) + getFqdnsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -484,28 +419,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iap.v1.TunnelDestGroup.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       cidrs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      fqdns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
+      fqdns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -532,20 +462,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iap.v1.TunnelDestGroup buildPartial() {
       com.google.cloud.iap.v1.TunnelDestGroup result = new com.google.cloud.iap.v1.TunnelDestGroup(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        cidrs_ = cidrs_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.cidrs_ = cidrs_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        fqdns_ = fqdns_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.fqdns_ = fqdns_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.iap.v1.TunnelDestGroup result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        cidrs_ = cidrs_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.cidrs_ = cidrs_;
+      if (((bitField0_ & 0x00000004) != 0)) {
+        fqdns_ = fqdns_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.fqdns_ = fqdns_;
+    }
+
+    private void buildPartial0(com.google.cloud.iap.v1.TunnelDestGroup result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
     }
 
     @java.lang.Override
@@ -594,12 +534,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.iap.v1.TunnelDestGroup.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.cidrs_.isEmpty()) {
         if (cidrs_.isEmpty()) {
           cidrs_ = other.cidrs_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureCidrsIsMutable();
           cidrs_.addAll(other.cidrs_);
@@ -609,14 +550,14 @@ private static final long serialVersionUID = 0L;
       if (!other.fqdns_.isEmpty()) {
         if (fqdns_.isEmpty()) {
           fqdns_ = other.fqdns_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureFqdnsIsMutable();
           fqdns_.addAll(other.fqdns_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -631,17 +572,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iap.v1.TunnelDestGroup parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCidrsIsMutable();
+              cidrs_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFqdnsIsMutable();
+              fqdns_.add(s);
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iap.v1.TunnelDestGroup) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -649,8 +620,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the
-     * project.
+     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+     * within the project and contain only lower case letters (a-z) and dashes
+     * (-).
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -670,8 +642,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the
-     * project.
+     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+     * within the project and contain only lower case letters (a-z) and dashes
+     * (-).
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -692,8 +665,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the
-     * project.
+     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+     * within the project and contain only lower case letters (a-z) and dashes
+     * (-).
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -702,33 +676,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the
-     * project.
+     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+     * within the project and contain only lower case letters (a-z) and dashes
+     * (-).
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique within the
-     * project.
+     * Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
+     * within the project and contain only lower case letters (a-z) and dashes
+     * (-).
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -737,26 +711,24 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList cidrs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCidrsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         cidrs_ = new com.google.protobuf.LazyStringArrayList(cidrs_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
      * <pre>
-     * null List of CIDRs that this group applies to.
+     * Unordered list. List of CIDRs that this group applies to.
      * </pre>
      *
      * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -768,7 +740,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of CIDRs that this group applies to.
+     * Unordered list. List of CIDRs that this group applies to.
      * </pre>
      *
      * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -779,7 +751,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of CIDRs that this group applies to.
+     * Unordered list. List of CIDRs that this group applies to.
      * </pre>
      *
      * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -791,7 +763,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of CIDRs that this group applies to.
+     * Unordered list. List of CIDRs that this group applies to.
      * </pre>
      *
      * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -804,7 +776,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of CIDRs that this group applies to.
+     * Unordered list. List of CIDRs that this group applies to.
      * </pre>
      *
      * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -814,17 +786,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCidrs(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCidrsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCidrsIsMutable();
       cidrs_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * null List of CIDRs that this group applies to.
+     * Unordered list. List of CIDRs that this group applies to.
      * </pre>
      *
      * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -833,17 +803,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCidrs(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCidrsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCidrsIsMutable();
       cidrs_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * null List of CIDRs that this group applies to.
+     * Unordered list. List of CIDRs that this group applies to.
      * </pre>
      *
      * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -860,7 +828,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of CIDRs that this group applies to.
+     * Unordered list. List of CIDRs that this group applies to.
      * </pre>
      *
      * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -868,13 +836,13 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCidrs() {
       cidrs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * null List of CIDRs that this group applies to.
+     * Unordered list. List of CIDRs that this group applies to.
      * </pre>
      *
      * <code>repeated string cidrs = 2 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -883,10 +851,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCidrsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCidrsIsMutable();
       cidrs_.add(value);
       onChanged();
@@ -895,14 +861,14 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList fqdns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFqdnsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         fqdns_ = new com.google.protobuf.LazyStringArrayList(fqdns_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
      * <pre>
-     * null List of FQDNs that this group applies to.
+     * Unordered list. List of FQDNs that this group applies to.
      * </pre>
      *
      * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -914,7 +880,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of FQDNs that this group applies to.
+     * Unordered list. List of FQDNs that this group applies to.
      * </pre>
      *
      * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -925,7 +891,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of FQDNs that this group applies to.
+     * Unordered list. List of FQDNs that this group applies to.
      * </pre>
      *
      * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -937,7 +903,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of FQDNs that this group applies to.
+     * Unordered list. List of FQDNs that this group applies to.
      * </pre>
      *
      * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -950,7 +916,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of FQDNs that this group applies to.
+     * Unordered list. List of FQDNs that this group applies to.
      * </pre>
      *
      * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -960,17 +926,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFqdns(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFqdnsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFqdnsIsMutable();
       fqdns_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * null List of FQDNs that this group applies to.
+     * Unordered list. List of FQDNs that this group applies to.
      * </pre>
      *
      * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -979,17 +943,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFqdns(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFqdnsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFqdnsIsMutable();
       fqdns_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * null List of FQDNs that this group applies to.
+     * Unordered list. List of FQDNs that this group applies to.
      * </pre>
      *
      * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -1006,7 +968,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * null List of FQDNs that this group applies to.
+     * Unordered list. List of FQDNs that this group applies to.
      * </pre>
      *
      * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -1014,13 +976,13 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFqdns() {
       fqdns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * null List of FQDNs that this group applies to.
+     * Unordered list. List of FQDNs that this group applies to.
      * </pre>
      *
      * <code>repeated string fqdns = 3 [(.google.api.field_behavior) = UNORDERED_LIST];</code>
@@ -1029,10 +991,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFqdnsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFqdnsIsMutable();
       fqdns_.add(value);
       onChanged();
@@ -1071,7 +1031,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TunnelDestGroup(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,8 +9,9 @@ public interface CreateAzureClusterRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The parent location where this [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource
-   * will be created.
+   * Required. The parent location where this
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource will be
+   * created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -22,8 +23,9 @@ public interface CreateAzureClusterRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The parent location where this [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource
-   * will be created.
+   * Required. The parent location where this
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource will be
+   * created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -37,7 +39,8 @@ public interface CreateAzureClusterRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+   * Required. The specification of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -46,7 +49,8 @@ public interface CreateAzureClusterRequestOrBuilder extends
   boolean hasAzureCluster();
   /**
    * <pre>
-   * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+   * Required. The specification of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -55,7 +59,8 @@ public interface CreateAzureClusterRequestOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AzureCluster getAzureCluster();
   /**
    * <pre>
-   * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+   * Required. The specification of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -64,12 +69,13 @@ public interface CreateAzureClusterRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_cluster_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -78,12 +84,13 @@ public interface CreateAzureClusterRequestOrBuilder extends
   java.lang.String getAzureClusterId();
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_cluster_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>

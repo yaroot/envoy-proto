@@ -9,7 +9,8 @@ public interface BuildEventOrBuilder extends
 
   /**
    * <pre>
-   * The timestamp of this event.
+   * This should be precisely the time when this event happened, and not when
+   * the event proto was created or sent.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp event_time = 1;</code>
@@ -18,7 +19,8 @@ public interface BuildEventOrBuilder extends
   boolean hasEventTime();
   /**
    * <pre>
-   * The timestamp of this event.
+   * This should be precisely the time when this event happened, and not when
+   * the event proto was created or sent.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp event_time = 1;</code>
@@ -27,7 +29,8 @@ public interface BuildEventOrBuilder extends
   com.google.protobuf.Timestamp getEventTime();
   /**
    * <pre>
-   * The timestamp of this event.
+   * This should be precisely the time when this event happened, and not when
+   * the event proto was created or sent.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp event_time = 1;</code>

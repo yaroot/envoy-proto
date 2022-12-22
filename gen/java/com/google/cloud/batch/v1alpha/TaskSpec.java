@@ -37,139 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TaskSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26: {
-            com.google.cloud.batch.v1alpha.ComputeResource.Builder subBuilder = null;
-            if (computeResource_ != null) {
-              subBuilder = computeResource_.toBuilder();
-            }
-            computeResource_ = input.readMessage(com.google.cloud.batch.v1alpha.ComputeResource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(computeResource_);
-              computeResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maxRunDuration_ != null) {
-              subBuilder = maxRunDuration_.toBuilder();
-            }
-            maxRunDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxRunDuration_);
-              maxRunDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            maxRetryCount_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              environments_ = com.google.protobuf.MapField.newMapField(
-                  EnvironmentsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            environments__ = input.readMessage(
-                EnvironmentsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            environments_.getMutableMap().put(
-                environments__.getKey(), environments__.getValue());
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              volumes_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.Volume>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            volumes_.add(
-                input.readMessage(com.google.cloud.batch.v1alpha.Volume.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              runnables_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.Runnable>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            runnables_.add(
-                input.readMessage(com.google.cloud.batch.v1alpha.Runnable.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              lifecyclePolicies_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.LifecyclePolicy>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            lifecyclePolicies_.add(
-                input.readMessage(com.google.cloud.batch.v1alpha.LifecyclePolicy.parser(), extensionRegistry));
-            break;
-          }
-          case 82: {
-            com.google.cloud.batch.v1alpha.Environment.Builder subBuilder = null;
-            if (environment_ != null) {
-              subBuilder = environment_.toBuilder();
-            }
-            environment_ = input.readMessage(com.google.cloud.batch.v1alpha.Environment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(environment_);
-              environment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        volumes_ = java.util.Collections.unmodifiableList(volumes_);
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        runnables_ = java.util.Collections.unmodifiableList(runnables_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        lifecyclePolicies_ = java.util.Collections.unmodifiableList(lifecyclePolicies_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.batch.v1alpha.TaskProto.internal_static_google_cloud_batch_v1alpha_TaskSpec_descriptor;
@@ -196,6 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RUNNABLES_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.batch.v1alpha.Runnable> runnables_;
   /**
    * <pre>
@@ -330,7 +198,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1alpha.ComputeResourceOrBuilder getComputeResourceOrBuilder() {
-    return getComputeResource();
+    return computeResource_ == null ? com.google.cloud.batch.v1alpha.ComputeResource.getDefaultInstance() : computeResource_;
   }
 
   public static final int MAX_RUN_DURATION_FIELD_NUMBER = 4;
@@ -371,11 +239,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaxRunDurationOrBuilder() {
-    return getMaxRunDuration();
+    return maxRunDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxRunDuration_;
   }
 
   public static final int MAX_RETRY_COUNT_FIELD_NUMBER = 5;
-  private int maxRetryCount_;
+  private int maxRetryCount_ = 0;
   /**
    * <pre>
    * Maximum number of retries on failures.
@@ -392,6 +260,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LIFECYCLE_POLICIES_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.batch.v1alpha.LifecyclePolicy> lifecyclePolicies_;
   /**
    * <pre>
@@ -503,6 +372,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> environments_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -513,21 +383,18 @@ private static final long serialVersionUID = 0L;
     }
     return environments_;
   }
-  @java.lang.Deprecated 
-  public int getEnvironmentsCount() {
+  @java.lang.Deprecated public int getEnvironmentsCount() {
     return internalGetEnvironments().getMap().size();
   }
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
    * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
   @java.lang.Override
-  public boolean containsEnvironments(
+  @java.lang.Deprecated public boolean containsEnvironments(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
     return internalGetEnvironments().getMap().containsKey(key);
@@ -542,30 +409,28 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
    * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated 
-  public java.util.Map<java.lang.String, java.lang.String> getEnvironmentsMap() {
+  @java.lang.Deprecated public java.util.Map<java.lang.String, java.lang.String> getEnvironmentsMap() {
     return internalGetEnvironments().getMap();
   }
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
    * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated 
-  public java.lang.String getEnvironmentsOrDefault(
+  @java.lang.Deprecated public /* nullable */
+java.lang.String getEnvironmentsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetEnvironments().getMap();
@@ -573,15 +438,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
    * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated 
-  public java.lang.String getEnvironmentsOrThrow(
+  @java.lang.Deprecated public java.lang.String getEnvironmentsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
@@ -593,6 +456,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VOLUMES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.batch.v1alpha.Volume> volumes_;
   /**
    * <pre>
@@ -687,7 +551,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1alpha.EnvironmentOrBuilder getEnvironmentOrBuilder() {
-    return getEnvironment();
+    return environment_ == null ? com.google.cloud.batch.v1alpha.Environment.getDefaultInstance() : environment_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -731,7 +595,7 @@ private static final long serialVersionUID = 0L;
     if (environment_ != null) {
       output.writeMessage(10, getEnvironment());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -778,7 +642,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getEnvironment());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -818,7 +682,7 @@ private static final long serialVersionUID = 0L;
       if (!getEnvironment()
           .equals(other.getEnvironment())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -859,7 +723,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENVIRONMENT_FIELD_NUMBER;
       hash = (53 * hash) + getEnvironment().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1002,62 +866,54 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.batch.v1alpha.TaskSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRunnablesFieldBuilder();
-        getLifecyclePoliciesFieldBuilder();
-        getVolumesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (runnablesBuilder_ == null) {
         runnables_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        runnables_ = null;
         runnablesBuilder_.clear();
       }
-      if (computeResourceBuilder_ == null) {
-        computeResource_ = null;
-      } else {
-        computeResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      computeResource_ = null;
+      if (computeResourceBuilder_ != null) {
+        computeResourceBuilder_.dispose();
         computeResourceBuilder_ = null;
       }
-      if (maxRunDurationBuilder_ == null) {
-        maxRunDuration_ = null;
-      } else {
-        maxRunDuration_ = null;
+      maxRunDuration_ = null;
+      if (maxRunDurationBuilder_ != null) {
+        maxRunDurationBuilder_.dispose();
         maxRunDurationBuilder_ = null;
       }
       maxRetryCount_ = 0;
-
       if (lifecyclePoliciesBuilder_ == null) {
         lifecyclePolicies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        lifecyclePolicies_ = null;
         lifecyclePoliciesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableEnvironments().clear();
       if (volumesBuilder_ == null) {
         volumes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        volumes_ = null;
         volumesBuilder_.clear();
       }
-      if (environmentBuilder_ == null) {
-        environment_ = null;
-      } else {
-        environment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      environment_ = null;
+      if (environmentBuilder_ != null) {
+        environmentBuilder_.dispose();
         environmentBuilder_ = null;
       }
       return this;
@@ -1086,7 +942,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.batch.v1alpha.TaskSpec buildPartial() {
       com.google.cloud.batch.v1alpha.TaskSpec result = new com.google.cloud.batch.v1alpha.TaskSpec(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.batch.v1alpha.TaskSpec result) {
       if (runnablesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           runnables_ = java.util.Collections.unmodifiableList(runnables_);
@@ -1096,44 +958,50 @@ private static final long serialVersionUID = 0L;
       } else {
         result.runnables_ = runnablesBuilder_.build();
       }
-      if (computeResourceBuilder_ == null) {
-        result.computeResource_ = computeResource_;
-      } else {
-        result.computeResource_ = computeResourceBuilder_.build();
-      }
-      if (maxRunDurationBuilder_ == null) {
-        result.maxRunDuration_ = maxRunDuration_;
-      } else {
-        result.maxRunDuration_ = maxRunDurationBuilder_.build();
-      }
-      result.maxRetryCount_ = maxRetryCount_;
       if (lifecyclePoliciesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           lifecyclePolicies_ = java.util.Collections.unmodifiableList(lifecyclePolicies_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.lifecyclePolicies_ = lifecyclePolicies_;
       } else {
         result.lifecyclePolicies_ = lifecyclePoliciesBuilder_.build();
       }
-      result.environments_ = internalGetEnvironments();
-      result.environments_.makeImmutable();
       if (volumesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           volumes_ = java.util.Collections.unmodifiableList(volumes_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.volumes_ = volumes_;
       } else {
         result.volumes_ = volumesBuilder_.build();
       }
-      if (environmentBuilder_ == null) {
-        result.environment_ = environment_;
-      } else {
-        result.environment_ = environmentBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.batch.v1alpha.TaskSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.computeResource_ = computeResourceBuilder_ == null
+            ? computeResource_
+            : computeResourceBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxRunDuration_ = maxRunDurationBuilder_ == null
+            ? maxRunDuration_
+            : maxRunDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.maxRetryCount_ = maxRetryCount_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.environments_ = internalGetEnvironments();
+        result.environments_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.environment_ = environmentBuilder_ == null
+            ? environment_
+            : environmentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1219,7 +1087,7 @@ private static final long serialVersionUID = 0L;
         if (!other.lifecyclePolicies_.isEmpty()) {
           if (lifecyclePolicies_.isEmpty()) {
             lifecyclePolicies_ = other.lifecyclePolicies_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureLifecyclePoliciesIsMutable();
             lifecyclePolicies_.addAll(other.lifecyclePolicies_);
@@ -1232,7 +1100,7 @@ private static final long serialVersionUID = 0L;
             lifecyclePoliciesBuilder_.dispose();
             lifecyclePoliciesBuilder_ = null;
             lifecyclePolicies_ = other.lifecyclePolicies_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
             lifecyclePoliciesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLifecyclePoliciesFieldBuilder() : null;
@@ -1243,11 +1111,12 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableEnvironments().mergeFrom(
           other.internalGetEnvironments());
+      bitField0_ |= 0x00000020;
       if (volumesBuilder_ == null) {
         if (!other.volumes_.isEmpty()) {
           if (volumes_.isEmpty()) {
             volumes_ = other.volumes_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureVolumesIsMutable();
             volumes_.addAll(other.volumes_);
@@ -1260,7 +1129,7 @@ private static final long serialVersionUID = 0L;
             volumesBuilder_.dispose();
             volumesBuilder_ = null;
             volumes_ = other.volumes_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000040);
             volumesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVolumesFieldBuilder() : null;
@@ -1272,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEnvironment()) {
         mergeEnvironment(other.getEnvironment());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1287,17 +1156,104 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.batch.v1alpha.TaskSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              input.readMessage(
+                  getComputeResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMaxRunDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 40: {
+              maxRetryCount_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              environments__ = input.readMessage(
+                  EnvironmentsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableEnvironments().getMutableMap().put(
+                  environments__.getKey(), environments__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.cloud.batch.v1alpha.Volume m =
+                  input.readMessage(
+                      com.google.cloud.batch.v1alpha.Volume.parser(),
+                      extensionRegistry);
+              if (volumesBuilder_ == null) {
+                ensureVolumesIsMutable();
+                volumes_.add(m);
+              } else {
+                volumesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              com.google.cloud.batch.v1alpha.Runnable m =
+                  input.readMessage(
+                      com.google.cloud.batch.v1alpha.Runnable.parser(),
+                      extensionRegistry);
+              if (runnablesBuilder_ == null) {
+                ensureRunnablesIsMutable();
+                runnables_.add(m);
+              } else {
+                runnablesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              com.google.cloud.batch.v1alpha.LifecyclePolicy m =
+                  input.readMessage(
+                      com.google.cloud.batch.v1alpha.LifecyclePolicy.parser(),
+                      extensionRegistry);
+              if (lifecyclePoliciesBuilder_ == null) {
+                ensureLifecyclePoliciesIsMutable();
+                lifecyclePolicies_.add(m);
+              } else {
+                lifecyclePoliciesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getEnvironmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.batch.v1alpha.TaskSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1770,7 +1726,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the computeResource field is set.
      */
     public boolean hasComputeResource() {
-      return computeResourceBuilder_ != null || computeResource_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1800,11 +1756,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         computeResource_ = value;
-        onChanged();
       } else {
         computeResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1818,11 +1774,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.ComputeResource.Builder builderForValue) {
       if (computeResourceBuilder_ == null) {
         computeResource_ = builderForValue.build();
-        onChanged();
       } else {
         computeResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1834,17 +1790,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeComputeResource(com.google.cloud.batch.v1alpha.ComputeResource value) {
       if (computeResourceBuilder_ == null) {
-        if (computeResource_ != null) {
-          computeResource_ =
-            com.google.cloud.batch.v1alpha.ComputeResource.newBuilder(computeResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          computeResource_ != null &&
+          computeResource_ != com.google.cloud.batch.v1alpha.ComputeResource.getDefaultInstance()) {
+          getComputeResourceBuilder().mergeFrom(value);
         } else {
           computeResource_ = value;
         }
-        onChanged();
       } else {
         computeResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1855,14 +1812,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.ComputeResource compute_resource = 3;</code>
      */
     public Builder clearComputeResource() {
-      if (computeResourceBuilder_ == null) {
-        computeResource_ = null;
-        onChanged();
-      } else {
-        computeResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      computeResource_ = null;
+      if (computeResourceBuilder_ != null) {
+        computeResourceBuilder_.dispose();
         computeResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1873,7 +1829,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.ComputeResource compute_resource = 3;</code>
      */
     public com.google.cloud.batch.v1alpha.ComputeResource.Builder getComputeResourceBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getComputeResourceFieldBuilder().getBuilder();
     }
@@ -1926,7 +1882,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxRunDuration field is set.
      */
     public boolean hasMaxRunDuration() {
-      return maxRunDurationBuilder_ != null || maxRunDuration_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1958,11 +1914,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxRunDuration_ = value;
-        onChanged();
       } else {
         maxRunDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1977,11 +1933,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maxRunDurationBuilder_ == null) {
         maxRunDuration_ = builderForValue.build();
-        onChanged();
       } else {
         maxRunDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1994,17 +1950,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxRunDuration(com.google.protobuf.Duration value) {
       if (maxRunDurationBuilder_ == null) {
-        if (maxRunDuration_ != null) {
-          maxRunDuration_ =
-            com.google.protobuf.Duration.newBuilder(maxRunDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          maxRunDuration_ != null &&
+          maxRunDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaxRunDurationBuilder().mergeFrom(value);
         } else {
           maxRunDuration_ = value;
         }
-        onChanged();
       } else {
         maxRunDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2016,14 +1973,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_run_duration = 4;</code>
      */
     public Builder clearMaxRunDuration() {
-      if (maxRunDurationBuilder_ == null) {
-        maxRunDuration_ = null;
-        onChanged();
-      } else {
-        maxRunDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      maxRunDuration_ = null;
+      if (maxRunDurationBuilder_ != null) {
+        maxRunDurationBuilder_.dispose();
         maxRunDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2035,7 +1991,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_run_duration = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getMaxRunDurationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMaxRunDurationFieldBuilder().getBuilder();
     }
@@ -2106,6 +2062,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxRetryCount(int value) {
       
       maxRetryCount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2120,7 +2077,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxRetryCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       maxRetryCount_ = 0;
       onChanged();
       return this;
@@ -2129,9 +2086,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.batch.v1alpha.LifecyclePolicy> lifecyclePolicies_ =
       java.util.Collections.emptyList();
     private void ensureLifecyclePoliciesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         lifecyclePolicies_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.LifecyclePolicy>(lifecyclePolicies_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2413,7 +2370,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLifecyclePolicies() {
       if (lifecyclePoliciesBuilder_ == null) {
         lifecyclePolicies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         lifecyclePoliciesBuilder_.clear();
@@ -2574,7 +2531,7 @@ private static final long serialVersionUID = 0L;
         lifecyclePoliciesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.batch.v1alpha.LifecyclePolicy, com.google.cloud.batch.v1alpha.LifecyclePolicy.Builder, com.google.cloud.batch.v1alpha.LifecyclePolicyOrBuilder>(
                 lifecyclePolicies_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         lifecyclePolicies_ = null;
@@ -2584,17 +2541,16 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> environments_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEnvironments() {
+    @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetEnvironments() {
       if (environments_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             EnvironmentsDefaultEntryHolder.defaultEntry);
       }
       return environments_;
     }
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableEnvironments() {
-      onChanged();;
+    @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableEnvironments() {
       if (environments_ == null) {
         environments_ = com.google.protobuf.MapField.newMapField(
             EnvironmentsDefaultEntryHolder.defaultEntry);
@@ -2602,23 +2558,22 @@ private static final long serialVersionUID = 0L;
       if (!environments_.isMutable()) {
         environments_ = environments_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return environments_;
     }
-    @java.lang.Deprecated 
-    public int getEnvironmentsCount() {
+    @java.lang.Deprecated public int getEnvironmentsCount() {
       return internalGetEnvironments().getMap().size();
     }
     /**
      * <pre>
-     * Environment variables to set before running the Task.
-     * You can set up to 100 environments.
+     * Deprecated: please use environment(non-plural) instead.
      * </pre>
      *
      * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
     @java.lang.Override
-    public boolean containsEnvironments(
+    @java.lang.Deprecated public boolean containsEnvironments(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       return internalGetEnvironments().getMap().containsKey(key);
@@ -2633,30 +2588,28 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Environment variables to set before running the Task.
-     * You can set up to 100 environments.
+     * Deprecated: please use environment(non-plural) instead.
      * </pre>
      *
      * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public java.util.Map<java.lang.String, java.lang.String> getEnvironmentsMap() {
+    @java.lang.Deprecated public java.util.Map<java.lang.String, java.lang.String> getEnvironmentsMap() {
       return internalGetEnvironments().getMap();
     }
     /**
      * <pre>
-     * Environment variables to set before running the Task.
-     * You can set up to 100 environments.
+     * Deprecated: please use environment(non-plural) instead.
      * </pre>
      *
      * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public java.lang.String getEnvironmentsOrDefault(
+    @java.lang.Deprecated public /* nullable */
+java.lang.String getEnvironmentsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetEnvironments().getMap();
@@ -2664,15 +2617,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Environment variables to set before running the Task.
-     * You can set up to 100 environments.
+     * Deprecated: please use environment(non-plural) instead.
      * </pre>
      *
      * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public java.lang.String getEnvironmentsOrThrow(
+    @java.lang.Deprecated public java.lang.String getEnvironmentsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
@@ -2682,22 +2633,20 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-    @java.lang.Deprecated 
-    public Builder clearEnvironments() {
+    @java.lang.Deprecated public Builder clearEnvironments() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableEnvironments().getMutableMap()
           .clear();
       return this;
     }
     /**
      * <pre>
-     * Environment variables to set before running the Task.
-     * You can set up to 100 environments.
+     * Deprecated: please use environment(non-plural) instead.
      * </pre>
      *
      * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public Builder removeEnvironments(
+    @java.lang.Deprecated public Builder removeEnvironments(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableEnvironments().getMutableMap()
@@ -2709,13 +2658,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableEnvironments() {
+        getMutableEnvironments() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableEnvironments().getMutableMap();
     }
     /**
      * <pre>
-     * Environment variables to set before running the Task.
-     * You can set up to 100 environments.
+     * Deprecated: please use environment(non-plural) instead.
      * </pre>
      *
      * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
@@ -2724,36 +2673,33 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableEnvironments().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
      * <pre>
-     * Environment variables to set before running the Task.
-     * You can set up to 100 environments.
+     * Deprecated: please use environment(non-plural) instead.
      * </pre>
      *
      * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public Builder putAllEnvironments(
+    @java.lang.Deprecated public Builder putAllEnvironments(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableEnvironments().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
     private java.util.List<com.google.cloud.batch.v1alpha.Volume> volumes_ =
       java.util.Collections.emptyList();
     private void ensureVolumesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         volumes_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.Volume>(volumes_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2947,7 +2893,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearVolumes() {
       if (volumesBuilder_ == null) {
         volumes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         volumesBuilder_.clear();
@@ -3052,7 +2998,7 @@ private static final long serialVersionUID = 0L;
         volumesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.batch.v1alpha.Volume, com.google.cloud.batch.v1alpha.Volume.Builder, com.google.cloud.batch.v1alpha.VolumeOrBuilder>(
                 volumes_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         volumes_ = null;
@@ -3072,7 +3018,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the environment field is set.
      */
     public boolean hasEnvironment() {
-      return environmentBuilder_ != null || environment_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3102,11 +3048,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         environment_ = value;
-        onChanged();
       } else {
         environmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3120,11 +3066,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.Environment.Builder builderForValue) {
       if (environmentBuilder_ == null) {
         environment_ = builderForValue.build();
-        onChanged();
       } else {
         environmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3136,17 +3082,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnvironment(com.google.cloud.batch.v1alpha.Environment value) {
       if (environmentBuilder_ == null) {
-        if (environment_ != null) {
-          environment_ =
-            com.google.cloud.batch.v1alpha.Environment.newBuilder(environment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          environment_ != null &&
+          environment_ != com.google.cloud.batch.v1alpha.Environment.getDefaultInstance()) {
+          getEnvironmentBuilder().mergeFrom(value);
         } else {
           environment_ = value;
         }
-        onChanged();
       } else {
         environmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3157,14 +3104,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.Environment environment = 10;</code>
      */
     public Builder clearEnvironment() {
-      if (environmentBuilder_ == null) {
-        environment_ = null;
-        onChanged();
-      } else {
-        environment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      environment_ = null;
+      if (environmentBuilder_ != null) {
+        environmentBuilder_.dispose();
         environmentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3175,7 +3121,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.Environment environment = 10;</code>
      */
     public com.google.cloud.batch.v1alpha.Environment.Builder getEnvironmentBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getEnvironmentFieldBuilder().getBuilder();
     }
@@ -3247,7 +3193,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TaskSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -38,136 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BackendServiceCdnPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 231023106: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            cacheMode_ = s;
-            break;
-          }
-          case 232274880: {
-            bitField0_ |= 0x00000004;
-            clientTtl_ = input.readInt32();
-            break;
-          }
-          case 802027376: {
-            bitField0_ |= 0x00000008;
-            defaultTtl_ = input.readInt32();
-            break;
-          }
-          case 1242879970: {
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              negativeCachingPolicy_ = new java.util.ArrayList<com.google.cloud.compute.v1.BackendServiceCdnPolicyNegativeCachingPolicy>();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            negativeCachingPolicy_.add(
-                input.readMessage(com.google.cloud.compute.v1.BackendServiceCdnPolicyNegativeCachingPolicy.parser(), extensionRegistry));
-            break;
-          }
-          case 1274109818: {
-            com.google.cloud.compute.v1.CacheKeyPolicy.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = cacheKeyPolicy_.toBuilder();
-            }
-            cacheKeyPolicy_ = input.readMessage(com.google.cloud.compute.v1.CacheKeyPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cacheKeyPolicy_);
-              cacheKeyPolicy_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 1893457624: {
-            bitField0_ |= 0x00000080;
-            serveWhileStale_ = input.readInt32();
-            break;
-          }
-          case -2139971024: {
-            bitField0_ |= 0x00000100;
-            signedUrlCacheMaxAgeSec_ = input.readInt64();
-            break;
-          }
-          case -1834343288: {
-            bitField0_ |= 0x00000010;
-            maxTtl_ = input.readInt32();
-            break;
-          }
-          case -1606087256: {
-            bitField0_ |= 0x00000020;
-            negativeCaching_ = input.readBool();
-            break;
-          }
-          case -1320176214: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000800) != 0)) {
-              signedUrlKeyNames_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000800;
-            }
-            signedUrlKeyNames_.add(s);
-            break;
-          }
-          case -405342638: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              bypassCacheOnRequestHeaders_ = new java.util.ArrayList<com.google.cloud.compute.v1.BackendServiceCdnPolicyBypassCacheOnRequestHeader>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            bypassCacheOnRequestHeaders_.add(
-                input.readMessage(com.google.cloud.compute.v1.BackendServiceCdnPolicyBypassCacheOnRequestHeader.parser(), extensionRegistry));
-            break;
-          }
-          case -32501088: {
-            bitField0_ |= 0x00000040;
-            requestCoalescing_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        negativeCachingPolicy_ = java.util.Collections.unmodifiableList(negativeCachingPolicy_);
-      }
-      if (((mutable_bitField0_ & 0x00000800) != 0)) {
-        signedUrlKeyNames_ = signedUrlKeyNames_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        bypassCacheOnRequestHeaders_ = java.util.Collections.unmodifiableList(bypassCacheOnRequestHeaders_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_BackendServiceCdnPolicy_descriptor;
@@ -354,6 +224,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int BYPASS_CACHE_ON_REQUEST_HEADERS_FIELD_NUMBER = 486203082;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.BackendServiceCdnPolicyBypassCacheOnRequestHeader> bypassCacheOnRequestHeaders_;
   /**
    * <pre>
@@ -452,7 +323,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CACHE_MODE_FIELD_NUMBER = 28877888;
-  private volatile java.lang.Object cacheMode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cacheMode_ = "";
   /**
    * <pre>
    * Specifies the cache setting for all responses from this backend. The possible values are: USE_ORIGIN_HEADERS Requires the origin to set valid caching headers to cache content. Responses without these headers will not be cached at Google's edge, and will require a full trip to the origin on every request, potentially impacting performance and increasing load on the origin server. FORCE_CACHE_ALL Cache all content, ignoring any "private", "no-store" or "no-cache" directives in Cache-Control response headers. Warning: this may result in Cloud CDN caching private, per-user (user identifiable) content. CACHE_ALL_STATIC Automatically cache static content, including common image formats, media (video and audio), and web assets (JavaScript and CSS). Requests and responses that are marked as uncacheable, as well as dynamic content (including HTML), will not be cached.
@@ -513,7 +385,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_TTL_FIELD_NUMBER = 29034360;
-  private int clientTtl_;
+  private int clientTtl_ = 0;
   /**
    * <pre>
    * Specifies a separate client (e.g. browser client) maximum TTL. This is used to clamp the max-age (or Expires) value sent to the client. With FORCE_CACHE_ALL, the lesser of client_ttl and default_ttl is used for the response max-age directive, along with a "public" directive. For cacheable content in CACHE_ALL_STATIC mode, client_ttl clamps the max-age from the origin (if specified), or else sets the response max-age directive to the lesser of the client_ttl and default_ttl, and also ensures a "public" cache-control directive is present. If a client TTL is not specified, a default value (1 hour) will be used. The maximum allowed value is 31,622,400s (1 year).
@@ -540,7 +412,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_TTL_FIELD_NUMBER = 100253422;
-  private int defaultTtl_;
+  private int defaultTtl_ = 0;
   /**
    * <pre>
    * Specifies the default TTL for cached content served by this origin for responses that do not have an existing valid TTL (max-age or s-max-age). Setting a TTL of "0" means "always revalidate". The value of defaultTTL cannot be set to a value greater than that of maxTTL, but can be equal. When the cacheMode is set to FORCE_CACHE_ALL, the defaultTTL will overwrite the TTL set in all responses. The maximum allowed value is 31,622,400s (1 year), noting that infrequently accessed objects may be evicted from the cache before the defined TTL.
@@ -567,7 +439,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_TTL_FIELD_NUMBER = 307578001;
-  private int maxTtl_;
+  private int maxTtl_ = 0;
   /**
    * <pre>
    * Specifies the maximum allowed TTL for cached content served by this origin. Cache directives that attempt to set a max-age or s-maxage higher than this, or an Expires header more than maxTTL seconds in the future will be capped at the value of maxTTL, as if it were the value of an s-maxage Cache-Control directive. Headers sent to the client will not be modified. Setting a TTL of "0" means "always revalidate". The maximum allowed value is 31,622,400s (1 year), noting that infrequently accessed objects may be evicted from the cache before the defined TTL.
@@ -594,7 +466,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEGATIVE_CACHING_FIELD_NUMBER = 336110005;
-  private boolean negativeCaching_;
+  private boolean negativeCaching_ = false;
   /**
    * <pre>
    * Negative caching allows per-status code TTLs to be set, in order to apply fine-grained caching for common errors or redirects. This can reduce the load on your origin and improve end-user experience by reducing response latency. When the cache mode is set to CACHE_ALL_STATIC or USE_ORIGIN_HEADERS, negative caching applies to responses with the specified response code that lack any Cache-Control, Expires, or Pragma: no-cache directives. When the cache mode is set to FORCE_CACHE_ALL, negative caching applies to all responses with the specified response code, and override any caching headers. By default, Cloud CDN will apply the following default TTLs to these status codes: HTTP 300 (Multiple Choice), 301, 308 (Permanent Redirects): 10m HTTP 404 (Not Found), 410 (Gone), 451 (Unavailable For Legal Reasons): 120s HTTP 405 (Method Not Found), 421 (Misdirected Request), 501 (Not Implemented): 60s. These defaults can be overridden in negative_caching_policy.
@@ -621,6 +493,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEGATIVE_CACHING_POLICY_FIELD_NUMBER = 155359996;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.BackendServiceCdnPolicyNegativeCachingPolicy> negativeCachingPolicy_;
   /**
    * <pre>
@@ -681,7 +554,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_COALESCING_FIELD_NUMBER = 532808276;
-  private boolean requestCoalescing_;
+  private boolean requestCoalescing_ = false;
   /**
    * <pre>
    * If true then Cloud CDN will combine multiple concurrent cache fill requests into a small number of requests to the origin.
@@ -708,7 +581,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVE_WHILE_STALE_FIELD_NUMBER = 236682203;
-  private int serveWhileStale_;
+  private int serveWhileStale_ = 0;
   /**
    * <pre>
    * Serve existing content from the cache (if available) when revalidating content with the origin, or when an error is encountered when refreshing the cache. This setting defines the default "max-stale" duration for any cached responses that do not specify a max-stale directive. Stale responses that exceed the TTL configured here will not be served. The default limit (max-stale) is 86400s (1 day), which will allow stale content to be served up to this limit beyond the max-age (or s-max-age) of a cached response. The maximum allowed value is 604800 (1 week). Set this to zero (0) to disable serve-while-stale.
@@ -735,7 +608,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIGNED_URL_CACHE_MAX_AGE_SEC_FIELD_NUMBER = 269374534;
-  private long signedUrlCacheMaxAgeSec_;
+  private long signedUrlCacheMaxAgeSec_ = 0L;
   /**
    * <pre>
    * Maximum number of seconds the response to a signed URL request will be considered fresh. After this time period, the response will be revalidated before being served. Defaults to 1hr (3600s). When serving responses to signed URL requests, Cloud CDN will internally behave as though all responses from this backend had a "Cache-Control: public, max-age=[TTL]" header, regardless of any existing Cache-Control header. The actual headers served in responses will not be altered.
@@ -762,6 +635,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIGNED_URL_KEY_NAMES_FIELD_NUMBER = 371848885;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList signedUrlKeyNames_;
   /**
    * <pre>
@@ -862,7 +736,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000040) != 0)) {
       output.writeBool(532808276, requestCoalescing_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -922,7 +796,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(532808276, requestCoalescing_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -988,7 +862,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSignedUrlKeyNamesList()
         .equals(other.getSignedUrlKeyNamesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1050,7 +924,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SIGNED_URL_KEY_NAMES_FIELD_NUMBER;
       hash = (53 * hash) + getSignedUrlKeyNamesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1190,40 +1064,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (bypassCacheOnRequestHeadersBuilder_ == null) {
         bypassCacheOnRequestHeaders_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        bypassCacheOnRequestHeaders_ = null;
         bypassCacheOnRequestHeadersBuilder_.clear();
       }
-      if (cacheKeyPolicyBuilder_ == null) {
-        cacheKeyPolicy_ = null;
-      } else {
-        cacheKeyPolicyBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000001);
+      cacheKeyPolicy_ = null;
+      if (cacheKeyPolicyBuilder_ != null) {
+        cacheKeyPolicyBuilder_.dispose();
+        cacheKeyPolicyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
       cacheMode_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       clientTtl_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000008);
       defaultTtl_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000010);
       maxTtl_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000020);
       negativeCaching_ = false;
-      bitField0_ = (bitField0_ & ~0x00000040);
       if (negativeCachingPolicyBuilder_ == null) {
         negativeCachingPolicy_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
       } else {
+        negativeCachingPolicy_ = null;
         negativeCachingPolicyBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       requestCoalescing_ = false;
-      bitField0_ = (bitField0_ & ~0x00000100);
       serveWhileStale_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000200);
       signedUrlCacheMaxAgeSec_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000400);
       signedUrlKeyNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000800);
       return this;
@@ -1252,8 +1120,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.BackendServiceCdnPolicy buildPartial() {
       com.google.cloud.compute.v1.BackendServiceCdnPolicy result = new com.google.cloud.compute.v1.BackendServiceCdnPolicy(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.BackendServiceCdnPolicy result) {
       if (bypassCacheOnRequestHeadersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           bypassCacheOnRequestHeaders_ = java.util.Collections.unmodifiableList(bypassCacheOnRequestHeaders_);
@@ -1263,18 +1136,35 @@ private static final long serialVersionUID = 0L;
       } else {
         result.bypassCacheOnRequestHeaders_ = bypassCacheOnRequestHeadersBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (cacheKeyPolicyBuilder_ == null) {
-          result.cacheKeyPolicy_ = cacheKeyPolicy_;
-        } else {
-          result.cacheKeyPolicy_ = cacheKeyPolicyBuilder_.build();
+      if (negativeCachingPolicyBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) != 0)) {
+          negativeCachingPolicy_ = java.util.Collections.unmodifiableList(negativeCachingPolicy_);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
+        result.negativeCachingPolicy_ = negativeCachingPolicy_;
+      } else {
+        result.negativeCachingPolicy_ = negativeCachingPolicyBuilder_.build();
+      }
+      if (((bitField0_ & 0x00000800) != 0)) {
+        signedUrlKeyNames_ = signedUrlKeyNames_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000800);
+      }
+      result.signedUrlKeyNames_ = signedUrlKeyNames_;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.BackendServiceCdnPolicy result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cacheKeyPolicy_ = cacheKeyPolicyBuilder_ == null
+            ? cacheKeyPolicy_
+            : cacheKeyPolicyBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cacheMode_ = cacheMode_;
         to_bitField0_ |= 0x00000002;
       }
-      result.cacheMode_ = cacheMode_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.clientTtl_ = clientTtl_;
         to_bitField0_ |= 0x00000004;
@@ -1291,15 +1181,6 @@ private static final long serialVersionUID = 0L;
         result.negativeCaching_ = negativeCaching_;
         to_bitField0_ |= 0x00000020;
       }
-      if (negativeCachingPolicyBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0)) {
-          negativeCachingPolicy_ = java.util.Collections.unmodifiableList(negativeCachingPolicy_);
-          bitField0_ = (bitField0_ & ~0x00000080);
-        }
-        result.negativeCachingPolicy_ = negativeCachingPolicy_;
-      } else {
-        result.negativeCachingPolicy_ = negativeCachingPolicyBuilder_.build();
-      }
       if (((from_bitField0_ & 0x00000100) != 0)) {
         result.requestCoalescing_ = requestCoalescing_;
         to_bitField0_ |= 0x00000040;
@@ -1312,14 +1193,7 @@ private static final long serialVersionUID = 0L;
         result.signedUrlCacheMaxAgeSec_ = signedUrlCacheMaxAgeSec_;
         to_bitField0_ |= 0x00000100;
       }
-      if (((bitField0_ & 0x00000800) != 0)) {
-        signedUrlKeyNames_ = signedUrlKeyNames_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000800);
-      }
-      result.signedUrlKeyNames_ = signedUrlKeyNames_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1396,8 +1270,8 @@ private static final long serialVersionUID = 0L;
         mergeCacheKeyPolicy(other.getCacheKeyPolicy());
       }
       if (other.hasCacheMode()) {
-        bitField0_ |= 0x00000004;
         cacheMode_ = other.cacheMode_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasClientTtl()) {
@@ -1457,7 +1331,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1472,17 +1346,109 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.BackendServiceCdnPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 231023106: {
+              cacheMode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 231023106
+            case 232274880: {
+              clientTtl_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 232274880
+            case 802027376: {
+              defaultTtl_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 802027376
+            case 1242879970: {
+              com.google.cloud.compute.v1.BackendServiceCdnPolicyNegativeCachingPolicy m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.BackendServiceCdnPolicyNegativeCachingPolicy.parser(),
+                      extensionRegistry);
+              if (negativeCachingPolicyBuilder_ == null) {
+                ensureNegativeCachingPolicyIsMutable();
+                negativeCachingPolicy_.add(m);
+              } else {
+                negativeCachingPolicyBuilder_.addMessage(m);
+              }
+              break;
+            } // case 1242879970
+            case 1274109818: {
+              input.readMessage(
+                  getCacheKeyPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1274109818
+            case 1893457624: {
+              serveWhileStale_ = input.readInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 1893457624
+            case -2139971024: {
+              signedUrlCacheMaxAgeSec_ = input.readInt64();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case -2139971024
+            case -1834343288: {
+              maxTtl_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -1834343288
+            case -1606087256: {
+              negativeCaching_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case -1606087256
+            case -1320176214: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSignedUrlKeyNamesIsMutable();
+              signedUrlKeyNames_.add(s);
+              break;
+            } // case -1320176214
+            case -405342638: {
+              com.google.cloud.compute.v1.BackendServiceCdnPolicyBypassCacheOnRequestHeader m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.BackendServiceCdnPolicyBypassCacheOnRequestHeader.parser(),
+                      extensionRegistry);
+              if (bypassCacheOnRequestHeadersBuilder_ == null) {
+                ensureBypassCacheOnRequestHeadersIsMutable();
+                bypassCacheOnRequestHeaders_.add(m);
+              } else {
+                bypassCacheOnRequestHeadersBuilder_.addMessage(m);
+              }
+              break;
+            } // case -405342638
+            case -32501088: {
+              requestCoalescing_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case -32501088
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.BackendServiceCdnPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1841,11 +1807,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cacheKeyPolicy_ = value;
-        onChanged();
       } else {
         cacheKeyPolicyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1859,11 +1825,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.CacheKeyPolicy.Builder builderForValue) {
       if (cacheKeyPolicyBuilder_ == null) {
         cacheKeyPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         cacheKeyPolicyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1876,18 +1842,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeCacheKeyPolicy(com.google.cloud.compute.v1.CacheKeyPolicy value) {
       if (cacheKeyPolicyBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            cacheKeyPolicy_ != null &&
-            cacheKeyPolicy_ != com.google.cloud.compute.v1.CacheKeyPolicy.getDefaultInstance()) {
-          cacheKeyPolicy_ =
-            com.google.cloud.compute.v1.CacheKeyPolicy.newBuilder(cacheKeyPolicy_).mergeFrom(value).buildPartial();
+          cacheKeyPolicy_ != null &&
+          cacheKeyPolicy_ != com.google.cloud.compute.v1.CacheKeyPolicy.getDefaultInstance()) {
+          getCacheKeyPolicyBuilder().mergeFrom(value);
         } else {
           cacheKeyPolicy_ = value;
         }
-        onChanged();
       } else {
         cacheKeyPolicyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1898,13 +1863,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.CacheKeyPolicy cache_key_policy = 159263727;</code>
      */
     public Builder clearCacheKeyPolicy() {
-      if (cacheKeyPolicyBuilder_ == null) {
-        cacheKeyPolicy_ = null;
-        onChanged();
-      } else {
-        cacheKeyPolicyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      cacheKeyPolicy_ = null;
+      if (cacheKeyPolicyBuilder_ != null) {
+        cacheKeyPolicyBuilder_.dispose();
+        cacheKeyPolicyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2023,11 +1988,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCacheMode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       cacheMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2041,8 +2004,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCacheMode() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       cacheMode_ = getDefaultInstance().getCacheMode();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2058,12 +2021,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCacheModeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cacheMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2103,8 +2064,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setClientTtl(int value) {
-      bitField0_ |= 0x00000008;
+      
       clientTtl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2158,8 +2120,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDefaultTtl(int value) {
-      bitField0_ |= 0x00000010;
+      
       defaultTtl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2213,8 +2176,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxTtl(int value) {
-      bitField0_ |= 0x00000020;
+      
       maxTtl_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2268,8 +2232,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNegativeCaching(boolean value) {
-      bitField0_ |= 0x00000040;
+      
       negativeCaching_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2635,8 +2600,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRequestCoalescing(boolean value) {
-      bitField0_ |= 0x00000100;
+      
       requestCoalescing_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2690,8 +2656,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setServeWhileStale(int value) {
-      bitField0_ |= 0x00000200;
+      
       serveWhileStale_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2745,8 +2712,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSignedUrlCacheMaxAgeSec(long value) {
-      bitField0_ |= 0x00000400;
+      
       signedUrlCacheMaxAgeSec_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2832,10 +2800,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSignedUrlKeyNames(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSignedUrlKeyNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSignedUrlKeyNamesIsMutable();
       signedUrlKeyNames_.set(index, value);
       onChanged();
       return this;
@@ -2851,10 +2817,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSignedUrlKeyNames(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSignedUrlKeyNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSignedUrlKeyNamesIsMutable();
       signedUrlKeyNames_.add(value);
       onChanged();
       return this;
@@ -2901,10 +2865,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSignedUrlKeyNamesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSignedUrlKeyNamesIsMutable();
       signedUrlKeyNames_.add(value);
       onChanged();
@@ -2943,7 +2905,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BackendServiceCdnPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

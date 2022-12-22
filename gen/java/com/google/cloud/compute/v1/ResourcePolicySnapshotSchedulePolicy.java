@@ -34,85 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResourcePolicySnapshotSchedulePolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 549006234: {
-            com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicyRetentionPolicy.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = retentionPolicy_.toBuilder();
-            }
-            retentionPolicy_ = input.readMessage(com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicyRetentionPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retentionPolicy_);
-              retentionPolicy_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 1482970226: {
-            com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySnapshotProperties.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = snapshotProperties_.toBuilder();
-            }
-            snapshotProperties_ = input.readMessage(com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySnapshotProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(snapshotProperties_);
-              snapshotProperties_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case -1288399686: {
-            com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySchedule.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              subBuilder = schedule_.toBuilder();
-            }
-            schedule_ = input.readMessage(com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySchedule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(schedule_);
-              schedule_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000002;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_ResourcePolicySnapshotSchedulePolicy_descriptor;
@@ -264,7 +185,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(375820951, getSchedule());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +206,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(375820951, getSchedule());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -315,7 +236,7 @@ private static final long serialVersionUID = 0L;
       if (!getSnapshotProperties()
           .equals(other.getSnapshotProperties())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -338,7 +259,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SNAPSHOT_PROPERTIES_FIELD_NUMBER;
       hash = (53 * hash) + getSnapshotProperties().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -478,24 +399,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (retentionPolicyBuilder_ == null) {
-        retentionPolicy_ = null;
-      } else {
-        retentionPolicyBuilder_.clear();
+      bitField0_ = 0;
+      retentionPolicy_ = null;
+      if (retentionPolicyBuilder_ != null) {
+        retentionPolicyBuilder_.dispose();
+        retentionPolicyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (scheduleBuilder_ == null) {
-        schedule_ = null;
-      } else {
-        scheduleBuilder_.clear();
+      schedule_ = null;
+      if (scheduleBuilder_ != null) {
+        scheduleBuilder_.dispose();
+        scheduleBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (snapshotPropertiesBuilder_ == null) {
-        snapshotProperties_ = null;
-      } else {
-        snapshotPropertiesBuilder_.clear();
+      snapshotProperties_ = null;
+      if (snapshotPropertiesBuilder_ != null) {
+        snapshotPropertiesBuilder_.dispose();
+        snapshotPropertiesBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -522,35 +441,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicy buildPartial() {
       com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicy result = new com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicy(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicy result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (retentionPolicyBuilder_ == null) {
-          result.retentionPolicy_ = retentionPolicy_;
-        } else {
-          result.retentionPolicy_ = retentionPolicyBuilder_.build();
-        }
+        result.retentionPolicy_ = retentionPolicyBuilder_ == null
+            ? retentionPolicy_
+            : retentionPolicyBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (scheduleBuilder_ == null) {
-          result.schedule_ = schedule_;
-        } else {
-          result.schedule_ = scheduleBuilder_.build();
-        }
+        result.schedule_ = scheduleBuilder_ == null
+            ? schedule_
+            : scheduleBuilder_.build();
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (snapshotPropertiesBuilder_ == null) {
-          result.snapshotProperties_ = snapshotProperties_;
-        } else {
-          result.snapshotProperties_ = snapshotPropertiesBuilder_.build();
-        }
+        result.snapshotProperties_ = snapshotPropertiesBuilder_ == null
+            ? snapshotProperties_
+            : snapshotPropertiesBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -606,7 +523,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSnapshotProperties()) {
         mergeSnapshotProperties(other.getSnapshotProperties());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -621,17 +538,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 549006234: {
+              input.readMessage(
+                  getRetentionPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 549006234
+            case 1482970226: {
+              input.readMessage(
+                  getSnapshotPropertiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1482970226
+            case -1288399686: {
+              input.readMessage(
+                  getScheduleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1288399686
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -678,11 +629,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retentionPolicy_ = value;
-        onChanged();
       } else {
         retentionPolicyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -696,11 +647,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicyRetentionPolicy.Builder builderForValue) {
       if (retentionPolicyBuilder_ == null) {
         retentionPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         retentionPolicyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -713,18 +664,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeRetentionPolicy(com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicyRetentionPolicy value) {
       if (retentionPolicyBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            retentionPolicy_ != null &&
-            retentionPolicy_ != com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicyRetentionPolicy.getDefaultInstance()) {
-          retentionPolicy_ =
-            com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicyRetentionPolicy.newBuilder(retentionPolicy_).mergeFrom(value).buildPartial();
+          retentionPolicy_ != null &&
+          retentionPolicy_ != com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicyRetentionPolicy.getDefaultInstance()) {
+          getRetentionPolicyBuilder().mergeFrom(value);
         } else {
           retentionPolicy_ = value;
         }
-        onChanged();
       } else {
         retentionPolicyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -735,13 +685,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicyRetentionPolicy retention_policy = 68625779;</code>
      */
     public Builder clearRetentionPolicy() {
-      if (retentionPolicyBuilder_ == null) {
-        retentionPolicy_ = null;
-        onChanged();
-      } else {
-        retentionPolicyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      retentionPolicy_ = null;
+      if (retentionPolicyBuilder_ != null) {
+        retentionPolicyBuilder_.dispose();
+        retentionPolicyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -834,11 +784,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         schedule_ = value;
-        onChanged();
       } else {
         scheduleBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -852,11 +802,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySchedule.Builder builderForValue) {
       if (scheduleBuilder_ == null) {
         schedule_ = builderForValue.build();
-        onChanged();
       } else {
         scheduleBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -869,18 +819,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeSchedule(com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySchedule value) {
       if (scheduleBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            schedule_ != null &&
-            schedule_ != com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySchedule.getDefaultInstance()) {
-          schedule_ =
-            com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySchedule.newBuilder(schedule_).mergeFrom(value).buildPartial();
+          schedule_ != null &&
+          schedule_ != com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySchedule.getDefaultInstance()) {
+          getScheduleBuilder().mergeFrom(value);
         } else {
           schedule_ = value;
         }
-        onChanged();
       } else {
         scheduleBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -891,13 +840,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySchedule schedule = 375820951;</code>
      */
     public Builder clearSchedule() {
-      if (scheduleBuilder_ == null) {
-        schedule_ = null;
-        onChanged();
-      } else {
-        scheduleBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      schedule_ = null;
+      if (scheduleBuilder_ != null) {
+        scheduleBuilder_.dispose();
+        scheduleBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -990,11 +939,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         snapshotProperties_ = value;
-        onChanged();
       } else {
         snapshotPropertiesBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1008,11 +957,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySnapshotProperties.Builder builderForValue) {
       if (snapshotPropertiesBuilder_ == null) {
         snapshotProperties_ = builderForValue.build();
-        onChanged();
       } else {
         snapshotPropertiesBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1025,18 +974,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeSnapshotProperties(com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySnapshotProperties value) {
       if (snapshotPropertiesBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
-            snapshotProperties_ != null &&
-            snapshotProperties_ != com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySnapshotProperties.getDefaultInstance()) {
-          snapshotProperties_ =
-            com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySnapshotProperties.newBuilder(snapshotProperties_).mergeFrom(value).buildPartial();
+          snapshotProperties_ != null &&
+          snapshotProperties_ != com.google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySnapshotProperties.getDefaultInstance()) {
+          getSnapshotPropertiesBuilder().mergeFrom(value);
         } else {
           snapshotProperties_ = value;
         }
-        onChanged();
       } else {
         snapshotPropertiesBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1047,13 +995,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ResourcePolicySnapshotSchedulePolicySnapshotProperties snapshot_properties = 185371278;</code>
      */
     public Builder clearSnapshotProperties() {
-      if (snapshotPropertiesBuilder_ == null) {
-        snapshotProperties_ = null;
-        onChanged();
-      } else {
-        snapshotPropertiesBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000004);
+      snapshotProperties_ = null;
+      if (snapshotPropertiesBuilder_ != null) {
+        snapshotPropertiesBuilder_.dispose();
+        snapshotPropertiesBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1136,7 +1084,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResourcePolicySnapshotSchedulePolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

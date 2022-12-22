@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenerateConfigReportRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Any.Builder subBuilder = null;
-            if (newConfig_ != null) {
-              subBuilder = newConfig_.toBuilder();
-            }
-            newConfig_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(newConfig_);
-              newConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Any.Builder subBuilder = null;
-            if (oldConfig_ != null) {
-              subBuilder = oldConfig_.toBuilder();
-            }
-            oldConfig_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(oldConfig_);
-              oldConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.servicemanagement.v1.ServiceManagerProto.internal_static_google_api_servicemanagement_v1_GenerateConfigReportRequest_descriptor;
@@ -159,7 +94,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.AnyOrBuilder getNewConfigOrBuilder() {
-    return getNewConfig();
+    return newConfig_ == null ? com.google.protobuf.Any.getDefaultInstance() : newConfig_;
   }
 
   public static final int OLD_CONFIG_FIELD_NUMBER = 2;
@@ -209,7 +144,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.AnyOrBuilder getOldConfigOrBuilder() {
-    return getOldConfig();
+    return oldConfig_ == null ? com.google.protobuf.Any.getDefaultInstance() : oldConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -232,7 +167,7 @@ private static final long serialVersionUID = 0L;
     if (oldConfig_ != null) {
       output.writeMessage(2, getOldConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +184,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getOldConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -274,7 +209,7 @@ private static final long serialVersionUID = 0L;
       if (!getOldConfig()
           .equals(other.getOldConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -293,7 +228,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OLD_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getOldConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -414,32 +349,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.servicemanagement.v1.GenerateConfigReportRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (newConfigBuilder_ == null) {
-        newConfig_ = null;
-      } else {
-        newConfig_ = null;
+      bitField0_ = 0;
+      newConfig_ = null;
+      if (newConfigBuilder_ != null) {
+        newConfigBuilder_.dispose();
         newConfigBuilder_ = null;
       }
-      if (oldConfigBuilder_ == null) {
-        oldConfig_ = null;
-      } else {
-        oldConfig_ = null;
+      oldConfig_ = null;
+      if (oldConfigBuilder_ != null) {
+        oldConfigBuilder_.dispose();
         oldConfigBuilder_ = null;
       }
       return this;
@@ -468,18 +397,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.servicemanagement.v1.GenerateConfigReportRequest buildPartial() {
       com.google.api.servicemanagement.v1.GenerateConfigReportRequest result = new com.google.api.servicemanagement.v1.GenerateConfigReportRequest(this);
-      if (newConfigBuilder_ == null) {
-        result.newConfig_ = newConfig_;
-      } else {
-        result.newConfig_ = newConfigBuilder_.build();
-      }
-      if (oldConfigBuilder_ == null) {
-        result.oldConfig_ = oldConfig_;
-      } else {
-        result.oldConfig_ = oldConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.servicemanagement.v1.GenerateConfigReportRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.newConfig_ = newConfigBuilder_ == null
+            ? newConfig_
+            : newConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.oldConfig_ = oldConfigBuilder_ == null
+            ? oldConfig_
+            : oldConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -532,7 +466,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasOldConfig()) {
         mergeOldConfig(other.getOldConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -547,19 +481,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.servicemanagement.v1.GenerateConfigReportRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNewConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOldConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.servicemanagement.v1.GenerateConfigReportRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Any newConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -577,7 +539,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the newConfig field is set.
      */
     public boolean hasNewConfig() {
-      return newConfigBuilder_ != null || newConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -615,11 +577,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         newConfig_ = value;
-        onChanged();
       } else {
         newConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -637,11 +599,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Any.Builder builderForValue) {
       if (newConfigBuilder_ == null) {
         newConfig_ = builderForValue.build();
-        onChanged();
       } else {
         newConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -657,17 +619,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNewConfig(com.google.protobuf.Any value) {
       if (newConfigBuilder_ == null) {
-        if (newConfig_ != null) {
-          newConfig_ =
-            com.google.protobuf.Any.newBuilder(newConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          newConfig_ != null &&
+          newConfig_ != com.google.protobuf.Any.getDefaultInstance()) {
+          getNewConfigBuilder().mergeFrom(value);
         } else {
           newConfig_ = value;
         }
-        onChanged();
       } else {
         newConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -682,14 +645,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Any new_config = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearNewConfig() {
-      if (newConfigBuilder_ == null) {
-        newConfig_ = null;
-        onChanged();
-      } else {
-        newConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      newConfig_ = null;
+      if (newConfigBuilder_ != null) {
+        newConfigBuilder_.dispose();
         newConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Any new_config = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.Any.Builder getNewConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNewConfigFieldBuilder().getBuilder();
     }
@@ -768,7 +730,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the oldConfig field is set.
      */
     public boolean hasOldConfig() {
-      return oldConfigBuilder_ != null || oldConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -806,11 +768,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         oldConfig_ = value;
-        onChanged();
       } else {
         oldConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -828,11 +790,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Any.Builder builderForValue) {
       if (oldConfigBuilder_ == null) {
         oldConfig_ = builderForValue.build();
-        onChanged();
       } else {
         oldConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -848,17 +810,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOldConfig(com.google.protobuf.Any value) {
       if (oldConfigBuilder_ == null) {
-        if (oldConfig_ != null) {
-          oldConfig_ =
-            com.google.protobuf.Any.newBuilder(oldConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          oldConfig_ != null &&
+          oldConfig_ != com.google.protobuf.Any.getDefaultInstance()) {
+          getOldConfigBuilder().mergeFrom(value);
         } else {
           oldConfig_ = value;
         }
-        onChanged();
       } else {
         oldConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -873,14 +836,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Any old_config = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearOldConfig() {
-      if (oldConfigBuilder_ == null) {
-        oldConfig_ = null;
-        onChanged();
-      } else {
-        oldConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      oldConfig_ = null;
+      if (oldConfigBuilder_ != null) {
+        oldConfigBuilder_.dispose();
         oldConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -895,7 +857,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Any old_config = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Any.Builder getOldConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOldConfigFieldBuilder().getBuilder();
     }
@@ -975,7 +937,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenerateConfigReportRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -39,82 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ApprovalResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            approverAccount_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (approvalTime_ != null) {
-              subBuilder = approvalTime_.toBuilder();
-            }
-            approvalTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(approvalTime_);
-              approvalTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            decision_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            comment_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            url_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_ApprovalResult_descriptor;
@@ -275,7 +199,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPROVER_ACCOUNT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object approverAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object approverAccount_ = "";
   /**
    * <pre>
    * Output only. Email of the user that called the ApproveBuild API to
@@ -357,11 +282,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getApprovalTimeOrBuilder() {
-    return getApprovalTime();
+    return approvalTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : approvalTime_;
   }
 
   public static final int DECISION_FIELD_NUMBER = 4;
-  private int decision_;
+  private int decision_ = 0;
   /**
    * <pre>
    * Required. The decision of this manual approval.
@@ -382,13 +307,13 @@ private static final long serialVersionUID = 0L;
    * @return The decision.
    */
   @java.lang.Override public com.google.cloudbuild.v1.ApprovalResult.Decision getDecision() {
-    @SuppressWarnings("deprecation")
-    com.google.cloudbuild.v1.ApprovalResult.Decision result = com.google.cloudbuild.v1.ApprovalResult.Decision.valueOf(decision_);
+    com.google.cloudbuild.v1.ApprovalResult.Decision result = com.google.cloudbuild.v1.ApprovalResult.Decision.forNumber(decision_);
     return result == null ? com.google.cloudbuild.v1.ApprovalResult.Decision.UNRECOGNIZED : result;
   }
 
   public static final int COMMENT_FIELD_NUMBER = 5;
-  private volatile java.lang.Object comment_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object comment_ = "";
   /**
    * <pre>
    * Optional. An optional comment for this manual approval result.
@@ -434,7 +359,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object url_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object url_ = "";
   /**
    * <pre>
    * Optional. An optional URL tied to this manual approval result. This field
@@ -514,7 +440,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, url_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -540,7 +466,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, url_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -567,7 +493,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getComment())) return false;
     if (!getUrl()
         .equals(other.getUrl())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -590,7 +516,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getComment().hashCode();
     hash = (37 * hash) + URL_FIELD_NUMBER;
     hash = (53 * hash) + getUrl().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -712,36 +638,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloudbuild.v1.ApprovalResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       approverAccount_ = "";
-
-      if (approvalTimeBuilder_ == null) {
-        approvalTime_ = null;
-      } else {
-        approvalTime_ = null;
+      approvalTime_ = null;
+      if (approvalTimeBuilder_ != null) {
+        approvalTimeBuilder_.dispose();
         approvalTimeBuilder_ = null;
       }
       decision_ = 0;
-
       comment_ = "";
-
       url_ = "";
-
       return this;
     }
 
@@ -768,17 +685,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloudbuild.v1.ApprovalResult buildPartial() {
       com.google.cloudbuild.v1.ApprovalResult result = new com.google.cloudbuild.v1.ApprovalResult(this);
-      result.approverAccount_ = approverAccount_;
-      if (approvalTimeBuilder_ == null) {
-        result.approvalTime_ = approvalTime_;
-      } else {
-        result.approvalTime_ = approvalTimeBuilder_.build();
-      }
-      result.decision_ = decision_;
-      result.comment_ = comment_;
-      result.url_ = url_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloudbuild.v1.ApprovalResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.approverAccount_ = approverAccount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.approvalTime_ = approvalTimeBuilder_ == null
+            ? approvalTime_
+            : approvalTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.decision_ = decision_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.comment_ = comment_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.url_ = url_;
+      }
     }
 
     @java.lang.Override
@@ -827,6 +757,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloudbuild.v1.ApprovalResult.getDefaultInstance()) return this;
       if (!other.getApproverAccount().isEmpty()) {
         approverAccount_ = other.approverAccount_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasApprovalTime()) {
@@ -837,13 +768,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getComment().isEmpty()) {
         comment_ = other.comment_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getUrl().isEmpty()) {
         url_ = other.url_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -858,19 +791,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloudbuild.v1.ApprovalResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              approverAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getApprovalTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 32: {
+              decision_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 42: {
+              comment_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              url_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloudbuild.v1.ApprovalResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object approverAccount_ = "";
     /**
@@ -928,11 +902,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApproverAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       approverAccount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -946,8 +918,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApproverAccount() {
-      
       approverAccount_ = getDefaultInstance().getApproverAccount();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -963,12 +935,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApproverAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       approverAccount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -985,7 +955,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the approvalTime field is set.
      */
     public boolean hasApprovalTime() {
-      return approvalTimeBuilder_ != null || approvalTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1015,11 +985,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         approvalTime_ = value;
-        onChanged();
       } else {
         approvalTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1033,11 +1003,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (approvalTimeBuilder_ == null) {
         approvalTime_ = builderForValue.build();
-        onChanged();
       } else {
         approvalTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1049,17 +1019,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeApprovalTime(com.google.protobuf.Timestamp value) {
       if (approvalTimeBuilder_ == null) {
-        if (approvalTime_ != null) {
-          approvalTime_ =
-            com.google.protobuf.Timestamp.newBuilder(approvalTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          approvalTime_ != null &&
+          approvalTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getApprovalTimeBuilder().mergeFrom(value);
         } else {
           approvalTime_ = value;
         }
-        onChanged();
       } else {
         approvalTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1070,14 +1041,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp approval_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearApprovalTime() {
-      if (approvalTimeBuilder_ == null) {
-        approvalTime_ = null;
-        onChanged();
-      } else {
-        approvalTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      approvalTime_ = null;
+      if (approvalTimeBuilder_ != null) {
+        approvalTimeBuilder_.dispose();
         approvalTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1088,7 +1058,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp approval_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getApprovalTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getApprovalTimeFieldBuilder().getBuilder();
     }
@@ -1150,8 +1120,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDecisionValue(int value) {
-      
       decision_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1165,8 +1135,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloudbuild.v1.ApprovalResult.Decision getDecision() {
-      @SuppressWarnings("deprecation")
-      com.google.cloudbuild.v1.ApprovalResult.Decision result = com.google.cloudbuild.v1.ApprovalResult.Decision.valueOf(decision_);
+      com.google.cloudbuild.v1.ApprovalResult.Decision result = com.google.cloudbuild.v1.ApprovalResult.Decision.forNumber(decision_);
       return result == null ? com.google.cloudbuild.v1.ApprovalResult.Decision.UNRECOGNIZED : result;
     }
     /**
@@ -1182,7 +1151,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       decision_ = value.getNumber();
       onChanged();
       return this;
@@ -1196,7 +1165,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDecision() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       decision_ = 0;
       onChanged();
       return this;
@@ -1255,11 +1224,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setComment(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       comment_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1272,8 +1239,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearComment() {
-      
       comment_ = getDefaultInstance().getComment();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1288,12 +1255,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       comment_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1360,11 +1325,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       url_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1380,8 +1343,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUrl() {
-      
       url_ = getDefaultInstance().getUrl();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1399,12 +1362,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       url_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1441,7 +1402,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ApprovalResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

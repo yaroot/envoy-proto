@@ -48,16 +48,28 @@ public interface FinalizeMfaEnrollmentResponseOrBuilder extends
       getRefreshTokenBytes();
 
   /**
+   * <pre>
+   * Auxiliary auth info specific to phone auth.
+   * </pre>
+   *
    * <code>.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneResponseInfo phone_auth_info = 3;</code>
    * @return Whether the phoneAuthInfo field is set.
    */
   boolean hasPhoneAuthInfo();
   /**
+   * <pre>
+   * Auxiliary auth info specific to phone auth.
+   * </pre>
+   *
    * <code>.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneResponseInfo phone_auth_info = 3;</code>
    * @return The phoneAuthInfo.
    */
   com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneResponseInfo getPhoneAuthInfo();
   /**
+   * <pre>
+   * Auxiliary auth info specific to phone auth.
+   * </pre>
+   *
    * <code>.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneResponseInfo phone_auth_info = 3;</code>
    */
   com.google.cloud.identitytoolkit.v2.FinalizeMfaPhoneResponseInfoOrBuilder getPhoneAuthInfoOrBuilder();

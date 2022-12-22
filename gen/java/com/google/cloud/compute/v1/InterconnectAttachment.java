@@ -60,282 +60,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InterconnectAttachment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    int mutable_bitField1_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26840: {
-            bitField0_ |= 0x00004000;
-            id_ = input.readUInt64();
-            break;
-          }
-          case 867696: {
-            bitField0_ |= 0x00020000;
-            mtu_ = input.readInt32();
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00010000;
-            kind_ = s;
-            break;
-          }
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00040000;
-            name_ = s;
-            break;
-          }
-          case 28604882: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x40000000;
-            type_ = s;
-            break;
-          }
-          case 244202930: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            creationTimestamp_ = s;
-            break;
-          }
-          case 279360600: {
-            bitField0_ |= 0x00000200;
-            dataplaneVersion_ = input.readInt32();
-            break;
-          }
-          case 527271474: {
-            com.google.cloud.compute.v1.InterconnectAttachmentPartnerMetadata.Builder subBuilder = null;
-            if (((bitField0_ & 0x00400000) != 0)) {
-              subBuilder = partnerMetadata_.toBuilder();
-            }
-            partnerMetadata_ = input.readMessage(com.google.cloud.compute.v1.InterconnectAttachmentPartnerMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(partnerMetadata_);
-              partnerMetadata_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00400000;
-            break;
-          }
-          case 565460178: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              candidateIpv6Subnets_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            candidateIpv6Subnets_.add(s);
-            break;
-          }
-          case 570316082: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000800;
-            edgeAvailabilityDomain_ = s;
-            break;
-          }
-          case 783842330: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00001000;
-            encryption_ = s;
-            break;
-          }
-          case 878060682: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x20000000;
-            state_ = s;
-            break;
-          }
-          case 959422688: {
-            bitField0_ |= 0x80000000;
-            vlanTag8021Q_ = input.readInt32();
-            break;
-          }
-          case 1111570338: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x01000000;
-            region_ = s;
-            break;
-          }
-          case 1188870730: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x02000000;
-            router_ = s;
-            break;
-          }
-          case 1453720970: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            bandwidth_ = s;
-            break;
-          }
-          case 1608566778: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00080000;
-            operationalStatus_ = s;
-            break;
-          }
-          case 1796809842: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00008000;
-            interconnect_ = s;
-            break;
-          }
-          case 1898164250: {
-            com.google.cloud.compute.v1.InterconnectAttachmentPrivateInfo.Builder subBuilder = null;
-            if (((bitField0_ & 0x00800000) != 0)) {
-              subBuilder = privateInterconnectInfo_.toBuilder();
-            }
-            privateInterconnectInfo_ = input.readMessage(com.google.cloud.compute.v1.InterconnectAttachmentPrivateInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(privateInterconnectInfo_);
-              privateInterconnectInfo_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00800000;
-            break;
-          }
-          case 1902743506: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              candidateSubnets_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            candidateSubnets_.add(s);
-            break;
-          }
-          case -1995825086: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            cloudRouterIpAddress_ = s;
-            break;
-          }
-          case -1973950582: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            customerRouterIpv6Address_ = s;
-            break;
-          }
-          case -1635161206: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            customerRouterIpAddress_ = s;
-            break;
-          }
-          case -1247012830: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            customerRouterIpv6InterfaceId_ = s;
-            break;
-          }
-          case -1033778774: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00040000) != 0)) {
-              ipsecInternalAddresses_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00040000;
-            }
-            ipsecInternalAddresses_.add(s);
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000400;
-            description_ = s;
-            break;
-          }
-          case -887696246: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x10000000;
-            stackType_ = s;
-            break;
-          }
-          case -789638104: {
-            bitField0_ |= 0x00200000;
-            partnerAsn_ = input.readInt64();
-            break;
-          }
-          case -777403582: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00100000;
-            pairingKey_ = s;
-            break;
-          }
-          case -729566584: {
-            bitField0_ |= 0x00000001;
-            adminEnabled_ = input.readBool();
-            break;
-          }
-          case -679588286: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            cloudRouterIpv6Address_ = s;
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x08000000;
-            selfLink_ = s;
-            break;
-          }
-          case -447253160: {
-            bitField0_ |= 0x04000000;
-            satisfiesPzs_ = input.readBool();
-            break;
-          }
-          case -124705686: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            cloudRouterIpv6InterfaceId_ = s;
-            break;
-          }
-          case -15411542: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00002000;
-            googleReferenceId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        candidateIpv6Subnets_ = candidateIpv6Subnets_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        candidateSubnets_ = candidateSubnets_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00040000) != 0)) {
-        ipsecInternalAddresses_ = ipsecInternalAddresses_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_InterconnectAttachment_descriptor;
@@ -804,7 +528,7 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly. 
+   * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option. 
    * </pre>
    *
    * Protobuf enum {@code google.cloud.compute.v1.InterconnectAttachment.Encryption}
@@ -821,7 +545,7 @@ private static final long serialVersionUID = 0L;
     UNDEFINED_ENCRYPTION(0),
     /**
      * <pre>
-     * The interconnect attachment will carry only encrypted traffic that is encrypted by an IPsec device such as HA VPN gateway; VMs cannot directly send traffic to or receive traffic from such an interconnect attachment. To use IPsec-encrypted Cloud Interconnect, the interconnect attachment must be created with this option.
+     * The interconnect attachment will carry only encrypted traffic that is encrypted by an IPsec device such as HA VPN gateway; VMs cannot directly send traffic to or receive traffic from such an interconnect attachment. To use HA VPN over Cloud Interconnect, the interconnect attachment must be created with this option.
      * </pre>
      *
      * <code>IPSEC = 69882282;</code>
@@ -848,7 +572,7 @@ private static final long serialVersionUID = 0L;
     public static final int UNDEFINED_ENCRYPTION_VALUE = 0;
     /**
      * <pre>
-     * The interconnect attachment will carry only encrypted traffic that is encrypted by an IPsec device such as HA VPN gateway; VMs cannot directly send traffic to or receive traffic from such an interconnect attachment. To use IPsec-encrypted Cloud Interconnect, the interconnect attachment must be created with this option.
+     * The interconnect attachment will carry only encrypted traffic that is encrypted by an IPsec device such as HA VPN gateway; VMs cannot directly send traffic to or receive traffic from such an interconnect attachment. To use HA VPN over Cloud Interconnect, the interconnect attachment must be created with this option.
      * </pre>
      *
      * <code>IPSEC = 69882282;</code>
@@ -1623,7 +1347,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ADMIN_ENABLED_FIELD_NUMBER = 445675089;
-  private boolean adminEnabled_;
+  private boolean adminEnabled_ = false;
   /**
    * <pre>
    * Determines whether this Attachment will carry packets. Not present for PARTNER_PROVIDER.
@@ -1650,7 +1374,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BANDWIDTH_FIELD_NUMBER = 181715121;
-  private volatile java.lang.Object bandwidth_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bandwidth_ = "";
   /**
    * <pre>
    * Provisioned bandwidth capacity for the interconnect attachment. For attachments of type DEDICATED, the user can set the bandwidth. For attachments of type PARTNER, the Google Partner that is operating the interconnect must set the bandwidth. Output only for PARTNER type, mutable for PARTNER_PROVIDER and DEDICATED, and can take one of the following values: - BPS_50M: 50 Mbit/s - BPS_100M: 100 Mbit/s - BPS_200M: 200 Mbit/s - BPS_300M: 300 Mbit/s - BPS_400M: 400 Mbit/s - BPS_500M: 500 Mbit/s - BPS_1G: 1 Gbit/s - BPS_2G: 2 Gbit/s - BPS_5G: 5 Gbit/s - BPS_10G: 10 Gbit/s - BPS_20G: 20 Gbit/s - BPS_50G: 50 Gbit/s
@@ -1711,6 +1436,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CANDIDATE_IPV6_SUBNETS_FIELD_NUMBER = 70682522;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList candidateIpv6Subnets_;
   /**
    * <pre>
@@ -1762,6 +1488,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CANDIDATE_SUBNETS_FIELD_NUMBER = 237842938;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList candidateSubnets_;
   /**
    * <pre>
@@ -1813,7 +1540,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLOUD_ROUTER_IP_ADDRESS_FIELD_NUMBER = 287392776;
-  private volatile java.lang.Object cloudRouterIpAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cloudRouterIpAddress_ = "";
   /**
    * <pre>
    * [Output Only] IPv4 address + prefix length to be configured on Cloud Router Interface for this interconnect attachment.
@@ -1871,7 +1599,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLOUD_ROUTER_IPV6_ADDRESS_FIELD_NUMBER = 451922376;
-  private volatile java.lang.Object cloudRouterIpv6Address_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cloudRouterIpv6Address_ = "";
   /**
    * <pre>
    * [Output Only] IPv6 address + prefix length to be configured on Cloud Router Interface for this interconnect attachment.
@@ -1929,7 +1658,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLOUD_ROUTER_IPV6_INTERFACE_ID_FIELD_NUMBER = 521282701;
-  private volatile java.lang.Object cloudRouterIpv6InterfaceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cloudRouterIpv6InterfaceId_ = "";
   /**
    * <pre>
    * This field is not available.
@@ -1987,7 +1717,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATION_TIMESTAMP_FIELD_NUMBER = 30525366;
-  private volatile java.lang.Object creationTimestamp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object creationTimestamp_ = "";
   /**
    * <pre>
    * [Output Only] Creation timestamp in RFC3339 text format.
@@ -2045,7 +1776,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_ROUTER_IP_ADDRESS_FIELD_NUMBER = 332475761;
-  private volatile java.lang.Object customerRouterIpAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerRouterIpAddress_ = "";
   /**
    * <pre>
    * [Output Only] IPv4 address + prefix length to be configured on the customer router subinterface for this interconnect attachment.
@@ -2103,7 +1835,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_ROUTER_IPV6_ADDRESS_FIELD_NUMBER = 290127089;
-  private volatile java.lang.Object customerRouterIpv6Address_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerRouterIpv6Address_ = "";
   /**
    * <pre>
    * [Output Only] IPv6 address + prefix length to be configured on the customer router subinterface for this interconnect attachment.
@@ -2161,7 +1894,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_ROUTER_IPV6_INTERFACE_ID_FIELD_NUMBER = 380994308;
-  private volatile java.lang.Object customerRouterIpv6InterfaceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerRouterIpv6InterfaceId_ = "";
   /**
    * <pre>
    * This field is not available.
@@ -2219,7 +1953,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATAPLANE_VERSION_FIELD_NUMBER = 34920075;
-  private int dataplaneVersion_;
+  private int dataplaneVersion_ = 0;
   /**
    * <pre>
    * [Output Only] Dataplane version for this InterconnectAttachment. This field is only present for Dataplane version 2 and higher. Absence of this field in the API output indicates that the Dataplane is version 1.
@@ -2246,7 +1980,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of this resource.
@@ -2304,7 +2039,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EDGE_AVAILABILITY_DOMAIN_FIELD_NUMBER = 71289510;
-  private volatile java.lang.Object edgeAvailabilityDomain_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object edgeAvailabilityDomain_ = "";
   /**
    * <pre>
    * Desired availability domain for the attachment. Only available for type PARTNER, at creation time, and can take one of the following values: - AVAILABILITY_DOMAIN_ANY - AVAILABILITY_DOMAIN_1 - AVAILABILITY_DOMAIN_2 For improved reliability, customers should configure a pair of attachments, one per availability domain. The selected availability domain will be provided to the Partner via the pairing key, so that the provisioned circuit will lie in the specified domain. If not specified, the value will default to AVAILABILITY_DOMAIN_ANY.
@@ -2365,10 +2101,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCRYPTION_FIELD_NUMBER = 97980291;
-  private volatile java.lang.Object encryption_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object encryption_ = "";
   /**
    * <pre>
-   * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly.
+   * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option.
    * Check the Encryption enum for the list of possible values.
    * </pre>
    *
@@ -2381,7 +2118,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly.
+   * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option.
    * Check the Encryption enum for the list of possible values.
    * </pre>
    *
@@ -2403,7 +2140,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly.
+   * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option.
    * Check the Encryption enum for the list of possible values.
    * </pre>
    *
@@ -2426,7 +2163,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GOOGLE_REFERENCE_ID_FIELD_NUMBER = 534944469;
-  private volatile java.lang.Object googleReferenceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object googleReferenceId_ = "";
   /**
    * <pre>
    * [Output Only] Google reference ID, to be used when raising support tickets with Google or otherwise to debug backend connectivity issues. [Deprecated] This field is not used.
@@ -2484,7 +2222,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3355;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -2511,7 +2249,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTERCONNECT_FIELD_NUMBER = 224601230;
-  private volatile java.lang.Object interconnect_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object interconnect_ = "";
   /**
    * <pre>
    * URL of the underlying Interconnect object that this attachment's traffic will traverse through.
@@ -2569,6 +2308,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IPSEC_INTERNAL_ADDRESSES_FIELD_NUMBER = 407648565;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList ipsecInternalAddresses_;
   /**
    * <pre>
@@ -2620,7 +2360,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of the resource. Always compute#interconnectAttachment for interconnect attachments.
@@ -2678,7 +2419,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MTU_FIELD_NUMBER = 108462;
-  private int mtu_;
+  private int mtu_ = 0;
   /**
    * <pre>
    * Maximum Transmission Unit (MTU), in bytes, of packets passing through this interconnect attachment. Only 1440 and 1500 are allowed. If not specified, the value will default to 1440.
@@ -2705,7 +2446,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
@@ -2763,7 +2505,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATIONAL_STATUS_FIELD_NUMBER = 201070847;
-  private volatile java.lang.Object operationalStatus_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object operationalStatus_ = "";
   /**
    * <pre>
    * [Output Only] The current status of whether or not this interconnect attachment is functional, which can take one of the following values: - OS_ACTIVE: The attachment has been turned up and is ready to use. - OS_UNPROVISIONED: The attachment is not ready to use yet, because turnup is not complete.
@@ -2824,7 +2567,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAIRING_KEY_FIELD_NUMBER = 439695464;
-  private volatile java.lang.Object pairingKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pairingKey_ = "";
   /**
    * <pre>
    * [Output only for type PARTNER. Input only for PARTNER_PROVIDER. Not present for DEDICATED]. The opaque identifier of an PARTNER attachment used to initiate provisioning with a selected partner. Of the form "XXXXX/region/domain"
@@ -2882,7 +2626,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTNER_ASN_FIELD_NUMBER = 438166149;
-  private long partnerAsn_;
+  private long partnerAsn_ = 0L;
   /**
    * <pre>
    * Optional BGP ASN for the router supplied by a Layer 3 Partner if they configured BGP on behalf of the customer. Output only for PARTNER type, input only for PARTNER_PROVIDER, not available for DEDICATED.
@@ -2985,7 +2729,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_FIELD_NUMBER = 138946292;
-  private volatile java.lang.Object region_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object region_ = "";
   /**
    * <pre>
    * [Output Only] URL of the region where the regional interconnect attachment resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
@@ -3043,7 +2788,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROUTER_FIELD_NUMBER = 148608841;
-  private volatile java.lang.Object router_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object router_ = "";
   /**
    * <pre>
    * URL of the Cloud Router to be used for dynamic routing. This router must be in the same region as this InterconnectAttachment. The InterconnectAttachment will automatically connect the Interconnect to the network &amp; region within which the Cloud Router is configured.
@@ -3101,7 +2847,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SATISFIES_PZS_FIELD_NUMBER = 480964267;
-  private boolean satisfiesPzs_;
+  private boolean satisfiesPzs_ = false;
   /**
    * <pre>
    * [Output Only] Set to true if the resource satisfies the zone separation organization policy constraints and false otherwise. Defaults to false if the field is not present.
@@ -3128,7 +2874,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined URL for the resource.
@@ -3186,7 +2933,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STACK_TYPE_FIELD_NUMBER = 425908881;
-  private volatile java.lang.Object stackType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stackType_ = "";
   /**
    * <pre>
    * The stack type for this interconnect attachment to identify whether the IPv6 feature is enabled or not. If not specified, IPV4_ONLY will be used. This field can be both set at interconnect attachments creation and update interconnect attachment operations.
@@ -3247,7 +2995,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 109757585;
-  private volatile java.lang.Object state_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object state_ = "";
   /**
    * <pre>
    * [Output Only] The current state of this attachment's functionality. Enum values ACTIVE and UNPROVISIONED are shared by DEDICATED/PRIVATE, PARTNER, and PARTNER_PROVIDER interconnect attachments, while enum values PENDING_PARTNER, PARTNER_REQUEST_RECEIVED, and PENDING_CUSTOMER are used for only PARTNER and PARTNER_PROVIDER interconnect attachments. This state can take one of the following values: - ACTIVE: The attachment has been turned up and is ready to use. - UNPROVISIONED: The attachment is not ready to use yet, because turnup is not complete. - PENDING_PARTNER: A newly-created PARTNER attachment that has not yet been configured on the Partner side. - PARTNER_REQUEST_RECEIVED: A PARTNER attachment is in the process of provisioning after a PARTNER_PROVIDER attachment was created that references it. - PENDING_CUSTOMER: A PARTNER or PARTNER_PROVIDER attachment that is waiting for a customer to activate it. - DEFUNCT: The attachment was deleted externally and is no longer functional. This could be because the associated Interconnect was removed, or because the other side of a Partner attachment was deleted.
@@ -3308,7 +3057,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 3575610;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
    * The type of interconnect attachment this is, which can take one of the following values: - DEDICATED: an attachment to a Dedicated Interconnect. - PARTNER: an attachment to a Partner Interconnect, created by the customer. - PARTNER_PROVIDER: an attachment to a Partner Interconnect, created by the partner.
@@ -3369,7 +3119,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VLAN_TAG8021Q_FIELD_NUMBER = 119927836;
-  private int vlanTag8021Q_;
+  private int vlanTag8021Q_ = 0;
   /**
    * <pre>
    * The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. Only specified at creation time.
@@ -3514,7 +3264,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00002000) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 534944469, googleReferenceId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3652,7 +3402,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00002000) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(534944469, googleReferenceId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3833,7 +3583,7 @@ private static final long serialVersionUID = 0L;
       if (getVlanTag8021Q()
           != other.getVlanTag8021Q()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3988,7 +3738,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VLAN_TAG8021Q_FIELD_NUMBER;
       hash = (53 * hash) + getVlanTag8021Q();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4127,84 +3877,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      bitField1_ = 0;
       adminEnabled_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       bandwidth_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       candidateIpv6Subnets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
       candidateSubnets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
       cloudRouterIpAddress_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       cloudRouterIpv6Address_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       cloudRouterIpv6InterfaceId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       creationTimestamp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
       customerRouterIpAddress_ = "";
-      bitField0_ = (bitField0_ & ~0x00000100);
       customerRouterIpv6Address_ = "";
-      bitField0_ = (bitField0_ & ~0x00000200);
       customerRouterIpv6InterfaceId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
       dataplaneVersion_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000800);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00001000);
       edgeAvailabilityDomain_ = "";
-      bitField0_ = (bitField0_ & ~0x00002000);
       encryption_ = "";
-      bitField0_ = (bitField0_ & ~0x00004000);
       googleReferenceId_ = "";
-      bitField0_ = (bitField0_ & ~0x00008000);
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00010000);
       interconnect_ = "";
-      bitField0_ = (bitField0_ & ~0x00020000);
       ipsecInternalAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00040000);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00080000);
       mtu_ = 0;
-      bitField0_ = (bitField0_ & ~0x00100000);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00200000);
       operationalStatus_ = "";
-      bitField0_ = (bitField0_ & ~0x00400000);
       pairingKey_ = "";
-      bitField0_ = (bitField0_ & ~0x00800000);
       partnerAsn_ = 0L;
-      bitField0_ = (bitField0_ & ~0x01000000);
-      if (partnerMetadataBuilder_ == null) {
-        partnerMetadata_ = null;
-      } else {
-        partnerMetadataBuilder_.clear();
+      partnerMetadata_ = null;
+      if (partnerMetadataBuilder_ != null) {
+        partnerMetadataBuilder_.dispose();
+        partnerMetadataBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x02000000);
-      if (privateInterconnectInfoBuilder_ == null) {
-        privateInterconnectInfo_ = null;
-      } else {
-        privateInterconnectInfoBuilder_.clear();
+      privateInterconnectInfo_ = null;
+      if (privateInterconnectInfoBuilder_ != null) {
+        privateInterconnectInfoBuilder_.dispose();
+        privateInterconnectInfoBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x04000000);
       region_ = "";
-      bitField0_ = (bitField0_ & ~0x08000000);
       router_ = "";
-      bitField0_ = (bitField0_ & ~0x10000000);
       satisfiesPzs_ = false;
-      bitField0_ = (bitField0_ & ~0x20000000);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x40000000);
       stackType_ = "";
-      bitField0_ = (bitField0_ & ~0x80000000);
       state_ = "";
-      bitField1_ = (bitField1_ & ~0x00000001);
       type_ = "";
-      bitField1_ = (bitField1_ & ~0x00000002);
       vlanTag8021Q_ = 0;
-      bitField1_ = (bitField1_ & ~0x00000004);
       return this;
     }
 
@@ -4231,17 +3951,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.InterconnectAttachment buildPartial() {
       com.google.cloud.compute.v1.InterconnectAttachment result = new com.google.cloud.compute.v1.InterconnectAttachment(this);
-      int from_bitField0_ = bitField0_;
-      int from_bitField1_ = bitField1_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.adminEnabled_ = adminEnabled_;
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.bandwidth_ = bandwidth_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      if (bitField1_ != 0) { buildPartial1(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.InterconnectAttachment result) {
       if (((bitField0_ & 0x00000004) != 0)) {
         candidateIpv6Subnets_ = candidateIpv6Subnets_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -4252,142 +3969,155 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.candidateSubnets_ = candidateSubnets_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.cloudRouterIpAddress_ = cloudRouterIpAddress_;
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        to_bitField0_ |= 0x00000008;
-      }
-      result.cloudRouterIpv6Address_ = cloudRouterIpv6Address_;
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        to_bitField0_ |= 0x00000010;
-      }
-      result.cloudRouterIpv6InterfaceId_ = cloudRouterIpv6InterfaceId_;
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        to_bitField0_ |= 0x00000020;
-      }
-      result.creationTimestamp_ = creationTimestamp_;
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        to_bitField0_ |= 0x00000040;
-      }
-      result.customerRouterIpAddress_ = customerRouterIpAddress_;
-      if (((from_bitField0_ & 0x00000200) != 0)) {
-        to_bitField0_ |= 0x00000080;
-      }
-      result.customerRouterIpv6Address_ = customerRouterIpv6Address_;
-      if (((from_bitField0_ & 0x00000400) != 0)) {
-        to_bitField0_ |= 0x00000100;
-      }
-      result.customerRouterIpv6InterfaceId_ = customerRouterIpv6InterfaceId_;
-      if (((from_bitField0_ & 0x00000800) != 0)) {
-        result.dataplaneVersion_ = dataplaneVersion_;
-        to_bitField0_ |= 0x00000200;
-      }
-      if (((from_bitField0_ & 0x00001000) != 0)) {
-        to_bitField0_ |= 0x00000400;
-      }
-      result.description_ = description_;
-      if (((from_bitField0_ & 0x00002000) != 0)) {
-        to_bitField0_ |= 0x00000800;
-      }
-      result.edgeAvailabilityDomain_ = edgeAvailabilityDomain_;
-      if (((from_bitField0_ & 0x00004000) != 0)) {
-        to_bitField0_ |= 0x00001000;
-      }
-      result.encryption_ = encryption_;
-      if (((from_bitField0_ & 0x00008000) != 0)) {
-        to_bitField0_ |= 0x00002000;
-      }
-      result.googleReferenceId_ = googleReferenceId_;
-      if (((from_bitField0_ & 0x00010000) != 0)) {
-        result.id_ = id_;
-        to_bitField0_ |= 0x00004000;
-      }
-      if (((from_bitField0_ & 0x00020000) != 0)) {
-        to_bitField0_ |= 0x00008000;
-      }
-      result.interconnect_ = interconnect_;
       if (((bitField0_ & 0x00040000) != 0)) {
         ipsecInternalAddresses_ = ipsecInternalAddresses_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00040000);
       }
       result.ipsecInternalAddresses_ = ipsecInternalAddresses_;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.InterconnectAttachment result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.adminEnabled_ = adminEnabled_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.bandwidth_ = bandwidth_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.cloudRouterIpAddress_ = cloudRouterIpAddress_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.cloudRouterIpv6Address_ = cloudRouterIpv6Address_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.cloudRouterIpv6InterfaceId_ = cloudRouterIpv6InterfaceId_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.creationTimestamp_ = creationTimestamp_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.customerRouterIpAddress_ = customerRouterIpAddress_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.customerRouterIpv6Address_ = customerRouterIpv6Address_;
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.customerRouterIpv6InterfaceId_ = customerRouterIpv6InterfaceId_;
+        to_bitField0_ |= 0x00000100;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.dataplaneVersion_ = dataplaneVersion_;
+        to_bitField0_ |= 0x00000200;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000400;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.edgeAvailabilityDomain_ = edgeAvailabilityDomain_;
+        to_bitField0_ |= 0x00000800;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.encryption_ = encryption_;
+        to_bitField0_ |= 0x00001000;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.googleReferenceId_ = googleReferenceId_;
+        to_bitField0_ |= 0x00002000;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.id_ = id_;
+        to_bitField0_ |= 0x00004000;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.interconnect_ = interconnect_;
+        to_bitField0_ |= 0x00008000;
+      }
       if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.kind_ = kind_;
         to_bitField0_ |= 0x00010000;
       }
-      result.kind_ = kind_;
       if (((from_bitField0_ & 0x00100000) != 0)) {
         result.mtu_ = mtu_;
         to_bitField0_ |= 0x00020000;
       }
       if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.name_ = name_;
         to_bitField0_ |= 0x00040000;
       }
-      result.name_ = name_;
       if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.operationalStatus_ = operationalStatus_;
         to_bitField0_ |= 0x00080000;
       }
-      result.operationalStatus_ = operationalStatus_;
       if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.pairingKey_ = pairingKey_;
         to_bitField0_ |= 0x00100000;
       }
-      result.pairingKey_ = pairingKey_;
       if (((from_bitField0_ & 0x01000000) != 0)) {
         result.partnerAsn_ = partnerAsn_;
         to_bitField0_ |= 0x00200000;
       }
       if (((from_bitField0_ & 0x02000000) != 0)) {
-        if (partnerMetadataBuilder_ == null) {
-          result.partnerMetadata_ = partnerMetadata_;
-        } else {
-          result.partnerMetadata_ = partnerMetadataBuilder_.build();
-        }
+        result.partnerMetadata_ = partnerMetadataBuilder_ == null
+            ? partnerMetadata_
+            : partnerMetadataBuilder_.build();
         to_bitField0_ |= 0x00400000;
       }
       if (((from_bitField0_ & 0x04000000) != 0)) {
-        if (privateInterconnectInfoBuilder_ == null) {
-          result.privateInterconnectInfo_ = privateInterconnectInfo_;
-        } else {
-          result.privateInterconnectInfo_ = privateInterconnectInfoBuilder_.build();
-        }
+        result.privateInterconnectInfo_ = privateInterconnectInfoBuilder_ == null
+            ? privateInterconnectInfo_
+            : privateInterconnectInfoBuilder_.build();
         to_bitField0_ |= 0x00800000;
       }
       if (((from_bitField0_ & 0x08000000) != 0)) {
+        result.region_ = region_;
         to_bitField0_ |= 0x01000000;
       }
-      result.region_ = region_;
       if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.router_ = router_;
         to_bitField0_ |= 0x02000000;
       }
-      result.router_ = router_;
       if (((from_bitField0_ & 0x20000000) != 0)) {
         result.satisfiesPzs_ = satisfiesPzs_;
         to_bitField0_ |= 0x04000000;
       }
       if (((from_bitField0_ & 0x40000000) != 0)) {
+        result.selfLink_ = selfLink_;
         to_bitField0_ |= 0x08000000;
       }
-      result.selfLink_ = selfLink_;
       if (((from_bitField0_ & 0x80000000) != 0)) {
+        result.stackType_ = stackType_;
         to_bitField0_ |= 0x10000000;
       }
-      result.stackType_ = stackType_;
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartial1(com.google.cloud.compute.v1.InterconnectAttachment result) {
+      int from_bitField1_ = bitField1_;
+      int to_bitField0_ = 0;
       if (((from_bitField1_ & 0x00000001) != 0)) {
+        result.state_ = state_;
         to_bitField0_ |= 0x20000000;
       }
-      result.state_ = state_;
       if (((from_bitField1_ & 0x00000002) != 0)) {
+        result.type_ = type_;
         to_bitField0_ |= 0x40000000;
       }
-      result.type_ = type_;
       if (((from_bitField1_ & 0x00000004) != 0)) {
         result.vlanTag8021Q_ = vlanTag8021Q_;
         to_bitField0_ |= 0x80000000;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -4438,8 +4168,8 @@ private static final long serialVersionUID = 0L;
         setAdminEnabled(other.getAdminEnabled());
       }
       if (other.hasBandwidth()) {
-        bitField0_ |= 0x00000002;
         bandwidth_ = other.bandwidth_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.candidateIpv6Subnets_.isEmpty()) {
@@ -4463,69 +4193,69 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasCloudRouterIpAddress()) {
-        bitField0_ |= 0x00000010;
         cloudRouterIpAddress_ = other.cloudRouterIpAddress_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasCloudRouterIpv6Address()) {
-        bitField0_ |= 0x00000020;
         cloudRouterIpv6Address_ = other.cloudRouterIpv6Address_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasCloudRouterIpv6InterfaceId()) {
-        bitField0_ |= 0x00000040;
         cloudRouterIpv6InterfaceId_ = other.cloudRouterIpv6InterfaceId_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasCreationTimestamp()) {
-        bitField0_ |= 0x00000080;
         creationTimestamp_ = other.creationTimestamp_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasCustomerRouterIpAddress()) {
-        bitField0_ |= 0x00000100;
         customerRouterIpAddress_ = other.customerRouterIpAddress_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasCustomerRouterIpv6Address()) {
-        bitField0_ |= 0x00000200;
         customerRouterIpv6Address_ = other.customerRouterIpv6Address_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasCustomerRouterIpv6InterfaceId()) {
-        bitField0_ |= 0x00000400;
         customerRouterIpv6InterfaceId_ = other.customerRouterIpv6InterfaceId_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasDataplaneVersion()) {
         setDataplaneVersion(other.getDataplaneVersion());
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00001000;
         description_ = other.description_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.hasEdgeAvailabilityDomain()) {
-        bitField0_ |= 0x00002000;
         edgeAvailabilityDomain_ = other.edgeAvailabilityDomain_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (other.hasEncryption()) {
-        bitField0_ |= 0x00004000;
         encryption_ = other.encryption_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       if (other.hasGoogleReferenceId()) {
-        bitField0_ |= 0x00008000;
         googleReferenceId_ = other.googleReferenceId_;
+        bitField0_ |= 0x00008000;
         onChanged();
       }
       if (other.hasId()) {
         setId(other.getId());
       }
       if (other.hasInterconnect()) {
-        bitField0_ |= 0x00020000;
         interconnect_ = other.interconnect_;
+        bitField0_ |= 0x00020000;
         onChanged();
       }
       if (!other.ipsecInternalAddresses_.isEmpty()) {
@@ -4539,26 +4269,26 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00080000;
         kind_ = other.kind_;
+        bitField0_ |= 0x00080000;
         onChanged();
       }
       if (other.hasMtu()) {
         setMtu(other.getMtu());
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00200000;
         name_ = other.name_;
+        bitField0_ |= 0x00200000;
         onChanged();
       }
       if (other.hasOperationalStatus()) {
-        bitField0_ |= 0x00400000;
         operationalStatus_ = other.operationalStatus_;
+        bitField0_ |= 0x00400000;
         onChanged();
       }
       if (other.hasPairingKey()) {
-        bitField0_ |= 0x00800000;
         pairingKey_ = other.pairingKey_;
+        bitField0_ |= 0x00800000;
         onChanged();
       }
       if (other.hasPartnerAsn()) {
@@ -4571,42 +4301,42 @@ private static final long serialVersionUID = 0L;
         mergePrivateInterconnectInfo(other.getPrivateInterconnectInfo());
       }
       if (other.hasRegion()) {
-        bitField0_ |= 0x08000000;
         region_ = other.region_;
+        bitField0_ |= 0x08000000;
         onChanged();
       }
       if (other.hasRouter()) {
-        bitField0_ |= 0x10000000;
         router_ = other.router_;
+        bitField0_ |= 0x10000000;
         onChanged();
       }
       if (other.hasSatisfiesPzs()) {
         setSatisfiesPzs(other.getSatisfiesPzs());
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x40000000;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x40000000;
         onChanged();
       }
       if (other.hasStackType()) {
-        bitField0_ |= 0x80000000;
         stackType_ = other.stackType_;
+        bitField0_ |= 0x80000000;
         onChanged();
       }
       if (other.hasState()) {
-        bitField1_ |= 0x00000001;
         state_ = other.state_;
+        bitField1_ |= 0x00000001;
         onChanged();
       }
       if (other.hasType()) {
-        bitField1_ |= 0x00000002;
         type_ = other.type_;
+        bitField1_ |= 0x00000002;
         onChanged();
       }
       if (other.hasVlanTag8021Q()) {
         setVlanTag8021Q(other.getVlanTag8021Q());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4621,17 +4351,212 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.InterconnectAttachment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26840: {
+              id_ = input.readUInt64();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 26840
+            case 867696: {
+              mtu_ = input.readInt32();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 867696
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 26336418
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 26989658
+            case 28604882: {
+              type_ = input.readStringRequireUtf8();
+              bitField1_ |= 0x00000002;
+              break;
+            } // case 28604882
+            case 244202930: {
+              creationTimestamp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 244202930
+            case 279360600: {
+              dataplaneVersion_ = input.readInt32();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 279360600
+            case 527271474: {
+              input.readMessage(
+                  getPartnerMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 527271474
+            case 565460178: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCandidateIpv6SubnetsIsMutable();
+              candidateIpv6Subnets_.add(s);
+              break;
+            } // case 565460178
+            case 570316082: {
+              edgeAvailabilityDomain_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 570316082
+            case 783842330: {
+              encryption_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 783842330
+            case 878060682: {
+              state_ = input.readStringRequireUtf8();
+              bitField1_ |= 0x00000001;
+              break;
+            } // case 878060682
+            case 959422688: {
+              vlanTag8021Q_ = input.readInt32();
+              bitField1_ |= 0x00000004;
+              break;
+            } // case 959422688
+            case 1111570338: {
+              region_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x08000000;
+              break;
+            } // case 1111570338
+            case 1188870730: {
+              router_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x10000000;
+              break;
+            } // case 1188870730
+            case 1453720970: {
+              bandwidth_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1453720970
+            case 1608566778: {
+              operationalStatus_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 1608566778
+            case 1796809842: {
+              interconnect_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 1796809842
+            case 1898164250: {
+              input.readMessage(
+                  getPrivateInterconnectInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 1898164250
+            case 1902743506: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCandidateSubnetsIsMutable();
+              candidateSubnets_.add(s);
+              break;
+            } // case 1902743506
+            case -1995825086: {
+              cloudRouterIpAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -1995825086
+            case -1973950582: {
+              customerRouterIpv6Address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case -1973950582
+            case -1635161206: {
+              customerRouterIpAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case -1635161206
+            case -1247012830: {
+              customerRouterIpv6InterfaceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case -1247012830
+            case -1033778774: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIpsecInternalAddressesIsMutable();
+              ipsecInternalAddresses_.add(s);
+              break;
+            } // case -1033778774
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case -911466526
+            case -887696246: {
+              stackType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x80000000;
+              break;
+            } // case -887696246
+            case -789638104: {
+              partnerAsn_ = input.readInt64();
+              bitField0_ |= 0x01000000;
+              break;
+            } // case -789638104
+            case -777403582: {
+              pairingKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00800000;
+              break;
+            } // case -777403582
+            case -729566584: {
+              adminEnabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -729566584
+            case -679588286: {
+              cloudRouterIpv6Address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -679588286
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x40000000;
+              break;
+            } // case -645248918
+            case -447253160: {
+              satisfiesPzs_ = input.readBool();
+              bitField0_ |= 0x20000000;
+              break;
+            } // case -447253160
+            case -124705686: {
+              cloudRouterIpv6InterfaceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case -124705686
+            case -15411542: {
+              googleReferenceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case -15411542
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.InterconnectAttachment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -4672,8 +4597,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAdminEnabled(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       adminEnabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -4760,11 +4686,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBandwidth(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       bandwidth_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -4778,8 +4702,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBandwidth() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       bandwidth_ = getDefaultInstance().getBandwidth();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -4795,12 +4719,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBandwidthBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bandwidth_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -4872,10 +4794,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCandidateIpv6Subnets(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCandidateIpv6SubnetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCandidateIpv6SubnetsIsMutable();
       candidateIpv6Subnets_.set(index, value);
       onChanged();
       return this;
@@ -4891,10 +4811,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCandidateIpv6Subnets(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCandidateIpv6SubnetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCandidateIpv6SubnetsIsMutable();
       candidateIpv6Subnets_.add(value);
       onChanged();
       return this;
@@ -4941,10 +4859,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCandidateIpv6SubnetsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCandidateIpv6SubnetsIsMutable();
       candidateIpv6Subnets_.add(value);
       onChanged();
@@ -5018,10 +4934,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCandidateSubnets(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCandidateSubnetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCandidateSubnetsIsMutable();
       candidateSubnets_.set(index, value);
       onChanged();
       return this;
@@ -5037,10 +4951,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCandidateSubnets(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCandidateSubnetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCandidateSubnetsIsMutable();
       candidateSubnets_.add(value);
       onChanged();
       return this;
@@ -5087,10 +4999,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCandidateSubnetsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCandidateSubnetsIsMutable();
       candidateSubnets_.add(value);
       onChanged();
@@ -5161,11 +5071,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudRouterIpAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       cloudRouterIpAddress_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -5178,8 +5086,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCloudRouterIpAddress() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       cloudRouterIpAddress_ = getDefaultInstance().getCloudRouterIpAddress();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -5194,12 +5102,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudRouterIpAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cloudRouterIpAddress_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -5268,11 +5174,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudRouterIpv6Address(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       cloudRouterIpv6Address_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -5285,8 +5189,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCloudRouterIpv6Address() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       cloudRouterIpv6Address_ = getDefaultInstance().getCloudRouterIpv6Address();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -5301,12 +5205,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudRouterIpv6AddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cloudRouterIpv6Address_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -5375,11 +5277,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudRouterIpv6InterfaceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       cloudRouterIpv6InterfaceId_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -5392,8 +5292,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCloudRouterIpv6InterfaceId() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       cloudRouterIpv6InterfaceId_ = getDefaultInstance().getCloudRouterIpv6InterfaceId();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -5408,12 +5308,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudRouterIpv6InterfaceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cloudRouterIpv6InterfaceId_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -5482,11 +5380,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestamp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -5499,8 +5395,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       creationTimestamp_ = getDefaultInstance().getCreationTimestamp();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -5515,12 +5411,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestampBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -5589,11 +5483,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerRouterIpAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       customerRouterIpAddress_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -5606,8 +5498,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerRouterIpAddress() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       customerRouterIpAddress_ = getDefaultInstance().getCustomerRouterIpAddress();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -5622,12 +5514,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerRouterIpAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerRouterIpAddress_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -5696,11 +5586,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerRouterIpv6Address(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
       customerRouterIpv6Address_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -5713,8 +5601,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerRouterIpv6Address() {
-      bitField0_ = (bitField0_ & ~0x00000200);
       customerRouterIpv6Address_ = getDefaultInstance().getCustomerRouterIpv6Address();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -5729,12 +5617,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerRouterIpv6AddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerRouterIpv6Address_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -5803,11 +5689,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerRouterIpv6InterfaceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       customerRouterIpv6InterfaceId_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -5820,8 +5704,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerRouterIpv6InterfaceId() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       customerRouterIpv6InterfaceId_ = getDefaultInstance().getCustomerRouterIpv6InterfaceId();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -5836,12 +5720,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerRouterIpv6InterfaceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerRouterIpv6InterfaceId_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -5881,8 +5763,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDataplaneVersion(int value) {
-      bitField0_ |= 0x00000800;
+      
       dataplaneVersion_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -5965,11 +5848,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -5982,8 +5863,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -5998,12 +5879,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -6076,11 +5955,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEdgeAvailabilityDomain(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
       edgeAvailabilityDomain_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -6094,8 +5971,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEdgeAvailabilityDomain() {
-      bitField0_ = (bitField0_ & ~0x00002000);
       edgeAvailabilityDomain_ = getDefaultInstance().getEdgeAvailabilityDomain();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -6111,12 +5988,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEdgeAvailabilityDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       edgeAvailabilityDomain_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -6124,7 +5999,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object encryption_ = "";
     /**
      * <pre>
-     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly.
+     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option.
      * Check the Encryption enum for the list of possible values.
      * </pre>
      *
@@ -6136,7 +6011,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly.
+     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option.
      * Check the Encryption enum for the list of possible values.
      * </pre>
      *
@@ -6157,7 +6032,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly.
+     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option.
      * Check the Encryption enum for the list of possible values.
      * </pre>
      *
@@ -6179,7 +6054,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly.
+     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option.
      * Check the Encryption enum for the list of possible values.
      * </pre>
      *
@@ -6189,17 +6064,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncryption(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00004000;
+      if (value == null) { throw new NullPointerException(); }
       encryption_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly.
+     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option.
      * Check the Encryption enum for the list of possible values.
      * </pre>
      *
@@ -6207,14 +6080,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEncryption() {
-      bitField0_ = (bitField0_ & ~0x00004000);
       encryption_ = getDefaultInstance().getEncryption();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *IPsec-encrypted Cloud Interconnect*, the VLAN attachment must be created with this option. Not currently available publicly.
+     * Indicates the user-supplied encryption option of this VLAN attachment (interconnectAttachment). Can only be specified at attachment creation for PARTNER or DEDICATED attachments. Possible values are: - NONE - This is the default value, which means that the VLAN attachment carries unencrypted traffic. VMs are able to send traffic to, or receive traffic from, such a VLAN attachment. - IPSEC - The VLAN attachment carries only encrypted traffic that is encrypted by an IPsec device, such as an HA VPN gateway or third-party IPsec VPN. VMs cannot directly send traffic to, or receive traffic from, such a VLAN attachment. To use *HA VPN over Cloud Interconnect*, the VLAN attachment must be created with this option.
      * Check the Encryption enum for the list of possible values.
      * </pre>
      *
@@ -6224,12 +6097,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncryptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00004000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       encryption_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -6298,11 +6169,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleReferenceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00008000;
+      if (value == null) { throw new NullPointerException(); }
       googleReferenceId_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -6315,8 +6184,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGoogleReferenceId() {
-      bitField0_ = (bitField0_ & ~0x00008000);
       googleReferenceId_ = getDefaultInstance().getGoogleReferenceId();
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -6331,12 +6200,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleReferenceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00008000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       googleReferenceId_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -6376,8 +6243,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00010000;
+      
       id_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -6460,11 +6328,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInterconnect(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00020000;
+      if (value == null) { throw new NullPointerException(); }
       interconnect_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -6477,8 +6343,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInterconnect() {
-      bitField0_ = (bitField0_ & ~0x00020000);
       interconnect_ = getDefaultInstance().getInterconnect();
+      bitField0_ = (bitField0_ & ~0x00020000);
       onChanged();
       return this;
     }
@@ -6493,12 +6359,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInterconnectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00020000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       interconnect_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -6570,10 +6434,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpsecInternalAddresses(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpsecInternalAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpsecInternalAddressesIsMutable();
       ipsecInternalAddresses_.set(index, value);
       onChanged();
       return this;
@@ -6589,10 +6451,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpsecInternalAddresses(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpsecInternalAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpsecInternalAddressesIsMutable();
       ipsecInternalAddresses_.add(value);
       onChanged();
       return this;
@@ -6639,10 +6499,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpsecInternalAddressesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIpsecInternalAddressesIsMutable();
       ipsecInternalAddresses_.add(value);
       onChanged();
@@ -6713,11 +6571,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00080000;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00080000;
       onChanged();
       return this;
     }
@@ -6730,8 +6586,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00080000);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00080000);
       onChanged();
       return this;
     }
@@ -6746,12 +6602,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00080000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00080000;
       onChanged();
       return this;
     }
@@ -6791,8 +6645,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMtu(int value) {
-      bitField0_ |= 0x00100000;
+      
       mtu_ = value;
+      bitField0_ |= 0x00100000;
       onChanged();
       return this;
     }
@@ -6875,11 +6730,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00200000;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -6892,8 +6745,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00200000);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00200000);
       onChanged();
       return this;
     }
@@ -6908,12 +6761,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00200000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -6986,11 +6837,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationalStatus(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00400000;
+      if (value == null) { throw new NullPointerException(); }
       operationalStatus_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
@@ -7004,8 +6853,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperationalStatus() {
-      bitField0_ = (bitField0_ & ~0x00400000);
       operationalStatus_ = getDefaultInstance().getOperationalStatus();
+      bitField0_ = (bitField0_ & ~0x00400000);
       onChanged();
       return this;
     }
@@ -7021,12 +6870,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationalStatusBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00400000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       operationalStatus_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
@@ -7095,11 +6942,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPairingKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00800000;
+      if (value == null) { throw new NullPointerException(); }
       pairingKey_ = value;
+      bitField0_ |= 0x00800000;
       onChanged();
       return this;
     }
@@ -7112,8 +6957,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPairingKey() {
-      bitField0_ = (bitField0_ & ~0x00800000);
       pairingKey_ = getDefaultInstance().getPairingKey();
+      bitField0_ = (bitField0_ & ~0x00800000);
       onChanged();
       return this;
     }
@@ -7128,12 +6973,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPairingKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00800000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pairingKey_ = value;
+      bitField0_ |= 0x00800000;
       onChanged();
       return this;
     }
@@ -7173,8 +7016,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPartnerAsn(long value) {
-      bitField0_ |= 0x01000000;
+      
       partnerAsn_ = value;
+      bitField0_ |= 0x01000000;
       onChanged();
       return this;
     }
@@ -7235,11 +7079,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         partnerMetadata_ = value;
-        onChanged();
       } else {
         partnerMetadataBuilder_.setMessage(value);
       }
       bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -7253,11 +7097,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.InterconnectAttachmentPartnerMetadata.Builder builderForValue) {
       if (partnerMetadataBuilder_ == null) {
         partnerMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         partnerMetadataBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -7270,18 +7114,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergePartnerMetadata(com.google.cloud.compute.v1.InterconnectAttachmentPartnerMetadata value) {
       if (partnerMetadataBuilder_ == null) {
         if (((bitField0_ & 0x02000000) != 0) &&
-            partnerMetadata_ != null &&
-            partnerMetadata_ != com.google.cloud.compute.v1.InterconnectAttachmentPartnerMetadata.getDefaultInstance()) {
-          partnerMetadata_ =
-            com.google.cloud.compute.v1.InterconnectAttachmentPartnerMetadata.newBuilder(partnerMetadata_).mergeFrom(value).buildPartial();
+          partnerMetadata_ != null &&
+          partnerMetadata_ != com.google.cloud.compute.v1.InterconnectAttachmentPartnerMetadata.getDefaultInstance()) {
+          getPartnerMetadataBuilder().mergeFrom(value);
         } else {
           partnerMetadata_ = value;
         }
-        onChanged();
       } else {
         partnerMetadataBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x02000000;
+      onChanged();
       return this;
     }
     /**
@@ -7292,13 +7135,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InterconnectAttachmentPartnerMetadata partner_metadata = 65908934;</code>
      */
     public Builder clearPartnerMetadata() {
-      if (partnerMetadataBuilder_ == null) {
-        partnerMetadata_ = null;
-        onChanged();
-      } else {
-        partnerMetadataBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x02000000);
+      partnerMetadata_ = null;
+      if (partnerMetadataBuilder_ != null) {
+        partnerMetadataBuilder_.dispose();
+        partnerMetadataBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -7391,11 +7234,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         privateInterconnectInfo_ = value;
-        onChanged();
       } else {
         privateInterconnectInfoBuilder_.setMessage(value);
       }
       bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -7409,11 +7252,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.InterconnectAttachmentPrivateInfo.Builder builderForValue) {
       if (privateInterconnectInfoBuilder_ == null) {
         privateInterconnectInfo_ = builderForValue.build();
-        onChanged();
       } else {
         privateInterconnectInfoBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -7426,18 +7269,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergePrivateInterconnectInfo(com.google.cloud.compute.v1.InterconnectAttachmentPrivateInfo value) {
       if (privateInterconnectInfoBuilder_ == null) {
         if (((bitField0_ & 0x04000000) != 0) &&
-            privateInterconnectInfo_ != null &&
-            privateInterconnectInfo_ != com.google.cloud.compute.v1.InterconnectAttachmentPrivateInfo.getDefaultInstance()) {
-          privateInterconnectInfo_ =
-            com.google.cloud.compute.v1.InterconnectAttachmentPrivateInfo.newBuilder(privateInterconnectInfo_).mergeFrom(value).buildPartial();
+          privateInterconnectInfo_ != null &&
+          privateInterconnectInfo_ != com.google.cloud.compute.v1.InterconnectAttachmentPrivateInfo.getDefaultInstance()) {
+          getPrivateInterconnectInfoBuilder().mergeFrom(value);
         } else {
           privateInterconnectInfo_ = value;
         }
-        onChanged();
       } else {
         privateInterconnectInfoBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -7448,13 +7290,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InterconnectAttachmentPrivateInfo private_interconnect_info = 237270531;</code>
      */
     public Builder clearPrivateInterconnectInfo() {
-      if (privateInterconnectInfoBuilder_ == null) {
-        privateInterconnectInfo_ = null;
-        onChanged();
-      } else {
-        privateInterconnectInfoBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x04000000);
+      privateInterconnectInfo_ = null;
+      if (privateInterconnectInfoBuilder_ != null) {
+        privateInterconnectInfoBuilder_.dispose();
+        privateInterconnectInfoBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -7569,11 +7411,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x08000000;
+      if (value == null) { throw new NullPointerException(); }
       region_ = value;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -7586,8 +7426,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegion() {
-      bitField0_ = (bitField0_ & ~0x08000000);
       region_ = getDefaultInstance().getRegion();
+      bitField0_ = (bitField0_ & ~0x08000000);
       onChanged();
       return this;
     }
@@ -7602,12 +7442,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x08000000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       region_ = value;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -7676,11 +7514,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRouter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x10000000;
+      if (value == null) { throw new NullPointerException(); }
       router_ = value;
+      bitField0_ |= 0x10000000;
       onChanged();
       return this;
     }
@@ -7693,8 +7529,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRouter() {
-      bitField0_ = (bitField0_ & ~0x10000000);
       router_ = getDefaultInstance().getRouter();
+      bitField0_ = (bitField0_ & ~0x10000000);
       onChanged();
       return this;
     }
@@ -7709,12 +7545,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRouterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x10000000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       router_ = value;
+      bitField0_ |= 0x10000000;
       onChanged();
       return this;
     }
@@ -7754,8 +7588,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSatisfiesPzs(boolean value) {
-      bitField0_ |= 0x20000000;
+      
       satisfiesPzs_ = value;
+      bitField0_ |= 0x20000000;
       onChanged();
       return this;
     }
@@ -7838,11 +7673,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x40000000;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x40000000;
       onChanged();
       return this;
     }
@@ -7855,8 +7688,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x40000000);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x40000000);
       onChanged();
       return this;
     }
@@ -7871,12 +7704,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x40000000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x40000000;
       onChanged();
       return this;
     }
@@ -7949,11 +7780,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStackType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x80000000;
+      if (value == null) { throw new NullPointerException(); }
       stackType_ = value;
+      bitField0_ |= 0x80000000;
       onChanged();
       return this;
     }
@@ -7967,8 +7796,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStackType() {
-      bitField0_ = (bitField0_ & ~0x80000000);
       stackType_ = getDefaultInstance().getStackType();
+      bitField0_ = (bitField0_ & ~0x80000000);
       onChanged();
       return this;
     }
@@ -7984,12 +7813,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStackTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x80000000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stackType_ = value;
+      bitField0_ |= 0x80000000;
       onChanged();
       return this;
     }
@@ -8062,11 +7889,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setState(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField1_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       state_ = value;
+      bitField1_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -8080,8 +7905,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      bitField1_ = (bitField1_ & ~0x00000001);
       state_ = getDefaultInstance().getState();
+      bitField1_ = (bitField1_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -8097,12 +7922,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField1_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       state_ = value;
+      bitField1_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -8175,11 +7998,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField1_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -8193,8 +8014,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      bitField1_ = (bitField1_ & ~0x00000002);
       type_ = getDefaultInstance().getType();
+      bitField1_ = (bitField1_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -8210,12 +8031,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField1_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -8255,8 +8074,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVlanTag8021Q(int value) {
-      bitField1_ |= 0x00000004;
+      
       vlanTag8021Q_ = value;
+      bitField1_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -8307,7 +8127,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InterconnectAttachment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

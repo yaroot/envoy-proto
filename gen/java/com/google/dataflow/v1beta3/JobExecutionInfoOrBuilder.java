@@ -46,7 +46,6 @@ public interface JobExecutionInfoOrBuilder extends
    *
    * <code>map&lt;string, .google.dataflow.v1beta3.JobExecutionStageInfo&gt; stages = 1;</code>
    */
-
   /* nullable */
 com.google.dataflow.v1beta3.JobExecutionStageInfo getStagesOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ com.google.dataflow.v1beta3.JobExecutionStageInfo defaultValue);
    *
    * <code>map&lt;string, .google.dataflow.v1beta3.JobExecutionStageInfo&gt; stages = 1;</code>
    */
-
   com.google.dataflow.v1beta3.JobExecutionStageInfo getStagesOrThrow(
       java.lang.String key);
 }

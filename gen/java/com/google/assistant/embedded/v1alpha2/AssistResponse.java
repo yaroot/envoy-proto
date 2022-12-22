@@ -37,129 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AssistResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            eventType_ = rawValue;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              speechResults_ = new java.util.ArrayList<com.google.assistant.embedded.v1alpha2.SpeechRecognitionResult>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            speechResults_.add(
-                input.readMessage(com.google.assistant.embedded.v1alpha2.SpeechRecognitionResult.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.assistant.embedded.v1alpha2.AudioOut.Builder subBuilder = null;
-            if (audioOut_ != null) {
-              subBuilder = audioOut_.toBuilder();
-            }
-            audioOut_ = input.readMessage(com.google.assistant.embedded.v1alpha2.AudioOut.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(audioOut_);
-              audioOut_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.assistant.embedded.v1alpha2.ScreenOut.Builder subBuilder = null;
-            if (screenOut_ != null) {
-              subBuilder = screenOut_.toBuilder();
-            }
-            screenOut_ = input.readMessage(com.google.assistant.embedded.v1alpha2.ScreenOut.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(screenOut_);
-              screenOut_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.assistant.embedded.v1alpha2.DialogStateOut.Builder subBuilder = null;
-            if (dialogStateOut_ != null) {
-              subBuilder = dialogStateOut_.toBuilder();
-            }
-            dialogStateOut_ = input.readMessage(com.google.assistant.embedded.v1alpha2.DialogStateOut.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dialogStateOut_);
-              dialogStateOut_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.assistant.embedded.v1alpha2.DeviceAction.Builder subBuilder = null;
-            if (deviceAction_ != null) {
-              subBuilder = deviceAction_.toBuilder();
-            }
-            deviceAction_ = input.readMessage(com.google.assistant.embedded.v1alpha2.DeviceAction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deviceAction_);
-              deviceAction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.assistant.embedded.v1alpha2.DebugInfo.Builder subBuilder = null;
-            if (debugInfo_ != null) {
-              subBuilder = debugInfo_.toBuilder();
-            }
-            debugInfo_ = input.readMessage(com.google.assistant.embedded.v1alpha2.DebugInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(debugInfo_);
-              debugInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        speechResults_ = java.util.Collections.unmodifiableList(speechResults_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.assistant.embedded.v1alpha2.AssistantProto.internal_static_google_assistant_embedded_v1alpha2_AssistResponse_descriptor;
@@ -312,7 +189,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_TYPE_FIELD_NUMBER = 1;
-  private int eventType_;
+  private int eventType_ = 0;
   /**
    * <pre>
    * *Output-only* Indicates the type of event.
@@ -333,8 +210,7 @@ private static final long serialVersionUID = 0L;
    * @return The eventType.
    */
   @java.lang.Override public com.google.assistant.embedded.v1alpha2.AssistResponse.EventType getEventType() {
-    @SuppressWarnings("deprecation")
-    com.google.assistant.embedded.v1alpha2.AssistResponse.EventType result = com.google.assistant.embedded.v1alpha2.AssistResponse.EventType.valueOf(eventType_);
+    com.google.assistant.embedded.v1alpha2.AssistResponse.EventType result = com.google.assistant.embedded.v1alpha2.AssistResponse.EventType.forNumber(eventType_);
     return result == null ? com.google.assistant.embedded.v1alpha2.AssistResponse.EventType.UNRECOGNIZED : result;
   }
 
@@ -373,7 +249,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.AudioOutOrBuilder getAudioOutOrBuilder() {
-    return getAudioOut();
+    return audioOut_ == null ? com.google.assistant.embedded.v1alpha2.AudioOut.getDefaultInstance() : audioOut_;
   }
 
   public static final int SCREEN_OUT_FIELD_NUMBER = 4;
@@ -411,7 +287,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.ScreenOutOrBuilder getScreenOutOrBuilder() {
-    return getScreenOut();
+    return screenOut_ == null ? com.google.assistant.embedded.v1alpha2.ScreenOut.getDefaultInstance() : screenOut_;
   }
 
   public static final int DEVICE_ACTION_FIELD_NUMBER = 6;
@@ -452,10 +328,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.DeviceActionOrBuilder getDeviceActionOrBuilder() {
-    return getDeviceAction();
+    return deviceAction_ == null ? com.google.assistant.embedded.v1alpha2.DeviceAction.getDefaultInstance() : deviceAction_;
   }
 
   public static final int SPEECH_RESULTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.assistant.embedded.v1alpha2.SpeechRecognitionResult> speechResults_;
   /**
    * <pre>
@@ -580,7 +457,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.DialogStateOutOrBuilder getDialogStateOutOrBuilder() {
-    return getDialogStateOut();
+    return dialogStateOut_ == null ? com.google.assistant.embedded.v1alpha2.DialogStateOut.getDefaultInstance() : dialogStateOut_;
   }
 
   public static final int DEBUG_INFO_FIELD_NUMBER = 8;
@@ -621,7 +498,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.DebugInfoOrBuilder getDebugInfoOrBuilder() {
-    return getDebugInfo();
+    return debugInfo_ == null ? com.google.assistant.embedded.v1alpha2.DebugInfo.getDefaultInstance() : debugInfo_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -659,7 +536,7 @@ private static final long serialVersionUID = 0L;
     if (debugInfo_ != null) {
       output.writeMessage(8, getDebugInfo());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -696,7 +573,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getDebugInfo());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -739,7 +616,7 @@ private static final long serialVersionUID = 0L;
       if (!getDebugInfo()
           .equals(other.getDebugInfo())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -776,7 +653,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DEBUG_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getDebugInfo().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -898,59 +775,49 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.assistant.embedded.v1alpha2.AssistResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSpeechResultsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       eventType_ = 0;
-
-      if (audioOutBuilder_ == null) {
-        audioOut_ = null;
-      } else {
-        audioOut_ = null;
+      audioOut_ = null;
+      if (audioOutBuilder_ != null) {
+        audioOutBuilder_.dispose();
         audioOutBuilder_ = null;
       }
-      if (screenOutBuilder_ == null) {
-        screenOut_ = null;
-      } else {
-        screenOut_ = null;
+      screenOut_ = null;
+      if (screenOutBuilder_ != null) {
+        screenOutBuilder_.dispose();
         screenOutBuilder_ = null;
       }
-      if (deviceActionBuilder_ == null) {
-        deviceAction_ = null;
-      } else {
-        deviceAction_ = null;
+      deviceAction_ = null;
+      if (deviceActionBuilder_ != null) {
+        deviceActionBuilder_.dispose();
         deviceActionBuilder_ = null;
       }
       if (speechResultsBuilder_ == null) {
         speechResults_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        speechResults_ = null;
         speechResultsBuilder_.clear();
       }
-      if (dialogStateOutBuilder_ == null) {
-        dialogStateOut_ = null;
-      } else {
-        dialogStateOut_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      dialogStateOut_ = null;
+      if (dialogStateOutBuilder_ != null) {
+        dialogStateOutBuilder_.dispose();
         dialogStateOutBuilder_ = null;
       }
-      if (debugInfoBuilder_ == null) {
-        debugInfo_ = null;
-      } else {
-        debugInfo_ = null;
+      debugInfo_ = null;
+      if (debugInfoBuilder_ != null) {
+        debugInfoBuilder_.dispose();
         debugInfoBuilder_ = null;
       }
       return this;
@@ -979,44 +846,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha2.AssistResponse buildPartial() {
       com.google.assistant.embedded.v1alpha2.AssistResponse result = new com.google.assistant.embedded.v1alpha2.AssistResponse(this);
-      int from_bitField0_ = bitField0_;
-      result.eventType_ = eventType_;
-      if (audioOutBuilder_ == null) {
-        result.audioOut_ = audioOut_;
-      } else {
-        result.audioOut_ = audioOutBuilder_.build();
-      }
-      if (screenOutBuilder_ == null) {
-        result.screenOut_ = screenOut_;
-      } else {
-        result.screenOut_ = screenOutBuilder_.build();
-      }
-      if (deviceActionBuilder_ == null) {
-        result.deviceAction_ = deviceAction_;
-      } else {
-        result.deviceAction_ = deviceActionBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.assistant.embedded.v1alpha2.AssistResponse result) {
       if (speechResultsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           speechResults_ = java.util.Collections.unmodifiableList(speechResults_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.speechResults_ = speechResults_;
       } else {
         result.speechResults_ = speechResultsBuilder_.build();
       }
-      if (dialogStateOutBuilder_ == null) {
-        result.dialogStateOut_ = dialogStateOut_;
-      } else {
-        result.dialogStateOut_ = dialogStateOutBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.assistant.embedded.v1alpha2.AssistResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.eventType_ = eventType_;
       }
-      if (debugInfoBuilder_ == null) {
-        result.debugInfo_ = debugInfo_;
-      } else {
-        result.debugInfo_ = debugInfoBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.audioOut_ = audioOutBuilder_ == null
+            ? audioOut_
+            : audioOutBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.screenOut_ = screenOutBuilder_ == null
+            ? screenOut_
+            : screenOutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.deviceAction_ = deviceActionBuilder_ == null
+            ? deviceAction_
+            : deviceActionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.dialogStateOut_ = dialogStateOutBuilder_ == null
+            ? dialogStateOut_
+            : dialogStateOutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.debugInfo_ = debugInfoBuilder_ == null
+            ? debugInfo_
+            : debugInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1079,7 +956,7 @@ private static final long serialVersionUID = 0L;
         if (!other.speechResults_.isEmpty()) {
           if (speechResults_.isEmpty()) {
             speechResults_ = other.speechResults_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureSpeechResultsIsMutable();
             speechResults_.addAll(other.speechResults_);
@@ -1092,7 +969,7 @@ private static final long serialVersionUID = 0L;
             speechResultsBuilder_.dispose();
             speechResultsBuilder_ = null;
             speechResults_ = other.speechResults_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             speechResultsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSpeechResultsFieldBuilder() : null;
@@ -1107,7 +984,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDebugInfo()) {
         mergeDebugInfo(other.getDebugInfo());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1122,17 +999,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.assistant.embedded.v1alpha2.AssistResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              eventType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.google.assistant.embedded.v1alpha2.SpeechRecognitionResult m =
+                  input.readMessage(
+                      com.google.assistant.embedded.v1alpha2.SpeechRecognitionResult.parser(),
+                      extensionRegistry);
+              if (speechResultsBuilder_ == null) {
+                ensureSpeechResultsIsMutable();
+                speechResults_.add(m);
+              } else {
+                speechResultsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAudioOutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getScreenOutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDialogStateOutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDeviceActionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getDebugInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.assistant.embedded.v1alpha2.AssistResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1159,8 +1102,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEventTypeValue(int value) {
-      
       eventType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1174,8 +1117,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha2.AssistResponse.EventType getEventType() {
-      @SuppressWarnings("deprecation")
-      com.google.assistant.embedded.v1alpha2.AssistResponse.EventType result = com.google.assistant.embedded.v1alpha2.AssistResponse.EventType.valueOf(eventType_);
+      com.google.assistant.embedded.v1alpha2.AssistResponse.EventType result = com.google.assistant.embedded.v1alpha2.AssistResponse.EventType.forNumber(eventType_);
       return result == null ? com.google.assistant.embedded.v1alpha2.AssistResponse.EventType.UNRECOGNIZED : result;
     }
     /**
@@ -1191,7 +1133,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       eventType_ = value.getNumber();
       onChanged();
       return this;
@@ -1205,7 +1147,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEventType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       eventType_ = 0;
       onChanged();
       return this;
@@ -1223,7 +1165,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the audioOut field is set.
      */
     public boolean hasAudioOut() {
-      return audioOutBuilder_ != null || audioOut_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1253,11 +1195,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         audioOut_ = value;
-        onChanged();
       } else {
         audioOutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1271,11 +1213,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.AudioOut.Builder builderForValue) {
       if (audioOutBuilder_ == null) {
         audioOut_ = builderForValue.build();
-        onChanged();
       } else {
         audioOutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1287,17 +1229,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAudioOut(com.google.assistant.embedded.v1alpha2.AudioOut value) {
       if (audioOutBuilder_ == null) {
-        if (audioOut_ != null) {
-          audioOut_ =
-            com.google.assistant.embedded.v1alpha2.AudioOut.newBuilder(audioOut_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          audioOut_ != null &&
+          audioOut_ != com.google.assistant.embedded.v1alpha2.AudioOut.getDefaultInstance()) {
+          getAudioOutBuilder().mergeFrom(value);
         } else {
           audioOut_ = value;
         }
-        onChanged();
       } else {
         audioOutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1308,14 +1251,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.AudioOut audio_out = 3;</code>
      */
     public Builder clearAudioOut() {
-      if (audioOutBuilder_ == null) {
-        audioOut_ = null;
-        onChanged();
-      } else {
-        audioOut_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      audioOut_ = null;
+      if (audioOutBuilder_ != null) {
+        audioOutBuilder_.dispose();
         audioOutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1326,7 +1268,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.AudioOut audio_out = 3;</code>
      */
     public com.google.assistant.embedded.v1alpha2.AudioOut.Builder getAudioOutBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAudioOutFieldBuilder().getBuilder();
     }
@@ -1378,7 +1320,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the screenOut field is set.
      */
     public boolean hasScreenOut() {
-      return screenOutBuilder_ != null || screenOut_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1408,11 +1350,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         screenOut_ = value;
-        onChanged();
       } else {
         screenOutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1426,11 +1368,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.ScreenOut.Builder builderForValue) {
       if (screenOutBuilder_ == null) {
         screenOut_ = builderForValue.build();
-        onChanged();
       } else {
         screenOutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1442,17 +1384,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeScreenOut(com.google.assistant.embedded.v1alpha2.ScreenOut value) {
       if (screenOutBuilder_ == null) {
-        if (screenOut_ != null) {
-          screenOut_ =
-            com.google.assistant.embedded.v1alpha2.ScreenOut.newBuilder(screenOut_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          screenOut_ != null &&
+          screenOut_ != com.google.assistant.embedded.v1alpha2.ScreenOut.getDefaultInstance()) {
+          getScreenOutBuilder().mergeFrom(value);
         } else {
           screenOut_ = value;
         }
-        onChanged();
       } else {
         screenOutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1463,14 +1406,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.ScreenOut screen_out = 4;</code>
      */
     public Builder clearScreenOut() {
-      if (screenOutBuilder_ == null) {
-        screenOut_ = null;
-        onChanged();
-      } else {
-        screenOut_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      screenOut_ = null;
+      if (screenOutBuilder_ != null) {
+        screenOutBuilder_.dispose();
         screenOutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1481,7 +1423,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.ScreenOut screen_out = 4;</code>
      */
     public com.google.assistant.embedded.v1alpha2.ScreenOut.Builder getScreenOutBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getScreenOutFieldBuilder().getBuilder();
     }
@@ -1534,7 +1476,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deviceAction field is set.
      */
     public boolean hasDeviceAction() {
-      return deviceActionBuilder_ != null || deviceAction_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1566,11 +1508,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deviceAction_ = value;
-        onChanged();
       } else {
         deviceActionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1585,11 +1527,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.DeviceAction.Builder builderForValue) {
       if (deviceActionBuilder_ == null) {
         deviceAction_ = builderForValue.build();
-        onChanged();
       } else {
         deviceActionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1602,17 +1544,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeviceAction(com.google.assistant.embedded.v1alpha2.DeviceAction value) {
       if (deviceActionBuilder_ == null) {
-        if (deviceAction_ != null) {
-          deviceAction_ =
-            com.google.assistant.embedded.v1alpha2.DeviceAction.newBuilder(deviceAction_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          deviceAction_ != null &&
+          deviceAction_ != com.google.assistant.embedded.v1alpha2.DeviceAction.getDefaultInstance()) {
+          getDeviceActionBuilder().mergeFrom(value);
         } else {
           deviceAction_ = value;
         }
-        onChanged();
       } else {
         deviceActionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1624,14 +1567,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DeviceAction device_action = 6;</code>
      */
     public Builder clearDeviceAction() {
-      if (deviceActionBuilder_ == null) {
-        deviceAction_ = null;
-        onChanged();
-      } else {
-        deviceAction_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      deviceAction_ = null;
+      if (deviceActionBuilder_ != null) {
+        deviceActionBuilder_.dispose();
         deviceActionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1643,7 +1585,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DeviceAction device_action = 6;</code>
      */
     public com.google.assistant.embedded.v1alpha2.DeviceAction.Builder getDeviceActionBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDeviceActionFieldBuilder().getBuilder();
     }
@@ -1688,9 +1630,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.assistant.embedded.v1alpha2.SpeechRecognitionResult> speechResults_ =
       java.util.Collections.emptyList();
     private void ensureSpeechResultsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         speechResults_ = new java.util.ArrayList<com.google.assistant.embedded.v1alpha2.SpeechRecognitionResult>(speechResults_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1950,7 +1892,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSpeechResults() {
       if (speechResultsBuilder_ == null) {
         speechResults_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         speechResultsBuilder_.clear();
@@ -2097,7 +2039,7 @@ private static final long serialVersionUID = 0L;
         speechResultsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.assistant.embedded.v1alpha2.SpeechRecognitionResult, com.google.assistant.embedded.v1alpha2.SpeechRecognitionResult.Builder, com.google.assistant.embedded.v1alpha2.SpeechRecognitionResultOrBuilder>(
                 speechResults_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         speechResults_ = null;
@@ -2117,7 +2059,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dialogStateOut field is set.
      */
     public boolean hasDialogStateOut() {
-      return dialogStateOutBuilder_ != null || dialogStateOut_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2147,11 +2089,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dialogStateOut_ = value;
-        onChanged();
       } else {
         dialogStateOutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2165,11 +2107,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.DialogStateOut.Builder builderForValue) {
       if (dialogStateOutBuilder_ == null) {
         dialogStateOut_ = builderForValue.build();
-        onChanged();
       } else {
         dialogStateOutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2181,17 +2123,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDialogStateOut(com.google.assistant.embedded.v1alpha2.DialogStateOut value) {
       if (dialogStateOutBuilder_ == null) {
-        if (dialogStateOut_ != null) {
-          dialogStateOut_ =
-            com.google.assistant.embedded.v1alpha2.DialogStateOut.newBuilder(dialogStateOut_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          dialogStateOut_ != null &&
+          dialogStateOut_ != com.google.assistant.embedded.v1alpha2.DialogStateOut.getDefaultInstance()) {
+          getDialogStateOutBuilder().mergeFrom(value);
         } else {
           dialogStateOut_ = value;
         }
-        onChanged();
       } else {
         dialogStateOutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2202,14 +2145,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DialogStateOut dialog_state_out = 5;</code>
      */
     public Builder clearDialogStateOut() {
-      if (dialogStateOutBuilder_ == null) {
-        dialogStateOut_ = null;
-        onChanged();
-      } else {
-        dialogStateOut_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      dialogStateOut_ = null;
+      if (dialogStateOutBuilder_ != null) {
+        dialogStateOutBuilder_.dispose();
         dialogStateOutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2220,7 +2162,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DialogStateOut dialog_state_out = 5;</code>
      */
     public com.google.assistant.embedded.v1alpha2.DialogStateOut.Builder getDialogStateOutBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getDialogStateOutFieldBuilder().getBuilder();
     }
@@ -2273,7 +2215,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the debugInfo field is set.
      */
     public boolean hasDebugInfo() {
-      return debugInfoBuilder_ != null || debugInfo_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2305,11 +2247,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         debugInfo_ = value;
-        onChanged();
       } else {
         debugInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2324,11 +2266,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.DebugInfo.Builder builderForValue) {
       if (debugInfoBuilder_ == null) {
         debugInfo_ = builderForValue.build();
-        onChanged();
       } else {
         debugInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2341,17 +2283,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDebugInfo(com.google.assistant.embedded.v1alpha2.DebugInfo value) {
       if (debugInfoBuilder_ == null) {
-        if (debugInfo_ != null) {
-          debugInfo_ =
-            com.google.assistant.embedded.v1alpha2.DebugInfo.newBuilder(debugInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          debugInfo_ != null &&
+          debugInfo_ != com.google.assistant.embedded.v1alpha2.DebugInfo.getDefaultInstance()) {
+          getDebugInfoBuilder().mergeFrom(value);
         } else {
           debugInfo_ = value;
         }
-        onChanged();
       } else {
         debugInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2363,14 +2306,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DebugInfo debug_info = 8;</code>
      */
     public Builder clearDebugInfo() {
-      if (debugInfoBuilder_ == null) {
-        debugInfo_ = null;
-        onChanged();
-      } else {
-        debugInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      debugInfo_ = null;
+      if (debugInfoBuilder_ != null) {
+        debugInfoBuilder_.dispose();
         debugInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2382,7 +2324,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DebugInfo debug_info = 8;</code>
      */
     public com.google.assistant.embedded.v1alpha2.DebugInfo.Builder getDebugInfoBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getDebugInfoFieldBuilder().getBuilder();
     }
@@ -2456,7 +2398,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AssistResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

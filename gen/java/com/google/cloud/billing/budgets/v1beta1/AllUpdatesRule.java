@@ -38,75 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AllUpdatesRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pubsubTopic_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            schemaVersion_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              monitoringNotificationChannels_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            monitoringNotificationChannels_.add(s);
-            break;
-          }
-          case 32: {
-
-            disableDefaultIamRecipients_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        monitoringNotificationChannels_ = monitoringNotificationChannels_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.billing.budgets.v1beta1.BudgetModel.internal_static_google_cloud_billing_budgets_v1beta1_AllUpdatesRule_descriptor;
@@ -121,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PUBSUB_TOPIC_FIELD_NUMBER = 1;
-  private volatile java.lang.Object pubsubTopic_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pubsubTopic_ = "";
   /**
    * <pre>
    * Optional. The name of the Pub/Sub topic where budget related messages will be
@@ -187,7 +119,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCHEMA_VERSION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object schemaVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object schemaVersion_ = "";
   /**
    * <pre>
    * Optional. Required when [AllUpdatesRule.pubsub_topic][google.cloud.billing.budgets.v1beta1.AllUpdatesRule.pubsub_topic] is set. The schema version of
@@ -239,6 +172,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MONITORING_NOTIFICATION_CHANNELS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList monitoringNotificationChannels_;
   /**
    * <pre>
@@ -318,7 +252,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLE_DEFAULT_IAM_RECIPIENTS_FIELD_NUMBER = 4;
-  private boolean disableDefaultIamRecipients_;
+  private boolean disableDefaultIamRecipients_ = false;
   /**
    * <pre>
    * Optional. When set to true, disables default notifications sent when a threshold is
@@ -360,7 +294,7 @@ private static final long serialVersionUID = 0L;
     if (disableDefaultIamRecipients_ != false) {
       output.writeBool(4, disableDefaultIamRecipients_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -387,7 +321,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, disableDefaultIamRecipients_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -410,7 +344,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMonitoringNotificationChannelsList())) return false;
     if (getDisableDefaultIamRecipients()
         != other.getDisableDefaultIamRecipients()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -432,7 +366,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + DISABLE_DEFAULT_IAM_RECIPIENTS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getDisableDefaultIamRecipients());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -554,30 +488,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       pubsubTopic_ = "";
-
       schemaVersion_ = "";
-
       monitoringNotificationChannels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       disableDefaultIamRecipients_ = false;
-
       return this;
     }
 
@@ -604,17 +531,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule buildPartial() {
       com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule result = new com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule(this);
-      int from_bitField0_ = bitField0_;
-      result.pubsubTopic_ = pubsubTopic_;
-      result.schemaVersion_ = schemaVersion_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        monitoringNotificationChannels_ = monitoringNotificationChannels_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.monitoringNotificationChannels_ = monitoringNotificationChannels_;
-      result.disableDefaultIamRecipients_ = disableDefaultIamRecipients_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        monitoringNotificationChannels_ = monitoringNotificationChannels_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.monitoringNotificationChannels_ = monitoringNotificationChannels_;
+    }
+
+    private void buildPartial0(com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.pubsubTopic_ = pubsubTopic_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.schemaVersion_ = schemaVersion_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.disableDefaultIamRecipients_ = disableDefaultIamRecipients_;
+      }
     }
 
     @java.lang.Override
@@ -663,16 +604,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule.getDefaultInstance()) return this;
       if (!other.getPubsubTopic().isEmpty()) {
         pubsubTopic_ = other.pubsubTopic_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSchemaVersion().isEmpty()) {
         schemaVersion_ = other.schemaVersion_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.monitoringNotificationChannels_.isEmpty()) {
         if (monitoringNotificationChannels_.isEmpty()) {
           monitoringNotificationChannels_ = other.monitoringNotificationChannels_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureMonitoringNotificationChannelsIsMutable();
           monitoringNotificationChannels_.addAll(other.monitoringNotificationChannels_);
@@ -682,7 +625,7 @@ private static final long serialVersionUID = 0L;
       if (other.getDisableDefaultIamRecipients() != false) {
         setDisableDefaultIamRecipients(other.getDisableDefaultIamRecipients());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -697,17 +640,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              pubsubTopic_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              schemaVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureMonitoringNotificationChannelsIsMutable();
+              monitoringNotificationChannels_.add(s);
+              break;
+            } // case 26
+            case 32: {
+              disableDefaultIamRecipients_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -795,11 +772,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPubsubTopic(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pubsubTopic_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -822,8 +797,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPubsubTopic() {
-      
       pubsubTopic_ = getDefaultInstance().getPubsubTopic();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -848,12 +823,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPubsubTopicBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pubsubTopic_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -920,11 +893,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSchemaVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       schemaVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -940,8 +911,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSchemaVersion() {
-      
       schemaVersion_ = getDefaultInstance().getSchemaVersion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -959,21 +930,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSchemaVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       schemaVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList monitoringNotificationChannels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureMonitoringNotificationChannelsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         monitoringNotificationChannels_ = new com.google.protobuf.LazyStringArrayList(monitoringNotificationChannels_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1071,10 +1040,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMonitoringNotificationChannels(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMonitoringNotificationChannelsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMonitoringNotificationChannelsIsMutable();
       monitoringNotificationChannels_.set(index, value);
       onChanged();
       return this;
@@ -1097,10 +1064,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMonitoringNotificationChannels(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMonitoringNotificationChannelsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMonitoringNotificationChannelsIsMutable();
       monitoringNotificationChannels_.add(value);
       onChanged();
       return this;
@@ -1146,7 +1111,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearMonitoringNotificationChannels() {
       monitoringNotificationChannels_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1168,10 +1133,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMonitoringNotificationChannelsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureMonitoringNotificationChannelsIsMutable();
       monitoringNotificationChannels_.add(value);
       onChanged();
@@ -1207,6 +1170,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisableDefaultIamRecipients(boolean value) {
       
       disableDefaultIamRecipients_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1221,7 +1185,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisableDefaultIamRecipients() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       disableDefaultIamRecipients_ = false;
       onChanged();
       return this;
@@ -1259,7 +1223,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AllUpdatesRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

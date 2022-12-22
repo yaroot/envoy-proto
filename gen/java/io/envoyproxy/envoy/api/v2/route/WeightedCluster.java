@@ -41,77 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WeightedCluster(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              clusters_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            clusters_.add(
-                input.readMessage(io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            runtimeKeyPrefix_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (totalWeight_ != null) {
-              subBuilder = totalWeight_.toBuilder();
-            }
-            totalWeight_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(totalWeight_);
-              totalWeight_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        clusters_ = java.util.Collections.unmodifiableList(clusters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.route.RouteComponentsProto.internal_static_envoy_api_v2_route_WeightedCluster_descriptor;
@@ -519,8 +448,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    /* nullable */
+    @java.lang.Deprecated /* nullable */
 com.google.protobuf.Struct getPerFilterConfigOrDefault(
         java.lang.String key,
         /* nullable */
@@ -536,8 +464,7 @@ com.google.protobuf.Struct defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    com.google.protobuf.Struct getPerFilterConfigOrThrow(
+    @java.lang.Deprecated com.google.protobuf.Struct getPerFilterConfigOrThrow(
         java.lang.String key);
 
     /**
@@ -595,7 +522,6 @@ com.google.protobuf.Struct defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
-
     /* nullable */
 com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
         java.lang.String key,
@@ -612,7 +538,6 @@ com.google.protobuf.Any defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
-
     com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
         java.lang.String key);
   }
@@ -652,152 +577,6 @@ com.google.protobuf.Any defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ClusterWeight(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.UInt32Value.Builder subBuilder = null;
-              if (weight_ != null) {
-                subBuilder = weight_.toBuilder();
-              }
-              weight_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(weight_);
-                weight_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              io.envoyproxy.envoy.api.v2.core.Metadata.Builder subBuilder = null;
-              if (metadataMatch_ != null) {
-                subBuilder = metadataMatch_.toBuilder();
-              }
-              metadataMatch_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.Metadata.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadataMatch_);
-                metadataMatch_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                requestHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.HeaderValueOption>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              requestHeadersToAdd_.add(
-                  input.readMessage(io.envoyproxy.envoy.api.v2.core.HeaderValueOption.parser(), extensionRegistry));
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                responseHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.HeaderValueOption>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              responseHeadersToAdd_.add(
-                  input.readMessage(io.envoyproxy.envoy.api.v2.core.HeaderValueOption.parser(), extensionRegistry));
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                responseHeadersToRemove_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              responseHeadersToRemove_.add(s);
-              break;
-            }
-            case 66: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                perFilterConfig_ = com.google.protobuf.MapField.newMapField(
-                    PerFilterConfigDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Struct>
-              perFilterConfig__ = input.readMessage(
-                  PerFilterConfigDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              perFilterConfig_.getMutableMap().put(
-                  perFilterConfig__.getKey(), perFilterConfig__.getValue());
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                requestHeadersToRemove_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              requestHeadersToRemove_.add(s);
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                typedPerFilterConfig_ = com.google.protobuf.MapField.newMapField(
-                    TypedPerFilterConfigDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Any>
-              typedPerFilterConfig__ = input.readMessage(
-                  TypedPerFilterConfigDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              typedPerFilterConfig_.getMutableMap().put(
-                  typedPerFilterConfig__.getKey(), typedPerFilterConfig__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          requestHeadersToAdd_ = java.util.Collections.unmodifiableList(requestHeadersToAdd_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          responseHeadersToAdd_ = java.util.Collections.unmodifiableList(responseHeadersToAdd_);
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          responseHeadersToRemove_ = responseHeadersToRemove_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          requestHeadersToRemove_ = requestHeadersToRemove_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.api.v2.route.RouteComponentsProto.internal_static_envoy_api_v2_route_WeightedCluster_ClusterWeight_descriptor;
@@ -826,7 +605,8 @@ com.google.protobuf.Any defaultValue);
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Name of the upstream cluster. The cluster must exist in the
@@ -917,7 +697,7 @@ com.google.protobuf.Any defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.UInt32ValueOrBuilder getWeightOrBuilder() {
-      return getWeight();
+      return weight_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : weight_;
     }
 
     public static final int METADATA_MATCH_FIELD_NUMBER = 3;
@@ -967,10 +747,11 @@ com.google.protobuf.Any defaultValue);
      */
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.core.MetadataOrBuilder getMetadataMatchOrBuilder() {
-      return getMetadataMatch();
+      return metadataMatch_ == null ? io.envoyproxy.envoy.api.v2.core.Metadata.getDefaultInstance() : metadataMatch_;
     }
 
     public static final int REQUEST_HEADERS_TO_ADD_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<io.envoyproxy.envoy.api.v2.core.HeaderValueOption> requestHeadersToAdd_;
     /**
      * <pre>
@@ -1061,6 +842,7 @@ com.google.protobuf.Any defaultValue);
     }
 
     public static final int REQUEST_HEADERS_TO_REMOVE_FIELD_NUMBER = 9;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList requestHeadersToRemove_;
     /**
      * <pre>
@@ -1116,6 +898,7 @@ com.google.protobuf.Any defaultValue);
     }
 
     public static final int RESPONSE_HEADERS_TO_ADD_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<io.envoyproxy.envoy.api.v2.core.HeaderValueOption> responseHeadersToAdd_;
     /**
      * <pre>
@@ -1206,6 +989,7 @@ com.google.protobuf.Any defaultValue);
     }
 
     public static final int RESPONSE_HEADERS_TO_REMOVE_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList responseHeadersToRemove_;
     /**
      * <pre>
@@ -1272,6 +1056,7 @@ com.google.protobuf.Any defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protobuf.Struct.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Struct> perFilterConfig_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Struct>
@@ -1282,8 +1067,7 @@ com.google.protobuf.Any defaultValue);
       }
       return perFilterConfig_;
     }
-    @java.lang.Deprecated 
-    public int getPerFilterConfigCount() {
+    @java.lang.Deprecated public int getPerFilterConfigCount() {
       return internalGetPerFilterConfig().getMap().size();
     }
     /**
@@ -1297,9 +1081,8 @@ com.google.protobuf.Any defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
     @java.lang.Override
-    public boolean containsPerFilterConfig(
+    @java.lang.Deprecated public boolean containsPerFilterConfig(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       return internalGetPerFilterConfig().getMap().containsKey(key);
@@ -1324,8 +1107,7 @@ com.google.protobuf.Any defaultValue);
      * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public java.util.Map<java.lang.String, com.google.protobuf.Struct> getPerFilterConfigMap() {
+    @java.lang.Deprecated public java.util.Map<java.lang.String, com.google.protobuf.Struct> getPerFilterConfigMap() {
       return internalGetPerFilterConfig().getMap();
     }
     /**
@@ -1340,10 +1122,11 @@ com.google.protobuf.Any defaultValue);
      * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public com.google.protobuf.Struct getPerFilterConfigOrDefault(
+    @java.lang.Deprecated public /* nullable */
+com.google.protobuf.Struct getPerFilterConfigOrDefault(
         java.lang.String key,
-        com.google.protobuf.Struct defaultValue) {
+        /* nullable */
+com.google.protobuf.Struct defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Struct> map =
           internalGetPerFilterConfig().getMap();
@@ -1361,8 +1144,7 @@ com.google.protobuf.Any defaultValue);
      * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public com.google.protobuf.Struct getPerFilterConfigOrThrow(
+    @java.lang.Deprecated public com.google.protobuf.Struct getPerFilterConfigOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Struct> map =
@@ -1385,6 +1167,7 @@ com.google.protobuf.Any defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protobuf.Any.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Any> typedPerFilterConfig_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Any>
@@ -1395,7 +1178,6 @@ com.google.protobuf.Any defaultValue);
       }
       return typedPerFilterConfig_;
     }
-
     public int getTypedPerFilterConfigCount() {
       return internalGetTypedPerFilterConfig().getMap().size();
     }
@@ -1410,7 +1192,6 @@ com.google.protobuf.Any defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
-
     @java.lang.Override
     public boolean containsTypedPerFilterConfig(
         java.lang.String key) {
@@ -1437,7 +1218,6 @@ com.google.protobuf.Any defaultValue);
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Any> getTypedPerFilterConfigMap() {
       return internalGetTypedPerFilterConfig().getMap();
     }
@@ -1453,10 +1233,11 @@ com.google.protobuf.Any defaultValue);
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
+    public /* nullable */
+com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
         java.lang.String key,
-        com.google.protobuf.Any defaultValue) {
+        /* nullable */
+com.google.protobuf.Any defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Any> map =
           internalGetTypedPerFilterConfig().getMap();
@@ -1474,7 +1255,6 @@ com.google.protobuf.Any defaultValue);
      * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1533,7 +1313,7 @@ com.google.protobuf.Any defaultValue);
           internalGetTypedPerFilterConfig(),
           TypedPerFilterConfigDefaultEntryHolder.defaultEntry,
           10);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1597,7 +1377,7 @@ com.google.protobuf.Any defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(10, typedPerFilterConfig__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1636,7 +1416,7 @@ com.google.protobuf.Any defaultValue);
           other.internalGetPerFilterConfig())) return false;
       if (!internalGetTypedPerFilterConfig().equals(
           other.internalGetTypedPerFilterConfig())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1681,7 +1461,7 @@ com.google.protobuf.Any defaultValue);
         hash = (37 * hash) + TYPED_PER_FILTER_CONFIG_FIELD_NUMBER;
         hash = (53 * hash) + internalGetTypedPerFilterConfig().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1828,54 +1608,47 @@ com.google.protobuf.Any defaultValue);
 
       // Construct using io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRequestHeadersToAddFieldBuilder();
-          getResponseHeadersToAddFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
-        if (weightBuilder_ == null) {
-          weight_ = null;
-        } else {
-          weight_ = null;
+        weight_ = null;
+        if (weightBuilder_ != null) {
+          weightBuilder_.dispose();
           weightBuilder_ = null;
         }
-        if (metadataMatchBuilder_ == null) {
-          metadataMatch_ = null;
-        } else {
-          metadataMatch_ = null;
+        metadataMatch_ = null;
+        if (metadataMatchBuilder_ != null) {
+          metadataMatchBuilder_.dispose();
           metadataMatchBuilder_ = null;
         }
         if (requestHeadersToAddBuilder_ == null) {
           requestHeadersToAdd_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          requestHeadersToAdd_ = null;
           requestHeadersToAddBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         requestHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (responseHeadersToAddBuilder_ == null) {
           responseHeadersToAdd_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          responseHeadersToAdd_ = null;
           responseHeadersToAddBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000020);
         responseHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000040);
         internalGetMutablePerFilterConfig().clear();
         internalGetMutableTypedPerFilterConfig().clear();
         return this;
@@ -1904,52 +1677,66 @@ com.google.protobuf.Any defaultValue);
       @java.lang.Override
       public io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight buildPartial() {
         io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight result = new io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight(this);
-        int from_bitField0_ = bitField0_;
-        result.name_ = name_;
-        if (weightBuilder_ == null) {
-          result.weight_ = weight_;
-        } else {
-          result.weight_ = weightBuilder_.build();
-        }
-        if (metadataMatchBuilder_ == null) {
-          result.metadataMatch_ = metadataMatch_;
-        } else {
-          result.metadataMatch_ = metadataMatchBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight result) {
         if (requestHeadersToAddBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             requestHeadersToAdd_ = java.util.Collections.unmodifiableList(requestHeadersToAdd_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.requestHeadersToAdd_ = requestHeadersToAdd_;
         } else {
           result.requestHeadersToAdd_ = requestHeadersToAddBuilder_.build();
         }
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           requestHeadersToRemove_ = requestHeadersToRemove_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.requestHeadersToRemove_ = requestHeadersToRemove_;
         if (responseHeadersToAddBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000020) != 0)) {
             responseHeadersToAdd_ = java.util.Collections.unmodifiableList(responseHeadersToAdd_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000020);
           }
           result.responseHeadersToAdd_ = responseHeadersToAdd_;
         } else {
           result.responseHeadersToAdd_ = responseHeadersToAddBuilder_.build();
         }
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           responseHeadersToRemove_ = responseHeadersToRemove_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.responseHeadersToRemove_ = responseHeadersToRemove_;
-        result.perFilterConfig_ = internalGetPerFilterConfig();
-        result.perFilterConfig_.makeImmutable();
-        result.typedPerFilterConfig_ = internalGetTypedPerFilterConfig();
-        result.typedPerFilterConfig_.makeImmutable();
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.weight_ = weightBuilder_ == null
+              ? weight_
+              : weightBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.metadataMatch_ = metadataMatchBuilder_ == null
+              ? metadataMatch_
+              : metadataMatchBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.perFilterConfig_ = internalGetPerFilterConfig();
+          result.perFilterConfig_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.typedPerFilterConfig_ = internalGetTypedPerFilterConfig();
+          result.typedPerFilterConfig_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -1998,6 +1785,7 @@ com.google.protobuf.Any defaultValue);
         if (other == io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasWeight()) {
@@ -2010,7 +1798,7 @@ com.google.protobuf.Any defaultValue);
           if (!other.requestHeadersToAdd_.isEmpty()) {
             if (requestHeadersToAdd_.isEmpty()) {
               requestHeadersToAdd_ = other.requestHeadersToAdd_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureRequestHeadersToAddIsMutable();
               requestHeadersToAdd_.addAll(other.requestHeadersToAdd_);
@@ -2023,7 +1811,7 @@ com.google.protobuf.Any defaultValue);
               requestHeadersToAddBuilder_.dispose();
               requestHeadersToAddBuilder_ = null;
               requestHeadersToAdd_ = other.requestHeadersToAdd_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
               requestHeadersToAddBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getRequestHeadersToAddFieldBuilder() : null;
@@ -2035,7 +1823,7 @@ com.google.protobuf.Any defaultValue);
         if (!other.requestHeadersToRemove_.isEmpty()) {
           if (requestHeadersToRemove_.isEmpty()) {
             requestHeadersToRemove_ = other.requestHeadersToRemove_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureRequestHeadersToRemoveIsMutable();
             requestHeadersToRemove_.addAll(other.requestHeadersToRemove_);
@@ -2046,7 +1834,7 @@ com.google.protobuf.Any defaultValue);
           if (!other.responseHeadersToAdd_.isEmpty()) {
             if (responseHeadersToAdd_.isEmpty()) {
               responseHeadersToAdd_ = other.responseHeadersToAdd_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000020);
             } else {
               ensureResponseHeadersToAddIsMutable();
               responseHeadersToAdd_.addAll(other.responseHeadersToAdd_);
@@ -2059,7 +1847,7 @@ com.google.protobuf.Any defaultValue);
               responseHeadersToAddBuilder_.dispose();
               responseHeadersToAddBuilder_ = null;
               responseHeadersToAdd_ = other.responseHeadersToAdd_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000020);
               responseHeadersToAddBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getResponseHeadersToAddFieldBuilder() : null;
@@ -2071,7 +1859,7 @@ com.google.protobuf.Any defaultValue);
         if (!other.responseHeadersToRemove_.isEmpty()) {
           if (responseHeadersToRemove_.isEmpty()) {
             responseHeadersToRemove_ = other.responseHeadersToRemove_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureResponseHeadersToRemoveIsMutable();
             responseHeadersToRemove_.addAll(other.responseHeadersToRemove_);
@@ -2080,9 +1868,11 @@ com.google.protobuf.Any defaultValue);
         }
         internalGetMutablePerFilterConfig().mergeFrom(
             other.internalGetPerFilterConfig());
+        bitField0_ |= 0x00000080;
         internalGetMutableTypedPerFilterConfig().mergeFrom(
             other.internalGetTypedPerFilterConfig());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000100;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2097,17 +1887,105 @@ com.google.protobuf.Any defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getWeightFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getMetadataMatchFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                io.envoyproxy.envoy.api.v2.core.HeaderValueOption m =
+                    input.readMessage(
+                        io.envoyproxy.envoy.api.v2.core.HeaderValueOption.parser(),
+                        extensionRegistry);
+                if (requestHeadersToAddBuilder_ == null) {
+                  ensureRequestHeadersToAddIsMutable();
+                  requestHeadersToAdd_.add(m);
+                } else {
+                  requestHeadersToAddBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 42: {
+                io.envoyproxy.envoy.api.v2.core.HeaderValueOption m =
+                    input.readMessage(
+                        io.envoyproxy.envoy.api.v2.core.HeaderValueOption.parser(),
+                        extensionRegistry);
+                if (responseHeadersToAddBuilder_ == null) {
+                  ensureResponseHeadersToAddIsMutable();
+                  responseHeadersToAdd_.add(m);
+                } else {
+                  responseHeadersToAddBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 50: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureResponseHeadersToRemoveIsMutable();
+                responseHeadersToRemove_.add(s);
+                break;
+              } // case 50
+              case 66: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Struct>
+                perFilterConfig__ = input.readMessage(
+                    PerFilterConfigDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutablePerFilterConfig().getMutableMap().put(
+                    perFilterConfig__.getKey(), perFilterConfig__.getValue());
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureRequestHeadersToRemoveIsMutable();
+                requestHeadersToRemove_.add(s);
+                break;
+              } // case 74
+              case 82: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Any>
+                typedPerFilterConfig__ = input.readMessage(
+                    TypedPerFilterConfigDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableTypedPerFilterConfig().getMutableMap().put(
+                    typedPerFilterConfig__.getKey(), typedPerFilterConfig__.getValue());
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2168,11 +2046,9 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2186,8 +2062,8 @@ com.google.protobuf.Any defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2203,12 +2079,10 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2228,7 +2102,7 @@ com.google.protobuf.Any defaultValue);
        * @return Whether the weight field is set.
        */
       public boolean hasWeight() {
-        return weightBuilder_ != null || weight_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2264,11 +2138,11 @@ com.google.protobuf.Any defaultValue);
             throw new NullPointerException();
           }
           weight_ = value;
-          onChanged();
         } else {
           weightBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2285,11 +2159,11 @@ com.google.protobuf.Any defaultValue);
           com.google.protobuf.UInt32Value.Builder builderForValue) {
         if (weightBuilder_ == null) {
           weight_ = builderForValue.build();
-          onChanged();
         } else {
           weightBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2304,17 +2178,18 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder mergeWeight(com.google.protobuf.UInt32Value value) {
         if (weightBuilder_ == null) {
-          if (weight_ != null) {
-            weight_ =
-              com.google.protobuf.UInt32Value.newBuilder(weight_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            weight_ != null &&
+            weight_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+            getWeightBuilder().mergeFrom(value);
           } else {
             weight_ = value;
           }
-          onChanged();
         } else {
           weightBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2328,14 +2203,13 @@ com.google.protobuf.Any defaultValue);
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
        */
       public Builder clearWeight() {
-        if (weightBuilder_ == null) {
-          weight_ = null;
-          onChanged();
-        } else {
-          weight_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        weight_ = null;
+        if (weightBuilder_ != null) {
+          weightBuilder_.dispose();
           weightBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2349,7 +2223,7 @@ com.google.protobuf.Any defaultValue);
        * <code>.google.protobuf.UInt32Value weight = 2;</code>
        */
       public com.google.protobuf.UInt32Value.Builder getWeightBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getWeightFieldBuilder().getBuilder();
       }
@@ -2411,7 +2285,7 @@ com.google.protobuf.Any defaultValue);
        * @return Whether the metadataMatch field is set.
        */
       public boolean hasMetadataMatch() {
-        return metadataMatchBuilder_ != null || metadataMatch_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2449,11 +2323,11 @@ com.google.protobuf.Any defaultValue);
             throw new NullPointerException();
           }
           metadataMatch_ = value;
-          onChanged();
         } else {
           metadataMatchBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2471,11 +2345,11 @@ com.google.protobuf.Any defaultValue);
           io.envoyproxy.envoy.api.v2.core.Metadata.Builder builderForValue) {
         if (metadataMatchBuilder_ == null) {
           metadataMatch_ = builderForValue.build();
-          onChanged();
         } else {
           metadataMatchBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2491,17 +2365,18 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder mergeMetadataMatch(io.envoyproxy.envoy.api.v2.core.Metadata value) {
         if (metadataMatchBuilder_ == null) {
-          if (metadataMatch_ != null) {
-            metadataMatch_ =
-              io.envoyproxy.envoy.api.v2.core.Metadata.newBuilder(metadataMatch_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            metadataMatch_ != null &&
+            metadataMatch_ != io.envoyproxy.envoy.api.v2.core.Metadata.getDefaultInstance()) {
+            getMetadataMatchBuilder().mergeFrom(value);
           } else {
             metadataMatch_ = value;
           }
-          onChanged();
         } else {
           metadataMatchBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2516,14 +2391,13 @@ com.google.protobuf.Any defaultValue);
        * <code>.envoy.api.v2.core.Metadata metadata_match = 3;</code>
        */
       public Builder clearMetadataMatch() {
-        if (metadataMatchBuilder_ == null) {
-          metadataMatch_ = null;
-          onChanged();
-        } else {
-          metadataMatch_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        metadataMatch_ = null;
+        if (metadataMatchBuilder_ != null) {
+          metadataMatchBuilder_.dispose();
           metadataMatchBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2538,7 +2412,7 @@ com.google.protobuf.Any defaultValue);
        * <code>.envoy.api.v2.core.Metadata metadata_match = 3;</code>
        */
       public io.envoyproxy.envoy.api.v2.core.Metadata.Builder getMetadataMatchBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getMetadataMatchFieldBuilder().getBuilder();
       }
@@ -2589,9 +2463,9 @@ com.google.protobuf.Any defaultValue);
       private java.util.List<io.envoyproxy.envoy.api.v2.core.HeaderValueOption> requestHeadersToAdd_ =
         java.util.Collections.emptyList();
       private void ensureRequestHeadersToAddIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           requestHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.HeaderValueOption>(requestHeadersToAdd_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -2851,7 +2725,7 @@ com.google.protobuf.Any defaultValue);
       public Builder clearRequestHeadersToAdd() {
         if (requestHeadersToAddBuilder_ == null) {
           requestHeadersToAdd_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           requestHeadersToAddBuilder_.clear();
@@ -2998,7 +2872,7 @@ com.google.protobuf.Any defaultValue);
           requestHeadersToAddBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.envoyproxy.envoy.api.v2.core.HeaderValueOption, io.envoyproxy.envoy.api.v2.core.HeaderValueOption.Builder, io.envoyproxy.envoy.api.v2.core.HeaderValueOptionOrBuilder>(
                   requestHeadersToAdd_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           requestHeadersToAdd_ = null;
@@ -3008,9 +2882,9 @@ com.google.protobuf.Any defaultValue);
 
       private com.google.protobuf.LazyStringList requestHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureRequestHeadersToRemoveIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           requestHeadersToRemove_ = new com.google.protobuf.LazyStringArrayList(requestHeadersToRemove_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
@@ -3078,10 +2952,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setRequestHeadersToRemove(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequestHeadersToRemoveIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRequestHeadersToRemoveIsMutable();
         requestHeadersToRemove_.set(index, value);
         onChanged();
         return this;
@@ -3098,10 +2970,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder addRequestHeadersToRemove(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequestHeadersToRemoveIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRequestHeadersToRemoveIsMutable();
         requestHeadersToRemove_.add(value);
         onChanged();
         return this;
@@ -3135,7 +3005,7 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder clearRequestHeadersToRemove() {
         requestHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -3151,10 +3021,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder addRequestHeadersToRemoveBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureRequestHeadersToRemoveIsMutable();
         requestHeadersToRemove_.add(value);
         onChanged();
@@ -3164,9 +3032,9 @@ com.google.protobuf.Any defaultValue);
       private java.util.List<io.envoyproxy.envoy.api.v2.core.HeaderValueOption> responseHeadersToAdd_ =
         java.util.Collections.emptyList();
       private void ensureResponseHeadersToAddIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           responseHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.HeaderValueOption>(responseHeadersToAdd_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000020;
          }
       }
 
@@ -3426,7 +3294,7 @@ com.google.protobuf.Any defaultValue);
       public Builder clearResponseHeadersToAdd() {
         if (responseHeadersToAddBuilder_ == null) {
           responseHeadersToAdd_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
         } else {
           responseHeadersToAddBuilder_.clear();
@@ -3573,7 +3441,7 @@ com.google.protobuf.Any defaultValue);
           responseHeadersToAddBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.envoyproxy.envoy.api.v2.core.HeaderValueOption, io.envoyproxy.envoy.api.v2.core.HeaderValueOption.Builder, io.envoyproxy.envoy.api.v2.core.HeaderValueOptionOrBuilder>(
                   responseHeadersToAdd_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000020) != 0),
                   getParentForChildren(),
                   isClean());
           responseHeadersToAdd_ = null;
@@ -3583,9 +3451,9 @@ com.google.protobuf.Any defaultValue);
 
       private com.google.protobuf.LazyStringList responseHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureResponseHeadersToRemoveIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           responseHeadersToRemove_ = new com.google.protobuf.LazyStringArrayList(responseHeadersToRemove_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000040;
          }
       }
       /**
@@ -3653,10 +3521,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder setResponseHeadersToRemove(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResponseHeadersToRemoveIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureResponseHeadersToRemoveIsMutable();
         responseHeadersToRemove_.set(index, value);
         onChanged();
         return this;
@@ -3673,10 +3539,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder addResponseHeadersToRemove(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResponseHeadersToRemoveIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureResponseHeadersToRemoveIsMutable();
         responseHeadersToRemove_.add(value);
         onChanged();
         return this;
@@ -3710,7 +3574,7 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder clearResponseHeadersToRemove() {
         responseHeadersToRemove_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -3726,10 +3590,8 @@ com.google.protobuf.Any defaultValue);
        */
       public Builder addResponseHeadersToRemoveBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureResponseHeadersToRemoveIsMutable();
         responseHeadersToRemove_.add(value);
         onChanged();
@@ -3738,17 +3600,16 @@ com.google.protobuf.Any defaultValue);
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf.Struct> perFilterConfig_;
-      private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Struct>
-      internalGetPerFilterConfig() {
+      @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Struct>
+          internalGetPerFilterConfig() {
         if (perFilterConfig_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               PerFilterConfigDefaultEntryHolder.defaultEntry);
         }
         return perFilterConfig_;
       }
-      private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Struct>
-      internalGetMutablePerFilterConfig() {
-        onChanged();;
+      @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Struct>
+          internalGetMutablePerFilterConfig() {
         if (perFilterConfig_ == null) {
           perFilterConfig_ = com.google.protobuf.MapField.newMapField(
               PerFilterConfigDefaultEntryHolder.defaultEntry);
@@ -3756,10 +3617,11 @@ com.google.protobuf.Any defaultValue);
         if (!perFilterConfig_.isMutable()) {
           perFilterConfig_ = perFilterConfig_.copy();
         }
+        bitField0_ |= 0x00000080;
+        onChanged();
         return perFilterConfig_;
       }
-      @java.lang.Deprecated 
-      public int getPerFilterConfigCount() {
+      @java.lang.Deprecated public int getPerFilterConfigCount() {
         return internalGetPerFilterConfig().getMap().size();
       }
       /**
@@ -3773,9 +3635,8 @@ com.google.protobuf.Any defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
        */
-      @java.lang.Deprecated 
       @java.lang.Override
-      public boolean containsPerFilterConfig(
+      @java.lang.Deprecated public boolean containsPerFilterConfig(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
         return internalGetPerFilterConfig().getMap().containsKey(key);
@@ -3800,8 +3661,7 @@ com.google.protobuf.Any defaultValue);
        * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
        */
       @java.lang.Override
-      @java.lang.Deprecated 
-      public java.util.Map<java.lang.String, com.google.protobuf.Struct> getPerFilterConfigMap() {
+      @java.lang.Deprecated public java.util.Map<java.lang.String, com.google.protobuf.Struct> getPerFilterConfigMap() {
         return internalGetPerFilterConfig().getMap();
       }
       /**
@@ -3816,10 +3676,11 @@ com.google.protobuf.Any defaultValue);
        * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
        */
       @java.lang.Override
-      @java.lang.Deprecated 
-      public com.google.protobuf.Struct getPerFilterConfigOrDefault(
+      @java.lang.Deprecated public /* nullable */
+com.google.protobuf.Struct getPerFilterConfigOrDefault(
           java.lang.String key,
-          com.google.protobuf.Struct defaultValue) {
+          /* nullable */
+com.google.protobuf.Struct defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.Struct> map =
             internalGetPerFilterConfig().getMap();
@@ -3837,8 +3698,7 @@ com.google.protobuf.Any defaultValue);
        * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
        */
       @java.lang.Override
-      @java.lang.Deprecated 
-      public com.google.protobuf.Struct getPerFilterConfigOrThrow(
+      @java.lang.Deprecated public com.google.protobuf.Struct getPerFilterConfigOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.Struct> map =
@@ -3848,8 +3708,8 @@ com.google.protobuf.Any defaultValue);
         }
         return map.get(key);
       }
-      @java.lang.Deprecated 
-      public Builder clearPerFilterConfig() {
+      @java.lang.Deprecated public Builder clearPerFilterConfig() {
+        bitField0_ = (bitField0_ & ~0x00000080);
         internalGetMutablePerFilterConfig().getMutableMap()
             .clear();
         return this;
@@ -3865,8 +3725,7 @@ com.google.protobuf.Any defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
        */
-      @java.lang.Deprecated 
-      public Builder removePerFilterConfig(
+      @java.lang.Deprecated public Builder removePerFilterConfig(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutablePerFilterConfig().getMutableMap()
@@ -3878,7 +3737,8 @@ com.google.protobuf.Any defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.Struct>
-      getMutablePerFilterConfig() {
+          getMutablePerFilterConfig() {
+        bitField0_ |= 0x00000080;
         return internalGetMutablePerFilterConfig().getMutableMap();
       }
       /**
@@ -3896,12 +3756,10 @@ com.google.protobuf.Any defaultValue);
           java.lang.String key,
           com.google.protobuf.Struct value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutablePerFilterConfig().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
@@ -3915,18 +3773,18 @@ com.google.protobuf.Any defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Struct&gt; per_filter_config = 8 [deprecated = true];</code>
        */
-      @java.lang.Deprecated 
-      public Builder putAllPerFilterConfig(
+      @java.lang.Deprecated public Builder putAllPerFilterConfig(
           java.util.Map<java.lang.String, com.google.protobuf.Struct> values) {
         internalGetMutablePerFilterConfig().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000080;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf.Any> typedPerFilterConfig_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Any>
-      internalGetTypedPerFilterConfig() {
+          internalGetTypedPerFilterConfig() {
         if (typedPerFilterConfig_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               TypedPerFilterConfigDefaultEntryHolder.defaultEntry);
@@ -3934,8 +3792,7 @@ com.google.protobuf.Any defaultValue);
         return typedPerFilterConfig_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Any>
-      internalGetMutableTypedPerFilterConfig() {
-        onChanged();;
+          internalGetMutableTypedPerFilterConfig() {
         if (typedPerFilterConfig_ == null) {
           typedPerFilterConfig_ = com.google.protobuf.MapField.newMapField(
               TypedPerFilterConfigDefaultEntryHolder.defaultEntry);
@@ -3943,9 +3800,10 @@ com.google.protobuf.Any defaultValue);
         if (!typedPerFilterConfig_.isMutable()) {
           typedPerFilterConfig_ = typedPerFilterConfig_.copy();
         }
+        bitField0_ |= 0x00000100;
+        onChanged();
         return typedPerFilterConfig_;
       }
-
       public int getTypedPerFilterConfigCount() {
         return internalGetTypedPerFilterConfig().getMap().size();
       }
@@ -3960,7 +3818,6 @@ com.google.protobuf.Any defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
-
       @java.lang.Override
       public boolean containsTypedPerFilterConfig(
           java.lang.String key) {
@@ -3987,7 +3844,6 @@ com.google.protobuf.Any defaultValue);
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf.Any> getTypedPerFilterConfigMap() {
         return internalGetTypedPerFilterConfig().getMap();
       }
@@ -4003,10 +3859,11 @@ com.google.protobuf.Any defaultValue);
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
+      public /* nullable */
+com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
           java.lang.String key,
-          com.google.protobuf.Any defaultValue) {
+          /* nullable */
+com.google.protobuf.Any defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.Any> map =
             internalGetTypedPerFilterConfig().getMap();
@@ -4024,7 +3881,6 @@ com.google.protobuf.Any defaultValue);
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4035,8 +3891,8 @@ com.google.protobuf.Any defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearTypedPerFilterConfig() {
+        bitField0_ = (bitField0_ & ~0x00000100);
         internalGetMutableTypedPerFilterConfig().getMutableMap()
             .clear();
         return this;
@@ -4052,7 +3908,6 @@ com.google.protobuf.Any defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
-
       public Builder removeTypedPerFilterConfig(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4065,7 +3920,8 @@ com.google.protobuf.Any defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.Any>
-      getMutableTypedPerFilterConfig() {
+          getMutableTypedPerFilterConfig() {
+        bitField0_ |= 0x00000100;
         return internalGetMutableTypedPerFilterConfig().getMutableMap();
       }
       /**
@@ -4083,12 +3939,10 @@ com.google.protobuf.Any defaultValue);
           java.lang.String key,
           com.google.protobuf.Any value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableTypedPerFilterConfig().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
@@ -4102,11 +3956,11 @@ com.google.protobuf.Any defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 10;</code>
        */
-
       public Builder putAllTypedPerFilterConfig(
           java.util.Map<java.lang.String, com.google.protobuf.Any> values) {
         internalGetMutableTypedPerFilterConfig().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000100;
         return this;
       }
       @java.lang.Override
@@ -4142,7 +3996,18 @@ com.google.protobuf.Any defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClusterWeight(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4163,6 +4028,7 @@ com.google.protobuf.Any defaultValue);
   }
 
   public static final int CLUSTERS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight> clusters_;
   /**
    * <pre>
@@ -4260,11 +4126,12 @@ com.google.protobuf.Any defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getTotalWeightOrBuilder() {
-    return getTotalWeight();
+    return totalWeight_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : totalWeight_;
   }
 
   public static final int RUNTIME_KEY_PREFIX_FIELD_NUMBER = 2;
-  private volatile java.lang.Object runtimeKeyPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object runtimeKeyPrefix_ = "";
   /**
    * <pre>
    * Specifies the runtime key prefix that should be used to construct the
@@ -4346,7 +4213,7 @@ com.google.protobuf.Any defaultValue);
     if (totalWeight_ != null) {
       output.writeMessage(3, getTotalWeight());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4366,7 +4233,7 @@ com.google.protobuf.Any defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getTotalWeight());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4390,7 +4257,7 @@ com.google.protobuf.Any defaultValue);
     }
     if (!getRuntimeKeyPrefix()
         .equals(other.getRuntimeKeyPrefix())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4411,7 +4278,7 @@ com.google.protobuf.Any defaultValue);
     }
     hash = (37 * hash) + RUNTIME_KEY_PREFIX_FIELD_NUMBER;
     hash = (53 * hash) + getRuntimeKeyPrefix().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4537,37 +4404,31 @@ com.google.protobuf.Any defaultValue);
 
     // Construct using io.envoyproxy.envoy.api.v2.route.WeightedCluster.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getClustersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (clustersBuilder_ == null) {
         clusters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        clusters_ = null;
         clustersBuilder_.clear();
       }
-      if (totalWeightBuilder_ == null) {
-        totalWeight_ = null;
-      } else {
-        totalWeight_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      totalWeight_ = null;
+      if (totalWeightBuilder_ != null) {
+        totalWeightBuilder_.dispose();
         totalWeightBuilder_ = null;
       }
       runtimeKeyPrefix_ = "";
-
       return this;
     }
 
@@ -4594,7 +4455,13 @@ com.google.protobuf.Any defaultValue);
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.route.WeightedCluster buildPartial() {
       io.envoyproxy.envoy.api.v2.route.WeightedCluster result = new io.envoyproxy.envoy.api.v2.route.WeightedCluster(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.api.v2.route.WeightedCluster result) {
       if (clustersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           clusters_ = java.util.Collections.unmodifiableList(clusters_);
@@ -4604,14 +4471,18 @@ com.google.protobuf.Any defaultValue);
       } else {
         result.clusters_ = clustersBuilder_.build();
       }
-      if (totalWeightBuilder_ == null) {
-        result.totalWeight_ = totalWeight_;
-      } else {
-        result.totalWeight_ = totalWeightBuilder_.build();
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.route.WeightedCluster result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.totalWeight_ = totalWeightBuilder_ == null
+            ? totalWeight_
+            : totalWeightBuilder_.build();
       }
-      result.runtimeKeyPrefix_ = runtimeKeyPrefix_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.runtimeKeyPrefix_ = runtimeKeyPrefix_;
+      }
     }
 
     @java.lang.Override
@@ -4689,9 +4560,10 @@ com.google.protobuf.Any defaultValue);
       }
       if (!other.getRuntimeKeyPrefix().isEmpty()) {
         runtimeKeyPrefix_ = other.runtimeKeyPrefix_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4706,17 +4578,55 @@ com.google.protobuf.Any defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.route.WeightedCluster parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.api.v2.route.WeightedCluster.ClusterWeight.parser(),
+                      extensionRegistry);
+              if (clustersBuilder_ == null) {
+                ensureClustersIsMutable();
+                clusters_.add(m);
+              } else {
+                clustersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              runtimeKeyPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTotalWeightFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.route.WeightedCluster) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -5046,7 +4956,7 @@ com.google.protobuf.Any defaultValue);
      * @return Whether the totalWeight field is set.
      */
     public boolean hasTotalWeight() {
-      return totalWeightBuilder_ != null || totalWeight_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -5078,11 +4988,11 @@ com.google.protobuf.Any defaultValue);
           throw new NullPointerException();
         }
         totalWeight_ = value;
-        onChanged();
       } else {
         totalWeightBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -5097,11 +5007,11 @@ com.google.protobuf.Any defaultValue);
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (totalWeightBuilder_ == null) {
         totalWeight_ = builderForValue.build();
-        onChanged();
       } else {
         totalWeightBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -5114,17 +5024,18 @@ com.google.protobuf.Any defaultValue);
      */
     public Builder mergeTotalWeight(com.google.protobuf.UInt32Value value) {
       if (totalWeightBuilder_ == null) {
-        if (totalWeight_ != null) {
-          totalWeight_ =
-            com.google.protobuf.UInt32Value.newBuilder(totalWeight_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          totalWeight_ != null &&
+          totalWeight_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getTotalWeightBuilder().mergeFrom(value);
         } else {
           totalWeight_ = value;
         }
-        onChanged();
       } else {
         totalWeightBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -5136,14 +5047,13 @@ com.google.protobuf.Any defaultValue);
      * <code>.google.protobuf.UInt32Value total_weight = 3 [(.validate.rules) = { ... }</code>
      */
     public Builder clearTotalWeight() {
-      if (totalWeightBuilder_ == null) {
-        totalWeight_ = null;
-        onChanged();
-      } else {
-        totalWeight_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      totalWeight_ = null;
+      if (totalWeightBuilder_ != null) {
+        totalWeightBuilder_.dispose();
         totalWeightBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5155,7 +5065,7 @@ com.google.protobuf.Any defaultValue);
      * <code>.google.protobuf.UInt32Value total_weight = 3 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getTotalWeightBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTotalWeightFieldBuilder().getBuilder();
     }
@@ -5271,11 +5181,9 @@ com.google.protobuf.Any defaultValue);
      */
     public Builder setRuntimeKeyPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       runtimeKeyPrefix_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5295,8 +5203,8 @@ com.google.protobuf.Any defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearRuntimeKeyPrefix() {
-      
       runtimeKeyPrefix_ = getDefaultInstance().getRuntimeKeyPrefix();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -5318,12 +5226,10 @@ com.google.protobuf.Any defaultValue);
      */
     public Builder setRuntimeKeyPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       runtimeKeyPrefix_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5360,7 +5266,18 @@ com.google.protobuf.Any defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WeightedCluster(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

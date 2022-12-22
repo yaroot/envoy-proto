@@ -75,7 +75,6 @@ public interface ErrorInfoOrBuilder extends
    *
    * <code>map&lt;string, string&gt; metadatas = 8514340;</code>
    */
-
   /* nullable */
 java.lang.String getMetadatasOrDefault(
       java.lang.String key,
@@ -88,13 +87,12 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadatas = 8514340;</code>
    */
-
   java.lang.String getMetadatasOrThrow(
       java.lang.String key);
 
   /**
    * <pre>
-   * The reason of the error. This is a constant value that identifies the proximate cause of the error. Error reasons are unique within a particular domain of errors. This should be at most 63 characters and match /[A-Z0-9_]+/.
+   * The reason of the error. This is a constant value that identifies the proximate cause of the error. Error reasons are unique within a particular domain of errors. This should be at most 63 characters and match a regular expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
    * </pre>
    *
    * <code>optional string reason = 138777156;</code>
@@ -103,7 +101,7 @@ java.lang.String defaultValue);
   boolean hasReason();
   /**
    * <pre>
-   * The reason of the error. This is a constant value that identifies the proximate cause of the error. Error reasons are unique within a particular domain of errors. This should be at most 63 characters and match /[A-Z0-9_]+/.
+   * The reason of the error. This is a constant value that identifies the proximate cause of the error. Error reasons are unique within a particular domain of errors. This should be at most 63 characters and match a regular expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
    * </pre>
    *
    * <code>optional string reason = 138777156;</code>
@@ -112,7 +110,7 @@ java.lang.String defaultValue);
   java.lang.String getReason();
   /**
    * <pre>
-   * The reason of the error. This is a constant value that identifies the proximate cause of the error. Error reasons are unique within a particular domain of errors. This should be at most 63 characters and match /[A-Z0-9_]+/.
+   * The reason of the error. This is a constant value that identifies the proximate cause of the error. Error reasons are unique within a particular domain of errors. This should be at most 63 characters and match a regular expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
    * </pre>
    *
    * <code>optional string reason = 138777156;</code>

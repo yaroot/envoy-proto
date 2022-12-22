@@ -57,9 +57,9 @@ public interface ModelOrBuilder extends
    * <pre>
    * User provided version aliases so that a model version can be referenced via
    * alias (i.e.
-   * projects/{project}/locations/{location}/models/{model_id}&#64;{version_alias}
+   * `projects/{project}/locations/{location}/models/{model_id}&#64;{version_alias}`
    * instead of auto-generated version id (i.e.
-   * projects/{project}/locations/{location}/models/{model_id}&#64;{version_id}).
+   * `projects/{project}/locations/{location}/models/{model_id}&#64;{version_id})`.
    * The format is [a-z][a-zA-Z0-9-]{0,126}[a-z0-9] to distinguish from
    * version_id. A default version alias will be created for the first version
    * of the model, and there must be exactly one default version alias for a
@@ -75,9 +75,9 @@ public interface ModelOrBuilder extends
    * <pre>
    * User provided version aliases so that a model version can be referenced via
    * alias (i.e.
-   * projects/{project}/locations/{location}/models/{model_id}&#64;{version_alias}
+   * `projects/{project}/locations/{location}/models/{model_id}&#64;{version_alias}`
    * instead of auto-generated version id (i.e.
-   * projects/{project}/locations/{location}/models/{model_id}&#64;{version_id}).
+   * `projects/{project}/locations/{location}/models/{model_id}&#64;{version_id})`.
    * The format is [a-z][a-zA-Z0-9-]{0,126}[a-z0-9] to distinguish from
    * version_id. A default version alias will be created for the first version
    * of the model, and there must be exactly one default version alias for a
@@ -92,9 +92,9 @@ public interface ModelOrBuilder extends
    * <pre>
    * User provided version aliases so that a model version can be referenced via
    * alias (i.e.
-   * projects/{project}/locations/{location}/models/{model_id}&#64;{version_alias}
+   * `projects/{project}/locations/{location}/models/{model_id}&#64;{version_alias}`
    * instead of auto-generated version id (i.e.
-   * projects/{project}/locations/{location}/models/{model_id}&#64;{version_id}).
+   * `projects/{project}/locations/{location}/models/{model_id}&#64;{version_id})`.
    * The format is [a-z][a-zA-Z0-9-]{0,126}[a-z0-9] to distinguish from
    * version_id. A default version alias will be created for the first version
    * of the model, and there must be exactly one default version alias for a
@@ -110,9 +110,9 @@ public interface ModelOrBuilder extends
    * <pre>
    * User provided version aliases so that a model version can be referenced via
    * alias (i.e.
-   * projects/{project}/locations/{location}/models/{model_id}&#64;{version_alias}
+   * `projects/{project}/locations/{location}/models/{model_id}&#64;{version_alias}`
    * instead of auto-generated version id (i.e.
-   * projects/{project}/locations/{location}/models/{model_id}&#64;{version_id}).
+   * `projects/{project}/locations/{location}/models/{model_id}&#64;{version_id})`.
    * The format is [a-z][a-zA-Z0-9-]{0,126}[a-z0-9] to distinguish from
    * version_id. A default version alias will be created for the first version
    * of the model, and there must be exactly one default version alias for a
@@ -183,7 +183,7 @@ public interface ModelOrBuilder extends
   /**
    * <pre>
    * Required. The display name of the Model.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -194,7 +194,7 @@ public interface ModelOrBuilder extends
   /**
    * <pre>
    * Required. The display name of the Model.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -1136,7 +1136,6 @@ public interface ModelOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 17;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -1153,7 +1152,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 17;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -1186,4 +1184,58 @@ java.lang.String defaultValue);
    * <code>.google.cloud.aiplatform.v1.EncryptionSpec encryption_spec = 24;</code>
    */
   com.google.cloud.aiplatform.v1.EncryptionSpecOrBuilder getEncryptionSpecOrBuilder();
+
+  /**
+   * <pre>
+   * Output only. Source of a model. It can either be automl training pipeline, custom
+   * training pipeline, BigQuery ML, or existing Vertex AI Model.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1.ModelSourceInfo model_source_info = 38 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return Whether the modelSourceInfo field is set.
+   */
+  boolean hasModelSourceInfo();
+  /**
+   * <pre>
+   * Output only. Source of a model. It can either be automl training pipeline, custom
+   * training pipeline, BigQuery ML, or existing Vertex AI Model.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1.ModelSourceInfo model_source_info = 38 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The modelSourceInfo.
+   */
+  com.google.cloud.aiplatform.v1.ModelSourceInfo getModelSourceInfo();
+  /**
+   * <pre>
+   * Output only. Source of a model. It can either be automl training pipeline, custom
+   * training pipeline, BigQuery ML, or existing Vertex AI Model.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1.ModelSourceInfo model_source_info = 38 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.cloud.aiplatform.v1.ModelSourceInfoOrBuilder getModelSourceInfoOrBuilder();
+
+  /**
+   * <pre>
+   * Output only. The resource name of the Artifact that was created in MetadataStore when
+   * creating the Model. The Artifact resource name pattern is
+   * `projects/{project}/locations/{location}/metadataStores/{metadata_store}/artifacts/{artifact}`.
+   * </pre>
+   *
+   * <code>string metadata_artifact = 44 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The metadataArtifact.
+   */
+  java.lang.String getMetadataArtifact();
+  /**
+   * <pre>
+   * Output only. The resource name of the Artifact that was created in MetadataStore when
+   * creating the Model. The Artifact resource name pattern is
+   * `projects/{project}/locations/{location}/metadataStores/{metadata_store}/artifacts/{artifact}`.
+   * </pre>
+   *
+   * <code>string metadata_artifact = 44 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The bytes for metadataArtifact.
+   */
+  com.google.protobuf.ByteString
+      getMetadataArtifactBytes();
 }

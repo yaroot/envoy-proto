@@ -60,59 +60,6 @@ public final class UnittestLazyImportsProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ImportedMessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = lazyMessage_.toBuilder();
-              }
-              lazyMessage_ = input.readMessage(protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lazyMessage_);
-                lazyMessage_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return protobuf_unittest.lazy_imports.UnittestLazyImportsProto.internal_static_protobuf_unittest_lazy_imports_ImportedMessage_descriptor;
@@ -170,7 +117,7 @@ public final class UnittestLazyImportsProto {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getLazyMessage());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -183,7 +130,7 @@ public final class UnittestLazyImportsProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getLazyMessage());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -203,7 +150,7 @@ public final class UnittestLazyImportsProto {
         if (!getLazyMessage()
             .equals(other.getLazyMessage())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -218,7 +165,7 @@ public final class UnittestLazyImportsProto {
         hash = (37 * hash) + LAZY_MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + getLazyMessage().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -352,12 +299,12 @@ public final class UnittestLazyImportsProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (lazyMessageBuilder_ == null) {
-          lazyMessage_ = null;
-        } else {
-          lazyMessageBuilder_.clear();
+        bitField0_ = 0;
+        lazyMessage_ = null;
+        if (lazyMessageBuilder_ != null) {
+          lazyMessageBuilder_.dispose();
+          lazyMessageBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -384,19 +331,21 @@ public final class UnittestLazyImportsProto {
       @java.lang.Override
       public protobuf_unittest.lazy_imports.UnittestLazyImportsProto.ImportedMessage buildPartial() {
         protobuf_unittest.lazy_imports.UnittestLazyImportsProto.ImportedMessage result = new protobuf_unittest.lazy_imports.UnittestLazyImportsProto.ImportedMessage(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.lazy_imports.UnittestLazyImportsProto.ImportedMessage result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (lazyMessageBuilder_ == null) {
-            result.lazyMessage_ = lazyMessage_;
-          } else {
-            result.lazyMessage_ = lazyMessageBuilder_.build();
-          }
+          result.lazyMessage_ = lazyMessageBuilder_ == null
+              ? lazyMessage_
+              : lazyMessageBuilder_.build();
           to_bitField0_ |= 0x00000001;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -446,7 +395,7 @@ public final class UnittestLazyImportsProto {
         if (other.hasLazyMessage()) {
           mergeLazyMessage(other.getLazyMessage());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -461,17 +410,37 @@ public final class UnittestLazyImportsProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.lazy_imports.UnittestLazyImportsProto.ImportedMessage parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getLazyMessageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.lazy_imports.UnittestLazyImportsProto.ImportedMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -506,11 +475,11 @@ public final class UnittestLazyImportsProto {
             throw new NullPointerException();
           }
           lazyMessage_ = value;
-          onChanged();
         } else {
           lazyMessageBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -520,11 +489,11 @@ public final class UnittestLazyImportsProto {
           protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage.Builder builderForValue) {
         if (lazyMessageBuilder_ == null) {
           lazyMessage_ = builderForValue.build();
-          onChanged();
         } else {
           lazyMessageBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -533,31 +502,30 @@ public final class UnittestLazyImportsProto {
       public Builder mergeLazyMessage(protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage value) {
         if (lazyMessageBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0) &&
-              lazyMessage_ != null &&
-              lazyMessage_ != protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage.getDefaultInstance()) {
-            lazyMessage_ =
-              protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage.newBuilder(lazyMessage_).mergeFrom(value).buildPartial();
+            lazyMessage_ != null &&
+            lazyMessage_ != protobuf_unittest.lazy_imports.UnittestLazyImportsCustomOptionProto.LazyMessage.getDefaultInstance()) {
+            getLazyMessageBuilder().mergeFrom(value);
           } else {
             lazyMessage_ = value;
           }
-          onChanged();
         } else {
           lazyMessageBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .protobuf_unittest.lazy_imports.LazyMessage lazy_message = 1;</code>
        */
       public Builder clearLazyMessage() {
-        if (lazyMessageBuilder_ == null) {
-          lazyMessage_ = null;
-          onChanged();
-        } else {
-          lazyMessageBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000001);
+        lazyMessage_ = null;
+        if (lazyMessageBuilder_ != null) {
+          lazyMessageBuilder_.dispose();
+          lazyMessageBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -628,7 +596,18 @@ public final class UnittestLazyImportsProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ImportedMessage(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -679,45 +658,6 @@ public final class UnittestLazyImportsProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MessageCustomOption(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return protobuf_unittest.lazy_imports.UnittestLazyImportsProto.internal_static_protobuf_unittest_lazy_imports_MessageCustomOption_descriptor;
@@ -745,7 +685,7 @@ public final class UnittestLazyImportsProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -754,7 +694,7 @@ public final class UnittestLazyImportsProto {
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -769,7 +709,7 @@ public final class UnittestLazyImportsProto {
       }
       protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption other = (protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -780,7 +720,7 @@ public final class UnittestLazyImportsProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -897,18 +837,13 @@ public final class UnittestLazyImportsProto {
 
       // Construct using protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -987,7 +922,7 @@ public final class UnittestLazyImportsProto {
 
       public Builder mergeFrom(protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption other) {
         if (other == protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1002,17 +937,30 @@ public final class UnittestLazyImportsProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -1048,7 +996,18 @@ public final class UnittestLazyImportsProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageCustomOption(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1099,45 +1058,6 @@ public final class UnittestLazyImportsProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MessageCustomOption2(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return protobuf_unittest.lazy_imports.UnittestLazyImportsProto.internal_static_protobuf_unittest_lazy_imports_MessageCustomOption2_descriptor;
@@ -1165,7 +1085,7 @@ public final class UnittestLazyImportsProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1174,7 +1094,7 @@ public final class UnittestLazyImportsProto {
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1189,7 +1109,7 @@ public final class UnittestLazyImportsProto {
       }
       protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption2 other = (protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption2) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1200,7 +1120,7 @@ public final class UnittestLazyImportsProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1317,18 +1237,13 @@ public final class UnittestLazyImportsProto {
 
       // Construct using protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption2.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -1407,7 +1322,7 @@ public final class UnittestLazyImportsProto {
 
       public Builder mergeFrom(protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption2 other) {
         if (other == protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption2.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1422,17 +1337,30 @@ public final class UnittestLazyImportsProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption2 parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.lazy_imports.UnittestLazyImportsProto.MessageCustomOption2) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -1468,7 +1396,18 @@ public final class UnittestLazyImportsProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageCustomOption2(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

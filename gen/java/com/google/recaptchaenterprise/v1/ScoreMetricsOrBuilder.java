@@ -38,7 +38,6 @@ public interface ScoreMetricsOrBuilder extends
    * <pre>
    * Action-based metrics. The map key is the action name which specified by the
    * site owners at time of the "execute" client-side call.
-   * Populated only for SCORE keys.
    * </pre>
    *
    * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
@@ -48,7 +47,6 @@ public interface ScoreMetricsOrBuilder extends
    * <pre>
    * Action-based metrics. The map key is the action name which specified by the
    * site owners at time of the "execute" client-side call.
-   * Populated only for SCORE keys.
    * </pre>
    *
    * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
@@ -65,7 +63,6 @@ public interface ScoreMetricsOrBuilder extends
    * <pre>
    * Action-based metrics. The map key is the action name which specified by the
    * site owners at time of the "execute" client-side call.
-   * Populated only for SCORE keys.
    * </pre>
    *
    * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
@@ -76,12 +73,10 @@ public interface ScoreMetricsOrBuilder extends
    * <pre>
    * Action-based metrics. The map key is the action name which specified by the
    * site owners at time of the "execute" client-side call.
-   * Populated only for SCORE keys.
    * </pre>
    *
    * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
    */
-
   /* nullable */
 com.google.recaptchaenterprise.v1.ScoreDistribution getActionMetricsOrDefault(
       java.lang.String key,
@@ -91,12 +86,10 @@ com.google.recaptchaenterprise.v1.ScoreDistribution defaultValue);
    * <pre>
    * Action-based metrics. The map key is the action name which specified by the
    * site owners at time of the "execute" client-side call.
-   * Populated only for SCORE keys.
    * </pre>
    *
    * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
    */
-
   com.google.recaptchaenterprise.v1.ScoreDistribution getActionMetricsOrThrow(
       java.lang.String key);
 }

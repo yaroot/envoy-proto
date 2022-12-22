@@ -155,4 +155,24 @@ public interface TLSPropertiesOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTlsSessionIdBytes();
+
+  /**
+   * <pre>
+   * The ``JA3`` fingerprint when ``JA3`` fingerprinting is enabled.
+   * </pre>
+   *
+   * <code>string ja3_fingerprint = 7;</code>
+   * @return The ja3Fingerprint.
+   */
+  java.lang.String getJa3Fingerprint();
+  /**
+   * <pre>
+   * The ``JA3`` fingerprint when ``JA3`` fingerprinting is enabled.
+   * </pre>
+   *
+   * <code>string ja3_fingerprint = 7;</code>
+   * @return The bytes for ja3Fingerprint.
+   */
+  com.google.protobuf.ByteString
+      getJa3FingerprintBytes();
 }

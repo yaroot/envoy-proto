@@ -9,8 +9,8 @@ public interface AnalyzeWorkloadMoveResponseOrBuilder extends
 
   /**
    * <pre>
-   * List of blockers that prevent moving the source workload to the target
-   * workload
+   * A list of blockers that should be addressed before moving the source
+   * project or project-based workload to the destination folder-based workload.
    * </pre>
    *
    * <code>repeated string blockers = 1;</code>
@@ -20,8 +20,8 @@ public interface AnalyzeWorkloadMoveResponseOrBuilder extends
       getBlockersList();
   /**
    * <pre>
-   * List of blockers that prevent moving the source workload to the target
-   * workload
+   * A list of blockers that should be addressed before moving the source
+   * project or project-based workload to the destination folder-based workload.
    * </pre>
    *
    * <code>repeated string blockers = 1;</code>
@@ -30,8 +30,8 @@ public interface AnalyzeWorkloadMoveResponseOrBuilder extends
   int getBlockersCount();
   /**
    * <pre>
-   * List of blockers that prevent moving the source workload to the target
-   * workload
+   * A list of blockers that should be addressed before moving the source
+   * project or project-based workload to the destination folder-based workload.
    * </pre>
    *
    * <code>repeated string blockers = 1;</code>
@@ -41,8 +41,8 @@ public interface AnalyzeWorkloadMoveResponseOrBuilder extends
   java.lang.String getBlockers(int index);
   /**
    * <pre>
-   * List of blockers that prevent moving the source workload to the target
-   * workload
+   * A list of blockers that should be addressed before moving the source
+   * project or project-based workload to the destination folder-based workload.
    * </pre>
    *
    * <code>repeated string blockers = 1;</code>

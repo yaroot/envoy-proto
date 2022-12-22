@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NetworkEndpointWithHealthStatus(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 454313010: {
-            com.google.cloud.compute.v1.NetworkEndpoint.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = networkEndpoint_.toBuilder();
-            }
-            networkEndpoint_ = input.readMessage(com.google.cloud.compute.v1.NetworkEndpoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(networkEndpoint_);
-              networkEndpoint_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 2069515450: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              healths_ = new java.util.ArrayList<com.google.cloud.compute.v1.HealthStatusForNetworkEndpoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            healths_.add(
-                input.readMessage(com.google.cloud.compute.v1.HealthStatusForNetworkEndpoint.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        healths_ = java.util.Collections.unmodifiableList(healths_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_NetworkEndpointWithHealthStatus_descriptor;
@@ -114,6 +49,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int HEALTHS_FIELD_NUMBER = 258689431;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.HealthStatusForNetworkEndpoint> healths_;
   /**
    * <pre>
@@ -231,7 +167,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < healths_.size(); i++) {
       output.writeMessage(258689431, healths_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -248,7 +184,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(258689431, healths_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -270,7 +206,7 @@ private static final long serialVersionUID = 0L;
       if (!getNetworkEndpoint()
           .equals(other.getNetworkEndpoint())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -289,7 +225,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NETWORK_ENDPOINT_FIELD_NUMBER;
       hash = (53 * hash) + getNetworkEndpoint().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -427,18 +363,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (healthsBuilder_ == null) {
         healths_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        healths_ = null;
         healthsBuilder_.clear();
       }
-      if (networkEndpointBuilder_ == null) {
-        networkEndpoint_ = null;
-      } else {
-        networkEndpointBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000001);
+      networkEndpoint_ = null;
+      if (networkEndpointBuilder_ != null) {
+        networkEndpointBuilder_.dispose();
+        networkEndpointBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -465,8 +402,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.NetworkEndpointWithHealthStatus buildPartial() {
       com.google.cloud.compute.v1.NetworkEndpointWithHealthStatus result = new com.google.cloud.compute.v1.NetworkEndpointWithHealthStatus(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.NetworkEndpointWithHealthStatus result) {
       if (healthsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           healths_ = java.util.Collections.unmodifiableList(healths_);
@@ -476,17 +418,18 @@ private static final long serialVersionUID = 0L;
       } else {
         result.healths_ = healthsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.NetworkEndpointWithHealthStatus result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (networkEndpointBuilder_ == null) {
-          result.networkEndpoint_ = networkEndpoint_;
-        } else {
-          result.networkEndpoint_ = networkEndpointBuilder_.build();
-        }
+        result.networkEndpoint_ = networkEndpointBuilder_ == null
+            ? networkEndpoint_
+            : networkEndpointBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -562,7 +505,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasNetworkEndpoint()) {
         mergeNetworkEndpoint(other.getNetworkEndpoint());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -577,17 +520,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.NetworkEndpointWithHealthStatus parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 454313010: {
+              input.readMessage(
+                  getNetworkEndpointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 454313010
+            case 2069515450: {
+              com.google.cloud.compute.v1.HealthStatusForNetworkEndpoint m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.HealthStatusForNetworkEndpoint.parser(),
+                      extensionRegistry);
+              if (healthsBuilder_ == null) {
+                ensureHealthsIsMutable();
+                healths_.add(m);
+              } else {
+                healthsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 2069515450
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.NetworkEndpointWithHealthStatus) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -946,11 +922,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         networkEndpoint_ = value;
-        onChanged();
       } else {
         networkEndpointBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -964,11 +940,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.NetworkEndpoint.Builder builderForValue) {
       if (networkEndpointBuilder_ == null) {
         networkEndpoint_ = builderForValue.build();
-        onChanged();
       } else {
         networkEndpointBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -981,18 +957,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeNetworkEndpoint(com.google.cloud.compute.v1.NetworkEndpoint value) {
       if (networkEndpointBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            networkEndpoint_ != null &&
-            networkEndpoint_ != com.google.cloud.compute.v1.NetworkEndpoint.getDefaultInstance()) {
-          networkEndpoint_ =
-            com.google.cloud.compute.v1.NetworkEndpoint.newBuilder(networkEndpoint_).mergeFrom(value).buildPartial();
+          networkEndpoint_ != null &&
+          networkEndpoint_ != com.google.cloud.compute.v1.NetworkEndpoint.getDefaultInstance()) {
+          getNetworkEndpointBuilder().mergeFrom(value);
         } else {
           networkEndpoint_ = value;
         }
-        onChanged();
       } else {
         networkEndpointBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1003,13 +978,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.NetworkEndpoint network_endpoint = 56789126;</code>
      */
     public Builder clearNetworkEndpoint() {
-      if (networkEndpointBuilder_ == null) {
-        networkEndpoint_ = null;
-        onChanged();
-      } else {
-        networkEndpointBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      networkEndpoint_ = null;
+      if (networkEndpointBuilder_ != null) {
+        networkEndpointBuilder_.dispose();
+        networkEndpointBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1092,7 +1067,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NetworkEndpointWithHealthStatus(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -60,71 +60,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Viewport(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (low_ != null) {
-              subBuilder = low_.toBuilder();
-            }
-            low_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(low_);
-              low_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (high_ != null) {
-              subBuilder = high_.toBuilder();
-            }
-            high_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(high_);
-              high_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.geo.type.ViewportProto.internal_static_google_geo_type_Viewport_descriptor;
@@ -173,7 +108,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getLowOrBuilder() {
-    return getLow();
+    return low_ == null ? com.google.type.LatLng.getDefaultInstance() : low_;
   }
 
   public static final int HIGH_FIELD_NUMBER = 2;
@@ -211,7 +146,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getHighOrBuilder() {
-    return getHigh();
+    return high_ == null ? com.google.type.LatLng.getDefaultInstance() : high_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -234,7 +169,7 @@ private static final long serialVersionUID = 0L;
     if (high_ != null) {
       output.writeMessage(2, getHigh());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -251,7 +186,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getHigh());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -276,7 +211,7 @@ private static final long serialVersionUID = 0L;
       if (!getHigh()
           .equals(other.getHigh())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -295,7 +230,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HIGH_FIELD_NUMBER;
       hash = (53 * hash) + getHigh().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -442,32 +377,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.geo.type.Viewport.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (lowBuilder_ == null) {
-        low_ = null;
-      } else {
-        low_ = null;
+      bitField0_ = 0;
+      low_ = null;
+      if (lowBuilder_ != null) {
+        lowBuilder_.dispose();
         lowBuilder_ = null;
       }
-      if (highBuilder_ == null) {
-        high_ = null;
-      } else {
-        high_ = null;
+      high_ = null;
+      if (highBuilder_ != null) {
+        highBuilder_.dispose();
         highBuilder_ = null;
       }
       return this;
@@ -496,18 +425,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.geo.type.Viewport buildPartial() {
       com.google.geo.type.Viewport result = new com.google.geo.type.Viewport(this);
-      if (lowBuilder_ == null) {
-        result.low_ = low_;
-      } else {
-        result.low_ = lowBuilder_.build();
-      }
-      if (highBuilder_ == null) {
-        result.high_ = high_;
-      } else {
-        result.high_ = highBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.geo.type.Viewport result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.low_ = lowBuilder_ == null
+            ? low_
+            : lowBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.high_ = highBuilder_ == null
+            ? high_
+            : highBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -560,7 +494,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasHigh()) {
         mergeHigh(other.getHigh());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -575,19 +509,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.geo.type.Viewport parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLowFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getHighFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.geo.type.Viewport) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.type.LatLng low_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -601,7 +563,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the low field is set.
      */
     public boolean hasLow() {
-      return lowBuilder_ != null || low_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -631,11 +593,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         low_ = value;
-        onChanged();
       } else {
         lowBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -649,11 +611,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (lowBuilder_ == null) {
         low_ = builderForValue.build();
-        onChanged();
       } else {
         lowBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -665,17 +627,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLow(com.google.type.LatLng value) {
       if (lowBuilder_ == null) {
-        if (low_ != null) {
-          low_ =
-            com.google.type.LatLng.newBuilder(low_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          low_ != null &&
+          low_ != com.google.type.LatLng.getDefaultInstance()) {
+          getLowBuilder().mergeFrom(value);
         } else {
           low_ = value;
         }
-        onChanged();
       } else {
         lowBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -686,14 +649,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng low = 1;</code>
      */
     public Builder clearLow() {
-      if (lowBuilder_ == null) {
-        low_ = null;
-        onChanged();
-      } else {
-        low_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      low_ = null;
+      if (lowBuilder_ != null) {
+        lowBuilder_.dispose();
         lowBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng low = 1;</code>
      */
     public com.google.type.LatLng.Builder getLowBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getLowFieldBuilder().getBuilder();
     }
@@ -756,7 +718,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the high field is set.
      */
     public boolean hasHigh() {
-      return highBuilder_ != null || high_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -786,11 +748,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         high_ = value;
-        onChanged();
       } else {
         highBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -804,11 +766,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (highBuilder_ == null) {
         high_ = builderForValue.build();
-        onChanged();
       } else {
         highBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -820,17 +782,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHigh(com.google.type.LatLng value) {
       if (highBuilder_ == null) {
-        if (high_ != null) {
-          high_ =
-            com.google.type.LatLng.newBuilder(high_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          high_ != null &&
+          high_ != com.google.type.LatLng.getDefaultInstance()) {
+          getHighBuilder().mergeFrom(value);
         } else {
           high_ = value;
         }
-        onChanged();
       } else {
         highBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -841,14 +804,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng high = 2;</code>
      */
     public Builder clearHigh() {
-      if (highBuilder_ == null) {
-        high_ = null;
-        onChanged();
-      } else {
-        high_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      high_ = null;
+      if (highBuilder_ != null) {
+        highBuilder_.dispose();
         highBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -859,7 +821,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng high = 2;</code>
      */
     public com.google.type.LatLng.Builder getHighBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getHighFieldBuilder().getBuilder();
     }
@@ -931,7 +893,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Viewport(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

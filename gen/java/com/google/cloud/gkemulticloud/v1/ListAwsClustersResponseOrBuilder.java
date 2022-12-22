@@ -9,8 +9,8 @@ public interface ListAwsClustersResponseOrBuilder extends
 
   /**
    * <pre>
-   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources
+   * in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsCluster aws_clusters = 1;</code>
@@ -19,8 +19,8 @@ public interface ListAwsClustersResponseOrBuilder extends
       getAwsClustersList();
   /**
    * <pre>
-   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources
+   * in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsCluster aws_clusters = 1;</code>
@@ -28,8 +28,8 @@ public interface ListAwsClustersResponseOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AwsCluster getAwsClusters(int index);
   /**
    * <pre>
-   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources
+   * in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsCluster aws_clusters = 1;</code>
@@ -37,8 +37,8 @@ public interface ListAwsClustersResponseOrBuilder extends
   int getAwsClustersCount();
   /**
    * <pre>
-   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources
+   * in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsCluster aws_clusters = 1;</code>
@@ -47,8 +47,8 @@ public interface ListAwsClustersResponseOrBuilder extends
       getAwsClustersOrBuilderList();
   /**
    * <pre>
-   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resources
+   * in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AwsCluster aws_clusters = 1;</code>

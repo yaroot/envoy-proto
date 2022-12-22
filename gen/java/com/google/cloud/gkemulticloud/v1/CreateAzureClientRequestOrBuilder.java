@@ -9,8 +9,9 @@ public interface CreateAzureClientRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The parent location where this [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resource
-   * will be created.
+   * Required. The parent location where this
+   * [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resource will be
+   * created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -22,8 +23,9 @@ public interface CreateAzureClientRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The parent location where this [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resource
-   * will be created.
+   * Required. The parent location where this
+   * [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resource will be
+   * created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -37,7 +39,8 @@ public interface CreateAzureClientRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The specification of the [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] to create.
+   * Required. The specification of the
+   * [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureClient azure_client = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -46,7 +49,8 @@ public interface CreateAzureClientRequestOrBuilder extends
   boolean hasAzureClient();
   /**
    * <pre>
-   * Required. The specification of the [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] to create.
+   * Required. The specification of the
+   * [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureClient azure_client = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -55,7 +59,8 @@ public interface CreateAzureClientRequestOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AzureClient getAzureClient();
   /**
    * <pre>
-   * Required. The specification of the [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] to create.
+   * Required. The specification of the
+   * [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureClient azure_client = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -64,12 +69,13 @@ public interface CreateAzureClientRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureClient][google.cloud.gkemulticloud.v1.AzureClient]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClients/&lt;client-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_client_id = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -78,12 +84,13 @@ public interface CreateAzureClientRequestOrBuilder extends
   java.lang.String getAzureClientId();
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureClient][google.cloud.gkemulticloud.v1.AzureClient]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureClient][google.cloud.gkemulticloud.v1.AzureClient] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClients/&lt;client-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_client_id = 4 [(.google.api.field_behavior) = REQUIRED];</code>

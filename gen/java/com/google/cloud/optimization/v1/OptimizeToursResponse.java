@@ -40,106 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OptimizeToursResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              routes_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            routes_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.parser(), extensionRegistry));
-            break;
-          }
-          case 17: {
-
-            totalCost_ = input.readDouble();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestLabel_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              skippedShipments_ = new java.util.ArrayList<com.google.cloud.optimization.v1.SkippedShipment>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            skippedShipments_.add(
-                input.readMessage(com.google.cloud.optimization.v1.SkippedShipment.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              validationErrors_ = new java.util.ArrayList<com.google.cloud.optimization.v1.OptimizeToursValidationError>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            validationErrors_.add(
-                input.readMessage(com.google.cloud.optimization.v1.OptimizeToursValidationError.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics.Builder subBuilder = null;
-            if (metrics_ != null) {
-              subBuilder = metrics_.toBuilder();
-            }
-            metrics_ = input.readMessage(com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metrics_);
-              metrics_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        routes_ = java.util.Collections.unmodifiableList(routes_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        skippedShipments_ = java.util.Collections.unmodifiableList(skippedShipments_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        validationErrors_ = java.util.Collections.unmodifiableList(validationErrors_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_OptimizeToursResponse_descriptor;
@@ -160,7 +60,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Aggregated over the routes. Each metric is the sum (or max, for loads)
-     * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+     * over all
+     * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+     * fields of the same name.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -170,7 +72,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Aggregated over the routes. Each metric is the sum (or max, for loads)
-     * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+     * over all
+     * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+     * fields of the same name.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -180,7 +84,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Aggregated over the routes. Each metric is the sum (or max, for loads)
-     * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+     * over all
+     * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+     * fields of the same name.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -200,8 +106,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Number of vehicles used. Note: if a vehicle route is empty and
-     * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty] is true, the vehicle is considered
-     * used.
+     * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty]
+     * is true, the vehicle is considered used.
      * </pre>
      *
      * <code>int32 used_vehicle_count = 3;</code>
@@ -212,7 +118,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The earliest start time for a used vehicle, computed as the minimum over
-     * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+     * all used vehicles of
+     * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -222,7 +129,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The earliest start time for a used vehicle, computed as the minimum over
-     * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+     * all used vehicles of
+     * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -232,7 +140,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The earliest start time for a used vehicle, computed as the minimum over
-     * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+     * all used vehicles of
+     * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -242,7 +151,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The latest end time for a used vehicle, computed as the maximum over all
-     * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+     * used vehicles of
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -252,7 +162,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The latest end time for a used vehicle, computed as the maximum over all
-     * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+     * used vehicles of
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -262,7 +173,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The latest end time for a used vehicle, computed as the maximum over all
-     * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+     * used vehicles of
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -340,7 +252,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; costs = 10;</code>
      */
-
     double getCostsOrDefault(
         java.lang.String key,
         double defaultValue);
@@ -359,7 +270,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; costs = 10;</code>
      */
-
     double getCostsOrThrow(
         java.lang.String key);
 
@@ -404,113 +314,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Metrics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.optimization.v1.AggregatedMetrics.Builder subBuilder = null;
-              if (aggregatedRouteMetrics_ != null) {
-                subBuilder = aggregatedRouteMetrics_.toBuilder();
-              }
-              aggregatedRouteMetrics_ = input.readMessage(com.google.cloud.optimization.v1.AggregatedMetrics.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(aggregatedRouteMetrics_);
-                aggregatedRouteMetrics_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-
-              skippedMandatoryShipmentCount_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              usedVehicleCount_ = input.readInt32();
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (earliestVehicleStartTime_ != null) {
-                subBuilder = earliestVehicleStartTime_.toBuilder();
-              }
-              earliestVehicleStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(earliestVehicleStartTime_);
-                earliestVehicleStartTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (latestVehicleEndTime_ != null) {
-                subBuilder = latestVehicleEndTime_.toBuilder();
-              }
-              latestVehicleEndTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(latestVehicleEndTime_);
-                latestVehicleEndTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 49: {
-
-              totalCost_ = input.readDouble();
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                costs_ = com.google.protobuf.MapField.newMapField(
-                    CostsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
-              costs__ = input.readMessage(
-                  CostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              costs_.getMutableMap().put(
-                  costs__.getKey(), costs__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_OptimizeToursResponse_Metrics_descriptor;
@@ -541,7 +344,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Aggregated over the routes. Each metric is the sum (or max, for loads)
-     * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+     * over all
+     * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+     * fields of the same name.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -554,7 +359,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Aggregated over the routes. Each metric is the sum (or max, for loads)
-     * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+     * over all
+     * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+     * fields of the same name.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -567,18 +374,20 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Aggregated over the routes. Each metric is the sum (or max, for loads)
-     * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+     * over all
+     * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+     * fields of the same name.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.AggregatedMetricsOrBuilder getAggregatedRouteMetricsOrBuilder() {
-      return getAggregatedRouteMetrics();
+      return aggregatedRouteMetrics_ == null ? com.google.cloud.optimization.v1.AggregatedMetrics.getDefaultInstance() : aggregatedRouteMetrics_;
     }
 
     public static final int SKIPPED_MANDATORY_SHIPMENT_COUNT_FIELD_NUMBER = 2;
-    private int skippedMandatoryShipmentCount_;
+    private int skippedMandatoryShipmentCount_ = 0;
     /**
      * <pre>
      * Number of mandatory shipments skipped.
@@ -593,12 +402,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int USED_VEHICLE_COUNT_FIELD_NUMBER = 3;
-    private int usedVehicleCount_;
+    private int usedVehicleCount_ = 0;
     /**
      * <pre>
      * Number of vehicles used. Note: if a vehicle route is empty and
-     * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty] is true, the vehicle is considered
-     * used.
+     * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty]
+     * is true, the vehicle is considered used.
      * </pre>
      *
      * <code>int32 used_vehicle_count = 3;</code>
@@ -614,7 +423,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The earliest start time for a used vehicle, computed as the minimum over
-     * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+     * all used vehicles of
+     * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -627,7 +437,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The earliest start time for a used vehicle, computed as the minimum over
-     * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+     * all used vehicles of
+     * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -640,14 +451,15 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The earliest start time for a used vehicle, computed as the minimum over
-     * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+     * all used vehicles of
+     * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getEarliestVehicleStartTimeOrBuilder() {
-      return getEarliestVehicleStartTime();
+      return earliestVehicleStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : earliestVehicleStartTime_;
     }
 
     public static final int LATEST_VEHICLE_END_TIME_FIELD_NUMBER = 5;
@@ -655,7 +467,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The latest end time for a used vehicle, computed as the maximum over all
-     * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+     * used vehicles of
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -668,7 +481,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The latest end time for a used vehicle, computed as the maximum over all
-     * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+     * used vehicles of
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -681,14 +495,15 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The latest end time for a used vehicle, computed as the maximum over all
-     * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+     * used vehicles of
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLatestVehicleEndTimeOrBuilder() {
-      return getLatestVehicleEndTime();
+      return latestVehicleEndTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : latestVehicleEndTime_;
     }
 
     public static final int COSTS_FIELD_NUMBER = 10;
@@ -703,6 +518,7 @@ private static final long serialVersionUID = 0L;
                   com.google.protobuf.WireFormat.FieldType.DOUBLE,
                   0D);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Double> costs_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
@@ -713,7 +529,6 @@ private static final long serialVersionUID = 0L;
       }
       return costs_;
     }
-
     public int getCostsCount() {
       return internalGetCosts().getMap().size();
     }
@@ -732,7 +547,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; costs = 10;</code>
      */
-
     @java.lang.Override
     public boolean containsCosts(
         java.lang.String key) {
@@ -763,7 +577,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; costs = 10;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Double> getCostsMap() {
       return internalGetCosts().getMap();
     }
@@ -783,7 +596,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; costs = 10;</code>
      */
     @java.lang.Override
-
     public double getCostsOrDefault(
         java.lang.String key,
         double defaultValue) {
@@ -808,7 +620,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; costs = 10;</code>
      */
     @java.lang.Override
-
     public double getCostsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -821,7 +632,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TOTAL_COST_FIELD_NUMBER = 6;
-    private double totalCost_;
+    private double totalCost_ = 0D;
     /**
      * <pre>
      * Total cost of the solution. The sum of all values in the costs map.
@@ -873,7 +684,7 @@ private static final long serialVersionUID = 0L;
           internalGetCosts(),
           CostsDefaultEntryHolder.defaultEntry,
           10);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -916,7 +727,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(10, costs__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -955,7 +766,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToLongBits(getTotalCost())
           != java.lang.Double.doubleToLongBits(
               other.getTotalCost())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -989,7 +800,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TOTAL_COST_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getTotalCost()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1132,47 +943,37 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (aggregatedRouteMetricsBuilder_ == null) {
-          aggregatedRouteMetrics_ = null;
-        } else {
-          aggregatedRouteMetrics_ = null;
+        bitField0_ = 0;
+        aggregatedRouteMetrics_ = null;
+        if (aggregatedRouteMetricsBuilder_ != null) {
+          aggregatedRouteMetricsBuilder_.dispose();
           aggregatedRouteMetricsBuilder_ = null;
         }
         skippedMandatoryShipmentCount_ = 0;
-
         usedVehicleCount_ = 0;
-
-        if (earliestVehicleStartTimeBuilder_ == null) {
-          earliestVehicleStartTime_ = null;
-        } else {
-          earliestVehicleStartTime_ = null;
+        earliestVehicleStartTime_ = null;
+        if (earliestVehicleStartTimeBuilder_ != null) {
+          earliestVehicleStartTimeBuilder_.dispose();
           earliestVehicleStartTimeBuilder_ = null;
         }
-        if (latestVehicleEndTimeBuilder_ == null) {
-          latestVehicleEndTime_ = null;
-        } else {
-          latestVehicleEndTime_ = null;
+        latestVehicleEndTime_ = null;
+        if (latestVehicleEndTimeBuilder_ != null) {
+          latestVehicleEndTimeBuilder_.dispose();
           latestVehicleEndTimeBuilder_ = null;
         }
         internalGetMutableCosts().clear();
         totalCost_ = 0D;
-
         return this;
       }
 
@@ -1199,29 +1000,41 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics buildPartial() {
         com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics result = new com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics(this);
-        int from_bitField0_ = bitField0_;
-        if (aggregatedRouteMetricsBuilder_ == null) {
-          result.aggregatedRouteMetrics_ = aggregatedRouteMetrics_;
-        } else {
-          result.aggregatedRouteMetrics_ = aggregatedRouteMetricsBuilder_.build();
-        }
-        result.skippedMandatoryShipmentCount_ = skippedMandatoryShipmentCount_;
-        result.usedVehicleCount_ = usedVehicleCount_;
-        if (earliestVehicleStartTimeBuilder_ == null) {
-          result.earliestVehicleStartTime_ = earliestVehicleStartTime_;
-        } else {
-          result.earliestVehicleStartTime_ = earliestVehicleStartTimeBuilder_.build();
-        }
-        if (latestVehicleEndTimeBuilder_ == null) {
-          result.latestVehicleEndTime_ = latestVehicleEndTime_;
-        } else {
-          result.latestVehicleEndTime_ = latestVehicleEndTimeBuilder_.build();
-        }
-        result.costs_ = internalGetCosts();
-        result.costs_.makeImmutable();
-        result.totalCost_ = totalCost_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.aggregatedRouteMetrics_ = aggregatedRouteMetricsBuilder_ == null
+              ? aggregatedRouteMetrics_
+              : aggregatedRouteMetricsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.skippedMandatoryShipmentCount_ = skippedMandatoryShipmentCount_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.usedVehicleCount_ = usedVehicleCount_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.earliestVehicleStartTime_ = earliestVehicleStartTimeBuilder_ == null
+              ? earliestVehicleStartTime_
+              : earliestVehicleStartTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.latestVehicleEndTime_ = latestVehicleEndTimeBuilder_ == null
+              ? latestVehicleEndTime_
+              : latestVehicleEndTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.costs_ = internalGetCosts();
+          result.costs_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.totalCost_ = totalCost_;
+        }
       }
 
       @java.lang.Override
@@ -1285,10 +1098,11 @@ private static final long serialVersionUID = 0L;
         }
         internalGetMutableCosts().mergeFrom(
             other.internalGetCosts());
+        bitField0_ |= 0x00000020;
         if (other.getTotalCost() != 0D) {
           setTotalCost(other.getTotalCost());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1303,17 +1117,75 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAggregatedRouteMetricsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                skippedMandatoryShipmentCount_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                usedVehicleCount_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                input.readMessage(
+                    getEarliestVehicleStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getLatestVehicleEndTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 49: {
+                totalCost_ = input.readDouble();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 49
+              case 82: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
+                costs__ = input.readMessage(
+                    CostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableCosts().getMutableMap().put(
+                    costs__.getKey(), costs__.getValue());
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1324,19 +1196,23 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Aggregated over the routes. Each metric is the sum (or max, for loads)
-       * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+       * over all
+       * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+       * fields of the same name.
        * </pre>
        *
        * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
        * @return Whether the aggregatedRouteMetrics field is set.
        */
       public boolean hasAggregatedRouteMetrics() {
-        return aggregatedRouteMetricsBuilder_ != null || aggregatedRouteMetrics_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
        * Aggregated over the routes. Each metric is the sum (or max, for loads)
-       * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+       * over all
+       * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+       * fields of the same name.
        * </pre>
        *
        * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -1352,7 +1228,9 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Aggregated over the routes. Each metric is the sum (or max, for loads)
-       * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+       * over all
+       * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+       * fields of the same name.
        * </pre>
        *
        * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -1363,17 +1241,19 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           aggregatedRouteMetrics_ = value;
-          onChanged();
         } else {
           aggregatedRouteMetricsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Aggregated over the routes. Each metric is the sum (or max, for loads)
-       * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+       * over all
+       * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+       * fields of the same name.
        * </pre>
        *
        * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -1382,72 +1262,80 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.optimization.v1.AggregatedMetrics.Builder builderForValue) {
         if (aggregatedRouteMetricsBuilder_ == null) {
           aggregatedRouteMetrics_ = builderForValue.build();
-          onChanged();
         } else {
           aggregatedRouteMetricsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Aggregated over the routes. Each metric is the sum (or max, for loads)
-       * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+       * over all
+       * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+       * fields of the same name.
        * </pre>
        *
        * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
        */
       public Builder mergeAggregatedRouteMetrics(com.google.cloud.optimization.v1.AggregatedMetrics value) {
         if (aggregatedRouteMetricsBuilder_ == null) {
-          if (aggregatedRouteMetrics_ != null) {
-            aggregatedRouteMetrics_ =
-              com.google.cloud.optimization.v1.AggregatedMetrics.newBuilder(aggregatedRouteMetrics_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            aggregatedRouteMetrics_ != null &&
+            aggregatedRouteMetrics_ != com.google.cloud.optimization.v1.AggregatedMetrics.getDefaultInstance()) {
+            getAggregatedRouteMetricsBuilder().mergeFrom(value);
           } else {
             aggregatedRouteMetrics_ = value;
           }
-          onChanged();
         } else {
           aggregatedRouteMetricsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Aggregated over the routes. Each metric is the sum (or max, for loads)
-       * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+       * over all
+       * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+       * fields of the same name.
        * </pre>
        *
        * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
        */
       public Builder clearAggregatedRouteMetrics() {
-        if (aggregatedRouteMetricsBuilder_ == null) {
-          aggregatedRouteMetrics_ = null;
-          onChanged();
-        } else {
-          aggregatedRouteMetrics_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        aggregatedRouteMetrics_ = null;
+        if (aggregatedRouteMetricsBuilder_ != null) {
+          aggregatedRouteMetricsBuilder_.dispose();
           aggregatedRouteMetricsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * Aggregated over the routes. Each metric is the sum (or max, for loads)
-       * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+       * over all
+       * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+       * fields of the same name.
        * </pre>
        *
        * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
        */
       public com.google.cloud.optimization.v1.AggregatedMetrics.Builder getAggregatedRouteMetricsBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getAggregatedRouteMetricsFieldBuilder().getBuilder();
       }
       /**
        * <pre>
        * Aggregated over the routes. Each metric is the sum (or max, for loads)
-       * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+       * over all
+       * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+       * fields of the same name.
        * </pre>
        *
        * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -1463,7 +1351,9 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Aggregated over the routes. Each metric is the sum (or max, for loads)
-       * over all [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics] fields of the same name.
+       * over all
+       * [ShipmentRoute.metrics][google.cloud.optimization.v1.ShipmentRoute.metrics]
+       * fields of the same name.
        * </pre>
        *
        * <code>.google.cloud.optimization.v1.AggregatedMetrics aggregated_route_metrics = 1;</code>
@@ -1507,6 +1397,7 @@ private static final long serialVersionUID = 0L;
       public Builder setSkippedMandatoryShipmentCount(int value) {
         
         skippedMandatoryShipmentCount_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1519,7 +1410,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSkippedMandatoryShipmentCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         skippedMandatoryShipmentCount_ = 0;
         onChanged();
         return this;
@@ -1529,8 +1420,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Number of vehicles used. Note: if a vehicle route is empty and
-       * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty] is true, the vehicle is considered
-       * used.
+       * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty]
+       * is true, the vehicle is considered used.
        * </pre>
        *
        * <code>int32 used_vehicle_count = 3;</code>
@@ -1543,8 +1434,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Number of vehicles used. Note: if a vehicle route is empty and
-       * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty] is true, the vehicle is considered
-       * used.
+       * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty]
+       * is true, the vehicle is considered used.
        * </pre>
        *
        * <code>int32 used_vehicle_count = 3;</code>
@@ -1554,21 +1445,22 @@ private static final long serialVersionUID = 0L;
       public Builder setUsedVehicleCount(int value) {
         
         usedVehicleCount_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <pre>
        * Number of vehicles used. Note: if a vehicle route is empty and
-       * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty] is true, the vehicle is considered
-       * used.
+       * [Vehicle.used_if_route_is_empty][google.cloud.optimization.v1.Vehicle.used_if_route_is_empty]
+       * is true, the vehicle is considered used.
        * </pre>
        *
        * <code>int32 used_vehicle_count = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearUsedVehicleCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         usedVehicleCount_ = 0;
         onChanged();
         return this;
@@ -1580,19 +1472,21 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The earliest start time for a used vehicle, computed as the minimum over
-       * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+       * all used vehicles of
+       * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
        * @return Whether the earliestVehicleStartTime field is set.
        */
       public boolean hasEarliestVehicleStartTime() {
-        return earliestVehicleStartTimeBuilder_ != null || earliestVehicleStartTime_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
        * The earliest start time for a used vehicle, computed as the minimum over
-       * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+       * all used vehicles of
+       * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -1608,7 +1502,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The earliest start time for a used vehicle, computed as the minimum over
-       * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+       * all used vehicles of
+       * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -1619,17 +1514,18 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           earliestVehicleStartTime_ = value;
-          onChanged();
         } else {
           earliestVehicleStartTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * The earliest start time for a used vehicle, computed as the minimum over
-       * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+       * all used vehicles of
+       * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -1638,72 +1534,76 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (earliestVehicleStartTimeBuilder_ == null) {
           earliestVehicleStartTime_ = builderForValue.build();
-          onChanged();
         } else {
           earliestVehicleStartTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * The earliest start time for a used vehicle, computed as the minimum over
-       * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+       * all used vehicles of
+       * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
        */
       public Builder mergeEarliestVehicleStartTime(com.google.protobuf.Timestamp value) {
         if (earliestVehicleStartTimeBuilder_ == null) {
-          if (earliestVehicleStartTime_ != null) {
-            earliestVehicleStartTime_ =
-              com.google.protobuf.Timestamp.newBuilder(earliestVehicleStartTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            earliestVehicleStartTime_ != null &&
+            earliestVehicleStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getEarliestVehicleStartTimeBuilder().mergeFrom(value);
           } else {
             earliestVehicleStartTime_ = value;
           }
-          onChanged();
         } else {
           earliestVehicleStartTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * The earliest start time for a used vehicle, computed as the minimum over
-       * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+       * all used vehicles of
+       * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
        */
       public Builder clearEarliestVehicleStartTime() {
-        if (earliestVehicleStartTimeBuilder_ == null) {
-          earliestVehicleStartTime_ = null;
-          onChanged();
-        } else {
-          earliestVehicleStartTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        earliestVehicleStartTime_ = null;
+        if (earliestVehicleStartTimeBuilder_ != null) {
+          earliestVehicleStartTimeBuilder_.dispose();
           earliestVehicleStartTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * The earliest start time for a used vehicle, computed as the minimum over
-       * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+       * all used vehicles of
+       * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
        */
       public com.google.protobuf.Timestamp.Builder getEarliestVehicleStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getEarliestVehicleStartTimeFieldBuilder().getBuilder();
       }
       /**
        * <pre>
        * The earliest start time for a used vehicle, computed as the minimum over
-       * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+       * all used vehicles of
+       * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -1719,7 +1619,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The earliest start time for a used vehicle, computed as the minimum over
-       * all used vehicles of [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
+       * all used vehicles of
+       * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp earliest_vehicle_start_time = 4;</code>
@@ -1744,19 +1645,21 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The latest end time for a used vehicle, computed as the maximum over all
-       * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+       * used vehicles of
+       * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
        * @return Whether the latestVehicleEndTime field is set.
        */
       public boolean hasLatestVehicleEndTime() {
-        return latestVehicleEndTimeBuilder_ != null || latestVehicleEndTime_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
        * The latest end time for a used vehicle, computed as the maximum over all
-       * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+       * used vehicles of
+       * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -1772,7 +1675,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The latest end time for a used vehicle, computed as the maximum over all
-       * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+       * used vehicles of
+       * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -1783,17 +1687,18 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           latestVehicleEndTime_ = value;
-          onChanged();
         } else {
           latestVehicleEndTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * The latest end time for a used vehicle, computed as the maximum over all
-       * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+       * used vehicles of
+       * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -1802,72 +1707,76 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (latestVehicleEndTimeBuilder_ == null) {
           latestVehicleEndTime_ = builderForValue.build();
-          onChanged();
         } else {
           latestVehicleEndTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * The latest end time for a used vehicle, computed as the maximum over all
-       * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+       * used vehicles of
+       * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
        */
       public Builder mergeLatestVehicleEndTime(com.google.protobuf.Timestamp value) {
         if (latestVehicleEndTimeBuilder_ == null) {
-          if (latestVehicleEndTime_ != null) {
-            latestVehicleEndTime_ =
-              com.google.protobuf.Timestamp.newBuilder(latestVehicleEndTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            latestVehicleEndTime_ != null &&
+            latestVehicleEndTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getLatestVehicleEndTimeBuilder().mergeFrom(value);
           } else {
             latestVehicleEndTime_ = value;
           }
-          onChanged();
         } else {
           latestVehicleEndTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * The latest end time for a used vehicle, computed as the maximum over all
-       * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+       * used vehicles of
+       * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
        */
       public Builder clearLatestVehicleEndTime() {
-        if (latestVehicleEndTimeBuilder_ == null) {
-          latestVehicleEndTime_ = null;
-          onChanged();
-        } else {
-          latestVehicleEndTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        latestVehicleEndTime_ = null;
+        if (latestVehicleEndTimeBuilder_ != null) {
+          latestVehicleEndTimeBuilder_.dispose();
           latestVehicleEndTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
        * The latest end time for a used vehicle, computed as the maximum over all
-       * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+       * used vehicles of
+       * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
        */
       public com.google.protobuf.Timestamp.Builder getLatestVehicleEndTimeBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getLatestVehicleEndTimeFieldBuilder().getBuilder();
       }
       /**
        * <pre>
        * The latest end time for a used vehicle, computed as the maximum over all
-       * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+       * used vehicles of
+       * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -1883,7 +1792,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The latest end time for a used vehicle, computed as the maximum over all
-       * used vehicles of [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
+       * used vehicles of
+       * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time].
        * </pre>
        *
        * <code>.google.protobuf.Timestamp latest_vehicle_end_time = 5;</code>
@@ -1905,7 +1815,7 @@ private static final long serialVersionUID = 0L;
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.Double> costs_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-      internalGetCosts() {
+          internalGetCosts() {
         if (costs_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               CostsDefaultEntryHolder.defaultEntry);
@@ -1913,8 +1823,7 @@ private static final long serialVersionUID = 0L;
         return costs_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-      internalGetMutableCosts() {
-        onChanged();;
+          internalGetMutableCosts() {
         if (costs_ == null) {
           costs_ = com.google.protobuf.MapField.newMapField(
               CostsDefaultEntryHolder.defaultEntry);
@@ -1922,9 +1831,10 @@ private static final long serialVersionUID = 0L;
         if (!costs_.isMutable()) {
           costs_ = costs_.copy();
         }
+        bitField0_ |= 0x00000020;
+        onChanged();
         return costs_;
       }
-
       public int getCostsCount() {
         return internalGetCosts().getMap().size();
       }
@@ -1943,7 +1853,6 @@ private static final long serialVersionUID = 0L;
        *
        * <code>map&lt;string, double&gt; costs = 10;</code>
        */
-
       @java.lang.Override
       public boolean containsCosts(
           java.lang.String key) {
@@ -1974,7 +1883,6 @@ private static final long serialVersionUID = 0L;
        * <code>map&lt;string, double&gt; costs = 10;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.Double> getCostsMap() {
         return internalGetCosts().getMap();
       }
@@ -1994,7 +1902,6 @@ private static final long serialVersionUID = 0L;
        * <code>map&lt;string, double&gt; costs = 10;</code>
        */
       @java.lang.Override
-
       public double getCostsOrDefault(
           java.lang.String key,
           double defaultValue) {
@@ -2019,7 +1926,6 @@ private static final long serialVersionUID = 0L;
        * <code>map&lt;string, double&gt; costs = 10;</code>
        */
       @java.lang.Override
-
       public double getCostsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2030,8 +1936,8 @@ private static final long serialVersionUID = 0L;
         }
         return map.get(key);
       }
-
       public Builder clearCosts() {
+        bitField0_ = (bitField0_ & ~0x00000020);
         internalGetMutableCosts().getMutableMap()
             .clear();
         return this;
@@ -2051,7 +1957,6 @@ private static final long serialVersionUID = 0L;
        *
        * <code>map&lt;string, double&gt; costs = 10;</code>
        */
-
       public Builder removeCosts(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2064,7 +1969,8 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.Double>
-      getMutableCosts() {
+          getMutableCosts() {
+        bitField0_ |= 0x00000020;
         return internalGetMutableCosts().getMutableMap();
       }
       /**
@@ -2089,6 +1995,7 @@ private static final long serialVersionUID = 0L;
         
         internalGetMutableCosts().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
@@ -2106,11 +2013,11 @@ private static final long serialVersionUID = 0L;
        *
        * <code>map&lt;string, double&gt; costs = 10;</code>
        */
-
       public Builder putAllCosts(
           java.util.Map<java.lang.String, java.lang.Double> values) {
         internalGetMutableCosts().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000020;
         return this;
       }
 
@@ -2139,6 +2046,7 @@ private static final long serialVersionUID = 0L;
       public Builder setTotalCost(double value) {
         
         totalCost_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2151,7 +2059,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTotalCost() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         totalCost_ = 0D;
         onChanged();
         return this;
@@ -2189,7 +2097,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Metrics(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2210,6 +2129,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROUTES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute> routes_;
   /**
    * <pre>
@@ -2275,11 +2195,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_LABEL_FIELD_NUMBER = 3;
-  private volatile java.lang.Object requestLabel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestLabel_ = "";
   /**
    * <pre>
-   * Copy of the [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label], if a label was specified in the
-   * request.
+   * Copy of the
+   * [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
+   * if a label was specified in the request.
    * </pre>
    *
    * <code>string request_label = 3;</code>
@@ -2300,8 +2222,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Copy of the [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label], if a label was specified in the
-   * request.
+   * Copy of the
+   * [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
+   * if a label was specified in the request.
    * </pre>
    *
    * <code>string request_label = 3;</code>
@@ -2323,6 +2246,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SKIPPED_SHIPMENTS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.SkippedShipment> skippedShipments_;
   /**
    * <pre>
@@ -2383,12 +2307,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATION_ERRORS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.OptimizeToursValidationError> validationErrors_;
   /**
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -2401,7 +2327,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -2415,7 +2342,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -2428,7 +2356,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -2441,7 +2370,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -2487,11 +2417,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.OptimizeToursResponse.MetricsOrBuilder getMetricsOrBuilder() {
-    return getMetrics();
+    return metrics_ == null ? com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics.getDefaultInstance() : metrics_;
   }
 
   public static final int TOTAL_COST_FIELD_NUMBER = 2;
-  private double totalCost_;
+  private double totalCost_ = 0D;
   /**
    * <pre>
    * Deprecated: Use [Metrics.total_cost][] instead.
@@ -2502,7 +2432,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>double total_cost = 2 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.OptimizeToursResponse.total_cost is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=394
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=423
    * @return The totalCost.
    */
   @java.lang.Override
@@ -2542,7 +2472,7 @@ private static final long serialVersionUID = 0L;
     if (metrics_ != null) {
       output.writeMessage(6, getMetrics());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2574,7 +2504,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getMetrics());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2605,7 +2535,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getTotalCost())
         != java.lang.Double.doubleToLongBits(
             other.getTotalCost())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2637,7 +2567,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + TOTAL_COST_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getTotalCost()));
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2760,53 +2690,46 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.OptimizeToursResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRoutesFieldBuilder();
-        getSkippedShipmentsFieldBuilder();
-        getValidationErrorsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (routesBuilder_ == null) {
         routes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        routes_ = null;
         routesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       requestLabel_ = "";
-
       if (skippedShipmentsBuilder_ == null) {
         skippedShipments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        skippedShipments_ = null;
         skippedShipmentsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (validationErrorsBuilder_ == null) {
         validationErrors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        validationErrors_ = null;
         validationErrorsBuilder_.clear();
       }
-      if (metricsBuilder_ == null) {
-        metrics_ = null;
-      } else {
-        metrics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      metrics_ = null;
+      if (metricsBuilder_ != null) {
+        metricsBuilder_.dispose();
         metricsBuilder_ = null;
       }
       totalCost_ = 0D;
-
       return this;
     }
 
@@ -2833,7 +2756,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.OptimizeToursResponse buildPartial() {
       com.google.cloud.optimization.v1.OptimizeToursResponse result = new com.google.cloud.optimization.v1.OptimizeToursResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.OptimizeToursResponse result) {
       if (routesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           routes_ = java.util.Collections.unmodifiableList(routes_);
@@ -2843,33 +2772,39 @@ private static final long serialVersionUID = 0L;
       } else {
         result.routes_ = routesBuilder_.build();
       }
-      result.requestLabel_ = requestLabel_;
       if (skippedShipmentsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           skippedShipments_ = java.util.Collections.unmodifiableList(skippedShipments_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.skippedShipments_ = skippedShipments_;
       } else {
         result.skippedShipments_ = skippedShipmentsBuilder_.build();
       }
       if (validationErrorsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           validationErrors_ = java.util.Collections.unmodifiableList(validationErrors_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.validationErrors_ = validationErrors_;
       } else {
         result.validationErrors_ = validationErrorsBuilder_.build();
       }
-      if (metricsBuilder_ == null) {
-        result.metrics_ = metrics_;
-      } else {
-        result.metrics_ = metricsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.OptimizeToursResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.requestLabel_ = requestLabel_;
       }
-      result.totalCost_ = totalCost_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.metrics_ = metricsBuilder_ == null
+            ? metrics_
+            : metricsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.totalCost_ = totalCost_;
+      }
     }
 
     @java.lang.Override
@@ -2944,13 +2879,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRequestLabel().isEmpty()) {
         requestLabel_ = other.requestLabel_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (skippedShipmentsBuilder_ == null) {
         if (!other.skippedShipments_.isEmpty()) {
           if (skippedShipments_.isEmpty()) {
             skippedShipments_ = other.skippedShipments_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureSkippedShipmentsIsMutable();
             skippedShipments_.addAll(other.skippedShipments_);
@@ -2963,7 +2899,7 @@ private static final long serialVersionUID = 0L;
             skippedShipmentsBuilder_.dispose();
             skippedShipmentsBuilder_ = null;
             skippedShipments_ = other.skippedShipments_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             skippedShipmentsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSkippedShipmentsFieldBuilder() : null;
@@ -2976,7 +2912,7 @@ private static final long serialVersionUID = 0L;
         if (!other.validationErrors_.isEmpty()) {
           if (validationErrors_.isEmpty()) {
             validationErrors_ = other.validationErrors_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureValidationErrorsIsMutable();
             validationErrors_.addAll(other.validationErrors_);
@@ -2989,7 +2925,7 @@ private static final long serialVersionUID = 0L;
             validationErrorsBuilder_.dispose();
             validationErrorsBuilder_ = null;
             validationErrors_ = other.validationErrors_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             validationErrorsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getValidationErrorsFieldBuilder() : null;
@@ -3004,7 +2940,7 @@ private static final long serialVersionUID = 0L;
       if (other.getTotalCost() != 0D) {
         setTotalCost(other.getTotalCost());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3019,17 +2955,86 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.OptimizeToursResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.optimization.v1.ShipmentRoute m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentRoute.parser(),
+                      extensionRegistry);
+              if (routesBuilder_ == null) {
+                ensureRoutesIsMutable();
+                routes_.add(m);
+              } else {
+                routesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 17: {
+              totalCost_ = input.readDouble();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 17
+            case 26: {
+              requestLabel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              com.google.cloud.optimization.v1.SkippedShipment m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.SkippedShipment.parser(),
+                      extensionRegistry);
+              if (skippedShipmentsBuilder_ == null) {
+                ensureSkippedShipmentsIsMutable();
+                skippedShipments_.add(m);
+              } else {
+                skippedShipmentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.optimization.v1.OptimizeToursValidationError m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.OptimizeToursValidationError.parser(),
+                      extensionRegistry);
+              if (validationErrorsBuilder_ == null) {
+                ensureValidationErrorsIsMutable();
+                validationErrors_.add(m);
+              } else {
+                validationErrorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getMetricsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.OptimizeToursResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3367,8 +3372,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object requestLabel_ = "";
     /**
      * <pre>
-     * Copy of the [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label], if a label was specified in the
-     * request.
+     * Copy of the
+     * [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
+     * if a label was specified in the request.
      * </pre>
      *
      * <code>string request_label = 3;</code>
@@ -3388,8 +3394,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Copy of the [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label], if a label was specified in the
-     * request.
+     * Copy of the
+     * [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
+     * if a label was specified in the request.
      * </pre>
      *
      * <code>string request_label = 3;</code>
@@ -3410,8 +3417,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Copy of the [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label], if a label was specified in the
-     * request.
+     * Copy of the
+     * [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
+     * if a label was specified in the request.
      * </pre>
      *
      * <code>string request_label = 3;</code>
@@ -3420,33 +3428,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestLabel_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Copy of the [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label], if a label was specified in the
-     * request.
+     * Copy of the
+     * [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
+     * if a label was specified in the request.
      * </pre>
      *
      * <code>string request_label = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearRequestLabel() {
-      
       requestLabel_ = getDefaultInstance().getRequestLabel();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Copy of the [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label], if a label was specified in the
-     * request.
+     * Copy of the
+     * [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
+     * if a label was specified in the request.
      * </pre>
      *
      * <code>string request_label = 3;</code>
@@ -3455,12 +3463,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestLabel_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3468,9 +3474,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.SkippedShipment> skippedShipments_ =
       java.util.Collections.emptyList();
     private void ensureSkippedShipmentsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         skippedShipments_ = new java.util.ArrayList<com.google.cloud.optimization.v1.SkippedShipment>(skippedShipments_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -3664,7 +3670,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSkippedShipments() {
       if (skippedShipmentsBuilder_ == null) {
         skippedShipments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         skippedShipmentsBuilder_.clear();
@@ -3769,7 +3775,7 @@ private static final long serialVersionUID = 0L;
         skippedShipmentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.SkippedShipment, com.google.cloud.optimization.v1.SkippedShipment.Builder, com.google.cloud.optimization.v1.SkippedShipmentOrBuilder>(
                 skippedShipments_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         skippedShipments_ = null;
@@ -3780,9 +3786,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.optimization.v1.OptimizeToursValidationError> validationErrors_ =
       java.util.Collections.emptyList();
     private void ensureValidationErrorsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         validationErrors_ = new java.util.ArrayList<com.google.cloud.optimization.v1.OptimizeToursValidationError>(validationErrors_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -3793,7 +3799,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3809,7 +3816,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3825,7 +3833,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3841,7 +3850,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3864,7 +3874,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3884,7 +3895,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3906,7 +3918,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3929,7 +3942,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3949,7 +3963,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3969,7 +3984,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3990,7 +4006,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -3998,7 +4015,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearValidationErrors() {
       if (validationErrorsBuilder_ == null) {
         validationErrors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         validationErrorsBuilder_.clear();
@@ -4009,7 +4026,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -4028,7 +4046,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -4041,7 +4060,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -4057,7 +4077,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -4074,7 +4095,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -4087,7 +4109,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -4101,7 +4124,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * List of all the validation errors that we were able to detect
      * independently. See the "MULTIPLE ERRORS" explanation for the
-     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+     * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+     * message.
      * </pre>
      *
      * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -4117,7 +4141,7 @@ private static final long serialVersionUID = 0L;
         validationErrorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.OptimizeToursValidationError, com.google.cloud.optimization.v1.OptimizeToursValidationError.Builder, com.google.cloud.optimization.v1.OptimizeToursValidationErrorOrBuilder>(
                 validationErrors_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         validationErrors_ = null;
@@ -4137,7 +4161,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metrics field is set.
      */
     public boolean hasMetrics() {
-      return metricsBuilder_ != null || metrics_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -4167,11 +4191,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metrics_ = value;
-        onChanged();
       } else {
         metricsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4185,11 +4209,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics.Builder builderForValue) {
       if (metricsBuilder_ == null) {
         metrics_ = builderForValue.build();
-        onChanged();
       } else {
         metricsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4201,17 +4225,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetrics(com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics value) {
       if (metricsBuilder_ == null) {
-        if (metrics_ != null) {
-          metrics_ =
-            com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics.newBuilder(metrics_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          metrics_ != null &&
+          metrics_ != com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics.getDefaultInstance()) {
+          getMetricsBuilder().mergeFrom(value);
         } else {
           metrics_ = value;
         }
-        onChanged();
       } else {
         metricsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4222,14 +4247,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.OptimizeToursResponse.Metrics metrics = 6;</code>
      */
     public Builder clearMetrics() {
-      if (metricsBuilder_ == null) {
-        metrics_ = null;
-        onChanged();
-      } else {
-        metrics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      metrics_ = null;
+      if (metricsBuilder_ != null) {
+        metricsBuilder_.dispose();
         metricsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4240,7 +4264,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.OptimizeToursResponse.Metrics metrics = 6;</code>
      */
     public com.google.cloud.optimization.v1.OptimizeToursResponse.Metrics.Builder getMetricsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getMetricsFieldBuilder().getBuilder();
     }
@@ -4291,7 +4315,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>double total_cost = 2 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.OptimizeToursResponse.total_cost is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=394
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=423
      * @return The totalCost.
      */
     @java.lang.Override
@@ -4308,13 +4332,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>double total_cost = 2 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.OptimizeToursResponse.total_cost is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=394
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=423
      * @param value The totalCost to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setTotalCost(double value) {
       
       totalCost_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -4328,11 +4353,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>double total_cost = 2 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.OptimizeToursResponse.total_cost is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=394
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=423
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearTotalCost() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       totalCost_ = 0D;
       onChanged();
       return this;
@@ -4370,7 +4395,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OptimizeToursResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

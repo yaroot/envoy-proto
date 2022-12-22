@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateApiVersionRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.apigeeregistry.v1.ApiVersion.Builder subBuilder = null;
-            if (apiVersion_ != null) {
-              subBuilder = apiVersion_.toBuilder();
-            }
-            apiVersion_ = input.readMessage(com.google.cloud.apigeeregistry.v1.ApiVersion.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(apiVersion_);
-              apiVersion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            apiVersionId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.apigeeregistry.v1.RegistryServiceProto.internal_static_google_cloud_apigeeregistry_v1_CreateApiVersionRequest_descriptor;
@@ -114,11 +50,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent, which owns this collection of versions.
-   * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;
+   * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -140,7 +77,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Required. The parent, which owns this collection of versions.
-   * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;
+   * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -196,11 +133,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.apigeeregistry.v1.ApiVersionOrBuilder getApiVersionOrBuilder() {
-    return getApiVersion();
+    return apiVersion_ == null ? com.google.cloud.apigeeregistry.v1.ApiVersion.getDefaultInstance() : apiVersion_;
   }
 
   public static final int API_VERSION_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object apiVersionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object apiVersionId_ = "";
   /**
    * <pre>
    * Required. The ID to use for the version, which will become the final component of
@@ -276,7 +214,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersionId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, apiVersionId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -295,7 +233,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(apiVersionId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, apiVersionId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -319,7 +257,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getApiVersionId()
         .equals(other.getApiVersionId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -338,7 +276,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + API_VERSION_ID_FIELD_NUMBER;
     hash = (53 * hash) + getApiVersionId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -459,32 +397,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.apigeeregistry.v1.CreateApiVersionRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (apiVersionBuilder_ == null) {
-        apiVersion_ = null;
-      } else {
-        apiVersion_ = null;
+      apiVersion_ = null;
+      if (apiVersionBuilder_ != null) {
+        apiVersionBuilder_.dispose();
         apiVersionBuilder_ = null;
       }
       apiVersionId_ = "";
-
       return this;
     }
 
@@ -511,15 +442,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.apigeeregistry.v1.CreateApiVersionRequest buildPartial() {
       com.google.cloud.apigeeregistry.v1.CreateApiVersionRequest result = new com.google.cloud.apigeeregistry.v1.CreateApiVersionRequest(this);
-      result.parent_ = parent_;
-      if (apiVersionBuilder_ == null) {
-        result.apiVersion_ = apiVersion_;
-      } else {
-        result.apiVersion_ = apiVersionBuilder_.build();
-      }
-      result.apiVersionId_ = apiVersionId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.apigeeregistry.v1.CreateApiVersionRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.apiVersion_ = apiVersionBuilder_ == null
+            ? apiVersion_
+            : apiVersionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.apiVersionId_ = apiVersionId_;
+      }
     }
 
     @java.lang.Override
@@ -568,6 +508,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.apigeeregistry.v1.CreateApiVersionRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasApiVersion()) {
@@ -575,9 +516,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getApiVersionId().isEmpty()) {
         apiVersionId_ = other.apiVersionId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -592,25 +534,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.apigeeregistry.v1.CreateApiVersionRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getApiVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              apiVersionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.apigeeregistry.v1.CreateApiVersionRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
      * Required. The parent, which owns this collection of versions.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -631,7 +604,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The parent, which owns this collection of versions.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -653,7 +626,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The parent, which owns this collection of versions.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -662,33 +635,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The parent, which owns this collection of versions.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The parent, which owns this collection of versions.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -697,12 +668,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -719,7 +688,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the apiVersion field is set.
      */
     public boolean hasApiVersion() {
-      return apiVersionBuilder_ != null || apiVersion_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -749,11 +718,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         apiVersion_ = value;
-        onChanged();
       } else {
         apiVersionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -767,11 +736,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.apigeeregistry.v1.ApiVersion.Builder builderForValue) {
       if (apiVersionBuilder_ == null) {
         apiVersion_ = builderForValue.build();
-        onChanged();
       } else {
         apiVersionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -783,17 +752,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeApiVersion(com.google.cloud.apigeeregistry.v1.ApiVersion value) {
       if (apiVersionBuilder_ == null) {
-        if (apiVersion_ != null) {
-          apiVersion_ =
-            com.google.cloud.apigeeregistry.v1.ApiVersion.newBuilder(apiVersion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          apiVersion_ != null &&
+          apiVersion_ != com.google.cloud.apigeeregistry.v1.ApiVersion.getDefaultInstance()) {
+          getApiVersionBuilder().mergeFrom(value);
         } else {
           apiVersion_ = value;
         }
-        onChanged();
       } else {
         apiVersionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -804,14 +774,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.apigeeregistry.v1.ApiVersion api_version = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearApiVersion() {
-      if (apiVersionBuilder_ == null) {
-        apiVersion_ = null;
-        onChanged();
-      } else {
-        apiVersion_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      apiVersion_ = null;
+      if (apiVersionBuilder_ != null) {
+        apiVersionBuilder_.dispose();
         apiVersionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -822,7 +791,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.apigeeregistry.v1.ApiVersion api_version = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.apigeeregistry.v1.ApiVersion.Builder getApiVersionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getApiVersionFieldBuilder().getBuilder();
     }
@@ -927,11 +896,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApiVersionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       apiVersionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -948,8 +915,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApiVersionId() {
-      
       apiVersionId_ = getDefaultInstance().getApiVersionId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -968,12 +935,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApiVersionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       apiVersionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1010,7 +975,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateApiVersionRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

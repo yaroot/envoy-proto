@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     configBucket_ = "";
     tempBucket_ = "";
     initializationActions_ = java.util.Collections.emptyList();
+    auxiliaryNodeGroups_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -36,213 +37,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ClusterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            configBucket_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tempBucket_ = s;
-            break;
-          }
-          case 66: {
-            com.google.cloud.dataproc.v1.GceClusterConfig.Builder subBuilder = null;
-            if (gceClusterConfig_ != null) {
-              subBuilder = gceClusterConfig_.toBuilder();
-            }
-            gceClusterConfig_ = input.readMessage(com.google.cloud.dataproc.v1.GceClusterConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gceClusterConfig_);
-              gceClusterConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.cloud.dataproc.v1.InstanceGroupConfig.Builder subBuilder = null;
-            if (masterConfig_ != null) {
-              subBuilder = masterConfig_.toBuilder();
-            }
-            masterConfig_ = input.readMessage(com.google.cloud.dataproc.v1.InstanceGroupConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(masterConfig_);
-              masterConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.cloud.dataproc.v1.InstanceGroupConfig.Builder subBuilder = null;
-            if (workerConfig_ != null) {
-              subBuilder = workerConfig_.toBuilder();
-            }
-            workerConfig_ = input.readMessage(com.google.cloud.dataproc.v1.InstanceGroupConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(workerConfig_);
-              workerConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              initializationActions_ = new java.util.ArrayList<com.google.cloud.dataproc.v1.NodeInitializationAction>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            initializationActions_.add(
-                input.readMessage(com.google.cloud.dataproc.v1.NodeInitializationAction.parser(), extensionRegistry));
-            break;
-          }
-          case 98: {
-            com.google.cloud.dataproc.v1.InstanceGroupConfig.Builder subBuilder = null;
-            if (secondaryWorkerConfig_ != null) {
-              subBuilder = secondaryWorkerConfig_.toBuilder();
-            }
-            secondaryWorkerConfig_ = input.readMessage(com.google.cloud.dataproc.v1.InstanceGroupConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(secondaryWorkerConfig_);
-              secondaryWorkerConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            com.google.cloud.dataproc.v1.SoftwareConfig.Builder subBuilder = null;
-            if (softwareConfig_ != null) {
-              subBuilder = softwareConfig_.toBuilder();
-            }
-            softwareConfig_ = input.readMessage(com.google.cloud.dataproc.v1.SoftwareConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(softwareConfig_);
-              softwareConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.cloud.dataproc.v1.EncryptionConfig.Builder subBuilder = null;
-            if (encryptionConfig_ != null) {
-              subBuilder = encryptionConfig_.toBuilder();
-            }
-            encryptionConfig_ = input.readMessage(com.google.cloud.dataproc.v1.EncryptionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(encryptionConfig_);
-              encryptionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.cloud.dataproc.v1.SecurityConfig.Builder subBuilder = null;
-            if (securityConfig_ != null) {
-              subBuilder = securityConfig_.toBuilder();
-            }
-            securityConfig_ = input.readMessage(com.google.cloud.dataproc.v1.SecurityConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(securityConfig_);
-              securityConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            com.google.cloud.dataproc.v1.LifecycleConfig.Builder subBuilder = null;
-            if (lifecycleConfig_ != null) {
-              subBuilder = lifecycleConfig_.toBuilder();
-            }
-            lifecycleConfig_ = input.readMessage(com.google.cloud.dataproc.v1.LifecycleConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lifecycleConfig_);
-              lifecycleConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            com.google.cloud.dataproc.v1.AutoscalingConfig.Builder subBuilder = null;
-            if (autoscalingConfig_ != null) {
-              subBuilder = autoscalingConfig_.toBuilder();
-            }
-            autoscalingConfig_ = input.readMessage(com.google.cloud.dataproc.v1.AutoscalingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(autoscalingConfig_);
-              autoscalingConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 154: {
-            com.google.cloud.dataproc.v1.EndpointConfig.Builder subBuilder = null;
-            if (endpointConfig_ != null) {
-              subBuilder = endpointConfig_.toBuilder();
-            }
-            endpointConfig_ = input.readMessage(com.google.cloud.dataproc.v1.EndpointConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endpointConfig_);
-              endpointConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 162: {
-            com.google.cloud.dataproc.v1.MetastoreConfig.Builder subBuilder = null;
-            if (metastoreConfig_ != null) {
-              subBuilder = metastoreConfig_.toBuilder();
-            }
-            metastoreConfig_ = input.readMessage(com.google.cloud.dataproc.v1.MetastoreConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metastoreConfig_);
-              metastoreConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        initializationActions_ = java.util.Collections.unmodifiableList(initializationActions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -258,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONFIG_BUCKET_FIELD_NUMBER = 1;
-  private volatile java.lang.Object configBucket_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object configBucket_ = "";
   /**
    * <pre>
    * Optional. A Cloud Storage bucket used to stage job
@@ -324,18 +119,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEMP_BUCKET_FIELD_NUMBER = 2;
-  private volatile java.lang.Object tempBucket_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tempBucket_ = "";
   /**
    * <pre>
-   * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs data,
-   * such as Spark and MapReduce history files.
-   * If you do not specify a temp bucket,
-   * Dataproc will determine a Cloud Storage location (US,
-   * ASIA, or EU) for your cluster's temp bucket according to the
-   * Compute Engine zone where your cluster is deployed, and then create
-   * and manage this project-level, per-location bucket. The default bucket has
-   * a TTL of 90 days, but you can use any TTL (or none) if you specify a
-   * bucket (see
+   * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
+   * data, such as Spark and MapReduce history files. If you do not specify a
+   * temp bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or
+   * EU) for your cluster's temp bucket according to the Compute Engine zone
+   * where your cluster is deployed, and then create and manage this
+   * project-level, per-location bucket. The default bucket has a TTL of 90
+   * days, but you can use any TTL (or none) if you specify a bucket (see
    * [Dataproc staging and temp
    * buckets](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
    * **This field requires a Cloud Storage bucket name, not a `gs://...` URI to
@@ -360,15 +154,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs data,
-   * such as Spark and MapReduce history files.
-   * If you do not specify a temp bucket,
-   * Dataproc will determine a Cloud Storage location (US,
-   * ASIA, or EU) for your cluster's temp bucket according to the
-   * Compute Engine zone where your cluster is deployed, and then create
-   * and manage this project-level, per-location bucket. The default bucket has
-   * a TTL of 90 days, but you can use any TTL (or none) if you specify a
-   * bucket (see
+   * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
+   * data, such as Spark and MapReduce history files. If you do not specify a
+   * temp bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or
+   * EU) for your cluster's temp bucket according to the Compute Engine zone
+   * where your cluster is deployed, and then create and manage this
+   * project-level, per-location bucket. The default bucket has a TTL of 90
+   * days, but you can use any TTL (or none) if you specify a bucket (see
    * [Dataproc staging and temp
    * buckets](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
    * **This field requires a Cloud Storage bucket name, not a `gs://...` URI to
@@ -431,7 +223,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.GceClusterConfigOrBuilder getGceClusterConfigOrBuilder() {
-    return getGceClusterConfig();
+    return gceClusterConfig_ == null ? com.google.cloud.dataproc.v1.GceClusterConfig.getDefaultInstance() : gceClusterConfig_;
   }
 
   public static final int MASTER_CONFIG_FIELD_NUMBER = 9;
@@ -472,7 +264,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.InstanceGroupConfigOrBuilder getMasterConfigOrBuilder() {
-    return getMasterConfig();
+    return masterConfig_ == null ? com.google.cloud.dataproc.v1.InstanceGroupConfig.getDefaultInstance() : masterConfig_;
   }
 
   public static final int WORKER_CONFIG_FIELD_NUMBER = 10;
@@ -513,7 +305,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.InstanceGroupConfigOrBuilder getWorkerConfigOrBuilder() {
-    return getWorkerConfig();
+    return workerConfig_ == null ? com.google.cloud.dataproc.v1.InstanceGroupConfig.getDefaultInstance() : workerConfig_;
   }
 
   public static final int SECONDARY_WORKER_CONFIG_FIELD_NUMBER = 12;
@@ -554,7 +346,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.InstanceGroupConfigOrBuilder getSecondaryWorkerConfigOrBuilder() {
-    return getSecondaryWorkerConfig();
+    return secondaryWorkerConfig_ == null ? com.google.cloud.dataproc.v1.InstanceGroupConfig.getDefaultInstance() : secondaryWorkerConfig_;
   }
 
   public static final int SOFTWARE_CONFIG_FIELD_NUMBER = 13;
@@ -592,10 +384,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.SoftwareConfigOrBuilder getSoftwareConfigOrBuilder() {
-    return getSoftwareConfig();
+    return softwareConfig_ == null ? com.google.cloud.dataproc.v1.SoftwareConfig.getDefaultInstance() : softwareConfig_;
   }
 
   public static final int INITIALIZATION_ACTIONS_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dataproc.v1.NodeInitializationAction> initializationActions_;
   /**
    * <pre>
@@ -745,7 +538,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.EncryptionConfigOrBuilder getEncryptionConfigOrBuilder() {
-    return getEncryptionConfig();
+    return encryptionConfig_ == null ? com.google.cloud.dataproc.v1.EncryptionConfig.getDefaultInstance() : encryptionConfig_;
   }
 
   public static final int AUTOSCALING_CONFIG_FIELD_NUMBER = 18;
@@ -786,7 +579,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.AutoscalingConfigOrBuilder getAutoscalingConfigOrBuilder() {
-    return getAutoscalingConfig();
+    return autoscalingConfig_ == null ? com.google.cloud.dataproc.v1.AutoscalingConfig.getDefaultInstance() : autoscalingConfig_;
   }
 
   public static final int SECURITY_CONFIG_FIELD_NUMBER = 16;
@@ -824,7 +617,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.SecurityConfigOrBuilder getSecurityConfigOrBuilder() {
-    return getSecurityConfig();
+    return securityConfig_ == null ? com.google.cloud.dataproc.v1.SecurityConfig.getDefaultInstance() : securityConfig_;
   }
 
   public static final int LIFECYCLE_CONFIG_FIELD_NUMBER = 17;
@@ -862,7 +655,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.LifecycleConfigOrBuilder getLifecycleConfigOrBuilder() {
-    return getLifecycleConfig();
+    return lifecycleConfig_ == null ? com.google.cloud.dataproc.v1.LifecycleConfig.getDefaultInstance() : lifecycleConfig_;
   }
 
   public static final int ENDPOINT_CONFIG_FIELD_NUMBER = 19;
@@ -900,7 +693,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.EndpointConfigOrBuilder getEndpointConfigOrBuilder() {
-    return getEndpointConfig();
+    return endpointConfig_ == null ? com.google.cloud.dataproc.v1.EndpointConfig.getDefaultInstance() : endpointConfig_;
   }
 
   public static final int METASTORE_CONFIG_FIELD_NUMBER = 20;
@@ -938,7 +731,106 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.MetastoreConfigOrBuilder getMetastoreConfigOrBuilder() {
-    return getMetastoreConfig();
+    return metastoreConfig_ == null ? com.google.cloud.dataproc.v1.MetastoreConfig.getDefaultInstance() : metastoreConfig_;
+  }
+
+  public static final int DATAPROC_METRIC_CONFIG_FIELD_NUMBER = 23;
+  private com.google.cloud.dataproc.v1.DataprocMetricConfig dataprocMetricConfig_;
+  /**
+   * <pre>
+   * Optional. The config for Dataproc metrics.
+   * </pre>
+   *
+   * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the dataprocMetricConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasDataprocMetricConfig() {
+    return dataprocMetricConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. The config for Dataproc metrics.
+   * </pre>
+   *
+   * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The dataprocMetricConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.dataproc.v1.DataprocMetricConfig getDataprocMetricConfig() {
+    return dataprocMetricConfig_ == null ? com.google.cloud.dataproc.v1.DataprocMetricConfig.getDefaultInstance() : dataprocMetricConfig_;
+  }
+  /**
+   * <pre>
+   * Optional. The config for Dataproc metrics.
+   * </pre>
+   *
+   * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.dataproc.v1.DataprocMetricConfigOrBuilder getDataprocMetricConfigOrBuilder() {
+    return dataprocMetricConfig_ == null ? com.google.cloud.dataproc.v1.DataprocMetricConfig.getDefaultInstance() : dataprocMetricConfig_;
+  }
+
+  public static final int AUXILIARY_NODE_GROUPS_FIELD_NUMBER = 25;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloud.dataproc.v1.AuxiliaryNodeGroup> auxiliaryNodeGroups_;
+  /**
+   * <pre>
+   * Optional. The node group settings.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.dataproc.v1.AuxiliaryNodeGroup> getAuxiliaryNodeGroupsList() {
+    return auxiliaryNodeGroups_;
+  }
+  /**
+   * <pre>
+   * Optional. The node group settings.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloud.dataproc.v1.AuxiliaryNodeGroupOrBuilder> 
+      getAuxiliaryNodeGroupsOrBuilderList() {
+    return auxiliaryNodeGroups_;
+  }
+  /**
+   * <pre>
+   * Optional. The node group settings.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public int getAuxiliaryNodeGroupsCount() {
+    return auxiliaryNodeGroups_.size();
+  }
+  /**
+   * <pre>
+   * Optional. The node group settings.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.dataproc.v1.AuxiliaryNodeGroup getAuxiliaryNodeGroups(int index) {
+    return auxiliaryNodeGroups_.get(index);
+  }
+  /**
+   * <pre>
+   * Optional. The node group settings.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.dataproc.v1.AuxiliaryNodeGroupOrBuilder getAuxiliaryNodeGroupsOrBuilder(
+      int index) {
+    return auxiliaryNodeGroups_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -997,7 +889,13 @@ private static final long serialVersionUID = 0L;
     if (metastoreConfig_ != null) {
       output.writeMessage(20, getMetastoreConfig());
     }
-    unknownFields.writeTo(output);
+    if (dataprocMetricConfig_ != null) {
+      output.writeMessage(23, getDataprocMetricConfig());
+    }
+    for (int i = 0; i < auxiliaryNodeGroups_.size(); i++) {
+      output.writeMessage(25, auxiliaryNodeGroups_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1060,7 +958,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getMetastoreConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (dataprocMetricConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(23, getDataprocMetricConfig());
+    }
+    for (int i = 0; i < auxiliaryNodeGroups_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(25, auxiliaryNodeGroups_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1136,7 +1042,14 @@ private static final long serialVersionUID = 0L;
       if (!getMetastoreConfig()
           .equals(other.getMetastoreConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasDataprocMetricConfig() != other.hasDataprocMetricConfig()) return false;
+    if (hasDataprocMetricConfig()) {
+      if (!getDataprocMetricConfig()
+          .equals(other.getDataprocMetricConfig())) return false;
+    }
+    if (!getAuxiliaryNodeGroupsList()
+        .equals(other.getAuxiliaryNodeGroupsList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1199,7 +1112,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + METASTORE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getMetastoreConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasDataprocMetricConfig()) {
+      hash = (37 * hash) + DATAPROC_METRIC_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getDataprocMetricConfig().hashCode();
+    }
+    if (getAuxiliaryNodeGroupsCount() > 0) {
+      hash = (37 * hash) + AUXILIARY_NODE_GROUPS_FIELD_NUMBER;
+      hash = (53 * hash) + getAuxiliaryNodeGroupsList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1320,99 +1241,94 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.ClusterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInitializationActionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       configBucket_ = "";
-
       tempBucket_ = "";
-
-      if (gceClusterConfigBuilder_ == null) {
-        gceClusterConfig_ = null;
-      } else {
-        gceClusterConfig_ = null;
+      gceClusterConfig_ = null;
+      if (gceClusterConfigBuilder_ != null) {
+        gceClusterConfigBuilder_.dispose();
         gceClusterConfigBuilder_ = null;
       }
-      if (masterConfigBuilder_ == null) {
-        masterConfig_ = null;
-      } else {
-        masterConfig_ = null;
+      masterConfig_ = null;
+      if (masterConfigBuilder_ != null) {
+        masterConfigBuilder_.dispose();
         masterConfigBuilder_ = null;
       }
-      if (workerConfigBuilder_ == null) {
-        workerConfig_ = null;
-      } else {
-        workerConfig_ = null;
+      workerConfig_ = null;
+      if (workerConfigBuilder_ != null) {
+        workerConfigBuilder_.dispose();
         workerConfigBuilder_ = null;
       }
-      if (secondaryWorkerConfigBuilder_ == null) {
-        secondaryWorkerConfig_ = null;
-      } else {
-        secondaryWorkerConfig_ = null;
+      secondaryWorkerConfig_ = null;
+      if (secondaryWorkerConfigBuilder_ != null) {
+        secondaryWorkerConfigBuilder_.dispose();
         secondaryWorkerConfigBuilder_ = null;
       }
-      if (softwareConfigBuilder_ == null) {
-        softwareConfig_ = null;
-      } else {
-        softwareConfig_ = null;
+      softwareConfig_ = null;
+      if (softwareConfigBuilder_ != null) {
+        softwareConfigBuilder_.dispose();
         softwareConfigBuilder_ = null;
       }
       if (initializationActionsBuilder_ == null) {
         initializationActions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        initializationActions_ = null;
         initializationActionsBuilder_.clear();
       }
-      if (encryptionConfigBuilder_ == null) {
-        encryptionConfig_ = null;
-      } else {
-        encryptionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
         encryptionConfigBuilder_ = null;
       }
-      if (autoscalingConfigBuilder_ == null) {
-        autoscalingConfig_ = null;
-      } else {
-        autoscalingConfig_ = null;
+      autoscalingConfig_ = null;
+      if (autoscalingConfigBuilder_ != null) {
+        autoscalingConfigBuilder_.dispose();
         autoscalingConfigBuilder_ = null;
       }
-      if (securityConfigBuilder_ == null) {
-        securityConfig_ = null;
-      } else {
-        securityConfig_ = null;
+      securityConfig_ = null;
+      if (securityConfigBuilder_ != null) {
+        securityConfigBuilder_.dispose();
         securityConfigBuilder_ = null;
       }
-      if (lifecycleConfigBuilder_ == null) {
-        lifecycleConfig_ = null;
-      } else {
-        lifecycleConfig_ = null;
+      lifecycleConfig_ = null;
+      if (lifecycleConfigBuilder_ != null) {
+        lifecycleConfigBuilder_.dispose();
         lifecycleConfigBuilder_ = null;
       }
-      if (endpointConfigBuilder_ == null) {
-        endpointConfig_ = null;
-      } else {
-        endpointConfig_ = null;
+      endpointConfig_ = null;
+      if (endpointConfigBuilder_ != null) {
+        endpointConfigBuilder_.dispose();
         endpointConfigBuilder_ = null;
       }
-      if (metastoreConfigBuilder_ == null) {
-        metastoreConfig_ = null;
-      } else {
-        metastoreConfig_ = null;
+      metastoreConfig_ = null;
+      if (metastoreConfigBuilder_ != null) {
+        metastoreConfigBuilder_.dispose();
         metastoreConfigBuilder_ = null;
       }
+      dataprocMetricConfig_ = null;
+      if (dataprocMetricConfigBuilder_ != null) {
+        dataprocMetricConfigBuilder_.dispose();
+        dataprocMetricConfigBuilder_ = null;
+      }
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        auxiliaryNodeGroups_ = java.util.Collections.emptyList();
+      } else {
+        auxiliaryNodeGroups_ = null;
+        auxiliaryNodeGroupsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00008000);
       return this;
     }
 
@@ -1439,75 +1355,101 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.ClusterConfig buildPartial() {
       com.google.cloud.dataproc.v1.ClusterConfig result = new com.google.cloud.dataproc.v1.ClusterConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.configBucket_ = configBucket_;
-      result.tempBucket_ = tempBucket_;
-      if (gceClusterConfigBuilder_ == null) {
-        result.gceClusterConfig_ = gceClusterConfig_;
-      } else {
-        result.gceClusterConfig_ = gceClusterConfigBuilder_.build();
-      }
-      if (masterConfigBuilder_ == null) {
-        result.masterConfig_ = masterConfig_;
-      } else {
-        result.masterConfig_ = masterConfigBuilder_.build();
-      }
-      if (workerConfigBuilder_ == null) {
-        result.workerConfig_ = workerConfig_;
-      } else {
-        result.workerConfig_ = workerConfigBuilder_.build();
-      }
-      if (secondaryWorkerConfigBuilder_ == null) {
-        result.secondaryWorkerConfig_ = secondaryWorkerConfig_;
-      } else {
-        result.secondaryWorkerConfig_ = secondaryWorkerConfigBuilder_.build();
-      }
-      if (softwareConfigBuilder_ == null) {
-        result.softwareConfig_ = softwareConfig_;
-      } else {
-        result.softwareConfig_ = softwareConfigBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dataproc.v1.ClusterConfig result) {
       if (initializationActionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           initializationActions_ = java.util.Collections.unmodifiableList(initializationActions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.initializationActions_ = initializationActions_;
       } else {
         result.initializationActions_ = initializationActionsBuilder_.build();
       }
-      if (encryptionConfigBuilder_ == null) {
-        result.encryptionConfig_ = encryptionConfig_;
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        if (((bitField0_ & 0x00008000) != 0)) {
+          auxiliaryNodeGroups_ = java.util.Collections.unmodifiableList(auxiliaryNodeGroups_);
+          bitField0_ = (bitField0_ & ~0x00008000);
+        }
+        result.auxiliaryNodeGroups_ = auxiliaryNodeGroups_;
       } else {
-        result.encryptionConfig_ = encryptionConfigBuilder_.build();
+        result.auxiliaryNodeGroups_ = auxiliaryNodeGroupsBuilder_.build();
       }
-      if (autoscalingConfigBuilder_ == null) {
-        result.autoscalingConfig_ = autoscalingConfig_;
-      } else {
-        result.autoscalingConfig_ = autoscalingConfigBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.ClusterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.configBucket_ = configBucket_;
       }
-      if (securityConfigBuilder_ == null) {
-        result.securityConfig_ = securityConfig_;
-      } else {
-        result.securityConfig_ = securityConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tempBucket_ = tempBucket_;
       }
-      if (lifecycleConfigBuilder_ == null) {
-        result.lifecycleConfig_ = lifecycleConfig_;
-      } else {
-        result.lifecycleConfig_ = lifecycleConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.gceClusterConfig_ = gceClusterConfigBuilder_ == null
+            ? gceClusterConfig_
+            : gceClusterConfigBuilder_.build();
       }
-      if (endpointConfigBuilder_ == null) {
-        result.endpointConfig_ = endpointConfig_;
-      } else {
-        result.endpointConfig_ = endpointConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.masterConfig_ = masterConfigBuilder_ == null
+            ? masterConfig_
+            : masterConfigBuilder_.build();
       }
-      if (metastoreConfigBuilder_ == null) {
-        result.metastoreConfig_ = metastoreConfig_;
-      } else {
-        result.metastoreConfig_ = metastoreConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.workerConfig_ = workerConfigBuilder_ == null
+            ? workerConfig_
+            : workerConfigBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.secondaryWorkerConfig_ = secondaryWorkerConfigBuilder_ == null
+            ? secondaryWorkerConfig_
+            : secondaryWorkerConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.softwareConfig_ = softwareConfigBuilder_ == null
+            ? softwareConfig_
+            : softwareConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.encryptionConfig_ = encryptionConfigBuilder_ == null
+            ? encryptionConfig_
+            : encryptionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.autoscalingConfig_ = autoscalingConfigBuilder_ == null
+            ? autoscalingConfig_
+            : autoscalingConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.securityConfig_ = securityConfigBuilder_ == null
+            ? securityConfig_
+            : securityConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.lifecycleConfig_ = lifecycleConfigBuilder_ == null
+            ? lifecycleConfig_
+            : lifecycleConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.endpointConfig_ = endpointConfigBuilder_ == null
+            ? endpointConfig_
+            : endpointConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.metastoreConfig_ = metastoreConfigBuilder_ == null
+            ? metastoreConfig_
+            : metastoreConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.dataprocMetricConfig_ = dataprocMetricConfigBuilder_ == null
+            ? dataprocMetricConfig_
+            : dataprocMetricConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1556,10 +1498,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.ClusterConfig.getDefaultInstance()) return this;
       if (!other.getConfigBucket().isEmpty()) {
         configBucket_ = other.configBucket_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getTempBucket().isEmpty()) {
         tempBucket_ = other.tempBucket_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasGceClusterConfig()) {
@@ -1581,7 +1525,7 @@ private static final long serialVersionUID = 0L;
         if (!other.initializationActions_.isEmpty()) {
           if (initializationActions_.isEmpty()) {
             initializationActions_ = other.initializationActions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureInitializationActionsIsMutable();
             initializationActions_.addAll(other.initializationActions_);
@@ -1594,7 +1538,7 @@ private static final long serialVersionUID = 0L;
             initializationActionsBuilder_.dispose();
             initializationActionsBuilder_ = null;
             initializationActions_ = other.initializationActions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
             initializationActionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getInitializationActionsFieldBuilder() : null;
@@ -1621,7 +1565,36 @@ private static final long serialVersionUID = 0L;
       if (other.hasMetastoreConfig()) {
         mergeMetastoreConfig(other.getMetastoreConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasDataprocMetricConfig()) {
+        mergeDataprocMetricConfig(other.getDataprocMetricConfig());
+      }
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        if (!other.auxiliaryNodeGroups_.isEmpty()) {
+          if (auxiliaryNodeGroups_.isEmpty()) {
+            auxiliaryNodeGroups_ = other.auxiliaryNodeGroups_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+          } else {
+            ensureAuxiliaryNodeGroupsIsMutable();
+            auxiliaryNodeGroups_.addAll(other.auxiliaryNodeGroups_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.auxiliaryNodeGroups_.isEmpty()) {
+          if (auxiliaryNodeGroupsBuilder_.isEmpty()) {
+            auxiliaryNodeGroupsBuilder_.dispose();
+            auxiliaryNodeGroupsBuilder_ = null;
+            auxiliaryNodeGroups_ = other.auxiliaryNodeGroups_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+            auxiliaryNodeGroupsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getAuxiliaryNodeGroupsFieldBuilder() : null;
+          } else {
+            auxiliaryNodeGroupsBuilder_.addAllMessages(other.auxiliaryNodeGroups_);
+          }
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1636,17 +1609,150 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.ClusterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              configBucket_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              tempBucket_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 66: {
+              input.readMessage(
+                  getGceClusterConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getMasterConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getWorkerConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 82
+            case 90: {
+              com.google.cloud.dataproc.v1.NodeInitializationAction m =
+                  input.readMessage(
+                      com.google.cloud.dataproc.v1.NodeInitializationAction.parser(),
+                      extensionRegistry);
+              if (initializationActionsBuilder_ == null) {
+                ensureInitializationActionsIsMutable();
+                initializationActions_.add(m);
+              } else {
+                initializationActionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getSecondaryWorkerConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getSoftwareConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 106
+            case 122: {
+              input.readMessage(
+                  getEncryptionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getSecurityConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getLifecycleConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getAutoscalingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getEndpointConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getMetastoreConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 162
+            case 186: {
+              input.readMessage(
+                  getDataprocMetricConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 186
+            case 202: {
+              com.google.cloud.dataproc.v1.AuxiliaryNodeGroup m =
+                  input.readMessage(
+                      com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.parser(),
+                      extensionRegistry);
+              if (auxiliaryNodeGroupsBuilder_ == null) {
+                ensureAuxiliaryNodeGroupsIsMutable();
+                auxiliaryNodeGroups_.add(m);
+              } else {
+                auxiliaryNodeGroupsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 202
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.ClusterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1734,11 +1840,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConfigBucket(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       configBucket_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1761,8 +1865,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConfigBucket() {
-      
       configBucket_ = getDefaultInstance().getConfigBucket();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1787,12 +1891,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConfigBucketBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       configBucket_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1800,15 +1902,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object tempBucket_ = "";
     /**
      * <pre>
-     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs data,
-     * such as Spark and MapReduce history files.
-     * If you do not specify a temp bucket,
-     * Dataproc will determine a Cloud Storage location (US,
-     * ASIA, or EU) for your cluster's temp bucket according to the
-     * Compute Engine zone where your cluster is deployed, and then create
-     * and manage this project-level, per-location bucket. The default bucket has
-     * a TTL of 90 days, but you can use any TTL (or none) if you specify a
-     * bucket (see
+     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
+     * data, such as Spark and MapReduce history files. If you do not specify a
+     * temp bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or
+     * EU) for your cluster's temp bucket according to the Compute Engine zone
+     * where your cluster is deployed, and then create and manage this
+     * project-level, per-location bucket. The default bucket has a TTL of 90
+     * days, but you can use any TTL (or none) if you specify a bucket (see
      * [Dataproc staging and temp
      * buckets](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
      * **This field requires a Cloud Storage bucket name, not a `gs://...` URI to
@@ -1832,15 +1932,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs data,
-     * such as Spark and MapReduce history files.
-     * If you do not specify a temp bucket,
-     * Dataproc will determine a Cloud Storage location (US,
-     * ASIA, or EU) for your cluster's temp bucket according to the
-     * Compute Engine zone where your cluster is deployed, and then create
-     * and manage this project-level, per-location bucket. The default bucket has
-     * a TTL of 90 days, but you can use any TTL (or none) if you specify a
-     * bucket (see
+     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
+     * data, such as Spark and MapReduce history files. If you do not specify a
+     * temp bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or
+     * EU) for your cluster's temp bucket according to the Compute Engine zone
+     * where your cluster is deployed, and then create and manage this
+     * project-level, per-location bucket. The default bucket has a TTL of 90
+     * days, but you can use any TTL (or none) if you specify a bucket (see
      * [Dataproc staging and temp
      * buckets](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
      * **This field requires a Cloud Storage bucket name, not a `gs://...` URI to
@@ -1865,15 +1963,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs data,
-     * such as Spark and MapReduce history files.
-     * If you do not specify a temp bucket,
-     * Dataproc will determine a Cloud Storage location (US,
-     * ASIA, or EU) for your cluster's temp bucket according to the
-     * Compute Engine zone where your cluster is deployed, and then create
-     * and manage this project-level, per-location bucket. The default bucket has
-     * a TTL of 90 days, but you can use any TTL (or none) if you specify a
-     * bucket (see
+     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
+     * data, such as Spark and MapReduce history files. If you do not specify a
+     * temp bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or
+     * EU) for your cluster's temp bucket according to the Compute Engine zone
+     * where your cluster is deployed, and then create and manage this
+     * project-level, per-location bucket. The default bucket has a TTL of 90
+     * days, but you can use any TTL (or none) if you specify a bucket (see
      * [Dataproc staging and temp
      * buckets](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
      * **This field requires a Cloud Storage bucket name, not a `gs://...` URI to
@@ -1886,25 +1982,21 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTempBucket(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tempBucket_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs data,
-     * such as Spark and MapReduce history files.
-     * If you do not specify a temp bucket,
-     * Dataproc will determine a Cloud Storage location (US,
-     * ASIA, or EU) for your cluster's temp bucket according to the
-     * Compute Engine zone where your cluster is deployed, and then create
-     * and manage this project-level, per-location bucket. The default bucket has
-     * a TTL of 90 days, but you can use any TTL (or none) if you specify a
-     * bucket (see
+     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
+     * data, such as Spark and MapReduce history files. If you do not specify a
+     * temp bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or
+     * EU) for your cluster's temp bucket according to the Compute Engine zone
+     * where your cluster is deployed, and then create and manage this
+     * project-level, per-location bucket. The default bucket has a TTL of 90
+     * days, but you can use any TTL (or none) if you specify a bucket (see
      * [Dataproc staging and temp
      * buckets](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
      * **This field requires a Cloud Storage bucket name, not a `gs://...` URI to
@@ -1915,22 +2007,20 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTempBucket() {
-      
       tempBucket_ = getDefaultInstance().getTempBucket();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs data,
-     * such as Spark and MapReduce history files.
-     * If you do not specify a temp bucket,
-     * Dataproc will determine a Cloud Storage location (US,
-     * ASIA, or EU) for your cluster's temp bucket according to the
-     * Compute Engine zone where your cluster is deployed, and then create
-     * and manage this project-level, per-location bucket. The default bucket has
-     * a TTL of 90 days, but you can use any TTL (or none) if you specify a
-     * bucket (see
+     * Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
+     * data, such as Spark and MapReduce history files. If you do not specify a
+     * temp bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or
+     * EU) for your cluster's temp bucket according to the Compute Engine zone
+     * where your cluster is deployed, and then create and manage this
+     * project-level, per-location bucket. The default bucket has a TTL of 90
+     * days, but you can use any TTL (or none) if you specify a bucket (see
      * [Dataproc staging and temp
      * buckets](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
      * **This field requires a Cloud Storage bucket name, not a `gs://...` URI to
@@ -1943,12 +2033,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTempBucketBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tempBucket_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1966,7 +2054,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gceClusterConfig field is set.
      */
     public boolean hasGceClusterConfig() {
-      return gceClusterConfigBuilder_ != null || gceClusterConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1998,11 +2086,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gceClusterConfig_ = value;
-        onChanged();
       } else {
         gceClusterConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2017,11 +2105,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.GceClusterConfig.Builder builderForValue) {
       if (gceClusterConfigBuilder_ == null) {
         gceClusterConfig_ = builderForValue.build();
-        onChanged();
       } else {
         gceClusterConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2034,17 +2122,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGceClusterConfig(com.google.cloud.dataproc.v1.GceClusterConfig value) {
       if (gceClusterConfigBuilder_ == null) {
-        if (gceClusterConfig_ != null) {
-          gceClusterConfig_ =
-            com.google.cloud.dataproc.v1.GceClusterConfig.newBuilder(gceClusterConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          gceClusterConfig_ != null &&
+          gceClusterConfig_ != com.google.cloud.dataproc.v1.GceClusterConfig.getDefaultInstance()) {
+          getGceClusterConfigBuilder().mergeFrom(value);
         } else {
           gceClusterConfig_ = value;
         }
-        onChanged();
       } else {
         gceClusterConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2056,14 +2145,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.GceClusterConfig gce_cluster_config = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearGceClusterConfig() {
-      if (gceClusterConfigBuilder_ == null) {
-        gceClusterConfig_ = null;
-        onChanged();
-      } else {
-        gceClusterConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      gceClusterConfig_ = null;
+      if (gceClusterConfigBuilder_ != null) {
+        gceClusterConfigBuilder_.dispose();
         gceClusterConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2075,7 +2163,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.GceClusterConfig gce_cluster_config = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.GceClusterConfig.Builder getGceClusterConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getGceClusterConfigFieldBuilder().getBuilder();
     }
@@ -2130,7 +2218,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the masterConfig field is set.
      */
     public boolean hasMasterConfig() {
-      return masterConfigBuilder_ != null || masterConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2162,11 +2250,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         masterConfig_ = value;
-        onChanged();
       } else {
         masterConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2181,11 +2269,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.InstanceGroupConfig.Builder builderForValue) {
       if (masterConfigBuilder_ == null) {
         masterConfig_ = builderForValue.build();
-        onChanged();
       } else {
         masterConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2198,17 +2286,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMasterConfig(com.google.cloud.dataproc.v1.InstanceGroupConfig value) {
       if (masterConfigBuilder_ == null) {
-        if (masterConfig_ != null) {
-          masterConfig_ =
-            com.google.cloud.dataproc.v1.InstanceGroupConfig.newBuilder(masterConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          masterConfig_ != null &&
+          masterConfig_ != com.google.cloud.dataproc.v1.InstanceGroupConfig.getDefaultInstance()) {
+          getMasterConfigBuilder().mergeFrom(value);
         } else {
           masterConfig_ = value;
         }
-        onChanged();
       } else {
         masterConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2220,14 +2309,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupConfig master_config = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearMasterConfig() {
-      if (masterConfigBuilder_ == null) {
-        masterConfig_ = null;
-        onChanged();
-      } else {
-        masterConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      masterConfig_ = null;
+      if (masterConfigBuilder_ != null) {
+        masterConfigBuilder_.dispose();
         masterConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2239,7 +2327,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupConfig master_config = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.InstanceGroupConfig.Builder getMasterConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getMasterConfigFieldBuilder().getBuilder();
     }
@@ -2294,7 +2382,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the workerConfig field is set.
      */
     public boolean hasWorkerConfig() {
-      return workerConfigBuilder_ != null || workerConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2326,11 +2414,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         workerConfig_ = value;
-        onChanged();
       } else {
         workerConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2345,11 +2433,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.InstanceGroupConfig.Builder builderForValue) {
       if (workerConfigBuilder_ == null) {
         workerConfig_ = builderForValue.build();
-        onChanged();
       } else {
         workerConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2362,17 +2450,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWorkerConfig(com.google.cloud.dataproc.v1.InstanceGroupConfig value) {
       if (workerConfigBuilder_ == null) {
-        if (workerConfig_ != null) {
-          workerConfig_ =
-            com.google.cloud.dataproc.v1.InstanceGroupConfig.newBuilder(workerConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          workerConfig_ != null &&
+          workerConfig_ != com.google.cloud.dataproc.v1.InstanceGroupConfig.getDefaultInstance()) {
+          getWorkerConfigBuilder().mergeFrom(value);
         } else {
           workerConfig_ = value;
         }
-        onChanged();
       } else {
         workerConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2384,14 +2473,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupConfig worker_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearWorkerConfig() {
-      if (workerConfigBuilder_ == null) {
-        workerConfig_ = null;
-        onChanged();
-      } else {
-        workerConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      workerConfig_ = null;
+      if (workerConfigBuilder_ != null) {
+        workerConfigBuilder_.dispose();
         workerConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2403,7 +2491,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupConfig worker_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.InstanceGroupConfig.Builder getWorkerConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getWorkerConfigFieldBuilder().getBuilder();
     }
@@ -2458,7 +2546,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the secondaryWorkerConfig field is set.
      */
     public boolean hasSecondaryWorkerConfig() {
-      return secondaryWorkerConfigBuilder_ != null || secondaryWorkerConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2490,11 +2578,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         secondaryWorkerConfig_ = value;
-        onChanged();
       } else {
         secondaryWorkerConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2509,11 +2597,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.InstanceGroupConfig.Builder builderForValue) {
       if (secondaryWorkerConfigBuilder_ == null) {
         secondaryWorkerConfig_ = builderForValue.build();
-        onChanged();
       } else {
         secondaryWorkerConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2526,17 +2614,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecondaryWorkerConfig(com.google.cloud.dataproc.v1.InstanceGroupConfig value) {
       if (secondaryWorkerConfigBuilder_ == null) {
-        if (secondaryWorkerConfig_ != null) {
-          secondaryWorkerConfig_ =
-            com.google.cloud.dataproc.v1.InstanceGroupConfig.newBuilder(secondaryWorkerConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          secondaryWorkerConfig_ != null &&
+          secondaryWorkerConfig_ != com.google.cloud.dataproc.v1.InstanceGroupConfig.getDefaultInstance()) {
+          getSecondaryWorkerConfigBuilder().mergeFrom(value);
         } else {
           secondaryWorkerConfig_ = value;
         }
-        onChanged();
       } else {
         secondaryWorkerConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2548,14 +2637,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupConfig secondary_worker_config = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearSecondaryWorkerConfig() {
-      if (secondaryWorkerConfigBuilder_ == null) {
-        secondaryWorkerConfig_ = null;
-        onChanged();
-      } else {
-        secondaryWorkerConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      secondaryWorkerConfig_ = null;
+      if (secondaryWorkerConfigBuilder_ != null) {
+        secondaryWorkerConfigBuilder_.dispose();
         secondaryWorkerConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2567,7 +2655,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupConfig secondary_worker_config = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.InstanceGroupConfig.Builder getSecondaryWorkerConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getSecondaryWorkerConfigFieldBuilder().getBuilder();
     }
@@ -2621,7 +2709,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the softwareConfig field is set.
      */
     public boolean hasSoftwareConfig() {
-      return softwareConfigBuilder_ != null || softwareConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2651,11 +2739,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         softwareConfig_ = value;
-        onChanged();
       } else {
         softwareConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2669,11 +2757,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.SoftwareConfig.Builder builderForValue) {
       if (softwareConfigBuilder_ == null) {
         softwareConfig_ = builderForValue.build();
-        onChanged();
       } else {
         softwareConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2685,17 +2773,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSoftwareConfig(com.google.cloud.dataproc.v1.SoftwareConfig value) {
       if (softwareConfigBuilder_ == null) {
-        if (softwareConfig_ != null) {
-          softwareConfig_ =
-            com.google.cloud.dataproc.v1.SoftwareConfig.newBuilder(softwareConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          softwareConfig_ != null &&
+          softwareConfig_ != com.google.cloud.dataproc.v1.SoftwareConfig.getDefaultInstance()) {
+          getSoftwareConfigBuilder().mergeFrom(value);
         } else {
           softwareConfig_ = value;
         }
-        onChanged();
       } else {
         softwareConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2706,14 +2795,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.SoftwareConfig software_config = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearSoftwareConfig() {
-      if (softwareConfigBuilder_ == null) {
-        softwareConfig_ = null;
-        onChanged();
-      } else {
-        softwareConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      softwareConfig_ = null;
+      if (softwareConfigBuilder_ != null) {
+        softwareConfigBuilder_.dispose();
         softwareConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2724,7 +2812,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.SoftwareConfig software_config = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.SoftwareConfig.Builder getSoftwareConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getSoftwareConfigFieldBuilder().getBuilder();
     }
@@ -2767,9 +2855,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dataproc.v1.NodeInitializationAction> initializationActions_ =
       java.util.Collections.emptyList();
     private void ensureInitializationActionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         initializationActions_ = new java.util.ArrayList<com.google.cloud.dataproc.v1.NodeInitializationAction>(initializationActions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -3084,7 +3172,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearInitializationActions() {
       if (initializationActionsBuilder_ == null) {
         initializationActions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         initializationActionsBuilder_.clear();
@@ -3266,7 +3354,7 @@ private static final long serialVersionUID = 0L;
         initializationActionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dataproc.v1.NodeInitializationAction, com.google.cloud.dataproc.v1.NodeInitializationAction.Builder, com.google.cloud.dataproc.v1.NodeInitializationActionOrBuilder>(
                 initializationActions_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         initializationActions_ = null;
@@ -3286,7 +3374,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the encryptionConfig field is set.
      */
     public boolean hasEncryptionConfig() {
-      return encryptionConfigBuilder_ != null || encryptionConfig_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3316,11 +3404,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         encryptionConfig_ = value;
-        onChanged();
       } else {
         encryptionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3334,11 +3422,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.EncryptionConfig.Builder builderForValue) {
       if (encryptionConfigBuilder_ == null) {
         encryptionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         encryptionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3350,17 +3438,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEncryptionConfig(com.google.cloud.dataproc.v1.EncryptionConfig value) {
       if (encryptionConfigBuilder_ == null) {
-        if (encryptionConfig_ != null) {
-          encryptionConfig_ =
-            com.google.cloud.dataproc.v1.EncryptionConfig.newBuilder(encryptionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          encryptionConfig_ != null &&
+          encryptionConfig_ != com.google.cloud.dataproc.v1.EncryptionConfig.getDefaultInstance()) {
+          getEncryptionConfigBuilder().mergeFrom(value);
         } else {
           encryptionConfig_ = value;
         }
-        onChanged();
       } else {
         encryptionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3371,14 +3460,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.EncryptionConfig encryption_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearEncryptionConfig() {
-      if (encryptionConfigBuilder_ == null) {
-        encryptionConfig_ = null;
-        onChanged();
-      } else {
-        encryptionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
         encryptionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3389,7 +3477,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.EncryptionConfig encryption_config = 15 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.EncryptionConfig.Builder getEncryptionConfigBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getEncryptionConfigFieldBuilder().getBuilder();
     }
@@ -3442,7 +3530,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the autoscalingConfig field is set.
      */
     public boolean hasAutoscalingConfig() {
-      return autoscalingConfigBuilder_ != null || autoscalingConfig_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3474,11 +3562,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         autoscalingConfig_ = value;
-        onChanged();
       } else {
         autoscalingConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3493,11 +3581,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.AutoscalingConfig.Builder builderForValue) {
       if (autoscalingConfigBuilder_ == null) {
         autoscalingConfig_ = builderForValue.build();
-        onChanged();
       } else {
         autoscalingConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3510,17 +3598,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAutoscalingConfig(com.google.cloud.dataproc.v1.AutoscalingConfig value) {
       if (autoscalingConfigBuilder_ == null) {
-        if (autoscalingConfig_ != null) {
-          autoscalingConfig_ =
-            com.google.cloud.dataproc.v1.AutoscalingConfig.newBuilder(autoscalingConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          autoscalingConfig_ != null &&
+          autoscalingConfig_ != com.google.cloud.dataproc.v1.AutoscalingConfig.getDefaultInstance()) {
+          getAutoscalingConfigBuilder().mergeFrom(value);
         } else {
           autoscalingConfig_ = value;
         }
-        onChanged();
       } else {
         autoscalingConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3532,14 +3621,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.AutoscalingConfig autoscaling_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearAutoscalingConfig() {
-      if (autoscalingConfigBuilder_ == null) {
-        autoscalingConfig_ = null;
-        onChanged();
-      } else {
-        autoscalingConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      autoscalingConfig_ = null;
+      if (autoscalingConfigBuilder_ != null) {
+        autoscalingConfigBuilder_.dispose();
         autoscalingConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3551,7 +3639,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.AutoscalingConfig autoscaling_config = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.AutoscalingConfig.Builder getAutoscalingConfigBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getAutoscalingConfigFieldBuilder().getBuilder();
     }
@@ -3605,7 +3693,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the securityConfig field is set.
      */
     public boolean hasSecurityConfig() {
-      return securityConfigBuilder_ != null || securityConfig_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3635,11 +3723,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         securityConfig_ = value;
-        onChanged();
       } else {
         securityConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3653,11 +3741,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.SecurityConfig.Builder builderForValue) {
       if (securityConfigBuilder_ == null) {
         securityConfig_ = builderForValue.build();
-        onChanged();
       } else {
         securityConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3669,17 +3757,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecurityConfig(com.google.cloud.dataproc.v1.SecurityConfig value) {
       if (securityConfigBuilder_ == null) {
-        if (securityConfig_ != null) {
-          securityConfig_ =
-            com.google.cloud.dataproc.v1.SecurityConfig.newBuilder(securityConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          securityConfig_ != null &&
+          securityConfig_ != com.google.cloud.dataproc.v1.SecurityConfig.getDefaultInstance()) {
+          getSecurityConfigBuilder().mergeFrom(value);
         } else {
           securityConfig_ = value;
         }
-        onChanged();
       } else {
         securityConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3690,14 +3779,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.SecurityConfig security_config = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearSecurityConfig() {
-      if (securityConfigBuilder_ == null) {
-        securityConfig_ = null;
-        onChanged();
-      } else {
-        securityConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      securityConfig_ = null;
+      if (securityConfigBuilder_ != null) {
+        securityConfigBuilder_.dispose();
         securityConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3708,7 +3796,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.SecurityConfig security_config = 16 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.SecurityConfig.Builder getSecurityConfigBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getSecurityConfigFieldBuilder().getBuilder();
     }
@@ -3760,7 +3848,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lifecycleConfig field is set.
      */
     public boolean hasLifecycleConfig() {
-      return lifecycleConfigBuilder_ != null || lifecycleConfig_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3790,11 +3878,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lifecycleConfig_ = value;
-        onChanged();
       } else {
         lifecycleConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3808,11 +3896,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.LifecycleConfig.Builder builderForValue) {
       if (lifecycleConfigBuilder_ == null) {
         lifecycleConfig_ = builderForValue.build();
-        onChanged();
       } else {
         lifecycleConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3824,17 +3912,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLifecycleConfig(com.google.cloud.dataproc.v1.LifecycleConfig value) {
       if (lifecycleConfigBuilder_ == null) {
-        if (lifecycleConfig_ != null) {
-          lifecycleConfig_ =
-            com.google.cloud.dataproc.v1.LifecycleConfig.newBuilder(lifecycleConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          lifecycleConfig_ != null &&
+          lifecycleConfig_ != com.google.cloud.dataproc.v1.LifecycleConfig.getDefaultInstance()) {
+          getLifecycleConfigBuilder().mergeFrom(value);
         } else {
           lifecycleConfig_ = value;
         }
-        onChanged();
       } else {
         lifecycleConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3845,14 +3934,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.LifecycleConfig lifecycle_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearLifecycleConfig() {
-      if (lifecycleConfigBuilder_ == null) {
-        lifecycleConfig_ = null;
-        onChanged();
-      } else {
-        lifecycleConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      lifecycleConfig_ = null;
+      if (lifecycleConfigBuilder_ != null) {
+        lifecycleConfigBuilder_.dispose();
         lifecycleConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3863,7 +3951,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.LifecycleConfig lifecycle_config = 17 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.LifecycleConfig.Builder getLifecycleConfigBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getLifecycleConfigFieldBuilder().getBuilder();
     }
@@ -3915,7 +4003,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endpointConfig field is set.
      */
     public boolean hasEndpointConfig() {
-      return endpointConfigBuilder_ != null || endpointConfig_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3945,11 +4033,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endpointConfig_ = value;
-        onChanged();
       } else {
         endpointConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3963,11 +4051,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.EndpointConfig.Builder builderForValue) {
       if (endpointConfigBuilder_ == null) {
         endpointConfig_ = builderForValue.build();
-        onChanged();
       } else {
         endpointConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3979,17 +4067,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndpointConfig(com.google.cloud.dataproc.v1.EndpointConfig value) {
       if (endpointConfigBuilder_ == null) {
-        if (endpointConfig_ != null) {
-          endpointConfig_ =
-            com.google.cloud.dataproc.v1.EndpointConfig.newBuilder(endpointConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          endpointConfig_ != null &&
+          endpointConfig_ != com.google.cloud.dataproc.v1.EndpointConfig.getDefaultInstance()) {
+          getEndpointConfigBuilder().mergeFrom(value);
         } else {
           endpointConfig_ = value;
         }
-        onChanged();
       } else {
         endpointConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4000,14 +4089,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.EndpointConfig endpoint_config = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearEndpointConfig() {
-      if (endpointConfigBuilder_ == null) {
-        endpointConfig_ = null;
-        onChanged();
-      } else {
-        endpointConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      endpointConfig_ = null;
+      if (endpointConfigBuilder_ != null) {
+        endpointConfigBuilder_.dispose();
         endpointConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4018,7 +4106,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.EndpointConfig endpoint_config = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.EndpointConfig.Builder getEndpointConfigBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getEndpointConfigFieldBuilder().getBuilder();
     }
@@ -4070,7 +4158,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metastoreConfig field is set.
      */
     public boolean hasMetastoreConfig() {
-      return metastoreConfigBuilder_ != null || metastoreConfig_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -4100,11 +4188,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metastoreConfig_ = value;
-        onChanged();
       } else {
         metastoreConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4118,11 +4206,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.MetastoreConfig.Builder builderForValue) {
       if (metastoreConfigBuilder_ == null) {
         metastoreConfig_ = builderForValue.build();
-        onChanged();
       } else {
         metastoreConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4134,17 +4222,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetastoreConfig(com.google.cloud.dataproc.v1.MetastoreConfig value) {
       if (metastoreConfigBuilder_ == null) {
-        if (metastoreConfig_ != null) {
-          metastoreConfig_ =
-            com.google.cloud.dataproc.v1.MetastoreConfig.newBuilder(metastoreConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          metastoreConfig_ != null &&
+          metastoreConfig_ != com.google.cloud.dataproc.v1.MetastoreConfig.getDefaultInstance()) {
+          getMetastoreConfigBuilder().mergeFrom(value);
         } else {
           metastoreConfig_ = value;
         }
-        onChanged();
       } else {
         metastoreConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4155,14 +4244,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.MetastoreConfig metastore_config = 20 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearMetastoreConfig() {
-      if (metastoreConfigBuilder_ == null) {
-        metastoreConfig_ = null;
-        onChanged();
-      } else {
-        metastoreConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      metastoreConfig_ = null;
+      if (metastoreConfigBuilder_ != null) {
+        metastoreConfigBuilder_.dispose();
         metastoreConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4173,7 +4261,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.MetastoreConfig metastore_config = 20 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.MetastoreConfig.Builder getMetastoreConfigBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getMetastoreConfigFieldBuilder().getBuilder();
     }
@@ -4212,6 +4300,473 @@ private static final long serialVersionUID = 0L;
       }
       return metastoreConfigBuilder_;
     }
+
+    private com.google.cloud.dataproc.v1.DataprocMetricConfig dataprocMetricConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.dataproc.v1.DataprocMetricConfig, com.google.cloud.dataproc.v1.DataprocMetricConfig.Builder, com.google.cloud.dataproc.v1.DataprocMetricConfigOrBuilder> dataprocMetricConfigBuilder_;
+    /**
+     * <pre>
+     * Optional. The config for Dataproc metrics.
+     * </pre>
+     *
+     * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the dataprocMetricConfig field is set.
+     */
+    public boolean hasDataprocMetricConfig() {
+      return ((bitField0_ & 0x00004000) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. The config for Dataproc metrics.
+     * </pre>
+     *
+     * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The dataprocMetricConfig.
+     */
+    public com.google.cloud.dataproc.v1.DataprocMetricConfig getDataprocMetricConfig() {
+      if (dataprocMetricConfigBuilder_ == null) {
+        return dataprocMetricConfig_ == null ? com.google.cloud.dataproc.v1.DataprocMetricConfig.getDefaultInstance() : dataprocMetricConfig_;
+      } else {
+        return dataprocMetricConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The config for Dataproc metrics.
+     * </pre>
+     *
+     * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setDataprocMetricConfig(com.google.cloud.dataproc.v1.DataprocMetricConfig value) {
+      if (dataprocMetricConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        dataprocMetricConfig_ = value;
+      } else {
+        dataprocMetricConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The config for Dataproc metrics.
+     * </pre>
+     *
+     * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setDataprocMetricConfig(
+        com.google.cloud.dataproc.v1.DataprocMetricConfig.Builder builderForValue) {
+      if (dataprocMetricConfigBuilder_ == null) {
+        dataprocMetricConfig_ = builderForValue.build();
+      } else {
+        dataprocMetricConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The config for Dataproc metrics.
+     * </pre>
+     *
+     * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeDataprocMetricConfig(com.google.cloud.dataproc.v1.DataprocMetricConfig value) {
+      if (dataprocMetricConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00004000) != 0) &&
+          dataprocMetricConfig_ != null &&
+          dataprocMetricConfig_ != com.google.cloud.dataproc.v1.DataprocMetricConfig.getDefaultInstance()) {
+          getDataprocMetricConfigBuilder().mergeFrom(value);
+        } else {
+          dataprocMetricConfig_ = value;
+        }
+      } else {
+        dataprocMetricConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The config for Dataproc metrics.
+     * </pre>
+     *
+     * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearDataprocMetricConfig() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      dataprocMetricConfig_ = null;
+      if (dataprocMetricConfigBuilder_ != null) {
+        dataprocMetricConfigBuilder_.dispose();
+        dataprocMetricConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The config for Dataproc metrics.
+     * </pre>
+     *
+     * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.dataproc.v1.DataprocMetricConfig.Builder getDataprocMetricConfigBuilder() {
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return getDataprocMetricConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. The config for Dataproc metrics.
+     * </pre>
+     *
+     * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.dataproc.v1.DataprocMetricConfigOrBuilder getDataprocMetricConfigOrBuilder() {
+      if (dataprocMetricConfigBuilder_ != null) {
+        return dataprocMetricConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return dataprocMetricConfig_ == null ?
+            com.google.cloud.dataproc.v1.DataprocMetricConfig.getDefaultInstance() : dataprocMetricConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The config for Dataproc metrics.
+     * </pre>
+     *
+     * <code>.google.cloud.dataproc.v1.DataprocMetricConfig dataproc_metric_config = 23 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.dataproc.v1.DataprocMetricConfig, com.google.cloud.dataproc.v1.DataprocMetricConfig.Builder, com.google.cloud.dataproc.v1.DataprocMetricConfigOrBuilder> 
+        getDataprocMetricConfigFieldBuilder() {
+      if (dataprocMetricConfigBuilder_ == null) {
+        dataprocMetricConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.dataproc.v1.DataprocMetricConfig, com.google.cloud.dataproc.v1.DataprocMetricConfig.Builder, com.google.cloud.dataproc.v1.DataprocMetricConfigOrBuilder>(
+                getDataprocMetricConfig(),
+                getParentForChildren(),
+                isClean());
+        dataprocMetricConfig_ = null;
+      }
+      return dataprocMetricConfigBuilder_;
+    }
+
+    private java.util.List<com.google.cloud.dataproc.v1.AuxiliaryNodeGroup> auxiliaryNodeGroups_ =
+      java.util.Collections.emptyList();
+    private void ensureAuxiliaryNodeGroupsIsMutable() {
+      if (!((bitField0_ & 0x00008000) != 0)) {
+        auxiliaryNodeGroups_ = new java.util.ArrayList<com.google.cloud.dataproc.v1.AuxiliaryNodeGroup>(auxiliaryNodeGroups_);
+        bitField0_ |= 0x00008000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.dataproc.v1.AuxiliaryNodeGroup, com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder, com.google.cloud.dataproc.v1.AuxiliaryNodeGroupOrBuilder> auxiliaryNodeGroupsBuilder_;
+
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public java.util.List<com.google.cloud.dataproc.v1.AuxiliaryNodeGroup> getAuxiliaryNodeGroupsList() {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(auxiliaryNodeGroups_);
+      } else {
+        return auxiliaryNodeGroupsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public int getAuxiliaryNodeGroupsCount() {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        return auxiliaryNodeGroups_.size();
+      } else {
+        return auxiliaryNodeGroupsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.dataproc.v1.AuxiliaryNodeGroup getAuxiliaryNodeGroups(int index) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        return auxiliaryNodeGroups_.get(index);
+      } else {
+        return auxiliaryNodeGroupsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setAuxiliaryNodeGroups(
+        int index, com.google.cloud.dataproc.v1.AuxiliaryNodeGroup value) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAuxiliaryNodeGroupsIsMutable();
+        auxiliaryNodeGroups_.set(index, value);
+        onChanged();
+      } else {
+        auxiliaryNodeGroupsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setAuxiliaryNodeGroups(
+        int index, com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder builderForValue) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        ensureAuxiliaryNodeGroupsIsMutable();
+        auxiliaryNodeGroups_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        auxiliaryNodeGroupsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder addAuxiliaryNodeGroups(com.google.cloud.dataproc.v1.AuxiliaryNodeGroup value) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAuxiliaryNodeGroupsIsMutable();
+        auxiliaryNodeGroups_.add(value);
+        onChanged();
+      } else {
+        auxiliaryNodeGroupsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder addAuxiliaryNodeGroups(
+        int index, com.google.cloud.dataproc.v1.AuxiliaryNodeGroup value) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureAuxiliaryNodeGroupsIsMutable();
+        auxiliaryNodeGroups_.add(index, value);
+        onChanged();
+      } else {
+        auxiliaryNodeGroupsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder addAuxiliaryNodeGroups(
+        com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder builderForValue) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        ensureAuxiliaryNodeGroupsIsMutable();
+        auxiliaryNodeGroups_.add(builderForValue.build());
+        onChanged();
+      } else {
+        auxiliaryNodeGroupsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder addAuxiliaryNodeGroups(
+        int index, com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder builderForValue) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        ensureAuxiliaryNodeGroupsIsMutable();
+        auxiliaryNodeGroups_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        auxiliaryNodeGroupsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder addAllAuxiliaryNodeGroups(
+        java.lang.Iterable<? extends com.google.cloud.dataproc.v1.AuxiliaryNodeGroup> values) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        ensureAuxiliaryNodeGroupsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, auxiliaryNodeGroups_);
+        onChanged();
+      } else {
+        auxiliaryNodeGroupsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearAuxiliaryNodeGroups() {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        auxiliaryNodeGroups_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+      } else {
+        auxiliaryNodeGroupsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder removeAuxiliaryNodeGroups(int index) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        ensureAuxiliaryNodeGroupsIsMutable();
+        auxiliaryNodeGroups_.remove(index);
+        onChanged();
+      } else {
+        auxiliaryNodeGroupsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder getAuxiliaryNodeGroupsBuilder(
+        int index) {
+      return getAuxiliaryNodeGroupsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.dataproc.v1.AuxiliaryNodeGroupOrBuilder getAuxiliaryNodeGroupsOrBuilder(
+        int index) {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        return auxiliaryNodeGroups_.get(index);  } else {
+        return auxiliaryNodeGroupsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public java.util.List<? extends com.google.cloud.dataproc.v1.AuxiliaryNodeGroupOrBuilder> 
+         getAuxiliaryNodeGroupsOrBuilderList() {
+      if (auxiliaryNodeGroupsBuilder_ != null) {
+        return auxiliaryNodeGroupsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(auxiliaryNodeGroups_);
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder addAuxiliaryNodeGroupsBuilder() {
+      return getAuxiliaryNodeGroupsFieldBuilder().addBuilder(
+          com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder addAuxiliaryNodeGroupsBuilder(
+        int index) {
+      return getAuxiliaryNodeGroupsFieldBuilder().addBuilder(
+          index, com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Optional. The node group settings.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.dataproc.v1.AuxiliaryNodeGroup auxiliary_node_groups = 25 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public java.util.List<com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder> 
+         getAuxiliaryNodeGroupsBuilderList() {
+      return getAuxiliaryNodeGroupsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.dataproc.v1.AuxiliaryNodeGroup, com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder, com.google.cloud.dataproc.v1.AuxiliaryNodeGroupOrBuilder> 
+        getAuxiliaryNodeGroupsFieldBuilder() {
+      if (auxiliaryNodeGroupsBuilder_ == null) {
+        auxiliaryNodeGroupsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloud.dataproc.v1.AuxiliaryNodeGroup, com.google.cloud.dataproc.v1.AuxiliaryNodeGroup.Builder, com.google.cloud.dataproc.v1.AuxiliaryNodeGroupOrBuilder>(
+                auxiliaryNodeGroups_,
+                ((bitField0_ & 0x00008000) != 0),
+                getParentForChildren(),
+                isClean());
+        auxiliaryNodeGroups_ = null;
+      }
+      return auxiliaryNodeGroupsBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4245,7 +4800,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClusterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -10,9 +10,8 @@ public interface BigQuerySourceOrBuilder extends
   /**
    * <pre>
    * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-   * Only supported when
-   * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-   * is set to `FULL`.
+   * Only supported in
+   * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
    * </pre>
    *
    * <code>.google.type.Date partition_date = 6;</code>
@@ -22,9 +21,8 @@ public interface BigQuerySourceOrBuilder extends
   /**
    * <pre>
    * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-   * Only supported when
-   * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-   * is set to `FULL`.
+   * Only supported in
+   * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
    * </pre>
    *
    * <code>.google.type.Date partition_date = 6;</code>
@@ -34,9 +32,8 @@ public interface BigQuerySourceOrBuilder extends
   /**
    * <pre>
    * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-   * Only supported when
-   * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-   * is set to `FULL`.
+   * Only supported in
+   * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
    * </pre>
    *
    * <code>.google.type.Date partition_date = 6;</code>
@@ -150,8 +147,7 @@ public interface BigQuerySourceOrBuilder extends
    * * `user_event_ga360`:
    *   The schema is available here:
    *   https://support.google.com/analytics/answer/3437719.
-   * * `user_event_ga4`: This feature is in private preview. Please contact the
-   *   support team for importing Google Analytics 4 events.
+   * * `user_event_ga4`:
    *   The schema is available here:
    *   https://support.google.com/analytics/answer/7029846.
    * Supported values for auto-completion imports:
@@ -179,8 +175,7 @@ public interface BigQuerySourceOrBuilder extends
    * * `user_event_ga360`:
    *   The schema is available here:
    *   https://support.google.com/analytics/answer/3437719.
-   * * `user_event_ga4`: This feature is in private preview. Please contact the
-   *   support team for importing Google Analytics 4 events.
+   * * `user_event_ga4`:
    *   The schema is available here:
    *   https://support.google.com/analytics/answer/7029846.
    * Supported values for auto-completion imports:

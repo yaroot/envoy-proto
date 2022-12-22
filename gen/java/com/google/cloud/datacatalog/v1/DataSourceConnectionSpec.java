@@ -7,6 +7,8 @@ package com.google.cloud.datacatalog.v1;
  * <pre>
  * Specification that applies to a data source connection. Valid only for
  * entries with the `DATA_SOURCE_CONNECTION` type.
+ * Only one of internal specs can be set at the time, and cannot
+ * be changed later.
  * </pre>
  *
  * Protobuf type {@code google.cloud.datacatalog.v1.DataSourceConnectionSpec}
@@ -35,58 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DataSourceConnectionSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.datacatalog.v1.BigQueryConnectionSpec.Builder subBuilder = null;
-            if (bigqueryConnectionSpec_ != null) {
-              subBuilder = bigqueryConnectionSpec_.toBuilder();
-            }
-            bigqueryConnectionSpec_ = input.readMessage(com.google.cloud.datacatalog.v1.BigQueryConnectionSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(bigqueryConnectionSpec_);
-              bigqueryConnectionSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1.Datacatalog.internal_static_google_cloud_datacatalog_v1_DataSourceConnectionSpec_descriptor;
@@ -104,7 +54,7 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigqueryConnectionSpec_;
   /**
    * <pre>
-   * Fields specific to BigQuery connections.
+   * Output only. Fields specific to BigQuery connections.
    * </pre>
    *
    * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
@@ -116,7 +66,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Fields specific to BigQuery connections.
+   * Output only. Fields specific to BigQuery connections.
    * </pre>
    *
    * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
@@ -128,14 +78,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Fields specific to BigQuery connections.
+   * Output only. Fields specific to BigQuery connections.
    * </pre>
    *
    * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.BigQueryConnectionSpecOrBuilder getBigqueryConnectionSpecOrBuilder() {
-    return getBigqueryConnectionSpec();
+    return bigqueryConnectionSpec_ == null ? com.google.cloud.datacatalog.v1.BigQueryConnectionSpec.getDefaultInstance() : bigqueryConnectionSpec_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -155,7 +105,7 @@ private static final long serialVersionUID = 0L;
     if (bigqueryConnectionSpec_ != null) {
       output.writeMessage(1, getBigqueryConnectionSpec());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -168,7 +118,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getBigqueryConnectionSpec());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -188,7 +138,7 @@ private static final long serialVersionUID = 0L;
       if (!getBigqueryConnectionSpec()
           .equals(other.getBigqueryConnectionSpec())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -203,7 +153,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BIGQUERY_CONNECTION_SPEC_FIELD_NUMBER;
       hash = (53 * hash) + getBigqueryConnectionSpec().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -302,6 +252,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Specification that applies to a data source connection. Valid only for
    * entries with the `DATA_SOURCE_CONNECTION` type.
+   * Only one of internal specs can be set at the time, and cannot
+   * be changed later.
    * </pre>
    *
    * Protobuf type {@code google.cloud.datacatalog.v1.DataSourceConnectionSpec}
@@ -325,26 +277,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1.DataSourceConnectionSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (bigqueryConnectionSpecBuilder_ == null) {
-        bigqueryConnectionSpec_ = null;
-      } else {
-        bigqueryConnectionSpec_ = null;
+      bitField0_ = 0;
+      bigqueryConnectionSpec_ = null;
+      if (bigqueryConnectionSpecBuilder_ != null) {
+        bigqueryConnectionSpecBuilder_.dispose();
         bigqueryConnectionSpecBuilder_ = null;
       }
       return this;
@@ -373,13 +320,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.DataSourceConnectionSpec buildPartial() {
       com.google.cloud.datacatalog.v1.DataSourceConnectionSpec result = new com.google.cloud.datacatalog.v1.DataSourceConnectionSpec(this);
-      if (bigqueryConnectionSpecBuilder_ == null) {
-        result.bigqueryConnectionSpec_ = bigqueryConnectionSpec_;
-      } else {
-        result.bigqueryConnectionSpec_ = bigqueryConnectionSpecBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1.DataSourceConnectionSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.bigqueryConnectionSpec_ = bigqueryConnectionSpecBuilder_ == null
+            ? bigqueryConnectionSpec_
+            : bigqueryConnectionSpecBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -429,7 +381,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasBigqueryConnectionSpec()) {
         mergeBigqueryConnectionSpec(other.getBigqueryConnectionSpec());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -444,37 +396,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1.DataSourceConnectionSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getBigqueryConnectionSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1.DataSourceConnectionSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigqueryConnectionSpec_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.datacatalog.v1.BigQueryConnectionSpec, com.google.cloud.datacatalog.v1.BigQueryConnectionSpec.Builder, com.google.cloud.datacatalog.v1.BigQueryConnectionSpecOrBuilder> bigqueryConnectionSpecBuilder_;
     /**
      * <pre>
-     * Fields specific to BigQuery connections.
+     * Output only. Fields specific to BigQuery connections.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
      * @return Whether the bigqueryConnectionSpec field is set.
      */
     public boolean hasBigqueryConnectionSpec() {
-      return bigqueryConnectionSpecBuilder_ != null || bigqueryConnectionSpec_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * Fields specific to BigQuery connections.
+     * Output only. Fields specific to BigQuery connections.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
@@ -489,7 +462,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Fields specific to BigQuery connections.
+     * Output only. Fields specific to BigQuery connections.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
@@ -500,16 +473,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         bigqueryConnectionSpec_ = value;
-        onChanged();
       } else {
         bigqueryConnectionSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Fields specific to BigQuery connections.
+     * Output only. Fields specific to BigQuery connections.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
@@ -518,68 +491,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.BigQueryConnectionSpec.Builder builderForValue) {
       if (bigqueryConnectionSpecBuilder_ == null) {
         bigqueryConnectionSpec_ = builderForValue.build();
-        onChanged();
       } else {
         bigqueryConnectionSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Fields specific to BigQuery connections.
+     * Output only. Fields specific to BigQuery connections.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
      */
     public Builder mergeBigqueryConnectionSpec(com.google.cloud.datacatalog.v1.BigQueryConnectionSpec value) {
       if (bigqueryConnectionSpecBuilder_ == null) {
-        if (bigqueryConnectionSpec_ != null) {
-          bigqueryConnectionSpec_ =
-            com.google.cloud.datacatalog.v1.BigQueryConnectionSpec.newBuilder(bigqueryConnectionSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          bigqueryConnectionSpec_ != null &&
+          bigqueryConnectionSpec_ != com.google.cloud.datacatalog.v1.BigQueryConnectionSpec.getDefaultInstance()) {
+          getBigqueryConnectionSpecBuilder().mergeFrom(value);
         } else {
           bigqueryConnectionSpec_ = value;
         }
-        onChanged();
       } else {
         bigqueryConnectionSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Fields specific to BigQuery connections.
+     * Output only. Fields specific to BigQuery connections.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
      */
     public Builder clearBigqueryConnectionSpec() {
-      if (bigqueryConnectionSpecBuilder_ == null) {
-        bigqueryConnectionSpec_ = null;
-        onChanged();
-      } else {
-        bigqueryConnectionSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      bigqueryConnectionSpec_ = null;
+      if (bigqueryConnectionSpecBuilder_ != null) {
+        bigqueryConnectionSpecBuilder_.dispose();
         bigqueryConnectionSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Fields specific to BigQuery connections.
+     * Output only. Fields specific to BigQuery connections.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
      */
     public com.google.cloud.datacatalog.v1.BigQueryConnectionSpec.Builder getBigqueryConnectionSpecBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getBigqueryConnectionSpecFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Fields specific to BigQuery connections.
+     * Output only. Fields specific to BigQuery connections.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
@@ -594,7 +567,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Fields specific to BigQuery connections.
+     * Output only. Fields specific to BigQuery connections.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.BigQueryConnectionSpec bigquery_connection_spec = 1;</code>
@@ -645,7 +618,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataSourceConnectionSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

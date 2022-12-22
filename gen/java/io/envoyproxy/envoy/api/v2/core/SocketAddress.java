@@ -37,79 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SocketAddress(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            protocol_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            address_ = s;
-            break;
-          }
-          case 24: {
-            portSpecifier_ = input.readUInt32();
-            portSpecifierCase_ = 3;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            portSpecifierCase_ = 4;
-            portSpecifier_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resolverName_ = s;
-            break;
-          }
-          case 48: {
-
-            ipv4Compat_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.core.AddressProto.internal_static_envoy_api_v2_core_SocketAddress_descriptor;
@@ -273,7 +200,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROTOCOL_FIELD_NUMBER = 1;
-  private int protocol_;
+  private int protocol_ = 0;
   /**
    * <code>.envoy.api.v2.core.SocketAddress.Protocol protocol = 1 [(.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for protocol.
@@ -286,13 +213,13 @@ private static final long serialVersionUID = 0L;
    * @return The protocol.
    */
   @java.lang.Override public io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol getProtocol() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol result = io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol.valueOf(protocol_);
+    io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol result = io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol.forNumber(protocol_);
     return result == null ? io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol.UNRECOGNIZED : result;
   }
 
   public static final int ADDRESS_FIELD_NUMBER = 2;
-  private volatile java.lang.Object address_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object address_ = "";
   /**
    * <pre>
    * The address for this socket. :ref:`Listeners &lt;config_listeners&gt;` will bind
@@ -449,7 +376,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOLVER_NAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object resolverName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resolverName_ = "";
   /**
    * <pre>
    * The name of the custom resolver. This must have been registered with Envoy. If
@@ -503,7 +431,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IPV4_COMPAT_FIELD_NUMBER = 6;
-  private boolean ipv4Compat_;
+  private boolean ipv4Compat_ = false;
   /**
    * <pre>
    * When binding to an IPv6 address above, this enables `IPv4 compatibility
@@ -553,7 +481,7 @@ private static final long serialVersionUID = 0L;
     if (ipv4Compat_ != false) {
       output.writeBool(6, ipv4Compat_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -584,7 +512,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, ipv4Compat_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -619,7 +547,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -651,7 +579,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -772,30 +700,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.core.SocketAddress.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       protocol_ = 0;
-
       address_ = "";
-
       resolverName_ = "";
-
       ipv4Compat_ = false;
-
       portSpecifierCase_ = 0;
       portSpecifier_ = null;
       return this;
@@ -824,19 +744,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.core.SocketAddress buildPartial() {
       io.envoyproxy.envoy.api.v2.core.SocketAddress result = new io.envoyproxy.envoy.api.v2.core.SocketAddress(this);
-      result.protocol_ = protocol_;
-      result.address_ = address_;
-      if (portSpecifierCase_ == 3) {
-        result.portSpecifier_ = portSpecifier_;
-      }
-      if (portSpecifierCase_ == 4) {
-        result.portSpecifier_ = portSpecifier_;
-      }
-      result.resolverName_ = resolverName_;
-      result.ipv4Compat_ = ipv4Compat_;
-      result.portSpecifierCase_ = portSpecifierCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.core.SocketAddress result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.protocol_ = protocol_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.address_ = address_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.resolverName_ = resolverName_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.ipv4Compat_ = ipv4Compat_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.api.v2.core.SocketAddress result) {
+      result.portSpecifierCase_ = portSpecifierCase_;
+      result.portSpecifier_ = this.portSpecifier_;
     }
 
     @java.lang.Override
@@ -888,10 +820,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAddress().isEmpty()) {
         address_ = other.address_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getResolverName().isEmpty()) {
         resolverName_ = other.resolverName_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getIpv4Compat() != false) {
@@ -912,7 +846,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -927,17 +861,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.core.SocketAddress parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              protocol_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              portSpecifier_ = input.readUInt32();
+              portSpecifierCase_ = 3;
+              break;
+            } // case 24
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              portSpecifierCase_ = 4;
+              portSpecifier_ = s;
+              break;
+            } // case 34
+            case 42: {
+              resolverName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              ipv4Compat_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.core.SocketAddress) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int portSpecifierCase_ = 0;
@@ -955,6 +933,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int protocol_ = 0;
     /**
@@ -970,8 +949,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProtocolValue(int value) {
-      
       protocol_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -981,8 +960,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol getProtocol() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol result = io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol.valueOf(protocol_);
+      io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol result = io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol.forNumber(protocol_);
       return result == null ? io.envoyproxy.envoy.api.v2.core.SocketAddress.Protocol.UNRECOGNIZED : result;
     }
     /**
@@ -994,7 +972,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       protocol_ = value.getNumber();
       onChanged();
       return this;
@@ -1004,7 +982,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProtocol() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       protocol_ = 0;
       onChanged();
       return this;
@@ -1093,11 +1071,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       address_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1120,8 +1096,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
-      
       address_ = getDefaultInstance().getAddress();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1146,12 +1122,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       address_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1179,6 +1153,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPortValue(int value) {
+      
       portSpecifierCase_ = 3;
       portSpecifier_ = value;
       onChanged();
@@ -1281,10 +1256,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNamedPort(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  portSpecifierCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      portSpecifierCase_ = 4;
       portSpecifier_ = value;
       onChanged();
       return this;
@@ -1320,10 +1293,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNamedPortBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       portSpecifierCase_ = 4;
       portSpecifier_ = value;
       onChanged();
@@ -1395,11 +1366,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResolverName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resolverName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1416,8 +1385,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResolverName() {
-      
       resolverName_ = getDefaultInstance().getResolverName();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1436,12 +1405,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResolverNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resolverName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1477,6 +1444,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIpv4Compat(boolean value) {
       
       ipv4Compat_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1492,7 +1460,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIpv4Compat() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       ipv4Compat_ = false;
       onChanged();
       return this;
@@ -1530,7 +1498,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SocketAddress(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

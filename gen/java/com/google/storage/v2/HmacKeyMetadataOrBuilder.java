@@ -53,9 +53,9 @@ public interface HmacKeyMetadataOrBuilder extends
 
   /**
    * <pre>
-   * Immutable. Identifies the project that owns the service account of the specified HMAC
-   * key, in the format "projects/&lt;projectIdentifier&gt;". &lt;projectIdentifier&gt; can
-   * be the project ID or project number.
+   * Immutable. Identifies the project that owns the service account of the
+   * specified HMAC key, in the format "projects/&lt;projectIdentifier&gt;".
+   * &lt;projectIdentifier&gt; can be the project ID or project number.
    * </pre>
    *
    * <code>string project = 3 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
@@ -64,9 +64,9 @@ public interface HmacKeyMetadataOrBuilder extends
   java.lang.String getProject();
   /**
    * <pre>
-   * Immutable. Identifies the project that owns the service account of the specified HMAC
-   * key, in the format "projects/&lt;projectIdentifier&gt;". &lt;projectIdentifier&gt; can
-   * be the project ID or project number.
+   * Immutable. Identifies the project that owns the service account of the
+   * specified HMAC key, in the format "projects/&lt;projectIdentifier&gt;".
+   * &lt;projectIdentifier&gt; can be the project ID or project number.
    * </pre>
    *
    * <code>string project = 3 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>

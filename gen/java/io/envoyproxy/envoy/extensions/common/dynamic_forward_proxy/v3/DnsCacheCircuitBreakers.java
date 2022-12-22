@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DnsCacheCircuitBreakers(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (maxPendingRequests_ != null) {
-              subBuilder = maxPendingRequests_.toBuilder();
-            }
-            maxPendingRequests_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxPendingRequests_);
-              maxPendingRequests_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheProto.internal_static_envoy_extensions_common_dynamic_forward_proxy_v3_DnsCacheCircuitBreakers_descriptor;
@@ -137,7 +85,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMaxPendingRequestsOrBuilder() {
-    return getMaxPendingRequests();
+    return maxPendingRequests_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : maxPendingRequests_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -157,7 +105,7 @@ private static final long serialVersionUID = 0L;
     if (maxPendingRequests_ != null) {
       output.writeMessage(1, getMaxPendingRequests());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -170,7 +118,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getMaxPendingRequests());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -190,7 +138,7 @@ private static final long serialVersionUID = 0L;
       if (!getMaxPendingRequests()
           .equals(other.getMaxPendingRequests())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -205,7 +153,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAX_PENDING_REQUESTS_FIELD_NUMBER;
       hash = (53 * hash) + getMaxPendingRequests().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -326,26 +274,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (maxPendingRequestsBuilder_ == null) {
-        maxPendingRequests_ = null;
-      } else {
-        maxPendingRequests_ = null;
+      bitField0_ = 0;
+      maxPendingRequests_ = null;
+      if (maxPendingRequestsBuilder_ != null) {
+        maxPendingRequestsBuilder_.dispose();
         maxPendingRequestsBuilder_ = null;
       }
       return this;
@@ -374,13 +317,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers buildPartial() {
       io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers result = new io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers(this);
-      if (maxPendingRequestsBuilder_ == null) {
-        result.maxPendingRequests_ = maxPendingRequests_;
-      } else {
-        result.maxPendingRequests_ = maxPendingRequestsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maxPendingRequests_ = maxPendingRequestsBuilder_ == null
+            ? maxPendingRequests_
+            : maxPendingRequestsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -430,7 +378,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMaxPendingRequests()) {
         mergeMaxPendingRequests(other.getMaxPendingRequests());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -445,19 +393,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMaxPendingRequestsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheCircuitBreakers) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.UInt32Value maxPendingRequests_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -472,7 +441,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxPendingRequests field is set.
      */
     public boolean hasMaxPendingRequests() {
-      return maxPendingRequestsBuilder_ != null || maxPendingRequests_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -504,11 +473,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxPendingRequests_ = value;
-        onChanged();
       } else {
         maxPendingRequestsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -523,11 +492,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (maxPendingRequestsBuilder_ == null) {
         maxPendingRequests_ = builderForValue.build();
-        onChanged();
       } else {
         maxPendingRequestsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -540,17 +509,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxPendingRequests(com.google.protobuf.UInt32Value value) {
       if (maxPendingRequestsBuilder_ == null) {
-        if (maxPendingRequests_ != null) {
-          maxPendingRequests_ =
-            com.google.protobuf.UInt32Value.newBuilder(maxPendingRequests_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          maxPendingRequests_ != null &&
+          maxPendingRequests_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMaxPendingRequestsBuilder().mergeFrom(value);
         } else {
           maxPendingRequests_ = value;
         }
-        onChanged();
       } else {
         maxPendingRequestsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -562,14 +532,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_pending_requests = 1;</code>
      */
     public Builder clearMaxPendingRequests() {
-      if (maxPendingRequestsBuilder_ == null) {
-        maxPendingRequests_ = null;
-        onChanged();
-      } else {
-        maxPendingRequests_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      maxPendingRequests_ = null;
+      if (maxPendingRequestsBuilder_ != null) {
+        maxPendingRequestsBuilder_.dispose();
         maxPendingRequestsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -581,7 +550,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_pending_requests = 1;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMaxPendingRequestsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMaxPendingRequestsFieldBuilder().getBuilder();
     }
@@ -655,7 +624,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DnsCacheCircuitBreakers(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

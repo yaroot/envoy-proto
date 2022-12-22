@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TroubleshootIamPolicyResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            access_ = rawValue;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              explainedPolicies_ = new java.util.ArrayList<google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            explainedPolicies_.add(
-                input.readMessage(google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        explainedPolicies_ = java.util.Collections.unmodifiableList(explainedPolicies_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.policytroubleshooter.v1.IAMCheckerProto.internal_static_google_cloud_policytroubleshooter_v1_TroubleshootIamPolicyResponse_descriptor;
@@ -108,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCESS_FIELD_NUMBER = 1;
-  private int access_;
+  private int access_ = 0;
   /**
    * <pre>
    * Indicates whether the member has the specified permission for the specified
@@ -131,12 +73,12 @@ private static final long serialVersionUID = 0L;
    * @return The access.
    */
   @java.lang.Override public google.cloud.policytroubleshooter.v1.Explanations.AccessState getAccess() {
-    @SuppressWarnings("deprecation")
-    google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.valueOf(access_);
+    google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.forNumber(access_);
     return result == null ? google.cloud.policytroubleshooter.v1.Explanations.AccessState.UNRECOGNIZED : result;
   }
 
   public static final int EXPLAINED_POLICIES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy> explainedPolicies_;
   /**
    * <pre>
@@ -251,7 +193,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < explainedPolicies_.size(); i++) {
       output.writeMessage(2, explainedPolicies_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -268,7 +210,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, explainedPolicies_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -286,7 +228,7 @@ private static final long serialVersionUID = 0L;
     if (access_ != other.access_) return false;
     if (!getExplainedPoliciesList()
         .equals(other.getExplainedPoliciesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -303,7 +245,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXPLAINED_POLICIES_FIELD_NUMBER;
       hash = (53 * hash) + getExplainedPoliciesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -424,31 +366,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getExplainedPoliciesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       access_ = 0;
-
       if (explainedPoliciesBuilder_ == null) {
         explainedPolicies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        explainedPolicies_ = null;
         explainedPoliciesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -475,19 +412,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyResponse buildPartial() {
       com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyResponse result = new com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyResponse(this);
-      int from_bitField0_ = bitField0_;
-      result.access_ = access_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyResponse result) {
       if (explainedPoliciesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           explainedPolicies_ = java.util.Collections.unmodifiableList(explainedPolicies_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.explainedPolicies_ = explainedPolicies_;
       } else {
         result.explainedPolicies_ = explainedPoliciesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.access_ = access_;
+      }
     }
 
     @java.lang.Override
@@ -541,7 +488,7 @@ private static final long serialVersionUID = 0L;
         if (!other.explainedPolicies_.isEmpty()) {
           if (explainedPolicies_.isEmpty()) {
             explainedPolicies_ = other.explainedPolicies_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureExplainedPoliciesIsMutable();
             explainedPolicies_.addAll(other.explainedPolicies_);
@@ -554,7 +501,7 @@ private static final long serialVersionUID = 0L;
             explainedPoliciesBuilder_.dispose();
             explainedPoliciesBuilder_ = null;
             explainedPolicies_ = other.explainedPolicies_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             explainedPoliciesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getExplainedPoliciesFieldBuilder() : null;
@@ -563,7 +510,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -578,17 +525,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              access_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy m =
+                  input.readMessage(
+                      google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy.parser(),
+                      extensionRegistry);
+              if (explainedPoliciesBuilder_ == null) {
+                ensureExplainedPoliciesIsMutable();
+                explainedPolicies_.add(m);
+              } else {
+                explainedPoliciesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -617,8 +595,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAccessValue(int value) {
-      
       access_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -633,8 +611,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.cloud.policytroubleshooter.v1.Explanations.AccessState getAccess() {
-      @SuppressWarnings("deprecation")
-      google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.valueOf(access_);
+      google.cloud.policytroubleshooter.v1.Explanations.AccessState result = google.cloud.policytroubleshooter.v1.Explanations.AccessState.forNumber(access_);
       return result == null ? google.cloud.policytroubleshooter.v1.Explanations.AccessState.UNRECOGNIZED : result;
     }
     /**
@@ -651,7 +628,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       access_ = value.getNumber();
       onChanged();
       return this;
@@ -666,7 +643,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAccess() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       access_ = 0;
       onChanged();
       return this;
@@ -675,9 +652,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy> explainedPolicies_ =
       java.util.Collections.emptyList();
     private void ensureExplainedPoliciesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         explainedPolicies_ = new java.util.ArrayList<google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy>(explainedPolicies_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -948,7 +925,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearExplainedPolicies() {
       if (explainedPoliciesBuilder_ == null) {
         explainedPolicies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         explainedPoliciesBuilder_.clear();
@@ -1102,7 +1079,7 @@ private static final long serialVersionUID = 0L;
         explainedPoliciesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy, google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicy.Builder, google.cloud.policytroubleshooter.v1.Explanations.ExplainedPolicyOrBuilder>(
                 explainedPolicies_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         explainedPolicies_ = null;
@@ -1142,7 +1119,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TroubleshootIamPolicyResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

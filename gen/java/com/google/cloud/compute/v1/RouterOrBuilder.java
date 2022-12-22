@@ -138,7 +138,7 @@ public interface RouterOrBuilder extends
 
   /**
    * <pre>
-   * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). Not currently available publicly. 
+   * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments).
    * </pre>
    *
    * <code>optional bool encrypted_interconnect_router = 297996575;</code>
@@ -147,7 +147,7 @@ public interface RouterOrBuilder extends
   boolean hasEncryptedInterconnectRouter();
   /**
    * <pre>
-   * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). Not currently available publicly. 
+   * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments).
    * </pre>
    *
    * <code>optional bool encrypted_interconnect_router = 297996575;</code>
@@ -246,6 +246,50 @@ public interface RouterOrBuilder extends
    */
   com.google.protobuf.ByteString
       getKindBytes();
+
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  java.util.List<com.google.cloud.compute.v1.RouterMd5AuthenticationKey> 
+      getMd5AuthenticationKeysList();
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  com.google.cloud.compute.v1.RouterMd5AuthenticationKey getMd5AuthenticationKeys(int index);
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  int getMd5AuthenticationKeysCount();
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  java.util.List<? extends com.google.cloud.compute.v1.RouterMd5AuthenticationKeyOrBuilder> 
+      getMd5AuthenticationKeysOrBuilderList();
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  com.google.cloud.compute.v1.RouterMd5AuthenticationKeyOrBuilder getMd5AuthenticationKeysOrBuilder(
+      int index);
 
   /**
    * <pre>

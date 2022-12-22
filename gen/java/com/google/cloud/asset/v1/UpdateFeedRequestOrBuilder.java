@@ -9,8 +9,8 @@ public interface UpdateFeedRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The new values of feed details. It must match an existing feed
-   * and the field `name` must be in the format of:
+   * Required. The new values of feed details. It must match an existing feed and the
+   * field `name` must be in the format of:
    * projects/project_number/feeds/feed_id or
    * folders/folder_number/feeds/feed_id or
    * organizations/organization_number/feeds/feed_id.
@@ -22,8 +22,8 @@ public interface UpdateFeedRequestOrBuilder extends
   boolean hasFeed();
   /**
    * <pre>
-   * Required. The new values of feed details. It must match an existing feed
-   * and the field `name` must be in the format of:
+   * Required. The new values of feed details. It must match an existing feed and the
+   * field `name` must be in the format of:
    * projects/project_number/feeds/feed_id or
    * folders/folder_number/feeds/feed_id or
    * organizations/organization_number/feeds/feed_id.
@@ -35,8 +35,8 @@ public interface UpdateFeedRequestOrBuilder extends
   com.google.cloud.asset.v1.Feed getFeed();
   /**
    * <pre>
-   * Required. The new values of feed details. It must match an existing feed
-   * and the field `name` must be in the format of:
+   * Required. The new values of feed details. It must match an existing feed and the
+   * field `name` must be in the format of:
    * projects/project_number/feeds/feed_id or
    * folders/folder_number/feeds/feed_id or
    * organizations/organization_number/feeds/feed_id.

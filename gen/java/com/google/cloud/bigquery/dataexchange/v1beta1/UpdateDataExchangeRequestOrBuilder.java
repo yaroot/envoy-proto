@@ -9,10 +9,9 @@ public interface UpdateDataExchangeRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Field mask is used to specify the fields to be overwritten in the
-   * DataExchange resource by the update.
-   * The fields specified in the update_mask are relative to the resource, not
-   * the full request.
+   * Required. Field mask specifies the fields to update in the data exchange
+   * resource. The fields specified in the
+   * `updateMask` are relative to the resource and are not a full request.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -21,10 +20,9 @@ public interface UpdateDataExchangeRequestOrBuilder extends
   boolean hasUpdateMask();
   /**
    * <pre>
-   * Required. Field mask is used to specify the fields to be overwritten in the
-   * DataExchange resource by the update.
-   * The fields specified in the update_mask are relative to the resource, not
-   * the full request.
+   * Required. Field mask specifies the fields to update in the data exchange
+   * resource. The fields specified in the
+   * `updateMask` are relative to the resource and are not a full request.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -33,10 +31,9 @@ public interface UpdateDataExchangeRequestOrBuilder extends
   com.google.protobuf.FieldMask getUpdateMask();
   /**
    * <pre>
-   * Required. Field mask is used to specify the fields to be overwritten in the
-   * DataExchange resource by the update.
-   * The fields specified in the update_mask are relative to the resource, not
-   * the full request.
+   * Required. Field mask specifies the fields to update in the data exchange
+   * resource. The fields specified in the
+   * `updateMask` are relative to the resource and are not a full request.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -45,7 +42,7 @@ public interface UpdateDataExchangeRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The DataExchange to update.
+   * Required. The data exchange to update.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -54,7 +51,7 @@ public interface UpdateDataExchangeRequestOrBuilder extends
   boolean hasDataExchange();
   /**
    * <pre>
-   * Required. The DataExchange to update.
+   * Required. The data exchange to update.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -63,7 +60,7 @@ public interface UpdateDataExchangeRequestOrBuilder extends
   com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange getDataExchange();
   /**
    * <pre>
-   * Required. The DataExchange to update.
+   * Required. The data exchange to update.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>

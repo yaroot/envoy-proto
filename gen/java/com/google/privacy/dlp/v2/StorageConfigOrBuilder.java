@@ -36,7 +36,7 @@ public interface StorageConfigOrBuilder extends
 
   /**
    * <pre>
-   * Google Cloud Storage options.
+   * Cloud Storage options.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -45,7 +45,7 @@ public interface StorageConfigOrBuilder extends
   boolean hasCloudStorageOptions();
   /**
    * <pre>
-   * Google Cloud Storage options.
+   * Cloud Storage options.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>
@@ -54,7 +54,7 @@ public interface StorageConfigOrBuilder extends
   com.google.privacy.dlp.v2.CloudStorageOptions getCloudStorageOptions();
   /**
    * <pre>
-   * Google Cloud Storage options.
+   * Cloud Storage options.
    * </pre>
    *
    * <code>.google.privacy.dlp.v2.CloudStorageOptions cloud_storage_options = 3;</code>

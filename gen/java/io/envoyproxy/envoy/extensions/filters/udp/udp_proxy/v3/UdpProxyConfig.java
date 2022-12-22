@@ -6,7 +6,7 @@ package io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3;
 /**
  * <pre>
  * Configuration for the UDP proxy filter.
- * [#next-free-field: 10]
+ * [#next-free-field: 11]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig}
@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     statPrefix_ = "";
     hashPolicies_ = java.util.Collections.emptyList();
     accessLog_ = java.util.Collections.emptyList();
+    proxyAccessLog_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -37,132 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private UdpProxyConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statPrefix_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            routeSpecifierCase_ = 2;
-            routeSpecifier_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (idleTimeout_ != null) {
-              subBuilder = idleTimeout_.toBuilder();
-            }
-            idleTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(idleTimeout_);
-              idleTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            useOriginalSrcIp_ = input.readBool();
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              hashPolicies_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            hashPolicies_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            io.envoyproxy.envoy.config.core.v3.UdpSocketConfig.Builder subBuilder = null;
-            if (upstreamSocketConfig_ != null) {
-              subBuilder = upstreamSocketConfig_.toBuilder();
-            }
-            upstreamSocketConfig_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.UdpSocketConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(upstreamSocketConfig_);
-              upstreamSocketConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-
-            usePerPacketLoadBalancing_ = input.readBool();
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              accessLog_ = new java.util.ArrayList<io.envoyproxy.envoy.config.accesslog.v3.AccessLog>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            accessLog_.add(
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.AccessLog.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            com.github.xds.type.matcher.v3.Matcher.Builder subBuilder = null;
-            if (routeSpecifierCase_ == 9) {
-              subBuilder = ((com.github.xds.type.matcher.v3.Matcher) routeSpecifier_).toBuilder();
-            }
-            routeSpecifier_ =
-                input.readMessage(com.github.xds.type.matcher.v3.Matcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.github.xds.type.matcher.v3.Matcher) routeSpecifier_);
-              routeSpecifier_ = subBuilder.buildPartial();
-            }
-            routeSpecifierCase_ = 9;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        hashPolicies_ = java.util.Collections.unmodifiableList(hashPolicies_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        accessLog_ = java.util.Collections.unmodifiableList(accessLog_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -274,56 +149,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private HashPolicy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              policySpecifier_ = input.readBool();
-              policySpecifierCase_ = 1;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              policySpecifierCase_ = 2;
-              policySpecifier_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -505,7 +330,7 @@ private static final long serialVersionUID = 0L;
       if (policySpecifierCase_ == 2) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, policySpecifier_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -522,7 +347,7 @@ private static final long serialVersionUID = 0L;
       if (policySpecifierCase_ == 2) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, policySpecifier_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -550,7 +375,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -574,7 +399,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -696,22 +521,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         policySpecifierCase_ = 0;
         policySpecifier_ = null;
         return this;
@@ -740,15 +561,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy buildPartial() {
         io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy result = new io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy(this);
-        if (policySpecifierCase_ == 1) {
-          result.policySpecifier_ = policySpecifier_;
-        }
-        if (policySpecifierCase_ == 2) {
-          result.policySpecifier_ = policySpecifier_;
-        }
-        result.policySpecifierCase_ = policySpecifierCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy result) {
+        result.policySpecifierCase_ = policySpecifierCase_;
+        result.policySpecifier_ = this.policySpecifier_;
       }
 
       @java.lang.Override
@@ -810,7 +635,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -825,17 +650,41 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                policySpecifier_ = input.readBool();
+                policySpecifierCase_ = 1;
+                break;
+              } // case 8
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                policySpecifierCase_ = 2;
+                policySpecifier_ = s;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int policySpecifierCase_ = 0;
@@ -853,6 +702,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       /**
        * <pre>
@@ -889,6 +739,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setSourceIp(boolean value) {
+        
         policySpecifierCase_ = 1;
         policySpecifier_ = value;
         onChanged();
@@ -1003,10 +854,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  policySpecifierCase_ = 2;
+        if (value == null) { throw new NullPointerException(); }
+        policySpecifierCase_ = 2;
         policySpecifier_ = value;
         onChanged();
         return this;
@@ -1046,10 +895,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         policySpecifierCase_ = 2;
         policySpecifier_ = value;
         onChanged();
@@ -1088,7 +935,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HashPolicy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1150,7 +1008,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAT_PREFIX_FIELD_NUMBER = 1;
-  private volatile java.lang.Object statPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
   /**
    * <pre>
    * The stat prefix used when emitting UDP proxy filter stats.
@@ -1355,11 +1214,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getIdleTimeoutOrBuilder() {
-    return getIdleTimeout();
+    return idleTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : idleTimeout_;
   }
 
   public static final int USE_ORIGINAL_SRC_IP_FIELD_NUMBER = 4;
-  private boolean useOriginalSrcIp_;
+  private boolean useOriginalSrcIp_ = false;
   /**
    * <pre>
    * Use the remote downstream IP address as the sender IP address when sending packets to upstream hosts.
@@ -1387,6 +1246,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HASH_POLICIES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy> hashPolicies_;
   /**
    * <pre>
@@ -1497,11 +1357,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.UdpSocketConfigOrBuilder getUpstreamSocketConfigOrBuilder() {
-    return getUpstreamSocketConfig();
+    return upstreamSocketConfig_ == null ? io.envoyproxy.envoy.config.core.v3.UdpSocketConfig.getDefaultInstance() : upstreamSocketConfig_;
   }
 
   public static final int USE_PER_PACKET_LOAD_BALANCING_FIELD_NUMBER = 7;
-  private boolean usePerPacketLoadBalancing_;
+  private boolean usePerPacketLoadBalancing_ = false;
   /**
    * <pre>
    * Perform per packet load balancing (upstream host selection) on each received data chunk.
@@ -1518,10 +1378,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCESS_LOG_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> accessLog_;
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -1532,7 +1393,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -1544,7 +1405,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -1555,7 +1416,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -1566,7 +1427,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -1575,6 +1436,67 @@ private static final long serialVersionUID = 0L;
   public io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder getAccessLogOrBuilder(
       int index) {
     return accessLog_.get(index);
+  }
+
+  public static final int PROXY_ACCESS_LOG_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
+  private java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> proxyAccessLog_;
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  @java.lang.Override
+  public java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> getProxyAccessLogList() {
+    return proxyAccessLog_;
+  }
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder> 
+      getProxyAccessLogOrBuilderList() {
+    return proxyAccessLog_;
+  }
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  @java.lang.Override
+  public int getProxyAccessLogCount() {
+    return proxyAccessLog_.size();
+  }
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.accesslog.v3.AccessLog getProxyAccessLog(int index) {
+    return proxyAccessLog_.get(index);
+  }
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder getProxyAccessLogOrBuilder(
+      int index) {
+    return proxyAccessLog_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1618,7 +1540,10 @@ private static final long serialVersionUID = 0L;
     if (routeSpecifierCase_ == 9) {
       output.writeMessage(9, (com.github.xds.type.matcher.v3.Matcher) routeSpecifier_);
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < proxyAccessLog_.size(); i++) {
+      output.writeMessage(10, proxyAccessLog_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1661,7 +1586,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, (com.github.xds.type.matcher.v3.Matcher) routeSpecifier_);
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < proxyAccessLog_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, proxyAccessLog_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1696,6 +1625,8 @@ private static final long serialVersionUID = 0L;
         != other.getUsePerPacketLoadBalancing()) return false;
     if (!getAccessLogList()
         .equals(other.getAccessLogList())) return false;
+    if (!getProxyAccessLogList()
+        .equals(other.getProxyAccessLogList())) return false;
     if (!getRouteSpecifierCase().equals(other.getRouteSpecifierCase())) return false;
     switch (routeSpecifierCase_) {
       case 2:
@@ -1709,7 +1640,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1744,6 +1675,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ACCESS_LOG_FIELD_NUMBER;
       hash = (53 * hash) + getAccessLogList().hashCode();
     }
+    if (getProxyAccessLogCount() > 0) {
+      hash = (37 * hash) + PROXY_ACCESS_LOG_FIELD_NUMBER;
+      hash = (53 * hash) + getProxyAccessLogList().hashCode();
+    }
     switch (routeSpecifierCase_) {
       case 2:
         hash = (37 * hash) + CLUSTER_FIELD_NUMBER;
@@ -1756,7 +1691,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1854,7 +1789,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Configuration for the UDP proxy filter.
-   * [#next-free-field: 10]
+   * [#next-free-field: 11]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig}
@@ -1878,54 +1813,55 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHashPoliciesFieldBuilder();
-        getAccessLogFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       statPrefix_ = "";
-
-      if (idleTimeoutBuilder_ == null) {
-        idleTimeout_ = null;
-      } else {
-        idleTimeout_ = null;
+      if (matcherBuilder_ != null) {
+        matcherBuilder_.clear();
+      }
+      idleTimeout_ = null;
+      if (idleTimeoutBuilder_ != null) {
+        idleTimeoutBuilder_.dispose();
         idleTimeoutBuilder_ = null;
       }
       useOriginalSrcIp_ = false;
-
       if (hashPoliciesBuilder_ == null) {
         hashPolicies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        hashPolicies_ = null;
         hashPoliciesBuilder_.clear();
       }
-      if (upstreamSocketConfigBuilder_ == null) {
-        upstreamSocketConfig_ = null;
-      } else {
-        upstreamSocketConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      upstreamSocketConfig_ = null;
+      if (upstreamSocketConfigBuilder_ != null) {
+        upstreamSocketConfigBuilder_.dispose();
         upstreamSocketConfigBuilder_ = null;
       }
       usePerPacketLoadBalancing_ = false;
-
       if (accessLogBuilder_ == null) {
         accessLog_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        accessLog_ = null;
         accessLogBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
+      if (proxyAccessLogBuilder_ == null) {
+        proxyAccessLog_ = java.util.Collections.emptyList();
+      } else {
+        proxyAccessLog_ = null;
+        proxyAccessLogBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000200);
       routeSpecifierCase_ = 0;
       routeSpecifier_ = null;
       return this;
@@ -1954,51 +1890,73 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig buildPartial() {
       io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig result = new io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.statPrefix_ = statPrefix_;
-      if (routeSpecifierCase_ == 2) {
-        result.routeSpecifier_ = routeSpecifier_;
-      }
-      if (routeSpecifierCase_ == 9) {
-        if (matcherBuilder_ == null) {
-          result.routeSpecifier_ = routeSpecifier_;
-        } else {
-          result.routeSpecifier_ = matcherBuilder_.build();
-        }
-      }
-      if (idleTimeoutBuilder_ == null) {
-        result.idleTimeout_ = idleTimeout_;
-      } else {
-        result.idleTimeout_ = idleTimeoutBuilder_.build();
-      }
-      result.useOriginalSrcIp_ = useOriginalSrcIp_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig result) {
       if (hashPoliciesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           hashPolicies_ = java.util.Collections.unmodifiableList(hashPolicies_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.hashPolicies_ = hashPolicies_;
       } else {
         result.hashPolicies_ = hashPoliciesBuilder_.build();
       }
-      if (upstreamSocketConfigBuilder_ == null) {
-        result.upstreamSocketConfig_ = upstreamSocketConfig_;
-      } else {
-        result.upstreamSocketConfig_ = upstreamSocketConfigBuilder_.build();
-      }
-      result.usePerPacketLoadBalancing_ = usePerPacketLoadBalancing_;
       if (accessLogBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           accessLog_ = java.util.Collections.unmodifiableList(accessLog_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.accessLog_ = accessLog_;
       } else {
         result.accessLog_ = accessLogBuilder_.build();
       }
+      if (proxyAccessLogBuilder_ == null) {
+        if (((bitField0_ & 0x00000200) != 0)) {
+          proxyAccessLog_ = java.util.Collections.unmodifiableList(proxyAccessLog_);
+          bitField0_ = (bitField0_ & ~0x00000200);
+        }
+        result.proxyAccessLog_ = proxyAccessLog_;
+      } else {
+        result.proxyAccessLog_ = proxyAccessLogBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.idleTimeout_ = idleTimeoutBuilder_ == null
+            ? idleTimeout_
+            : idleTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.useOriginalSrcIp_ = useOriginalSrcIp_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.upstreamSocketConfig_ = upstreamSocketConfigBuilder_ == null
+            ? upstreamSocketConfig_
+            : upstreamSocketConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.usePerPacketLoadBalancing_ = usePerPacketLoadBalancing_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig result) {
       result.routeSpecifierCase_ = routeSpecifierCase_;
-      onBuilt();
-      return result;
+      result.routeSpecifier_ = this.routeSpecifier_;
+      if (routeSpecifierCase_ == 9 &&
+          matcherBuilder_ != null) {
+        result.routeSpecifier_ = matcherBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2047,6 +2005,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.getDefaultInstance()) return this;
       if (!other.getStatPrefix().isEmpty()) {
         statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasIdleTimeout()) {
@@ -2059,7 +2018,7 @@ private static final long serialVersionUID = 0L;
         if (!other.hashPolicies_.isEmpty()) {
           if (hashPolicies_.isEmpty()) {
             hashPolicies_ = other.hashPolicies_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureHashPoliciesIsMutable();
             hashPolicies_.addAll(other.hashPolicies_);
@@ -2072,7 +2031,7 @@ private static final long serialVersionUID = 0L;
             hashPoliciesBuilder_.dispose();
             hashPoliciesBuilder_ = null;
             hashPolicies_ = other.hashPolicies_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             hashPoliciesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getHashPoliciesFieldBuilder() : null;
@@ -2091,7 +2050,7 @@ private static final long serialVersionUID = 0L;
         if (!other.accessLog_.isEmpty()) {
           if (accessLog_.isEmpty()) {
             accessLog_ = other.accessLog_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureAccessLogIsMutable();
             accessLog_.addAll(other.accessLog_);
@@ -2104,12 +2063,38 @@ private static final long serialVersionUID = 0L;
             accessLogBuilder_.dispose();
             accessLogBuilder_ = null;
             accessLog_ = other.accessLog_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
             accessLogBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAccessLogFieldBuilder() : null;
           } else {
             accessLogBuilder_.addAllMessages(other.accessLog_);
+          }
+        }
+      }
+      if (proxyAccessLogBuilder_ == null) {
+        if (!other.proxyAccessLog_.isEmpty()) {
+          if (proxyAccessLog_.isEmpty()) {
+            proxyAccessLog_ = other.proxyAccessLog_;
+            bitField0_ = (bitField0_ & ~0x00000200);
+          } else {
+            ensureProxyAccessLogIsMutable();
+            proxyAccessLog_.addAll(other.proxyAccessLog_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.proxyAccessLog_.isEmpty()) {
+          if (proxyAccessLogBuilder_.isEmpty()) {
+            proxyAccessLogBuilder_.dispose();
+            proxyAccessLogBuilder_ = null;
+            proxyAccessLog_ = other.proxyAccessLog_;
+            bitField0_ = (bitField0_ & ~0x00000200);
+            proxyAccessLogBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getProxyAccessLogFieldBuilder() : null;
+          } else {
+            proxyAccessLogBuilder_.addAllMessages(other.proxyAccessLog_);
           }
         }
       }
@@ -2128,7 +2113,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2143,17 +2128,111 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              routeSpecifierCase_ = 2;
+              routeSpecifier_ = s;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getIdleTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 32: {
+              useOriginalSrcIp_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 42: {
+              io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy.parser(),
+                      extensionRegistry);
+              if (hashPoliciesBuilder_ == null) {
+                ensureHashPoliciesIsMutable();
+                hashPolicies_.add(m);
+              } else {
+                hashPoliciesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUpstreamSocketConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 56: {
+              usePerPacketLoadBalancing_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 56
+            case 66: {
+              io.envoyproxy.envoy.config.accesslog.v3.AccessLog m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.accesslog.v3.AccessLog.parser(),
+                      extensionRegistry);
+              if (accessLogBuilder_ == null) {
+                ensureAccessLogIsMutable();
+                accessLog_.add(m);
+              } else {
+                accessLogBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getMatcherFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              routeSpecifierCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              io.envoyproxy.envoy.config.accesslog.v3.AccessLog m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.accesslog.v3.AccessLog.parser(),
+                      extensionRegistry);
+              if (proxyAccessLogBuilder_ == null) {
+                ensureProxyAccessLogIsMutable();
+                proxyAccessLog_.add(m);
+              } else {
+                proxyAccessLogBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int routeSpecifierCase_ = 0;
@@ -2226,11 +2305,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2243,8 +2320,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatPrefix() {
-      
       statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2259,12 +2336,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2361,10 +2436,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setCluster(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  routeSpecifierCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      routeSpecifierCase_ = 2;
       routeSpecifier_ = value;
       onChanged();
       return this;
@@ -2404,10 +2477,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setClusterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       routeSpecifierCase_ = 2;
       routeSpecifier_ = value;
       onChanged();
@@ -2597,7 +2668,7 @@ private static final long serialVersionUID = 0L;
         routeSpecifier_ = null;
       }
       routeSpecifierCase_ = 9;
-      onChanged();;
+      onChanged();
       return matcherBuilder_;
     }
 
@@ -2614,7 +2685,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the idleTimeout field is set.
      */
     public boolean hasIdleTimeout() {
-      return idleTimeoutBuilder_ != null || idleTimeout_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2646,11 +2717,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         idleTimeout_ = value;
-        onChanged();
       } else {
         idleTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2665,11 +2736,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (idleTimeoutBuilder_ == null) {
         idleTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         idleTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2682,17 +2753,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIdleTimeout(com.google.protobuf.Duration value) {
       if (idleTimeoutBuilder_ == null) {
-        if (idleTimeout_ != null) {
-          idleTimeout_ =
-            com.google.protobuf.Duration.newBuilder(idleTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          idleTimeout_ != null &&
+          idleTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getIdleTimeoutBuilder().mergeFrom(value);
         } else {
           idleTimeout_ = value;
         }
-        onChanged();
       } else {
         idleTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2704,14 +2776,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration idle_timeout = 3;</code>
      */
     public Builder clearIdleTimeout() {
-      if (idleTimeoutBuilder_ == null) {
-        idleTimeout_ = null;
-        onChanged();
-      } else {
-        idleTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      idleTimeout_ = null;
+      if (idleTimeoutBuilder_ != null) {
+        idleTimeoutBuilder_.dispose();
         idleTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2723,7 +2794,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration idle_timeout = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getIdleTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getIdleTimeoutFieldBuilder().getBuilder();
     }
@@ -2816,6 +2887,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseOriginalSrcIp(boolean value) {
       
       useOriginalSrcIp_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2841,7 +2913,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseOriginalSrcIp() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       useOriginalSrcIp_ = false;
       onChanged();
       return this;
@@ -2850,9 +2922,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy> hashPolicies_ =
       java.util.Collections.emptyList();
     private void ensureHashPoliciesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         hashPolicies_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy>(hashPolicies_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -3068,7 +3140,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearHashPolicies() {
       if (hashPoliciesBuilder_ == null) {
         hashPolicies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         hashPoliciesBuilder_.clear();
@@ -3187,7 +3259,7 @@ private static final long serialVersionUID = 0L;
         hashPoliciesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy, io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicy.Builder, io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.HashPolicyOrBuilder>(
                 hashPolicies_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         hashPolicies_ = null;
@@ -3209,7 +3281,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the upstreamSocketConfig field is set.
      */
     public boolean hasUpstreamSocketConfig() {
-      return upstreamSocketConfigBuilder_ != null || upstreamSocketConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3243,11 +3315,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         upstreamSocketConfig_ = value;
-        onChanged();
       } else {
         upstreamSocketConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3263,11 +3335,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.UdpSocketConfig.Builder builderForValue) {
       if (upstreamSocketConfigBuilder_ == null) {
         upstreamSocketConfig_ = builderForValue.build();
-        onChanged();
       } else {
         upstreamSocketConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3281,17 +3353,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpstreamSocketConfig(io.envoyproxy.envoy.config.core.v3.UdpSocketConfig value) {
       if (upstreamSocketConfigBuilder_ == null) {
-        if (upstreamSocketConfig_ != null) {
-          upstreamSocketConfig_ =
-            io.envoyproxy.envoy.config.core.v3.UdpSocketConfig.newBuilder(upstreamSocketConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          upstreamSocketConfig_ != null &&
+          upstreamSocketConfig_ != io.envoyproxy.envoy.config.core.v3.UdpSocketConfig.getDefaultInstance()) {
+          getUpstreamSocketConfigBuilder().mergeFrom(value);
         } else {
           upstreamSocketConfig_ = value;
         }
-        onChanged();
       } else {
         upstreamSocketConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3304,14 +3377,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.UdpSocketConfig upstream_socket_config = 6;</code>
      */
     public Builder clearUpstreamSocketConfig() {
-      if (upstreamSocketConfigBuilder_ == null) {
-        upstreamSocketConfig_ = null;
-        onChanged();
-      } else {
-        upstreamSocketConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      upstreamSocketConfig_ = null;
+      if (upstreamSocketConfigBuilder_ != null) {
+        upstreamSocketConfigBuilder_.dispose();
         upstreamSocketConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3324,7 +3396,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.UdpSocketConfig upstream_socket_config = 6;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.UdpSocketConfig.Builder getUpstreamSocketConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getUpstreamSocketConfigFieldBuilder().getBuilder();
     }
@@ -3397,6 +3469,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUsePerPacketLoadBalancing(boolean value) {
       
       usePerPacketLoadBalancing_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3411,7 +3484,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsePerPacketLoadBalancing() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       usePerPacketLoadBalancing_ = false;
       onChanged();
       return this;
@@ -3420,9 +3493,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> accessLog_ =
       java.util.Collections.emptyList();
     private void ensureAccessLogIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         accessLog_ = new java.util.ArrayList<io.envoyproxy.envoy.config.accesslog.v3.AccessLog>(accessLog_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -3431,7 +3504,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3445,7 +3518,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3459,7 +3532,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3473,7 +3546,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3494,7 +3567,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3512,7 +3585,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3532,7 +3605,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3553,7 +3626,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3571,7 +3644,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3589,7 +3662,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3608,7 +3681,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3616,7 +3689,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAccessLog() {
       if (accessLogBuilder_ == null) {
         accessLog_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         accessLogBuilder_.clear();
@@ -3625,7 +3698,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3642,7 +3715,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3653,7 +3726,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3667,7 +3740,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3682,7 +3755,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3693,7 +3766,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3705,7 +3778,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
      * </pre>
      *
      * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -3721,12 +3794,324 @@ private static final long serialVersionUID = 0L;
         accessLogBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.accesslog.v3.AccessLog, io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder, io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder>(
                 accessLog_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         accessLog_ = null;
       }
       return accessLogBuilder_;
+    }
+
+    private java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> proxyAccessLog_ =
+      java.util.Collections.emptyList();
+    private void ensureProxyAccessLogIsMutable() {
+      if (!((bitField0_ & 0x00000200) != 0)) {
+        proxyAccessLog_ = new java.util.ArrayList<io.envoyproxy.envoy.config.accesslog.v3.AccessLog>(proxyAccessLog_);
+        bitField0_ |= 0x00000200;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.config.accesslog.v3.AccessLog, io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder, io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder> proxyAccessLogBuilder_;
+
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> getProxyAccessLogList() {
+      if (proxyAccessLogBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(proxyAccessLog_);
+      } else {
+        return proxyAccessLogBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public int getProxyAccessLogCount() {
+      if (proxyAccessLogBuilder_ == null) {
+        return proxyAccessLog_.size();
+      } else {
+        return proxyAccessLogBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public io.envoyproxy.envoy.config.accesslog.v3.AccessLog getProxyAccessLog(int index) {
+      if (proxyAccessLogBuilder_ == null) {
+        return proxyAccessLog_.get(index);
+      } else {
+        return proxyAccessLogBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public Builder setProxyAccessLog(
+        int index, io.envoyproxy.envoy.config.accesslog.v3.AccessLog value) {
+      if (proxyAccessLogBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureProxyAccessLogIsMutable();
+        proxyAccessLog_.set(index, value);
+        onChanged();
+      } else {
+        proxyAccessLogBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public Builder setProxyAccessLog(
+        int index, io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder builderForValue) {
+      if (proxyAccessLogBuilder_ == null) {
+        ensureProxyAccessLogIsMutable();
+        proxyAccessLog_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        proxyAccessLogBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public Builder addProxyAccessLog(io.envoyproxy.envoy.config.accesslog.v3.AccessLog value) {
+      if (proxyAccessLogBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureProxyAccessLogIsMutable();
+        proxyAccessLog_.add(value);
+        onChanged();
+      } else {
+        proxyAccessLogBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public Builder addProxyAccessLog(
+        int index, io.envoyproxy.envoy.config.accesslog.v3.AccessLog value) {
+      if (proxyAccessLogBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureProxyAccessLogIsMutable();
+        proxyAccessLog_.add(index, value);
+        onChanged();
+      } else {
+        proxyAccessLogBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public Builder addProxyAccessLog(
+        io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder builderForValue) {
+      if (proxyAccessLogBuilder_ == null) {
+        ensureProxyAccessLogIsMutable();
+        proxyAccessLog_.add(builderForValue.build());
+        onChanged();
+      } else {
+        proxyAccessLogBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public Builder addProxyAccessLog(
+        int index, io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder builderForValue) {
+      if (proxyAccessLogBuilder_ == null) {
+        ensureProxyAccessLogIsMutable();
+        proxyAccessLog_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        proxyAccessLogBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public Builder addAllProxyAccessLog(
+        java.lang.Iterable<? extends io.envoyproxy.envoy.config.accesslog.v3.AccessLog> values) {
+      if (proxyAccessLogBuilder_ == null) {
+        ensureProxyAccessLogIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, proxyAccessLog_);
+        onChanged();
+      } else {
+        proxyAccessLogBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public Builder clearProxyAccessLog() {
+      if (proxyAccessLogBuilder_ == null) {
+        proxyAccessLog_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000200);
+        onChanged();
+      } else {
+        proxyAccessLogBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public Builder removeProxyAccessLog(int index) {
+      if (proxyAccessLogBuilder_ == null) {
+        ensureProxyAccessLogIsMutable();
+        proxyAccessLog_.remove(index);
+        onChanged();
+      } else {
+        proxyAccessLogBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder getProxyAccessLogBuilder(
+        int index) {
+      return getProxyAccessLogFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder getProxyAccessLogOrBuilder(
+        int index) {
+      if (proxyAccessLogBuilder_ == null) {
+        return proxyAccessLog_.get(index);  } else {
+        return proxyAccessLogBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public java.util.List<? extends io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder> 
+         getProxyAccessLogOrBuilderList() {
+      if (proxyAccessLogBuilder_ != null) {
+        return proxyAccessLogBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(proxyAccessLog_);
+      }
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder addProxyAccessLogBuilder() {
+      return getProxyAccessLogFieldBuilder().addBuilder(
+          io.envoyproxy.envoy.config.accesslog.v3.AccessLog.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder addProxyAccessLogBuilder(
+        int index) {
+      return getProxyAccessLogFieldBuilder().addBuilder(
+          index, io.envoyproxy.envoy.config.accesslog.v3.AccessLog.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+     * </pre>
+     *
+     * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder> 
+         getProxyAccessLogBuilderList() {
+      return getProxyAccessLogFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.config.accesslog.v3.AccessLog, io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder, io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder> 
+        getProxyAccessLogFieldBuilder() {
+      if (proxyAccessLogBuilder_ == null) {
+        proxyAccessLogBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.envoyproxy.envoy.config.accesslog.v3.AccessLog, io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder, io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder>(
+                proxyAccessLog_,
+                ((bitField0_ & 0x00000200) != 0),
+                getParentForChildren(),
+                isClean());
+        proxyAccessLog_ = null;
+      }
+      return proxyAccessLogBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -3761,7 +4146,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UdpProxyConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

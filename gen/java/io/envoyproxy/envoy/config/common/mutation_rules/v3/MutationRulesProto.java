@@ -19,6 +19,11 @@ public final class MutationRulesProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_envoy_config_common_mutation_rules_v3_HeaderMutationRules_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_config_common_mutation_rules_v3_HeaderMutation_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_config_common_mutation_rules_v3_HeaderMutation_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -30,32 +35,38 @@ public final class MutationRulesProto {
     java.lang.String[] descriptorData = {
       "\n:envoy/config/common/mutation_rules/v3/" +
       "mutation_rules.proto\022%envoy.config.commo" +
-      "n.mutation_rules.v3\032!envoy/type/matcher/" +
-      "v3/regex.proto\032\036google/protobuf/wrappers" +
-      ".proto\032\035udpa/annotations/status.proto\"\234\003" +
-      "\n\023HeaderMutationRules\0225\n\021allow_all_routi" +
-      "ng\030\001 \001(\0132\032.google.protobuf.BoolValue\022/\n\013" +
-      "allow_envoy\030\002 \001(\0132\032.google.protobuf.Bool" +
-      "Value\0223\n\017disallow_system\030\003 \001(\0132\032.google." +
-      "protobuf.BoolValue\0220\n\014disallow_all\030\004 \001(\013" +
-      "2\032.google.protobuf.BoolValue\022=\n\020allow_ex" +
-      "pression\030\005 \001(\0132#.envoy.type.matcher.v3.R" +
-      "egexMatcher\022@\n\023disallow_expression\030\006 \001(\013" +
-      "2#.envoy.type.matcher.v3.RegexMatcher\0225\n" +
-      "\021disallow_is_error\030\007 \001(\0132\032.google.protob" +
-      "uf.BoolValueB\262\001\n3io.envoyproxy.envoy.con" +
-      "fig.common.mutation_rules.v3B\022MutationRu" +
-      "lesProtoP\001Z]github.com/envoyproxy/go-con" +
-      "trol-plane/envoy/config/common/mutation_" +
-      "rules/v3;mutation_rulesv3\272\200\310\321\006\002\020\002b\006proto" +
-      "3"
+      "n.mutation_rules.v3\032\037envoy/config/core/v" +
+      "3/base.proto\032!envoy/type/matcher/v3/rege" +
+      "x.proto\032\036google/protobuf/wrappers.proto\032" +
+      "\035udpa/annotations/status.proto\032\027validate" +
+      "/validate.proto\"\234\003\n\023HeaderMutationRules\022" +
+      "5\n\021allow_all_routing\030\001 \001(\0132\032.google.prot" +
+      "obuf.BoolValue\022/\n\013allow_envoy\030\002 \001(\0132\032.go" +
+      "ogle.protobuf.BoolValue\0223\n\017disallow_syst" +
+      "em\030\003 \001(\0132\032.google.protobuf.BoolValue\0220\n\014" +
+      "disallow_all\030\004 \001(\0132\032.google.protobuf.Boo" +
+      "lValue\022=\n\020allow_expression\030\005 \001(\0132#.envoy" +
+      ".type.matcher.v3.RegexMatcher\022@\n\023disallo" +
+      "w_expression\030\006 \001(\0132#.envoy.type.matcher." +
+      "v3.RegexMatcher\0225\n\021disallow_is_error\030\007 \001" +
+      "(\0132\032.google.protobuf.BoolValue\"y\n\016Header" +
+      "Mutation\022\035\n\006remove\030\001 \001(\tB\013\372B\010r\006\300\001\002\310\001\000H\000\022" +
+      "9\n\006append\030\002 \001(\0132\'.envoy.config.core.v3.H" +
+      "eaderValueOptionH\000B\r\n\006action\022\003\370B\001B\262\001\n3io" +
+      ".envoyproxy.envoy.config.common.mutation" +
+      "_rules.v3B\022MutationRulesProtoP\001Z]github." +
+      "com/envoyproxy/go-control-plane/envoy/co" +
+      "nfig/common/mutation_rules/v3;mutation_r" +
+      "ulesv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor(),
           io.envoyproxy.envoy.type.matcher.v3.RegexProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
           udpa.annotations.Status.getDescriptor(),
+          io.envoyproxy.pgv.validate.Validate.getDescriptor(),
         });
     internal_static_envoy_config_common_mutation_rules_v3_HeaderMutationRules_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -63,14 +74,24 @@ public final class MutationRulesProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_common_mutation_rules_v3_HeaderMutationRules_descriptor,
         new java.lang.String[] { "AllowAllRouting", "AllowEnvoy", "DisallowSystem", "DisallowAll", "AllowExpression", "DisallowExpression", "DisallowIsError", });
+    internal_static_envoy_config_common_mutation_rules_v3_HeaderMutation_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_envoy_config_common_mutation_rules_v3_HeaderMutation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_config_common_mutation_rules_v3_HeaderMutation_descriptor,
+        new java.lang.String[] { "Remove", "Append", "Action", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);
+    registry.add(io.envoyproxy.pgv.validate.Validate.required);
+    registry.add(io.envoyproxy.pgv.validate.Validate.rules);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
+    io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor();
     io.envoyproxy.envoy.type.matcher.v3.RegexProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
     udpa.annotations.Status.getDescriptor();
+    io.envoyproxy.pgv.validate.Validate.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

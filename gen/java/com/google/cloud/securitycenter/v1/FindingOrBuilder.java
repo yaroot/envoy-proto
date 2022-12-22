@@ -209,7 +209,6 @@ public interface FindingOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; source_properties = 7;</code>
    */
-
   /* nullable */
 com.google.protobuf.Value getSourcePropertiesOrDefault(
       java.lang.String key,
@@ -225,7 +224,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; source_properties = 7;</code>
    */
-
   com.google.protobuf.Value getSourcePropertiesOrThrow(
       java.lang.String key);
 
@@ -468,7 +466,7 @@ com.google.protobuf.Value defaultValue);
 
   /**
    * <pre>
-   * Represents vulnerability specific fields like cve, cvss scores etc.
+   * Represents vulnerability-specific fields like CVE and CVS scores.
    * CVE stands for Common Vulnerabilities and Exposures
    * (https://cve.mitre.org/about/)
    * </pre>
@@ -479,7 +477,7 @@ com.google.protobuf.Value defaultValue);
   boolean hasVulnerability();
   /**
    * <pre>
-   * Represents vulnerability specific fields like cve, cvss scores etc.
+   * Represents vulnerability-specific fields like CVE and CVS scores.
    * CVE stands for Common Vulnerabilities and Exposures
    * (https://cve.mitre.org/about/)
    * </pre>
@@ -490,7 +488,7 @@ com.google.protobuf.Value defaultValue);
   com.google.cloud.securitycenter.v1.Vulnerability getVulnerability();
   /**
    * <pre>
-   * Represents vulnerability specific fields like cve, cvss scores etc.
+   * Represents vulnerability-specific fields like CVE and CVS scores.
    * CVE stands for Common Vulnerabilities and Exposures
    * (https://cve.mitre.org/about/)
    * </pre>
@@ -569,7 +567,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, .google.cloud.securitycenter.v1.ExternalSystem&gt; external_systems = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.securitycenter.v1.ExternalSystem getExternalSystemsOrDefault(
       java.lang.String key,
@@ -583,7 +580,6 @@ com.google.cloud.securitycenter.v1.ExternalSystem defaultValue);
    *
    * <code>map&lt;string, .google.cloud.securitycenter.v1.ExternalSystem&gt; external_systems = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.securitycenter.v1.ExternalSystem getExternalSystemsOrThrow(
       java.lang.String key);
 
@@ -763,7 +759,7 @@ com.google.cloud.securitycenter.v1.ExternalSystem defaultValue);
 
   /**
    * <pre>
-   * Output only. Map containing the point of contacts for the given finding. The key
+   * Output only. Map containing the points of contact for the given finding. The key
    * represents the type of contact, while the value contains a list of all the
    * contacts that pertain. Please refer to:
    * https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
@@ -786,7 +782,7 @@ com.google.cloud.securitycenter.v1.ExternalSystem defaultValue);
   int getContactsCount();
   /**
    * <pre>
-   * Output only. Map containing the point of contacts for the given finding. The key
+   * Output only. Map containing the points of contact for the given finding. The key
    * represents the type of contact, while the value contains a list of all the
    * contacts that pertain. Please refer to:
    * https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
@@ -816,7 +812,7 @@ com.google.cloud.securitycenter.v1.ExternalSystem defaultValue);
   getContacts();
   /**
    * <pre>
-   * Output only. Map containing the point of contacts for the given finding. The key
+   * Output only. Map containing the points of contact for the given finding. The key
    * represents the type of contact, while the value contains a list of all the
    * contacts that pertain. Please refer to:
    * https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
@@ -840,7 +836,7 @@ com.google.cloud.securitycenter.v1.ExternalSystem defaultValue);
   getContactsMap();
   /**
    * <pre>
-   * Output only. Map containing the point of contacts for the given finding. The key
+   * Output only. Map containing the points of contact for the given finding. The key
    * represents the type of contact, while the value contains a list of all the
    * contacts that pertain. Please refer to:
    * https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
@@ -860,7 +856,6 @@ com.google.cloud.securitycenter.v1.ExternalSystem defaultValue);
    *
    * <code>map&lt;string, .google.cloud.securitycenter.v1.ContactDetails&gt; contacts = 33 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.securitycenter.v1.ContactDetails getContactsOrDefault(
       java.lang.String key,
@@ -868,7 +863,7 @@ com.google.cloud.securitycenter.v1.ContactDetails getContactsOrDefault(
 com.google.cloud.securitycenter.v1.ContactDetails defaultValue);
   /**
    * <pre>
-   * Output only. Map containing the point of contacts for the given finding. The key
+   * Output only. Map containing the points of contact for the given finding. The key
    * represents the type of contact, while the value contains a list of all the
    * contacts that pertain. Please refer to:
    * https://cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories
@@ -888,7 +883,6 @@ com.google.cloud.securitycenter.v1.ContactDetails defaultValue);
    *
    * <code>map&lt;string, .google.cloud.securitycenter.v1.ContactDetails&gt; contacts = 33 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.securitycenter.v1.ContactDetails getContactsOrThrow(
       java.lang.String key);
 
@@ -940,6 +934,28 @@ com.google.cloud.securitycenter.v1.ContactDetails defaultValue);
    */
   com.google.cloud.securitycenter.v1.ComplianceOrBuilder getCompliancesOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * Output only. The human readable display name of the finding source such as
+   * "Event Threat Detection" or "Security Health Analytics".
+   * </pre>
+   *
+   * <code>string parent_display_name = 36 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The parentDisplayName.
+   */
+  java.lang.String getParentDisplayName();
+  /**
+   * <pre>
+   * Output only. The human readable display name of the finding source such as
+   * "Event Threat Detection" or "Security Health Analytics".
+   * </pre>
+   *
+   * <code>string parent_display_name = 36 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The bytes for parentDisplayName.
+   */
+  com.google.protobuf.ByteString
+      getParentDisplayNameBytes();
 
   /**
    * <pre>
@@ -1127,4 +1143,102 @@ com.google.cloud.securitycenter.v1.ContactDetails defaultValue);
    * <code>.google.cloud.securitycenter.v1.Kubernetes kubernetes = 43;</code>
    */
   com.google.cloud.securitycenter.v1.KubernetesOrBuilder getKubernetesOrBuilder();
+
+  /**
+   * <pre>
+   * Database associated with the finding.
+   * </pre>
+   *
+   * <code>.google.cloud.securitycenter.v1.Database database = 44;</code>
+   * @return Whether the database field is set.
+   */
+  boolean hasDatabase();
+  /**
+   * <pre>
+   * Database associated with the finding.
+   * </pre>
+   *
+   * <code>.google.cloud.securitycenter.v1.Database database = 44;</code>
+   * @return The database.
+   */
+  com.google.cloud.securitycenter.v1.Database getDatabase();
+  /**
+   * <pre>
+   * Database associated with the finding.
+   * </pre>
+   *
+   * <code>.google.cloud.securitycenter.v1.Database database = 44;</code>
+   */
+  com.google.cloud.securitycenter.v1.DatabaseOrBuilder getDatabaseOrBuilder();
+
+  /**
+   * <pre>
+   * File associated with the finding.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.securitycenter.v1.File files = 46;</code>
+   */
+  java.util.List<com.google.cloud.securitycenter.v1.File> 
+      getFilesList();
+  /**
+   * <pre>
+   * File associated with the finding.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.securitycenter.v1.File files = 46;</code>
+   */
+  com.google.cloud.securitycenter.v1.File getFiles(int index);
+  /**
+   * <pre>
+   * File associated with the finding.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.securitycenter.v1.File files = 46;</code>
+   */
+  int getFilesCount();
+  /**
+   * <pre>
+   * File associated with the finding.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.securitycenter.v1.File files = 46;</code>
+   */
+  java.util.List<? extends com.google.cloud.securitycenter.v1.FileOrBuilder> 
+      getFilesOrBuilderList();
+  /**
+   * <pre>
+   * File associated with the finding.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.securitycenter.v1.File files = 46;</code>
+   */
+  com.google.cloud.securitycenter.v1.FileOrBuilder getFilesOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Kernel Rootkit signature.
+   * </pre>
+   *
+   * <code>.google.cloud.securitycenter.v1.KernelRootkit kernel_rootkit = 50;</code>
+   * @return Whether the kernelRootkit field is set.
+   */
+  boolean hasKernelRootkit();
+  /**
+   * <pre>
+   * Kernel Rootkit signature.
+   * </pre>
+   *
+   * <code>.google.cloud.securitycenter.v1.KernelRootkit kernel_rootkit = 50;</code>
+   * @return The kernelRootkit.
+   */
+  com.google.cloud.securitycenter.v1.KernelRootkit getKernelRootkit();
+  /**
+   * <pre>
+   * Kernel Rootkit signature.
+   * </pre>
+   *
+   * <code>.google.cloud.securitycenter.v1.KernelRootkit kernel_rootkit = 50;</code>
+   */
+  com.google.cloud.securitycenter.v1.KernelRootkitOrBuilder getKernelRootkitOrBuilder();
 }

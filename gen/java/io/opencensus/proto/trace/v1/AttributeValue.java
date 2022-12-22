@@ -34,74 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AttributeValue(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.opencensus.proto.trace.v1.TruncatableString.Builder subBuilder = null;
-            if (valueCase_ == 1) {
-              subBuilder = ((io.opencensus.proto.trace.v1.TruncatableString) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(io.opencensus.proto.trace.v1.TruncatableString.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.opencensus.proto.trace.v1.TruncatableString) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 1;
-            break;
-          }
-          case 16: {
-            value_ = input.readInt64();
-            valueCase_ = 2;
-            break;
-          }
-          case 24: {
-            value_ = input.readBool();
-            valueCase_ = 3;
-            break;
-          }
-          case 33: {
-            value_ = input.readDouble();
-            valueCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opencensus.proto.trace.v1.TraceProto.internal_static_opencensus_proto_trace_v1_AttributeValue_descriptor;
@@ -319,7 +251,7 @@ private static final long serialVersionUID = 0L;
       output.writeDouble(
           4, (double)((java.lang.Double) value_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -347,7 +279,7 @@ private static final long serialVersionUID = 0L;
         .computeDoubleSize(
             4, (double)((java.lang.Double) value_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -384,7 +316,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -418,7 +350,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -539,22 +471,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opencensus.proto.trace.v1.AttributeValue.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (stringValueBuilder_ != null) {
+        stringValueBuilder_.clear();
+      }
       valueCase_ = 0;
       value_ = null;
       return this;
@@ -583,25 +514,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opencensus.proto.trace.v1.AttributeValue buildPartial() {
       io.opencensus.proto.trace.v1.AttributeValue result = new io.opencensus.proto.trace.v1.AttributeValue(this);
-      if (valueCase_ == 1) {
-        if (stringValueBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = stringValueBuilder_.build();
-        }
-      }
-      if (valueCase_ == 2) {
-        result.value_ = value_;
-      }
-      if (valueCase_ == 3) {
-        result.value_ = value_;
-      }
-      if (valueCase_ == 4) {
-        result.value_ = value_;
-      }
-      result.valueCase_ = valueCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.opencensus.proto.trace.v1.AttributeValue result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(io.opencensus.proto.trace.v1.AttributeValue result) {
+      result.valueCase_ = valueCase_;
+      result.value_ = this.value_;
+      if (valueCase_ == 1 &&
+          stringValueBuilder_ != null) {
+        result.value_ = stringValueBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -669,7 +598,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -684,17 +613,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opencensus.proto.trace.v1.AttributeValue parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStringValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 1;
+              break;
+            } // case 10
+            case 16: {
+              value_ = input.readInt64();
+              valueCase_ = 2;
+              break;
+            } // case 16
+            case 24: {
+              value_ = input.readBool();
+              valueCase_ = 3;
+              break;
+            } // case 24
+            case 33: {
+              value_ = input.readDouble();
+              valueCase_ = 4;
+              break;
+            } // case 33
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opencensus.proto.trace.v1.AttributeValue) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int valueCase_ = 0;
@@ -712,6 +676,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         io.opencensus.proto.trace.v1.TruncatableString, io.opencensus.proto.trace.v1.TruncatableString.Builder, io.opencensus.proto.trace.v1.TruncatableStringOrBuilder> stringValueBuilder_;
@@ -887,7 +852,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 1;
-      onChanged();;
+      onChanged();
       return stringValueBuilder_;
     }
 
@@ -926,6 +891,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIntValue(long value) {
+      
       valueCase_ = 2;
       value_ = value;
       onChanged();
@@ -983,6 +949,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBoolValue(boolean value) {
+      
       valueCase_ = 3;
       value_ = value;
       onChanged();
@@ -1040,6 +1007,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDoubleValue(double value) {
+      
       valueCase_ = 4;
       value_ = value;
       onChanged();
@@ -1094,7 +1062,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AttributeValue(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

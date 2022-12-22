@@ -44,70 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BreakRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              breakRequests_ = new java.util.ArrayList<com.google.cloud.optimization.v1.BreakRule.BreakRequest>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            breakRequests_.add(
-                input.readMessage(com.google.cloud.optimization.v1.BreakRule.BreakRequest.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              frequencyConstraints_ = new java.util.ArrayList<com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            frequencyConstraints_.add(
-                input.readMessage(com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        breakRequests_ = java.util.Collections.unmodifiableList(breakRequests_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        frequencyConstraints_ = java.util.Collections.unmodifiableList(frequencyConstraints_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_BreakRule_descriptor;
@@ -241,84 +177,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BreakRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (earliestStartTime_ != null) {
-                subBuilder = earliestStartTime_.toBuilder();
-              }
-              earliestStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(earliestStartTime_);
-                earliestStartTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (latestStartTime_ != null) {
-                subBuilder = latestStartTime_.toBuilder();
-              }
-              latestStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(latestStartTime_);
-                latestStartTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (minDuration_ != null) {
-                subBuilder = minDuration_.toBuilder();
-              }
-              minDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(minDuration_);
-                minDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_BreakRule_BreakRequest_descriptor;
@@ -367,7 +225,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getEarliestStartTimeOrBuilder() {
-      return getEarliestStartTime();
+      return earliestStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : earliestStartTime_;
     }
 
     public static final int LATEST_START_TIME_FIELD_NUMBER = 2;
@@ -405,7 +263,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLatestStartTimeOrBuilder() {
-      return getLatestStartTime();
+      return latestStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : latestStartTime_;
     }
 
     public static final int MIN_DURATION_FIELD_NUMBER = 3;
@@ -443,7 +301,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getMinDurationOrBuilder() {
-      return getMinDuration();
+      return minDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minDuration_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -469,7 +327,7 @@ private static final long serialVersionUID = 0L;
       if (minDuration_ != null) {
         output.writeMessage(3, getMinDuration());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -490,7 +348,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getMinDuration());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -520,7 +378,7 @@ private static final long serialVersionUID = 0L;
         if (!getMinDuration()
             .equals(other.getMinDuration())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -543,7 +401,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + MIN_DURATION_FIELD_NUMBER;
         hash = (53 * hash) + getMinDuration().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -668,38 +526,31 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.BreakRule.BreakRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (earliestStartTimeBuilder_ == null) {
-          earliestStartTime_ = null;
-        } else {
-          earliestStartTime_ = null;
+        bitField0_ = 0;
+        earliestStartTime_ = null;
+        if (earliestStartTimeBuilder_ != null) {
+          earliestStartTimeBuilder_.dispose();
           earliestStartTimeBuilder_ = null;
         }
-        if (latestStartTimeBuilder_ == null) {
-          latestStartTime_ = null;
-        } else {
-          latestStartTime_ = null;
+        latestStartTime_ = null;
+        if (latestStartTimeBuilder_ != null) {
+          latestStartTimeBuilder_.dispose();
           latestStartTimeBuilder_ = null;
         }
-        if (minDurationBuilder_ == null) {
-          minDuration_ = null;
-        } else {
-          minDuration_ = null;
+        minDuration_ = null;
+        if (minDurationBuilder_ != null) {
+          minDurationBuilder_.dispose();
           minDurationBuilder_ = null;
         }
         return this;
@@ -728,23 +579,28 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.BreakRule.BreakRequest buildPartial() {
         com.google.cloud.optimization.v1.BreakRule.BreakRequest result = new com.google.cloud.optimization.v1.BreakRule.BreakRequest(this);
-        if (earliestStartTimeBuilder_ == null) {
-          result.earliestStartTime_ = earliestStartTime_;
-        } else {
-          result.earliestStartTime_ = earliestStartTimeBuilder_.build();
-        }
-        if (latestStartTimeBuilder_ == null) {
-          result.latestStartTime_ = latestStartTime_;
-        } else {
-          result.latestStartTime_ = latestStartTimeBuilder_.build();
-        }
-        if (minDurationBuilder_ == null) {
-          result.minDuration_ = minDuration_;
-        } else {
-          result.minDuration_ = minDurationBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.BreakRule.BreakRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.earliestStartTime_ = earliestStartTimeBuilder_ == null
+              ? earliestStartTime_
+              : earliestStartTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.latestStartTime_ = latestStartTimeBuilder_ == null
+              ? latestStartTime_
+              : latestStartTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.minDuration_ = minDurationBuilder_ == null
+              ? minDuration_
+              : minDurationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -800,7 +656,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasMinDuration()) {
           mergeMinDuration(other.getMinDuration());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -815,19 +671,54 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.BreakRule.BreakRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getEarliestStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getLatestStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getMinDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.BreakRule.BreakRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Timestamp earliestStartTime_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -841,7 +732,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the earliestStartTime field is set.
        */
       public boolean hasEarliestStartTime() {
-        return earliestStartTimeBuilder_ != null || earliestStartTime_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -871,11 +762,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           earliestStartTime_ = value;
-          onChanged();
         } else {
           earliestStartTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -889,11 +780,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (earliestStartTimeBuilder_ == null) {
           earliestStartTime_ = builderForValue.build();
-          onChanged();
         } else {
           earliestStartTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -905,17 +796,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeEarliestStartTime(com.google.protobuf.Timestamp value) {
         if (earliestStartTimeBuilder_ == null) {
-          if (earliestStartTime_ != null) {
-            earliestStartTime_ =
-              com.google.protobuf.Timestamp.newBuilder(earliestStartTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            earliestStartTime_ != null &&
+            earliestStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getEarliestStartTimeBuilder().mergeFrom(value);
           } else {
             earliestStartTime_ = value;
           }
-          onChanged();
         } else {
           earliestStartTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -926,14 +818,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp earliest_start_time = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearEarliestStartTime() {
-        if (earliestStartTimeBuilder_ == null) {
-          earliestStartTime_ = null;
-          onChanged();
-        } else {
-          earliestStartTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        earliestStartTime_ = null;
+        if (earliestStartTimeBuilder_ != null) {
+          earliestStartTimeBuilder_.dispose();
           earliestStartTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -944,7 +835,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp earliest_start_time = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protobuf.Timestamp.Builder getEarliestStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getEarliestStartTimeFieldBuilder().getBuilder();
       }
@@ -996,7 +887,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the latestStartTime field is set.
        */
       public boolean hasLatestStartTime() {
-        return latestStartTimeBuilder_ != null || latestStartTime_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1026,11 +917,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           latestStartTime_ = value;
-          onChanged();
         } else {
           latestStartTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1044,11 +935,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (latestStartTimeBuilder_ == null) {
           latestStartTime_ = builderForValue.build();
-          onChanged();
         } else {
           latestStartTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1060,17 +951,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeLatestStartTime(com.google.protobuf.Timestamp value) {
         if (latestStartTimeBuilder_ == null) {
-          if (latestStartTime_ != null) {
-            latestStartTime_ =
-              com.google.protobuf.Timestamp.newBuilder(latestStartTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            latestStartTime_ != null &&
+            latestStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getLatestStartTimeBuilder().mergeFrom(value);
           } else {
             latestStartTime_ = value;
           }
-          onChanged();
         } else {
           latestStartTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1081,14 +973,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp latest_start_time = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearLatestStartTime() {
-        if (latestStartTimeBuilder_ == null) {
-          latestStartTime_ = null;
-          onChanged();
-        } else {
-          latestStartTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        latestStartTime_ = null;
+        if (latestStartTimeBuilder_ != null) {
+          latestStartTimeBuilder_.dispose();
           latestStartTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1099,7 +990,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp latest_start_time = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protobuf.Timestamp.Builder getLatestStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getLatestStartTimeFieldBuilder().getBuilder();
       }
@@ -1151,7 +1042,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the minDuration field is set.
        */
       public boolean hasMinDuration() {
-        return minDurationBuilder_ != null || minDuration_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -1181,11 +1072,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           minDuration_ = value;
-          onChanged();
         } else {
           minDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1199,11 +1090,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (minDurationBuilder_ == null) {
           minDuration_ = builderForValue.build();
-          onChanged();
         } else {
           minDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1215,17 +1106,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMinDuration(com.google.protobuf.Duration value) {
         if (minDurationBuilder_ == null) {
-          if (minDuration_ != null) {
-            minDuration_ =
-              com.google.protobuf.Duration.newBuilder(minDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            minDuration_ != null &&
+            minDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getMinDurationBuilder().mergeFrom(value);
           } else {
             minDuration_ = value;
           }
-          onChanged();
         } else {
           minDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1236,14 +1128,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration min_duration = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearMinDuration() {
-        if (minDurationBuilder_ == null) {
-          minDuration_ = null;
-          onChanged();
-        } else {
-          minDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        minDuration_ = null;
+        if (minDurationBuilder_ != null) {
+          minDurationBuilder_.dispose();
           minDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1254,7 +1145,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration min_duration = 3 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protobuf.Duration.Builder getMinDurationBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getMinDurationFieldBuilder().getBuilder();
       }
@@ -1326,7 +1217,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BreakRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1382,8 +1284,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. Maximum allowed span of any interval of time in the route that does not
-     * include at least partially a break of `duration &gt;=
+     * Required. Maximum allowed span of any interval of time in the route that
+     * does not include at least partially a break of `duration &gt;=
      * min_break_duration`. Must be positive.
      * </pre>
      *
@@ -1393,8 +1295,8 @@ private static final long serialVersionUID = 0L;
     boolean hasMaxInterBreakDuration();
     /**
      * <pre>
-     * Required. Maximum allowed span of any interval of time in the route that does not
-     * include at least partially a break of `duration &gt;=
+     * Required. Maximum allowed span of any interval of time in the route that
+     * does not include at least partially a break of `duration &gt;=
      * min_break_duration`. Must be positive.
      * </pre>
      *
@@ -1404,8 +1306,8 @@ private static final long serialVersionUID = 0L;
     com.google.protobuf.Duration getMaxInterBreakDuration();
     /**
      * <pre>
-     * Required. Maximum allowed span of any interval of time in the route that does not
-     * include at least partially a break of `duration &gt;=
+     * Required. Maximum allowed span of any interval of time in the route that
+     * does not include at least partially a break of `duration &gt;=
      * min_break_duration`. Must be positive.
      * </pre>
      *
@@ -1474,71 +1376,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FrequencyConstraint(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (minBreakDuration_ != null) {
-                subBuilder = minBreakDuration_.toBuilder();
-              }
-              minBreakDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(minBreakDuration_);
-                minBreakDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (maxInterBreakDuration_ != null) {
-                subBuilder = maxInterBreakDuration_.toBuilder();
-              }
-              maxInterBreakDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(maxInterBreakDuration_);
-                maxInterBreakDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_BreakRule_FrequencyConstraint_descriptor;
@@ -1590,15 +1427,15 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getMinBreakDurationOrBuilder() {
-      return getMinBreakDuration();
+      return minBreakDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minBreakDuration_;
     }
 
     public static final int MAX_INTER_BREAK_DURATION_FIELD_NUMBER = 2;
     private com.google.protobuf.Duration maxInterBreakDuration_;
     /**
      * <pre>
-     * Required. Maximum allowed span of any interval of time in the route that does not
-     * include at least partially a break of `duration &gt;=
+     * Required. Maximum allowed span of any interval of time in the route that
+     * does not include at least partially a break of `duration &gt;=
      * min_break_duration`. Must be positive.
      * </pre>
      *
@@ -1611,8 +1448,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Maximum allowed span of any interval of time in the route that does not
-     * include at least partially a break of `duration &gt;=
+     * Required. Maximum allowed span of any interval of time in the route that
+     * does not include at least partially a break of `duration &gt;=
      * min_break_duration`. Must be positive.
      * </pre>
      *
@@ -1625,8 +1462,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Maximum allowed span of any interval of time in the route that does not
-     * include at least partially a break of `duration &gt;=
+     * Required. Maximum allowed span of any interval of time in the route that
+     * does not include at least partially a break of `duration &gt;=
      * min_break_duration`. Must be positive.
      * </pre>
      *
@@ -1634,7 +1471,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getMaxInterBreakDurationOrBuilder() {
-      return getMaxInterBreakDuration();
+      return maxInterBreakDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxInterBreakDuration_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1657,7 +1494,7 @@ private static final long serialVersionUID = 0L;
       if (maxInterBreakDuration_ != null) {
         output.writeMessage(2, getMaxInterBreakDuration());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1674,7 +1511,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getMaxInterBreakDuration());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1699,7 +1536,7 @@ private static final long serialVersionUID = 0L;
         if (!getMaxInterBreakDuration()
             .equals(other.getMaxInterBreakDuration())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1718,7 +1555,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + MAX_INTER_BREAK_DURATION_FIELD_NUMBER;
         hash = (53 * hash) + getMaxInterBreakDuration().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1869,32 +1706,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (minBreakDurationBuilder_ == null) {
-          minBreakDuration_ = null;
-        } else {
-          minBreakDuration_ = null;
+        bitField0_ = 0;
+        minBreakDuration_ = null;
+        if (minBreakDurationBuilder_ != null) {
+          minBreakDurationBuilder_.dispose();
           minBreakDurationBuilder_ = null;
         }
-        if (maxInterBreakDurationBuilder_ == null) {
-          maxInterBreakDuration_ = null;
-        } else {
-          maxInterBreakDuration_ = null;
+        maxInterBreakDuration_ = null;
+        if (maxInterBreakDurationBuilder_ != null) {
+          maxInterBreakDurationBuilder_.dispose();
           maxInterBreakDurationBuilder_ = null;
         }
         return this;
@@ -1923,18 +1754,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint buildPartial() {
         com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint result = new com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint(this);
-        if (minBreakDurationBuilder_ == null) {
-          result.minBreakDuration_ = minBreakDuration_;
-        } else {
-          result.minBreakDuration_ = minBreakDurationBuilder_.build();
-        }
-        if (maxInterBreakDurationBuilder_ == null) {
-          result.maxInterBreakDuration_ = maxInterBreakDuration_;
-        } else {
-          result.maxInterBreakDuration_ = maxInterBreakDurationBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.minBreakDuration_ = minBreakDurationBuilder_ == null
+              ? minBreakDuration_
+              : minBreakDurationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.maxInterBreakDuration_ = maxInterBreakDurationBuilder_ == null
+              ? maxInterBreakDuration_
+              : maxInterBreakDurationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1987,7 +1823,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasMaxInterBreakDuration()) {
           mergeMaxInterBreakDuration(other.getMaxInterBreakDuration());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2002,19 +1838,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getMinBreakDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getMaxInterBreakDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Duration minBreakDuration_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2029,7 +1893,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the minBreakDuration field is set.
        */
       public boolean hasMinBreakDuration() {
-        return minBreakDurationBuilder_ != null || minBreakDuration_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2061,11 +1925,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           minBreakDuration_ = value;
-          onChanged();
         } else {
           minBreakDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2080,11 +1944,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (minBreakDurationBuilder_ == null) {
           minBreakDuration_ = builderForValue.build();
-          onChanged();
         } else {
           minBreakDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2097,17 +1961,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMinBreakDuration(com.google.protobuf.Duration value) {
         if (minBreakDurationBuilder_ == null) {
-          if (minBreakDuration_ != null) {
-            minBreakDuration_ =
-              com.google.protobuf.Duration.newBuilder(minBreakDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            minBreakDuration_ != null &&
+            minBreakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getMinBreakDurationBuilder().mergeFrom(value);
           } else {
             minBreakDuration_ = value;
           }
-          onChanged();
         } else {
           minBreakDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2119,14 +1984,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration min_break_duration = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearMinBreakDuration() {
-        if (minBreakDurationBuilder_ == null) {
-          minBreakDuration_ = null;
-          onChanged();
-        } else {
-          minBreakDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        minBreakDuration_ = null;
+        if (minBreakDurationBuilder_ != null) {
+          minBreakDurationBuilder_.dispose();
           minBreakDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2138,7 +2002,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration min_break_duration = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protobuf.Duration.Builder getMinBreakDurationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getMinBreakDurationFieldBuilder().getBuilder();
       }
@@ -2185,8 +2049,8 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> maxInterBreakDurationBuilder_;
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route that
+       * does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -2194,12 +2058,12 @@ private static final long serialVersionUID = 0L;
        * @return Whether the maxInterBreakDuration field is set.
        */
       public boolean hasMaxInterBreakDuration() {
-        return maxInterBreakDurationBuilder_ != null || maxInterBreakDuration_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route that
+       * does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -2215,8 +2079,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route that
+       * does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -2228,17 +2092,17 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           maxInterBreakDuration_ = value;
-          onChanged();
         } else {
           maxInterBreakDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route that
+       * does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -2248,17 +2112,17 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (maxInterBreakDurationBuilder_ == null) {
           maxInterBreakDuration_ = builderForValue.build();
-          onChanged();
         } else {
           maxInterBreakDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route that
+       * does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -2266,57 +2130,57 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMaxInterBreakDuration(com.google.protobuf.Duration value) {
         if (maxInterBreakDurationBuilder_ == null) {
-          if (maxInterBreakDuration_ != null) {
-            maxInterBreakDuration_ =
-              com.google.protobuf.Duration.newBuilder(maxInterBreakDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            maxInterBreakDuration_ != null &&
+            maxInterBreakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getMaxInterBreakDurationBuilder().mergeFrom(value);
           } else {
             maxInterBreakDuration_ = value;
           }
-          onChanged();
         } else {
           maxInterBreakDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route that
+       * does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
        * <code>.google.protobuf.Duration max_inter_break_duration = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearMaxInterBreakDuration() {
-        if (maxInterBreakDurationBuilder_ == null) {
-          maxInterBreakDuration_ = null;
-          onChanged();
-        } else {
-          maxInterBreakDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        maxInterBreakDuration_ = null;
+        if (maxInterBreakDurationBuilder_ != null) {
+          maxInterBreakDurationBuilder_.dispose();
           maxInterBreakDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route that
+       * does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
        * <code>.google.protobuf.Duration max_inter_break_duration = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protobuf.Duration.Builder getMaxInterBreakDurationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getMaxInterBreakDurationFieldBuilder().getBuilder();
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route that
+       * does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -2332,8 +2196,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. Maximum allowed span of any interval of time in the route that does not
-       * include at least partially a break of `duration &gt;=
+       * Required. Maximum allowed span of any interval of time in the route that
+       * does not include at least partially a break of `duration &gt;=
        * min_break_duration`. Must be positive.
        * </pre>
        *
@@ -2385,7 +2249,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FrequencyConstraint(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2406,6 +2281,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BREAK_REQUESTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.BreakRule.BreakRequest> breakRequests_;
   /**
    * <pre>
@@ -2466,6 +2342,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FREQUENCY_CONSTRAINTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint> frequencyConstraints_;
   /**
    * <pre>
@@ -2550,7 +2427,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < frequencyConstraints_.size(); i++) {
       output.writeMessage(2, frequencyConstraints_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2567,7 +2444,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, frequencyConstraints_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2586,7 +2463,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getBreakRequestsList())) return false;
     if (!getFrequencyConstraintsList()
         .equals(other.getFrequencyConstraintsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2605,7 +2482,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FREQUENCY_CONSTRAINTS_FIELD_NUMBER;
       hash = (53 * hash) + getFrequencyConstraintsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2734,36 +2611,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.BreakRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getBreakRequestsFieldBuilder();
-        getFrequencyConstraintsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (breakRequestsBuilder_ == null) {
         breakRequests_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        breakRequests_ = null;
         breakRequestsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (frequencyConstraintsBuilder_ == null) {
         frequencyConstraints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        frequencyConstraints_ = null;
         frequencyConstraintsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -2790,7 +2663,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.BreakRule buildPartial() {
       com.google.cloud.optimization.v1.BreakRule result = new com.google.cloud.optimization.v1.BreakRule(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.BreakRule result) {
       if (breakRequestsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           breakRequests_ = java.util.Collections.unmodifiableList(breakRequests_);
@@ -2809,8 +2688,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.frequencyConstraints_ = frequencyConstraintsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.BreakRule result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -2909,7 +2790,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2924,17 +2805,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.BreakRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.optimization.v1.BreakRule.BreakRequest m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.BreakRule.BreakRequest.parser(),
+                      extensionRegistry);
+              if (breakRequestsBuilder_ == null) {
+                ensureBreakRequestsIsMutable();
+                breakRequests_.add(m);
+              } else {
+                breakRequestsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.BreakRule.FrequencyConstraint.parser(),
+                      extensionRegistry);
+              if (frequencyConstraintsBuilder_ == null) {
+                ensureFrequencyConstraintsIsMutable();
+                frequencyConstraints_.add(m);
+              } else {
+                frequencyConstraintsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.BreakRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3613,7 +3533,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BreakRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

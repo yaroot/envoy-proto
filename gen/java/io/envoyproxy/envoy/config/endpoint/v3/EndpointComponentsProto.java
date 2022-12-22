@@ -61,46 +61,48 @@ public final class EndpointComponentsProto {
       "fig/core/v3/health_check.proto\032\036google/p" +
       "rotobuf/wrappers.proto\032\035udpa/annotations" +
       "/status.proto\032!udpa/annotations/versioni" +
-      "ng.proto\032\027validate/validate.proto\"\305\002\n\010En" +
+      "ng.proto\032\027validate/validate.proto\"\233\003\n\010En" +
       "dpoint\022.\n\007address\030\001 \001(\0132\035.envoy.config.c" +
       "ore.v3.Address\022Q\n\023health_check_config\030\002 " +
       "\001(\01324.envoy.config.endpoint.v3.Endpoint." +
-      "HealthCheckConfig\022\020\n\010hostname\030\003 \001(\t\032}\n\021H" +
-      "ealthCheckConfig\022\035\n\nport_value\030\001 \001(\rB\t\372B" +
-      "\006*\004\030\377\377\003\022\020\n\010hostname\030\002 \001(\t:7\232\305\210\0362\n0envoy." +
-      "api.v2.endpoint.Endpoint.HealthCheckConf" +
-      "ig:%\232\305\210\036 \n\036envoy.api.v2.endpoint.Endpoin" +
-      "t\"\314\002\n\nLbEndpoint\0226\n\010endpoint\030\001 \001(\0132\".env" +
-      "oy.config.endpoint.v3.EndpointH\000\022\027\n\rendp" +
-      "oint_name\030\005 \001(\tH\000\0229\n\rhealth_status\030\002 \001(\016" +
-      "2\".envoy.config.core.v3.HealthStatus\0220\n\010" +
-      "metadata\030\003 \001(\0132\036.envoy.config.core.v3.Me" +
-      "tadata\022D\n\025load_balancing_weight\030\004 \001(\0132\034." +
-      "google.protobuf.UInt32ValueB\007\372B\004*\002(\001:\'\232\305" +
-      "\210\036\"\n envoy.api.v2.endpoint.LbEndpointB\021\n" +
-      "\017host_identifier\"r\n\031LedsClusterLocalityC" +
-      "onfig\0227\n\013leds_config\030\001 \001(\0132\".envoy.confi" +
-      "g.core.v3.ConfigSource\022\034\n\024leds_collectio" +
-      "n_name\030\002 \001(\t\"\341\004\n\023LocalityLbEndpoints\0220\n\010" +
-      "locality\030\001 \001(\0132\036.envoy.config.core.v3.Lo" +
-      "cality\022:\n\014lb_endpoints\030\002 \003(\0132$.envoy.con" +
-      "fig.endpoint.v3.LbEndpoint\022_\n\027load_balan" +
-      "cer_endpoints\030\007 \001(\0132<.envoy.config.endpo" +
-      "int.v3.LocalityLbEndpoints.LbEndpointLis" +
-      "tH\000\022[\n\034leds_cluster_locality_config\030\010 \001(" +
-      "\01323.envoy.config.endpoint.v3.LedsCluster" +
-      "LocalityConfigH\000\022D\n\025load_balancing_weigh" +
-      "t\030\003 \001(\0132\034.google.protobuf.UInt32ValueB\007\372" +
-      "B\004*\002(\001\022\032\n\010priority\030\005 \001(\rB\010\372B\005*\003\030\200\001\022/\n\tpr" +
-      "oximity\030\006 \001(\0132\034.google.protobuf.UInt32Va" +
-      "lue\032L\n\016LbEndpointList\022:\n\014lb_endpoints\030\001 " +
-      "\003(\0132$.envoy.config.endpoint.v3.LbEndpoin" +
-      "t:0\232\305\210\036+\n)envoy.api.v2.endpoint.Locality" +
-      "LbEndpointsB\013\n\tlb_configB\227\001\n&io.envoypro" +
-      "xy.envoy.config.endpoint.v3B\027EndpointCom" +
-      "ponentsProtoP\001ZJgithub.com/envoyproxy/go" +
-      "-control-plane/envoy/config/endpoint/v3;" +
-      "endpointv3\272\200\310\321\006\002\020\002b\006proto3"
+      "HealthCheckConfig\022\020\n\010hostname\030\003 \001(\t\032\322\001\n\021" +
+      "HealthCheckConfig\022\035\n\nport_value\030\001 \001(\rB\t\372" +
+      "B\006*\004\030\377\377\003\022\020\n\010hostname\030\002 \001(\t\022.\n\007address\030\003 " +
+      "\001(\0132\035.envoy.config.core.v3.Address\022#\n\033di" +
+      "sable_active_health_check\030\004 \001(\010:7\232\305\210\0362\n0" +
+      "envoy.api.v2.endpoint.Endpoint.HealthChe" +
+      "ckConfig:%\232\305\210\036 \n\036envoy.api.v2.endpoint.E" +
+      "ndpoint\"\314\002\n\nLbEndpoint\0226\n\010endpoint\030\001 \001(\013" +
+      "2\".envoy.config.endpoint.v3.EndpointH\000\022\027" +
+      "\n\rendpoint_name\030\005 \001(\tH\000\0229\n\rhealth_status" +
+      "\030\002 \001(\0162\".envoy.config.core.v3.HealthStat" +
+      "us\0220\n\010metadata\030\003 \001(\0132\036.envoy.config.core" +
+      ".v3.Metadata\022D\n\025load_balancing_weight\030\004 " +
+      "\001(\0132\034.google.protobuf.UInt32ValueB\007\372B\004*\002" +
+      "(\001:\'\232\305\210\036\"\n envoy.api.v2.endpoint.LbEndpo" +
+      "intB\021\n\017host_identifier\"r\n\031LedsClusterLoc" +
+      "alityConfig\0227\n\013leds_config\030\001 \001(\0132\".envoy" +
+      ".config.core.v3.ConfigSource\022\034\n\024leds_col" +
+      "lection_name\030\002 \001(\t\"\341\004\n\023LocalityLbEndpoin" +
+      "ts\0220\n\010locality\030\001 \001(\0132\036.envoy.config.core" +
+      ".v3.Locality\022:\n\014lb_endpoints\030\002 \003(\0132$.env" +
+      "oy.config.endpoint.v3.LbEndpoint\022_\n\027load" +
+      "_balancer_endpoints\030\007 \001(\0132<.envoy.config" +
+      ".endpoint.v3.LocalityLbEndpoints.LbEndpo" +
+      "intListH\000\022[\n\034leds_cluster_locality_confi" +
+      "g\030\010 \001(\01323.envoy.config.endpoint.v3.LedsC" +
+      "lusterLocalityConfigH\000\022D\n\025load_balancing" +
+      "_weight\030\003 \001(\0132\034.google.protobuf.UInt32Va" +
+      "lueB\007\372B\004*\002(\001\022\032\n\010priority\030\005 \001(\rB\010\372B\005*\003\030\200\001" +
+      "\022/\n\tproximity\030\006 \001(\0132\034.google.protobuf.UI" +
+      "nt32Value\032L\n\016LbEndpointList\022:\n\014lb_endpoi" +
+      "nts\030\001 \003(\0132$.envoy.config.endpoint.v3.LbE" +
+      "ndpoint:0\232\305\210\036+\n)envoy.api.v2.endpoint.Lo" +
+      "calityLbEndpointsB\013\n\tlb_configB\227\001\n&io.en" +
+      "voyproxy.envoy.config.endpoint.v3B\027Endpo" +
+      "intComponentsProtoP\001ZJgithub.com/envoypr" +
+      "oxy/go-control-plane/envoy/config/endpoi" +
+      "nt/v3;endpointv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -125,7 +127,7 @@ public final class EndpointComponentsProto {
     internal_static_envoy_config_endpoint_v3_Endpoint_HealthCheckConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_endpoint_v3_Endpoint_HealthCheckConfig_descriptor,
-        new java.lang.String[] { "PortValue", "Hostname", });
+        new java.lang.String[] { "PortValue", "Hostname", "Address", "DisableActiveHealthCheck", });
     internal_static_envoy_config_endpoint_v3_LbEndpoint_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_envoy_config_endpoint_v3_LbEndpoint_fieldAccessorTable = new

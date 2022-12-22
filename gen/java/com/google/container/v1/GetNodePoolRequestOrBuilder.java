@@ -16,7 +16,7 @@ public interface GetNodePoolRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.GetNodePoolRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2702
+   *     See google/container/v1/cluster_service.proto;l=2797
    * @return The projectId.
    */
   @java.lang.Deprecated java.lang.String getProjectId();
@@ -29,7 +29,7 @@ public interface GetNodePoolRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.GetNodePoolRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2702
+   *     See google/container/v1/cluster_service.proto;l=2797
    * @return The bytes for projectId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -45,7 +45,7 @@ public interface GetNodePoolRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.GetNodePoolRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2708
+   *     See google/container/v1/cluster_service.proto;l=2803
    * @return The zone.
    */
   @java.lang.Deprecated java.lang.String getZone();
@@ -59,7 +59,7 @@ public interface GetNodePoolRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.GetNodePoolRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2708
+   *     See google/container/v1/cluster_service.proto;l=2803
    * @return The bytes for zone.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -73,7 +73,7 @@ public interface GetNodePoolRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.GetNodePoolRequest.cluster_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2712
+   *     See google/container/v1/cluster_service.proto;l=2807
    * @return The clusterId.
    */
   @java.lang.Deprecated java.lang.String getClusterId();
@@ -85,7 +85,7 @@ public interface GetNodePoolRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.GetNodePoolRequest.cluster_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2712
+   *     See google/container/v1/cluster_service.proto;l=2807
    * @return The bytes for clusterId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -99,7 +99,7 @@ public interface GetNodePoolRequestOrBuilder extends
    *
    * <code>string node_pool_id = 4 [deprecated = true];</code>
    * @deprecated google.container.v1.GetNodePoolRequest.node_pool_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2716
+   *     See google/container/v1/cluster_service.proto;l=2811
    * @return The nodePoolId.
    */
   @java.lang.Deprecated java.lang.String getNodePoolId();
@@ -111,7 +111,7 @@ public interface GetNodePoolRequestOrBuilder extends
    *
    * <code>string node_pool_id = 4 [deprecated = true];</code>
    * @deprecated google.container.v1.GetNodePoolRequest.node_pool_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2716
+   *     See google/container/v1/cluster_service.proto;l=2811
    * @return The bytes for nodePoolId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

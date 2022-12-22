@@ -44,123 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecurityBulletinEvent(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceTypeAffected_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bulletinId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              cveIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            cveIds_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            severity_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bulletinUri_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            briefDescription_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              affectedSupportedMinors_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            affectedSupportedMinors_.add(s);
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              patchedVersions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            patchedVersions_.add(s);
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            suggestedUpgradeTarget_ = s;
-            break;
-          }
-          case 80: {
-
-            manualStepsRequired_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        cveIds_ = cveIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        affectedSupportedMinors_ = affectedSupportedMinors_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        patchedVersions_ = patchedVersions_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_SecurityBulletinEvent_descriptor;
@@ -175,7 +58,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_TYPE_AFFECTED_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceTypeAffected_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceTypeAffected_ = "";
   /**
    * <pre>
    * The resource type (node/control plane) that has the vulnerability. Multiple
@@ -225,7 +109,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BULLETIN_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object bulletinId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bulletinId_ = "";
   /**
    * <pre>
    * The ID of the bulletin corresponding to the vulnerability.
@@ -271,6 +156,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CVE_IDS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList cveIds_;
   /**
    * <pre>
@@ -322,7 +208,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEVERITY_FIELD_NUMBER = 4;
-  private volatile java.lang.Object severity_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object severity_ = "";
   /**
    * <pre>
    * The severity of this bulletin as it relates to GKE.
@@ -368,7 +255,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BULLETIN_URI_FIELD_NUMBER = 5;
-  private volatile java.lang.Object bulletinUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bulletinUri_ = "";
   /**
    * <pre>
    * The URI link to the bulletin on the website for more information.
@@ -414,7 +302,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BRIEF_DESCRIPTION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object briefDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object briefDescription_ = "";
   /**
    * <pre>
    * A brief description of the bulletin. See the bulletin pointed to by the
@@ -462,6 +351,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AFFECTED_SUPPORTED_MINORS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList affectedSupportedMinors_;
   /**
    * <pre>
@@ -513,6 +403,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATCHED_VERSIONS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList patchedVersions_;
   /**
    * <pre>
@@ -564,7 +455,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUGGESTED_UPGRADE_TARGET_FIELD_NUMBER = 9;
-  private volatile java.lang.Object suggestedUpgradeTarget_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object suggestedUpgradeTarget_ = "";
   /**
    * <pre>
    * This represents a version selected from the patched_versions field that
@@ -618,7 +510,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MANUAL_STEPS_REQUIRED_FIELD_NUMBER = 10;
-  private boolean manualStepsRequired_;
+  private boolean manualStepsRequired_ = false;
   /**
    * <pre>
    * If this field is specified, it means there are manual steps that the user
@@ -677,7 +569,7 @@ private static final long serialVersionUID = 0L;
     if (manualStepsRequired_ != false) {
       output.writeBool(10, manualStepsRequired_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -732,7 +624,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(10, manualStepsRequired_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -767,7 +659,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSuggestedUpgradeTarget())) return false;
     if (getManualStepsRequired()
         != other.getManualStepsRequired()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -805,7 +697,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + MANUAL_STEPS_REQUIRED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getManualStepsRequired());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -927,42 +819,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.SecurityBulletinEvent.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceTypeAffected_ = "";
-
       bulletinId_ = "";
-
       cveIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      severity_ = "";
-
-      bulletinUri_ = "";
-
-      briefDescription_ = "";
-
-      affectedSupportedMinors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      patchedVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
+      severity_ = "";
+      bulletinUri_ = "";
+      briefDescription_ = "";
+      affectedSupportedMinors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      patchedVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000080);
       suggestedUpgradeTarget_ = "";
-
       manualStepsRequired_ = false;
-
       return this;
     }
 
@@ -989,31 +870,53 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.SecurityBulletinEvent buildPartial() {
       com.google.container.v1beta1.SecurityBulletinEvent result = new com.google.container.v1beta1.SecurityBulletinEvent(this);
-      int from_bitField0_ = bitField0_;
-      result.resourceTypeAffected_ = resourceTypeAffected_;
-      result.bulletinId_ = bulletinId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        cveIds_ = cveIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.cveIds_ = cveIds_;
-      result.severity_ = severity_;
-      result.bulletinUri_ = bulletinUri_;
-      result.briefDescription_ = briefDescription_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        affectedSupportedMinors_ = affectedSupportedMinors_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.affectedSupportedMinors_ = affectedSupportedMinors_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        patchedVersions_ = patchedVersions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.patchedVersions_ = patchedVersions_;
-      result.suggestedUpgradeTarget_ = suggestedUpgradeTarget_;
-      result.manualStepsRequired_ = manualStepsRequired_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.container.v1beta1.SecurityBulletinEvent result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        cveIds_ = cveIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.cveIds_ = cveIds_;
+      if (((bitField0_ & 0x00000040) != 0)) {
+        affectedSupportedMinors_ = affectedSupportedMinors_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.affectedSupportedMinors_ = affectedSupportedMinors_;
+      if (((bitField0_ & 0x00000080) != 0)) {
+        patchedVersions_ = patchedVersions_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.patchedVersions_ = patchedVersions_;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.SecurityBulletinEvent result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceTypeAffected_ = resourceTypeAffected_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.bulletinId_ = bulletinId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.severity_ = severity_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.bulletinUri_ = bulletinUri_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.briefDescription_ = briefDescription_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.suggestedUpgradeTarget_ = suggestedUpgradeTarget_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.manualStepsRequired_ = manualStepsRequired_;
+      }
     }
 
     @java.lang.Override
@@ -1062,16 +965,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.container.v1beta1.SecurityBulletinEvent.getDefaultInstance()) return this;
       if (!other.getResourceTypeAffected().isEmpty()) {
         resourceTypeAffected_ = other.resourceTypeAffected_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getBulletinId().isEmpty()) {
         bulletinId_ = other.bulletinId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.cveIds_.isEmpty()) {
         if (cveIds_.isEmpty()) {
           cveIds_ = other.cveIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureCveIdsIsMutable();
           cveIds_.addAll(other.cveIds_);
@@ -1080,20 +985,23 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSeverity().isEmpty()) {
         severity_ = other.severity_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getBulletinUri().isEmpty()) {
         bulletinUri_ = other.bulletinUri_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getBriefDescription().isEmpty()) {
         briefDescription_ = other.briefDescription_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.affectedSupportedMinors_.isEmpty()) {
         if (affectedSupportedMinors_.isEmpty()) {
           affectedSupportedMinors_ = other.affectedSupportedMinors_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureAffectedSupportedMinorsIsMutable();
           affectedSupportedMinors_.addAll(other.affectedSupportedMinors_);
@@ -1103,7 +1011,7 @@ private static final long serialVersionUID = 0L;
       if (!other.patchedVersions_.isEmpty()) {
         if (patchedVersions_.isEmpty()) {
           patchedVersions_ = other.patchedVersions_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensurePatchedVersionsIsMutable();
           patchedVersions_.addAll(other.patchedVersions_);
@@ -1112,12 +1020,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSuggestedUpgradeTarget().isEmpty()) {
         suggestedUpgradeTarget_ = other.suggestedUpgradeTarget_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.getManualStepsRequired() != false) {
         setManualStepsRequired(other.getManualStepsRequired());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1132,17 +1041,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.SecurityBulletinEvent parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceTypeAffected_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              bulletinId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCveIdsIsMutable();
+              cveIds_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              severity_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              bulletinUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              briefDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAffectedSupportedMinorsIsMutable();
+              affectedSupportedMinors_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePatchedVersionsIsMutable();
+              patchedVersions_.add(s);
+              break;
+            } // case 66
+            case 74: {
+              suggestedUpgradeTarget_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              manualStepsRequired_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.SecurityBulletinEvent) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1206,11 +1181,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceTypeAffected(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceTypeAffected_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1225,8 +1198,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceTypeAffected() {
-      
       resourceTypeAffected_ = getDefaultInstance().getResourceTypeAffected();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1243,12 +1216,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceTypeAffectedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceTypeAffected_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1306,11 +1277,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBulletinId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bulletinId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1323,8 +1292,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBulletinId() {
-      
       bulletinId_ = getDefaultInstance().getBulletinId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1339,21 +1308,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBulletinIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bulletinId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList cveIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCveIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         cveIds_ = new com.google.protobuf.LazyStringArrayList(cveIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1416,10 +1383,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCveIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCveIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCveIdsIsMutable();
       cveIds_.set(index, value);
       onChanged();
       return this;
@@ -1435,10 +1400,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCveIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCveIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCveIdsIsMutable();
       cveIds_.add(value);
       onChanged();
       return this;
@@ -1470,7 +1433,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCveIds() {
       cveIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1485,10 +1448,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCveIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCveIdsIsMutable();
       cveIds_.add(value);
       onChanged();
@@ -1548,11 +1509,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSeverity(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       severity_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1565,8 +1524,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSeverity() {
-      
       severity_ = getDefaultInstance().getSeverity();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1581,12 +1540,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSeverityBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       severity_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1644,11 +1601,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBulletinUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bulletinUri_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1661,8 +1616,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBulletinUri() {
-      
       bulletinUri_ = getDefaultInstance().getBulletinUri();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1677,12 +1632,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBulletinUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bulletinUri_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1743,11 +1696,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBriefDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       briefDescription_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1761,8 +1712,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBriefDescription() {
-      
       briefDescription_ = getDefaultInstance().getBriefDescription();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1778,21 +1729,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBriefDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       briefDescription_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList affectedSupportedMinors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAffectedSupportedMinorsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         affectedSupportedMinors_ = new com.google.protobuf.LazyStringArrayList(affectedSupportedMinors_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -1855,10 +1804,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAffectedSupportedMinors(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAffectedSupportedMinorsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAffectedSupportedMinorsIsMutable();
       affectedSupportedMinors_.set(index, value);
       onChanged();
       return this;
@@ -1874,10 +1821,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAffectedSupportedMinors(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAffectedSupportedMinorsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAffectedSupportedMinorsIsMutable();
       affectedSupportedMinors_.add(value);
       onChanged();
       return this;
@@ -1909,7 +1854,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAffectedSupportedMinors() {
       affectedSupportedMinors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1924,10 +1869,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAffectedSupportedMinorsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAffectedSupportedMinorsIsMutable();
       affectedSupportedMinors_.add(value);
       onChanged();
@@ -1936,9 +1879,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList patchedVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensurePatchedVersionsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         patchedVersions_ = new com.google.protobuf.LazyStringArrayList(patchedVersions_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -2001,10 +1944,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPatchedVersions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePatchedVersionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePatchedVersionsIsMutable();
       patchedVersions_.set(index, value);
       onChanged();
       return this;
@@ -2020,10 +1961,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPatchedVersions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePatchedVersionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePatchedVersionsIsMutable();
       patchedVersions_.add(value);
       onChanged();
       return this;
@@ -2055,7 +1994,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPatchedVersions() {
       patchedVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2070,10 +2009,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPatchedVersionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensurePatchedVersionsIsMutable();
       patchedVersions_.add(value);
       onChanged();
@@ -2145,11 +2082,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSuggestedUpgradeTarget(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       suggestedUpgradeTarget_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2166,8 +2101,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSuggestedUpgradeTarget() {
-      
       suggestedUpgradeTarget_ = getDefaultInstance().getSuggestedUpgradeTarget();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2186,12 +2121,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSuggestedUpgradeTargetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       suggestedUpgradeTarget_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2223,6 +2156,7 @@ private static final long serialVersionUID = 0L;
     public Builder setManualStepsRequired(boolean value) {
       
       manualStepsRequired_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2236,7 +2170,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearManualStepsRequired() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       manualStepsRequired_ = false;
       onChanged();
       return this;
@@ -2274,7 +2208,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecurityBulletinEvent(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,64 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutoscalingPolicyScaleInControl(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 291242400: {
-            bitField0_ |= 0x00000002;
-            timeWindowSec_ = input.readInt32();
-            break;
-          }
-          case 1445680986: {
-            com.google.cloud.compute.v1.FixedOrPercent.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = maxScaledInReplicas_.toBuilder();
-            }
-            maxScaledInReplicas_ = input.readMessage(com.google.cloud.compute.v1.FixedOrPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxScaledInReplicas_);
-              maxScaledInReplicas_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_AutoscalingPolicyScaleInControl_descriptor;
@@ -145,7 +87,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIME_WINDOW_SEC_FIELD_NUMBER = 36405300;
-  private int timeWindowSec_;
+  private int timeWindowSec_ = 0;
   /**
    * <pre>
    * How far back autoscaling looks when computing recommendations to include directives regarding slower scale in, as described above.
@@ -191,7 +133,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(180710123, getMaxScaledInReplicas());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -208,7 +150,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(180710123, getMaxScaledInReplicas());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -233,7 +175,7 @@ private static final long serialVersionUID = 0L;
       if (getTimeWindowSec()
           != other.getTimeWindowSec()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -252,7 +194,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TIME_WINDOW_SEC_FIELD_NUMBER;
       hash = (53 * hash) + getTimeWindowSec();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,14 +332,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (maxScaledInReplicasBuilder_ == null) {
-        maxScaledInReplicas_ = null;
-      } else {
-        maxScaledInReplicasBuilder_.clear();
+      bitField0_ = 0;
+      maxScaledInReplicas_ = null;
+      if (maxScaledInReplicasBuilder_ != null) {
+        maxScaledInReplicasBuilder_.dispose();
+        maxScaledInReplicasBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       timeWindowSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -424,23 +365,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl buildPartial() {
       com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl result = new com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (maxScaledInReplicasBuilder_ == null) {
-          result.maxScaledInReplicas_ = maxScaledInReplicas_;
-        } else {
-          result.maxScaledInReplicas_ = maxScaledInReplicasBuilder_.build();
-        }
+        result.maxScaledInReplicas_ = maxScaledInReplicasBuilder_ == null
+            ? maxScaledInReplicas_
+            : maxScaledInReplicasBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.timeWindowSec_ = timeWindowSec_;
         to_bitField0_ |= 0x00000002;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -493,7 +436,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTimeWindowSec()) {
         setTimeWindowSec(other.getTimeWindowSec());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -508,17 +451,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 291242400: {
+              timeWindowSec_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 291242400
+            case 1445680986: {
+              input.readMessage(
+                  getMaxScaledInReplicasFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1445680986
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -565,11 +533,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxScaledInReplicas_ = value;
-        onChanged();
       } else {
         maxScaledInReplicasBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -583,11 +551,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.FixedOrPercent.Builder builderForValue) {
       if (maxScaledInReplicasBuilder_ == null) {
         maxScaledInReplicas_ = builderForValue.build();
-        onChanged();
       } else {
         maxScaledInReplicasBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -600,18 +568,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeMaxScaledInReplicas(com.google.cloud.compute.v1.FixedOrPercent value) {
       if (maxScaledInReplicasBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            maxScaledInReplicas_ != null &&
-            maxScaledInReplicas_ != com.google.cloud.compute.v1.FixedOrPercent.getDefaultInstance()) {
-          maxScaledInReplicas_ =
-            com.google.cloud.compute.v1.FixedOrPercent.newBuilder(maxScaledInReplicas_).mergeFrom(value).buildPartial();
+          maxScaledInReplicas_ != null &&
+          maxScaledInReplicas_ != com.google.cloud.compute.v1.FixedOrPercent.getDefaultInstance()) {
+          getMaxScaledInReplicasBuilder().mergeFrom(value);
         } else {
           maxScaledInReplicas_ = value;
         }
-        onChanged();
       } else {
         maxScaledInReplicasBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -622,13 +589,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.FixedOrPercent max_scaled_in_replicas = 180710123;</code>
      */
     public Builder clearMaxScaledInReplicas() {
-      if (maxScaledInReplicasBuilder_ == null) {
-        maxScaledInReplicas_ = null;
-        onChanged();
-      } else {
-        maxScaledInReplicasBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      maxScaledInReplicas_ = null;
+      if (maxScaledInReplicasBuilder_ != null) {
+        maxScaledInReplicasBuilder_.dispose();
+        maxScaledInReplicasBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -714,8 +681,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTimeWindowSec(int value) {
-      bitField0_ |= 0x00000002;
+      
       timeWindowSec_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -766,7 +734,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutoscalingPolicyScaleInControl(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

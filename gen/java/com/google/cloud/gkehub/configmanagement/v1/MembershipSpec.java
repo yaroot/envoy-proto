@@ -36,90 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MembershipSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.gkehub.configmanagement.v1.ConfigSync.Builder subBuilder = null;
-            if (configSync_ != null) {
-              subBuilder = configSync_.toBuilder();
-            }
-            configSync_ = input.readMessage(com.google.cloud.gkehub.configmanagement.v1.ConfigSync.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(configSync_);
-              configSync_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.gkehub.configmanagement.v1.PolicyController.Builder subBuilder = null;
-            if (policyController_ != null) {
-              subBuilder = policyController_.toBuilder();
-            }
-            policyController_ = input.readMessage(com.google.cloud.gkehub.configmanagement.v1.PolicyController.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(policyController_);
-              policyController_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig.Builder subBuilder = null;
-            if (hierarchyController_ != null) {
-              subBuilder = hierarchyController_.toBuilder();
-            }
-            hierarchyController_ = input.readMessage(com.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(hierarchyController_);
-              hierarchyController_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.configmanagement.v1.ConfigManagementProto.internal_static_google_cloud_gkehub_configmanagement_v1_MembershipSpec_descriptor;
@@ -168,7 +84,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.configmanagement.v1.ConfigSyncOrBuilder getConfigSyncOrBuilder() {
-    return getConfigSync();
+    return configSync_ == null ? com.google.cloud.gkehub.configmanagement.v1.ConfigSync.getDefaultInstance() : configSync_;
   }
 
   public static final int POLICY_CONTROLLER_FIELD_NUMBER = 2;
@@ -206,7 +122,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.configmanagement.v1.PolicyControllerOrBuilder getPolicyControllerOrBuilder() {
-    return getPolicyController();
+    return policyController_ == null ? com.google.cloud.gkehub.configmanagement.v1.PolicyController.getDefaultInstance() : policyController_;
   }
 
   public static final int HIERARCHY_CONTROLLER_FIELD_NUMBER = 4;
@@ -244,11 +160,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfigOrBuilder getHierarchyControllerOrBuilder() {
-    return getHierarchyController();
+    return hierarchyController_ == null ? com.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig.getDefaultInstance() : hierarchyController_;
   }
 
   public static final int VERSION_FIELD_NUMBER = 10;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * Version of ACM installed.
@@ -319,7 +236,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, version_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -343,7 +260,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, version_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -375,7 +292,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getVersion()
         .equals(other.getVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -400,7 +317,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -522,42 +439,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.configmanagement.v1.MembershipSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (configSyncBuilder_ == null) {
-        configSync_ = null;
-      } else {
-        configSync_ = null;
+      bitField0_ = 0;
+      configSync_ = null;
+      if (configSyncBuilder_ != null) {
+        configSyncBuilder_.dispose();
         configSyncBuilder_ = null;
       }
-      if (policyControllerBuilder_ == null) {
-        policyController_ = null;
-      } else {
-        policyController_ = null;
+      policyController_ = null;
+      if (policyControllerBuilder_ != null) {
+        policyControllerBuilder_.dispose();
         policyControllerBuilder_ = null;
       }
-      if (hierarchyControllerBuilder_ == null) {
-        hierarchyController_ = null;
-      } else {
-        hierarchyController_ = null;
+      hierarchyController_ = null;
+      if (hierarchyControllerBuilder_ != null) {
+        hierarchyControllerBuilder_.dispose();
         hierarchyControllerBuilder_ = null;
       }
       version_ = "";
-
       return this;
     }
 
@@ -584,24 +493,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.MembershipSpec buildPartial() {
       com.google.cloud.gkehub.configmanagement.v1.MembershipSpec result = new com.google.cloud.gkehub.configmanagement.v1.MembershipSpec(this);
-      if (configSyncBuilder_ == null) {
-        result.configSync_ = configSync_;
-      } else {
-        result.configSync_ = configSyncBuilder_.build();
-      }
-      if (policyControllerBuilder_ == null) {
-        result.policyController_ = policyController_;
-      } else {
-        result.policyController_ = policyControllerBuilder_.build();
-      }
-      if (hierarchyControllerBuilder_ == null) {
-        result.hierarchyController_ = hierarchyController_;
-      } else {
-        result.hierarchyController_ = hierarchyControllerBuilder_.build();
-      }
-      result.version_ = version_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.configmanagement.v1.MembershipSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.configSync_ = configSyncBuilder_ == null
+            ? configSync_
+            : configSyncBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.policyController_ = policyControllerBuilder_ == null
+            ? policyController_
+            : policyControllerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.hierarchyController_ = hierarchyControllerBuilder_ == null
+            ? hierarchyController_
+            : hierarchyControllerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.version_ = version_;
+      }
     }
 
     @java.lang.Override
@@ -659,9 +575,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -676,19 +593,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.configmanagement.v1.MembershipSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getConfigSyncFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPolicyControllerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getHierarchyControllerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 82: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.configmanagement.v1.MembershipSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.gkehub.configmanagement.v1.ConfigSync configSync_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -702,7 +659,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the configSync field is set.
      */
     public boolean hasConfigSync() {
-      return configSyncBuilder_ != null || configSync_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -732,11 +689,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         configSync_ = value;
-        onChanged();
       } else {
         configSyncBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -750,11 +707,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.configmanagement.v1.ConfigSync.Builder builderForValue) {
       if (configSyncBuilder_ == null) {
         configSync_ = builderForValue.build();
-        onChanged();
       } else {
         configSyncBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -766,17 +723,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfigSync(com.google.cloud.gkehub.configmanagement.v1.ConfigSync value) {
       if (configSyncBuilder_ == null) {
-        if (configSync_ != null) {
-          configSync_ =
-            com.google.cloud.gkehub.configmanagement.v1.ConfigSync.newBuilder(configSync_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          configSync_ != null &&
+          configSync_ != com.google.cloud.gkehub.configmanagement.v1.ConfigSync.getDefaultInstance()) {
+          getConfigSyncBuilder().mergeFrom(value);
         } else {
           configSync_ = value;
         }
-        onChanged();
       } else {
         configSyncBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -787,14 +745,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1.ConfigSync config_sync = 1;</code>
      */
     public Builder clearConfigSync() {
-      if (configSyncBuilder_ == null) {
-        configSync_ = null;
-        onChanged();
-      } else {
-        configSync_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      configSync_ = null;
+      if (configSyncBuilder_ != null) {
+        configSyncBuilder_.dispose();
         configSyncBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -805,7 +762,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1.ConfigSync config_sync = 1;</code>
      */
     public com.google.cloud.gkehub.configmanagement.v1.ConfigSync.Builder getConfigSyncBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getConfigSyncFieldBuilder().getBuilder();
     }
@@ -857,7 +814,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the policyController field is set.
      */
     public boolean hasPolicyController() {
-      return policyControllerBuilder_ != null || policyController_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -887,11 +844,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         policyController_ = value;
-        onChanged();
       } else {
         policyControllerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -905,11 +862,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.configmanagement.v1.PolicyController.Builder builderForValue) {
       if (policyControllerBuilder_ == null) {
         policyController_ = builderForValue.build();
-        onChanged();
       } else {
         policyControllerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -921,17 +878,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePolicyController(com.google.cloud.gkehub.configmanagement.v1.PolicyController value) {
       if (policyControllerBuilder_ == null) {
-        if (policyController_ != null) {
-          policyController_ =
-            com.google.cloud.gkehub.configmanagement.v1.PolicyController.newBuilder(policyController_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          policyController_ != null &&
+          policyController_ != com.google.cloud.gkehub.configmanagement.v1.PolicyController.getDefaultInstance()) {
+          getPolicyControllerBuilder().mergeFrom(value);
         } else {
           policyController_ = value;
         }
-        onChanged();
       } else {
         policyControllerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -942,14 +900,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1.PolicyController policy_controller = 2;</code>
      */
     public Builder clearPolicyController() {
-      if (policyControllerBuilder_ == null) {
-        policyController_ = null;
-        onChanged();
-      } else {
-        policyController_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      policyController_ = null;
+      if (policyControllerBuilder_ != null) {
+        policyControllerBuilder_.dispose();
         policyControllerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -960,7 +917,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1.PolicyController policy_controller = 2;</code>
      */
     public com.google.cloud.gkehub.configmanagement.v1.PolicyController.Builder getPolicyControllerBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPolicyControllerFieldBuilder().getBuilder();
     }
@@ -1012,7 +969,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the hierarchyController field is set.
      */
     public boolean hasHierarchyController() {
-      return hierarchyControllerBuilder_ != null || hierarchyController_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1042,11 +999,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         hierarchyController_ = value;
-        onChanged();
       } else {
         hierarchyControllerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1060,11 +1017,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig.Builder builderForValue) {
       if (hierarchyControllerBuilder_ == null) {
         hierarchyController_ = builderForValue.build();
-        onChanged();
       } else {
         hierarchyControllerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1076,17 +1033,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHierarchyController(com.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig value) {
       if (hierarchyControllerBuilder_ == null) {
-        if (hierarchyController_ != null) {
-          hierarchyController_ =
-            com.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig.newBuilder(hierarchyController_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          hierarchyController_ != null &&
+          hierarchyController_ != com.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig.getDefaultInstance()) {
+          getHierarchyControllerBuilder().mergeFrom(value);
         } else {
           hierarchyController_ = value;
         }
-        onChanged();
       } else {
         hierarchyControllerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1097,14 +1055,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig hierarchy_controller = 4;</code>
      */
     public Builder clearHierarchyController() {
-      if (hierarchyControllerBuilder_ == null) {
-        hierarchyController_ = null;
-        onChanged();
-      } else {
-        hierarchyController_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      hierarchyController_ = null;
+      if (hierarchyControllerBuilder_ != null) {
+        hierarchyControllerBuilder_.dispose();
         hierarchyControllerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1115,7 +1072,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig hierarchy_controller = 4;</code>
      */
     public com.google.cloud.gkehub.configmanagement.v1.HierarchyControllerConfig.Builder getHierarchyControllerBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getHierarchyControllerFieldBuilder().getBuilder();
     }
@@ -1208,11 +1165,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1225,8 +1180,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1241,12 +1196,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1283,7 +1236,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MembershipSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

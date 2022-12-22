@@ -39,141 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Cluster(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterName_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.dataproc.v1.ClusterConfig.Builder subBuilder = null;
-            if (config_ != null) {
-              subBuilder = config_.toBuilder();
-            }
-            config_ = input.readMessage(com.google.cloud.dataproc.v1.ClusterConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(config_);
-              config_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.dataproc.v1.ClusterStatus.Builder subBuilder = null;
-            if (status_ != null) {
-              subBuilder = status_.toBuilder();
-            }
-            status_ = input.readMessage(com.google.cloud.dataproc.v1.ClusterStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(status_);
-              status_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterUuid_ = s;
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              statusHistory_ = new java.util.ArrayList<com.google.cloud.dataproc.v1.ClusterStatus>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            statusHistory_.add(
-                input.readMessage(com.google.cloud.dataproc.v1.ClusterStatus.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 74: {
-            com.google.cloud.dataproc.v1.ClusterMetrics.Builder subBuilder = null;
-            if (metrics_ != null) {
-              subBuilder = metrics_.toBuilder();
-            }
-            metrics_ = input.readMessage(com.google.cloud.dataproc.v1.ClusterMetrics.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metrics_);
-              metrics_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.cloud.dataproc.v1.VirtualClusterConfig.Builder subBuilder = null;
-            if (virtualClusterConfig_ != null) {
-              subBuilder = virtualClusterConfig_.toBuilder();
-            }
-            virtualClusterConfig_ = input.readMessage(com.google.cloud.dataproc.v1.VirtualClusterConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(virtualClusterConfig_);
-              virtualClusterConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        statusHistory_ = java.util.Collections.unmodifiableList(statusHistory_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.ClustersProto.internal_static_google_cloud_dataproc_v1_Cluster_descriptor;
@@ -200,7 +65,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * Required. The Google Cloud Platform project ID that the cluster belongs to.
@@ -246,11 +112,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object clusterName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterName_ = "";
   /**
    * <pre>
-   * Required. The cluster name. Cluster names within a project must be
-   * unique. Names of deleted clusters can be reused.
+   * Required. The cluster name, which must be unique within a project.
+   * The name must start with a lowercase letter, and can contain
+   * up to 51 lowercase letters, numbers, and hyphens. It cannot end
+   * with a hyphen. The name of a deleted cluster can be reused.
    * </pre>
    *
    * <code>string cluster_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -271,8 +140,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The cluster name. Cluster names within a project must be
-   * unique. Names of deleted clusters can be reused.
+   * Required. The cluster name, which must be unique within a project.
+   * The name must start with a lowercase letter, and can contain
+   * up to 51 lowercase letters, numbers, and hyphens. It cannot end
+   * with a hyphen. The name of a deleted cluster can be reused.
    * </pre>
    *
    * <code>string cluster_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -334,20 +205,22 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.ClusterConfigOrBuilder getConfigOrBuilder() {
-    return getConfig();
+    return config_ == null ? com.google.cloud.dataproc.v1.ClusterConfig.getDefaultInstance() : config_;
   }
 
   public static final int VIRTUAL_CLUSTER_CONFIG_FIELD_NUMBER = 10;
   private com.google.cloud.dataproc.v1.VirtualClusterConfig virtualClusterConfig_;
   /**
    * <pre>
-   * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-   * does not directly control the underlying compute resources, for example,
-   * when creating a [Dataproc-on-GKE
-   * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-   * Note that Dataproc may set default values, and values may change when
-   * clusters are updated. Exactly one of config or virtualClusterConfig must be
-   * specified.
+   * Optional. The virtual cluster config is used when creating a Dataproc
+   * cluster that does not directly control the underlying compute resources,
+   * for example, when creating a [Dataproc-on-GKE
+   * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+   * Dataproc may set default values, and values may change when
+   * clusters are updated. Exactly one of
+   * [config][google.cloud.dataproc.v1.Cluster.config] or
+   * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+   * must be specified.
    * </pre>
    *
    * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -359,13 +232,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-   * does not directly control the underlying compute resources, for example,
-   * when creating a [Dataproc-on-GKE
-   * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-   * Note that Dataproc may set default values, and values may change when
-   * clusters are updated. Exactly one of config or virtualClusterConfig must be
-   * specified.
+   * Optional. The virtual cluster config is used when creating a Dataproc
+   * cluster that does not directly control the underlying compute resources,
+   * for example, when creating a [Dataproc-on-GKE
+   * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+   * Dataproc may set default values, and values may change when
+   * clusters are updated. Exactly one of
+   * [config][google.cloud.dataproc.v1.Cluster.config] or
+   * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+   * must be specified.
    * </pre>
    *
    * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -377,20 +252,22 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-   * does not directly control the underlying compute resources, for example,
-   * when creating a [Dataproc-on-GKE
-   * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-   * Note that Dataproc may set default values, and values may change when
-   * clusters are updated. Exactly one of config or virtualClusterConfig must be
-   * specified.
+   * Optional. The virtual cluster config is used when creating a Dataproc
+   * cluster that does not directly control the underlying compute resources,
+   * for example, when creating a [Dataproc-on-GKE
+   * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+   * Dataproc may set default values, and values may change when
+   * clusters are updated. Exactly one of
+   * [config][google.cloud.dataproc.v1.Cluster.config] or
+   * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+   * must be specified.
    * </pre>
    *
    * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.VirtualClusterConfigOrBuilder getVirtualClusterConfigOrBuilder() {
-    return getVirtualClusterConfig();
+    return virtualClusterConfig_ == null ? com.google.cloud.dataproc.v1.VirtualClusterConfig.getDefaultInstance() : virtualClusterConfig_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 8;
@@ -405,6 +282,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -415,7 +293,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -432,7 +309,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -461,7 +337,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -479,10 +354,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -502,7 +378,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -549,10 +424,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.ClusterStatusOrBuilder getStatusOrBuilder() {
-    return getStatus();
+    return status_ == null ? com.google.cloud.dataproc.v1.ClusterStatus.getDefaultInstance() : status_;
   }
 
   public static final int STATUS_HISTORY_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dataproc.v1.ClusterStatus> statusHistory_;
   /**
    * <pre>
@@ -613,7 +489,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_UUID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object clusterUuid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterUuid_ = "";
   /**
    * <pre>
    * Output only. A cluster UUID (Unique Universal Identifier). Dataproc
@@ -701,7 +578,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.ClusterMetricsOrBuilder getMetricsOrBuilder() {
-    return getMetrics();
+    return metrics_ == null ? com.google.cloud.dataproc.v1.ClusterMetrics.getDefaultInstance() : metrics_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -748,7 +625,7 @@ private static final long serialVersionUID = 0L;
     if (virtualClusterConfig_ != null) {
       output.writeMessage(10, getVirtualClusterConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -796,7 +673,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getVirtualClusterConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -841,7 +718,7 @@ private static final long serialVersionUID = 0L;
       if (!getMetrics()
           .equals(other.getMetrics())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -882,7 +759,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + METRICS_FIELD_NUMBER;
       hash = (53 * hash) + getMetrics().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1026,58 +903,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.Cluster.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getStatusHistoryFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       projectId_ = "";
-
       clusterName_ = "";
-
-      if (configBuilder_ == null) {
-        config_ = null;
-      } else {
-        config_ = null;
+      config_ = null;
+      if (configBuilder_ != null) {
+        configBuilder_.dispose();
         configBuilder_ = null;
       }
-      if (virtualClusterConfigBuilder_ == null) {
-        virtualClusterConfig_ = null;
-      } else {
-        virtualClusterConfig_ = null;
+      virtualClusterConfig_ = null;
+      if (virtualClusterConfigBuilder_ != null) {
+        virtualClusterConfigBuilder_.dispose();
         virtualClusterConfigBuilder_ = null;
       }
       internalGetMutableLabels().clear();
-      if (statusBuilder_ == null) {
-        status_ = null;
-      } else {
-        status_ = null;
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
       if (statusHistoryBuilder_ == null) {
         statusHistory_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        statusHistory_ = null;
         statusHistoryBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000040);
       clusterUuid_ = "";
-
-      if (metricsBuilder_ == null) {
-        metrics_ = null;
-      } else {
-        metrics_ = null;
+      metrics_ = null;
+      if (metricsBuilder_ != null) {
+        metricsBuilder_.dispose();
         metricsBuilder_ = null;
       }
       return this;
@@ -1106,43 +972,59 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.Cluster buildPartial() {
       com.google.cloud.dataproc.v1.Cluster result = new com.google.cloud.dataproc.v1.Cluster(this);
-      int from_bitField0_ = bitField0_;
-      result.projectId_ = projectId_;
-      result.clusterName_ = clusterName_;
-      if (configBuilder_ == null) {
-        result.config_ = config_;
-      } else {
-        result.config_ = configBuilder_.build();
-      }
-      if (virtualClusterConfigBuilder_ == null) {
-        result.virtualClusterConfig_ = virtualClusterConfig_;
-      } else {
-        result.virtualClusterConfig_ = virtualClusterConfigBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (statusBuilder_ == null) {
-        result.status_ = status_;
-      } else {
-        result.status_ = statusBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dataproc.v1.Cluster result) {
       if (statusHistoryBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           statusHistory_ = java.util.Collections.unmodifiableList(statusHistory_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.statusHistory_ = statusHistory_;
       } else {
         result.statusHistory_ = statusHistoryBuilder_.build();
       }
-      result.clusterUuid_ = clusterUuid_;
-      if (metricsBuilder_ == null) {
-        result.metrics_ = metrics_;
-      } else {
-        result.metrics_ = metricsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.Cluster result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.projectId_ = projectId_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.clusterName_ = clusterName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.config_ = configBuilder_ == null
+            ? config_
+            : configBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.virtualClusterConfig_ = virtualClusterConfigBuilder_ == null
+            ? virtualClusterConfig_
+            : virtualClusterConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.status_ = statusBuilder_ == null
+            ? status_
+            : statusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.clusterUuid_ = clusterUuid_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.metrics_ = metricsBuilder_ == null
+            ? metrics_
+            : metricsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1191,10 +1073,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.Cluster.getDefaultInstance()) return this;
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getClusterName().isEmpty()) {
         clusterName_ = other.clusterName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasConfig()) {
@@ -1205,6 +1089,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000010;
       if (other.hasStatus()) {
         mergeStatus(other.getStatus());
       }
@@ -1212,7 +1097,7 @@ private static final long serialVersionUID = 0L;
         if (!other.statusHistory_.isEmpty()) {
           if (statusHistory_.isEmpty()) {
             statusHistory_ = other.statusHistory_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureStatusHistoryIsMutable();
             statusHistory_.addAll(other.statusHistory_);
@@ -1225,7 +1110,7 @@ private static final long serialVersionUID = 0L;
             statusHistoryBuilder_.dispose();
             statusHistoryBuilder_ = null;
             statusHistory_ = other.statusHistory_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
             statusHistoryBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getStatusHistoryFieldBuilder() : null;
@@ -1236,12 +1121,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getClusterUuid().isEmpty()) {
         clusterUuid_ = other.clusterUuid_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasMetrics()) {
         mergeMetrics(other.getMetrics());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1256,17 +1142,95 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.Cluster parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              clusterName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 34
+            case 50: {
+              clusterUuid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 50
+            case 58: {
+              com.google.cloud.dataproc.v1.ClusterStatus m =
+                  input.readMessage(
+                      com.google.cloud.dataproc.v1.ClusterStatus.parser(),
+                      extensionRegistry);
+              if (statusHistoryBuilder_ == null) {
+                ensureStatusHistoryIsMutable();
+                statusHistory_.add(m);
+              } else {
+                statusHistoryBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getMetricsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getVirtualClusterConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.Cluster) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1324,11 +1288,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1341,8 +1303,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1357,12 +1319,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1370,8 +1330,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object clusterName_ = "";
     /**
      * <pre>
-     * Required. The cluster name. Cluster names within a project must be
-     * unique. Names of deleted clusters can be reused.
+     * Required. The cluster name, which must be unique within a project.
+     * The name must start with a lowercase letter, and can contain
+     * up to 51 lowercase letters, numbers, and hyphens. It cannot end
+     * with a hyphen. The name of a deleted cluster can be reused.
      * </pre>
      *
      * <code>string cluster_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1391,8 +1353,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The cluster name. Cluster names within a project must be
-     * unique. Names of deleted clusters can be reused.
+     * Required. The cluster name, which must be unique within a project.
+     * The name must start with a lowercase letter, and can contain
+     * up to 51 lowercase letters, numbers, and hyphens. It cannot end
+     * with a hyphen. The name of a deleted cluster can be reused.
      * </pre>
      *
      * <code>string cluster_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1413,8 +1377,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The cluster name. Cluster names within a project must be
-     * unique. Names of deleted clusters can be reused.
+     * Required. The cluster name, which must be unique within a project.
+     * The name must start with a lowercase letter, and can contain
+     * up to 51 lowercase letters, numbers, and hyphens. It cannot end
+     * with a hyphen. The name of a deleted cluster can be reused.
      * </pre>
      *
      * <code>string cluster_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1423,33 +1389,35 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The cluster name. Cluster names within a project must be
-     * unique. Names of deleted clusters can be reused.
+     * Required. The cluster name, which must be unique within a project.
+     * The name must start with a lowercase letter, and can contain
+     * up to 51 lowercase letters, numbers, and hyphens. It cannot end
+     * with a hyphen. The name of a deleted cluster can be reused.
      * </pre>
      *
      * <code>string cluster_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearClusterName() {
-      
       clusterName_ = getDefaultInstance().getClusterName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The cluster name. Cluster names within a project must be
-     * unique. Names of deleted clusters can be reused.
+     * Required. The cluster name, which must be unique within a project.
+     * The name must start with a lowercase letter, and can contain
+     * up to 51 lowercase letters, numbers, and hyphens. It cannot end
+     * with a hyphen. The name of a deleted cluster can be reused.
      * </pre>
      *
      * <code>string cluster_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1458,12 +1426,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1482,7 +1448,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the config field is set.
      */
     public boolean hasConfig() {
-      return configBuilder_ != null || config_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1516,11 +1482,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         config_ = value;
-        onChanged();
       } else {
         configBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1536,11 +1502,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.ClusterConfig.Builder builderForValue) {
       if (configBuilder_ == null) {
         config_ = builderForValue.build();
-        onChanged();
       } else {
         configBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1554,17 +1520,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfig(com.google.cloud.dataproc.v1.ClusterConfig value) {
       if (configBuilder_ == null) {
-        if (config_ != null) {
-          config_ =
-            com.google.cloud.dataproc.v1.ClusterConfig.newBuilder(config_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          config_ != null &&
+          config_ != com.google.cloud.dataproc.v1.ClusterConfig.getDefaultInstance()) {
+          getConfigBuilder().mergeFrom(value);
         } else {
           config_ = value;
         }
-        onChanged();
       } else {
         configBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1577,14 +1544,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ClusterConfig config = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearConfig() {
-      if (configBuilder_ == null) {
-        config_ = null;
-        onChanged();
-      } else {
-        config_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      config_ = null;
+      if (configBuilder_ != null) {
+        configBuilder_.dispose();
         configBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1597,7 +1563,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ClusterConfig config = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.ClusterConfig.Builder getConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getConfigFieldBuilder().getBuilder();
     }
@@ -1646,30 +1612,34 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.VirtualClusterConfig, com.google.cloud.dataproc.v1.VirtualClusterConfig.Builder, com.google.cloud.dataproc.v1.VirtualClusterConfigOrBuilder> virtualClusterConfigBuilder_;
     /**
      * <pre>
-     * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-     * does not directly control the underlying compute resources, for example,
-     * when creating a [Dataproc-on-GKE
-     * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-     * Note that Dataproc may set default values, and values may change when
-     * clusters are updated. Exactly one of config or virtualClusterConfig must be
-     * specified.
+     * Optional. The virtual cluster config is used when creating a Dataproc
+     * cluster that does not directly control the underlying compute resources,
+     * for example, when creating a [Dataproc-on-GKE
+     * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+     * Dataproc may set default values, and values may change when
+     * clusters are updated. Exactly one of
+     * [config][google.cloud.dataproc.v1.Cluster.config] or
+     * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+     * must be specified.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return Whether the virtualClusterConfig field is set.
      */
     public boolean hasVirtualClusterConfig() {
-      return virtualClusterConfigBuilder_ != null || virtualClusterConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
-     * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-     * does not directly control the underlying compute resources, for example,
-     * when creating a [Dataproc-on-GKE
-     * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-     * Note that Dataproc may set default values, and values may change when
-     * clusters are updated. Exactly one of config or virtualClusterConfig must be
-     * specified.
+     * Optional. The virtual cluster config is used when creating a Dataproc
+     * cluster that does not directly control the underlying compute resources,
+     * for example, when creating a [Dataproc-on-GKE
+     * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+     * Dataproc may set default values, and values may change when
+     * clusters are updated. Exactly one of
+     * [config][google.cloud.dataproc.v1.Cluster.config] or
+     * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+     * must be specified.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1684,13 +1654,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-     * does not directly control the underlying compute resources, for example,
-     * when creating a [Dataproc-on-GKE
-     * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-     * Note that Dataproc may set default values, and values may change when
-     * clusters are updated. Exactly one of config or virtualClusterConfig must be
-     * specified.
+     * Optional. The virtual cluster config is used when creating a Dataproc
+     * cluster that does not directly control the underlying compute resources,
+     * for example, when creating a [Dataproc-on-GKE
+     * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+     * Dataproc may set default values, and values may change when
+     * clusters are updated. Exactly one of
+     * [config][google.cloud.dataproc.v1.Cluster.config] or
+     * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+     * must be specified.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1701,22 +1673,24 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         virtualClusterConfig_ = value;
-        onChanged();
       } else {
         virtualClusterConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-     * does not directly control the underlying compute resources, for example,
-     * when creating a [Dataproc-on-GKE
-     * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-     * Note that Dataproc may set default values, and values may change when
-     * clusters are updated. Exactly one of config or virtualClusterConfig must be
-     * specified.
+     * Optional. The virtual cluster config is used when creating a Dataproc
+     * cluster that does not directly control the underlying compute resources,
+     * for example, when creating a [Dataproc-on-GKE
+     * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+     * Dataproc may set default values, and values may change when
+     * clusters are updated. Exactly one of
+     * [config][google.cloud.dataproc.v1.Cluster.config] or
+     * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+     * must be specified.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1725,92 +1699,100 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.VirtualClusterConfig.Builder builderForValue) {
       if (virtualClusterConfigBuilder_ == null) {
         virtualClusterConfig_ = builderForValue.build();
-        onChanged();
       } else {
         virtualClusterConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-     * does not directly control the underlying compute resources, for example,
-     * when creating a [Dataproc-on-GKE
-     * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-     * Note that Dataproc may set default values, and values may change when
-     * clusters are updated. Exactly one of config or virtualClusterConfig must be
-     * specified.
+     * Optional. The virtual cluster config is used when creating a Dataproc
+     * cluster that does not directly control the underlying compute resources,
+     * for example, when creating a [Dataproc-on-GKE
+     * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+     * Dataproc may set default values, and values may change when
+     * clusters are updated. Exactly one of
+     * [config][google.cloud.dataproc.v1.Cluster.config] or
+     * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+     * must be specified.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder mergeVirtualClusterConfig(com.google.cloud.dataproc.v1.VirtualClusterConfig value) {
       if (virtualClusterConfigBuilder_ == null) {
-        if (virtualClusterConfig_ != null) {
-          virtualClusterConfig_ =
-            com.google.cloud.dataproc.v1.VirtualClusterConfig.newBuilder(virtualClusterConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          virtualClusterConfig_ != null &&
+          virtualClusterConfig_ != com.google.cloud.dataproc.v1.VirtualClusterConfig.getDefaultInstance()) {
+          getVirtualClusterConfigBuilder().mergeFrom(value);
         } else {
           virtualClusterConfig_ = value;
         }
-        onChanged();
       } else {
         virtualClusterConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-     * does not directly control the underlying compute resources, for example,
-     * when creating a [Dataproc-on-GKE
-     * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-     * Note that Dataproc may set default values, and values may change when
-     * clusters are updated. Exactly one of config or virtualClusterConfig must be
-     * specified.
+     * Optional. The virtual cluster config is used when creating a Dataproc
+     * cluster that does not directly control the underlying compute resources,
+     * for example, when creating a [Dataproc-on-GKE
+     * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+     * Dataproc may set default values, and values may change when
+     * clusters are updated. Exactly one of
+     * [config][google.cloud.dataproc.v1.Cluster.config] or
+     * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+     * must be specified.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearVirtualClusterConfig() {
-      if (virtualClusterConfigBuilder_ == null) {
-        virtualClusterConfig_ = null;
-        onChanged();
-      } else {
-        virtualClusterConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      virtualClusterConfig_ = null;
+      if (virtualClusterConfigBuilder_ != null) {
+        virtualClusterConfigBuilder_.dispose();
         virtualClusterConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-     * does not directly control the underlying compute resources, for example,
-     * when creating a [Dataproc-on-GKE
-     * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-     * Note that Dataproc may set default values, and values may change when
-     * clusters are updated. Exactly one of config or virtualClusterConfig must be
-     * specified.
+     * Optional. The virtual cluster config is used when creating a Dataproc
+     * cluster that does not directly control the underlying compute resources,
+     * for example, when creating a [Dataproc-on-GKE
+     * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+     * Dataproc may set default values, and values may change when
+     * clusters are updated. Exactly one of
+     * [config][google.cloud.dataproc.v1.Cluster.config] or
+     * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+     * must be specified.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.VirtualClusterConfig.Builder getVirtualClusterConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getVirtualClusterConfigFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-     * does not directly control the underlying compute resources, for example,
-     * when creating a [Dataproc-on-GKE
-     * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-     * Note that Dataproc may set default values, and values may change when
-     * clusters are updated. Exactly one of config or virtualClusterConfig must be
-     * specified.
+     * Optional. The virtual cluster config is used when creating a Dataproc
+     * cluster that does not directly control the underlying compute resources,
+     * for example, when creating a [Dataproc-on-GKE
+     * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+     * Dataproc may set default values, and values may change when
+     * clusters are updated. Exactly one of
+     * [config][google.cloud.dataproc.v1.Cluster.config] or
+     * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+     * must be specified.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1825,13 +1807,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The virtual cluster config, used when creating a Dataproc cluster that
-     * does not directly control the underlying compute resources, for example,
-     * when creating a [Dataproc-on-GKE
-     * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
-     * Note that Dataproc may set default values, and values may change when
-     * clusters are updated. Exactly one of config or virtualClusterConfig must be
-     * specified.
+     * Optional. The virtual cluster config is used when creating a Dataproc
+     * cluster that does not directly control the underlying compute resources,
+     * for example, when creating a [Dataproc-on-GKE
+     * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
+     * Dataproc may set default values, and values may change when
+     * clusters are updated. Exactly one of
+     * [config][google.cloud.dataproc.v1.Cluster.config] or
+     * [virtual_cluster_config][google.cloud.dataproc.v1.Cluster.virtual_cluster_config]
+     * must be specified.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.VirtualClusterConfig virtual_cluster_config = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1853,7 +1837,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1861,8 +1845,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1870,9 +1853,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -1889,7 +1873,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -1918,7 +1901,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -1936,10 +1918,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -1959,7 +1942,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1970,8 +1952,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -1989,7 +1971,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2002,7 +1983,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -2022,12 +2004,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -2043,11 +2023,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
@@ -2063,7 +2043,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return statusBuilder_ != null || status_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2093,11 +2073,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         status_ = value;
-        onChanged();
       } else {
         statusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2111,11 +2091,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.ClusterStatus.Builder builderForValue) {
       if (statusBuilder_ == null) {
         status_ = builderForValue.build();
-        onChanged();
       } else {
         statusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2127,17 +2107,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatus(com.google.cloud.dataproc.v1.ClusterStatus value) {
       if (statusBuilder_ == null) {
-        if (status_ != null) {
-          status_ =
-            com.google.cloud.dataproc.v1.ClusterStatus.newBuilder(status_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          status_ != null &&
+          status_ != com.google.cloud.dataproc.v1.ClusterStatus.getDefaultInstance()) {
+          getStatusBuilder().mergeFrom(value);
         } else {
           status_ = value;
         }
-        onChanged();
       } else {
         statusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2148,14 +2129,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ClusterStatus status = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearStatus() {
-      if (statusBuilder_ == null) {
-        status_ = null;
-        onChanged();
-      } else {
-        status_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2166,7 +2146,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ClusterStatus status = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.dataproc.v1.ClusterStatus.Builder getStatusBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getStatusFieldBuilder().getBuilder();
     }
@@ -2209,9 +2189,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dataproc.v1.ClusterStatus> statusHistory_ =
       java.util.Collections.emptyList();
     private void ensureStatusHistoryIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         statusHistory_ = new java.util.ArrayList<com.google.cloud.dataproc.v1.ClusterStatus>(statusHistory_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2405,7 +2385,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearStatusHistory() {
       if (statusHistoryBuilder_ == null) {
         statusHistory_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         statusHistoryBuilder_.clear();
@@ -2510,7 +2490,7 @@ private static final long serialVersionUID = 0L;
         statusHistoryBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dataproc.v1.ClusterStatus, com.google.cloud.dataproc.v1.ClusterStatus.Builder, com.google.cloud.dataproc.v1.ClusterStatusOrBuilder>(
                 statusHistory_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         statusHistory_ = null;
@@ -2574,11 +2554,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterUuid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterUuid_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2592,8 +2570,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClusterUuid() {
-      
       clusterUuid_ = getDefaultInstance().getClusterUuid();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2609,12 +2587,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterUuidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterUuid_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2633,7 +2609,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metrics field is set.
      */
     public boolean hasMetrics() {
-      return metricsBuilder_ != null || metrics_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2667,11 +2643,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metrics_ = value;
-        onChanged();
       } else {
         metricsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2687,11 +2663,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.ClusterMetrics.Builder builderForValue) {
       if (metricsBuilder_ == null) {
         metrics_ = builderForValue.build();
-        onChanged();
       } else {
         metricsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2705,17 +2681,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetrics(com.google.cloud.dataproc.v1.ClusterMetrics value) {
       if (metricsBuilder_ == null) {
-        if (metrics_ != null) {
-          metrics_ =
-            com.google.cloud.dataproc.v1.ClusterMetrics.newBuilder(metrics_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          metrics_ != null &&
+          metrics_ != com.google.cloud.dataproc.v1.ClusterMetrics.getDefaultInstance()) {
+          getMetricsBuilder().mergeFrom(value);
         } else {
           metrics_ = value;
         }
-        onChanged();
       } else {
         metricsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2728,14 +2705,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ClusterMetrics metrics = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearMetrics() {
-      if (metricsBuilder_ == null) {
-        metrics_ = null;
-        onChanged();
-      } else {
-        metrics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      metrics_ = null;
+      if (metricsBuilder_ != null) {
+        metricsBuilder_.dispose();
         metricsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2748,7 +2724,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ClusterMetrics metrics = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.dataproc.v1.ClusterMetrics.Builder getMetricsBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getMetricsFieldBuilder().getBuilder();
     }
@@ -2824,7 +2800,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Cluster(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,109 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DiscoverConnectionProfileRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 24: {
-            hierarchy_ = input.readBool();
-            hierarchyCase_ = 3;
-            break;
-          }
-          case 32: {
-            hierarchy_ = input.readInt32();
-            hierarchyCase_ = 4;
-            break;
-          }
-          case 802: {
-            com.google.cloud.datastream.v1.OracleRdbms.Builder subBuilder = null;
-            if (dataObjectCase_ == 100) {
-              subBuilder = ((com.google.cloud.datastream.v1.OracleRdbms) dataObject_).toBuilder();
-            }
-            dataObject_ =
-                input.readMessage(com.google.cloud.datastream.v1.OracleRdbms.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1.OracleRdbms) dataObject_);
-              dataObject_ = subBuilder.buildPartial();
-            }
-            dataObjectCase_ = 100;
-            break;
-          }
-          case 810: {
-            com.google.cloud.datastream.v1.MysqlRdbms.Builder subBuilder = null;
-            if (dataObjectCase_ == 101) {
-              subBuilder = ((com.google.cloud.datastream.v1.MysqlRdbms) dataObject_).toBuilder();
-            }
-            dataObject_ =
-                input.readMessage(com.google.cloud.datastream.v1.MysqlRdbms.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1.MysqlRdbms) dataObject_);
-              dataObject_ = subBuilder.buildPartial();
-            }
-            dataObjectCase_ = 101;
-            break;
-          }
-          case 1602: {
-            com.google.cloud.datastream.v1.ConnectionProfile.Builder subBuilder = null;
-            if (targetCase_ == 200) {
-              subBuilder = ((com.google.cloud.datastream.v1.ConnectionProfile) target_).toBuilder();
-            }
-            target_ =
-                input.readMessage(com.google.cloud.datastream.v1.ConnectionProfile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1.ConnectionProfile) target_);
-              target_ = subBuilder.buildPartial();
-            }
-            targetCase_ = 200;
-            break;
-          }
-          case 1610: {
-            java.lang.String s = input.readStringRequireUtf8();
-            targetCase_ = 201;
-            target_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1.DatastreamProto.internal_static_google_cloud_datastream_v1_DiscoverConnectionProfileRequest_descriptor;
@@ -240,6 +137,7 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     ORACLE_RDBMS(100),
     MYSQL_RDBMS(101),
+    POSTGRESQL_RDBMS(102),
     DATAOBJECT_NOT_SET(0);
     private final int value;
     private DataObjectCase(int value) {
@@ -259,6 +157,7 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 100: return ORACLE_RDBMS;
         case 101: return MYSQL_RDBMS;
+        case 102: return POSTGRESQL_RDBMS;
         case 0: return DATAOBJECT_NOT_SET;
         default: return null;
       }
@@ -275,7 +174,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent resource of the connection profile type. Must be in the
@@ -575,6 +475,49 @@ private static final long serialVersionUID = 0L;
     return com.google.cloud.datastream.v1.MysqlRdbms.getDefaultInstance();
   }
 
+  public static final int POSTGRESQL_RDBMS_FIELD_NUMBER = 102;
+  /**
+   * <pre>
+   * PostgreSQL RDBMS to enrich with child data objects and metadata.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+   * @return Whether the postgresqlRdbms field is set.
+   */
+  @java.lang.Override
+  public boolean hasPostgresqlRdbms() {
+    return dataObjectCase_ == 102;
+  }
+  /**
+   * <pre>
+   * PostgreSQL RDBMS to enrich with child data objects and metadata.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+   * @return The postgresqlRdbms.
+   */
+  @java.lang.Override
+  public com.google.cloud.datastream.v1.PostgresqlRdbms getPostgresqlRdbms() {
+    if (dataObjectCase_ == 102) {
+       return (com.google.cloud.datastream.v1.PostgresqlRdbms) dataObject_;
+    }
+    return com.google.cloud.datastream.v1.PostgresqlRdbms.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * PostgreSQL RDBMS to enrich with child data objects and metadata.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.datastream.v1.PostgresqlRdbmsOrBuilder getPostgresqlRdbmsOrBuilder() {
+    if (dataObjectCase_ == 102) {
+       return (com.google.cloud.datastream.v1.PostgresqlRdbms) dataObject_;
+    }
+    return com.google.cloud.datastream.v1.PostgresqlRdbms.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -606,13 +549,16 @@ private static final long serialVersionUID = 0L;
     if (dataObjectCase_ == 101) {
       output.writeMessage(101, (com.google.cloud.datastream.v1.MysqlRdbms) dataObject_);
     }
+    if (dataObjectCase_ == 102) {
+      output.writeMessage(102, (com.google.cloud.datastream.v1.PostgresqlRdbms) dataObject_);
+    }
     if (targetCase_ == 200) {
       output.writeMessage(200, (com.google.cloud.datastream.v1.ConnectionProfile) target_);
     }
     if (targetCase_ == 201) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 201, target_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -642,6 +588,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(101, (com.google.cloud.datastream.v1.MysqlRdbms) dataObject_);
     }
+    if (dataObjectCase_ == 102) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(102, (com.google.cloud.datastream.v1.PostgresqlRdbms) dataObject_);
+    }
     if (targetCase_ == 200) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(200, (com.google.cloud.datastream.v1.ConnectionProfile) target_);
@@ -649,7 +599,7 @@ private static final long serialVersionUID = 0L;
     if (targetCase_ == 201) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(201, target_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -702,10 +652,14 @@ private static final long serialVersionUID = 0L;
         if (!getMysqlRdbms()
             .equals(other.getMysqlRdbms())) return false;
         break;
+      case 102:
+        if (!getPostgresqlRdbms()
+            .equals(other.getPostgresqlRdbms())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -752,10 +706,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + MYSQL_RDBMS_FIELD_NUMBER;
         hash = (53 * hash) + getMysqlRdbms().hashCode();
         break;
+      case 102:
+        hash = (37 * hash) + POSTGRESQL_RDBMS_FIELD_NUMBER;
+        hash = (53 * hash) + getPostgresqlRdbms().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -876,24 +834,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
+      if (connectionProfileBuilder_ != null) {
+        connectionProfileBuilder_.clear();
+      }
+      if (oracleRdbmsBuilder_ != null) {
+        oracleRdbmsBuilder_.clear();
+      }
+      if (mysqlRdbmsBuilder_ != null) {
+        mysqlRdbmsBuilder_.clear();
+      }
+      if (postgresqlRdbmsBuilder_ != null) {
+        postgresqlRdbmsBuilder_.clear();
+      }
       targetCase_ = 0;
       target_ = null;
       hierarchyCase_ = 0;
@@ -926,42 +891,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest buildPartial() {
       com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest result = new com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest(this);
-      result.parent_ = parent_;
-      if (targetCase_ == 200) {
-        if (connectionProfileBuilder_ == null) {
-          result.target_ = target_;
-        } else {
-          result.target_ = connectionProfileBuilder_.build();
-        }
-      }
-      if (targetCase_ == 201) {
-        result.target_ = target_;
-      }
-      if (hierarchyCase_ == 3) {
-        result.hierarchy_ = hierarchy_;
-      }
-      if (hierarchyCase_ == 4) {
-        result.hierarchy_ = hierarchy_;
-      }
-      if (dataObjectCase_ == 100) {
-        if (oracleRdbmsBuilder_ == null) {
-          result.dataObject_ = dataObject_;
-        } else {
-          result.dataObject_ = oracleRdbmsBuilder_.build();
-        }
-      }
-      if (dataObjectCase_ == 101) {
-        if (mysqlRdbmsBuilder_ == null) {
-          result.dataObject_ = dataObject_;
-        } else {
-          result.dataObject_ = mysqlRdbmsBuilder_.build();
-        }
-      }
-      result.targetCase_ = targetCase_;
-      result.hierarchyCase_ = hierarchyCase_;
-      result.dataObjectCase_ = dataObjectCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest result) {
+      result.targetCase_ = targetCase_;
+      result.target_ = this.target_;
+      if (targetCase_ == 200 &&
+          connectionProfileBuilder_ != null) {
+        result.target_ = connectionProfileBuilder_.build();
+      }
+      result.hierarchyCase_ = hierarchyCase_;
+      result.hierarchy_ = this.hierarchy_;
+      result.dataObjectCase_ = dataObjectCase_;
+      result.dataObject_ = this.dataObject_;
+      if (dataObjectCase_ == 100 &&
+          oracleRdbmsBuilder_ != null) {
+        result.dataObject_ = oracleRdbmsBuilder_.build();
+      }
+      if (dataObjectCase_ == 101 &&
+          mysqlRdbmsBuilder_ != null) {
+        result.dataObject_ = mysqlRdbmsBuilder_.build();
+      }
+      if (dataObjectCase_ == 102 &&
+          postgresqlRdbmsBuilder_ != null) {
+        result.dataObject_ = postgresqlRdbmsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1010,6 +975,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getTargetCase()) {
@@ -1049,11 +1015,15 @@ private static final long serialVersionUID = 0L;
           mergeMysqlRdbms(other.getMysqlRdbms());
           break;
         }
+        case POSTGRESQL_RDBMS: {
+          mergePostgresqlRdbms(other.getPostgresqlRdbms());
+          break;
+        }
         case DATAOBJECT_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1068,17 +1038,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 24: {
+              hierarchy_ = input.readBool();
+              hierarchyCase_ = 3;
+              break;
+            } // case 24
+            case 32: {
+              hierarchy_ = input.readInt32();
+              hierarchyCase_ = 4;
+              break;
+            } // case 32
+            case 802: {
+              input.readMessage(
+                  getOracleRdbmsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataObjectCase_ = 100;
+              break;
+            } // case 802
+            case 810: {
+              input.readMessage(
+                  getMysqlRdbmsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataObjectCase_ = 101;
+              break;
+            } // case 810
+            case 818: {
+              input.readMessage(
+                  getPostgresqlRdbmsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataObjectCase_ = 102;
+              break;
+            } // case 818
+            case 1602: {
+              input.readMessage(
+                  getConnectionProfileFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              targetCase_ = 200;
+              break;
+            } // case 1602
+            case 1610: {
+              java.lang.String s = input.readStringRequireUtf8();
+              targetCase_ = 201;
+              target_ = s;
+              break;
+            } // case 1610
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1.DiscoverConnectionProfileRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int targetCase_ = 0;
@@ -1126,6 +1158,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -1183,11 +1216,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1201,8 +1232,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1218,12 +1249,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1402,7 +1431,7 @@ private static final long serialVersionUID = 0L;
         target_ = null;
       }
       targetCase_ = 200;
-      onChanged();;
+      onChanged();
       return connectionProfileBuilder_;
     }
 
@@ -1482,10 +1511,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConnectionProfileName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  targetCase_ = 201;
+      if (value == null) { throw new NullPointerException(); }
+      targetCase_ = 201;
       target_ = value;
       onChanged();
       return this;
@@ -1517,10 +1544,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConnectionProfileNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetCase_ = 201;
       target_ = value;
       onChanged();
@@ -1565,6 +1590,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFullHierarchy(boolean value) {
+      
       hierarchyCase_ = 3;
       hierarchy_ = value;
       onChanged();
@@ -1623,6 +1649,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHierarchyDepth(int value) {
+      
       hierarchyCase_ = 4;
       hierarchy_ = value;
       onChanged();
@@ -1819,7 +1846,7 @@ private static final long serialVersionUID = 0L;
         dataObject_ = null;
       }
       dataObjectCase_ = 100;
-      onChanged();;
+      onChanged();
       return oracleRdbmsBuilder_;
     }
 
@@ -1997,8 +2024,186 @@ private static final long serialVersionUID = 0L;
         dataObject_ = null;
       }
       dataObjectCase_ = 101;
-      onChanged();;
+      onChanged();
       return mysqlRdbmsBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.datastream.v1.PostgresqlRdbms, com.google.cloud.datastream.v1.PostgresqlRdbms.Builder, com.google.cloud.datastream.v1.PostgresqlRdbmsOrBuilder> postgresqlRdbmsBuilder_;
+    /**
+     * <pre>
+     * PostgreSQL RDBMS to enrich with child data objects and metadata.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+     * @return Whether the postgresqlRdbms field is set.
+     */
+    @java.lang.Override
+    public boolean hasPostgresqlRdbms() {
+      return dataObjectCase_ == 102;
+    }
+    /**
+     * <pre>
+     * PostgreSQL RDBMS to enrich with child data objects and metadata.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+     * @return The postgresqlRdbms.
+     */
+    @java.lang.Override
+    public com.google.cloud.datastream.v1.PostgresqlRdbms getPostgresqlRdbms() {
+      if (postgresqlRdbmsBuilder_ == null) {
+        if (dataObjectCase_ == 102) {
+          return (com.google.cloud.datastream.v1.PostgresqlRdbms) dataObject_;
+        }
+        return com.google.cloud.datastream.v1.PostgresqlRdbms.getDefaultInstance();
+      } else {
+        if (dataObjectCase_ == 102) {
+          return postgresqlRdbmsBuilder_.getMessage();
+        }
+        return com.google.cloud.datastream.v1.PostgresqlRdbms.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * PostgreSQL RDBMS to enrich with child data objects and metadata.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+     */
+    public Builder setPostgresqlRdbms(com.google.cloud.datastream.v1.PostgresqlRdbms value) {
+      if (postgresqlRdbmsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        dataObject_ = value;
+        onChanged();
+      } else {
+        postgresqlRdbmsBuilder_.setMessage(value);
+      }
+      dataObjectCase_ = 102;
+      return this;
+    }
+    /**
+     * <pre>
+     * PostgreSQL RDBMS to enrich with child data objects and metadata.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+     */
+    public Builder setPostgresqlRdbms(
+        com.google.cloud.datastream.v1.PostgresqlRdbms.Builder builderForValue) {
+      if (postgresqlRdbmsBuilder_ == null) {
+        dataObject_ = builderForValue.build();
+        onChanged();
+      } else {
+        postgresqlRdbmsBuilder_.setMessage(builderForValue.build());
+      }
+      dataObjectCase_ = 102;
+      return this;
+    }
+    /**
+     * <pre>
+     * PostgreSQL RDBMS to enrich with child data objects and metadata.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+     */
+    public Builder mergePostgresqlRdbms(com.google.cloud.datastream.v1.PostgresqlRdbms value) {
+      if (postgresqlRdbmsBuilder_ == null) {
+        if (dataObjectCase_ == 102 &&
+            dataObject_ != com.google.cloud.datastream.v1.PostgresqlRdbms.getDefaultInstance()) {
+          dataObject_ = com.google.cloud.datastream.v1.PostgresqlRdbms.newBuilder((com.google.cloud.datastream.v1.PostgresqlRdbms) dataObject_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          dataObject_ = value;
+        }
+        onChanged();
+      } else {
+        if (dataObjectCase_ == 102) {
+          postgresqlRdbmsBuilder_.mergeFrom(value);
+        } else {
+          postgresqlRdbmsBuilder_.setMessage(value);
+        }
+      }
+      dataObjectCase_ = 102;
+      return this;
+    }
+    /**
+     * <pre>
+     * PostgreSQL RDBMS to enrich with child data objects and metadata.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+     */
+    public Builder clearPostgresqlRdbms() {
+      if (postgresqlRdbmsBuilder_ == null) {
+        if (dataObjectCase_ == 102) {
+          dataObjectCase_ = 0;
+          dataObject_ = null;
+          onChanged();
+        }
+      } else {
+        if (dataObjectCase_ == 102) {
+          dataObjectCase_ = 0;
+          dataObject_ = null;
+        }
+        postgresqlRdbmsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * PostgreSQL RDBMS to enrich with child data objects and metadata.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+     */
+    public com.google.cloud.datastream.v1.PostgresqlRdbms.Builder getPostgresqlRdbmsBuilder() {
+      return getPostgresqlRdbmsFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * PostgreSQL RDBMS to enrich with child data objects and metadata.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.datastream.v1.PostgresqlRdbmsOrBuilder getPostgresqlRdbmsOrBuilder() {
+      if ((dataObjectCase_ == 102) && (postgresqlRdbmsBuilder_ != null)) {
+        return postgresqlRdbmsBuilder_.getMessageOrBuilder();
+      } else {
+        if (dataObjectCase_ == 102) {
+          return (com.google.cloud.datastream.v1.PostgresqlRdbms) dataObject_;
+        }
+        return com.google.cloud.datastream.v1.PostgresqlRdbms.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * PostgreSQL RDBMS to enrich with child data objects and metadata.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlRdbms postgresql_rdbms = 102;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.datastream.v1.PostgresqlRdbms, com.google.cloud.datastream.v1.PostgresqlRdbms.Builder, com.google.cloud.datastream.v1.PostgresqlRdbmsOrBuilder> 
+        getPostgresqlRdbmsFieldBuilder() {
+      if (postgresqlRdbmsBuilder_ == null) {
+        if (!(dataObjectCase_ == 102)) {
+          dataObject_ = com.google.cloud.datastream.v1.PostgresqlRdbms.getDefaultInstance();
+        }
+        postgresqlRdbmsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.datastream.v1.PostgresqlRdbms, com.google.cloud.datastream.v1.PostgresqlRdbms.Builder, com.google.cloud.datastream.v1.PostgresqlRdbmsOrBuilder>(
+                (com.google.cloud.datastream.v1.PostgresqlRdbms) dataObject_,
+                getParentForChildren(),
+                isClean());
+        dataObject_ = null;
+      }
+      dataObjectCase_ = 102;
+      onChanged();
+      return postgresqlRdbmsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2033,7 +2238,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DiscoverConnectionProfileRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

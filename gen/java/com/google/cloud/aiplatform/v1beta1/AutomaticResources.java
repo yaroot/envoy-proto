@@ -36,55 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutomaticResources(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            minReplicaCount_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            maxReplicaCount_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.MachineResourcesProto.internal_static_google_cloud_aiplatform_v1beta1_AutomaticResources_descriptor;
@@ -99,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_REPLICA_COUNT_FIELD_NUMBER = 1;
-  private int minReplicaCount_;
+  private int minReplicaCount_ = 0;
   /**
    * <pre>
    * Immutable. The minimum number of replicas this DeployedModel will be always deployed
@@ -118,7 +69,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_REPLICA_COUNT_FIELD_NUMBER = 2;
-  private int maxReplicaCount_;
+  private int maxReplicaCount_ = 0;
   /**
    * <pre>
    * Immutable. The maximum number of replicas this DeployedModel may be deployed on when
@@ -160,7 +111,7 @@ private static final long serialVersionUID = 0L;
     if (maxReplicaCount_ != 0) {
       output.writeInt32(2, maxReplicaCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -177,7 +128,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, maxReplicaCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -196,7 +147,7 @@ private static final long serialVersionUID = 0L;
         != other.getMinReplicaCount()) return false;
     if (getMaxReplicaCount()
         != other.getMaxReplicaCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -211,7 +162,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMinReplicaCount();
     hash = (37 * hash) + MAX_REPLICA_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getMaxReplicaCount();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -334,26 +285,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.AutomaticResources.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       minReplicaCount_ = 0;
-
       maxReplicaCount_ = 0;
-
       return this;
     }
 
@@ -380,10 +325,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.AutomaticResources buildPartial() {
       com.google.cloud.aiplatform.v1beta1.AutomaticResources result = new com.google.cloud.aiplatform.v1beta1.AutomaticResources(this);
-      result.minReplicaCount_ = minReplicaCount_;
-      result.maxReplicaCount_ = maxReplicaCount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.AutomaticResources result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.minReplicaCount_ = minReplicaCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxReplicaCount_ = maxReplicaCount_;
+      }
     }
 
     @java.lang.Override
@@ -436,7 +390,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMaxReplicaCount() != 0) {
         setMaxReplicaCount(other.getMaxReplicaCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -451,19 +405,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.AutomaticResources parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              minReplicaCount_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              maxReplicaCount_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.AutomaticResources) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int minReplicaCount_ ;
     /**
@@ -498,6 +476,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinReplicaCount(int value) {
       
       minReplicaCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -514,7 +493,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinReplicaCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       minReplicaCount_ = 0;
       onChanged();
       return this;
@@ -561,6 +540,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxReplicaCount(int value) {
       
       maxReplicaCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -581,7 +561,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxReplicaCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxReplicaCount_ = 0;
       onChanged();
       return this;
@@ -619,7 +599,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutomaticResources(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

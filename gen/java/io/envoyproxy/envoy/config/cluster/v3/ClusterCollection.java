@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClusterCollection(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.github.xds.core.v3.CollectionEntry.Builder subBuilder = null;
-            if (entries_ != null) {
-              subBuilder = entries_.toBuilder();
-            }
-            entries_ = input.readMessage(com.github.xds.core.v3.CollectionEntry.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(entries_);
-              entries_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.cluster.v3.ClusterProto.internal_static_envoy_config_cluster_v3_ClusterCollection_descriptor;
@@ -123,7 +71,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.github.xds.core.v3.CollectionEntryOrBuilder getEntriesOrBuilder() {
-    return getEntries();
+    return entries_ == null ? com.github.xds.core.v3.CollectionEntry.getDefaultInstance() : entries_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -143,7 +91,7 @@ private static final long serialVersionUID = 0L;
     if (entries_ != null) {
       output.writeMessage(1, getEntries());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -156,7 +104,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getEntries());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -176,7 +124,7 @@ private static final long serialVersionUID = 0L;
       if (!getEntries()
           .equals(other.getEntries())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -191,7 +139,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENTRIES_FIELD_NUMBER;
       hash = (53 * hash) + getEntries().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -313,26 +261,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.cluster.v3.ClusterCollection.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (entriesBuilder_ == null) {
-        entries_ = null;
-      } else {
-        entries_ = null;
+      bitField0_ = 0;
+      entries_ = null;
+      if (entriesBuilder_ != null) {
+        entriesBuilder_.dispose();
         entriesBuilder_ = null;
       }
       return this;
@@ -361,13 +304,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.cluster.v3.ClusterCollection buildPartial() {
       io.envoyproxy.envoy.config.cluster.v3.ClusterCollection result = new io.envoyproxy.envoy.config.cluster.v3.ClusterCollection(this);
-      if (entriesBuilder_ == null) {
-        result.entries_ = entries_;
-      } else {
-        result.entries_ = entriesBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.cluster.v3.ClusterCollection result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.entries_ = entriesBuilder_ == null
+            ? entries_
+            : entriesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -417,7 +365,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEntries()) {
         mergeEntries(other.getEntries());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -432,19 +380,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.cluster.v3.ClusterCollection parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEntriesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.cluster.v3.ClusterCollection) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.github.xds.core.v3.CollectionEntry entries_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -454,7 +423,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the entries field is set.
      */
     public boolean hasEntries() {
-      return entriesBuilder_ != null || entries_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.xds.core.v3.CollectionEntry entries = 1;</code>
@@ -476,11 +445,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         entries_ = value;
-        onChanged();
       } else {
         entriesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -490,11 +459,11 @@ private static final long serialVersionUID = 0L;
         com.github.xds.core.v3.CollectionEntry.Builder builderForValue) {
       if (entriesBuilder_ == null) {
         entries_ = builderForValue.build();
-        onChanged();
       } else {
         entriesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -502,38 +471,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEntries(com.github.xds.core.v3.CollectionEntry value) {
       if (entriesBuilder_ == null) {
-        if (entries_ != null) {
-          entries_ =
-            com.github.xds.core.v3.CollectionEntry.newBuilder(entries_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          entries_ != null &&
+          entries_ != com.github.xds.core.v3.CollectionEntry.getDefaultInstance()) {
+          getEntriesBuilder().mergeFrom(value);
         } else {
           entries_ = value;
         }
-        onChanged();
       } else {
         entriesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.xds.core.v3.CollectionEntry entries = 1;</code>
      */
     public Builder clearEntries() {
-      if (entriesBuilder_ == null) {
-        entries_ = null;
-        onChanged();
-      } else {
-        entries_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      entries_ = null;
+      if (entriesBuilder_ != null) {
+        entriesBuilder_.dispose();
         entriesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.xds.core.v3.CollectionEntry entries = 1;</code>
      */
     public com.github.xds.core.v3.CollectionEntry.Builder getEntriesBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getEntriesFieldBuilder().getBuilder();
     }
@@ -597,7 +566,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClusterCollection(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

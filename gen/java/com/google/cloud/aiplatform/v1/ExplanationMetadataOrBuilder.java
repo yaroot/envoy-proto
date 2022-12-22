@@ -86,7 +86,6 @@ public interface ExplanationMetadataOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   /* nullable */
 com.google.cloud.aiplatform.v1.ExplanationMetadata.InputMetadata getInputsOrDefault(
       java.lang.String key,
@@ -109,7 +108,6 @@ com.google.cloud.aiplatform.v1.ExplanationMetadata.InputMetadata defaultValue);
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   com.google.cloud.aiplatform.v1.ExplanationMetadata.InputMetadata getInputsOrThrow(
       java.lang.String key);
 
@@ -172,7 +170,6 @@ com.google.cloud.aiplatform.v1.ExplanationMetadata.InputMetadata defaultValue);
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   /* nullable */
 com.google.cloud.aiplatform.v1.ExplanationMetadata.OutputMetadata getOutputsOrDefault(
       java.lang.String key,
@@ -190,7 +187,6 @@ com.google.cloud.aiplatform.v1.ExplanationMetadata.OutputMetadata defaultValue);
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   com.google.cloud.aiplatform.v1.ExplanationMetadata.OutputMetadata getOutputsOrThrow(
       java.lang.String key);
 

@@ -40,88 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClustersConfigDump(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            versionInfo_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              staticClusters_ = new java.util.ArrayList<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            staticClusters_.add(
-                input.readMessage(io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              dynamicActiveClusters_ = new java.util.ArrayList<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            dynamicActiveClusters_.add(
-                input.readMessage(io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              dynamicWarmingClusters_ = new java.util.ArrayList<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            dynamicWarmingClusters_.add(
-                input.readMessage(io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        staticClusters_ = java.util.Collections.unmodifiableList(staticClusters_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        dynamicActiveClusters_ = java.util.Collections.unmodifiableList(dynamicActiveClusters_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        dynamicWarmingClusters_ = java.util.Collections.unmodifiableList(dynamicWarmingClusters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.admin.v2alpha.ConfigDumpProto.internal_static_envoy_admin_v2alpha_ClustersConfigDump_descriptor;
@@ -224,71 +142,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StaticCluster(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Any.Builder subBuilder = null;
-              if (cluster_ != null) {
-                subBuilder = cluster_.toBuilder();
-              }
-              cluster_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(cluster_);
-                cluster_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (lastUpdated_ != null) {
-                subBuilder = lastUpdated_.toBuilder();
-              }
-              lastUpdated_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastUpdated_);
-                lastUpdated_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.admin.v2alpha.ConfigDumpProto.internal_static_envoy_admin_v2alpha_ClustersConfigDump_StaticCluster_descriptor;
@@ -337,7 +190,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getClusterOrBuilder() {
-      return getCluster();
+      return cluster_ == null ? com.google.protobuf.Any.getDefaultInstance() : cluster_;
     }
 
     public static final int LAST_UPDATED_FIELD_NUMBER = 2;
@@ -375,7 +228,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLastUpdatedOrBuilder() {
-      return getLastUpdated();
+      return lastUpdated_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastUpdated_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -398,7 +251,7 @@ private static final long serialVersionUID = 0L;
       if (lastUpdated_ != null) {
         output.writeMessage(2, getLastUpdated());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -415,7 +268,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getLastUpdated());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -440,7 +293,7 @@ private static final long serialVersionUID = 0L;
         if (!getLastUpdated()
             .equals(other.getLastUpdated())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -459,7 +312,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + LAST_UPDATED_FIELD_NUMBER;
         hash = (53 * hash) + getLastUpdated().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -580,32 +433,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (clusterBuilder_ == null) {
-          cluster_ = null;
-        } else {
-          cluster_ = null;
+        bitField0_ = 0;
+        cluster_ = null;
+        if (clusterBuilder_ != null) {
+          clusterBuilder_.dispose();
           clusterBuilder_ = null;
         }
-        if (lastUpdatedBuilder_ == null) {
-          lastUpdated_ = null;
-        } else {
-          lastUpdated_ = null;
+        lastUpdated_ = null;
+        if (lastUpdatedBuilder_ != null) {
+          lastUpdatedBuilder_.dispose();
           lastUpdatedBuilder_ = null;
         }
         return this;
@@ -634,18 +481,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster buildPartial() {
         io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster result = new io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster(this);
-        if (clusterBuilder_ == null) {
-          result.cluster_ = cluster_;
-        } else {
-          result.cluster_ = clusterBuilder_.build();
-        }
-        if (lastUpdatedBuilder_ == null) {
-          result.lastUpdated_ = lastUpdated_;
-        } else {
-          result.lastUpdated_ = lastUpdatedBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.cluster_ = clusterBuilder_ == null
+              ? cluster_
+              : clusterBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.lastUpdated_ = lastUpdatedBuilder_ == null
+              ? lastUpdated_
+              : lastUpdatedBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -698,7 +550,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasLastUpdated()) {
           mergeLastUpdated(other.getLastUpdated());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -713,19 +565,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getClusterFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getLastUpdatedFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Any cluster_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -739,7 +619,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the cluster field is set.
        */
       public boolean hasCluster() {
-        return clusterBuilder_ != null || cluster_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -769,11 +649,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           cluster_ = value;
-          onChanged();
         } else {
           clusterBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -787,11 +667,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Any.Builder builderForValue) {
         if (clusterBuilder_ == null) {
           cluster_ = builderForValue.build();
-          onChanged();
         } else {
           clusterBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -803,17 +683,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCluster(com.google.protobuf.Any value) {
         if (clusterBuilder_ == null) {
-          if (cluster_ != null) {
-            cluster_ =
-              com.google.protobuf.Any.newBuilder(cluster_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            cluster_ != null &&
+            cluster_ != com.google.protobuf.Any.getDefaultInstance()) {
+            getClusterBuilder().mergeFrom(value);
           } else {
             cluster_ = value;
           }
-          onChanged();
         } else {
           clusterBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -824,14 +705,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Any cluster = 1;</code>
        */
       public Builder clearCluster() {
-        if (clusterBuilder_ == null) {
-          cluster_ = null;
-          onChanged();
-        } else {
-          cluster_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        cluster_ = null;
+        if (clusterBuilder_ != null) {
+          clusterBuilder_.dispose();
           clusterBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -842,7 +722,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Any cluster = 1;</code>
        */
       public com.google.protobuf.Any.Builder getClusterBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getClusterFieldBuilder().getBuilder();
       }
@@ -894,7 +774,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the lastUpdated field is set.
        */
       public boolean hasLastUpdated() {
-        return lastUpdatedBuilder_ != null || lastUpdated_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -924,11 +804,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           lastUpdated_ = value;
-          onChanged();
         } else {
           lastUpdatedBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -942,11 +822,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (lastUpdatedBuilder_ == null) {
           lastUpdated_ = builderForValue.build();
-          onChanged();
         } else {
           lastUpdatedBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -958,17 +838,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeLastUpdated(com.google.protobuf.Timestamp value) {
         if (lastUpdatedBuilder_ == null) {
-          if (lastUpdated_ != null) {
-            lastUpdated_ =
-              com.google.protobuf.Timestamp.newBuilder(lastUpdated_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            lastUpdated_ != null &&
+            lastUpdated_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getLastUpdatedBuilder().mergeFrom(value);
           } else {
             lastUpdated_ = value;
           }
-          onChanged();
         } else {
           lastUpdatedBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -979,14 +860,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp last_updated = 2;</code>
        */
       public Builder clearLastUpdated() {
-        if (lastUpdatedBuilder_ == null) {
-          lastUpdated_ = null;
-          onChanged();
-        } else {
-          lastUpdated_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        lastUpdated_ = null;
+        if (lastUpdatedBuilder_ != null) {
+          lastUpdatedBuilder_.dispose();
           lastUpdatedBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -997,7 +877,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp last_updated = 2;</code>
        */
       public com.google.protobuf.Timestamp.Builder getLastUpdatedBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getLastUpdatedFieldBuilder().getBuilder();
       }
@@ -1069,7 +949,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StaticCluster(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1205,77 +1096,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DynamicCluster(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              versionInfo_ = s;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Any.Builder subBuilder = null;
-              if (cluster_ != null) {
-                subBuilder = cluster_.toBuilder();
-              }
-              cluster_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(cluster_);
-                cluster_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (lastUpdated_ != null) {
-                subBuilder = lastUpdated_.toBuilder();
-              }
-              lastUpdated_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastUpdated_);
-                lastUpdated_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.admin.v2alpha.ConfigDumpProto.internal_static_envoy_admin_v2alpha_ClustersConfigDump_DynamicCluster_descriptor;
@@ -1290,7 +1110,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VERSION_INFO_FIELD_NUMBER = 1;
-    private volatile java.lang.Object versionInfo_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object versionInfo_ = "";
     /**
      * <pre>
      * This is the per-resource version information. This version is currently taken from the
@@ -1376,7 +1197,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getClusterOrBuilder() {
-      return getCluster();
+      return cluster_ == null ? com.google.protobuf.Any.getDefaultInstance() : cluster_;
     }
 
     public static final int LAST_UPDATED_FIELD_NUMBER = 3;
@@ -1414,7 +1235,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getLastUpdatedOrBuilder() {
-      return getLastUpdated();
+      return lastUpdated_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastUpdated_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1440,7 +1261,7 @@ private static final long serialVersionUID = 0L;
       if (lastUpdated_ != null) {
         output.writeMessage(3, getLastUpdated());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1460,7 +1281,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getLastUpdated());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1487,7 +1308,7 @@ private static final long serialVersionUID = 0L;
         if (!getLastUpdated()
             .equals(other.getLastUpdated())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1508,7 +1329,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + LAST_UPDATED_FIELD_NUMBER;
         hash = (53 * hash) + getLastUpdated().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1629,34 +1450,27 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         versionInfo_ = "";
-
-        if (clusterBuilder_ == null) {
-          cluster_ = null;
-        } else {
-          cluster_ = null;
+        cluster_ = null;
+        if (clusterBuilder_ != null) {
+          clusterBuilder_.dispose();
           clusterBuilder_ = null;
         }
-        if (lastUpdatedBuilder_ == null) {
-          lastUpdated_ = null;
-        } else {
-          lastUpdated_ = null;
+        lastUpdated_ = null;
+        if (lastUpdatedBuilder_ != null) {
+          lastUpdatedBuilder_.dispose();
           lastUpdatedBuilder_ = null;
         }
         return this;
@@ -1685,19 +1499,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster buildPartial() {
         io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster result = new io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster(this);
-        result.versionInfo_ = versionInfo_;
-        if (clusterBuilder_ == null) {
-          result.cluster_ = cluster_;
-        } else {
-          result.cluster_ = clusterBuilder_.build();
-        }
-        if (lastUpdatedBuilder_ == null) {
-          result.lastUpdated_ = lastUpdated_;
-        } else {
-          result.lastUpdated_ = lastUpdatedBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.versionInfo_ = versionInfo_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.cluster_ = clusterBuilder_ == null
+              ? cluster_
+              : clusterBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.lastUpdated_ = lastUpdatedBuilder_ == null
+              ? lastUpdated_
+              : lastUpdatedBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1746,6 +1567,7 @@ private static final long serialVersionUID = 0L;
         if (other == io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster.getDefaultInstance()) return this;
         if (!other.getVersionInfo().isEmpty()) {
           versionInfo_ = other.versionInfo_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasCluster()) {
@@ -1754,7 +1576,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasLastUpdated()) {
           mergeLastUpdated(other.getLastUpdated());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1769,19 +1591,52 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                versionInfo_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getClusterFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getLastUpdatedFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object versionInfo_ = "";
       /**
@@ -1845,11 +1700,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setVersionInfo(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         versionInfo_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1865,8 +1718,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearVersionInfo() {
-        
         versionInfo_ = getDefaultInstance().getVersionInfo();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1884,12 +1737,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setVersionInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         versionInfo_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1906,7 +1757,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the cluster field is set.
        */
       public boolean hasCluster() {
-        return clusterBuilder_ != null || cluster_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1936,11 +1787,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           cluster_ = value;
-          onChanged();
         } else {
           clusterBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1954,11 +1805,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Any.Builder builderForValue) {
         if (clusterBuilder_ == null) {
           cluster_ = builderForValue.build();
-          onChanged();
         } else {
           clusterBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1970,17 +1821,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCluster(com.google.protobuf.Any value) {
         if (clusterBuilder_ == null) {
-          if (cluster_ != null) {
-            cluster_ =
-              com.google.protobuf.Any.newBuilder(cluster_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            cluster_ != null &&
+            cluster_ != com.google.protobuf.Any.getDefaultInstance()) {
+            getClusterBuilder().mergeFrom(value);
           } else {
             cluster_ = value;
           }
-          onChanged();
         } else {
           clusterBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1991,14 +1843,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Any cluster = 2;</code>
        */
       public Builder clearCluster() {
-        if (clusterBuilder_ == null) {
-          cluster_ = null;
-          onChanged();
-        } else {
-          cluster_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        cluster_ = null;
+        if (clusterBuilder_ != null) {
+          clusterBuilder_.dispose();
           clusterBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2009,7 +1860,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Any cluster = 2;</code>
        */
       public com.google.protobuf.Any.Builder getClusterBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getClusterFieldBuilder().getBuilder();
       }
@@ -2061,7 +1912,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the lastUpdated field is set.
        */
       public boolean hasLastUpdated() {
-        return lastUpdatedBuilder_ != null || lastUpdated_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2091,11 +1942,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           lastUpdated_ = value;
-          onChanged();
         } else {
           lastUpdatedBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2109,11 +1960,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (lastUpdatedBuilder_ == null) {
           lastUpdated_ = builderForValue.build();
-          onChanged();
         } else {
           lastUpdatedBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2125,17 +1976,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeLastUpdated(com.google.protobuf.Timestamp value) {
         if (lastUpdatedBuilder_ == null) {
-          if (lastUpdated_ != null) {
-            lastUpdated_ =
-              com.google.protobuf.Timestamp.newBuilder(lastUpdated_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            lastUpdated_ != null &&
+            lastUpdated_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getLastUpdatedBuilder().mergeFrom(value);
           } else {
             lastUpdated_ = value;
           }
-          onChanged();
         } else {
           lastUpdatedBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2146,14 +1998,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp last_updated = 3;</code>
        */
       public Builder clearLastUpdated() {
-        if (lastUpdatedBuilder_ == null) {
-          lastUpdated_ = null;
-          onChanged();
-        } else {
-          lastUpdated_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        lastUpdated_ = null;
+        if (lastUpdatedBuilder_ != null) {
+          lastUpdatedBuilder_.dispose();
           lastUpdatedBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2164,7 +2015,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp last_updated = 3;</code>
        */
       public com.google.protobuf.Timestamp.Builder getLastUpdatedBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getLastUpdatedFieldBuilder().getBuilder();
       }
@@ -2236,7 +2087,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DynamicCluster(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2257,7 +2119,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_INFO_FIELD_NUMBER = 1;
-  private volatile java.lang.Object versionInfo_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object versionInfo_ = "";
   /**
    * <pre>
    * This is the :ref:`version_info &lt;envoy_api_field_DiscoveryResponse.version_info&gt;` in the
@@ -2307,6 +2170,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATIC_CLUSTERS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster> staticClusters_;
   /**
    * <pre>
@@ -2367,6 +2231,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DYNAMIC_ACTIVE_CLUSTERS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster> dynamicActiveClusters_;
   /**
    * <pre>
@@ -2432,6 +2297,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DYNAMIC_WARMING_CLUSTERS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster> dynamicWarmingClusters_;
   /**
    * <pre>
@@ -2532,7 +2398,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < dynamicWarmingClusters_.size(); i++) {
       output.writeMessage(4, dynamicWarmingClusters_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2556,7 +2422,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, dynamicWarmingClusters_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2579,7 +2445,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDynamicActiveClustersList())) return false;
     if (!getDynamicWarmingClustersList()
         .equals(other.getDynamicWarmingClustersList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2604,7 +2470,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DYNAMIC_WARMING_CLUSTERS_FIELD_NUMBER;
       hash = (53 * hash) + getDynamicWarmingClustersList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2727,45 +2593,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getStaticClustersFieldBuilder();
-        getDynamicActiveClustersFieldBuilder();
-        getDynamicWarmingClustersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       versionInfo_ = "";
-
       if (staticClustersBuilder_ == null) {
         staticClusters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        staticClusters_ = null;
         staticClustersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (dynamicActiveClustersBuilder_ == null) {
         dynamicActiveClusters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        dynamicActiveClusters_ = null;
         dynamicActiveClustersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (dynamicWarmingClustersBuilder_ == null) {
         dynamicWarmingClusters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        dynamicWarmingClusters_ = null;
         dynamicWarmingClustersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -2792,37 +2653,47 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump buildPartial() {
       io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump result = new io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump(this);
-      int from_bitField0_ = bitField0_;
-      result.versionInfo_ = versionInfo_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump result) {
       if (staticClustersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           staticClusters_ = java.util.Collections.unmodifiableList(staticClusters_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.staticClusters_ = staticClusters_;
       } else {
         result.staticClusters_ = staticClustersBuilder_.build();
       }
       if (dynamicActiveClustersBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           dynamicActiveClusters_ = java.util.Collections.unmodifiableList(dynamicActiveClusters_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.dynamicActiveClusters_ = dynamicActiveClusters_;
       } else {
         result.dynamicActiveClusters_ = dynamicActiveClustersBuilder_.build();
       }
       if (dynamicWarmingClustersBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           dynamicWarmingClusters_ = java.util.Collections.unmodifiableList(dynamicWarmingClusters_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.dynamicWarmingClusters_ = dynamicWarmingClusters_;
       } else {
         result.dynamicWarmingClusters_ = dynamicWarmingClustersBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.versionInfo_ = versionInfo_;
+      }
     }
 
     @java.lang.Override
@@ -2871,13 +2742,14 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.getDefaultInstance()) return this;
       if (!other.getVersionInfo().isEmpty()) {
         versionInfo_ = other.versionInfo_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (staticClustersBuilder_ == null) {
         if (!other.staticClusters_.isEmpty()) {
           if (staticClusters_.isEmpty()) {
             staticClusters_ = other.staticClusters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureStaticClustersIsMutable();
             staticClusters_.addAll(other.staticClusters_);
@@ -2890,7 +2762,7 @@ private static final long serialVersionUID = 0L;
             staticClustersBuilder_.dispose();
             staticClustersBuilder_ = null;
             staticClusters_ = other.staticClusters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             staticClustersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getStaticClustersFieldBuilder() : null;
@@ -2903,7 +2775,7 @@ private static final long serialVersionUID = 0L;
         if (!other.dynamicActiveClusters_.isEmpty()) {
           if (dynamicActiveClusters_.isEmpty()) {
             dynamicActiveClusters_ = other.dynamicActiveClusters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureDynamicActiveClustersIsMutable();
             dynamicActiveClusters_.addAll(other.dynamicActiveClusters_);
@@ -2916,7 +2788,7 @@ private static final long serialVersionUID = 0L;
             dynamicActiveClustersBuilder_.dispose();
             dynamicActiveClustersBuilder_ = null;
             dynamicActiveClusters_ = other.dynamicActiveClusters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             dynamicActiveClustersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDynamicActiveClustersFieldBuilder() : null;
@@ -2929,7 +2801,7 @@ private static final long serialVersionUID = 0L;
         if (!other.dynamicWarmingClusters_.isEmpty()) {
           if (dynamicWarmingClusters_.isEmpty()) {
             dynamicWarmingClusters_ = other.dynamicWarmingClusters_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureDynamicWarmingClustersIsMutable();
             dynamicWarmingClusters_.addAll(other.dynamicWarmingClusters_);
@@ -2942,7 +2814,7 @@ private static final long serialVersionUID = 0L;
             dynamicWarmingClustersBuilder_.dispose();
             dynamicWarmingClustersBuilder_ = null;
             dynamicWarmingClusters_ = other.dynamicWarmingClusters_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             dynamicWarmingClustersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDynamicWarmingClustersFieldBuilder() : null;
@@ -2951,7 +2823,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2966,17 +2838,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              versionInfo_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster.parser(),
+                      extensionRegistry);
+              if (staticClustersBuilder_ == null) {
+                ensureStaticClustersIsMutable();
+                staticClusters_.add(m);
+              } else {
+                staticClustersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster.parser(),
+                      extensionRegistry);
+              if (dynamicActiveClustersBuilder_ == null) {
+                ensureDynamicActiveClustersIsMutable();
+                dynamicActiveClusters_.add(m);
+              } else {
+                dynamicActiveClustersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster.parser(),
+                      extensionRegistry);
+              if (dynamicWarmingClustersBuilder_ == null) {
+                ensureDynamicWarmingClustersIsMutable();
+                dynamicWarmingClusters_.add(m);
+              } else {
+                dynamicWarmingClustersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3040,11 +2969,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionInfo(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       versionInfo_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3059,8 +2986,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersionInfo() {
-      
       versionInfo_ = getDefaultInstance().getVersionInfo();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3077,12 +3004,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionInfoBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       versionInfo_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3090,9 +3015,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster> staticClusters_ =
       java.util.Collections.emptyList();
     private void ensureStaticClustersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         staticClusters_ = new java.util.ArrayList<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster>(staticClusters_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -3286,7 +3211,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearStaticClusters() {
       if (staticClustersBuilder_ == null) {
         staticClusters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         staticClustersBuilder_.clear();
@@ -3391,7 +3316,7 @@ private static final long serialVersionUID = 0L;
         staticClustersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster, io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticCluster.Builder, io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.StaticClusterOrBuilder>(
                 staticClusters_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         staticClusters_ = null;
@@ -3402,9 +3327,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster> dynamicActiveClusters_ =
       java.util.Collections.emptyList();
     private void ensureDynamicActiveClustersIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         dynamicActiveClusters_ = new java.util.ArrayList<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster>(dynamicActiveClusters_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -3609,7 +3534,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDynamicActiveClusters() {
       if (dynamicActiveClustersBuilder_ == null) {
         dynamicActiveClusters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         dynamicActiveClustersBuilder_.clear();
@@ -3721,7 +3646,7 @@ private static final long serialVersionUID = 0L;
         dynamicActiveClustersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster, io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster.Builder, io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicClusterOrBuilder>(
                 dynamicActiveClusters_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         dynamicActiveClusters_ = null;
@@ -3732,9 +3657,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster> dynamicWarmingClusters_ =
       java.util.Collections.emptyList();
     private void ensureDynamicWarmingClustersIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         dynamicWarmingClusters_ = new java.util.ArrayList<io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster>(dynamicWarmingClusters_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -3961,7 +3886,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDynamicWarmingClusters() {
       if (dynamicWarmingClustersBuilder_ == null) {
         dynamicWarmingClusters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         dynamicWarmingClustersBuilder_.clear();
@@ -4087,7 +4012,7 @@ private static final long serialVersionUID = 0L;
         dynamicWarmingClustersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster, io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicCluster.Builder, io.envoyproxy.envoy.admin.v2alpha.ClustersConfigDump.DynamicClusterOrBuilder>(
                 dynamicWarmingClusters_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         dynamicWarmingClusters_ = null;
@@ -4127,7 +4052,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClustersConfigDump(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

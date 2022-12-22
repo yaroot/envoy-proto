@@ -36,72 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SamplePlayableLocationsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              locationsPerGameObjectType_ = com.google.protobuf.MapField.newMapField(
-                  LocationsPerGameObjectTypeDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList>
-            locationsPerGameObjectType__ = input.readMessage(
-                LocationsPerGameObjectTypeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            locationsPerGameObjectType_.getMutableMap().put(
-                locationsPerGameObjectType__.getKey(), locationsPerGameObjectType__.getValue());
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (ttl_ != null) {
-              subBuilder = ttl_.toBuilder();
-            }
-            ttl_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ttl_);
-              ttl_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.playablelocations.v3.PlayableLocationsProto.internal_static_google_maps_playablelocations_v3_SamplePlayableLocationsResponse_descriptor;
@@ -139,6 +73,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.maps.playablelocations.v3.sample.PlayableLocationList.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList> locationsPerGameObjectType_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList>
@@ -149,7 +84,6 @@ private static final long serialVersionUID = 0L;
     }
     return locationsPerGameObjectType_;
   }
-
   public int getLocationsPerGameObjectTypeCount() {
     return internalGetLocationsPerGameObjectType().getMap().size();
   }
@@ -161,7 +95,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsLocationsPerGameObjectType(
       int key) {
@@ -185,7 +118,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList> getLocationsPerGameObjectTypeMap() {
     return internalGetLocationsPerGameObjectType().getMap();
   }
@@ -198,10 +130,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
    */
   @java.lang.Override
-
-  public com.google.maps.playablelocations.v3.sample.PlayableLocationList getLocationsPerGameObjectTypeOrDefault(
+  public /* nullable */
+com.google.maps.playablelocations.v3.sample.PlayableLocationList getLocationsPerGameObjectTypeOrDefault(
       int key,
-      com.google.maps.playablelocations.v3.sample.PlayableLocationList defaultValue) {
+      /* nullable */
+com.google.maps.playablelocations.v3.sample.PlayableLocationList defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList> map =
         internalGetLocationsPerGameObjectType().getMap();
@@ -216,7 +149,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
    */
   @java.lang.Override
-
   public com.google.maps.playablelocations.v3.sample.PlayableLocationList getLocationsPerGameObjectTypeOrThrow(
       int key) {
     
@@ -284,7 +216,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTtlOrBuilder() {
-    return getTtl();
+    return ttl_ == null ? com.google.protobuf.Duration.getDefaultInstance() : ttl_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -310,7 +242,7 @@ private static final long serialVersionUID = 0L;
     if (ttl_ != null) {
       output.writeMessage(9, getTtl());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -333,7 +265,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getTtl());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -355,7 +287,7 @@ private static final long serialVersionUID = 0L;
       if (!getTtl()
           .equals(other.getTtl())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -374,7 +306,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TTL_FIELD_NUMBER;
       hash = (53 * hash) + getTtl().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -519,27 +451,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.playablelocations.v3.SamplePlayableLocationsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableLocationsPerGameObjectType().clear();
-      if (ttlBuilder_ == null) {
-        ttl_ = null;
-      } else {
-        ttl_ = null;
+      ttl_ = null;
+      if (ttlBuilder_ != null) {
+        ttlBuilder_.dispose();
         ttlBuilder_ = null;
       }
       return this;
@@ -568,16 +495,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.playablelocations.v3.SamplePlayableLocationsResponse buildPartial() {
       com.google.maps.playablelocations.v3.SamplePlayableLocationsResponse result = new com.google.maps.playablelocations.v3.SamplePlayableLocationsResponse(this);
-      int from_bitField0_ = bitField0_;
-      result.locationsPerGameObjectType_ = internalGetLocationsPerGameObjectType();
-      result.locationsPerGameObjectType_.makeImmutable();
-      if (ttlBuilder_ == null) {
-        result.ttl_ = ttl_;
-      } else {
-        result.ttl_ = ttlBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.playablelocations.v3.SamplePlayableLocationsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.locationsPerGameObjectType_ = internalGetLocationsPerGameObjectType();
+        result.locationsPerGameObjectType_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.ttl_ = ttlBuilder_ == null
+            ? ttl_
+            : ttlBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -626,10 +559,11 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.maps.playablelocations.v3.SamplePlayableLocationsResponse.getDefaultInstance()) return this;
       internalGetMutableLocationsPerGameObjectType().mergeFrom(
           other.internalGetLocationsPerGameObjectType());
+      bitField0_ |= 0x00000001;
       if (other.hasTtl()) {
         mergeTtl(other.getTtl());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -644,17 +578,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.playablelocations.v3.SamplePlayableLocationsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList>
+              locationsPerGameObjectType__ = input.readMessage(
+                  LocationsPerGameObjectTypeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLocationsPerGameObjectType().getMutableMap().put(
+                  locationsPerGameObjectType__.getKey(), locationsPerGameObjectType__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 74: {
+              input.readMessage(
+                  getTtlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.playablelocations.v3.SamplePlayableLocationsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -662,7 +625,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList> locationsPerGameObjectType_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList>
-    internalGetLocationsPerGameObjectType() {
+        internalGetLocationsPerGameObjectType() {
       if (locationsPerGameObjectType_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LocationsPerGameObjectTypeDefaultEntryHolder.defaultEntry);
@@ -670,8 +633,7 @@ private static final long serialVersionUID = 0L;
       return locationsPerGameObjectType_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList>
-    internalGetMutableLocationsPerGameObjectType() {
-      onChanged();;
+        internalGetMutableLocationsPerGameObjectType() {
       if (locationsPerGameObjectType_ == null) {
         locationsPerGameObjectType_ = com.google.protobuf.MapField.newMapField(
             LocationsPerGameObjectTypeDefaultEntryHolder.defaultEntry);
@@ -679,9 +641,10 @@ private static final long serialVersionUID = 0L;
       if (!locationsPerGameObjectType_.isMutable()) {
         locationsPerGameObjectType_ = locationsPerGameObjectType_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return locationsPerGameObjectType_;
     }
-
     public int getLocationsPerGameObjectTypeCount() {
       return internalGetLocationsPerGameObjectType().getMap().size();
     }
@@ -693,7 +656,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsLocationsPerGameObjectType(
         int key) {
@@ -717,7 +679,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList> getLocationsPerGameObjectTypeMap() {
       return internalGetLocationsPerGameObjectType().getMap();
     }
@@ -730,10 +691,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.maps.playablelocations.v3.sample.PlayableLocationList getLocationsPerGameObjectTypeOrDefault(
+    public /* nullable */
+com.google.maps.playablelocations.v3.sample.PlayableLocationList getLocationsPerGameObjectTypeOrDefault(
         int key,
-        com.google.maps.playablelocations.v3.sample.PlayableLocationList defaultValue) {
+        /* nullable */
+com.google.maps.playablelocations.v3.sample.PlayableLocationList defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList> map =
           internalGetLocationsPerGameObjectType().getMap();
@@ -748,7 +710,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
      */
     @java.lang.Override
-
     public com.google.maps.playablelocations.v3.sample.PlayableLocationList getLocationsPerGameObjectTypeOrThrow(
         int key) {
       
@@ -759,8 +720,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLocationsPerGameObjectType() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableLocationsPerGameObjectType().getMutableMap()
           .clear();
       return this;
@@ -773,7 +734,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
      */
-
     public Builder removeLocationsPerGameObjectType(
         int key) {
       
@@ -786,7 +746,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList>
-    getMutableLocationsPerGameObjectType() {
+        getMutableLocationsPerGameObjectType() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableLocationsPerGameObjectType().getMutableMap();
     }
     /**
@@ -801,12 +762,10 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.maps.playablelocations.v3.sample.PlayableLocationList value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLocationsPerGameObjectType().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -817,11 +776,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
      */
-
     public Builder putAllLocationsPerGameObjectType(
         java.util.Map<java.lang.Integer, com.google.maps.playablelocations.v3.sample.PlayableLocationList> values) {
       internalGetMutableLocationsPerGameObjectType().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
@@ -844,7 +803,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the ttl field is set.
      */
     public boolean hasTtl() {
-      return ttlBuilder_ != null || ttl_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -888,11 +847,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ttl_ = value;
-        onChanged();
       } else {
         ttlBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -913,11 +872,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (ttlBuilder_ == null) {
         ttl_ = builderForValue.build();
-        onChanged();
       } else {
         ttlBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -936,17 +895,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTtl(com.google.protobuf.Duration value) {
       if (ttlBuilder_ == null) {
-        if (ttl_ != null) {
-          ttl_ =
-            com.google.protobuf.Duration.newBuilder(ttl_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          ttl_ != null &&
+          ttl_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTtlBuilder().mergeFrom(value);
         } else {
           ttl_ = value;
         }
-        onChanged();
       } else {
         ttlBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -964,14 +924,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration ttl = 9;</code>
      */
     public Builder clearTtl() {
-      if (ttlBuilder_ == null) {
-        ttl_ = null;
-        onChanged();
-      } else {
-        ttl_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      ttl_ = null;
+      if (ttlBuilder_ != null) {
+        ttlBuilder_.dispose();
         ttlBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -989,7 +948,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration ttl = 9;</code>
      */
     public com.google.protobuf.Duration.Builder getTtlBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTtlFieldBuilder().getBuilder();
     }
@@ -1075,7 +1034,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SamplePlayableLocationsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

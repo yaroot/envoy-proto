@@ -29,38 +29,39 @@ public final class BuildStatusProto {
   static {
     java.lang.String[] descriptorData = {
       "\n+google/devtools/build/v1/build_status." +
-      "proto\022\030google.devtools.build.v1\032\036google/" +
-      "protobuf/wrappers.proto\032\031google/protobuf" +
-      "/any.proto\"\236\003\n\013BuildStatus\022<\n\006result\030\001 \001" +
+      "proto\022\030google.devtools.build.v1\032\031google/" +
+      "protobuf/any.proto\032\036google/protobuf/wrap" +
+      "pers.proto\"\265\003\n\013BuildStatus\022<\n\006result\030\001 \001" +
       "(\0162,.google.devtools.build.v1.BuildStatu" +
       "s.Result\022\033\n\023final_invocation_id\030\003 \001(\t\0229\n" +
       "\024build_tool_exit_code\030\004 \001(\0132\033.google.pro" +
-      "tobuf.Int32Value\022%\n\007details\030\002 \001(\0132\024.goog" +
-      "le.protobuf.Any\"\321\001\n\006Result\022\022\n\016UNKNOWN_ST" +
-      "ATUS\020\000\022\025\n\021COMMAND_SUCCEEDED\020\001\022\022\n\016COMMAND" +
-      "_FAILED\020\002\022\016\n\nUSER_ERROR\020\003\022\020\n\014SYSTEM_ERRO" +
-      "R\020\004\022\026\n\022RESOURCE_EXHAUSTED\020\005\022 \n\034INVOCATIO" +
-      "N_DEADLINE_EXCEEDED\020\006\022\035\n\031REQUEST_DEADLIN" +
-      "E_EXCEEDED\020\010\022\r\n\tCANCELLED\020\007B\214\001\n\034com.goog" +
-      "le.devtools.build.v1B\020BuildStatusProtoP\001" +
-      "Z=google.golang.org/genproto/googleapis/" +
-      "devtools/build/v1;build\370\001\001\312\002\025Google\\Clou" +
-      "d\\Build\\V1b\006proto3"
+      "tobuf.Int32Value\022\025\n\rerror_message\030\005 \001(\t\022" +
+      "%\n\007details\030\002 \001(\0132\024.google.protobuf.Any\"\321" +
+      "\001\n\006Result\022\022\n\016UNKNOWN_STATUS\020\000\022\025\n\021COMMAND" +
+      "_SUCCEEDED\020\001\022\022\n\016COMMAND_FAILED\020\002\022\016\n\nUSER" +
+      "_ERROR\020\003\022\020\n\014SYSTEM_ERROR\020\004\022\026\n\022RESOURCE_E" +
+      "XHAUSTED\020\005\022 \n\034INVOCATION_DEADLINE_EXCEED" +
+      "ED\020\006\022\035\n\031REQUEST_DEADLINE_EXCEEDED\020\010\022\r\n\tC" +
+      "ANCELLED\020\007B\214\001\n\034com.google.devtools.build" +
+      ".v1B\020BuildStatusProtoP\001Z=google.golang.o" +
+      "rg/genproto/googleapis/devtools/build/v1" +
+      ";build\370\001\001\312\002\025Google\\Cloud\\Build\\V1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.WrappersProto.getDescriptor(),
           com.google.protobuf.AnyProto.getDescriptor(),
+          com.google.protobuf.WrappersProto.getDescriptor(),
         });
     internal_static_google_devtools_build_v1_BuildStatus_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_google_devtools_build_v1_BuildStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_devtools_build_v1_BuildStatus_descriptor,
-        new java.lang.String[] { "Result", "FinalInvocationId", "BuildToolExitCode", "Details", });
-    com.google.protobuf.WrappersProto.getDescriptor();
+        new java.lang.String[] { "Result", "FinalInvocationId", "BuildToolExitCode", "ErrorMessage", "Details", });
     com.google.protobuf.AnyProto.getDescriptor();
+    com.google.protobuf.WrappersProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

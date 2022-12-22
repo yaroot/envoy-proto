@@ -11,10 +11,11 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/datacatalog/v1/usage.proto\x12\x1bgoogle.cloud.datacatalog.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\x91\x01\n\nUsageStats\x12\x19\n\x11total_completions\x18\x01 \x01(\x02\x12\x16\n\x0etotal_failures\x18\x02 \x01(\x02\x12\x1b\n\x13total_cancellations\x18\x03 \x01(\x02\x12\x33\n+total_execution_time_for_completions_millis\x18\x04 \x01(\x02\"\x89\x02\n\x0bUsageSignal\x12/\n\x0bupdate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x63\n\x17usage_within_time_range\x18\x02 \x03(\x0b\x32\x42.google.cloud.datacatalog.v1.UsageSignal.UsageWithinTimeRangeEntry\x1a\x64\n\x19UsageWithinTimeRangeEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32\'.google.cloud.datacatalog.v1.UsageStats:\x02\x38\x01\x42\xcb\x01\n\x1f\x63om.google.cloud.datacatalog.v1P\x01ZFgoogle.golang.org/genproto/googleapis/cloud/datacatalog/v1;datacatalog\xf8\x01\x01\xaa\x02\x1bGoogle.Cloud.DataCatalog.V1\xca\x02\x1bGoogle\\Cloud\\DataCatalog\\V1\xea\x02\x1eGoogle::Cloud::DataCatalog::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/datacatalog/v1/usage.proto\x12\x1bgoogle.cloud.datacatalog.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x91\x01\n\nUsageStats\x12\x19\n\x11total_completions\x18\x01 \x01(\x02\x12\x16\n\x0etotal_failures\x18\x02 \x01(\x02\x12\x1b\n\x13total_cancellations\x18\x03 \x01(\x02\x12\x33\n+total_execution_time_for_completions_millis\x18\x04 \x01(\x02\"\x8e\x02\n\x0bUsageSignal\x12/\n\x0bupdate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12h\n\x17usage_within_time_range\x18\x02 \x03(\x0b\x32\x42.google.cloud.datacatalog.v1.UsageSignal.UsageWithinTimeRangeEntryB\x03\xe0\x41\x03\x1a\x64\n\x19UsageWithinTimeRangeEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32\'.google.cloud.datacatalog.v1.UsageStats:\x02\x38\x01\x42\xcb\x01\n\x1f\x63om.google.cloud.datacatalog.v1P\x01ZFgoogle.golang.org/genproto/googleapis/cloud/datacatalog/v1;datacatalog\xf8\x01\x01\xaa\x02\x1bGoogle.Cloud.DataCatalog.V1\xca\x02\x1bGoogle\\Cloud\\DataCatalog\\V1\xea\x02\x1eGoogle::Cloud::DataCatalog::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.datacatalog.v1.usage_pb2', globals())
@@ -24,10 +25,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n\037com.google.cloud.datacatalog.v1P\001ZFgoogle.golang.org/genproto/googleapis/cloud/datacatalog/v1;datacatalog\370\001\001\252\002\033Google.Cloud.DataCatalog.V1\312\002\033Google\\Cloud\\DataCatalog\\V1\352\002\036Google::Cloud::DataCatalog::V1'
   _USAGESIGNAL_USAGEWITHINTIMERANGEENTRY._options = None
   _USAGESIGNAL_USAGEWITHINTIMERANGEENTRY._serialized_options = b'8\001'
-  _USAGESTATS._serialized_start=106
-  _USAGESTATS._serialized_end=251
-  _USAGESIGNAL._serialized_start=254
-  _USAGESIGNAL._serialized_end=519
-  _USAGESIGNAL_USAGEWITHINTIMERANGEENTRY._serialized_start=419
-  _USAGESIGNAL_USAGEWITHINTIMERANGEENTRY._serialized_end=519
+  _USAGESIGNAL.fields_by_name['usage_within_time_range']._options = None
+  _USAGESIGNAL.fields_by_name['usage_within_time_range']._serialized_options = b'\340A\003'
+  _USAGESTATS._serialized_start=139
+  _USAGESTATS._serialized_end=284
+  _USAGESIGNAL._serialized_start=287
+  _USAGESIGNAL._serialized_end=557
+  _USAGESIGNAL_USAGEWITHINTIMERANGEENTRY._serialized_start=457
+  _USAGESIGNAL_USAGEWITHINTIMERANGEENTRY._serialized_end=557
 # @@protoc_insertion_point(module_scope)

@@ -37,77 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Transcript(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            geneId_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              exons_ = new java.util.ArrayList<com.google.genomics.v1.Transcript.Exon>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            exons_.add(
-                input.readMessage(com.google.genomics.v1.Transcript.Exon.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.genomics.v1.Transcript.CodingSequence.Builder subBuilder = null;
-            if (codingSequence_ != null) {
-              subBuilder = codingSequence_.toBuilder();
-            }
-            codingSequence_ = input.readMessage(com.google.genomics.v1.Transcript.CodingSequence.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(codingSequence_);
-              codingSequence_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        exons_ = java.util.Collections.unmodifiableList(exons_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1.AnnotationsProto.internal_static_google_genomics_v1_Transcript_descriptor;
@@ -236,68 +165,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Exon(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              start_ = input.readInt64();
-              break;
-            }
-            case 16: {
-
-              end_ = input.readInt64();
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Int32Value.Builder subBuilder = null;
-              if (frame_ != null) {
-                subBuilder = frame_.toBuilder();
-              }
-              frame_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(frame_);
-                frame_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.genomics.v1.AnnotationsProto.internal_static_google_genomics_v1_Transcript_Exon_descriptor;
@@ -312,7 +179,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int START_FIELD_NUMBER = 1;
-    private long start_;
+    private long start_ = 0L;
     /**
      * <pre>
      * The start position of the exon on this annotation's reference sequence,
@@ -329,7 +196,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int END_FIELD_NUMBER = 2;
-    private long end_;
+    private long end_ = 0L;
     /**
      * <pre>
      * The end position of the exon on this annotation's reference sequence,
@@ -413,7 +280,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.Int32ValueOrBuilder getFrameOrBuilder() {
-      return getFrame();
+      return frame_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : frame_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -439,7 +306,7 @@ private static final long serialVersionUID = 0L;
       if (frame_ != null) {
         output.writeMessage(3, getFrame());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -460,7 +327,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getFrame());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -484,7 +351,7 @@ private static final long serialVersionUID = 0L;
         if (!getFrame()
             .equals(other.getFrame())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -505,7 +372,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + FRAME_FIELD_NUMBER;
         hash = (53 * hash) + getFrame().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -622,30 +489,23 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.genomics.v1.Transcript.Exon.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         start_ = 0L;
-
         end_ = 0L;
-
-        if (frameBuilder_ == null) {
-          frame_ = null;
-        } else {
-          frame_ = null;
+        frame_ = null;
+        if (frameBuilder_ != null) {
+          frameBuilder_.dispose();
           frameBuilder_ = null;
         }
         return this;
@@ -674,15 +534,24 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.genomics.v1.Transcript.Exon buildPartial() {
         com.google.genomics.v1.Transcript.Exon result = new com.google.genomics.v1.Transcript.Exon(this);
-        result.start_ = start_;
-        result.end_ = end_;
-        if (frameBuilder_ == null) {
-          result.frame_ = frame_;
-        } else {
-          result.frame_ = frameBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.genomics.v1.Transcript.Exon result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.start_ = start_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.end_ = end_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.frame_ = frameBuilder_ == null
+              ? frame_
+              : frameBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -738,7 +607,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasFrame()) {
           mergeFrame(other.getFrame());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -753,19 +622,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.genomics.v1.Transcript.Exon parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                start_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                end_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getFrameFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.genomics.v1.Transcript.Exon) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long start_ ;
       /**
@@ -796,6 +696,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStart(long value) {
         
         start_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -810,7 +711,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStart() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         start_ = 0L;
         onChanged();
         return this;
@@ -845,6 +746,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEnd(long value) {
         
         end_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -859,7 +761,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEnd() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         end_ = 0L;
         onChanged();
         return this;
@@ -888,7 +790,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the frame field is set.
        */
       public boolean hasFrame() {
-        return frameBuilder_ != null || frame_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -940,11 +842,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           frame_ = value;
-          onChanged();
         } else {
           frameBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -969,11 +871,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Int32Value.Builder builderForValue) {
         if (frameBuilder_ == null) {
           frame_ = builderForValue.build();
-          onChanged();
         } else {
           frameBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -996,17 +898,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeFrame(com.google.protobuf.Int32Value value) {
         if (frameBuilder_ == null) {
-          if (frame_ != null) {
-            frame_ =
-              com.google.protobuf.Int32Value.newBuilder(frame_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            frame_ != null &&
+            frame_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+            getFrameBuilder().mergeFrom(value);
           } else {
             frame_ = value;
           }
-          onChanged();
         } else {
           frameBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1028,14 +931,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Int32Value frame = 3;</code>
        */
       public Builder clearFrame() {
-        if (frameBuilder_ == null) {
-          frame_ = null;
-          onChanged();
-        } else {
-          frame_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        frame_ = null;
+        if (frameBuilder_ != null) {
+          frameBuilder_.dispose();
           frameBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1057,7 +959,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Int32Value frame = 3;</code>
        */
       public com.google.protobuf.Int32Value.Builder getFrameBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getFrameFieldBuilder().getBuilder();
       }
@@ -1151,7 +1053,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Exon(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1226,55 +1139,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CodingSequence(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              start_ = input.readInt64();
-              break;
-            }
-            case 16: {
-
-              end_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.genomics.v1.AnnotationsProto.internal_static_google_genomics_v1_Transcript_CodingSequence_descriptor;
@@ -1289,7 +1153,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int START_FIELD_NUMBER = 1;
-    private long start_;
+    private long start_ = 0L;
     /**
      * <pre>
      * The start of the coding sequence on this annotation's reference sequence,
@@ -1306,7 +1170,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int END_FIELD_NUMBER = 2;
-    private long end_;
+    private long end_ = 0L;
     /**
      * <pre>
      * The end of the coding sequence on this annotation's reference sequence,
@@ -1342,7 +1206,7 @@ private static final long serialVersionUID = 0L;
       if (end_ != 0L) {
         output.writeInt64(2, end_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1359,7 +1223,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, end_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1378,7 +1242,7 @@ private static final long serialVersionUID = 0L;
           != other.getStart()) return false;
       if (getEnd()
           != other.getEnd()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1395,7 +1259,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + END_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getEnd());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1512,26 +1376,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.genomics.v1.Transcript.CodingSequence.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         start_ = 0L;
-
         end_ = 0L;
-
         return this;
       }
 
@@ -1558,10 +1416,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.genomics.v1.Transcript.CodingSequence buildPartial() {
         com.google.genomics.v1.Transcript.CodingSequence result = new com.google.genomics.v1.Transcript.CodingSequence(this);
-        result.start_ = start_;
-        result.end_ = end_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.genomics.v1.Transcript.CodingSequence result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.start_ = start_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.end_ = end_;
+        }
       }
 
       @java.lang.Override
@@ -1614,7 +1481,7 @@ private static final long serialVersionUID = 0L;
         if (other.getEnd() != 0L) {
           setEnd(other.getEnd());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1629,19 +1496,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.genomics.v1.Transcript.CodingSequence parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                start_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                end_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.genomics.v1.Transcript.CodingSequence) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long start_ ;
       /**
@@ -1672,6 +1563,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStart(long value) {
         
         start_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1686,7 +1578,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStart() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         start_ = 0L;
         onChanged();
         return this;
@@ -1721,6 +1613,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEnd(long value) {
         
         end_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1735,7 +1628,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEnd() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         end_ = 0L;
         onChanged();
         return this;
@@ -1773,7 +1666,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CodingSequence(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1794,7 +1698,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GENE_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object geneId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object geneId_ = "";
   /**
    * <pre>
    * The annotation ID of the gene from which this transcript is transcribed.
@@ -1840,6 +1745,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXONS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.genomics.v1.Transcript.Exon> exons_;
   /**
    * <pre>
@@ -2017,7 +1923,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.genomics.v1.Transcript.CodingSequenceOrBuilder getCodingSequenceOrBuilder() {
-    return getCodingSequence();
+    return codingSequence_ == null ? com.google.genomics.v1.Transcript.CodingSequence.getDefaultInstance() : codingSequence_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2043,7 +1949,7 @@ private static final long serialVersionUID = 0L;
     if (codingSequence_ != null) {
       output.writeMessage(3, getCodingSequence());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2063,7 +1969,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getCodingSequence());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2087,7 +1993,7 @@ private static final long serialVersionUID = 0L;
       if (!getCodingSequence()
           .equals(other.getCodingSequence())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2108,7 +2014,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CODING_SEQUENCE_FIELD_NUMBER;
       hash = (53 * hash) + getCodingSequence().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2230,35 +2136,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1.Transcript.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getExonsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       geneId_ = "";
-
       if (exonsBuilder_ == null) {
         exons_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        exons_ = null;
         exonsBuilder_.clear();
       }
-      if (codingSequenceBuilder_ == null) {
-        codingSequence_ = null;
-      } else {
-        codingSequence_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      codingSequence_ = null;
+      if (codingSequenceBuilder_ != null) {
+        codingSequenceBuilder_.dispose();
         codingSequenceBuilder_ = null;
       }
       return this;
@@ -2287,24 +2187,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1.Transcript buildPartial() {
       com.google.genomics.v1.Transcript result = new com.google.genomics.v1.Transcript(this);
-      int from_bitField0_ = bitField0_;
-      result.geneId_ = geneId_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.genomics.v1.Transcript result) {
       if (exonsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           exons_ = java.util.Collections.unmodifiableList(exons_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.exons_ = exons_;
       } else {
         result.exons_ = exonsBuilder_.build();
       }
-      if (codingSequenceBuilder_ == null) {
-        result.codingSequence_ = codingSequence_;
-      } else {
-        result.codingSequence_ = codingSequenceBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.genomics.v1.Transcript result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.geneId_ = geneId_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.codingSequence_ = codingSequenceBuilder_ == null
+            ? codingSequence_
+            : codingSequenceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2353,13 +2263,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.genomics.v1.Transcript.getDefaultInstance()) return this;
       if (!other.getGeneId().isEmpty()) {
         geneId_ = other.geneId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (exonsBuilder_ == null) {
         if (!other.exons_.isEmpty()) {
           if (exons_.isEmpty()) {
             exons_ = other.exons_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureExonsIsMutable();
             exons_.addAll(other.exons_);
@@ -2372,7 +2283,7 @@ private static final long serialVersionUID = 0L;
             exonsBuilder_.dispose();
             exonsBuilder_ = null;
             exons_ = other.exons_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             exonsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getExonsFieldBuilder() : null;
@@ -2384,7 +2295,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCodingSequence()) {
         mergeCodingSequence(other.getCodingSequence());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2399,17 +2310,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1.Transcript parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              geneId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.genomics.v1.Transcript.Exon m =
+                  input.readMessage(
+                      com.google.genomics.v1.Transcript.Exon.parser(),
+                      extensionRegistry);
+              if (exonsBuilder_ == null) {
+                ensureExonsIsMutable();
+                exons_.add(m);
+              } else {
+                exonsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCodingSequenceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1.Transcript) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2467,11 +2416,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGeneId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       geneId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2484,8 +2431,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGeneId() {
-      
       geneId_ = getDefaultInstance().getGeneId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2500,12 +2447,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGeneIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       geneId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2513,9 +2458,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.genomics.v1.Transcript.Exon> exons_ =
       java.util.Collections.emptyList();
     private void ensureExonsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         exons_ = new java.util.ArrayList<com.google.genomics.v1.Transcript.Exon>(exons_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -2819,7 +2764,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearExons() {
       if (exonsBuilder_ == null) {
         exons_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         exonsBuilder_.clear();
@@ -2994,7 +2939,7 @@ private static final long serialVersionUID = 0L;
         exonsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.genomics.v1.Transcript.Exon, com.google.genomics.v1.Transcript.Exon.Builder, com.google.genomics.v1.Transcript.ExonOrBuilder>(
                 exons_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         exons_ = null;
@@ -3025,7 +2970,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the codingSequence field is set.
      */
     public boolean hasCodingSequence() {
-      return codingSequenceBuilder_ != null || codingSequence_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -3077,11 +3022,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         codingSequence_ = value;
-        onChanged();
       } else {
         codingSequenceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3106,11 +3051,11 @@ private static final long serialVersionUID = 0L;
         com.google.genomics.v1.Transcript.CodingSequence.Builder builderForValue) {
       if (codingSequenceBuilder_ == null) {
         codingSequence_ = builderForValue.build();
-        onChanged();
       } else {
         codingSequenceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3133,17 +3078,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCodingSequence(com.google.genomics.v1.Transcript.CodingSequence value) {
       if (codingSequenceBuilder_ == null) {
-        if (codingSequence_ != null) {
-          codingSequence_ =
-            com.google.genomics.v1.Transcript.CodingSequence.newBuilder(codingSequence_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          codingSequence_ != null &&
+          codingSequence_ != com.google.genomics.v1.Transcript.CodingSequence.getDefaultInstance()) {
+          getCodingSequenceBuilder().mergeFrom(value);
         } else {
           codingSequence_ = value;
         }
-        onChanged();
       } else {
         codingSequenceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3165,14 +3111,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.Transcript.CodingSequence coding_sequence = 3;</code>
      */
     public Builder clearCodingSequence() {
-      if (codingSequenceBuilder_ == null) {
-        codingSequence_ = null;
-        onChanged();
-      } else {
-        codingSequence_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      codingSequence_ = null;
+      if (codingSequenceBuilder_ != null) {
+        codingSequenceBuilder_.dispose();
         codingSequenceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3194,7 +3139,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.Transcript.CodingSequence coding_sequence = 3;</code>
      */
     public com.google.genomics.v1.Transcript.CodingSequence.Builder getCodingSequenceBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCodingSequenceFieldBuilder().getBuilder();
     }
@@ -3288,7 +3233,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Transcript(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

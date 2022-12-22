@@ -34,84 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConfigSyncState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion.Builder subBuilder = null;
-            if (version_ != null) {
-              subBuilder = version_.toBuilder();
-            }
-            version_ = input.readMessage(com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(version_);
-              version_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState.Builder subBuilder = null;
-            if (deploymentState_ != null) {
-              subBuilder = deploymentState_.toBuilder();
-            }
-            deploymentState_ = input.readMessage(com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deploymentState_);
-              deploymentState_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.gkehub.configmanagement.v1alpha.SyncState.Builder subBuilder = null;
-            if (syncState_ != null) {
-              subBuilder = syncState_.toBuilder();
-            }
-            syncState_ = input.readMessage(com.google.cloud.gkehub.configmanagement.v1alpha.SyncState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(syncState_);
-              syncState_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.configmanagement.v1alpha.ConfigManagementProto.internal_static_google_cloud_gkehub_configmanagement_v1alpha_ConfigSyncState_descriptor;
@@ -160,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersionOrBuilder getVersionOrBuilder() {
-    return getVersion();
+    return version_ == null ? com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion.getDefaultInstance() : version_;
   }
 
   public static final int DEPLOYMENT_STATE_FIELD_NUMBER = 2;
@@ -201,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentStateOrBuilder getDeploymentStateOrBuilder() {
-    return getDeploymentState();
+    return deploymentState_ == null ? com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState.getDefaultInstance() : deploymentState_;
   }
 
   public static final int SYNC_STATE_FIELD_NUMBER = 3;
@@ -239,7 +161,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.configmanagement.v1alpha.SyncStateOrBuilder getSyncStateOrBuilder() {
-    return getSyncState();
+    return syncState_ == null ? com.google.cloud.gkehub.configmanagement.v1alpha.SyncState.getDefaultInstance() : syncState_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -265,7 +187,7 @@ private static final long serialVersionUID = 0L;
     if (syncState_ != null) {
       output.writeMessage(3, getSyncState());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -286,7 +208,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getSyncState());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -316,7 +238,7 @@ private static final long serialVersionUID = 0L;
       if (!getSyncState()
           .equals(other.getSyncState())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -339,7 +261,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SYNC_STATE_FIELD_NUMBER;
       hash = (53 * hash) + getSyncState().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -460,38 +382,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (versionBuilder_ == null) {
-        version_ = null;
-      } else {
-        version_ = null;
+      bitField0_ = 0;
+      version_ = null;
+      if (versionBuilder_ != null) {
+        versionBuilder_.dispose();
         versionBuilder_ = null;
       }
-      if (deploymentStateBuilder_ == null) {
-        deploymentState_ = null;
-      } else {
-        deploymentState_ = null;
+      deploymentState_ = null;
+      if (deploymentStateBuilder_ != null) {
+        deploymentStateBuilder_.dispose();
         deploymentStateBuilder_ = null;
       }
-      if (syncStateBuilder_ == null) {
-        syncState_ = null;
-      } else {
-        syncState_ = null;
+      syncState_ = null;
+      if (syncStateBuilder_ != null) {
+        syncStateBuilder_.dispose();
         syncStateBuilder_ = null;
       }
       return this;
@@ -520,23 +435,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncState buildPartial() {
       com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncState result = new com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncState(this);
-      if (versionBuilder_ == null) {
-        result.version_ = version_;
-      } else {
-        result.version_ = versionBuilder_.build();
-      }
-      if (deploymentStateBuilder_ == null) {
-        result.deploymentState_ = deploymentState_;
-      } else {
-        result.deploymentState_ = deploymentStateBuilder_.build();
-      }
-      if (syncStateBuilder_ == null) {
-        result.syncState_ = syncState_;
-      } else {
-        result.syncState_ = syncStateBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.version_ = versionBuilder_ == null
+            ? version_
+            : versionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.deploymentState_ = deploymentStateBuilder_ == null
+            ? deploymentState_
+            : deploymentStateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.syncState_ = syncStateBuilder_ == null
+            ? syncState_
+            : syncStateBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -592,7 +512,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSyncState()) {
         mergeSyncState(other.getSyncState());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -607,19 +527,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDeploymentStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getSyncStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion version_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -633,7 +588,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the version field is set.
      */
     public boolean hasVersion() {
-      return versionBuilder_ != null || version_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -663,11 +618,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         version_ = value;
-        onChanged();
       } else {
         versionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -681,11 +636,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion.Builder builderForValue) {
       if (versionBuilder_ == null) {
         version_ = builderForValue.build();
-        onChanged();
       } else {
         versionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -697,17 +652,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVersion(com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion value) {
       if (versionBuilder_ == null) {
-        if (version_ != null) {
-          version_ =
-            com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion.newBuilder(version_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          version_ != null &&
+          version_ != com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion.getDefaultInstance()) {
+          getVersionBuilder().mergeFrom(value);
         } else {
           version_ = value;
         }
-        onChanged();
       } else {
         versionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -718,14 +674,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion version = 1;</code>
      */
     public Builder clearVersion() {
-      if (versionBuilder_ == null) {
-        version_ = null;
-        onChanged();
-      } else {
-        version_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      version_ = null;
+      if (versionBuilder_ != null) {
+        versionBuilder_.dispose();
         versionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -736,7 +691,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion version = 1;</code>
      */
     public com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion.Builder getVersionBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getVersionFieldBuilder().getBuilder();
     }
@@ -789,7 +744,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deploymentState field is set.
      */
     public boolean hasDeploymentState() {
-      return deploymentStateBuilder_ != null || deploymentState_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -821,11 +776,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deploymentState_ = value;
-        onChanged();
       } else {
         deploymentStateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -840,11 +795,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState.Builder builderForValue) {
       if (deploymentStateBuilder_ == null) {
         deploymentState_ = builderForValue.build();
-        onChanged();
       } else {
         deploymentStateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -857,17 +812,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeploymentState(com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState value) {
       if (deploymentStateBuilder_ == null) {
-        if (deploymentState_ != null) {
-          deploymentState_ =
-            com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState.newBuilder(deploymentState_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          deploymentState_ != null &&
+          deploymentState_ != com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState.getDefaultInstance()) {
+          getDeploymentStateBuilder().mergeFrom(value);
         } else {
           deploymentState_ = value;
         }
-        onChanged();
       } else {
         deploymentStateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -879,14 +835,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState deployment_state = 2;</code>
      */
     public Builder clearDeploymentState() {
-      if (deploymentStateBuilder_ == null) {
-        deploymentState_ = null;
-        onChanged();
-      } else {
-        deploymentState_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      deploymentState_ = null;
+      if (deploymentStateBuilder_ != null) {
+        deploymentStateBuilder_.dispose();
         deploymentStateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -898,7 +853,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState deployment_state = 2;</code>
      */
     public com.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState.Builder getDeploymentStateBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDeploymentStateFieldBuilder().getBuilder();
     }
@@ -952,7 +907,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the syncState field is set.
      */
     public boolean hasSyncState() {
-      return syncStateBuilder_ != null || syncState_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -982,11 +937,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         syncState_ = value;
-        onChanged();
       } else {
         syncStateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1000,11 +955,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.configmanagement.v1alpha.SyncState.Builder builderForValue) {
       if (syncStateBuilder_ == null) {
         syncState_ = builderForValue.build();
-        onChanged();
       } else {
         syncStateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1016,17 +971,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSyncState(com.google.cloud.gkehub.configmanagement.v1alpha.SyncState value) {
       if (syncStateBuilder_ == null) {
-        if (syncState_ != null) {
-          syncState_ =
-            com.google.cloud.gkehub.configmanagement.v1alpha.SyncState.newBuilder(syncState_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          syncState_ != null &&
+          syncState_ != com.google.cloud.gkehub.configmanagement.v1alpha.SyncState.getDefaultInstance()) {
+          getSyncStateBuilder().mergeFrom(value);
         } else {
           syncState_ = value;
         }
-        onChanged();
       } else {
         syncStateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1037,14 +993,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1alpha.SyncState sync_state = 3;</code>
      */
     public Builder clearSyncState() {
-      if (syncStateBuilder_ == null) {
-        syncState_ = null;
-        onChanged();
-      } else {
-        syncState_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      syncState_ = null;
+      if (syncStateBuilder_ != null) {
+        syncStateBuilder_.dispose();
         syncStateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1055,7 +1010,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.configmanagement.v1alpha.SyncState sync_state = 3;</code>
      */
     public com.google.cloud.gkehub.configmanagement.v1alpha.SyncState.Builder getSyncStateBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSyncStateFieldBuilder().getBuilder();
     }
@@ -1127,7 +1082,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConfigSyncState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

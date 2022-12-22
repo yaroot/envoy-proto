@@ -34,117 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OutlierDetection(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 147495104: {
-            bitField0_ |= 0x00000080;
-            maxEjectionPercent_ = input.readInt32();
-            break;
-          }
-          case 268379690: {
-            com.google.cloud.compute.v1.Duration.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000040) != 0)) {
-              subBuilder = interval_.toBuilder();
-            }
-            interval_ = input.readMessage(com.google.cloud.compute.v1.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(interval_);
-              interval_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000040;
-            break;
-          }
-          case 647978042: {
-            com.google.cloud.compute.v1.Duration.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = baseEjectionTime_.toBuilder();
-            }
-            baseEjectionTime_ = input.readMessage(com.google.cloud.compute.v1.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(baseEjectionTime_);
-              baseEjectionTime_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 1397886184: {
-            bitField0_ |= 0x00000400;
-            successRateStdevFactor_ = input.readInt32();
-            break;
-          }
-          case 1556069856: {
-            bitField0_ |= 0x00000020;
-            enforcingSuccessRate_ = input.readInt32();
-            break;
-          }
-          case 1705070080: {
-            bitField0_ |= 0x00000008;
-            enforcingConsecutiveErrors_ = input.readInt32();
-            break;
-          }
-          case -2043564440: {
-            bitField0_ |= 0x00000200;
-            successRateRequestVolume_ = input.readInt32();
-            break;
-          }
-          case -1197421312: {
-            bitField0_ |= 0x00000002;
-            consecutiveErrors_ = input.readInt32();
-            break;
-          }
-          case -1139441968: {
-            bitField0_ |= 0x00000010;
-            enforcingConsecutiveGatewayFailure_ = input.readInt32();
-            break;
-          }
-          case -954933296: {
-            bitField0_ |= 0x00000004;
-            consecutiveGatewayFailure_ = input.readInt32();
-            break;
-          }
-          case -88832072: {
-            bitField0_ |= 0x00000100;
-            successRateMinimumHosts_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_OutlierDetection_descriptor;
@@ -198,10 +87,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONSECUTIVE_ERRORS_FIELD_NUMBER = 387193248;
-  private int consecutiveErrors_;
+  private int consecutiveErrors_ = 0;
   /**
    * <pre>
-   * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5.
+   * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
    * </pre>
    *
    * <code>optional int32 consecutive_errors = 387193248;</code>
@@ -213,7 +102,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5.
+   * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
    * </pre>
    *
    * <code>optional int32 consecutive_errors = 387193248;</code>
@@ -225,10 +114,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONSECUTIVE_GATEWAY_FAILURE_FIELD_NUMBER = 417504250;
-  private int consecutiveGatewayFailure_;
+  private int consecutiveGatewayFailure_ = 0;
   /**
    * <pre>
-   * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3.
+   * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
    * </pre>
    *
    * <code>optional int32 consecutive_gateway_failure = 417504250;</code>
@@ -240,7 +129,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3.
+   * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
    * </pre>
    *
    * <code>optional int32 consecutive_gateway_failure = 417504250;</code>
@@ -252,10 +141,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENFORCING_CONSECUTIVE_ERRORS_FIELD_NUMBER = 213133760;
-  private int enforcingConsecutiveErrors_;
+  private int enforcingConsecutiveErrors_ = 0;
   /**
    * <pre>
-   * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0.
+   * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
    * </pre>
    *
    * <code>optional int32 enforcing_consecutive_errors = 213133760;</code>
@@ -267,7 +156,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0.
+   * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
    * </pre>
    *
    * <code>optional int32 enforcing_consecutive_errors = 213133760;</code>
@@ -279,10 +168,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENFORCING_CONSECUTIVE_GATEWAY_FAILURE_FIELD_NUMBER = 394440666;
-  private int enforcingConsecutiveGatewayFailure_;
+  private int enforcingConsecutiveGatewayFailure_ = 0;
   /**
    * <pre>
-   * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100.
+   * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
    * </pre>
    *
    * <code>optional int32 enforcing_consecutive_gateway_failure = 394440666;</code>
@@ -294,7 +183,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100.
+   * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
    * </pre>
    *
    * <code>optional int32 enforcing_consecutive_gateway_failure = 394440666;</code>
@@ -306,7 +195,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENFORCING_SUCCESS_RATE_FIELD_NUMBER = 194508732;
-  private int enforcingSuccessRate_;
+  private int enforcingSuccessRate_ = 0;
   /**
    * <pre>
    * The percentage chance that a host will be actually ejected when an outlier status is detected through success rate statistics. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100.
@@ -371,7 +260,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_EJECTION_PERCENT_FIELD_NUMBER = 18436888;
-  private int maxEjectionPercent_;
+  private int maxEjectionPercent_ = 0;
   /**
    * <pre>
    * Maximum percentage of hosts in the load balancing pool for the backend service that can be ejected. Defaults to 50%.
@@ -398,7 +287,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUCCESS_RATE_MINIMUM_HOSTS_FIELD_NUMBER = 525766903;
-  private int successRateMinimumHosts_;
+  private int successRateMinimumHosts_ = 0;
   /**
    * <pre>
    * The number of hosts in a cluster that must have enough request volume to detect success rate outliers. If the number of hosts is less than this setting, outlier detection via success rate statistics is not performed for any host in the cluster. Defaults to 5.
@@ -425,7 +314,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUCCESS_RATE_REQUEST_VOLUME_FIELD_NUMBER = 281425357;
-  private int successRateRequestVolume_;
+  private int successRateRequestVolume_ = 0;
   /**
    * <pre>
    * The minimum number of total requests that must be collected in one interval (as defined by the interval duration above) to include this host in success rate based outlier detection. If the volume is lower than this setting, outlier detection via success rate statistics is not performed for that host. Defaults to 100.
@@ -452,7 +341,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUCCESS_RATE_STDEV_FACTOR_FIELD_NUMBER = 174735773;
-  private int successRateStdevFactor_;
+  private int successRateStdevFactor_ = 0;
   /**
    * <pre>
    * This factor is used to determine the ejection threshold for success rate outlier ejection. The ejection threshold is the difference between the mean success rate, and the product of this factor and the standard deviation of the mean success rate: mean - (stdev * success_rate_stdev_factor). This factor is divided by a thousand to get a double. That is, if the desired factor is 1.9, the runtime value should be 1900. Defaults to 1900.
@@ -525,7 +414,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000100) != 0)) {
       output.writeInt32(525766903, successRateMinimumHosts_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -578,7 +467,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(525766903, successRateMinimumHosts_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -648,7 +537,7 @@ private static final long serialVersionUID = 0L;
       if (getSuccessRateStdevFactor()
           != other.getSuccessRateStdevFactor()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -703,7 +592,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUCCESS_RATE_STDEV_FACTOR_FIELD_NUMBER;
       hash = (53 * hash) + getSuccessRateStdevFactor();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -842,36 +731,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (baseEjectionTimeBuilder_ == null) {
-        baseEjectionTime_ = null;
-      } else {
-        baseEjectionTimeBuilder_.clear();
+      bitField0_ = 0;
+      baseEjectionTime_ = null;
+      if (baseEjectionTimeBuilder_ != null) {
+        baseEjectionTimeBuilder_.dispose();
+        baseEjectionTimeBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       consecutiveErrors_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000002);
       consecutiveGatewayFailure_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000004);
       enforcingConsecutiveErrors_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000008);
       enforcingConsecutiveGatewayFailure_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000010);
       enforcingSuccessRate_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000020);
-      if (intervalBuilder_ == null) {
-        interval_ = null;
-      } else {
-        intervalBuilder_.clear();
+      interval_ = null;
+      if (intervalBuilder_ != null) {
+        intervalBuilder_.dispose();
+        intervalBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000040);
       maxEjectionPercent_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000080);
       successRateMinimumHosts_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000100);
       successRateRequestVolume_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000200);
       successRateStdevFactor_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000400);
       return this;
     }
 
@@ -898,14 +777,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.OutlierDetection buildPartial() {
       com.google.cloud.compute.v1.OutlierDetection result = new com.google.cloud.compute.v1.OutlierDetection(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.OutlierDetection result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (baseEjectionTimeBuilder_ == null) {
-          result.baseEjectionTime_ = baseEjectionTime_;
-        } else {
-          result.baseEjectionTime_ = baseEjectionTimeBuilder_.build();
-        }
+        result.baseEjectionTime_ = baseEjectionTimeBuilder_ == null
+            ? baseEjectionTime_
+            : baseEjectionTimeBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
@@ -929,11 +812,9 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000020;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        if (intervalBuilder_ == null) {
-          result.interval_ = interval_;
-        } else {
-          result.interval_ = intervalBuilder_.build();
-        }
+        result.interval_ = intervalBuilder_ == null
+            ? interval_
+            : intervalBuilder_.build();
         to_bitField0_ |= 0x00000040;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
@@ -952,9 +833,7 @@ private static final long serialVersionUID = 0L;
         result.successRateStdevFactor_ = successRateStdevFactor_;
         to_bitField0_ |= 0x00000400;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1034,7 +913,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSuccessRateStdevFactor()) {
         setSuccessRateStdevFactor(other.getSuccessRateStdevFactor());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1049,17 +928,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.OutlierDetection parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 147495104: {
+              maxEjectionPercent_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 147495104
+            case 268379690: {
+              input.readMessage(
+                  getIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 268379690
+            case 647978042: {
+              input.readMessage(
+                  getBaseEjectionTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 647978042
+            case 1397886184: {
+              successRateStdevFactor_ = input.readInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 1397886184
+            case 1556069856: {
+              enforcingSuccessRate_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 1556069856
+            case 1705070080: {
+              enforcingConsecutiveErrors_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1705070080
+            case -2043564440: {
+              successRateRequestVolume_ = input.readInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case -2043564440
+            case -1197421312: {
+              consecutiveErrors_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1197421312
+            case -1139441968: {
+              enforcingConsecutiveGatewayFailure_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -1139441968
+            case -954933296: {
+              consecutiveGatewayFailure_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -954933296
+            case -88832072: {
+              successRateMinimumHosts_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case -88832072
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.OutlierDetection) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1106,11 +1057,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         baseEjectionTime_ = value;
-        onChanged();
       } else {
         baseEjectionTimeBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1124,11 +1075,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Duration.Builder builderForValue) {
       if (baseEjectionTimeBuilder_ == null) {
         baseEjectionTime_ = builderForValue.build();
-        onChanged();
       } else {
         baseEjectionTimeBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1141,18 +1092,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeBaseEjectionTime(com.google.cloud.compute.v1.Duration value) {
       if (baseEjectionTimeBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            baseEjectionTime_ != null &&
-            baseEjectionTime_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
-          baseEjectionTime_ =
-            com.google.cloud.compute.v1.Duration.newBuilder(baseEjectionTime_).mergeFrom(value).buildPartial();
+          baseEjectionTime_ != null &&
+          baseEjectionTime_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
+          getBaseEjectionTimeBuilder().mergeFrom(value);
         } else {
           baseEjectionTime_ = value;
         }
-        onChanged();
       } else {
         baseEjectionTimeBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1163,13 +1113,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.Duration base_ejection_time = 80997255;</code>
      */
     public Builder clearBaseEjectionTime() {
-      if (baseEjectionTimeBuilder_ == null) {
-        baseEjectionTime_ = null;
-        onChanged();
-      } else {
-        baseEjectionTimeBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      baseEjectionTime_ = null;
+      if (baseEjectionTimeBuilder_ != null) {
+        baseEjectionTimeBuilder_.dispose();
+        baseEjectionTimeBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1223,7 +1173,7 @@ private static final long serialVersionUID = 0L;
     private int consecutiveErrors_ ;
     /**
      * <pre>
-     * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5.
+     * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 consecutive_errors = 387193248;</code>
@@ -1235,7 +1185,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5.
+     * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 consecutive_errors = 387193248;</code>
@@ -1247,7 +1197,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5.
+     * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 consecutive_errors = 387193248;</code>
@@ -1255,14 +1205,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConsecutiveErrors(int value) {
-      bitField0_ |= 0x00000002;
+      
       consecutiveErrors_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5.
+     * Number of errors before a host is ejected from the connection pool. When the backend host is accessed over HTTP, a 5xx return code qualifies as an error. Defaults to 5. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 consecutive_errors = 387193248;</code>
@@ -1278,7 +1229,7 @@ private static final long serialVersionUID = 0L;
     private int consecutiveGatewayFailure_ ;
     /**
      * <pre>
-     * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3.
+     * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 consecutive_gateway_failure = 417504250;</code>
@@ -1290,7 +1241,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3.
+     * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 consecutive_gateway_failure = 417504250;</code>
@@ -1302,7 +1253,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3.
+     * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 consecutive_gateway_failure = 417504250;</code>
@@ -1310,14 +1261,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConsecutiveGatewayFailure(int value) {
-      bitField0_ |= 0x00000004;
+      
       consecutiveGatewayFailure_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3.
+     * The number of consecutive gateway failures (502, 503, 504 status or connection errors that are mapped to one of those status codes) before a consecutive gateway failure ejection occurs. Defaults to 3. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 consecutive_gateway_failure = 417504250;</code>
@@ -1333,7 +1285,7 @@ private static final long serialVersionUID = 0L;
     private int enforcingConsecutiveErrors_ ;
     /**
      * <pre>
-     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0.
+     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 enforcing_consecutive_errors = 213133760;</code>
@@ -1345,7 +1297,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0.
+     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 enforcing_consecutive_errors = 213133760;</code>
@@ -1357,7 +1309,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0.
+     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 enforcing_consecutive_errors = 213133760;</code>
@@ -1365,14 +1317,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnforcingConsecutiveErrors(int value) {
-      bitField0_ |= 0x00000008;
+      
       enforcingConsecutiveErrors_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0.
+     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive 5xx. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 0. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 enforcing_consecutive_errors = 213133760;</code>
@@ -1388,7 +1341,7 @@ private static final long serialVersionUID = 0L;
     private int enforcingConsecutiveGatewayFailure_ ;
     /**
      * <pre>
-     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100.
+     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 enforcing_consecutive_gateway_failure = 394440666;</code>
@@ -1400,7 +1353,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100.
+     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 enforcing_consecutive_gateway_failure = 394440666;</code>
@@ -1412,7 +1365,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100.
+     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 enforcing_consecutive_gateway_failure = 394440666;</code>
@@ -1420,14 +1373,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnforcingConsecutiveGatewayFailure(int value) {
-      bitField0_ |= 0x00000010;
+      
       enforcingConsecutiveGatewayFailure_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100.
+     * The percentage chance that a host will be actually ejected when an outlier status is detected through consecutive gateway failures. This setting can be used to disable ejection or to ramp it up slowly. Defaults to 100. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
      * </pre>
      *
      * <code>optional int32 enforcing_consecutive_gateway_failure = 394440666;</code>
@@ -1475,8 +1429,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnforcingSuccessRate(int value) {
-      bitField0_ |= 0x00000020;
+      
       enforcingSuccessRate_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1537,11 +1492,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         interval_ = value;
-        onChanged();
       } else {
         intervalBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1555,11 +1510,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Duration.Builder builderForValue) {
       if (intervalBuilder_ == null) {
         interval_ = builderForValue.build();
-        onChanged();
       } else {
         intervalBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1572,18 +1527,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeInterval(com.google.cloud.compute.v1.Duration value) {
       if (intervalBuilder_ == null) {
         if (((bitField0_ & 0x00000040) != 0) &&
-            interval_ != null &&
-            interval_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
-          interval_ =
-            com.google.cloud.compute.v1.Duration.newBuilder(interval_).mergeFrom(value).buildPartial();
+          interval_ != null &&
+          interval_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
+          getIntervalBuilder().mergeFrom(value);
         } else {
           interval_ = value;
         }
-        onChanged();
       } else {
         intervalBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1594,13 +1548,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.Duration interval = 33547461;</code>
      */
     public Builder clearInterval() {
-      if (intervalBuilder_ == null) {
-        interval_ = null;
-        onChanged();
-      } else {
-        intervalBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000040);
+      interval_ = null;
+      if (intervalBuilder_ != null) {
+        intervalBuilder_.dispose();
+        intervalBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1686,8 +1640,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxEjectionPercent(int value) {
-      bitField0_ |= 0x00000080;
+      
       maxEjectionPercent_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1741,8 +1696,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSuccessRateMinimumHosts(int value) {
-      bitField0_ |= 0x00000100;
+      
       successRateMinimumHosts_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1796,8 +1752,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSuccessRateRequestVolume(int value) {
-      bitField0_ |= 0x00000200;
+      
       successRateRequestVolume_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1851,8 +1808,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSuccessRateStdevFactor(int value) {
-      bitField0_ |= 0x00000400;
+      
       successRateStdevFactor_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1903,7 +1861,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OutlierDetection(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

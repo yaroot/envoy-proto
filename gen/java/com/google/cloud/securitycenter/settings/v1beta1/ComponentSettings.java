@@ -38,152 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ComponentSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectServiceAccount_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              detectorSettings_ = com.google.protobuf.MapField.newMapField(
-                  DetectorSettingsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings>
-            detectorSettings__ = input.readMessage(
-                DetectorSettingsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            detectorSettings_.getMutableMap().put(
-                detectorSettings__.getKey(), detectorSettings__.getValue());
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 322: {
-            com.google.cloud.securitycenter.settings.v1beta1.WebSecurityScanner.Builder subBuilder = null;
-            if (specificSettingsCase_ == 40) {
-              subBuilder = ((com.google.cloud.securitycenter.settings.v1beta1.WebSecurityScanner) specificSettings_).toBuilder();
-            }
-            specificSettings_ =
-                input.readMessage(com.google.cloud.securitycenter.settings.v1beta1.WebSecurityScanner.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.securitycenter.settings.v1beta1.WebSecurityScanner) specificSettings_);
-              specificSettings_ = subBuilder.buildPartial();
-            }
-            specificSettingsCase_ = 40;
-            break;
-          }
-          case 330: {
-            com.google.cloud.securitycenter.settings.v1beta1.ContainerThreatDetectionSettings.Builder subBuilder = null;
-            if (specificSettingsCase_ == 41) {
-              subBuilder = ((com.google.cloud.securitycenter.settings.v1beta1.ContainerThreatDetectionSettings) specificSettings_).toBuilder();
-            }
-            specificSettings_ =
-                input.readMessage(com.google.cloud.securitycenter.settings.v1beta1.ContainerThreatDetectionSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.securitycenter.settings.v1beta1.ContainerThreatDetectionSettings) specificSettings_);
-              specificSettings_ = subBuilder.buildPartial();
-            }
-            specificSettingsCase_ = 41;
-            break;
-          }
-          case 338: {
-            com.google.cloud.securitycenter.settings.v1beta1.EventThreatDetectionSettings.Builder subBuilder = null;
-            if (specificSettingsCase_ == 42) {
-              subBuilder = ((com.google.cloud.securitycenter.settings.v1beta1.EventThreatDetectionSettings) specificSettings_).toBuilder();
-            }
-            specificSettings_ =
-                input.readMessage(com.google.cloud.securitycenter.settings.v1beta1.EventThreatDetectionSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.securitycenter.settings.v1beta1.EventThreatDetectionSettings) specificSettings_);
-              specificSettings_ = subBuilder.buildPartial();
-            }
-            specificSettingsCase_ = 42;
-            break;
-          }
-          case 354: {
-            com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.Builder subBuilder = null;
-            if (specificSettingsCase_ == 44) {
-              subBuilder = ((com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings) specificSettings_).toBuilder();
-            }
-            specificSettings_ =
-                input.readMessage(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings) specificSettings_);
-              specificSettings_ = subBuilder.buildPartial();
-            }
-            specificSettingsCase_ = 44;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.securitycenter.settings.v1beta1.ComponentSettingsProto.internal_static_google_cloud_securitycenter_settings_v1beta1_ComponentSettings_descriptor;
@@ -266,51 +120,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DetectorSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.securitycenter.settings.v1beta1.ComponentSettingsProto.internal_static_google_cloud_securitycenter_settings_v1beta1_ComponentSettings_DetectorSettings_descriptor;
@@ -325,7 +134,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int STATE_FIELD_NUMBER = 1;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * ENABLE to enable component, DISABLE to disable and INHERIT to inherit
@@ -348,8 +157,7 @@ private static final long serialVersionUID = 0L;
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState result = com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.valueOf(state_);
+      com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState result = com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.forNumber(state_);
       return result == null ? com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.UNRECOGNIZED : result;
     }
 
@@ -370,7 +178,7 @@ private static final long serialVersionUID = 0L;
       if (state_ != com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.COMPONENT_ENABLEMENT_STATE_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, state_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -383,7 +191,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, state_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -399,7 +207,7 @@ private static final long serialVersionUID = 0L;
       com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings other = (com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings) obj;
 
       if (state_ != other.state_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -412,7 +220,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + state_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -533,24 +341,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         state_ = 0;
-
         return this;
       }
 
@@ -577,9 +380,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings buildPartial() {
         com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings result = new com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings(this);
-        result.state_ = state_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.state_ = state_;
+        }
       }
 
       @java.lang.Override
@@ -629,7 +439,7 @@ private static final long serialVersionUID = 0L;
         if (other.state_ != 0) {
           setStateValue(other.getStateValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -644,19 +454,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int state_ = 0;
       /**
@@ -682,8 +511,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -698,8 +527,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState result = com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.valueOf(state_);
+        com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState result = com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.forNumber(state_);
         return result == null ? com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.UNRECOGNIZED : result;
       }
       /**
@@ -716,7 +544,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -731,7 +559,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         state_ = 0;
         onChanged();
         return this;
@@ -769,7 +597,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DetectorSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -835,7 +674,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The relative resource name of the component settings.
@@ -895,7 +735,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 2;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * ENABLE to enable component, DISABLE to disable and INHERIT to inherit
@@ -918,13 +758,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState result = com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.valueOf(state_);
+    com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState result = com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.forNumber(state_);
     return result == null ? com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.UNRECOGNIZED : result;
   }
 
   public static final int PROJECT_SERVICE_ACCOUNT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object projectServiceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectServiceAccount_ = "";
   /**
    * <pre>
    * Output only. The service account to be used for security center component.
@@ -983,6 +823,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings> detectorSettings_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings>
@@ -993,7 +834,6 @@ private static final long serialVersionUID = 0L;
     }
     return detectorSettings_;
   }
-
   public int getDetectorSettingsCount() {
     return internalGetDetectorSettings().getMap().size();
   }
@@ -1007,7 +847,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsDetectorSettings(
       java.lang.String key) {
@@ -1033,7 +872,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings> getDetectorSettingsMap() {
     return internalGetDetectorSettings().getMap();
   }
@@ -1048,10 +886,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings getDetectorSettingsOrDefault(
+  public /* nullable */
+com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings getDetectorSettingsOrDefault(
       java.lang.String key,
-      com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings defaultValue) {
+      /* nullable */
+com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings> map =
         internalGetDetectorSettings().getMap();
@@ -1068,7 +907,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings getDetectorSettingsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1081,7 +919,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 5;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * Output only. An fingerprint used for optimistic concurrency. If none is provided
@@ -1163,7 +1002,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int CONTAINER_THREAT_DETECTION_SETTINGS_FIELD_NUMBER = 41;
@@ -1397,7 +1236,7 @@ private static final long serialVersionUID = 0L;
     if (specificSettingsCase_ == 44) {
       output.writeMessage(44, (com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings) specificSettings_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1449,7 +1288,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(44, (com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings) specificSettings_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1499,7 +1338,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1546,7 +1385,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1689,36 +1528,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       state_ = 0;
-
       projectServiceAccount_ = "";
-
       internalGetMutableDetectorSettings().clear();
       etag_ = "";
-
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
+      }
+      if (containerThreatDetectionSettingsBuilder_ != null) {
+        containerThreatDetectionSettingsBuilder_.clear();
+      }
+      if (eventThreatDetectionSettingsBuilder_ != null) {
+        eventThreatDetectionSettingsBuilder_.clear();
+      }
+      if (securityHealthAnalyticsSettingsBuilder_ != null) {
+        securityHealthAnalyticsSettingsBuilder_.clear();
+      }
+      if (webSecurityScannerSettingsBuilder_ != null) {
+        webSecurityScannerSettingsBuilder_.clear();
       }
       specificSettingsCase_ = 0;
       specificSettings_ = null;
@@ -1748,49 +1590,56 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings buildPartial() {
       com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings result = new com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.state_ = state_;
-      result.projectServiceAccount_ = projectServiceAccount_;
-      result.detectorSettings_ = internalGetDetectorSettings();
-      result.detectorSettings_.makeImmutable();
-      result.etag_ = etag_;
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      if (specificSettingsCase_ == 41) {
-        if (containerThreatDetectionSettingsBuilder_ == null) {
-          result.specificSettings_ = specificSettings_;
-        } else {
-          result.specificSettings_ = containerThreatDetectionSettingsBuilder_.build();
-        }
-      }
-      if (specificSettingsCase_ == 42) {
-        if (eventThreatDetectionSettingsBuilder_ == null) {
-          result.specificSettings_ = specificSettings_;
-        } else {
-          result.specificSettings_ = eventThreatDetectionSettingsBuilder_.build();
-        }
-      }
-      if (specificSettingsCase_ == 44) {
-        if (securityHealthAnalyticsSettingsBuilder_ == null) {
-          result.specificSettings_ = specificSettings_;
-        } else {
-          result.specificSettings_ = securityHealthAnalyticsSettingsBuilder_.build();
-        }
-      }
-      if (specificSettingsCase_ == 40) {
-        if (webSecurityScannerSettingsBuilder_ == null) {
-          result.specificSettings_ = specificSettings_;
-        } else {
-          result.specificSettings_ = webSecurityScannerSettingsBuilder_.build();
-        }
-      }
-      result.specificSettingsCase_ = specificSettingsCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.projectServiceAccount_ = projectServiceAccount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.detectorSettings_ = internalGetDetectorSettings();
+        result.detectorSettings_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings result) {
+      result.specificSettingsCase_ = specificSettingsCase_;
+      result.specificSettings_ = this.specificSettings_;
+      if (specificSettingsCase_ == 41 &&
+          containerThreatDetectionSettingsBuilder_ != null) {
+        result.specificSettings_ = containerThreatDetectionSettingsBuilder_.build();
+      }
+      if (specificSettingsCase_ == 42 &&
+          eventThreatDetectionSettingsBuilder_ != null) {
+        result.specificSettings_ = eventThreatDetectionSettingsBuilder_.build();
+      }
+      if (specificSettingsCase_ == 44 &&
+          securityHealthAnalyticsSettingsBuilder_ != null) {
+        result.specificSettings_ = securityHealthAnalyticsSettingsBuilder_.build();
+      }
+      if (specificSettingsCase_ == 40 &&
+          webSecurityScannerSettingsBuilder_ != null) {
+        result.specificSettings_ = webSecurityScannerSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1839,6 +1688,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -1846,12 +1696,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProjectServiceAccount().isEmpty()) {
         projectServiceAccount_ = other.projectServiceAccount_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       internalGetMutableDetectorSettings().mergeFrom(
           other.internalGetDetectorSettings());
+      bitField0_ |= 0x00000008;
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasUpdateTime()) {
@@ -1878,7 +1731,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1893,17 +1746,94 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              projectServiceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings>
+              detectorSettings__ = input.readMessage(
+                  DetectorSettingsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDetectorSettings().getMutableMap().put(
+                  detectorSettings__.getKey(), detectorSettings__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 322: {
+              input.readMessage(
+                  getWebSecurityScannerSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specificSettingsCase_ = 40;
+              break;
+            } // case 322
+            case 330: {
+              input.readMessage(
+                  getContainerThreatDetectionSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specificSettingsCase_ = 41;
+              break;
+            } // case 330
+            case 338: {
+              input.readMessage(
+                  getEventThreatDetectionSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specificSettingsCase_ = 42;
+              break;
+            } // case 338
+            case 354: {
+              input.readMessage(
+                  getSecurityHealthAnalyticsSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specificSettingsCase_ = 44;
+              break;
+            } // case 354
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int specificSettingsCase_ = 0;
@@ -1997,11 +1927,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2021,8 +1949,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2044,12 +1972,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2078,8 +2004,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2094,8 +2020,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState result = com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.valueOf(state_);
+      com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState result = com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.forNumber(state_);
       return result == null ? com.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState.UNRECOGNIZED : result;
     }
     /**
@@ -2112,7 +2037,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2127,7 +2052,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       state_ = 0;
       onChanged();
       return this;
@@ -2189,11 +2114,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectServiceAccount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2207,8 +2130,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectServiceAccount() {
-      
       projectServiceAccount_ = getDefaultInstance().getProjectServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2224,12 +2147,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectServiceAccount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2237,7 +2158,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings> detectorSettings_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings>
-    internalGetDetectorSettings() {
+        internalGetDetectorSettings() {
       if (detectorSettings_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DetectorSettingsDefaultEntryHolder.defaultEntry);
@@ -2245,8 +2166,7 @@ private static final long serialVersionUID = 0L;
       return detectorSettings_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings>
-    internalGetMutableDetectorSettings() {
-      onChanged();;
+        internalGetMutableDetectorSettings() {
       if (detectorSettings_ == null) {
         detectorSettings_ = com.google.protobuf.MapField.newMapField(
             DetectorSettingsDefaultEntryHolder.defaultEntry);
@@ -2254,9 +2174,10 @@ private static final long serialVersionUID = 0L;
       if (!detectorSettings_.isMutable()) {
         detectorSettings_ = detectorSettings_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return detectorSettings_;
     }
-
     public int getDetectorSettingsCount() {
       return internalGetDetectorSettings().getMap().size();
     }
@@ -2270,7 +2191,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsDetectorSettings(
         java.lang.String key) {
@@ -2296,7 +2216,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings> getDetectorSettingsMap() {
       return internalGetDetectorSettings().getMap();
     }
@@ -2311,10 +2230,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings getDetectorSettingsOrDefault(
+    public /* nullable */
+com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings getDetectorSettingsOrDefault(
         java.lang.String key,
-        com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings defaultValue) {
+        /* nullable */
+com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings> map =
           internalGetDetectorSettings().getMap();
@@ -2331,7 +2251,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings getDetectorSettingsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2342,8 +2261,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDetectorSettings() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableDetectorSettings().getMutableMap()
           .clear();
       return this;
@@ -2358,7 +2277,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
      */
-
     public Builder removeDetectorSettings(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2371,7 +2289,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings>
-    getMutableDetectorSettings() {
+        getMutableDetectorSettings() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableDetectorSettings().getMutableMap();
     }
     /**
@@ -2388,12 +2307,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDetectorSettings().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -2406,11 +2323,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings&gt; detector_settings = 4;</code>
      */
-
     public Builder putAllDetectorSettings(
         java.util.Map<java.lang.String, com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings> values) {
       internalGetMutableDetectorSettings().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
@@ -2470,11 +2387,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2488,8 +2403,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2505,12 +2420,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2527,7 +2440,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2557,11 +2470,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2575,11 +2488,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2591,17 +2504,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2612,14 +2526,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2630,7 +2543,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -2853,7 +2766,7 @@ private static final long serialVersionUID = 0L;
         specificSettings_ = null;
       }
       specificSettingsCase_ = 41;
-      onChanged();;
+      onChanged();
       return containerThreatDetectionSettingsBuilder_;
     }
 
@@ -3040,7 +2953,7 @@ private static final long serialVersionUID = 0L;
         specificSettings_ = null;
       }
       specificSettingsCase_ = 42;
-      onChanged();;
+      onChanged();
       return eventThreatDetectionSettingsBuilder_;
     }
 
@@ -3227,7 +3140,7 @@ private static final long serialVersionUID = 0L;
         specificSettings_ = null;
       }
       specificSettingsCase_ = 44;
-      onChanged();;
+      onChanged();
       return securityHealthAnalyticsSettingsBuilder_;
     }
 
@@ -3414,7 +3327,7 @@ private static final long serialVersionUID = 0L;
         specificSettings_ = null;
       }
       specificSettingsCase_ = 40;
-      onChanged();;
+      onChanged();
       return webSecurityScannerSettingsBuilder_;
     }
     @java.lang.Override
@@ -3450,7 +3363,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ComponentSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

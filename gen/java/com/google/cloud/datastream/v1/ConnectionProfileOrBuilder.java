@@ -120,7 +120,6 @@ public interface ConnectionProfileOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -133,7 +132,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -237,6 +235,60 @@ java.lang.String defaultValue);
    * <code>.google.cloud.datastream.v1.MysqlProfile mysql_profile = 102;</code>
    */
   com.google.cloud.datastream.v1.MysqlProfileOrBuilder getMysqlProfileOrBuilder();
+
+  /**
+   * <pre>
+   * BigQuery Connection Profile configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.BigQueryProfile bigquery_profile = 103;</code>
+   * @return Whether the bigqueryProfile field is set.
+   */
+  boolean hasBigqueryProfile();
+  /**
+   * <pre>
+   * BigQuery Connection Profile configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.BigQueryProfile bigquery_profile = 103;</code>
+   * @return The bigqueryProfile.
+   */
+  com.google.cloud.datastream.v1.BigQueryProfile getBigqueryProfile();
+  /**
+   * <pre>
+   * BigQuery Connection Profile configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.BigQueryProfile bigquery_profile = 103;</code>
+   */
+  com.google.cloud.datastream.v1.BigQueryProfileOrBuilder getBigqueryProfileOrBuilder();
+
+  /**
+   * <pre>
+   * PostgreSQL Connection Profile configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlProfile postgresql_profile = 104;</code>
+   * @return Whether the postgresqlProfile field is set.
+   */
+  boolean hasPostgresqlProfile();
+  /**
+   * <pre>
+   * PostgreSQL Connection Profile configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlProfile postgresql_profile = 104;</code>
+   * @return The postgresqlProfile.
+   */
+  com.google.cloud.datastream.v1.PostgresqlProfile getPostgresqlProfile();
+  /**
+   * <pre>
+   * PostgreSQL Connection Profile configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlProfile postgresql_profile = 104;</code>
+   */
+  com.google.cloud.datastream.v1.PostgresqlProfileOrBuilder getPostgresqlProfileOrBuilder();
 
   /**
    * <pre>

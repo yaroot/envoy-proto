@@ -207,58 +207,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CreatePhotoRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder subBuilder = null;
-              if (photo_ != null) {
-                subBuilder = photo_.toBuilder();
-              }
-              photo_ = input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(photo_);
-                photo_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_CreatePhotoRequest_descriptor;
@@ -307,7 +255,7 @@ public final class StreetViewPublishRpcMessages {
      */
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder getPhotoOrBuilder() {
-      return getPhoto();
+      return photo_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.getDefaultInstance() : photo_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -327,7 +275,7 @@ public final class StreetViewPublishRpcMessages {
       if (photo_ != null) {
         output.writeMessage(1, getPhoto());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -340,7 +288,7 @@ public final class StreetViewPublishRpcMessages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getPhoto());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -360,7 +308,7 @@ public final class StreetViewPublishRpcMessages {
         if (!getPhoto()
             .equals(other.getPhoto())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -375,7 +323,7 @@ public final class StreetViewPublishRpcMessages {
         hash = (37 * hash) + PHOTO_FIELD_NUMBER;
         hash = (53 * hash) + getPhoto().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -496,26 +444,21 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (photoBuilder_ == null) {
-          photo_ = null;
-        } else {
-          photo_ = null;
+        bitField0_ = 0;
+        photo_ = null;
+        if (photoBuilder_ != null) {
+          photoBuilder_.dispose();
           photoBuilder_ = null;
         }
         return this;
@@ -544,13 +487,18 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoRequest buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoRequest(this);
-        if (photoBuilder_ == null) {
-          result.photo_ = photo_;
-        } else {
-          result.photo_ = photoBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.photo_ = photoBuilder_ == null
+              ? photo_
+              : photoBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -600,7 +548,7 @@ public final class StreetViewPublishRpcMessages {
         if (other.hasPhoto()) {
           mergePhoto(other.getPhoto());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -615,19 +563,40 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPhotoFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo photo_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -641,7 +610,7 @@ public final class StreetViewPublishRpcMessages {
        * @return Whether the photo field is set.
        */
       public boolean hasPhoto() {
-        return photoBuilder_ != null || photo_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -671,11 +640,11 @@ public final class StreetViewPublishRpcMessages {
             throw new NullPointerException();
           }
           photo_ = value;
-          onChanged();
         } else {
           photoBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -689,11 +658,11 @@ public final class StreetViewPublishRpcMessages {
           com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder builderForValue) {
         if (photoBuilder_ == null) {
           photo_ = builderForValue.build();
-          onChanged();
         } else {
           photoBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -705,17 +674,18 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder mergePhoto(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo value) {
         if (photoBuilder_ == null) {
-          if (photo_ != null) {
-            photo_ =
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.newBuilder(photo_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            photo_ != null &&
+            photo_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.getDefaultInstance()) {
+            getPhotoBuilder().mergeFrom(value);
           } else {
             photo_ = value;
           }
-          onChanged();
         } else {
           photoBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -726,14 +696,13 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.streetview.publish.v1.Photo photo = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearPhoto() {
-        if (photoBuilder_ == null) {
-          photo_ = null;
-          onChanged();
-        } else {
-          photo_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        photo_ = null;
+        if (photoBuilder_ != null) {
+          photoBuilder_.dispose();
           photoBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -744,7 +713,7 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.streetview.publish.v1.Photo photo = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder getPhotoBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getPhotoFieldBuilder().getBuilder();
       }
@@ -816,7 +785,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CreatePhotoRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -947,63 +927,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetPhotoRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              photoId_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              view_ = rawValue;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              languageCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_GetPhotoRequest_descriptor;
@@ -1018,7 +941,8 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int PHOTO_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object photoId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object photoId_ = "";
     /**
      * <pre>
      * Required. ID of the [Photo][google.streetview.publish.v1.Photo].
@@ -1064,7 +988,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int VIEW_FIELD_NUMBER = 2;
-    private int view_;
+    private int view_ = 0;
     /**
      * <pre>
      * Required. Specifies if a download URL for the photo bytes should be returned in the
@@ -1087,13 +1011,13 @@ public final class StreetViewPublishRpcMessages {
      * @return The view.
      */
     @java.lang.Override public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView getView() {
-      @SuppressWarnings("deprecation")
-      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.valueOf(view_);
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.forNumber(view_);
       return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.UNRECOGNIZED : result;
     }
 
     public static final int LANGUAGE_CODE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object languageCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object languageCode_ = "";
     /**
      * <pre>
      * The BCP-47 language code, such as "en-US" or "sr-Latn". For more
@@ -1169,7 +1093,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, languageCode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1188,7 +1112,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, languageCode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1208,7 +1132,7 @@ public final class StreetViewPublishRpcMessages {
       if (view_ != other.view_) return false;
       if (!getLanguageCode()
           .equals(other.getLanguageCode())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1225,7 +1149,7 @@ public final class StreetViewPublishRpcMessages {
       hash = (53 * hash) + view_;
       hash = (37 * hash) + LANGUAGE_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getLanguageCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1350,28 +1274,21 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         photoId_ = "";
-
         view_ = 0;
-
         languageCode_ = "";
-
         return this;
       }
 
@@ -1398,11 +1315,22 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoRequest buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoRequest(this);
-        result.photoId_ = photoId_;
-        result.view_ = view_;
-        result.languageCode_ = languageCode_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.photoId_ = photoId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.view_ = view_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.languageCode_ = languageCode_;
+        }
       }
 
       @java.lang.Override
@@ -1451,6 +1379,7 @@ public final class StreetViewPublishRpcMessages {
         if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoRequest.getDefaultInstance()) return this;
         if (!other.getPhotoId().isEmpty()) {
           photoId_ = other.photoId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.view_ != 0) {
@@ -1458,9 +1387,10 @@ public final class StreetViewPublishRpcMessages {
         }
         if (!other.getLanguageCode().isEmpty()) {
           languageCode_ = other.languageCode_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1475,19 +1405,48 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                photoId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                view_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                languageCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object photoId_ = "";
       /**
@@ -1542,11 +1501,9 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setPhotoId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         photoId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1559,8 +1516,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearPhotoId() {
-        
         photoId_ = getDefaultInstance().getPhotoId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1575,12 +1532,10 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setPhotoIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         photoId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1609,8 +1564,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder setViewValue(int value) {
-        
         view_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1625,8 +1580,7 @@ public final class StreetViewPublishRpcMessages {
        */
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView getView() {
-        @SuppressWarnings("deprecation")
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.valueOf(view_);
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.forNumber(view_);
         return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.UNRECOGNIZED : result;
       }
       /**
@@ -1643,7 +1597,7 @@ public final class StreetViewPublishRpcMessages {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         view_ = value.getNumber();
         onChanged();
         return this;
@@ -1658,7 +1612,7 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearView() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         view_ = 0;
         onChanged();
         return this;
@@ -1729,11 +1683,9 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setLanguageCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         languageCode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1750,8 +1702,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearLanguageCode() {
-        
         languageCode_ = getDefaultInstance().getLanguageCode();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1770,12 +1722,10 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setLanguageCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         languageCode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1812,7 +1762,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetPhotoRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1972,70 +1933,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BatchGetPhotosRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                photoIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              photoIds_.add(s);
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              view_ = rawValue;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              languageCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          photoIds_ = photoIds_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_BatchGetPhotosRequest_descriptor;
@@ -2050,6 +1947,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int PHOTO_IDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList photoIds_;
     /**
      * <pre>
@@ -2109,7 +2007,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int VIEW_FIELD_NUMBER = 2;
-    private int view_;
+    private int view_ = 0;
     /**
      * <pre>
      * Required. Specifies if a download URL for the photo bytes should be returned in the
@@ -2132,13 +2030,13 @@ public final class StreetViewPublishRpcMessages {
      * @return The view.
      */
     @java.lang.Override public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView getView() {
-      @SuppressWarnings("deprecation")
-      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.valueOf(view_);
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.forNumber(view_);
       return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.UNRECOGNIZED : result;
     }
 
     public static final int LANGUAGE_CODE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object languageCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object languageCode_ = "";
     /**
      * <pre>
      * Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more
@@ -2214,7 +2112,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, languageCode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2238,7 +2136,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, languageCode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2258,7 +2156,7 @@ public final class StreetViewPublishRpcMessages {
       if (view_ != other.view_) return false;
       if (!getLanguageCode()
           .equals(other.getLanguageCode())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2277,7 +2175,7 @@ public final class StreetViewPublishRpcMessages {
       hash = (53 * hash) + view_;
       hash = (37 * hash) + LANGUAGE_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getLanguageCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2402,28 +2300,22 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         photoIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         view_ = 0;
-
         languageCode_ = "";
-
         return this;
       }
 
@@ -2450,16 +2342,28 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosRequest buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosRequest(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosRequest result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           photoIds_ = photoIds_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.photoIds_ = photoIds_;
-        result.view_ = view_;
-        result.languageCode_ = languageCode_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.view_ = view_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.languageCode_ = languageCode_;
+        }
       }
 
       @java.lang.Override
@@ -2521,9 +2425,10 @@ public final class StreetViewPublishRpcMessages {
         }
         if (!other.getLanguageCode().isEmpty()) {
           languageCode_ = other.languageCode_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2538,17 +2443,46 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensurePhotoIdsIsMutable();
+                photoIds_.add(s);
+                break;
+              } // case 10
+              case 16: {
+                view_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                languageCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2630,10 +2564,8 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setPhotoIds(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePhotoIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePhotoIdsIsMutable();
         photoIds_.set(index, value);
         onChanged();
         return this;
@@ -2651,10 +2583,8 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder addPhotoIds(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePhotoIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePhotoIdsIsMutable();
         photoIds_.add(value);
         onChanged();
         return this;
@@ -2707,10 +2637,8 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder addPhotoIdsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensurePhotoIdsIsMutable();
         photoIds_.add(value);
         onChanged();
@@ -2741,8 +2669,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder setViewValue(int value) {
-        
         view_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2757,8 +2685,7 @@ public final class StreetViewPublishRpcMessages {
        */
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView getView() {
-        @SuppressWarnings("deprecation")
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.valueOf(view_);
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.forNumber(view_);
         return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.UNRECOGNIZED : result;
       }
       /**
@@ -2775,7 +2702,7 @@ public final class StreetViewPublishRpcMessages {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         view_ = value.getNumber();
         onChanged();
         return this;
@@ -2790,7 +2717,7 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearView() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         view_ = 0;
         onChanged();
         return this;
@@ -2861,11 +2788,9 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setLanguageCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         languageCode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2882,8 +2807,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearLanguageCode() {
-        
         languageCode_ = getDefaultInstance().getLanguageCode();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -2902,12 +2827,10 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setLanguageCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         languageCode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2944,7 +2867,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BatchGetPhotosRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3059,58 +2993,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BatchGetPhotosResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                results_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              results_.add(
-                  input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          results_ = java.util.Collections.unmodifiableList(results_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_BatchGetPhotosResponse_descriptor;
@@ -3125,6 +3007,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int RESULTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse> results_;
     /**
      * <pre>
@@ -3216,7 +3099,7 @@ public final class StreetViewPublishRpcMessages {
       for (int i = 0; i < results_.size(); i++) {
         output.writeMessage(1, results_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3229,7 +3112,7 @@ public final class StreetViewPublishRpcMessages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, results_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3246,7 +3129,7 @@ public final class StreetViewPublishRpcMessages {
 
       if (!getResultsList()
           .equals(other.getResultsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3261,7 +3144,7 @@ public final class StreetViewPublishRpcMessages {
         hash = (37 * hash) + RESULTS_FIELD_NUMBER;
         hash = (53 * hash) + getResultsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3382,29 +3265,25 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getResultsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (resultsBuilder_ == null) {
           results_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          results_ = null;
           resultsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -3431,7 +3310,13 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosResponse buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosResponse result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosResponse(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosResponse result) {
         if (resultsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             results_ = java.util.Collections.unmodifiableList(results_);
@@ -3441,8 +3326,10 @@ public final class StreetViewPublishRpcMessages {
         } else {
           result.results_ = resultsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosResponse result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -3515,7 +3402,7 @@ public final class StreetViewPublishRpcMessages {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3530,17 +3417,43 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse.parser(),
+                        extensionRegistry);
+                if (resultsBuilder_ == null) {
+                  ensureResultsIsMutable();
+                  results_.add(m);
+                } else {
+                  resultsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchGetPhotosResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3943,7 +3856,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BatchGetPhotosResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4063,71 +3987,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PhotoResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.rpc.Status.Builder subBuilder = null;
-              if (status_ != null) {
-                subBuilder = status_.toBuilder();
-              }
-              status_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(status_);
-                status_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder subBuilder = null;
-              if (photo_ != null) {
-                subBuilder = photo_.toBuilder();
-              }
-              photo_ = input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(photo_);
-                photo_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_PhotoResponse_descriptor;
@@ -4179,7 +4038,7 @@ public final class StreetViewPublishRpcMessages {
      */
     @java.lang.Override
     public com.google.rpc.StatusOrBuilder getStatusOrBuilder() {
-      return getStatus();
+      return status_ == null ? com.google.rpc.Status.getDefaultInstance() : status_;
     }
 
     public static final int PHOTO_FIELD_NUMBER = 2;
@@ -4220,7 +4079,7 @@ public final class StreetViewPublishRpcMessages {
      */
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder getPhotoOrBuilder() {
-      return getPhoto();
+      return photo_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.getDefaultInstance() : photo_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4243,7 +4102,7 @@ public final class StreetViewPublishRpcMessages {
       if (photo_ != null) {
         output.writeMessage(2, getPhoto());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4260,7 +4119,7 @@ public final class StreetViewPublishRpcMessages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getPhoto());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4285,7 +4144,7 @@ public final class StreetViewPublishRpcMessages {
         if (!getPhoto()
             .equals(other.getPhoto())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4304,7 +4163,7 @@ public final class StreetViewPublishRpcMessages {
         hash = (37 * hash) + PHOTO_FIELD_NUMBER;
         hash = (53 * hash) + getPhoto().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4430,32 +4289,26 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (statusBuilder_ == null) {
-          status_ = null;
-        } else {
-          status_ = null;
+        bitField0_ = 0;
+        status_ = null;
+        if (statusBuilder_ != null) {
+          statusBuilder_.dispose();
           statusBuilder_ = null;
         }
-        if (photoBuilder_ == null) {
-          photo_ = null;
-        } else {
-          photo_ = null;
+        photo_ = null;
+        if (photoBuilder_ != null) {
+          photoBuilder_.dispose();
           photoBuilder_ = null;
         }
         return this;
@@ -4484,18 +4337,23 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse(this);
-        if (statusBuilder_ == null) {
-          result.status_ = status_;
-        } else {
-          result.status_ = statusBuilder_.build();
-        }
-        if (photoBuilder_ == null) {
-          result.photo_ = photo_;
-        } else {
-          result.photo_ = photoBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.status_ = statusBuilder_ == null
+              ? status_
+              : statusBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.photo_ = photoBuilder_ == null
+              ? photo_
+              : photoBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4548,7 +4406,7 @@ public final class StreetViewPublishRpcMessages {
         if (other.hasPhoto()) {
           mergePhoto(other.getPhoto());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4563,19 +4421,47 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getStatusFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getPhotoFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.rpc.Status status_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4590,7 +4476,7 @@ public final class StreetViewPublishRpcMessages {
        * @return Whether the status field is set.
        */
       public boolean hasStatus() {
-        return statusBuilder_ != null || status_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -4622,11 +4508,11 @@ public final class StreetViewPublishRpcMessages {
             throw new NullPointerException();
           }
           status_ = value;
-          onChanged();
         } else {
           statusBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4641,11 +4527,11 @@ public final class StreetViewPublishRpcMessages {
           com.google.rpc.Status.Builder builderForValue) {
         if (statusBuilder_ == null) {
           status_ = builderForValue.build();
-          onChanged();
         } else {
           statusBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4658,17 +4544,18 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder mergeStatus(com.google.rpc.Status value) {
         if (statusBuilder_ == null) {
-          if (status_ != null) {
-            status_ =
-              com.google.rpc.Status.newBuilder(status_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            status_ != null &&
+            status_ != com.google.rpc.Status.getDefaultInstance()) {
+            getStatusBuilder().mergeFrom(value);
           } else {
             status_ = value;
           }
-          onChanged();
         } else {
           statusBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4680,14 +4567,13 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.rpc.Status status = 1;</code>
        */
       public Builder clearStatus() {
-        if (statusBuilder_ == null) {
-          status_ = null;
-          onChanged();
-        } else {
-          status_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        status_ = null;
+        if (statusBuilder_ != null) {
+          statusBuilder_.dispose();
           statusBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4699,7 +4585,7 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.rpc.Status status = 1;</code>
        */
       public com.google.rpc.Status.Builder getStatusBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getStatusFieldBuilder().getBuilder();
       }
@@ -4754,7 +4640,7 @@ public final class StreetViewPublishRpcMessages {
        * @return Whether the photo field is set.
        */
       public boolean hasPhoto() {
-        return photoBuilder_ != null || photo_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -4786,11 +4672,11 @@ public final class StreetViewPublishRpcMessages {
             throw new NullPointerException();
           }
           photo_ = value;
-          onChanged();
         } else {
           photoBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4805,11 +4691,11 @@ public final class StreetViewPublishRpcMessages {
           com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder builderForValue) {
         if (photoBuilder_ == null) {
           photo_ = builderForValue.build();
-          onChanged();
         } else {
           photoBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4822,17 +4708,18 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder mergePhoto(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo value) {
         if (photoBuilder_ == null) {
-          if (photo_ != null) {
-            photo_ =
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.newBuilder(photo_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            photo_ != null &&
+            photo_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.getDefaultInstance()) {
+            getPhotoBuilder().mergeFrom(value);
           } else {
             photo_ = value;
           }
-          onChanged();
         } else {
           photoBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4844,14 +4731,13 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.streetview.publish.v1.Photo photo = 2;</code>
        */
       public Builder clearPhoto() {
-        if (photoBuilder_ == null) {
-          photo_ = null;
-          onChanged();
-        } else {
-          photo_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        photo_ = null;
+        if (photoBuilder_ != null) {
+          photoBuilder_.dispose();
           photoBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4863,7 +4749,7 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.streetview.publish.v1.Photo photo = 2;</code>
        */
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder getPhotoBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getPhotoFieldBuilder().getBuilder();
       }
@@ -4937,7 +4823,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PhotoResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5027,7 +4924,9 @@ public final class StreetViewPublishRpcMessages {
     /**
      * <pre>
      * Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
-     * The filters supported at the moment are: `placeId`.
+     * The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
+     * `min_longitude`, and `max_longitude`. See https://google.aip.dev/160 for
+     * more information.
      * </pre>
      *
      * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5037,7 +4936,9 @@ public final class StreetViewPublishRpcMessages {
     /**
      * <pre>
      * Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
-     * The filters supported at the moment are: `placeId`.
+     * The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
+     * `min_longitude`, and `max_longitude`. See https://google.aip.dev/160 for
+     * more information.
      * </pre>
      *
      * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5119,74 +5020,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ListPhotosRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              view_ = rawValue;
-              break;
-            }
-            case 16: {
-
-              pageSize_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pageToken_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              filter_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              languageCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotosRequest_descriptor;
@@ -5201,7 +5034,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int VIEW_FIELD_NUMBER = 1;
-    private int view_;
+    private int view_ = 0;
     /**
      * <pre>
      * Required. Specifies if a download URL for the photos bytes should be returned in the
@@ -5224,13 +5057,12 @@ public final class StreetViewPublishRpcMessages {
      * @return The view.
      */
     @java.lang.Override public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView getView() {
-      @SuppressWarnings("deprecation")
-      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.valueOf(view_);
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.forNumber(view_);
       return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.UNRECOGNIZED : result;
     }
 
     public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-    private int pageSize_;
+    private int pageSize_ = 0;
     /**
      * <pre>
      * Optional. The maximum number of photos to return.
@@ -5249,7 +5081,8 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
-    private volatile java.lang.Object pageToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object pageToken_ = "";
     /**
      * <pre>
      * Optional. The
@@ -5303,11 +5136,14 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int FILTER_FIELD_NUMBER = 4;
-    private volatile java.lang.Object filter_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object filter_ = "";
     /**
      * <pre>
      * Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
-     * The filters supported at the moment are: `placeId`.
+     * The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
+     * `min_longitude`, and `max_longitude`. See https://google.aip.dev/160 for
+     * more information.
      * </pre>
      *
      * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5329,7 +5165,9 @@ public final class StreetViewPublishRpcMessages {
     /**
      * <pre>
      * Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
-     * The filters supported at the moment are: `placeId`.
+     * The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
+     * `min_longitude`, and `max_longitude`. See https://google.aip.dev/160 for
+     * more information.
      * </pre>
      *
      * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5351,7 +5189,8 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int LANGUAGE_CODE_FIELD_NUMBER = 5;
-    private volatile java.lang.Object languageCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object languageCode_ = "";
     /**
      * <pre>
      * Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more
@@ -5433,7 +5272,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, languageCode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5459,7 +5298,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, languageCode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5483,7 +5322,7 @@ public final class StreetViewPublishRpcMessages {
           .equals(other.getFilter())) return false;
       if (!getLanguageCode()
           .equals(other.getLanguageCode())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5504,7 +5343,7 @@ public final class StreetViewPublishRpcMessages {
       hash = (53 * hash) + getFilter().hashCode();
       hash = (37 * hash) + LANGUAGE_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getLanguageCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5635,32 +5474,23 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         view_ = 0;
-
         pageSize_ = 0;
-
         pageToken_ = "";
-
         filter_ = "";
-
         languageCode_ = "";
-
         return this;
       }
 
@@ -5687,13 +5517,28 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosRequest buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosRequest(this);
-        result.view_ = view_;
-        result.pageSize_ = pageSize_;
-        result.pageToken_ = pageToken_;
-        result.filter_ = filter_;
-        result.languageCode_ = languageCode_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.view_ = view_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.pageSize_ = pageSize_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.pageToken_ = pageToken_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.filter_ = filter_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.languageCode_ = languageCode_;
+        }
       }
 
       @java.lang.Override
@@ -5748,17 +5593,20 @@ public final class StreetViewPublishRpcMessages {
         }
         if (!other.getPageToken().isEmpty()) {
           pageToken_ = other.pageToken_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getFilter().isEmpty()) {
           filter_ = other.filter_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getLanguageCode().isEmpty()) {
           languageCode_ = other.languageCode_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5773,19 +5621,58 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                view_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                pageSize_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                pageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                filter_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                languageCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int view_ = 0;
       /**
@@ -5811,8 +5698,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder setViewValue(int value) {
-        
         view_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5827,8 +5714,7 @@ public final class StreetViewPublishRpcMessages {
        */
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView getView() {
-        @SuppressWarnings("deprecation")
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.valueOf(view_);
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.forNumber(view_);
         return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.UNRECOGNIZED : result;
       }
       /**
@@ -5845,7 +5731,7 @@ public final class StreetViewPublishRpcMessages {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         view_ = value.getNumber();
         onChanged();
         return this;
@@ -5860,7 +5746,7 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearView() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         view_ = 0;
         onChanged();
         return this;
@@ -5899,6 +5785,7 @@ public final class StreetViewPublishRpcMessages {
       public Builder setPageSize(int value) {
         
         pageSize_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5915,7 +5802,7 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearPageSize() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         pageSize_ = 0;
         onChanged();
         return this;
@@ -5986,11 +5873,9 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setPageToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         pageToken_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6007,8 +5892,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearPageToken() {
-        
         pageToken_ = getDefaultInstance().getPageToken();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -6027,12 +5912,10 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setPageTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         pageToken_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6041,7 +5924,9 @@ public final class StreetViewPublishRpcMessages {
       /**
        * <pre>
        * Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
-       * The filters supported at the moment are: `placeId`.
+       * The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
+       * `min_longitude`, and `max_longitude`. See https://google.aip.dev/160 for
+       * more information.
        * </pre>
        *
        * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -6062,7 +5947,9 @@ public final class StreetViewPublishRpcMessages {
       /**
        * <pre>
        * Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
-       * The filters supported at the moment are: `placeId`.
+       * The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
+       * `min_longitude`, and `max_longitude`. See https://google.aip.dev/160 for
+       * more information.
        * </pre>
        *
        * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -6084,7 +5971,9 @@ public final class StreetViewPublishRpcMessages {
       /**
        * <pre>
        * Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
-       * The filters supported at the moment are: `placeId`.
+       * The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
+       * `min_longitude`, and `max_longitude`. See https://google.aip.dev/160 for
+       * more information.
        * </pre>
        *
        * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -6093,33 +5982,35 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setFilter(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         filter_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
        * <pre>
        * Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
-       * The filters supported at the moment are: `placeId`.
+       * The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
+       * `min_longitude`, and `max_longitude`. See https://google.aip.dev/160 for
+       * more information.
        * </pre>
        *
        * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        * @return This builder for chaining.
        */
       public Builder clearFilter() {
-        
         filter_ = getDefaultInstance().getFilter();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
       /**
        * <pre>
        * Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
-       * The filters supported at the moment are: `placeId`.
+       * The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
+       * `min_longitude`, and `max_longitude`. See https://google.aip.dev/160 for
+       * more information.
        * </pre>
        *
        * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -6128,12 +6019,10 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setFilterBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         filter_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6203,11 +6092,9 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setLanguageCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         languageCode_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -6224,8 +6111,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearLanguageCode() {
-        
         languageCode_ = getDefaultInstance().getLanguageCode();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -6244,12 +6131,10 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setLanguageCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         languageCode_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -6286,7 +6171,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ListPhotosRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6419,64 +6315,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ListPhotosResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                photos_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              photos_.add(
-                  input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              nextPageToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          photos_ = java.util.Collections.unmodifiableList(photos_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotosResponse_descriptor;
@@ -6491,6 +6329,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int PHOTOS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo> photos_;
     /**
      * <pre>
@@ -6561,7 +6400,8 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 2;
-    private volatile java.lang.Object nextPageToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object nextPageToken_ = "";
     /**
      * <pre>
      * Token to retrieve the next page of results, or empty if there are no more
@@ -6628,7 +6468,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextPageToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6644,7 +6484,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextPageToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6663,7 +6503,7 @@ public final class StreetViewPublishRpcMessages {
           .equals(other.getPhotosList())) return false;
       if (!getNextPageToken()
           .equals(other.getNextPageToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6680,7 +6520,7 @@ public final class StreetViewPublishRpcMessages {
       }
       hash = (37 * hash) + NEXT_PAGE_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getNextPageToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6801,31 +6641,26 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPhotosFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (photosBuilder_ == null) {
           photos_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          photos_ = null;
           photosBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         nextPageToken_ = "";
-
         return this;
       }
 
@@ -6852,7 +6687,13 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosResponse buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosResponse result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosResponse(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosResponse result) {
         if (photosBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             photos_ = java.util.Collections.unmodifiableList(photos_);
@@ -6862,9 +6703,13 @@ public final class StreetViewPublishRpcMessages {
         } else {
           result.photos_ = photosBuilder_.build();
         }
-        result.nextPageToken_ = nextPageToken_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.nextPageToken_ = nextPageToken_;
+        }
       }
 
       @java.lang.Override
@@ -6939,9 +6784,10 @@ public final class StreetViewPublishRpcMessages {
         }
         if (!other.getNextPageToken().isEmpty()) {
           nextPageToken_ = other.nextPageToken_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6956,17 +6802,48 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.parser(),
+                        extensionRegistry);
+                if (photosBuilder_ == null) {
+                  ensurePhotosIsMutable();
+                  photos_.add(m);
+                } else {
+                  photosBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                nextPageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotosResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7375,11 +7252,9 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setNextPageToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7393,8 +7268,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearNextPageToken() {
-        
         nextPageToken_ = getDefaultInstance().getNextPageToken();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -7410,12 +7285,10 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setNextPageTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7452,7 +7325,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ListPhotosResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7629,71 +7513,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UpdatePhotoRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder subBuilder = null;
-              if (photo_ != null) {
-                subBuilder = photo_.toBuilder();
-              }
-              photo_ = input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(photo_);
-                photo_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.FieldMask.Builder subBuilder = null;
-              if (updateMask_ != null) {
-                subBuilder = updateMask_.toBuilder();
-              }
-              updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(updateMask_);
-                updateMask_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_UpdatePhotoRequest_descriptor;
@@ -7745,7 +7564,7 @@ public final class StreetViewPublishRpcMessages {
      */
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoOrBuilder getPhotoOrBuilder() {
-      return getPhoto();
+      return photo_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.getDefaultInstance() : photo_;
     }
 
     public static final int UPDATE_MASK_FIELD_NUMBER = 2;
@@ -7846,7 +7665,7 @@ public final class StreetViewPublishRpcMessages {
      */
     @java.lang.Override
     public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-      return getUpdateMask();
+      return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7869,7 +7688,7 @@ public final class StreetViewPublishRpcMessages {
       if (updateMask_ != null) {
         output.writeMessage(2, getUpdateMask());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7886,7 +7705,7 @@ public final class StreetViewPublishRpcMessages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getUpdateMask());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7911,7 +7730,7 @@ public final class StreetViewPublishRpcMessages {
         if (!getUpdateMask()
             .equals(other.getUpdateMask())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7930,7 +7749,7 @@ public final class StreetViewPublishRpcMessages {
         hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
         hash = (53 * hash) + getUpdateMask().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8053,32 +7872,26 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (photoBuilder_ == null) {
-          photo_ = null;
-        } else {
-          photo_ = null;
+        bitField0_ = 0;
+        photo_ = null;
+        if (photoBuilder_ != null) {
+          photoBuilder_.dispose();
           photoBuilder_ = null;
         }
-        if (updateMaskBuilder_ == null) {
-          updateMask_ = null;
-        } else {
-          updateMask_ = null;
+        updateMask_ = null;
+        if (updateMaskBuilder_ != null) {
+          updateMaskBuilder_.dispose();
           updateMaskBuilder_ = null;
         }
         return this;
@@ -8107,18 +7920,23 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest(this);
-        if (photoBuilder_ == null) {
-          result.photo_ = photo_;
-        } else {
-          result.photo_ = photoBuilder_.build();
-        }
-        if (updateMaskBuilder_ == null) {
-          result.updateMask_ = updateMask_;
-        } else {
-          result.updateMask_ = updateMaskBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.photo_ = photoBuilder_ == null
+              ? photo_
+              : photoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.updateMask_ = updateMaskBuilder_ == null
+              ? updateMask_
+              : updateMaskBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -8171,7 +7989,7 @@ public final class StreetViewPublishRpcMessages {
         if (other.hasUpdateMask()) {
           mergeUpdateMask(other.getUpdateMask());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8186,19 +8004,47 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPhotoFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getUpdateMaskFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo photo_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -8213,7 +8059,7 @@ public final class StreetViewPublishRpcMessages {
        * @return Whether the photo field is set.
        */
       public boolean hasPhoto() {
-        return photoBuilder_ != null || photo_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -8245,11 +8091,11 @@ public final class StreetViewPublishRpcMessages {
             throw new NullPointerException();
           }
           photo_ = value;
-          onChanged();
         } else {
           photoBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -8264,11 +8110,11 @@ public final class StreetViewPublishRpcMessages {
           com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder builderForValue) {
         if (photoBuilder_ == null) {
           photo_ = builderForValue.build();
-          onChanged();
         } else {
           photoBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -8281,17 +8127,18 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder mergePhoto(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo value) {
         if (photoBuilder_ == null) {
-          if (photo_ != null) {
-            photo_ =
-              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.newBuilder(photo_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            photo_ != null &&
+            photo_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.getDefaultInstance()) {
+            getPhotoBuilder().mergeFrom(value);
           } else {
             photo_ = value;
           }
-          onChanged();
         } else {
           photoBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -8303,14 +8150,13 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.streetview.publish.v1.Photo photo = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearPhoto() {
-        if (photoBuilder_ == null) {
-          photo_ = null;
-          onChanged();
-        } else {
-          photo_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        photo_ = null;
+        if (photoBuilder_ != null) {
+          photoBuilder_.dispose();
           photoBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8322,7 +8168,7 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.streetview.publish.v1.Photo photo = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.Photo.Builder getPhotoBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getPhotoFieldBuilder().getBuilder();
       }
@@ -8397,7 +8243,7 @@ public final class StreetViewPublishRpcMessages {
        * @return Whether the updateMask field is set.
        */
       public boolean hasUpdateMask() {
-        return updateMaskBuilder_ != null || updateMask_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -8469,11 +8315,11 @@ public final class StreetViewPublishRpcMessages {
             throw new NullPointerException();
           }
           updateMask_ = value;
-          onChanged();
         } else {
           updateMaskBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8508,11 +8354,11 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.FieldMask.Builder builderForValue) {
         if (updateMaskBuilder_ == null) {
           updateMask_ = builderForValue.build();
-          onChanged();
         } else {
           updateMaskBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8545,17 +8391,18 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
         if (updateMaskBuilder_ == null) {
-          if (updateMask_ != null) {
-            updateMask_ =
-              com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            updateMask_ != null &&
+            updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+            getUpdateMaskBuilder().mergeFrom(value);
           } else {
             updateMask_ = value;
           }
-          onChanged();
         } else {
           updateMaskBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8587,14 +8434,13 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearUpdateMask() {
-        if (updateMaskBuilder_ == null) {
-          updateMask_ = null;
-          onChanged();
-        } else {
-          updateMask_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        updateMask_ = null;
+        if (updateMaskBuilder_ != null) {
+          updateMaskBuilder_.dispose();
           updateMaskBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8626,7 +8472,7 @@ public final class StreetViewPublishRpcMessages {
        * <code>.google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getUpdateMaskFieldBuilder().getBuilder();
       }
@@ -8740,7 +8586,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UpdatePhotoRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8846,58 +8703,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BatchUpdatePhotosRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                updatePhotoRequests_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              updatePhotoRequests_.add(
-                  input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          updatePhotoRequests_ = java.util.Collections.unmodifiableList(updatePhotoRequests_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_BatchUpdatePhotosRequest_descriptor;
@@ -8912,6 +8717,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int UPDATE_PHOTO_REQUESTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest> updatePhotoRequests_;
     /**
      * <pre>
@@ -8993,7 +8799,7 @@ public final class StreetViewPublishRpcMessages {
       for (int i = 0; i < updatePhotoRequests_.size(); i++) {
         output.writeMessage(1, updatePhotoRequests_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9006,7 +8812,7 @@ public final class StreetViewPublishRpcMessages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, updatePhotoRequests_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9023,7 +8829,7 @@ public final class StreetViewPublishRpcMessages {
 
       if (!getUpdatePhotoRequestsList()
           .equals(other.getUpdatePhotoRequestsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9038,7 +8844,7 @@ public final class StreetViewPublishRpcMessages {
         hash = (37 * hash) + UPDATE_PHOTO_REQUESTS_FIELD_NUMBER;
         hash = (53 * hash) + getUpdatePhotoRequestsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9160,29 +8966,25 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getUpdatePhotoRequestsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (updatePhotoRequestsBuilder_ == null) {
           updatePhotoRequests_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          updatePhotoRequests_ = null;
           updatePhotoRequestsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -9209,7 +9011,13 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosRequest buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosRequest(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosRequest result) {
         if (updatePhotoRequestsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             updatePhotoRequests_ = java.util.Collections.unmodifiableList(updatePhotoRequests_);
@@ -9219,8 +9027,10 @@ public final class StreetViewPublishRpcMessages {
         } else {
           result.updatePhotoRequests_ = updatePhotoRequestsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosRequest result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -9293,7 +9103,7 @@ public final class StreetViewPublishRpcMessages {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9308,17 +9118,43 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.UpdatePhotoRequest.parser(),
+                        extensionRegistry);
+                if (updatePhotoRequestsBuilder_ == null) {
+                  ensureUpdatePhotoRequestsIsMutable();
+                  updatePhotoRequests_.add(m);
+                } else {
+                  updatePhotoRequestsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -9685,7 +9521,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BatchUpdatePhotosRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9796,58 +9643,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BatchUpdatePhotosResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                results_ = new java.util.ArrayList<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              results_.add(
-                  input.readMessage(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          results_ = java.util.Collections.unmodifiableList(results_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_BatchUpdatePhotosResponse_descriptor;
@@ -9862,6 +9657,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int RESULTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse> results_;
     /**
      * <pre>
@@ -9948,7 +9744,7 @@ public final class StreetViewPublishRpcMessages {
       for (int i = 0; i < results_.size(); i++) {
         output.writeMessage(1, results_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9961,7 +9757,7 @@ public final class StreetViewPublishRpcMessages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, results_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9978,7 +9774,7 @@ public final class StreetViewPublishRpcMessages {
 
       if (!getResultsList()
           .equals(other.getResultsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9993,7 +9789,7 @@ public final class StreetViewPublishRpcMessages {
         hash = (37 * hash) + RESULTS_FIELD_NUMBER;
         hash = (53 * hash) + getResultsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10115,29 +9911,25 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getResultsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (resultsBuilder_ == null) {
           results_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          results_ = null;
           resultsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -10164,7 +9956,13 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosResponse buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosResponse result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosResponse(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosResponse result) {
         if (resultsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             results_ = java.util.Collections.unmodifiableList(results_);
@@ -10174,8 +9972,10 @@ public final class StreetViewPublishRpcMessages {
         } else {
           result.results_ = resultsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosResponse result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -10248,7 +10048,7 @@ public final class StreetViewPublishRpcMessages {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10263,17 +10063,43 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse m =
+                    input.readMessage(
+                        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoResponse.parser(),
+                        extensionRegistry);
+                if (resultsBuilder_ == null) {
+                  ensureResultsIsMutable();
+                  results_.add(m);
+                } else {
+                  resultsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchUpdatePhotosResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -10658,7 +10484,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BatchUpdatePhotosResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10734,51 +10571,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeletePhotoRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              photoId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_DeletePhotoRequest_descriptor;
@@ -10793,7 +10585,8 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int PHOTO_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object photoId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object photoId_ = "";
     /**
      * <pre>
      * Required. ID of the [Photo][google.streetview.publish.v1.Photo].
@@ -10855,7 +10648,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(photoId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, photoId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -10867,7 +10660,7 @@ public final class StreetViewPublishRpcMessages {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(photoId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, photoId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10884,7 +10677,7 @@ public final class StreetViewPublishRpcMessages {
 
       if (!getPhotoId()
           .equals(other.getPhotoId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -10897,7 +10690,7 @@ public final class StreetViewPublishRpcMessages {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + PHOTO_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPhotoId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11018,24 +10811,19 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         photoId_ = "";
-
         return this;
       }
 
@@ -11062,9 +10850,16 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoRequest buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoRequest(this);
-        result.photoId_ = photoId_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.photoId_ = photoId_;
+        }
       }
 
       @java.lang.Override
@@ -11113,9 +10908,10 @@ public final class StreetViewPublishRpcMessages {
         if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoRequest.getDefaultInstance()) return this;
         if (!other.getPhotoId().isEmpty()) {
           photoId_ = other.photoId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -11130,19 +10926,38 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                photoId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object photoId_ = "";
       /**
@@ -11197,11 +11012,9 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setPhotoId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         photoId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11214,8 +11027,8 @@ public final class StreetViewPublishRpcMessages {
        * @return This builder for chaining.
        */
       public Builder clearPhotoId() {
-        
         photoId_ = getDefaultInstance().getPhotoId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -11230,12 +11043,10 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setPhotoIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         photoId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11272,7 +11083,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeletePhotoRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -11377,58 +11199,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BatchDeletePhotosRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                photoIds_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              photoIds_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          photoIds_ = photoIds_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_BatchDeletePhotosRequest_descriptor;
@@ -11443,6 +11213,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int PHOTO_IDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList photoIds_;
     /**
      * <pre>
@@ -11518,7 +11289,7 @@ public final class StreetViewPublishRpcMessages {
       for (int i = 0; i < photoIds_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, photoIds_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -11535,7 +11306,7 @@ public final class StreetViewPublishRpcMessages {
         size += dataSize;
         size += 1 * getPhotoIdsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11552,7 +11323,7 @@ public final class StreetViewPublishRpcMessages {
 
       if (!getPhotoIdsList()
           .equals(other.getPhotoIdsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -11567,7 +11338,7 @@ public final class StreetViewPublishRpcMessages {
         hash = (37 * hash) + PHOTO_IDS_FIELD_NUMBER;
         hash = (53 * hash) + getPhotoIdsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11688,22 +11459,18 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         photoIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -11732,14 +11499,22 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosRequest buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosRequest(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosRequest result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           photoIds_ = photoIds_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.photoIds_ = photoIds_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosRequest result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -11796,7 +11571,7 @@ public final class StreetViewPublishRpcMessages {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -11811,17 +11586,36 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensurePhotoIdsIsMutable();
+                photoIds_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -11903,10 +11697,8 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder setPhotoIds(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePhotoIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePhotoIdsIsMutable();
         photoIds_.set(index, value);
         onChanged();
         return this;
@@ -11924,10 +11716,8 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder addPhotoIds(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePhotoIdsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePhotoIdsIsMutable();
         photoIds_.add(value);
         onChanged();
         return this;
@@ -11980,10 +11770,8 @@ public final class StreetViewPublishRpcMessages {
        */
       public Builder addPhotoIdsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensurePhotoIdsIsMutable();
         photoIds_.add(value);
         onChanged();
@@ -12022,7 +11810,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BatchDeletePhotosRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -12037,6 +11836,2600 @@ public final class StreetViewPublishRpcMessages {
 
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CreatePhotoSequenceRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.CreatePhotoSequenceRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+     * create.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return Whether the photoSequence field is set.
+     */
+    boolean hasPhotoSequence();
+    /**
+     * <pre>
+     * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+     * create.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The photoSequence.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence getPhotoSequence();
+    /**
+     * <pre>
+     * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+     * create.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequenceOrBuilder getPhotoSequenceOrBuilder();
+
+    /**
+     * <pre>
+     * Required. The input form of
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType input_type = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The enum numeric value on the wire for inputType.
+     */
+    int getInputTypeValue();
+    /**
+     * <pre>
+     * Required. The input form of
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType input_type = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The inputType.
+     */
+    com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType getInputType();
+  }
+  /**
+   * <pre>
+   * Request to create a
+   * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] from a video.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.CreatePhotoSequenceRequest}
+   */
+  public static final class CreatePhotoSequenceRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.CreatePhotoSequenceRequest)
+      CreatePhotoSequenceRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CreatePhotoSequenceRequest.newBuilder() to construct.
+    private CreatePhotoSequenceRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CreatePhotoSequenceRequest() {
+      inputType_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreatePhotoSequenceRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.Builder.class);
+    }
+
+    /**
+     * <pre>
+     * Input forms of [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * Protobuf enum {@code google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType}
+     */
+    public enum InputType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <pre>
+       * Not specified. Server will return [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
+       * </pre>
+       *
+       * <code>INPUT_TYPE_UNSPECIFIED = 0;</code>
+       */
+      INPUT_TYPE_UNSPECIFIED(0),
+      /**
+       * <pre>
+       * 360 Video.
+       * </pre>
+       *
+       * <code>VIDEO = 1;</code>
+       */
+      VIDEO(1),
+      /**
+       * <pre>
+       * Extensible Device Metadata, http://www.xdm.org
+       * </pre>
+       *
+       * <code>XDM = 2;</code>
+       */
+      XDM(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <pre>
+       * Not specified. Server will return [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
+       * </pre>
+       *
+       * <code>INPUT_TYPE_UNSPECIFIED = 0;</code>
+       */
+      public static final int INPUT_TYPE_UNSPECIFIED_VALUE = 0;
+      /**
+       * <pre>
+       * 360 Video.
+       * </pre>
+       *
+       * <code>VIDEO = 1;</code>
+       */
+      public static final int VIDEO_VALUE = 1;
+      /**
+       * <pre>
+       * Extensible Device Metadata, http://www.xdm.org
+       * </pre>
+       *
+       * <code>XDM = 2;</code>
+       */
+      public static final int XDM_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static InputType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static InputType forNumber(int value) {
+        switch (value) {
+          case 0: return INPUT_TYPE_UNSPECIFIED;
+          case 1: return VIDEO;
+          case 2: return XDM;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<InputType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          InputType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<InputType>() {
+              public InputType findValueByNumber(int number) {
+                return InputType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final InputType[] VALUES = values();
+
+      public static InputType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private InputType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType)
+    }
+
+    public static final int PHOTO_SEQUENCE_FIELD_NUMBER = 1;
+    private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence photoSequence_;
+    /**
+     * <pre>
+     * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+     * create.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return Whether the photoSequence field is set.
+     */
+    @java.lang.Override
+    public boolean hasPhotoSequence() {
+      return photoSequence_ != null;
+    }
+    /**
+     * <pre>
+     * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+     * create.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The photoSequence.
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence getPhotoSequence() {
+      return photoSequence_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.getDefaultInstance() : photoSequence_;
+    }
+    /**
+     * <pre>
+     * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+     * create.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     */
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequenceOrBuilder getPhotoSequenceOrBuilder() {
+      return photoSequence_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.getDefaultInstance() : photoSequence_;
+    }
+
+    public static final int INPUT_TYPE_FIELD_NUMBER = 2;
+    private int inputType_ = 0;
+    /**
+     * <pre>
+     * Required. The input form of
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType input_type = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The enum numeric value on the wire for inputType.
+     */
+    @java.lang.Override public int getInputTypeValue() {
+      return inputType_;
+    }
+    /**
+     * <pre>
+     * Required. The input form of
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType input_type = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The inputType.
+     */
+    @java.lang.Override public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType getInputType() {
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType.forNumber(inputType_);
+      return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (photoSequence_ != null) {
+        output.writeMessage(1, getPhotoSequence());
+      }
+      if (inputType_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType.INPUT_TYPE_UNSPECIFIED.getNumber()) {
+        output.writeEnum(2, inputType_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (photoSequence_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPhotoSequence());
+      }
+      if (inputType_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType.INPUT_TYPE_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, inputType_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest) obj;
+
+      if (hasPhotoSequence() != other.hasPhotoSequence()) return false;
+      if (hasPhotoSequence()) {
+        if (!getPhotoSequence()
+            .equals(other.getPhotoSequence())) return false;
+      }
+      if (inputType_ != other.inputType_) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPhotoSequence()) {
+        hash = (37 * hash) + PHOTO_SEQUENCE_FIELD_NUMBER;
+        hash = (53 * hash) + getPhotoSequence().hashCode();
+      }
+      hash = (37 * hash) + INPUT_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + inputType_;
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Request to create a
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] from a video.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.CreatePhotoSequenceRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.CreatePhotoSequenceRequest)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        photoSequence_ = null;
+        if (photoSequenceBuilder_ != null) {
+          photoSequenceBuilder_.dispose();
+          photoSequenceBuilder_ = null;
+        }
+        inputType_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.photoSequence_ = photoSequenceBuilder_ == null
+              ? photoSequence_
+              : photoSequenceBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.inputType_ = inputType_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.getDefaultInstance()) return this;
+        if (other.hasPhotoSequence()) {
+          mergePhotoSequence(other.getPhotoSequence());
+        }
+        if (other.inputType_ != 0) {
+          setInputTypeValue(other.getInputTypeValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPhotoSequenceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                inputType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence photoSequence_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequenceOrBuilder> photoSequenceBuilder_;
+      /**
+       * <pre>
+       * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+       * create.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return Whether the photoSequence field is set.
+       */
+      public boolean hasPhotoSequence() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+       * create.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The photoSequence.
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence getPhotoSequence() {
+        if (photoSequenceBuilder_ == null) {
+          return photoSequence_ == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.getDefaultInstance() : photoSequence_;
+        } else {
+          return photoSequenceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+       * create.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       */
+      public Builder setPhotoSequence(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence value) {
+        if (photoSequenceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          photoSequence_ = value;
+        } else {
+          photoSequenceBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+       * create.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       */
+      public Builder setPhotoSequence(
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.Builder builderForValue) {
+        if (photoSequenceBuilder_ == null) {
+          photoSequence_ = builderForValue.build();
+        } else {
+          photoSequenceBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+       * create.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       */
+      public Builder mergePhotoSequence(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence value) {
+        if (photoSequenceBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0) &&
+            photoSequence_ != null &&
+            photoSequence_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.getDefaultInstance()) {
+            getPhotoSequenceBuilder().mergeFrom(value);
+          } else {
+            photoSequence_ = value;
+          }
+        } else {
+          photoSequenceBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+       * create.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       */
+      public Builder clearPhotoSequence() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        photoSequence_ = null;
+        if (photoSequenceBuilder_ != null) {
+          photoSequenceBuilder_.dispose();
+          photoSequenceBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+       * create.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.Builder getPhotoSequenceBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getPhotoSequenceFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+       * create.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       */
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequenceOrBuilder getPhotoSequenceOrBuilder() {
+        if (photoSequenceBuilder_ != null) {
+          return photoSequenceBuilder_.getMessageOrBuilder();
+        } else {
+          return photoSequence_ == null ?
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.getDefaultInstance() : photoSequence_;
+        }
+      }
+      /**
+       * <pre>
+       * Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
+       * create.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoSequence photo_sequence = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequenceOrBuilder> 
+          getPhotoSequenceFieldBuilder() {
+        if (photoSequenceBuilder_ == null) {
+          photoSequenceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequence.Builder, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishResources.PhotoSequenceOrBuilder>(
+                  getPhotoSequence(),
+                  getParentForChildren(),
+                  isClean());
+          photoSequence_ = null;
+        }
+        return photoSequenceBuilder_;
+      }
+
+      private int inputType_ = 0;
+      /**
+       * <pre>
+       * Required. The input form of
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType input_type = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The enum numeric value on the wire for inputType.
+       */
+      @java.lang.Override public int getInputTypeValue() {
+        return inputType_;
+      }
+      /**
+       * <pre>
+       * Required. The input form of
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType input_type = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The enum numeric value on the wire for inputType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInputTypeValue(int value) {
+        inputType_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. The input form of
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType input_type = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The inputType.
+       */
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType getInputType() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType.forNumber(inputType_);
+        return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Required. The input form of
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType input_type = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The inputType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInputType(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest.InputType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        inputType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. The input form of
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.CreatePhotoSequenceRequest.InputType input_type = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInputType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        inputType_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.CreatePhotoSequenceRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.CreatePhotoSequenceRequest)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreatePhotoSequenceRequest>
+        PARSER = new com.google.protobuf.AbstractParser<CreatePhotoSequenceRequest>() {
+      @java.lang.Override
+      public CreatePhotoSequenceRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreatePhotoSequenceRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreatePhotoSequenceRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.CreatePhotoSequenceRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetPhotoSequenceRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.GetPhotoSequenceRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Required. ID of the photo sequence.
+     * </pre>
+     *
+     * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The sequenceId.
+     */
+    java.lang.String getSequenceId();
+    /**
+     * <pre>
+     * Required. ID of the photo sequence.
+     * </pre>
+     *
+     * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for sequenceId.
+     */
+    com.google.protobuf.ByteString
+        getSequenceIdBytes();
+
+    /**
+     * <pre>
+     * Specifies if a download URL for the photo sequence should be returned in
+     * `download_url` of individual photos in the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
+     * &gt; Note: Currently not implemented.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoView view = 2 [deprecated = true];</code>
+     * @deprecated google.streetview.publish.v1.GetPhotoSequenceRequest.view is deprecated.
+     *     See google/streetview/publish/v1/rpcmessages.proto;l=283
+     * @return The enum numeric value on the wire for view.
+     */
+    @java.lang.Deprecated int getViewValue();
+    /**
+     * <pre>
+     * Specifies if a download URL for the photo sequence should be returned in
+     * `download_url` of individual photos in the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
+     * &gt; Note: Currently not implemented.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoView view = 2 [deprecated = true];</code>
+     * @deprecated google.streetview.publish.v1.GetPhotoSequenceRequest.view is deprecated.
+     *     See google/streetview/publish/v1/rpcmessages.proto;l=283
+     * @return The view.
+     */
+    @java.lang.Deprecated com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView getView();
+
+    /**
+     * <pre>
+     * Optional. The filter expression. For example: `published_status=PUBLISHED`.
+     * The filters supported are: `published_status`.  See
+     * https://google.aip.dev/160 for more information.
+     * </pre>
+     *
+     * <code>string filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The filter.
+     */
+    java.lang.String getFilter();
+    /**
+     * <pre>
+     * Optional. The filter expression. For example: `published_status=PUBLISHED`.
+     * The filters supported are: `published_status`.  See
+     * https://google.aip.dev/160 for more information.
+     * </pre>
+     *
+     * <code>string filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for filter.
+     */
+    com.google.protobuf.ByteString
+        getFilterBytes();
+  }
+  /**
+   * <pre>
+   * Request to get a [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+   * By default
+   * * does not return the download URL for the
+   * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+   * Parameters:
+   * * `view` controls if the download URL for the
+   * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is
+   *   returned.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.GetPhotoSequenceRequest}
+   */
+  public static final class GetPhotoSequenceRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.GetPhotoSequenceRequest)
+      GetPhotoSequenceRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetPhotoSequenceRequest.newBuilder() to construct.
+    private GetPhotoSequenceRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetPhotoSequenceRequest() {
+      sequenceId_ = "";
+      view_ = 0;
+      filter_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetPhotoSequenceRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest.Builder.class);
+    }
+
+    public static final int SEQUENCE_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sequenceId_ = "";
+    /**
+     * <pre>
+     * Required. ID of the photo sequence.
+     * </pre>
+     *
+     * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The sequenceId.
+     */
+    @java.lang.Override
+    public java.lang.String getSequenceId() {
+      java.lang.Object ref = sequenceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sequenceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Required. ID of the photo sequence.
+     * </pre>
+     *
+     * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for sequenceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSequenceIdBytes() {
+      java.lang.Object ref = sequenceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sequenceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VIEW_FIELD_NUMBER = 2;
+    private int view_ = 0;
+    /**
+     * <pre>
+     * Specifies if a download URL for the photo sequence should be returned in
+     * `download_url` of individual photos in the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
+     * &gt; Note: Currently not implemented.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoView view = 2 [deprecated = true];</code>
+     * @deprecated google.streetview.publish.v1.GetPhotoSequenceRequest.view is deprecated.
+     *     See google/streetview/publish/v1/rpcmessages.proto;l=283
+     * @return The enum numeric value on the wire for view.
+     */
+    @java.lang.Override @java.lang.Deprecated public int getViewValue() {
+      return view_;
+    }
+    /**
+     * <pre>
+     * Specifies if a download URL for the photo sequence should be returned in
+     * `download_url` of individual photos in the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
+     * &gt; Note: Currently not implemented.
+     * </pre>
+     *
+     * <code>.google.streetview.publish.v1.PhotoView view = 2 [deprecated = true];</code>
+     * @deprecated google.streetview.publish.v1.GetPhotoSequenceRequest.view is deprecated.
+     *     See google/streetview/publish/v1/rpcmessages.proto;l=283
+     * @return The view.
+     */
+    @java.lang.Override @java.lang.Deprecated public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView getView() {
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.forNumber(view_);
+      return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.UNRECOGNIZED : result;
+    }
+
+    public static final int FILTER_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object filter_ = "";
+    /**
+     * <pre>
+     * Optional. The filter expression. For example: `published_status=PUBLISHED`.
+     * The filters supported are: `published_status`.  See
+     * https://google.aip.dev/160 for more information.
+     * </pre>
+     *
+     * <code>string filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The filter.
+     */
+    @java.lang.Override
+    public java.lang.String getFilter() {
+      java.lang.Object ref = filter_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filter_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The filter expression. For example: `published_status=PUBLISHED`.
+     * The filters supported are: `published_status`.  See
+     * https://google.aip.dev/160 for more information.
+     * </pre>
+     *
+     * <code>string filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for filter.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFilterBytes() {
+      java.lang.Object ref = filter_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filter_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sequenceId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sequenceId_);
+      }
+      if (view_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.BASIC.getNumber()) {
+        output.writeEnum(2, view_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, filter_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sequenceId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sequenceId_);
+      }
+      if (view_ != com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.BASIC.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, view_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, filter_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest) obj;
+
+      if (!getSequenceId()
+          .equals(other.getSequenceId())) return false;
+      if (view_ != other.view_) return false;
+      if (!getFilter()
+          .equals(other.getFilter())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SEQUENCE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getSequenceId().hashCode();
+      hash = (37 * hash) + VIEW_FIELD_NUMBER;
+      hash = (53 * hash) + view_;
+      hash = (37 * hash) + FILTER_FIELD_NUMBER;
+      hash = (53 * hash) + getFilter().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Request to get a [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * By default
+     * * does not return the download URL for the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * Parameters:
+     * * `view` controls if the download URL for the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is
+     *   returned.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.GetPhotoSequenceRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.GetPhotoSequenceRequest)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        sequenceId_ = "";
+        view_ = 0;
+        filter_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.sequenceId_ = sequenceId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.view_ = view_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.filter_ = filter_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest.getDefaultInstance()) return this;
+        if (!other.getSequenceId().isEmpty()) {
+          sequenceId_ = other.sequenceId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (other.view_ != 0) {
+          setViewValue(other.getViewValue());
+        }
+        if (!other.getFilter().isEmpty()) {
+          filter_ = other.filter_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                sequenceId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                view_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                filter_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object sequenceId_ = "";
+      /**
+       * <pre>
+       * Required. ID of the photo sequence.
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The sequenceId.
+       */
+      public java.lang.String getSequenceId() {
+        java.lang.Object ref = sequenceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sequenceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required. ID of the photo sequence.
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The bytes for sequenceId.
+       */
+      public com.google.protobuf.ByteString
+          getSequenceIdBytes() {
+        java.lang.Object ref = sequenceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sequenceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required. ID of the photo sequence.
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The sequenceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSequenceId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        sequenceId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. ID of the photo sequence.
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSequenceId() {
+        sequenceId_ = getDefaultInstance().getSequenceId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. ID of the photo sequence.
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The bytes for sequenceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSequenceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        sequenceId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private int view_ = 0;
+      /**
+       * <pre>
+       * Specifies if a download URL for the photo sequence should be returned in
+       * `download_url` of individual photos in the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
+       * &gt; Note: Currently not implemented.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoView view = 2 [deprecated = true];</code>
+       * @deprecated google.streetview.publish.v1.GetPhotoSequenceRequest.view is deprecated.
+       *     See google/streetview/publish/v1/rpcmessages.proto;l=283
+       * @return The enum numeric value on the wire for view.
+       */
+      @java.lang.Override @java.lang.Deprecated public int getViewValue() {
+        return view_;
+      }
+      /**
+       * <pre>
+       * Specifies if a download URL for the photo sequence should be returned in
+       * `download_url` of individual photos in the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
+       * &gt; Note: Currently not implemented.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoView view = 2 [deprecated = true];</code>
+       * @deprecated google.streetview.publish.v1.GetPhotoSequenceRequest.view is deprecated.
+       *     See google/streetview/publish/v1/rpcmessages.proto;l=283
+       * @param value The enum numeric value on the wire for view to set.
+       * @return This builder for chaining.
+       */
+      @java.lang.Deprecated public Builder setViewValue(int value) {
+        view_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies if a download URL for the photo sequence should be returned in
+       * `download_url` of individual photos in the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
+       * &gt; Note: Currently not implemented.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoView view = 2 [deprecated = true];</code>
+       * @deprecated google.streetview.publish.v1.GetPhotoSequenceRequest.view is deprecated.
+       *     See google/streetview/publish/v1/rpcmessages.proto;l=283
+       * @return The view.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView getView() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView result = com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.forNumber(view_);
+        return result == null ? com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Specifies if a download URL for the photo sequence should be returned in
+       * `download_url` of individual photos in the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
+       * &gt; Note: Currently not implemented.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoView view = 2 [deprecated = true];</code>
+       * @deprecated google.streetview.publish.v1.GetPhotoSequenceRequest.view is deprecated.
+       *     See google/streetview/publish/v1/rpcmessages.proto;l=283
+       * @param value The view to set.
+       * @return This builder for chaining.
+       */
+      @java.lang.Deprecated public Builder setView(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.PhotoView value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        view_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies if a download URL for the photo sequence should be returned in
+       * `download_url` of individual photos in the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
+       * &gt; Note: Currently not implemented.
+       * </pre>
+       *
+       * <code>.google.streetview.publish.v1.PhotoView view = 2 [deprecated = true];</code>
+       * @deprecated google.streetview.publish.v1.GetPhotoSequenceRequest.view is deprecated.
+       *     See google/streetview/publish/v1/rpcmessages.proto;l=283
+       * @return This builder for chaining.
+       */
+      @java.lang.Deprecated public Builder clearView() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        view_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object filter_ = "";
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `published_status=PUBLISHED`.
+       * The filters supported are: `published_status`.  See
+       * https://google.aip.dev/160 for more information.
+       * </pre>
+       *
+       * <code>string filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The filter.
+       */
+      public java.lang.String getFilter() {
+        java.lang.Object ref = filter_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filter_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `published_status=PUBLISHED`.
+       * The filters supported are: `published_status`.  See
+       * https://google.aip.dev/160 for more information.
+       * </pre>
+       *
+       * <code>string filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The bytes for filter.
+       */
+      public com.google.protobuf.ByteString
+          getFilterBytes() {
+        java.lang.Object ref = filter_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filter_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `published_status=PUBLISHED`.
+       * The filters supported are: `published_status`.  See
+       * https://google.aip.dev/160 for more information.
+       * </pre>
+       *
+       * <code>string filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The filter to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilter(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        filter_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `published_status=PUBLISHED`.
+       * The filters supported are: `published_status`.  See
+       * https://google.aip.dev/160 for more information.
+       * </pre>
+       *
+       * <code>string filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilter() {
+        filter_ = getDefaultInstance().getFilter();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `published_status=PUBLISHED`.
+       * The filters supported are: `published_status`.  See
+       * https://google.aip.dev/160 for more information.
+       * </pre>
+       *
+       * <code>string filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The bytes for filter to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilterBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        filter_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.GetPhotoSequenceRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.GetPhotoSequenceRequest)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetPhotoSequenceRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetPhotoSequenceRequest>() {
+      @java.lang.Override
+      public GetPhotoSequenceRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetPhotoSequenceRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetPhotoSequenceRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.GetPhotoSequenceRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DeletePhotoSequenceRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.DeletePhotoSequenceRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Required. ID of the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The sequenceId.
+     */
+    java.lang.String getSequenceId();
+    /**
+     * <pre>
+     * Required. ID of the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for sequenceId.
+     */
+    com.google.protobuf.ByteString
+        getSequenceIdBytes();
+  }
+  /**
+   * <pre>
+   * Request to delete a
+   * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.DeletePhotoSequenceRequest}
+   */
+  public static final class DeletePhotoSequenceRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.DeletePhotoSequenceRequest)
+      DeletePhotoSequenceRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DeletePhotoSequenceRequest.newBuilder() to construct.
+    private DeletePhotoSequenceRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DeletePhotoSequenceRequest() {
+      sequenceId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new DeletePhotoSequenceRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest.Builder.class);
+    }
+
+    public static final int SEQUENCE_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sequenceId_ = "";
+    /**
+     * <pre>
+     * Required. ID of the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The sequenceId.
+     */
+    @java.lang.Override
+    public java.lang.String getSequenceId() {
+      java.lang.Object ref = sequenceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sequenceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Required. ID of the
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for sequenceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSequenceIdBytes() {
+      java.lang.Object ref = sequenceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sequenceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sequenceId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sequenceId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sequenceId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sequenceId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest) obj;
+
+      if (!getSequenceId()
+          .equals(other.getSequenceId())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SEQUENCE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getSequenceId().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Request to delete a
+     * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.DeletePhotoSequenceRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.DeletePhotoSequenceRequest)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        sequenceId_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.sequenceId_ = sequenceId_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest.getDefaultInstance()) return this;
+        if (!other.getSequenceId().isEmpty()) {
+          sequenceId_ = other.sequenceId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                sequenceId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object sequenceId_ = "";
+      /**
+       * <pre>
+       * Required. ID of the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The sequenceId.
+       */
+      public java.lang.String getSequenceId() {
+        java.lang.Object ref = sequenceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sequenceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required. ID of the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return The bytes for sequenceId.
+       */
+      public com.google.protobuf.ByteString
+          getSequenceIdBytes() {
+        java.lang.Object ref = sequenceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sequenceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required. ID of the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The sequenceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSequenceId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        sequenceId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. ID of the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSequenceId() {
+        sequenceId_ = getDefaultInstance().getSequenceId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required. ID of the
+       * [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
+       * </pre>
+       *
+       * <code>string sequence_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
+       * @param value The bytes for sequenceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSequenceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        sequenceId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.DeletePhotoSequenceRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.DeletePhotoSequenceRequest)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DeletePhotoSequenceRequest>
+        PARSER = new com.google.protobuf.AbstractParser<DeletePhotoSequenceRequest>() {
+      @java.lang.Override
+      public DeletePhotoSequenceRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<DeletePhotoSequenceRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DeletePhotoSequenceRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.DeletePhotoSequenceRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12128,58 +14521,6 @@ public final class StreetViewPublishRpcMessages {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BatchDeletePhotosResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                status_ = new java.util.ArrayList<com.google.rpc.Status>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              status_.add(
-                  input.readMessage(com.google.rpc.Status.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          status_ = java.util.Collections.unmodifiableList(status_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_BatchDeletePhotosResponse_descriptor;
@@ -12194,6 +14535,7 @@ public final class StreetViewPublishRpcMessages {
     }
 
     public static final int STATUS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.rpc.Status> status_;
     /**
      * <pre>
@@ -12275,7 +14617,7 @@ public final class StreetViewPublishRpcMessages {
       for (int i = 0; i < status_.size(); i++) {
         output.writeMessage(1, status_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -12288,7 +14630,7 @@ public final class StreetViewPublishRpcMessages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, status_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12305,7 +14647,7 @@ public final class StreetViewPublishRpcMessages {
 
       if (!getStatusList()
           .equals(other.getStatusList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -12320,7 +14662,7 @@ public final class StreetViewPublishRpcMessages {
         hash = (37 * hash) + STATUS_FIELD_NUMBER;
         hash = (53 * hash) + getStatusList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12442,29 +14784,25 @@ public final class StreetViewPublishRpcMessages {
 
       // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getStatusFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (statusBuilder_ == null) {
           status_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          status_ = null;
           statusBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -12491,7 +14829,13 @@ public final class StreetViewPublishRpcMessages {
       @java.lang.Override
       public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosResponse buildPartial() {
         com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosResponse result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosResponse(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosResponse result) {
         if (statusBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             status_ = java.util.Collections.unmodifiableList(status_);
@@ -12501,8 +14845,10 @@ public final class StreetViewPublishRpcMessages {
         } else {
           result.status_ = statusBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosResponse result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -12575,7 +14921,7 @@ public final class StreetViewPublishRpcMessages {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -12590,17 +14936,43 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.rpc.Status m =
+                    input.readMessage(
+                        com.google.rpc.Status.parser(),
+                        extensionRegistry);
+                if (statusBuilder_ == null) {
+                  ensureStatusIsMutable();
+                  status_.add(m);
+                } else {
+                  statusBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -12967,7 +15339,18 @@ public final class StreetViewPublishRpcMessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BatchDeletePhotosResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -12982,6 +15365,2498 @@ public final class StreetViewPublishRpcMessages {
 
     @java.lang.Override
     public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.BatchDeletePhotosResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ListPhotoSequencesRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.ListPhotoSequencesRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Optional. The maximum number of photo sequences to return.
+     * `pageSize` must be non-negative. If `pageSize` is zero or is not
+     * provided, the default page size of 100 is used.
+     * The number of photo sequences returned in the response may be less than
+     * `pageSize` if the number of matches is less than `pageSize`.
+     * This is currently unimplemented but is in process.
+     * </pre>
+     *
+     * <code>int32 page_size = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The pageSize.
+     */
+    int getPageSize();
+
+    /**
+     * <pre>
+     * Optional. The
+     * [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
+     * value returned from a previous
+     * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+     * request, if any.
+     * </pre>
+     *
+     * <code>string page_token = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The pageToken.
+     */
+    java.lang.String getPageToken();
+    /**
+     * <pre>
+     * Optional. The
+     * [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
+     * value returned from a previous
+     * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+     * request, if any.
+     * </pre>
+     *
+     * <code>string page_token = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for pageToken.
+     */
+    com.google.protobuf.ByteString
+        getPageTokenBytes();
+
+    /**
+     * <pre>
+     * Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
+     * The filters supported are: `imagery_type`, `processing_state`,
+     * `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`, and
+     * `filename_query`. See https://google.aip.dev/160 for more information.
+     * Filename queries should sent as a Phrase in order to support multple words
+     * and special characters by adding escaped quotes. Ex:
+     * filename_query="example of a phrase.mp4"
+     * </pre>
+     *
+     * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The filter.
+     */
+    java.lang.String getFilter();
+    /**
+     * <pre>
+     * Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
+     * The filters supported are: `imagery_type`, `processing_state`,
+     * `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`, and
+     * `filename_query`. See https://google.aip.dev/160 for more information.
+     * Filename queries should sent as a Phrase in order to support multple words
+     * and special characters by adding escaped quotes. Ex:
+     * filename_query="example of a phrase.mp4"
+     * </pre>
+     *
+     * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for filter.
+     */
+    com.google.protobuf.ByteString
+        getFilterBytes();
+  }
+  /**
+   * <pre>
+   * Request to list all photo sequences that belong to the user sending the
+   * request.
+   * Parameters:
+   * * `pageSize` determines the maximum number of photo sequences to return.
+   * * `pageToken` is the next page token value returned from a previous
+   * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+   *   request, if any.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.ListPhotoSequencesRequest}
+   */
+  public static final class ListPhotoSequencesRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.ListPhotoSequencesRequest)
+      ListPhotoSequencesRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListPhotoSequencesRequest.newBuilder() to construct.
+    private ListPhotoSequencesRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListPhotoSequencesRequest() {
+      pageToken_ = "";
+      filter_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListPhotoSequencesRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest.Builder.class);
+    }
+
+    public static final int PAGE_SIZE_FIELD_NUMBER = 1;
+    private int pageSize_ = 0;
+    /**
+     * <pre>
+     * Optional. The maximum number of photo sequences to return.
+     * `pageSize` must be non-negative. If `pageSize` is zero or is not
+     * provided, the default page size of 100 is used.
+     * The number of photo sequences returned in the response may be less than
+     * `pageSize` if the number of matches is less than `pageSize`.
+     * This is currently unimplemented but is in process.
+     * </pre>
+     *
+     * <code>int32 page_size = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The pageSize.
+     */
+    @java.lang.Override
+    public int getPageSize() {
+      return pageSize_;
+    }
+
+    public static final int PAGE_TOKEN_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object pageToken_ = "";
+    /**
+     * <pre>
+     * Optional. The
+     * [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
+     * value returned from a previous
+     * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+     * request, if any.
+     * </pre>
+     *
+     * <code>string page_token = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The pageToken.
+     */
+    @java.lang.Override
+    public java.lang.String getPageToken() {
+      java.lang.Object ref = pageToken_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pageToken_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The
+     * [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
+     * value returned from a previous
+     * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+     * request, if any.
+     * </pre>
+     *
+     * <code>string page_token = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for pageToken.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPageTokenBytes() {
+      java.lang.Object ref = pageToken_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pageToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILTER_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object filter_ = "";
+    /**
+     * <pre>
+     * Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
+     * The filters supported are: `imagery_type`, `processing_state`,
+     * `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`, and
+     * `filename_query`. See https://google.aip.dev/160 for more information.
+     * Filename queries should sent as a Phrase in order to support multple words
+     * and special characters by adding escaped quotes. Ex:
+     * filename_query="example of a phrase.mp4"
+     * </pre>
+     *
+     * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The filter.
+     */
+    @java.lang.Override
+    public java.lang.String getFilter() {
+      java.lang.Object ref = filter_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filter_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
+     * The filters supported are: `imagery_type`, `processing_state`,
+     * `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`, and
+     * `filename_query`. See https://google.aip.dev/160 for more information.
+     * Filename queries should sent as a Phrase in order to support multple words
+     * and special characters by adding escaped quotes. Ex:
+     * filename_query="example of a phrase.mp4"
+     * </pre>
+     *
+     * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for filter.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFilterBytes() {
+      java.lang.Object ref = filter_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filter_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (pageSize_ != 0) {
+        output.writeInt32(1, pageSize_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, pageToken_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, filter_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (pageSize_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, pageSize_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, pageToken_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, filter_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest) obj;
+
+      if (getPageSize()
+          != other.getPageSize()) return false;
+      if (!getPageToken()
+          .equals(other.getPageToken())) return false;
+      if (!getFilter()
+          .equals(other.getFilter())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
+      hash = (53 * hash) + getPageSize();
+      hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getPageToken().hashCode();
+      hash = (37 * hash) + FILTER_FIELD_NUMBER;
+      hash = (53 * hash) + getFilter().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Request to list all photo sequences that belong to the user sending the
+     * request.
+     * Parameters:
+     * * `pageSize` determines the maximum number of photo sequences to return.
+     * * `pageToken` is the next page token value returned from a previous
+     * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+     *   request, if any.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.ListPhotoSequencesRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.ListPhotoSequencesRequest)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        pageSize_ = 0;
+        pageToken_ = "";
+        filter_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.pageSize_ = pageSize_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.pageToken_ = pageToken_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.filter_ = filter_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest.getDefaultInstance()) return this;
+        if (other.getPageSize() != 0) {
+          setPageSize(other.getPageSize());
+        }
+        if (!other.getPageToken().isEmpty()) {
+          pageToken_ = other.pageToken_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (!other.getFilter().isEmpty()) {
+          filter_ = other.filter_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                pageSize_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                pageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 34: {
+                filter_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int pageSize_ ;
+      /**
+       * <pre>
+       * Optional. The maximum number of photo sequences to return.
+       * `pageSize` must be non-negative. If `pageSize` is zero or is not
+       * provided, the default page size of 100 is used.
+       * The number of photo sequences returned in the response may be less than
+       * `pageSize` if the number of matches is less than `pageSize`.
+       * This is currently unimplemented but is in process.
+       * </pre>
+       *
+       * <code>int32 page_size = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The pageSize.
+       */
+      @java.lang.Override
+      public int getPageSize() {
+        return pageSize_;
+      }
+      /**
+       * <pre>
+       * Optional. The maximum number of photo sequences to return.
+       * `pageSize` must be non-negative. If `pageSize` is zero or is not
+       * provided, the default page size of 100 is used.
+       * The number of photo sequences returned in the response may be less than
+       * `pageSize` if the number of matches is less than `pageSize`.
+       * This is currently unimplemented but is in process.
+       * </pre>
+       *
+       * <code>int32 page_size = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The pageSize to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPageSize(int value) {
+        
+        pageSize_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The maximum number of photo sequences to return.
+       * `pageSize` must be non-negative. If `pageSize` is zero or is not
+       * provided, the default page size of 100 is used.
+       * The number of photo sequences returned in the response may be less than
+       * `pageSize` if the number of matches is less than `pageSize`.
+       * This is currently unimplemented but is in process.
+       * </pre>
+       *
+       * <code>int32 page_size = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPageSize() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        pageSize_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object pageToken_ = "";
+      /**
+       * <pre>
+       * Optional. The
+       * [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
+       * value returned from a previous
+       * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+       * request, if any.
+       * </pre>
+       *
+       * <code>string page_token = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The pageToken.
+       */
+      public java.lang.String getPageToken() {
+        java.lang.Object ref = pageToken_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          pageToken_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional. The
+       * [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
+       * value returned from a previous
+       * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+       * request, if any.
+       * </pre>
+       *
+       * <code>string page_token = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The bytes for pageToken.
+       */
+      public com.google.protobuf.ByteString
+          getPageTokenBytes() {
+        java.lang.Object ref = pageToken_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pageToken_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional. The
+       * [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
+       * value returned from a previous
+       * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+       * request, if any.
+       * </pre>
+       *
+       * <code>string page_token = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The pageToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPageToken(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        pageToken_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The
+       * [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
+       * value returned from a previous
+       * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+       * request, if any.
+       * </pre>
+       *
+       * <code>string page_token = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPageToken() {
+        pageToken_ = getDefaultInstance().getPageToken();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The
+       * [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
+       * value returned from a previous
+       * [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
+       * request, if any.
+       * </pre>
+       *
+       * <code>string page_token = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The bytes for pageToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPageTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        pageToken_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object filter_ = "";
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
+       * The filters supported are: `imagery_type`, `processing_state`,
+       * `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`, and
+       * `filename_query`. See https://google.aip.dev/160 for more information.
+       * Filename queries should sent as a Phrase in order to support multple words
+       * and special characters by adding escaped quotes. Ex:
+       * filename_query="example of a phrase.mp4"
+       * </pre>
+       *
+       * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The filter.
+       */
+      public java.lang.String getFilter() {
+        java.lang.Object ref = filter_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filter_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
+       * The filters supported are: `imagery_type`, `processing_state`,
+       * `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`, and
+       * `filename_query`. See https://google.aip.dev/160 for more information.
+       * Filename queries should sent as a Phrase in order to support multple words
+       * and special characters by adding escaped quotes. Ex:
+       * filename_query="example of a phrase.mp4"
+       * </pre>
+       *
+       * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return The bytes for filter.
+       */
+      public com.google.protobuf.ByteString
+          getFilterBytes() {
+        java.lang.Object ref = filter_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filter_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
+       * The filters supported are: `imagery_type`, `processing_state`,
+       * `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`, and
+       * `filename_query`. See https://google.aip.dev/160 for more information.
+       * Filename queries should sent as a Phrase in order to support multple words
+       * and special characters by adding escaped quotes. Ex:
+       * filename_query="example of a phrase.mp4"
+       * </pre>
+       *
+       * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The filter to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilter(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        filter_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
+       * The filters supported are: `imagery_type`, `processing_state`,
+       * `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`, and
+       * `filename_query`. See https://google.aip.dev/160 for more information.
+       * Filename queries should sent as a Phrase in order to support multple words
+       * and special characters by adding escaped quotes. Ex:
+       * filename_query="example of a phrase.mp4"
+       * </pre>
+       *
+       * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilter() {
+        filter_ = getDefaultInstance().getFilter();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
+       * The filters supported are: `imagery_type`, `processing_state`,
+       * `min_latitude`, `max_latitude`, `min_longitude`, `max_longitude`, and
+       * `filename_query`. See https://google.aip.dev/160 for more information.
+       * Filename queries should sent as a Phrase in order to support multple words
+       * and special characters by adding escaped quotes. Ex:
+       * filename_query="example of a phrase.mp4"
+       * </pre>
+       *
+       * <code>string filter = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+       * @param value The bytes for filter to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilterBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        filter_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.ListPhotoSequencesRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.ListPhotoSequencesRequest)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListPhotoSequencesRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ListPhotoSequencesRequest>() {
+      @java.lang.Override
+      public ListPhotoSequencesRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListPhotoSequencesRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListPhotoSequencesRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ListPhotoSequencesResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.streetview.publish.v1.ListPhotoSequencesResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    java.util.List<com.google.longrunning.Operation> 
+        getPhotoSequencesList();
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    com.google.longrunning.Operation getPhotoSequences(int index);
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    int getPhotoSequencesCount();
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    java.util.List<? extends com.google.longrunning.OperationOrBuilder> 
+        getPhotoSequencesOrBuilderList();
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    com.google.longrunning.OperationOrBuilder getPhotoSequencesOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Token to retrieve the next page of results, or empty if there are no more
+     * results in the list.
+     * </pre>
+     *
+     * <code>string next_page_token = 2;</code>
+     * @return The nextPageToken.
+     */
+    java.lang.String getNextPageToken();
+    /**
+     * <pre>
+     * Token to retrieve the next page of results, or empty if there are no more
+     * results in the list.
+     * </pre>
+     *
+     * <code>string next_page_token = 2;</code>
+     * @return The bytes for nextPageToken.
+     */
+    com.google.protobuf.ByteString
+        getNextPageTokenBytes();
+  }
+  /**
+   * <pre>
+   * Response to list all photo sequences that belong to a user.
+   * </pre>
+   *
+   * Protobuf type {@code google.streetview.publish.v1.ListPhotoSequencesResponse}
+   */
+  public static final class ListPhotoSequencesResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.streetview.publish.v1.ListPhotoSequencesResponse)
+      ListPhotoSequencesResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListPhotoSequencesResponse.newBuilder() to construct.
+    private ListPhotoSequencesResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListPhotoSequencesResponse() {
+      photoSequences_ = java.util.Collections.emptyList();
+      nextPageToken_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListPhotoSequencesResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse.Builder.class);
+    }
+
+    public static final int PHOTO_SEQUENCES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private java.util.List<com.google.longrunning.Operation> photoSequences_;
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.google.longrunning.Operation> getPhotoSequencesList() {
+      return photoSequences_;
+    }
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.google.longrunning.OperationOrBuilder> 
+        getPhotoSequencesOrBuilderList() {
+      return photoSequences_;
+    }
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    @java.lang.Override
+    public int getPhotoSequencesCount() {
+      return photoSequences_.size();
+    }
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.longrunning.Operation getPhotoSequences(int index) {
+      return photoSequences_.get(index);
+    }
+    /**
+     * <pre>
+     * List of photo sequences via [Operation][google.longrunning.Operation]
+     * interface.
+     * The maximum number of items returned is based on the
+     * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+     * field in the request.
+     * Each item in the list can have three possible states,
+     * * `Operation.done` = false, if the processing of
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+     *   finished yet.
+     * * `Operation.done` = true and `Operation.error` is populated, if there was
+     *   an error in processing.
+     * * `Operation.done` = true and `Operation.response` contains a
+     *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+     *   In each sequence, only
+     *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+     * </pre>
+     *
+     * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.longrunning.OperationOrBuilder getPhotoSequencesOrBuilder(
+        int index) {
+      return photoSequences_.get(index);
+    }
+
+    public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object nextPageToken_ = "";
+    /**
+     * <pre>
+     * Token to retrieve the next page of results, or empty if there are no more
+     * results in the list.
+     * </pre>
+     *
+     * <code>string next_page_token = 2;</code>
+     * @return The nextPageToken.
+     */
+    @java.lang.Override
+    public java.lang.String getNextPageToken() {
+      java.lang.Object ref = nextPageToken_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        nextPageToken_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Token to retrieve the next page of results, or empty if there are no more
+     * results in the list.
+     * </pre>
+     *
+     * <code>string next_page_token = 2;</code>
+     * @return The bytes for nextPageToken.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNextPageTokenBytes() {
+      java.lang.Object ref = nextPageToken_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nextPageToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < photoSequences_.size(); i++) {
+        output.writeMessage(1, photoSequences_.get(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextPageToken_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < photoSequences_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, photoSequences_.get(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextPageToken_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse)) {
+        return super.equals(obj);
+      }
+      com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse other = (com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse) obj;
+
+      if (!getPhotoSequencesList()
+          .equals(other.getPhotoSequencesList())) return false;
+      if (!getNextPageToken()
+          .equals(other.getNextPageToken())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getPhotoSequencesCount() > 0) {
+        hash = (37 * hash) + PHOTO_SEQUENCES_FIELD_NUMBER;
+        hash = (53 * hash) + getPhotoSequencesList().hashCode();
+      }
+      hash = (37 * hash) + NEXT_PAGE_TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getNextPageToken().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Response to list all photo sequences that belong to a user.
+     * </pre>
+     *
+     * Protobuf type {@code google.streetview.publish.v1.ListPhotoSequencesResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.streetview.publish.v1.ListPhotoSequencesResponse)
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse.class, com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse.Builder.class);
+      }
+
+      // Construct using com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        if (photoSequencesBuilder_ == null) {
+          photoSequences_ = java.util.Collections.emptyList();
+        } else {
+          photoSequences_ = null;
+          photoSequencesBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        nextPageToken_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse getDefaultInstanceForType() {
+        return com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse build() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse buildPartial() {
+        com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse result = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse result) {
+        if (photoSequencesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            photoSequences_ = java.util.Collections.unmodifiableList(photoSequences_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.photoSequences_ = photoSequences_;
+        } else {
+          result.photoSequences_ = photoSequencesBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.nextPageToken_ = nextPageToken_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse) {
+          return mergeFrom((com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse other) {
+        if (other == com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse.getDefaultInstance()) return this;
+        if (photoSequencesBuilder_ == null) {
+          if (!other.photoSequences_.isEmpty()) {
+            if (photoSequences_.isEmpty()) {
+              photoSequences_ = other.photoSequences_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensurePhotoSequencesIsMutable();
+              photoSequences_.addAll(other.photoSequences_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.photoSequences_.isEmpty()) {
+            if (photoSequencesBuilder_.isEmpty()) {
+              photoSequencesBuilder_.dispose();
+              photoSequencesBuilder_ = null;
+              photoSequences_ = other.photoSequences_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              photoSequencesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPhotoSequencesFieldBuilder() : null;
+            } else {
+              photoSequencesBuilder_.addAllMessages(other.photoSequences_);
+            }
+          }
+        }
+        if (!other.getNextPageToken().isEmpty()) {
+          nextPageToken_ = other.nextPageToken_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.longrunning.Operation m =
+                    input.readMessage(
+                        com.google.longrunning.Operation.parser(),
+                        extensionRegistry);
+                if (photoSequencesBuilder_ == null) {
+                  ensurePhotoSequencesIsMutable();
+                  photoSequences_.add(m);
+                } else {
+                  photoSequencesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                nextPageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.google.longrunning.Operation> photoSequences_ =
+        java.util.Collections.emptyList();
+      private void ensurePhotoSequencesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          photoSequences_ = new java.util.ArrayList<com.google.longrunning.Operation>(photoSequences_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.longrunning.Operation, com.google.longrunning.Operation.Builder, com.google.longrunning.OperationOrBuilder> photoSequencesBuilder_;
+
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public java.util.List<com.google.longrunning.Operation> getPhotoSequencesList() {
+        if (photoSequencesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(photoSequences_);
+        } else {
+          return photoSequencesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public int getPhotoSequencesCount() {
+        if (photoSequencesBuilder_ == null) {
+          return photoSequences_.size();
+        } else {
+          return photoSequencesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public com.google.longrunning.Operation getPhotoSequences(int index) {
+        if (photoSequencesBuilder_ == null) {
+          return photoSequences_.get(index);
+        } else {
+          return photoSequencesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public Builder setPhotoSequences(
+          int index, com.google.longrunning.Operation value) {
+        if (photoSequencesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePhotoSequencesIsMutable();
+          photoSequences_.set(index, value);
+          onChanged();
+        } else {
+          photoSequencesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public Builder setPhotoSequences(
+          int index, com.google.longrunning.Operation.Builder builderForValue) {
+        if (photoSequencesBuilder_ == null) {
+          ensurePhotoSequencesIsMutable();
+          photoSequences_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          photoSequencesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public Builder addPhotoSequences(com.google.longrunning.Operation value) {
+        if (photoSequencesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePhotoSequencesIsMutable();
+          photoSequences_.add(value);
+          onChanged();
+        } else {
+          photoSequencesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public Builder addPhotoSequences(
+          int index, com.google.longrunning.Operation value) {
+        if (photoSequencesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePhotoSequencesIsMutable();
+          photoSequences_.add(index, value);
+          onChanged();
+        } else {
+          photoSequencesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public Builder addPhotoSequences(
+          com.google.longrunning.Operation.Builder builderForValue) {
+        if (photoSequencesBuilder_ == null) {
+          ensurePhotoSequencesIsMutable();
+          photoSequences_.add(builderForValue.build());
+          onChanged();
+        } else {
+          photoSequencesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public Builder addPhotoSequences(
+          int index, com.google.longrunning.Operation.Builder builderForValue) {
+        if (photoSequencesBuilder_ == null) {
+          ensurePhotoSequencesIsMutable();
+          photoSequences_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          photoSequencesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public Builder addAllPhotoSequences(
+          java.lang.Iterable<? extends com.google.longrunning.Operation> values) {
+        if (photoSequencesBuilder_ == null) {
+          ensurePhotoSequencesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, photoSequences_);
+          onChanged();
+        } else {
+          photoSequencesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public Builder clearPhotoSequences() {
+        if (photoSequencesBuilder_ == null) {
+          photoSequences_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          photoSequencesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public Builder removePhotoSequences(int index) {
+        if (photoSequencesBuilder_ == null) {
+          ensurePhotoSequencesIsMutable();
+          photoSequences_.remove(index);
+          onChanged();
+        } else {
+          photoSequencesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public com.google.longrunning.Operation.Builder getPhotoSequencesBuilder(
+          int index) {
+        return getPhotoSequencesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public com.google.longrunning.OperationOrBuilder getPhotoSequencesOrBuilder(
+          int index) {
+        if (photoSequencesBuilder_ == null) {
+          return photoSequences_.get(index);  } else {
+          return photoSequencesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public java.util.List<? extends com.google.longrunning.OperationOrBuilder> 
+           getPhotoSequencesOrBuilderList() {
+        if (photoSequencesBuilder_ != null) {
+          return photoSequencesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(photoSequences_);
+        }
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public com.google.longrunning.Operation.Builder addPhotoSequencesBuilder() {
+        return getPhotoSequencesFieldBuilder().addBuilder(
+            com.google.longrunning.Operation.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public com.google.longrunning.Operation.Builder addPhotoSequencesBuilder(
+          int index) {
+        return getPhotoSequencesFieldBuilder().addBuilder(
+            index, com.google.longrunning.Operation.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * List of photo sequences via [Operation][google.longrunning.Operation]
+       * interface.
+       * The maximum number of items returned is based on the
+       * [pageSize][google.streetview.publish.v1.ListPhotoSequencesRequest.page_size]
+       * field in the request.
+       * Each item in the list can have three possible states,
+       * * `Operation.done` = false, if the processing of
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] is not
+       *   finished yet.
+       * * `Operation.done` = true and `Operation.error` is populated, if there was
+       *   an error in processing.
+       * * `Operation.done` = true and `Operation.response` contains a
+       *   [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
+       *   In each sequence, only
+       *   [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
+       * </pre>
+       *
+       * <code>repeated .google.longrunning.Operation photo_sequences = 1;</code>
+       */
+      public java.util.List<com.google.longrunning.Operation.Builder> 
+           getPhotoSequencesBuilderList() {
+        return getPhotoSequencesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.google.longrunning.Operation, com.google.longrunning.Operation.Builder, com.google.longrunning.OperationOrBuilder> 
+          getPhotoSequencesFieldBuilder() {
+        if (photoSequencesBuilder_ == null) {
+          photoSequencesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.google.longrunning.Operation, com.google.longrunning.Operation.Builder, com.google.longrunning.OperationOrBuilder>(
+                  photoSequences_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          photoSequences_ = null;
+        }
+        return photoSequencesBuilder_;
+      }
+
+      private java.lang.Object nextPageToken_ = "";
+      /**
+       * <pre>
+       * Token to retrieve the next page of results, or empty if there are no more
+       * results in the list.
+       * </pre>
+       *
+       * <code>string next_page_token = 2;</code>
+       * @return The nextPageToken.
+       */
+      public java.lang.String getNextPageToken() {
+        java.lang.Object ref = nextPageToken_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          nextPageToken_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Token to retrieve the next page of results, or empty if there are no more
+       * results in the list.
+       * </pre>
+       *
+       * <code>string next_page_token = 2;</code>
+       * @return The bytes for nextPageToken.
+       */
+      public com.google.protobuf.ByteString
+          getNextPageTokenBytes() {
+        java.lang.Object ref = nextPageToken_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          nextPageToken_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Token to retrieve the next page of results, or empty if there are no more
+       * results in the list.
+       * </pre>
+       *
+       * <code>string next_page_token = 2;</code>
+       * @param value The nextPageToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNextPageToken(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Token to retrieve the next page of results, or empty if there are no more
+       * results in the list.
+       * </pre>
+       *
+       * <code>string next_page_token = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNextPageToken() {
+        nextPageToken_ = getDefaultInstance().getNextPageToken();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Token to retrieve the next page of results, or empty if there are no more
+       * results in the list.
+       * </pre>
+       *
+       * <code>string next_page_token = 2;</code>
+       * @param value The bytes for nextPageToken to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNextPageTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.streetview.publish.v1.ListPhotoSequencesResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.streetview.publish.v1.ListPhotoSequencesResponse)
+    private static final com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse();
+    }
+
+    public static com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListPhotoSequencesResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ListPhotoSequencesResponse>() {
+      @java.lang.Override
+      public ListPhotoSequencesResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListPhotoSequencesResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListPhotoSequencesResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.geo.ugc.streetview.publish.v1.StreetViewPublishRpcMessages.ListPhotoSequencesResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13048,10 +17923,35 @@ public final class StreetViewPublishRpcMessages {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_streetview_publish_v1_BatchDeletePhotosRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_streetview_publish_v1_BatchDeletePhotosResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_streetview_publish_v1_BatchDeletePhotosResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -13098,14 +17998,30 @@ public final class StreetViewPublishRpcMessages {
       "(\0132+.google.streetview.publish.v1.PhotoR" +
       "esponse\"+\n\022DeletePhotoRequest\022\025\n\010photo_i" +
       "d\030\001 \001(\tB\003\340A\002\"2\n\030BatchDeletePhotosRequest" +
-      "\022\026\n\tphoto_ids\030\001 \003(\tB\003\340A\002\"?\n\031BatchDeleteP" +
-      "hotosResponse\022\"\n\006status\030\001 \003(\0132\022.google.r" +
-      "pc.Status*0\n\tPhotoView\022\t\n\005BASIC\020\000\022\030\n\024INC" +
-      "LUDE_DOWNLOAD_URL\020\001B\215\001\n(com.google.geo.u" +
-      "gc.streetview.publish.v1B\034StreetViewPubl" +
-      "ishRpcMessagesZCgoogle.golang.org/genpro" +
-      "to/googleapis/streetview/publish/v1;publ" +
-      "ishb\006proto3"
+      "\022\026\n\tphoto_ids\030\001 \003(\tB\003\340A\002\"\200\002\n\032CreatePhoto" +
+      "SequenceRequest\022H\n\016photo_sequence\030\001 \001(\0132" +
+      "+.google.streetview.publish.v1.PhotoSequ" +
+      "enceB\003\340A\002\022[\n\ninput_type\030\002 \001(\0162B.google.s" +
+      "treetview.publish.v1.CreatePhotoSequence" +
+      "Request.InputTypeB\003\340A\002\";\n\tInputType\022\032\n\026I" +
+      "NPUT_TYPE_UNSPECIFIED\020\000\022\t\n\005VIDEO\020\001\022\007\n\003XD" +
+      "M\020\002\"\203\001\n\027GetPhotoSequenceRequest\022\030\n\013seque" +
+      "nce_id\030\001 \001(\tB\003\340A\002\0229\n\004view\030\002 \001(\0162\'.google" +
+      ".streetview.publish.v1.PhotoViewB\002\030\001\022\023\n\006" +
+      "filter\030\003 \001(\tB\003\340A\001\"6\n\032DeletePhotoSequence" +
+      "Request\022\030\n\013sequence_id\030\001 \001(\tB\003\340A\002\"?\n\031Bat" +
+      "chDeletePhotosResponse\022\"\n\006status\030\001 \003(\0132\022" +
+      ".google.rpc.Status\"a\n\031ListPhotoSequences" +
+      "Request\022\026\n\tpage_size\030\001 \001(\005B\003\340A\001\022\027\n\npage_" +
+      "token\030\002 \001(\tB\003\340A\001\022\023\n\006filter\030\004 \001(\tB\003\340A\001\"m\n" +
+      "\032ListPhotoSequencesResponse\0226\n\017photo_seq" +
+      "uences\030\001 \003(\0132\035.google.longrunning.Operat" +
+      "ion\022\027\n\017next_page_token\030\002 \001(\t*0\n\tPhotoVie" +
+      "w\022\t\n\005BASIC\020\000\022\030\n\024INCLUDE_DOWNLOAD_URL\020\001B\215" +
+      "\001\n(com.google.geo.ugc.streetview.publish" +
+      ".v1B\034StreetViewPublishRpcMessagesZCgoogl" +
+      "e.golang.org/genproto/googleapis/streetv" +
+      "iew/publish/v1;publishb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13188,12 +18104,42 @@ public final class StreetViewPublishRpcMessages {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_streetview_publish_v1_BatchDeletePhotosRequest_descriptor,
         new java.lang.String[] { "PhotoIds", });
-    internal_static_google_streetview_publish_v1_BatchDeletePhotosResponse_descriptor =
+    internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);
+    internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_CreatePhotoSequenceRequest_descriptor,
+        new java.lang.String[] { "PhotoSequence", "InputType", });
+    internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_GetPhotoSequenceRequest_descriptor,
+        new java.lang.String[] { "SequenceId", "View", "Filter", });
+    internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_DeletePhotoSequenceRequest_descriptor,
+        new java.lang.String[] { "SequenceId", });
+    internal_static_google_streetview_publish_v1_BatchDeletePhotosResponse_descriptor =
+      getDescriptor().getMessageTypes().get(15);
     internal_static_google_streetview_publish_v1_BatchDeletePhotosResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_streetview_publish_v1_BatchDeletePhotosResponse_descriptor,
         new java.lang.String[] { "Status", });
+    internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_ListPhotoSequencesRequest_descriptor,
+        new java.lang.String[] { "PageSize", "PageToken", "Filter", });
+    internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_streetview_publish_v1_ListPhotoSequencesResponse_descriptor,
+        new java.lang.String[] { "PhotoSequences", "NextPageToken", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.FieldBehaviorProto.fieldBehavior);

@@ -159,7 +159,7 @@ public final class TransactionsProto {
       "ssuerswitch/v1/resolutions.proto\032#google" +
       "/longrunning/operations.proto\032\037google/pr" +
       "otobuf/timestamp.proto\032\026google/type/date" +
-      ".proto\032\027google/type/money.proto\"\376\005\n\017Tran" +
+      ".proto\032\027google/type/money.proto\"\264\006\n\017Tran" +
       "sactionInfo\022\017\n\002id\030\001 \001(\tB\003\340A\003\022K\n\010api_type" +
       "\030\002 \001(\01624.google.cloud.paymentgateway.iss" +
       "uerswitch.v1.ApiTypeB\003\340A\003\022[\n\020transaction" +
@@ -172,207 +172,214 @@ public final class TransactionsProto {
       "issuerswitch.v1.TransactionInfo.StateB\003\340" +
       "A\003\022\027\n\nerror_code\030\006 \001(\tB\003\340A\003\022\032\n\rerror_mes" +
       "sage\030\007 \001(\tB\003\340A\003\0224\n\013create_time\030\010 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampB\003\340A\003\022%\n\030bank_ad" +
-      "apter_request_ids\030\t \001(\tB\003\340A\003\022\033\n\016upi_erro" +
-      "r_code\030\n \001(\tB\003\340A\003\"9\n\005State\022\025\n\021STATE_UNSP" +
-      "ECIFIED\020\000\022\r\n\tSUCCEEDED\020\001\022\n\n\006FAILED\020\002\"z\n\022" +
-      "TransactionSubType\022$\n TRANSACTION_SUB_TY" +
-      "PE_UNSPECIFIED\020\000\022\013\n\007COLLECT\020\001\022\t\n\005DEBIT\020\002" +
-      "\022\007\n\003PAY\020\003\022\017\n\013BENEFICIARY\020\004\022\014\n\010REMITTER\020\005" +
-      "\"\365\001\n\023MetadataTransaction\022\014\n\004name\030\001 \001(\t\022J" +
-      "\n\004info\030\002 \001(\0132<.google.cloud.paymentgatew" +
-      "ay.issuerswitch.v1.TransactionInfo\022\027\n\nor" +
-      "igin_vpa\030\003 \001(\tB\003\340A\003:k\352Ah\n/issuerswitch.g" +
-      "oogleapis.com/MetadataTransaction\0225proje" +
-      "cts/{project}/metadataTransactions/{tran" +
-      "saction}\"\341\003\n\024FinancialTransaction\022\014\n\004nam" +
-      "e\030\001 \001(\t\022J\n\004info\030\002 \001(\0132<.google.cloud.pay" +
-      "mentgateway.issuerswitch.v1.TransactionI" +
-      "nfo\022\'\n\032retrieval_reference_number\030\003 \001(\tB" +
-      "\003\340A\003\022V\n\005payer\030\004 \001(\0132B.google.cloud.payme" +
-      "ntgateway.issuerswitch.v1.SettlementPart" +
-      "icipantB\003\340A\003\022V\n\005payee\030\005 \001(\0132B.google.clo" +
-      "ud.paymentgateway.issuerswitch.v1.Settle" +
-      "mentParticipantB\003\340A\003\022\'\n\006amount\030\006 \001(\0132\022.g" +
-      "oogle.type.MoneyB\003\340A\003:m\352Aj\n0issuerswitch" +
-      ".googleapis.com/FinancialTransaction\0226pr" +
-      "ojects/{project}/financialTransactions/{" +
-      "transaction}\"\211\013\n\022MandateTransaction\022\014\n\004n" +
-      "ame\030\001 \001(\t\022V\n\020transaction_info\030\002 \001(\0132<.go" +
+      "oogle.protobuf.TimestampB\003\340A\003\0224\n\013update_" +
+      "time\030\t \001(\0132\032.google.protobuf.TimestampB\003" +
+      "\340A\003\022%\n\030bank_adapter_request_ids\030\n \001(\tB\003\340" +
+      "A\003\022\033\n\016upi_error_code\030\013 \001(\tB\003\340A\003\"9\n\005State" +
+      "\022\025\n\021STATE_UNSPECIFIED\020\000\022\r\n\tSUCCEEDED\020\001\022\n" +
+      "\n\006FAILED\020\002\"z\n\022TransactionSubType\022$\n TRAN" +
+      "SACTION_SUB_TYPE_UNSPECIFIED\020\000\022\013\n\007COLLEC" +
+      "T\020\001\022\t\n\005DEBIT\020\002\022\007\n\003PAY\020\003\022\017\n\013BENEFICIARY\020\004" +
+      "\022\014\n\010REMITTER\020\005\"\365\001\n\023MetadataTransaction\022\014" +
+      "\n\004name\030\001 \001(\t\022J\n\004info\030\002 \001(\0132<.google.clou" +
+      "d.paymentgateway.issuerswitch.v1.Transac" +
+      "tionInfo\022\027\n\norigin_vpa\030\003 \001(\tB\003\340A\003:k\352Ah\n/" +
+      "issuerswitch.googleapis.com/MetadataTran" +
+      "saction\0225projects/{project}/metadataTran" +
+      "sactions/{transaction}\"\341\003\n\024FinancialTran" +
+      "saction\022\014\n\004name\030\001 \001(\t\022J\n\004info\030\002 \001(\0132<.go" +
       "ogle.cloud.paymentgateway.issuerswitch.v" +
-      "1.TransactionInfo\022\"\n\025unique_mandate_numb" +
-      "er\030\003 \001(\tB\003\340A\003\022\026\n\tpayer_vpa\030\004 \001(\tB\003\340A\003\022\026\n" +
-      "\tpayee_vpa\030\005 \001(\tB\003\340A\003\022\036\n\021payee_merchant_" +
-      "id\030\006 \001(\tB\003\340A\003\022 \n\023payer_mobile_number\030\007 \001" +
-      "(\tB\003\340A\003\022 \n\023payee_mobile_number\030\010 \001(\tB\003\340A" +
-      "\003\022v\n\022recurrence_pattern\030\t \001(\0162U.google.c" +
-      "loud.paymentgateway.issuerswitch.v1.Mand" +
-      "ateTransaction.RecurrencePatternTypeB\003\340A" +
-      "\003\022u\n\024recurrence_rule_type\030\n \001(\0162R.google" +
-      ".cloud.paymentgateway.issuerswitch.v1.Ma" +
-      "ndateTransaction.RecurrenceRuleTypeB\003\340A\003" +
-      "\022\"\n\025recurrence_rule_value\030\013 \001(\005B\003\340A\003\022*\n\n" +
-      "start_date\030\014 \001(\0132\021.google.type.DateB\003\340A\003" +
-      "\022(\n\010end_date\030\r \001(\0132\021.google.type.DateB\003\340" +
-      "A\003\022\026\n\trevokable\030\016 \001(\010B\003\340A\003\022\023\n\006amount\030\017 \001" +
-      "(\001B\003\340A\003\022h\n\013amount_rule\030\020 \001(\0162N.google.cl" +
-      "oud.paymentgateway.issuerswitch.v1.Manda" +
-      "teTransaction.AmountRuleTypeB\003\340A\003\022\037\n\022app" +
-      "roval_reference\030\021 \001(\tB\003\340A\003\022\030\n\013block_fund" +
-      "s\030\022 \001(\010B\003\340A\003\0229\n\020last_update_time\030\023 \001(\0132\032" +
-      ".google.protobuf.TimestampB\003\340A\003\"\320\001\n\025Recu" +
-      "rrencePatternType\022\'\n#RECURRENCE_PATTERN_" +
-      "TYPE_UNSPECIFIED\020\000\022\020\n\014AS_PRESENTED\020\001\022\r\n\t" +
-      "BIMONTHLY\020\002\022\t\n\005DAILY\020\003\022\017\n\013FORTNIGHTLY\020\004\022" +
-      "\017\n\013HALF_YEARLY\020\005\022\013\n\007MONTHLY\020\006\022\014\n\010ONE_TIM" +
-      "E\020\007\022\r\n\tQUARTERLY\020\010\022\n\n\006WEEKLY\020\t\022\n\n\006YEARLY" +
-      "\020\n\"Y\n\022RecurrenceRuleType\022$\n RECURRENCE_R" +
-      "ULE_TYPE_UNSPECIFIED\020\000\022\t\n\005AFTER\020\001\022\n\n\006BEF" +
-      "ORE\020\002\022\006\n\002ON\020\003\"F\n\016AmountRuleType\022 \n\034AMOUN" +
-      "T_RULE_TYPE_UNSPECIFIED\020\000\022\t\n\005EXACT\020\001\022\007\n\003" +
-      "MAX\020\002:i\352Af\n.issuerswitch.googleapis.com/" +
-      "MandateTransaction\0224projects/{project}/m" +
-      "andateTransactions/{transaction}\"\207\003\n\024Com" +
-      "plaintTransaction\022\014\n\004name\030\001 \001(\t\022J\n\004info\030" +
-      "\002 \001(\0132<.google.cloud.paymentgateway.issu" +
-      "erswitch.v1.TransactionInfo\022P\n\tcomplaint" +
-      "\030\003 \001(\01326.google.cloud.paymentgateway.iss" +
-      "uerswitch.v1.ComplaintB\003\340A\003H\000\022L\n\007dispute" +
-      "\030\004 \001(\01324.google.cloud.paymentgateway.iss" +
-      "uerswitch.v1.DisputeB\003\340A\003H\000:m\352Aj\n0issuer" +
-      "switch.googleapis.com/ComplaintTransacti" +
-      "on\0226projects/{project}/complaintTransact" +
-      "ions/{transaction}B\006\n\004case\"\241\001\n\037ListMetad" +
-      "ataTransactionsRequest\022G\n\006parent\030\001 \001(\tB7" +
-      "\340A\002\372A1\022/issuerswitch.googleapis.com/Meta" +
-      "dataTransaction\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npa" +
-      "ge_token\030\003 \001(\t\022\016\n\006filter\030\004 \001(\t\"\243\001\n ListF" +
-      "inancialTransactionsRequest\022H\n\006parent\030\001 " +
-      "\001(\tB8\340A\002\372A2\0220issuerswitch.googleapis.com" +
-      "/FinancialTransaction\022\021\n\tpage_size\030\002 \001(\005" +
-      "\022\022\n\npage_token\030\003 \001(\t\022\016\n\006filter\030\004 \001(\t\"\237\001\n" +
-      "\036ListMandateTransactionsRequest\022F\n\006paren" +
-      "t\030\001 \001(\tB6\340A\002\372A0\022.issuerswitch.googleapis" +
-      ".com/MandateTransaction\022\021\n\tpage_size\030\002 \001" +
-      "(\005\022\022\n\npage_token\030\003 \001(\t\022\016\n\006filter\030\004 \001(\t\"\243" +
-      "\001\n ListComplaintTransactionsRequest\022H\n\006p" +
-      "arent\030\001 \001(\tB8\340A\002\372A2\0220issuerswitch.google" +
-      "apis.com/ComplaintTransaction\022\021\n\tpage_si" +
-      "ze\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\022\016\n\006filter\030\004" +
-      " \001(\t\"\234\001\n ListMetadataTransactionsRespons" +
-      "e\022_\n\025metadata_transactions\030\001 \003(\0132@.googl" +
-      "e.cloud.paymentgateway.issuerswitch.v1.M" +
-      "etadataTransaction\022\027\n\017next_page_token\030\002 " +
-      "\001(\t\"\237\001\n!ListFinancialTransactionsRespons" +
-      "e\022a\n\026financial_transactions\030\001 \003(\0132A.goog" +
+      "1.TransactionInfo\022\'\n\032retrieval_reference" +
+      "_number\030\003 \001(\tB\003\340A\003\022V\n\005payer\030\004 \001(\0132B.goog" +
       "le.cloud.paymentgateway.issuerswitch.v1." +
-      "FinancialTransaction\022\027\n\017next_page_token\030" +
-      "\002 \001(\t\"\231\001\n\037ListMandateTransactionsRespons" +
-      "e\022]\n\024mandate_transactions\030\001 \003(\0132?.google" +
-      ".cloud.paymentgateway.issuerswitch.v1.Ma" +
-      "ndateTransaction\022\027\n\017next_page_token\030\002 \001(" +
-      "\t\"\237\001\n!ListComplaintTransactionsResponse\022" +
-      "a\n\026complaint_transactions\030\001 \003(\0132A.google" +
-      ".cloud.paymentgateway.issuerswitch.v1.Co" +
-      "mplaintTransaction\022\027\n\017next_page_token\030\002 " +
-      "\001(\t\"\357\001\n\"ExportFinancialTransactionsReque" +
-      "st\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022V\n\020transaction_t" +
-      "ype\030\002 \001(\0162<.google.cloud.paymentgateway." +
-      "issuerswitch.v1.TransactionType\022.\n\nstart" +
-      "_time\030\003 \001(\0132\032.google.protobuf.Timestamp\022" +
-      ",\n\010end_time\030\004 \001(\0132\032.google.protobuf.Time" +
-      "stamp\"\336\001\n!ExportMetadataTransactionsRequ" +
-      "est\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022F\n\010api_type\030\002 \001" +
-      "(\01624.google.cloud.paymentgateway.issuers" +
-      "witch.v1.ApiType\022.\n\nstart_time\030\003 \001(\0132\032.g" +
-      "oogle.protobuf.Timestamp\022,\n\010end_time\030\004 \001" +
-      "(\0132\032.google.protobuf.Timestamp\"\355\001\n Expor" +
-      "tMandateTransactionsRequest\022\023\n\006parent\030\001 " +
-      "\001(\tB\003\340A\002\022V\n\020transaction_type\030\002 \001(\0162<.goo" +
-      "gle.cloud.paymentgateway.issuerswitch.v1" +
-      ".TransactionType\022.\n\nstart_time\030\003 \001(\0132\032.g" +
-      "oogle.protobuf.Timestamp\022,\n\010end_time\030\004 \001" +
-      "(\0132\032.google.protobuf.Timestamp\"\357\001\n\"Expor" +
-      "tComplaintTransactionsRequest\022\023\n\006parent\030" +
-      "\001 \001(\tB\003\340A\002\022V\n\020transaction_type\030\002 \001(\0162<.g" +
+      "SettlementParticipantB\003\340A\003\022V\n\005payee\030\005 \001(" +
+      "\0132B.google.cloud.paymentgateway.issuersw" +
+      "itch.v1.SettlementParticipantB\003\340A\003\022\'\n\006am" +
+      "ount\030\006 \001(\0132\022.google.type.MoneyB\003\340A\003:m\352Aj" +
+      "\n0issuerswitch.googleapis.com/FinancialT" +
+      "ransaction\0226projects/{project}/financial" +
+      "Transactions/{transaction}\"\211\013\n\022MandateTr" +
+      "ansaction\022\014\n\004name\030\001 \001(\t\022V\n\020transaction_i" +
+      "nfo\030\002 \001(\0132<.google.cloud.paymentgateway." +
+      "issuerswitch.v1.TransactionInfo\022\"\n\025uniqu" +
+      "e_mandate_number\030\003 \001(\tB\003\340A\003\022\026\n\tpayer_vpa" +
+      "\030\004 \001(\tB\003\340A\003\022\026\n\tpayee_vpa\030\005 \001(\tB\003\340A\003\022\036\n\021p" +
+      "ayee_merchant_id\030\006 \001(\tB\003\340A\003\022 \n\023payer_mob" +
+      "ile_number\030\007 \001(\tB\003\340A\003\022 \n\023payee_mobile_nu" +
+      "mber\030\010 \001(\tB\003\340A\003\022v\n\022recurrence_pattern\030\t " +
+      "\001(\0162U.google.cloud.paymentgateway.issuer" +
+      "switch.v1.MandateTransaction.RecurrenceP" +
+      "atternTypeB\003\340A\003\022u\n\024recurrence_rule_type\030" +
+      "\n \001(\0162R.google.cloud.paymentgateway.issu" +
+      "erswitch.v1.MandateTransaction.Recurrenc" +
+      "eRuleTypeB\003\340A\003\022\"\n\025recurrence_rule_value\030" +
+      "\013 \001(\005B\003\340A\003\022*\n\nstart_date\030\014 \001(\0132\021.google." +
+      "type.DateB\003\340A\003\022(\n\010end_date\030\r \001(\0132\021.googl" +
+      "e.type.DateB\003\340A\003\022\026\n\trevokable\030\016 \001(\010B\003\340A\003" +
+      "\022\023\n\006amount\030\017 \001(\001B\003\340A\003\022h\n\013amount_rule\030\020 \001" +
+      "(\0162N.google.cloud.paymentgateway.issuers" +
+      "witch.v1.MandateTransaction.AmountRuleTy" +
+      "peB\003\340A\003\022\037\n\022approval_reference\030\021 \001(\tB\003\340A\003" +
+      "\022\030\n\013block_funds\030\022 \001(\010B\003\340A\003\0229\n\020last_updat" +
+      "e_time\030\023 \001(\0132\032.google.protobuf.Timestamp" +
+      "B\003\340A\003\"\320\001\n\025RecurrencePatternType\022\'\n#RECUR" +
+      "RENCE_PATTERN_TYPE_UNSPECIFIED\020\000\022\020\n\014AS_P" +
+      "RESENTED\020\001\022\r\n\tBIMONTHLY\020\002\022\t\n\005DAILY\020\003\022\017\n\013" +
+      "FORTNIGHTLY\020\004\022\017\n\013HALF_YEARLY\020\005\022\013\n\007MONTHL" +
+      "Y\020\006\022\014\n\010ONE_TIME\020\007\022\r\n\tQUARTERLY\020\010\022\n\n\006WEEK" +
+      "LY\020\t\022\n\n\006YEARLY\020\n\"Y\n\022RecurrenceRuleType\022$" +
+      "\n RECURRENCE_RULE_TYPE_UNSPECIFIED\020\000\022\t\n\005" +
+      "AFTER\020\001\022\n\n\006BEFORE\020\002\022\006\n\002ON\020\003\"F\n\016AmountRul" +
+      "eType\022 \n\034AMOUNT_RULE_TYPE_UNSPECIFIED\020\000\022" +
+      "\t\n\005EXACT\020\001\022\007\n\003MAX\020\002:i\352Af\n.issuerswitch.g" +
+      "oogleapis.com/MandateTransaction\0224projec" +
+      "ts/{project}/mandateTransactions/{transa" +
+      "ction}\"\207\003\n\024ComplaintTransaction\022\014\n\004name\030" +
+      "\001 \001(\t\022J\n\004info\030\002 \001(\0132<.google.cloud.payme" +
+      "ntgateway.issuerswitch.v1.TransactionInf" +
+      "o\022P\n\tcomplaint\030\003 \001(\01326.google.cloud.paym" +
+      "entgateway.issuerswitch.v1.ComplaintB\003\340A" +
+      "\003H\000\022L\n\007dispute\030\004 \001(\01324.google.cloud.paym" +
+      "entgateway.issuerswitch.v1.DisputeB\003\340A\003H" +
+      "\000:m\352Aj\n0issuerswitch.googleapis.com/Comp" +
+      "laintTransaction\0226projects/{project}/com" +
+      "plaintTransactions/{transaction}B\006\n\004case" +
+      "\"\241\001\n\037ListMetadataTransactionsRequest\022G\n\006" +
+      "parent\030\001 \001(\tB7\340A\002\372A1\022/issuerswitch.googl" +
+      "eapis.com/MetadataTransaction\022\021\n\tpage_si" +
+      "ze\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\022\016\n\006filter\030\004" +
+      " \001(\t\"\243\001\n ListFinancialTransactionsReques" +
+      "t\022H\n\006parent\030\001 \001(\tB8\340A\002\372A2\0220issuerswitch." +
+      "googleapis.com/FinancialTransaction\022\021\n\tp" +
+      "age_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\022\016\n\006fi" +
+      "lter\030\004 \001(\t\"\237\001\n\036ListMandateTransactionsRe" +
+      "quest\022F\n\006parent\030\001 \001(\tB6\340A\002\372A0\022.issuerswi" +
+      "tch.googleapis.com/MandateTransaction\022\021\n" +
+      "\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001(\t\022\016\n\006" +
+      "filter\030\004 \001(\t\"\243\001\n ListComplaintTransactio" +
+      "nsRequest\022H\n\006parent\030\001 \001(\tB8\340A\002\372A2\0220issue" +
+      "rswitch.googleapis.com/ComplaintTransact" +
+      "ion\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_token\030\003 \001" +
+      "(\t\022\016\n\006filter\030\004 \001(\t\"\234\001\n ListMetadataTrans" +
+      "actionsResponse\022_\n\025metadata_transactions" +
+      "\030\001 \003(\0132@.google.cloud.paymentgateway.iss" +
+      "uerswitch.v1.MetadataTransaction\022\027\n\017next" +
+      "_page_token\030\002 \001(\t\"\237\001\n!ListFinancialTrans" +
+      "actionsResponse\022a\n\026financial_transaction" +
+      "s\030\001 \003(\0132A.google.cloud.paymentgateway.is" +
+      "suerswitch.v1.FinancialTransaction\022\027\n\017ne" +
+      "xt_page_token\030\002 \001(\t\"\231\001\n\037ListMandateTrans" +
+      "actionsResponse\022]\n\024mandate_transactions\030" +
+      "\001 \003(\0132?.google.cloud.paymentgateway.issu" +
+      "erswitch.v1.MandateTransaction\022\027\n\017next_p" +
+      "age_token\030\002 \001(\t\"\237\001\n!ListComplaintTransac" +
+      "tionsResponse\022a\n\026complaint_transactions\030" +
+      "\001 \003(\0132A.google.cloud.paymentgateway.issu" +
+      "erswitch.v1.ComplaintTransaction\022\027\n\017next" +
+      "_page_token\030\002 \001(\t\"\357\001\n\"ExportFinancialTra" +
+      "nsactionsRequest\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022V\n" +
+      "\020transaction_type\030\002 \001(\0162<.google.cloud.p" +
+      "aymentgateway.issuerswitch.v1.Transactio" +
+      "nType\022.\n\nstart_time\030\003 \001(\0132\032.google.proto" +
+      "buf.Timestamp\022,\n\010end_time\030\004 \001(\0132\032.google" +
+      ".protobuf.Timestamp\"\336\001\n!ExportMetadataTr" +
+      "ansactionsRequest\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022F" +
+      "\n\010api_type\030\002 \001(\01624.google.cloud.paymentg" +
+      "ateway.issuerswitch.v1.ApiType\022.\n\nstart_" +
+      "time\030\003 \001(\0132\032.google.protobuf.Timestamp\022," +
+      "\n\010end_time\030\004 \001(\0132\032.google.protobuf.Times" +
+      "tamp\"\355\001\n ExportMandateTransactionsReques" +
+      "t\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022V\n\020transaction_ty" +
+      "pe\030\002 \001(\0162<.google.cloud.paymentgateway.i" +
+      "ssuerswitch.v1.TransactionType\022.\n\nstart_" +
+      "time\030\003 \001(\0132\032.google.protobuf.Timestamp\022," +
+      "\n\010end_time\030\004 \001(\0132\032.google.protobuf.Times" +
+      "tamp\"\357\001\n\"ExportComplaintTransactionsRequ" +
+      "est\022\023\n\006parent\030\001 \001(\tB\003\340A\002\022V\n\020transaction_" +
+      "type\030\002 \001(\0162<.google.cloud.paymentgateway" +
+      ".issuerswitch.v1.TransactionType\022.\n\nstar" +
+      "t_time\030\003 \001(\0132\032.google.protobuf.Timestamp" +
+      "\022,\n\010end_time\030\004 \001(\0132\032.google.protobuf.Tim" +
+      "estamp\"9\n#ExportFinancialTransactionsRes" +
+      "ponse\022\022\n\ntarget_uri\030\001 \001(\t\"8\n\"ExportMetad" +
+      "ataTransactionsResponse\022\022\n\ntarget_uri\030\001 " +
+      "\001(\t\"7\n!ExportMandateTransactionsResponse" +
+      "\022\022\n\ntarget_uri\030\001 \001(\t\"9\n#ExportComplaintT" +
+      "ransactionsResponse\022\022\n\ntarget_uri\030\001 \001(\t\"" +
+      "[\n#ExportFinancialTransactionsMetadata\0224" +
+      "\n\013create_time\030\001 \001(\0132\032.google.protobuf.Ti" +
+      "mestampB\003\340A\003\"Y\n!ExportMandateTransaction" +
+      "sMetadata\0224\n\013create_time\030\001 \001(\0132\032.google." +
+      "protobuf.TimestampB\003\340A\003\"Z\n\"ExportMetadat" +
+      "aTransactionsMetadata\0224\n\013create_time\030\001 \001" +
+      "(\0132\032.google.protobuf.TimestampB\003\340A\003\"[\n#E" +
+      "xportComplaintTransactionsMetadata\0224\n\013cr" +
+      "eate_time\030\001 \001(\0132\032.google.protobuf.Timest" +
+      "ampB\003\340A\0032\300\021\n\030IssuerSwitchTransactions\022\366\001" +
+      "\n\030ListMetadataTransactions\022L.google.clou" +
+      "d.paymentgateway.issuerswitch.v1.ListMet" +
+      "adataTransactionsRequest\032M.google.cloud." +
+      "paymentgateway.issuerswitch.v1.ListMetad" +
+      "ataTransactionsResponse\"=\202\323\344\223\002.\022,/v1/{pa" +
+      "rent=projects/*}/metadataTransactions\332A\006" +
+      "parent\022\372\001\n\031ListFinancialTransactions\022M.g" +
       "oogle.cloud.paymentgateway.issuerswitch." +
-      "v1.TransactionType\022.\n\nstart_time\030\003 \001(\0132\032" +
-      ".google.protobuf.Timestamp\022,\n\010end_time\030\004" +
-      " \001(\0132\032.google.protobuf.Timestamp\"9\n#Expo" +
-      "rtFinancialTransactionsResponse\022\022\n\ntarge" +
-      "t_uri\030\001 \001(\t\"8\n\"ExportMetadataTransaction" +
-      "sResponse\022\022\n\ntarget_uri\030\001 \001(\t\"7\n!ExportM" +
-      "andateTransactionsResponse\022\022\n\ntarget_uri" +
-      "\030\001 \001(\t\"9\n#ExportComplaintTransactionsRes" +
-      "ponse\022\022\n\ntarget_uri\030\001 \001(\t\"%\n#ExportFinan" +
-      "cialTransactionsMetadata\"#\n!ExportMandat" +
-      "eTransactionsMetadata\"$\n\"ExportMetadataT" +
-      "ransactionsMetadata\"%\n#ExportComplaintTr" +
-      "ansactionsMetadata2\300\021\n\030IssuerSwitchTrans" +
-      "actions\022\366\001\n\030ListMetadataTransactions\022L.g" +
+      "v1.ListFinancialTransactionsRequest\032N.go" +
+      "ogle.cloud.paymentgateway.issuerswitch.v" +
+      "1.ListFinancialTransactionsResponse\">\202\323\344" +
+      "\223\002/\022-/v1/{parent=projects/*}/financialTr" +
+      "ansactions\332A\006parent\022\362\001\n\027ListMandateTrans" +
+      "actions\022K.google.cloud.paymentgateway.is" +
+      "suerswitch.v1.ListMandateTransactionsReq" +
+      "uest\032L.google.cloud.paymentgateway.issue" +
+      "rswitch.v1.ListMandateTransactionsRespon" +
+      "se\"<\202\323\344\223\002-\022+/v1/{parent=projects/*}/mand" +
+      "ateTransactions\332A\006parent\022\372\001\n\031ListComplai" +
+      "ntTransactions\022M.google.cloud.paymentgat" +
+      "eway.issuerswitch.v1.ListComplaintTransa" +
+      "ctionsRequest\032N.google.cloud.paymentgate" +
+      "way.issuerswitch.v1.ListComplaintTransac" +
+      "tionsResponse\">\202\323\344\223\002/\022-/v1/{parent=proje" +
+      "cts/*}/complaintTransactions\332A\006parent\022\234\002" +
+      "\n\033ExportFinancialTransactions\022O.google.c" +
+      "loud.paymentgateway.issuerswitch.v1.Expo" +
+      "rtFinancialTransactionsRequest\032\035.google." +
+      "longrunning.Operation\"\214\001\202\323\344\223\0029\"4/v1/{par" +
+      "ent=projects/*}/financialTransactions:ex" +
+      "port:\001*\312AJ\n#ExportFinancialTransactionsR" +
+      "esponse\022#ExportFinancialTransactionsMeta" +
+      "data\022\227\002\n\032ExportMetadataTransactions\022N.go" +
+      "ogle.cloud.paymentgateway.issuerswitch.v" +
+      "1.ExportMetadataTransactionsRequest\032\035.go" +
+      "ogle.longrunning.Operation\"\211\001\202\323\344\223\0028\"3/v1" +
+      "/{parent=projects/*}/metadataTransaction" +
+      "s:export:\001*\312AH\n\"ExportMetadataTransactio" +
+      "nsResponse\022\"ExportMetadataTransactionsMe" +
+      "tadata\022\222\002\n\031ExportMandateTransactions\022M.g" +
       "oogle.cloud.paymentgateway.issuerswitch." +
-      "v1.ListMetadataTransactionsRequest\032M.goo" +
-      "gle.cloud.paymentgateway.issuerswitch.v1" +
-      ".ListMetadataTransactionsResponse\"=\202\323\344\223\002" +
-      ".\022,/v1/{parent=projects/*}/metadataTrans" +
-      "actions\332A\006parent\022\372\001\n\031ListFinancialTransa" +
-      "ctions\022M.google.cloud.paymentgateway.iss" +
-      "uerswitch.v1.ListFinancialTransactionsRe" +
-      "quest\032N.google.cloud.paymentgateway.issu" +
-      "erswitch.v1.ListFinancialTransactionsRes" +
-      "ponse\">\202\323\344\223\002/\022-/v1/{parent=projects/*}/f" +
-      "inancialTransactions\332A\006parent\022\362\001\n\027ListMa" +
-      "ndateTransactions\022K.google.cloud.payment" +
-      "gateway.issuerswitch.v1.ListMandateTrans" +
-      "actionsRequest\032L.google.cloud.paymentgat" +
-      "eway.issuerswitch.v1.ListMandateTransact" +
-      "ionsResponse\"<\202\323\344\223\002-\022+/v1/{parent=projec" +
-      "ts/*}/mandateTransactions\332A\006parent\022\372\001\n\031L" +
-      "istComplaintTransactions\022M.google.cloud." +
-      "paymentgateway.issuerswitch.v1.ListCompl" +
-      "aintTransactionsRequest\032N.google.cloud.p" +
-      "aymentgateway.issuerswitch.v1.ListCompla" +
-      "intTransactionsResponse\">\202\323\344\223\002/\022-/v1/{pa" +
-      "rent=projects/*}/complaintTransactions\332A" +
-      "\006parent\022\234\002\n\033ExportFinancialTransactions\022" +
-      "O.google.cloud.paymentgateway.issuerswit" +
-      "ch.v1.ExportFinancialTransactionsRequest" +
-      "\032\035.google.longrunning.Operation\"\214\001\202\323\344\223\0029" +
-      "\"4/v1/{parent=projects/*}/financialTrans" +
-      "actions:export:\001*\312AJ\n#ExportFinancialTra" +
-      "nsactionsResponse\022#ExportFinancialTransa" +
-      "ctionsMetadata\022\227\002\n\032ExportMetadataTransac" +
-      "tions\022N.google.cloud.paymentgateway.issu" +
-      "erswitch.v1.ExportMetadataTransactionsRe" +
-      "quest\032\035.google.longrunning.Operation\"\211\001\202" +
-      "\323\344\223\0028\"3/v1/{parent=projects/*}/metadataT" +
-      "ransactions:export:\001*\312AH\n\"ExportMetadata" +
-      "TransactionsResponse\022\"ExportMetadataTran" +
-      "sactionsMetadata\022\222\002\n\031ExportMandateTransa" +
-      "ctions\022M.google.cloud.paymentgateway.iss" +
-      "uerswitch.v1.ExportMandateTransactionsRe" +
-      "quest\032\035.google.longrunning.Operation\"\206\001\202" +
-      "\323\344\223\0027\"2/v1/{parent=projects/*}/mandateTr" +
-      "ansactions:export:\001*\312AF\n!ExportMandateTr" +
-      "ansactionsResponse\022!ExportMandateTransac" +
-      "tionsMetadata\022\234\002\n\033ExportComplaintTransac" +
-      "tions\022O.google.cloud.paymentgateway.issu" +
-      "erswitch.v1.ExportComplaintTransactionsR" +
-      "equest\032\035.google.longrunning.Operation\"\214\001" +
-      "\202\323\344\223\0029\"4/v1/{parent=projects/*}/complain" +
-      "tTransactions:export:\001*\312AJ\n#ExportCompla" +
-      "intTransactionsResponse\022#ExportComplaint" +
-      "TransactionsMetadata\032O\312A\033issuerswitch.go" +
-      "ogleapis.com\322A.https://www.googleapis.co" +
-      "m/auth/cloud-platformB\255\002\n/com.google.clo" +
-      "ud.paymentgateway.issuerswitch.v1B\021Trans" +
-      "actionsProtoP\001ZWgoogle.golang.org/genpro" +
-      "to/googleapis/cloud/paymentgateway/issue" +
-      "rswitch/v1;issuerswitch\252\002+Google.Cloud.P" +
-      "aymentGateway.IssuerSwitch.V1\312\002+Google\\C" +
-      "loud\\PaymentGateway\\IssuerSwitch\\V1\352\002/Go" +
-      "ogle::Cloud::PaymentGateway::IssuerSwitc" +
-      "h::V1b\006proto3"
+      "v1.ExportMandateTransactionsRequest\032\035.go" +
+      "ogle.longrunning.Operation\"\206\001\202\323\344\223\0027\"2/v1" +
+      "/{parent=projects/*}/mandateTransactions" +
+      ":export:\001*\312AF\n!ExportMandateTransactions" +
+      "Response\022!ExportMandateTransactionsMetad" +
+      "ata\022\234\002\n\033ExportComplaintTransactions\022O.go" +
+      "ogle.cloud.paymentgateway.issuerswitch.v" +
+      "1.ExportComplaintTransactionsRequest\032\035.g" +
+      "oogle.longrunning.Operation\"\214\001\202\323\344\223\0029\"4/v" +
+      "1/{parent=projects/*}/complaintTransacti" +
+      "ons:export:\001*\312AJ\n#ExportComplaintTransac" +
+      "tionsResponse\022#ExportComplaintTransactio" +
+      "nsMetadata\032O\312A\033issuerswitch.googleapis.c" +
+      "om\322A.https://www.googleapis.com/auth/clo" +
+      "ud-platformB\255\002\n/com.google.cloud.payment" +
+      "gateway.issuerswitch.v1B\021TransactionsPro" +
+      "toP\001ZWgoogle.golang.org/genproto/googlea" +
+      "pis/cloud/paymentgateway/issuerswitch/v1" +
+      ";issuerswitch\252\002+Google.Cloud.PaymentGate" +
+      "way.IssuerSwitch.V1\312\002+Google\\Cloud\\Payme" +
+      "ntGateway\\IssuerSwitch\\V1\352\002/Google::Clou" +
+      "d::PaymentGateway::IssuerSwitch::V1b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -393,7 +400,7 @@ public final class TransactionsProto {
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_TransactionInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_paymentgateway_issuerswitch_v1_TransactionInfo_descriptor,
-        new java.lang.String[] { "Id", "ApiType", "TransactionType", "TransactionSubType", "State", "ErrorCode", "ErrorMessage", "CreateTime", "BankAdapterRequestIds", "UpiErrorCode", });
+        new java.lang.String[] { "Id", "ApiType", "TransactionType", "TransactionSubType", "State", "ErrorCode", "ErrorMessage", "CreateTime", "UpdateTime", "BankAdapterRequestIds", "UpiErrorCode", });
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_MetadataTransaction_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_MetadataTransaction_fieldAccessorTable = new
@@ -519,25 +526,25 @@ public final class TransactionsProto {
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportFinancialTransactionsMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportFinancialTransactionsMetadata_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "CreateTime", });
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportMandateTransactionsMetadata_descriptor =
       getDescriptor().getMessageTypes().get(22);
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportMandateTransactionsMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportMandateTransactionsMetadata_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "CreateTime", });
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportMetadataTransactionsMetadata_descriptor =
       getDescriptor().getMessageTypes().get(23);
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportMetadataTransactionsMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportMetadataTransactionsMetadata_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "CreateTime", });
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportComplaintTransactionsMetadata_descriptor =
       getDescriptor().getMessageTypes().get(24);
     internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportComplaintTransactionsMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_paymentgateway_issuerswitch_v1_ExportComplaintTransactionsMetadata_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "CreateTime", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.ClientProto.defaultHost);

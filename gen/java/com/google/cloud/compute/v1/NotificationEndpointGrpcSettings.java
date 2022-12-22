@@ -37,82 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NotificationEndpointGrpcSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 925448936: {
-            bitField0_ |= 0x00000010;
-            retryDurationSec_ = input.readUInt32();
-            break;
-          }
-          case 1043917994: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            endpoint_ = s;
-            break;
-          }
-          case -1892100894: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            payloadName_ = s;
-            break;
-          }
-          case -1080018406: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            authority_ = s;
-            break;
-          }
-          case -468655542: {
-            com.google.cloud.compute.v1.Duration.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000008) != 0)) {
-              subBuilder = resendInterval_.toBuilder();
-            }
-            resendInterval_ = input.readMessage(com.google.cloud.compute.v1.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resendInterval_);
-              resendInterval_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000008;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_NotificationEndpointGrpcSettings_descriptor;
@@ -128,7 +52,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int AUTHORITY_FIELD_NUMBER = 401868611;
-  private volatile java.lang.Object authority_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authority_ = "";
   /**
    * <pre>
    * Optional. If specified, this field is used to set the authority header by the sender of notifications. See https://tools.ietf.org/html/rfc7540#section-8.1.2.3
@@ -186,7 +111,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENDPOINT_FIELD_NUMBER = 130489749;
-  private volatile java.lang.Object endpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object endpoint_ = "";
   /**
    * <pre>
    * Endpoint to which gRPC notifications are sent. This must be a valid gRPCLB DNS name.
@@ -244,7 +170,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYLOAD_NAME_FIELD_NUMBER = 300358300;
-  private volatile java.lang.Object payloadName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object payloadName_ = "";
   /**
    * <pre>
    * Optional. If specified, this field is used to populate the "name" field in gRPC requests.
@@ -305,7 +232,7 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.compute.v1.Duration resendInterval_;
   /**
    * <pre>
-   * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+   * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -317,7 +244,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+   * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -329,7 +256,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+   * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -340,7 +267,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RETRY_DURATION_SEC_FIELD_NUMBER = 115681117;
-  private int retryDurationSec_;
+  private int retryDurationSec_ = 0;
   /**
    * <pre>
    * How much time (in seconds) is spent attempting notification retries until a successful response is received. Default is 30s. Limit is 20m (1200s). Must be a positive number.
@@ -395,7 +322,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       output.writeMessage(478288969, getResendInterval());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -421,7 +348,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(478288969, getResendInterval());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -461,7 +388,7 @@ private static final long serialVersionUID = 0L;
       if (getRetryDurationSec()
           != other.getRetryDurationSec()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -492,7 +419,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RETRY_DURATION_SEC_FIELD_NUMBER;
       hash = (53 * hash) + getRetryDurationSec();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -630,20 +557,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       authority_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       endpoint_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       payloadName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (resendIntervalBuilder_ == null) {
-        resendInterval_ = null;
-      } else {
-        resendIntervalBuilder_.clear();
+      resendInterval_ = null;
+      if (resendIntervalBuilder_ != null) {
+        resendIntervalBuilder_.dispose();
+        resendIntervalBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000008);
       retryDurationSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -670,35 +593,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.NotificationEndpointGrpcSettings buildPartial() {
       com.google.cloud.compute.v1.NotificationEndpointGrpcSettings result = new com.google.cloud.compute.v1.NotificationEndpointGrpcSettings(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.NotificationEndpointGrpcSettings result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.authority_ = authority_;
         to_bitField0_ |= 0x00000001;
       }
-      result.authority_ = authority_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.endpoint_ = endpoint_;
         to_bitField0_ |= 0x00000002;
       }
-      result.endpoint_ = endpoint_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.payloadName_ = payloadName_;
         to_bitField0_ |= 0x00000004;
       }
-      result.payloadName_ = payloadName_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        if (resendIntervalBuilder_ == null) {
-          result.resendInterval_ = resendInterval_;
-        } else {
-          result.resendInterval_ = resendIntervalBuilder_.build();
-        }
+        result.resendInterval_ = resendIntervalBuilder_ == null
+            ? resendInterval_
+            : resendIntervalBuilder_.build();
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.retryDurationSec_ = retryDurationSec_;
         to_bitField0_ |= 0x00000010;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -746,18 +671,18 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.NotificationEndpointGrpcSettings other) {
       if (other == com.google.cloud.compute.v1.NotificationEndpointGrpcSettings.getDefaultInstance()) return this;
       if (other.hasAuthority()) {
-        bitField0_ |= 0x00000001;
         authority_ = other.authority_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasEndpoint()) {
-        bitField0_ |= 0x00000002;
         endpoint_ = other.endpoint_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasPayloadName()) {
-        bitField0_ |= 0x00000004;
         payloadName_ = other.payloadName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasResendInterval()) {
@@ -766,7 +691,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRetryDurationSec()) {
         setRetryDurationSec(other.getRetryDurationSec());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -781,17 +706,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.NotificationEndpointGrpcSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 925448936: {
+              retryDurationSec_ = input.readUInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 925448936
+            case 1043917994: {
+              endpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1043917994
+            case -1892100894: {
+              payloadName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1892100894
+            case -1080018406: {
+              authority_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1080018406
+            case -468655542: {
+              input.readMessage(
+                  getResendIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -468655542
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.NotificationEndpointGrpcSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -860,11 +825,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthority(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       authority_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -877,8 +840,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthority() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       authority_ = getDefaultInstance().getAuthority();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -893,12 +856,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorityBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authority_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -967,11 +928,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       endpoint_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -984,8 +943,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndpoint() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       endpoint_ = getDefaultInstance().getEndpoint();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1000,12 +959,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       endpoint_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1074,11 +1031,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayloadName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       payloadName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1091,8 +1046,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayloadName() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       payloadName_ = getDefaultInstance().getPayloadName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1107,12 +1062,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayloadNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       payloadName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1122,7 +1075,7 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Duration, com.google.cloud.compute.v1.Duration.Builder, com.google.cloud.compute.v1.DurationOrBuilder> resendIntervalBuilder_;
     /**
      * <pre>
-     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -1133,7 +1086,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -1148,7 +1101,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -1159,16 +1112,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resendInterval_ = value;
-        onChanged();
       } else {
         resendIntervalBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -1177,16 +1130,16 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Duration.Builder builderForValue) {
       if (resendIntervalBuilder_ == null) {
         resendInterval_ = builderForValue.build();
-        onChanged();
       } else {
         resendIntervalBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -1194,40 +1147,39 @@ private static final long serialVersionUID = 0L;
     public Builder mergeResendInterval(com.google.cloud.compute.v1.Duration value) {
       if (resendIntervalBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0) &&
-            resendInterval_ != null &&
-            resendInterval_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
-          resendInterval_ =
-            com.google.cloud.compute.v1.Duration.newBuilder(resendInterval_).mergeFrom(value).buildPartial();
+          resendInterval_ != null &&
+          resendInterval_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
+          getResendIntervalBuilder().mergeFrom(value);
         } else {
           resendInterval_ = value;
         }
-        onChanged();
       } else {
         resendIntervalBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
      */
     public Builder clearResendInterval() {
-      if (resendIntervalBuilder_ == null) {
-        resendInterval_ = null;
-        onChanged();
-      } else {
-        resendIntervalBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000008);
+      resendInterval_ = null;
+      if (resendIntervalBuilder_ != null) {
+        resendIntervalBuilder_.dispose();
+        resendIntervalBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -1239,7 +1191,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -1254,7 +1206,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed.
+     * Optional. This field is used to configure how often to send a full update of all non-healthy backends. If unspecified, full updates are not sent. If specified, must be in the range between 600 seconds to 3600 seconds. Nanos are disallowed. Can only be set for regional notification endpoints.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.Duration resend_interval = 478288969;</code>
@@ -1308,8 +1260,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRetryDurationSec(int value) {
-      bitField0_ |= 0x00000010;
+      
       retryDurationSec_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1360,7 +1313,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NotificationEndpointGrpcSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

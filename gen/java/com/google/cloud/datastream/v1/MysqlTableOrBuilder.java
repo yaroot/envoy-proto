@@ -30,7 +30,7 @@ public interface MysqlTableOrBuilder extends
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface MysqlTableOrBuilder extends
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *
@@ -51,7 +51,7 @@ public interface MysqlTableOrBuilder extends
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *
@@ -61,7 +61,7 @@ public interface MysqlTableOrBuilder extends
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *
@@ -72,7 +72,7 @@ public interface MysqlTableOrBuilder extends
   /**
    * <pre>
    * MySQL columns in the database.
-   * When unspecified as part of include/exclude lists, includes/excludes
+   * When unspecified as part of include/exclude objects, includes/excludes
    * everything.
    * </pre>
    *

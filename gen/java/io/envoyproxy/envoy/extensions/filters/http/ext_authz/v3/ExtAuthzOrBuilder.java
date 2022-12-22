@@ -486,5 +486,74 @@ public interface ExtAuthzOrBuilder extends
   com.google.protobuf.ByteString
       getBootstrapMetadataLabelsKeyBytes();
 
+  /**
+   * <pre>
+   * Check request to authorization server will include the client request headers that have a correspondent match
+   * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+   * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+   * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+   * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+   * .. note::
+   *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+   *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+   * .. note::
+   *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+   *  authorization server will not have a message body. However, the check request can include the buffered
+   *  client request body (controlled by :ref:`with_request_body
+   *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+   *  consequently the value of *Content-Length* of the authorization request reflects the size of
+   *  its payload size.
+   * </pre>
+   *
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+   * @return Whether the allowedHeaders field is set.
+   */
+  boolean hasAllowedHeaders();
+  /**
+   * <pre>
+   * Check request to authorization server will include the client request headers that have a correspondent match
+   * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+   * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+   * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+   * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+   * .. note::
+   *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+   *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+   * .. note::
+   *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+   *  authorization server will not have a message body. However, the check request can include the buffered
+   *  client request body (controlled by :ref:`with_request_body
+   *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+   *  consequently the value of *Content-Length* of the authorization request reflects the size of
+   *  its payload size.
+   * </pre>
+   *
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+   * @return The allowedHeaders.
+   */
+  io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedHeaders();
+  /**
+   * <pre>
+   * Check request to authorization server will include the client request headers that have a correspondent match
+   * in the :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. If this option isn't specified, then
+   * all client request headers are included in the check request to a gRPC authorization server, whereas no client request headers
+   * (besides the ones allowed by default - see note below) are included in the check request to an HTTP authorization server.
+   * This inconsistency between gRPC and HTTP servers is to maintain backwards compatibility with legacy behavior.
+   * .. note::
+   *  1. For requests to an HTTP authorization server: in addition to the the user's supplied matchers, ``Host``, ``Method``, ``Path``,
+   *     ``Content-Length``, and ``Authorization`` are **additionally included** in the list.
+   * .. note::
+   *  2. For requests to an HTTP authorization server: *Content-Length* will be set to 0 and the request to the
+   *  authorization server will not have a message body. However, the check request can include the buffered
+   *  client request body (controlled by :ref:`with_request_body
+   *  &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;` setting),
+   *  consequently the value of *Content-Length* of the authorization request reflects the size of
+   *  its payload size.
+   * </pre>
+   *
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 17;</code>
+   */
+  io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedHeadersOrBuilder();
+
   public io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthz.ServicesCase getServicesCase();
 }

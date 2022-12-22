@@ -17,6 +17,8 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.documentai.v1beta3 import document_pb2 as google_dot_cloud_dot_documentai_dot_v1beta3_dot_document__pb2
 from google.cloud.documentai.v1beta3 import document_io_pb2 as google_dot_cloud_dot_documentai_dot_v1beta3_dot_document__io__pb2
+from google.cloud.documentai.v1beta3 import document_schema_pb2 as google_dot_cloud_dot_documentai_dot_v1beta3_dot_document__schema__pb2
+from google.cloud.documentai.v1beta3 import evaluation_pb2 as google_dot_cloud_dot_documentai_dot_v1beta3_dot_evaluation__pb2
 from google.cloud.documentai.v1beta3 import operation_metadata_pb2 as google_dot_cloud_dot_documentai_dot_v1beta3_dot_operation__metadata__pb2
 from google.cloud.documentai.v1beta3 import processor_pb2 as google_dot_cloud_dot_documentai_dot_v1beta3_dot_processor__pb2
 from google.cloud.documentai.v1beta3 import processor_type_pb2 as google_dot_cloud_dot_documentai_dot_v1beta3_dot_processor__type__pb2
@@ -26,16 +28,16 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n@google/cloud/documentai/v1beta3/document_processor_service.proto\x12\x1fgoogle.cloud.documentai.v1beta3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/documentai/v1beta3/document.proto\x1a\x31google/cloud/documentai/v1beta3/document_io.proto\x1a\x38google/cloud/documentai/v1beta3/operation_metadata.proto\x1a/google/cloud/documentai/v1beta3/processor.proto\x1a\x34google/cloud/documentai/v1beta3/processor_type.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\xbd\x02\n\x0eProcessRequest\x12\x44\n\x0finline_document\x18\x04 \x01(\x0b\x32).google.cloud.documentai.v1beta3.DocumentH\x00\x12\x44\n\x0craw_document\x18\x05 \x01(\x0b\x32,.google.cloud.documentai.v1beta3.RawDocumentH\x00\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\x12?\n\x08\x64ocument\x18\x02 \x01(\x0b\x32).google.cloud.documentai.v1beta3.DocumentB\x02\x18\x01\x12\x19\n\x11skip_human_review\x18\x03 \x01(\x08\x42\x08\n\x06source\"\xf3\x01\n\x11HumanReviewStatus\x12G\n\x05state\x18\x01 \x01(\x0e\x32\x38.google.cloud.documentai.v1beta3.HumanReviewStatus.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12\x1e\n\x16human_review_operation\x18\x03 \x01(\t\"^\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07SKIPPED\x10\x01\x12\x15\n\x11VALIDATION_PASSED\x10\x02\x12\x0f\n\x0bIN_PROGRESS\x10\x03\x12\t\n\x05\x45RROR\x10\x04\"\xc3\x01\n\x0fProcessResponse\x12;\n\x08\x64ocument\x18\x01 \x01(\x0b\x32).google.cloud.documentai.v1beta3.Document\x12\"\n\x16human_review_operation\x18\x02 \x01(\tB\x02\x18\x01\x12O\n\x13human_review_status\x18\x03 \x01(\x0b\x32\x32.google.cloud.documentai.v1beta3.HumanReviewStatus\"\xcd\x04\n\x13\x42\x61tchProcessRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\x12`\n\rinput_configs\x18\x02 \x03(\x0b\x32\x45.google.cloud.documentai.v1beta3.BatchProcessRequest.BatchInputConfigB\x02\x18\x01\x12\x61\n\routput_config\x18\x03 \x01(\x0b\x32\x46.google.cloud.documentai.v1beta3.BatchProcessRequest.BatchOutputConfigB\x02\x18\x01\x12S\n\x0finput_documents\x18\x05 \x01(\x0b\x32:.google.cloud.documentai.v1beta3.BatchDocumentsInputConfig\x12U\n\x16\x64ocument_output_config\x18\x06 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta3.DocumentOutputConfig\x12\x19\n\x11skip_human_review\x18\x04 \x01(\x08\x1a=\n\x10\x42\x61tchInputConfig\x12\x12\n\ngcs_source\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t:\x02\x18\x01\x1a\x30\n\x11\x42\x61tchOutputConfig\x12\x17\n\x0fgcs_destination\x18\x01 \x01(\t:\x02\x18\x01\"\x16\n\x14\x42\x61tchProcessResponse\"\xb2\x05\n\x14\x42\x61tchProcessMetadata\x12J\n\x05state\x18\x01 \x01(\x0e\x32;.google.cloud.documentai.v1beta3.BatchProcessMetadata.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12r\n\x1bindividual_process_statuses\x18\x05 \x03(\x0b\x32M.google.cloud.documentai.v1beta3.BatchProcessMetadata.IndividualProcessStatus\x1a\xec\x01\n\x17IndividualProcessStatus\x12\x18\n\x10input_gcs_source\x18\x01 \x01(\t\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\x12\x1e\n\x16output_gcs_destination\x18\x03 \x01(\t\x12\"\n\x16human_review_operation\x18\x04 \x01(\tB\x02\x18\x01\x12O\n\x13human_review_status\x18\x05 \x01(\x0b\x32\x32.google.cloud.documentai.v1beta3.HumanReviewStatus\"r\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07WAITING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\x12\n\n\x06\x46\x41ILED\x10\x06\"]\n\x1a\x46\x65tchProcessorTypesRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\x12\'documentai.googleapis.com/ProcessorType\"f\n\x1b\x46\x65tchProcessorTypesResponse\x12G\n\x0fprocessor_types\x18\x01 \x03(\x0b\x32..google.cloud.documentai.v1beta3.ProcessorType\"{\n\x15ListProcessorsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#documentai.googleapis.com/Processor\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"q\n\x16ListProcessorsResponse\x12>\n\nprocessors\x18\x01 \x03(\x0b\x32*.google.cloud.documentai.v1beta3.Processor\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x99\x01\n\x16\x43reateProcessorRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#documentai.googleapis.com/Processor\x12\x42\n\tprocessor\x18\x02 \x01(\x0b\x32*.google.cloud.documentai.v1beta3.ProcessorB\x03\xe0\x41\x02\"S\n\x16\x44\x65leteProcessorRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\"l\n\x17\x44\x65leteProcessorMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"S\n\x16\x45nableProcessorRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\"\x19\n\x17\x45nableProcessorResponse\"l\n\x17\x45nableProcessorMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"T\n\x17\x44isableProcessorRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\"\x1a\n\x18\x44isableProcessorResponse\"m\n\x18\x44isableProcessorMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"\x94\x03\n\x15ReviewDocumentRequest\x12\x44\n\x0finline_document\x18\x04 \x01(\x0b\x32).google.cloud.documentai.v1beta3.DocumentH\x00\x12P\n\x13human_review_config\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+documentai.googleapis.com/HumanReviewConfig\x12?\n\x08\x64ocument\x18\x02 \x01(\x0b\x32).google.cloud.documentai.v1beta3.DocumentB\x02\x18\x01\x12 \n\x18\x65nable_schema_validation\x18\x03 \x01(\x08\x12Q\n\x08priority\x18\x05 \x01(\x0e\x32?.google.cloud.documentai.v1beta3.ReviewDocumentRequest.Priority\"#\n\x08Priority\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\n\n\x06URGENT\x10\x01\x42\x08\n\x06source\"1\n\x16ReviewDocumentResponse\x12\x17\n\x0fgcs_destination\x18\x01 \x01(\t\"\xc0\x03\n\x1fReviewDocumentOperationMetadata\x12U\n\x05state\x18\x01 \x01(\x0e\x32\x46.google.cloud.documentai.v1beta3.ReviewDocumentOperationMetadata.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12Q\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\x12\x13\n\x0bquestion_id\x18\x06 \x01(\t\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\x0e\n\nCANCELLING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04\x12\r\n\tCANCELLED\x10\x05\x32\x87\x11\n\x18\x44ocumentProcessorService\x12\xc3\x01\n\x0fProcessDocument\x12/.google.cloud.documentai.v1beta3.ProcessRequest\x1a\x30.google.cloud.documentai.v1beta3.ProcessResponse\"M\x82\xd3\xe4\x93\x02@\";/v1beta3/{name=projects/*/locations/*/processors/*}:process:\x01*\xda\x41\x04name\x12\xf0\x01\n\x15\x42\x61tchProcessDocuments\x12\x34.google.cloud.documentai.v1beta3.BatchProcessRequest\x1a\x1d.google.longrunning.Operation\"\x81\x01\x82\xd3\xe4\x93\x02\x45\"@/v1beta3/{name=projects/*/locations/*/processors/*}:batchProcess:\x01*\xda\x41\x04name\xca\x41,\n\x14\x42\x61tchProcessResponse\x12\x14\x42\x61tchProcessMetadata\x12\xdf\x01\n\x13\x46\x65tchProcessorTypes\x12;.google.cloud.documentai.v1beta3.FetchProcessorTypesRequest\x1a<.google.cloud.documentai.v1beta3.FetchProcessorTypesResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1beta3/{parent=projects/*/locations/*}:fetchProcessorTypes\xda\x41\x06parent\x12\xc7\x01\n\x0eListProcessors\x12\x36.google.cloud.documentai.v1beta3.ListProcessorsRequest\x1a\x37.google.cloud.documentai.v1beta3.ListProcessorsResponse\"D\x82\xd3\xe4\x93\x02\x35\x12\x33/v1beta3/{parent=projects/*/locations/*}/processors\xda\x41\x06parent\x12\xd1\x01\n\x0f\x43reateProcessor\x12\x37.google.cloud.documentai.v1beta3.CreateProcessorRequest\x1a*.google.cloud.documentai.v1beta3.Processor\"Y\x82\xd3\xe4\x93\x02@\"3/v1beta3/{parent=projects/*/locations/*}/processors:\tprocessor\xda\x41\x10parent,processor\x12\xe0\x01\n\x0f\x44\x65leteProcessor\x12\x37.google.cloud.documentai.v1beta3.DeleteProcessorRequest\x1a\x1d.google.longrunning.Operation\"u\x82\xd3\xe4\x93\x02\x35*3/v1beta3/{name=projects/*/locations/*/processors/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteProcessorMetadata\x12\xe5\x01\n\x0f\x45nableProcessor\x12\x37.google.cloud.documentai.v1beta3.EnableProcessorRequest\x1a\x1d.google.longrunning.Operation\"z\x82\xd3\xe4\x93\x02?\":/v1beta3/{name=projects/*/locations/*/processors/*}:enable:\x01*\xca\x41\x32\n\x17\x45nableProcessorResponse\x12\x17\x45nableProcessorMetadata\x12\xea\x01\n\x10\x44isableProcessor\x12\x38.google.cloud.documentai.v1beta3.DisableProcessorRequest\x1a\x1d.google.longrunning.Operation\"}\x82\xd3\xe4\x93\x02@\";/v1beta3/{name=projects/*/locations/*/processors/*}:disable:\x01*\xca\x41\x34\n\x18\x44isableProcessorResponse\x12\x18\x44isableProcessorMetadata\x12\xaa\x02\n\x0eReviewDocument\x12\x36.google.cloud.documentai.v1beta3.ReviewDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xc0\x01\x82\xd3\xe4\x93\x02h\"c/v1beta3/{human_review_config=projects/*/locations/*/processors/*/humanReviewConfig}:reviewDocument:\x01*\xda\x41\x13human_review_config\xca\x41\x39\n\x16ReviewDocumentResponse\x12\x1fReviewDocumentOperationMetadata\x1aM\xca\x41\x19\x64ocumentai.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xc9\x03\n#com.google.cloud.documentai.v1beta3B\x1a\x44ocumentAiProcessorServiceP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/documentai/v1beta3;documentai\xaa\x02\x1fGoogle.Cloud.DocumentAI.V1Beta3\xca\x02\x1fGoogle\\Cloud\\DocumentAI\\V1beta3\xea\x02\"Google::Cloud::DocumentAI::V1beta3\xea\x41M\n\"documentai.googleapis.com/Location\x12\'projects/{project}/locations/{location}\xea\x41\x7f\n+documentai.googleapis.com/HumanReviewConfig\x12Pprojects/{project}/locations/{location}/processors/{processor}/humanReviewConfigb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n@google/cloud/documentai/v1beta3/document_processor_service.proto\x12\x1fgoogle.cloud.documentai.v1beta3\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a.google/cloud/documentai/v1beta3/document.proto\x1a\x31google/cloud/documentai/v1beta3/document_io.proto\x1a\x35google/cloud/documentai/v1beta3/document_schema.proto\x1a\x30google/cloud/documentai/v1beta3/evaluation.proto\x1a\x38google/cloud/documentai/v1beta3/operation_metadata.proto\x1a/google/cloud/documentai/v1beta3/processor.proto\x1a\x34google/cloud/documentai/v1beta3/processor_type.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"P\n\x0eProcessOptions\x12>\n\nocr_config\x18\x01 \x01(\x0b\x32*.google.cloud.documentai.v1beta3.OcrConfig\"\x95\x03\n\x0eProcessRequest\x12\x44\n\x0finline_document\x18\x04 \x01(\x0b\x32).google.cloud.documentai.v1beta3.DocumentH\x00\x12\x44\n\x0craw_document\x18\x05 \x01(\x0b\x32,.google.cloud.documentai.v1beta3.RawDocumentH\x00\x12\x17\n\x04name\x18\x01 \x01(\tB\t\xe0\x41\x02\xfa\x41\x03\n\x01*\x12?\n\x08\x64ocument\x18\x02 \x01(\x0b\x32).google.cloud.documentai.v1beta3.DocumentB\x02\x18\x01\x12\x19\n\x11skip_human_review\x18\x03 \x01(\x08\x12.\n\nfield_mask\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12H\n\x0fprocess_options\x18\x07 \x01(\x0b\x32/.google.cloud.documentai.v1beta3.ProcessOptionsB\x08\n\x06source\"\xf3\x01\n\x11HumanReviewStatus\x12G\n\x05state\x18\x01 \x01(\x0e\x32\x38.google.cloud.documentai.v1beta3.HumanReviewStatus.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12\x1e\n\x16human_review_operation\x18\x03 \x01(\t\"^\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07SKIPPED\x10\x01\x12\x15\n\x11VALIDATION_PASSED\x10\x02\x12\x0f\n\x0bIN_PROGRESS\x10\x03\x12\t\n\x05\x45RROR\x10\x04\"\xc3\x01\n\x0fProcessResponse\x12;\n\x08\x64ocument\x18\x01 \x01(\x0b\x32).google.cloud.documentai.v1beta3.Document\x12\"\n\x16human_review_operation\x18\x02 \x01(\tB\x02\x18\x01\x12O\n\x13human_review_status\x18\x03 \x01(\x0b\x32\x32.google.cloud.documentai.v1beta3.HumanReviewStatus\"\xf5\x04\n\x13\x42\x61tchProcessRequest\x12\x17\n\x04name\x18\x01 \x01(\tB\t\xe0\x41\x02\xfa\x41\x03\n\x01*\x12`\n\rinput_configs\x18\x02 \x03(\x0b\x32\x45.google.cloud.documentai.v1beta3.BatchProcessRequest.BatchInputConfigB\x02\x18\x01\x12\x61\n\routput_config\x18\x03 \x01(\x0b\x32\x46.google.cloud.documentai.v1beta3.BatchProcessRequest.BatchOutputConfigB\x02\x18\x01\x12S\n\x0finput_documents\x18\x05 \x01(\x0b\x32:.google.cloud.documentai.v1beta3.BatchDocumentsInputConfig\x12U\n\x16\x64ocument_output_config\x18\x06 \x01(\x0b\x32\x35.google.cloud.documentai.v1beta3.DocumentOutputConfig\x12\x19\n\x11skip_human_review\x18\x04 \x01(\x08\x12H\n\x0fprocess_options\x18\x07 \x01(\x0b\x32/.google.cloud.documentai.v1beta3.ProcessOptions\x1a=\n\x10\x42\x61tchInputConfig\x12\x12\n\ngcs_source\x18\x01 \x01(\t\x12\x11\n\tmime_type\x18\x02 \x01(\t:\x02\x18\x01\x1a\x30\n\x11\x42\x61tchOutputConfig\x12\x17\n\x0fgcs_destination\x18\x01 \x01(\t:\x02\x18\x01\"\x16\n\x14\x42\x61tchProcessResponse\"\xb2\x05\n\x14\x42\x61tchProcessMetadata\x12J\n\x05state\x18\x01 \x01(\x0e\x32;.google.cloud.documentai.v1beta3.BatchProcessMetadata.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12r\n\x1bindividual_process_statuses\x18\x05 \x03(\x0b\x32M.google.cloud.documentai.v1beta3.BatchProcessMetadata.IndividualProcessStatus\x1a\xec\x01\n\x17IndividualProcessStatus\x12\x18\n\x10input_gcs_source\x18\x01 \x01(\t\x12\"\n\x06status\x18\x02 \x01(\x0b\x32\x12.google.rpc.Status\x12\x1e\n\x16output_gcs_destination\x18\x03 \x01(\t\x12\"\n\x16human_review_operation\x18\x04 \x01(\tB\x02\x18\x01\x12O\n\x13human_review_status\x18\x05 \x01(\x0b\x32\x32.google.cloud.documentai.v1beta3.HumanReviewStatus\"r\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07WAITING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\x0e\n\nCANCELLING\x10\x04\x12\r\n\tCANCELLED\x10\x05\x12\n\n\x06\x46\x41ILED\x10\x06\"]\n\x1a\x46\x65tchProcessorTypesRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\x12\'documentai.googleapis.com/ProcessorType\"f\n\x1b\x46\x65tchProcessorTypesResponse\x12G\n\x0fprocessor_types\x18\x01 \x03(\x0b\x32..google.cloud.documentai.v1beta3.ProcessorType\"\x83\x01\n\x19ListProcessorTypesRequest\x12?\n\x06parent\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\x12\'documentai.googleapis.com/ProcessorType\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"~\n\x1aListProcessorTypesResponse\x12G\n\x0fprocessor_types\x18\x01 \x03(\x0b\x32..google.cloud.documentai.v1beta3.ProcessorType\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"{\n\x15ListProcessorsRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#documentai.googleapis.com/Processor\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"q\n\x16ListProcessorsResponse\x12>\n\nprocessors\x18\x01 \x03(\x0b\x32*.google.cloud.documentai.v1beta3.Processor\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"P\n\x13GetProcessorRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\"^\n\x1aGetProcessorVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*documentai.googleapis.com/ProcessorVersion\"\x89\x01\n\x1cListProcessorVersionsRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*documentai.googleapis.com/ProcessorVersion\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"\x87\x01\n\x1dListProcessorVersionsResponse\x12M\n\x12processor_versions\x18\x01 \x03(\x0b\x32\x31.google.cloud.documentai.v1beta3.ProcessorVersion\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"a\n\x1d\x44\x65leteProcessorVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*documentai.googleapis.com/ProcessorVersion\"s\n\x1e\x44\x65leteProcessorVersionMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x01 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"a\n\x1d\x44\x65ployProcessorVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*documentai.googleapis.com/ProcessorVersion\" \n\x1e\x44\x65ployProcessorVersionResponse\"s\n\x1e\x44\x65ployProcessorVersionMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x01 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"c\n\x1fUndeployProcessorVersionRequest\x12@\n\x04name\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*documentai.googleapis.com/ProcessorVersion\"\"\n UndeployProcessorVersionResponse\"u\n UndeployProcessorVersionMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x01 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"\x99\x01\n\x16\x43reateProcessorRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#documentai.googleapis.com/Processor\x12\x42\n\tprocessor\x18\x02 \x01(\x0b\x32*.google.cloud.documentai.v1beta3.ProcessorB\x03\xe0\x41\x02\"S\n\x16\x44\x65leteProcessorRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\"l\n\x17\x44\x65leteProcessorMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"S\n\x16\x45nableProcessorRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\"\x19\n\x17\x45nableProcessorResponse\"l\n\x17\x45nableProcessorMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"T\n\x17\x44isableProcessorRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\"\x1a\n\x18\x44isableProcessorResponse\"m\n\x18\x44isableProcessorMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"\xba\x01\n!SetDefaultProcessorVersionRequest\x12>\n\tprocessor\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#documentai.googleapis.com/Processor\x12U\n\x19\x64\x65\x66\x61ult_processor_version\x18\x02 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*documentai.googleapis.com/ProcessorVersion\"$\n\"SetDefaultProcessorVersionResponse\"w\n\"SetDefaultProcessorVersionMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x01 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"\xc5\x04\n\x1cTrainProcessorVersionRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\x12*documentai.googleapis.com/ProcessorVersion\x12Q\n\x11processor_version\x18\x02 \x01(\x0b\x32\x31.google.cloud.documentai.v1beta3.ProcessorVersionB\x03\xe0\x41\x02\x12M\n\x0f\x64ocument_schema\x18\n \x01(\x0b\x32/.google.cloud.documentai.v1beta3.DocumentSchemaB\x03\xe0\x41\x01\x12`\n\ninput_data\x18\x04 \x01(\x0b\x32G.google.cloud.documentai.v1beta3.TrainProcessorVersionRequest.InputDataB\x03\xe0\x41\x01\x12#\n\x16\x62\x61se_processor_version\x18\x08 \x01(\tB\x03\xe0\x41\x01\x1a\xb7\x01\n\tInputData\x12V\n\x12training_documents\x18\x03 \x01(\x0b\x32:.google.cloud.documentai.v1beta3.BatchDocumentsInputConfig\x12R\n\x0etest_documents\x18\x04 \x01(\x0b\x32:.google.cloud.documentai.v1beta3.BatchDocumentsInputConfig\":\n\x1dTrainProcessorVersionResponse\x12\x19\n\x11processor_version\x18\x01 \x01(\t\"\x86\x04\n\x1dTrainProcessorVersionMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x01 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\x12u\n\x1btraining_dataset_validation\x18\x02 \x01(\x0b\x32P.google.cloud.documentai.v1beta3.TrainProcessorVersionMetadata.DatasetValidation\x12q\n\x17test_dataset_validation\x18\x03 \x01(\x0b\x32P.google.cloud.documentai.v1beta3.TrainProcessorVersionMetadata.DatasetValidation\x1a\xa7\x01\n\x11\x44\x61tasetValidation\x12\x1c\n\x14\x64ocument_error_count\x18\x03 \x01(\x05\x12\x1b\n\x13\x64\x61taset_error_count\x18\x04 \x01(\x05\x12+\n\x0f\x64ocument_errors\x18\x01 \x03(\x0b\x32\x12.google.rpc.Status\x12*\n\x0e\x64\x61taset_errors\x18\x02 \x03(\x0b\x32\x12.google.rpc.Status\"\xde\x03\n\x15ReviewDocumentRequest\x12\x44\n\x0finline_document\x18\x04 \x01(\x0b\x32).google.cloud.documentai.v1beta3.DocumentH\x00\x12P\n\x13human_review_config\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+documentai.googleapis.com/HumanReviewConfig\x12?\n\x08\x64ocument\x18\x02 \x01(\x0b\x32).google.cloud.documentai.v1beta3.DocumentB\x02\x18\x01\x12 \n\x18\x65nable_schema_validation\x18\x03 \x01(\x08\x12Q\n\x08priority\x18\x05 \x01(\x0e\x32?.google.cloud.documentai.v1beta3.ReviewDocumentRequest.Priority\x12H\n\x0f\x64ocument_schema\x18\x06 \x01(\x0b\x32/.google.cloud.documentai.v1beta3.DocumentSchema\"#\n\x08Priority\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\n\n\x06URGENT\x10\x01\x42\x08\n\x06source\"\xd6\x01\n\x16ReviewDocumentResponse\x12\x17\n\x0fgcs_destination\x18\x01 \x01(\t\x12L\n\x05state\x18\x02 \x01(\x0e\x32=.google.cloud.documentai.v1beta3.ReviewDocumentResponse.State\x12\x18\n\x10rejection_reason\x18\x03 \x01(\t\";\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08REJECTED\x10\x01\x12\r\n\tSUCCEEDED\x10\x02\"\xc0\x03\n\x1fReviewDocumentOperationMetadata\x12U\n\x05state\x18\x01 \x01(\x0e\x32\x46.google.cloud.documentai.v1beta3.ReviewDocumentOperationMetadata.State\x12\x15\n\rstate_message\x18\x02 \x01(\t\x12/\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12Q\n\x0f\x63ommon_metadata\x18\x05 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\x12\x13\n\x0bquestion_id\x18\x06 \x01(\t\"e\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\x0e\n\nCANCELLING\x10\x02\x12\r\n\tSUCCEEDED\x10\x03\x12\n\n\x06\x46\x41ILED\x10\x04\x12\r\n\tCANCELLED\x10\x05\"\xcf\x01\n\x1f\x45valuateProcessorVersionRequest\x12M\n\x11processor_version\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*documentai.googleapis.com/ProcessorVersion\x12]\n\x14\x65valuation_documents\x18\x03 \x01(\x0b\x32:.google.cloud.documentai.v1beta3.BatchDocumentsInputConfigB\x03\xe0\x41\x01\"u\n EvaluateProcessorVersionMetadata\x12Q\n\x0f\x63ommon_metadata\x18\x01 \x01(\x0b\x32\x38.google.cloud.documentai.v1beta3.CommonOperationMetadata\"6\n EvaluateProcessorVersionResponse\x12\x12\n\nevaluation\x18\x02 \x01(\t\"R\n\x14GetEvaluationRequest\x12:\n\x04name\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$documentai.googleapis.com/Evaluation\"\x83\x01\n\x16ListEvaluationsRequest\x12\x42\n\x06parent\x18\x01 \x01(\tB2\xe0\x41\x02\xfa\x41,\n*documentai.googleapis.com/ProcessorVersion\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"t\n\x17ListEvaluationsResponse\x12@\n\x0b\x65valuations\x18\x01 \x03(\x0b\x32+.google.cloud.documentai.v1beta3.Evaluation\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xf2*\n\x18\x44ocumentProcessorService\x12\x9b\x02\n\x0fProcessDocument\x12/.google.cloud.documentai.v1beta3.ProcessRequest\x1a\x30.google.cloud.documentai.v1beta3.ProcessResponse\"\xa4\x01\x82\xd3\xe4\x93\x02\x96\x01\";/v1beta3/{name=projects/*/locations/*/processors/*}:process:\x01*ZT\"O/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}:process:\x01*\xda\x41\x04name\x12\xcc\x02\n\x15\x42\x61tchProcessDocuments\x12\x34.google.cloud.documentai.v1beta3.BatchProcessRequest\x1a\x1d.google.longrunning.Operation\"\xdd\x01\x82\xd3\xe4\x93\x02\xa0\x01\"@/v1beta3/{name=projects/*/locations/*/processors/*}:batchProcess:\x01*ZY\"T/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}:batchProcess:\x01*\xda\x41\x04name\xca\x41,\n\x14\x42\x61tchProcessResponse\x12\x14\x42\x61tchProcessMetadata\x12\xdf\x01\n\x13\x46\x65tchProcessorTypes\x12;.google.cloud.documentai.v1beta3.FetchProcessorTypesRequest\x1a<.google.cloud.documentai.v1beta3.FetchProcessorTypesResponse\"M\x82\xd3\xe4\x93\x02>\x12</v1beta3/{parent=projects/*/locations/*}:fetchProcessorTypes\xda\x41\x06parent\x12\xd7\x01\n\x12ListProcessorTypes\x12:.google.cloud.documentai.v1beta3.ListProcessorTypesRequest\x1a;.google.cloud.documentai.v1beta3.ListProcessorTypesResponse\"H\x82\xd3\xe4\x93\x02\x39\x12\x37/v1beta3/{parent=projects/*/locations/*}/processorTypes\xda\x41\x06parent\x12\xc7\x01\n\x0eListProcessors\x12\x36.google.cloud.documentai.v1beta3.ListProcessorsRequest\x1a\x37.google.cloud.documentai.v1beta3.ListProcessorsResponse\"D\x82\xd3\xe4\x93\x02\x35\x12\x33/v1beta3/{parent=projects/*/locations/*}/processors\xda\x41\x06parent\x12\xb4\x01\n\x0cGetProcessor\x12\x34.google.cloud.documentai.v1beta3.GetProcessorRequest\x1a*.google.cloud.documentai.v1beta3.Processor\"B\x82\xd3\xe4\x93\x02\x35\x12\x33/v1beta3/{name=projects/*/locations/*/processors/*}\xda\x41\x04name\x12\xac\x02\n\x15TrainProcessorVersion\x12=.google.cloud.documentai.v1beta3.TrainProcessorVersionRequest\x1a\x1d.google.longrunning.Operation\"\xb4\x01\x82\xd3\xe4\x93\x02R\"M/v1beta3/{parent=projects/*/locations/*/processors/*}/processorVersions:train:\x01*\xda\x41\x18parent,processor_version\xca\x41>\n\x1dTrainProcessorVersionResponse\x12\x1dTrainProcessorVersionMetadata\x12\xdd\x01\n\x13GetProcessorVersion\x12;.google.cloud.documentai.v1beta3.GetProcessorVersionRequest\x1a\x31.google.cloud.documentai.v1beta3.ProcessorVersion\"V\x82\xd3\xe4\x93\x02I\x12G/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}\xda\x41\x04name\x12\xf0\x01\n\x15ListProcessorVersions\x12=.google.cloud.documentai.v1beta3.ListProcessorVersionsRequest\x1a>.google.cloud.documentai.v1beta3.ListProcessorVersionsResponse\"X\x82\xd3\xe4\x93\x02I\x12G/v1beta3/{parent=projects/*/locations/*/processors/*}/processorVersions\xda\x41\x06parent\x12\x8a\x02\n\x16\x44\x65leteProcessorVersion\x12>.google.cloud.documentai.v1beta3.DeleteProcessorVersionRequest\x1a\x1d.google.longrunning.Operation\"\x90\x01\x82\xd3\xe4\x93\x02I*G/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}\xda\x41\x04name\xca\x41\x37\n\x15google.protobuf.Empty\x12\x1e\x44\x65leteProcessorVersionMetadata\x12\x9d\x02\n\x16\x44\x65ployProcessorVersion\x12>.google.cloud.documentai.v1beta3.DeployProcessorVersionRequest\x1a\x1d.google.longrunning.Operation\"\xa3\x01\x82\xd3\xe4\x93\x02S\"N/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}:deploy:\x01*\xda\x41\x04name\xca\x41@\n\x1e\x44\x65ployProcessorVersionResponse\x12\x1e\x44\x65ployProcessorVersionMetadata\x12\xa7\x02\n\x18UndeployProcessorVersion\x12@.google.cloud.documentai.v1beta3.UndeployProcessorVersionRequest\x1a\x1d.google.longrunning.Operation\"\xa9\x01\x82\xd3\xe4\x93\x02U\"P/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}:undeploy:\x01*\xda\x41\x04name\xca\x41\x44\n UndeployProcessorVersionResponse\x12 UndeployProcessorVersionMetadata\x12\xd1\x01\n\x0f\x43reateProcessor\x12\x37.google.cloud.documentai.v1beta3.CreateProcessorRequest\x1a*.google.cloud.documentai.v1beta3.Processor\"Y\x82\xd3\xe4\x93\x02@\"3/v1beta3/{parent=projects/*/locations/*}/processors:\tprocessor\xda\x41\x10parent,processor\x12\xe0\x01\n\x0f\x44\x65leteProcessor\x12\x37.google.cloud.documentai.v1beta3.DeleteProcessorRequest\x1a\x1d.google.longrunning.Operation\"u\x82\xd3\xe4\x93\x02\x35*3/v1beta3/{name=projects/*/locations/*/processors/*}\xda\x41\x04name\xca\x41\x30\n\x15google.protobuf.Empty\x12\x17\x44\x65leteProcessorMetadata\x12\xe5\x01\n\x0f\x45nableProcessor\x12\x37.google.cloud.documentai.v1beta3.EnableProcessorRequest\x1a\x1d.google.longrunning.Operation\"z\x82\xd3\xe4\x93\x02?\":/v1beta3/{name=projects/*/locations/*/processors/*}:enable:\x01*\xca\x41\x32\n\x17\x45nableProcessorResponse\x12\x17\x45nableProcessorMetadata\x12\xea\x01\n\x10\x44isableProcessor\x12\x38.google.cloud.documentai.v1beta3.DisableProcessorRequest\x1a\x1d.google.longrunning.Operation\"}\x82\xd3\xe4\x93\x02@\";/v1beta3/{name=projects/*/locations/*/processors/*}:disable:\x01*\xca\x41\x34\n\x18\x44isableProcessorResponse\x12\x18\x44isableProcessorMetadata\x12\xab\x02\n\x1aSetDefaultProcessorVersion\x12\x42.google.cloud.documentai.v1beta3.SetDefaultProcessorVersionRequest\x1a\x1d.google.longrunning.Operation\"\xa9\x01\x82\xd3\xe4\x93\x02X\"S/v1beta3/{processor=projects/*/locations/*/processors/*}:setDefaultProcessorVersion:\x01*\xca\x41H\n\"SetDefaultProcessorVersionResponse\x12\"SetDefaultProcessorVersionMetadata\x12\xaa\x02\n\x0eReviewDocument\x12\x36.google.cloud.documentai.v1beta3.ReviewDocumentRequest\x1a\x1d.google.longrunning.Operation\"\xc0\x01\x82\xd3\xe4\x93\x02h\"c/v1beta3/{human_review_config=projects/*/locations/*/processors/*/humanReviewConfig}:reviewDocument:\x01*\xda\x41\x13human_review_config\xca\x41\x39\n\x16ReviewDocumentResponse\x12\x1fReviewDocumentOperationMetadata\x12\xd1\x02\n\x18\x45valuateProcessorVersion\x12@.google.cloud.documentai.v1beta3.EvaluateProcessorVersionRequest\x1a\x1d.google.longrunning.Operation\"\xd3\x01\x82\xd3\xe4\x93\x02r\"m/v1beta3/{processor_version=projects/*/locations/*/processors/*/processorVersions/*}:evaluateProcessorVersion:\x01*\xda\x41\x11processor_version\xca\x41\x44\n EvaluateProcessorVersionResponse\x12 EvaluateProcessorVersionMetadata\x12\xd9\x01\n\rGetEvaluation\x12\x35.google.cloud.documentai.v1beta3.GetEvaluationRequest\x1a+.google.cloud.documentai.v1beta3.Evaluation\"d\x82\xd3\xe4\x93\x02W\x12U/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*/evaluations/*}\xda\x41\x04name\x12\xec\x01\n\x0fListEvaluations\x12\x37.google.cloud.documentai.v1beta3.ListEvaluationsRequest\x1a\x38.google.cloud.documentai.v1beta3.ListEvaluationsResponse\"f\x82\xd3\xe4\x93\x02W\x12U/v1beta3/{parent=projects/*/locations/*/processors/*/processorVersions/*}/evaluations\xda\x41\x06parent\x1aM\xca\x41\x19\x64ocumentai.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xc9\x03\n#com.google.cloud.documentai.v1beta3B\x1a\x44ocumentAiProcessorServiceP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/documentai/v1beta3;documentai\xaa\x02\x1fGoogle.Cloud.DocumentAI.V1Beta3\xca\x02\x1fGoogle\\Cloud\\DocumentAI\\V1beta3\xea\x02\"Google::Cloud::DocumentAI::V1beta3\xea\x41\x7f\n+documentai.googleapis.com/HumanReviewConfig\x12Pprojects/{project}/locations/{location}/processors/{processor}/humanReviewConfig\xea\x41M\n\"documentai.googleapis.com/Location\x12\'projects/{project}/locations/{location}b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.documentai.v1beta3.document_processor_service_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n#com.google.cloud.documentai.v1beta3B\032DocumentAiProcessorServiceP\001ZIgoogle.golang.org/genproto/googleapis/cloud/documentai/v1beta3;documentai\252\002\037Google.Cloud.DocumentAI.V1Beta3\312\002\037Google\\Cloud\\DocumentAI\\V1beta3\352\002\"Google::Cloud::DocumentAI::V1beta3\352AM\n\"documentai.googleapis.com/Location\022\'projects/{project}/locations/{location}\352A\177\n+documentai.googleapis.com/HumanReviewConfig\022Pprojects/{project}/locations/{location}/processors/{processor}/humanReviewConfig'
+  DESCRIPTOR._serialized_options = b'\n#com.google.cloud.documentai.v1beta3B\032DocumentAiProcessorServiceP\001ZIgoogle.golang.org/genproto/googleapis/cloud/documentai/v1beta3;documentai\252\002\037Google.Cloud.DocumentAI.V1Beta3\312\002\037Google\\Cloud\\DocumentAI\\V1beta3\352\002\"Google::Cloud::DocumentAI::V1beta3\352A\177\n+documentai.googleapis.com/HumanReviewConfig\022Pprojects/{project}/locations/{location}/processors/{processor}/humanReviewConfig\352AM\n\"documentai.googleapis.com/Location\022\'projects/{project}/locations/{location}'
   _PROCESSREQUEST.fields_by_name['name']._options = None
-  _PROCESSREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A%\n#documentai.googleapis.com/Processor'
+  _PROCESSREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\003\n\001*'
   _PROCESSREQUEST.fields_by_name['document']._options = None
   _PROCESSREQUEST.fields_by_name['document']._serialized_options = b'\030\001'
   _PROCESSRESPONSE.fields_by_name['human_review_operation']._options = None
@@ -45,7 +47,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _BATCHPROCESSREQUEST_BATCHOUTPUTCONFIG._options = None
   _BATCHPROCESSREQUEST_BATCHOUTPUTCONFIG._serialized_options = b'\030\001'
   _BATCHPROCESSREQUEST.fields_by_name['name']._options = None
-  _BATCHPROCESSREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A%\n#documentai.googleapis.com/Processor'
+  _BATCHPROCESSREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\003\n\001*'
   _BATCHPROCESSREQUEST.fields_by_name['input_configs']._options = None
   _BATCHPROCESSREQUEST.fields_by_name['input_configs']._serialized_options = b'\030\001'
   _BATCHPROCESSREQUEST.fields_by_name['output_config']._options = None
@@ -54,8 +56,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _BATCHPROCESSMETADATA_INDIVIDUALPROCESSSTATUS.fields_by_name['human_review_operation']._serialized_options = b'\030\001'
   _FETCHPROCESSORTYPESREQUEST.fields_by_name['parent']._options = None
   _FETCHPROCESSORTYPESREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A)\022\'documentai.googleapis.com/ProcessorType'
+  _LISTPROCESSORTYPESREQUEST.fields_by_name['parent']._options = None
+  _LISTPROCESSORTYPESREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A)\022\'documentai.googleapis.com/ProcessorType'
   _LISTPROCESSORSREQUEST.fields_by_name['parent']._options = None
   _LISTPROCESSORSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A%\022#documentai.googleapis.com/Processor'
+  _GETPROCESSORREQUEST.fields_by_name['name']._options = None
+  _GETPROCESSORREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A%\n#documentai.googleapis.com/Processor'
+  _GETPROCESSORVERSIONREQUEST.fields_by_name['name']._options = None
+  _GETPROCESSORVERSIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A,\n*documentai.googleapis.com/ProcessorVersion'
+  _LISTPROCESSORVERSIONSREQUEST.fields_by_name['parent']._options = None
+  _LISTPROCESSORVERSIONSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A,\022*documentai.googleapis.com/ProcessorVersion'
+  _DELETEPROCESSORVERSIONREQUEST.fields_by_name['name']._options = None
+  _DELETEPROCESSORVERSIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A,\n*documentai.googleapis.com/ProcessorVersion'
+  _DEPLOYPROCESSORVERSIONREQUEST.fields_by_name['name']._options = None
+  _DEPLOYPROCESSORVERSIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A,\n*documentai.googleapis.com/ProcessorVersion'
+  _UNDEPLOYPROCESSORVERSIONREQUEST.fields_by_name['name']._options = None
+  _UNDEPLOYPROCESSORVERSIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A,\n*documentai.googleapis.com/ProcessorVersion'
   _CREATEPROCESSORREQUEST.fields_by_name['parent']._options = None
   _CREATEPROCESSORREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A%\022#documentai.googleapis.com/Processor'
   _CREATEPROCESSORREQUEST.fields_by_name['processor']._options = None
@@ -66,20 +82,58 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _ENABLEPROCESSORREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A%\n#documentai.googleapis.com/Processor'
   _DISABLEPROCESSORREQUEST.fields_by_name['name']._options = None
   _DISABLEPROCESSORREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A%\n#documentai.googleapis.com/Processor'
+  _SETDEFAULTPROCESSORVERSIONREQUEST.fields_by_name['processor']._options = None
+  _SETDEFAULTPROCESSORVERSIONREQUEST.fields_by_name['processor']._serialized_options = b'\340A\002\372A%\n#documentai.googleapis.com/Processor'
+  _SETDEFAULTPROCESSORVERSIONREQUEST.fields_by_name['default_processor_version']._options = None
+  _SETDEFAULTPROCESSORVERSIONREQUEST.fields_by_name['default_processor_version']._serialized_options = b'\340A\002\372A,\n*documentai.googleapis.com/ProcessorVersion'
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['parent']._options = None
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A,\022*documentai.googleapis.com/ProcessorVersion'
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['processor_version']._options = None
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['processor_version']._serialized_options = b'\340A\002'
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['document_schema']._options = None
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['document_schema']._serialized_options = b'\340A\001'
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['input_data']._options = None
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['input_data']._serialized_options = b'\340A\001'
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['base_processor_version']._options = None
+  _TRAINPROCESSORVERSIONREQUEST.fields_by_name['base_processor_version']._serialized_options = b'\340A\001'
   _REVIEWDOCUMENTREQUEST.fields_by_name['human_review_config']._options = None
   _REVIEWDOCUMENTREQUEST.fields_by_name['human_review_config']._serialized_options = b'\340A\002\372A-\n+documentai.googleapis.com/HumanReviewConfig'
   _REVIEWDOCUMENTREQUEST.fields_by_name['document']._options = None
   _REVIEWDOCUMENTREQUEST.fields_by_name['document']._serialized_options = b'\030\001'
+  _EVALUATEPROCESSORVERSIONREQUEST.fields_by_name['processor_version']._options = None
+  _EVALUATEPROCESSORVERSIONREQUEST.fields_by_name['processor_version']._serialized_options = b'\340A\002\372A,\n*documentai.googleapis.com/ProcessorVersion'
+  _EVALUATEPROCESSORVERSIONREQUEST.fields_by_name['evaluation_documents']._options = None
+  _EVALUATEPROCESSORVERSIONREQUEST.fields_by_name['evaluation_documents']._serialized_options = b'\340A\001'
+  _GETEVALUATIONREQUEST.fields_by_name['name']._options = None
+  _GETEVALUATIONREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A&\n$documentai.googleapis.com/Evaluation'
+  _LISTEVALUATIONSREQUEST.fields_by_name['parent']._options = None
+  _LISTEVALUATIONSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A,\n*documentai.googleapis.com/ProcessorVersion'
   _DOCUMENTPROCESSORSERVICE._options = None
   _DOCUMENTPROCESSORSERVICE._serialized_options = b'\312A\031documentai.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform'
   _DOCUMENTPROCESSORSERVICE.methods_by_name['ProcessDocument']._options = None
-  _DOCUMENTPROCESSORSERVICE.methods_by_name['ProcessDocument']._serialized_options = b'\202\323\344\223\002@\";/v1beta3/{name=projects/*/locations/*/processors/*}:process:\001*\332A\004name'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['ProcessDocument']._serialized_options = b'\202\323\344\223\002\226\001\";/v1beta3/{name=projects/*/locations/*/processors/*}:process:\001*ZT\"O/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}:process:\001*\332A\004name'
   _DOCUMENTPROCESSORSERVICE.methods_by_name['BatchProcessDocuments']._options = None
-  _DOCUMENTPROCESSORSERVICE.methods_by_name['BatchProcessDocuments']._serialized_options = b'\202\323\344\223\002E\"@/v1beta3/{name=projects/*/locations/*/processors/*}:batchProcess:\001*\332A\004name\312A,\n\024BatchProcessResponse\022\024BatchProcessMetadata'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['BatchProcessDocuments']._serialized_options = b'\202\323\344\223\002\240\001\"@/v1beta3/{name=projects/*/locations/*/processors/*}:batchProcess:\001*ZY\"T/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}:batchProcess:\001*\332A\004name\312A,\n\024BatchProcessResponse\022\024BatchProcessMetadata'
   _DOCUMENTPROCESSORSERVICE.methods_by_name['FetchProcessorTypes']._options = None
   _DOCUMENTPROCESSORSERVICE.methods_by_name['FetchProcessorTypes']._serialized_options = b'\202\323\344\223\002>\022</v1beta3/{parent=projects/*/locations/*}:fetchProcessorTypes\332A\006parent'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['ListProcessorTypes']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['ListProcessorTypes']._serialized_options = b'\202\323\344\223\0029\0227/v1beta3/{parent=projects/*/locations/*}/processorTypes\332A\006parent'
   _DOCUMENTPROCESSORSERVICE.methods_by_name['ListProcessors']._options = None
   _DOCUMENTPROCESSORSERVICE.methods_by_name['ListProcessors']._serialized_options = b'\202\323\344\223\0025\0223/v1beta3/{parent=projects/*/locations/*}/processors\332A\006parent'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['GetProcessor']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['GetProcessor']._serialized_options = b'\202\323\344\223\0025\0223/v1beta3/{name=projects/*/locations/*/processors/*}\332A\004name'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['TrainProcessorVersion']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['TrainProcessorVersion']._serialized_options = b'\202\323\344\223\002R\"M/v1beta3/{parent=projects/*/locations/*/processors/*}/processorVersions:train:\001*\332A\030parent,processor_version\312A>\n\035TrainProcessorVersionResponse\022\035TrainProcessorVersionMetadata'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['GetProcessorVersion']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['GetProcessorVersion']._serialized_options = b'\202\323\344\223\002I\022G/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}\332A\004name'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['ListProcessorVersions']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['ListProcessorVersions']._serialized_options = b'\202\323\344\223\002I\022G/v1beta3/{parent=projects/*/locations/*/processors/*}/processorVersions\332A\006parent'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['DeleteProcessorVersion']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['DeleteProcessorVersion']._serialized_options = b'\202\323\344\223\002I*G/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}\332A\004name\312A7\n\025google.protobuf.Empty\022\036DeleteProcessorVersionMetadata'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['DeployProcessorVersion']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['DeployProcessorVersion']._serialized_options = b'\202\323\344\223\002S\"N/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}:deploy:\001*\332A\004name\312A@\n\036DeployProcessorVersionResponse\022\036DeployProcessorVersionMetadata'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['UndeployProcessorVersion']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['UndeployProcessorVersion']._serialized_options = b'\202\323\344\223\002U\"P/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*}:undeploy:\001*\332A\004name\312AD\n UndeployProcessorVersionResponse\022 UndeployProcessorVersionMetadata'
   _DOCUMENTPROCESSORSERVICE.methods_by_name['CreateProcessor']._options = None
   _DOCUMENTPROCESSORSERVICE.methods_by_name['CreateProcessor']._serialized_options = b'\202\323\344\223\002@\"3/v1beta3/{parent=projects/*/locations/*}/processors:\tprocessor\332A\020parent,processor'
   _DOCUMENTPROCESSORSERVICE.methods_by_name['DeleteProcessor']._options = None
@@ -88,66 +142,134 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DOCUMENTPROCESSORSERVICE.methods_by_name['EnableProcessor']._serialized_options = b'\202\323\344\223\002?\":/v1beta3/{name=projects/*/locations/*/processors/*}:enable:\001*\312A2\n\027EnableProcessorResponse\022\027EnableProcessorMetadata'
   _DOCUMENTPROCESSORSERVICE.methods_by_name['DisableProcessor']._options = None
   _DOCUMENTPROCESSORSERVICE.methods_by_name['DisableProcessor']._serialized_options = b'\202\323\344\223\002@\";/v1beta3/{name=projects/*/locations/*/processors/*}:disable:\001*\312A4\n\030DisableProcessorResponse\022\030DisableProcessorMetadata'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['SetDefaultProcessorVersion']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['SetDefaultProcessorVersion']._serialized_options = b'\202\323\344\223\002X\"S/v1beta3/{processor=projects/*/locations/*/processors/*}:setDefaultProcessorVersion:\001*\312AH\n\"SetDefaultProcessorVersionResponse\022\"SetDefaultProcessorVersionMetadata'
   _DOCUMENTPROCESSORSERVICE.methods_by_name['ReviewDocument']._options = None
   _DOCUMENTPROCESSORSERVICE.methods_by_name['ReviewDocument']._serialized_options = b'\202\323\344\223\002h\"c/v1beta3/{human_review_config=projects/*/locations/*/processors/*/humanReviewConfig}:reviewDocument:\001*\332A\023human_review_config\312A9\n\026ReviewDocumentResponse\022\037ReviewDocumentOperationMetadata'
-  _PROCESSREQUEST._serialized_start=606
-  _PROCESSREQUEST._serialized_end=923
-  _HUMANREVIEWSTATUS._serialized_start=926
-  _HUMANREVIEWSTATUS._serialized_end=1169
-  _HUMANREVIEWSTATUS_STATE._serialized_start=1075
-  _HUMANREVIEWSTATUS_STATE._serialized_end=1169
-  _PROCESSRESPONSE._serialized_start=1172
-  _PROCESSRESPONSE._serialized_end=1367
-  _BATCHPROCESSREQUEST._serialized_start=1370
-  _BATCHPROCESSREQUEST._serialized_end=1959
-  _BATCHPROCESSREQUEST_BATCHINPUTCONFIG._serialized_start=1848
-  _BATCHPROCESSREQUEST_BATCHINPUTCONFIG._serialized_end=1909
-  _BATCHPROCESSREQUEST_BATCHOUTPUTCONFIG._serialized_start=1911
-  _BATCHPROCESSREQUEST_BATCHOUTPUTCONFIG._serialized_end=1959
-  _BATCHPROCESSRESPONSE._serialized_start=1961
-  _BATCHPROCESSRESPONSE._serialized_end=1983
-  _BATCHPROCESSMETADATA._serialized_start=1986
-  _BATCHPROCESSMETADATA._serialized_end=2676
-  _BATCHPROCESSMETADATA_INDIVIDUALPROCESSSTATUS._serialized_start=2324
-  _BATCHPROCESSMETADATA_INDIVIDUALPROCESSSTATUS._serialized_end=2560
-  _BATCHPROCESSMETADATA_STATE._serialized_start=2562
-  _BATCHPROCESSMETADATA_STATE._serialized_end=2676
-  _FETCHPROCESSORTYPESREQUEST._serialized_start=2678
-  _FETCHPROCESSORTYPESREQUEST._serialized_end=2771
-  _FETCHPROCESSORTYPESRESPONSE._serialized_start=2773
-  _FETCHPROCESSORTYPESRESPONSE._serialized_end=2875
-  _LISTPROCESSORSREQUEST._serialized_start=2877
-  _LISTPROCESSORSREQUEST._serialized_end=3000
-  _LISTPROCESSORSRESPONSE._serialized_start=3002
-  _LISTPROCESSORSRESPONSE._serialized_end=3115
-  _CREATEPROCESSORREQUEST._serialized_start=3118
-  _CREATEPROCESSORREQUEST._serialized_end=3271
-  _DELETEPROCESSORREQUEST._serialized_start=3273
-  _DELETEPROCESSORREQUEST._serialized_end=3356
-  _DELETEPROCESSORMETADATA._serialized_start=3358
-  _DELETEPROCESSORMETADATA._serialized_end=3466
-  _ENABLEPROCESSORREQUEST._serialized_start=3468
-  _ENABLEPROCESSORREQUEST._serialized_end=3551
-  _ENABLEPROCESSORRESPONSE._serialized_start=3553
-  _ENABLEPROCESSORRESPONSE._serialized_end=3578
-  _ENABLEPROCESSORMETADATA._serialized_start=3580
-  _ENABLEPROCESSORMETADATA._serialized_end=3688
-  _DISABLEPROCESSORREQUEST._serialized_start=3690
-  _DISABLEPROCESSORREQUEST._serialized_end=3774
-  _DISABLEPROCESSORRESPONSE._serialized_start=3776
-  _DISABLEPROCESSORRESPONSE._serialized_end=3802
-  _DISABLEPROCESSORMETADATA._serialized_start=3804
-  _DISABLEPROCESSORMETADATA._serialized_end=3913
-  _REVIEWDOCUMENTREQUEST._serialized_start=3916
-  _REVIEWDOCUMENTREQUEST._serialized_end=4320
-  _REVIEWDOCUMENTREQUEST_PRIORITY._serialized_start=4275
-  _REVIEWDOCUMENTREQUEST_PRIORITY._serialized_end=4310
-  _REVIEWDOCUMENTRESPONSE._serialized_start=4322
-  _REVIEWDOCUMENTRESPONSE._serialized_end=4371
-  _REVIEWDOCUMENTOPERATIONMETADATA._serialized_start=4374
-  _REVIEWDOCUMENTOPERATIONMETADATA._serialized_end=4822
-  _REVIEWDOCUMENTOPERATIONMETADATA_STATE._serialized_start=4721
-  _REVIEWDOCUMENTOPERATIONMETADATA_STATE._serialized_end=4822
-  _DOCUMENTPROCESSORSERVICE._serialized_start=4825
-  _DOCUMENTPROCESSORSERVICE._serialized_end=7008
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['EvaluateProcessorVersion']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['EvaluateProcessorVersion']._serialized_options = b'\202\323\344\223\002r\"m/v1beta3/{processor_version=projects/*/locations/*/processors/*/processorVersions/*}:evaluateProcessorVersion:\001*\332A\021processor_version\312AD\n EvaluateProcessorVersionResponse\022 EvaluateProcessorVersionMetadata'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['GetEvaluation']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['GetEvaluation']._serialized_options = b'\202\323\344\223\002W\022U/v1beta3/{name=projects/*/locations/*/processors/*/processorVersions/*/evaluations/*}\332A\004name'
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['ListEvaluations']._options = None
+  _DOCUMENTPROCESSORSERVICE.methods_by_name['ListEvaluations']._serialized_options = b'\202\323\344\223\002W\022U/v1beta3/{parent=projects/*/locations/*/processors/*/processorVersions/*}/evaluations\332A\006parent'
+  _PROCESSOPTIONS._serialized_start=710
+  _PROCESSOPTIONS._serialized_end=790
+  _PROCESSREQUEST._serialized_start=793
+  _PROCESSREQUEST._serialized_end=1198
+  _HUMANREVIEWSTATUS._serialized_start=1201
+  _HUMANREVIEWSTATUS._serialized_end=1444
+  _HUMANREVIEWSTATUS_STATE._serialized_start=1350
+  _HUMANREVIEWSTATUS_STATE._serialized_end=1444
+  _PROCESSRESPONSE._serialized_start=1447
+  _PROCESSRESPONSE._serialized_end=1642
+  _BATCHPROCESSREQUEST._serialized_start=1645
+  _BATCHPROCESSREQUEST._serialized_end=2274
+  _BATCHPROCESSREQUEST_BATCHINPUTCONFIG._serialized_start=2163
+  _BATCHPROCESSREQUEST_BATCHINPUTCONFIG._serialized_end=2224
+  _BATCHPROCESSREQUEST_BATCHOUTPUTCONFIG._serialized_start=2226
+  _BATCHPROCESSREQUEST_BATCHOUTPUTCONFIG._serialized_end=2274
+  _BATCHPROCESSRESPONSE._serialized_start=2276
+  _BATCHPROCESSRESPONSE._serialized_end=2298
+  _BATCHPROCESSMETADATA._serialized_start=2301
+  _BATCHPROCESSMETADATA._serialized_end=2991
+  _BATCHPROCESSMETADATA_INDIVIDUALPROCESSSTATUS._serialized_start=2639
+  _BATCHPROCESSMETADATA_INDIVIDUALPROCESSSTATUS._serialized_end=2875
+  _BATCHPROCESSMETADATA_STATE._serialized_start=2877
+  _BATCHPROCESSMETADATA_STATE._serialized_end=2991
+  _FETCHPROCESSORTYPESREQUEST._serialized_start=2993
+  _FETCHPROCESSORTYPESREQUEST._serialized_end=3086
+  _FETCHPROCESSORTYPESRESPONSE._serialized_start=3088
+  _FETCHPROCESSORTYPESRESPONSE._serialized_end=3190
+  _LISTPROCESSORTYPESREQUEST._serialized_start=3193
+  _LISTPROCESSORTYPESREQUEST._serialized_end=3324
+  _LISTPROCESSORTYPESRESPONSE._serialized_start=3326
+  _LISTPROCESSORTYPESRESPONSE._serialized_end=3452
+  _LISTPROCESSORSREQUEST._serialized_start=3454
+  _LISTPROCESSORSREQUEST._serialized_end=3577
+  _LISTPROCESSORSRESPONSE._serialized_start=3579
+  _LISTPROCESSORSRESPONSE._serialized_end=3692
+  _GETPROCESSORREQUEST._serialized_start=3694
+  _GETPROCESSORREQUEST._serialized_end=3774
+  _GETPROCESSORVERSIONREQUEST._serialized_start=3776
+  _GETPROCESSORVERSIONREQUEST._serialized_end=3870
+  _LISTPROCESSORVERSIONSREQUEST._serialized_start=3873
+  _LISTPROCESSORVERSIONSREQUEST._serialized_end=4010
+  _LISTPROCESSORVERSIONSRESPONSE._serialized_start=4013
+  _LISTPROCESSORVERSIONSRESPONSE._serialized_end=4148
+  _DELETEPROCESSORVERSIONREQUEST._serialized_start=4150
+  _DELETEPROCESSORVERSIONREQUEST._serialized_end=4247
+  _DELETEPROCESSORVERSIONMETADATA._serialized_start=4249
+  _DELETEPROCESSORVERSIONMETADATA._serialized_end=4364
+  _DEPLOYPROCESSORVERSIONREQUEST._serialized_start=4366
+  _DEPLOYPROCESSORVERSIONREQUEST._serialized_end=4463
+  _DEPLOYPROCESSORVERSIONRESPONSE._serialized_start=4465
+  _DEPLOYPROCESSORVERSIONRESPONSE._serialized_end=4497
+  _DEPLOYPROCESSORVERSIONMETADATA._serialized_start=4499
+  _DEPLOYPROCESSORVERSIONMETADATA._serialized_end=4614
+  _UNDEPLOYPROCESSORVERSIONREQUEST._serialized_start=4616
+  _UNDEPLOYPROCESSORVERSIONREQUEST._serialized_end=4715
+  _UNDEPLOYPROCESSORVERSIONRESPONSE._serialized_start=4717
+  _UNDEPLOYPROCESSORVERSIONRESPONSE._serialized_end=4751
+  _UNDEPLOYPROCESSORVERSIONMETADATA._serialized_start=4753
+  _UNDEPLOYPROCESSORVERSIONMETADATA._serialized_end=4870
+  _CREATEPROCESSORREQUEST._serialized_start=4873
+  _CREATEPROCESSORREQUEST._serialized_end=5026
+  _DELETEPROCESSORREQUEST._serialized_start=5028
+  _DELETEPROCESSORREQUEST._serialized_end=5111
+  _DELETEPROCESSORMETADATA._serialized_start=5113
+  _DELETEPROCESSORMETADATA._serialized_end=5221
+  _ENABLEPROCESSORREQUEST._serialized_start=5223
+  _ENABLEPROCESSORREQUEST._serialized_end=5306
+  _ENABLEPROCESSORRESPONSE._serialized_start=5308
+  _ENABLEPROCESSORRESPONSE._serialized_end=5333
+  _ENABLEPROCESSORMETADATA._serialized_start=5335
+  _ENABLEPROCESSORMETADATA._serialized_end=5443
+  _DISABLEPROCESSORREQUEST._serialized_start=5445
+  _DISABLEPROCESSORREQUEST._serialized_end=5529
+  _DISABLEPROCESSORRESPONSE._serialized_start=5531
+  _DISABLEPROCESSORRESPONSE._serialized_end=5557
+  _DISABLEPROCESSORMETADATA._serialized_start=5559
+  _DISABLEPROCESSORMETADATA._serialized_end=5668
+  _SETDEFAULTPROCESSORVERSIONREQUEST._serialized_start=5671
+  _SETDEFAULTPROCESSORVERSIONREQUEST._serialized_end=5857
+  _SETDEFAULTPROCESSORVERSIONRESPONSE._serialized_start=5859
+  _SETDEFAULTPROCESSORVERSIONRESPONSE._serialized_end=5895
+  _SETDEFAULTPROCESSORVERSIONMETADATA._serialized_start=5897
+  _SETDEFAULTPROCESSORVERSIONMETADATA._serialized_end=6016
+  _TRAINPROCESSORVERSIONREQUEST._serialized_start=6019
+  _TRAINPROCESSORVERSIONREQUEST._serialized_end=6600
+  _TRAINPROCESSORVERSIONREQUEST_INPUTDATA._serialized_start=6417
+  _TRAINPROCESSORVERSIONREQUEST_INPUTDATA._serialized_end=6600
+  _TRAINPROCESSORVERSIONRESPONSE._serialized_start=6602
+  _TRAINPROCESSORVERSIONRESPONSE._serialized_end=6660
+  _TRAINPROCESSORVERSIONMETADATA._serialized_start=6663
+  _TRAINPROCESSORVERSIONMETADATA._serialized_end=7181
+  _TRAINPROCESSORVERSIONMETADATA_DATASETVALIDATION._serialized_start=7014
+  _TRAINPROCESSORVERSIONMETADATA_DATASETVALIDATION._serialized_end=7181
+  _REVIEWDOCUMENTREQUEST._serialized_start=7184
+  _REVIEWDOCUMENTREQUEST._serialized_end=7662
+  _REVIEWDOCUMENTREQUEST_PRIORITY._serialized_start=7617
+  _REVIEWDOCUMENTREQUEST_PRIORITY._serialized_end=7652
+  _REVIEWDOCUMENTRESPONSE._serialized_start=7665
+  _REVIEWDOCUMENTRESPONSE._serialized_end=7879
+  _REVIEWDOCUMENTRESPONSE_STATE._serialized_start=7820
+  _REVIEWDOCUMENTRESPONSE_STATE._serialized_end=7879
+  _REVIEWDOCUMENTOPERATIONMETADATA._serialized_start=7882
+  _REVIEWDOCUMENTOPERATIONMETADATA._serialized_end=8330
+  _REVIEWDOCUMENTOPERATIONMETADATA_STATE._serialized_start=8229
+  _REVIEWDOCUMENTOPERATIONMETADATA_STATE._serialized_end=8330
+  _EVALUATEPROCESSORVERSIONREQUEST._serialized_start=8333
+  _EVALUATEPROCESSORVERSIONREQUEST._serialized_end=8540
+  _EVALUATEPROCESSORVERSIONMETADATA._serialized_start=8542
+  _EVALUATEPROCESSORVERSIONMETADATA._serialized_end=8659
+  _EVALUATEPROCESSORVERSIONRESPONSE._serialized_start=8661
+  _EVALUATEPROCESSORVERSIONRESPONSE._serialized_end=8715
+  _GETEVALUATIONREQUEST._serialized_start=8717
+  _GETEVALUATIONREQUEST._serialized_end=8799
+  _LISTEVALUATIONSREQUEST._serialized_start=8802
+  _LISTEVALUATIONSREQUEST._serialized_end=8933
+  _LISTEVALUATIONSRESPONSE._serialized_start=8935
+  _LISTEVALUATIONSRESPONSE._serialized_end=9051
+  _DOCUMENTPROCESSORSERVICE._serialized_start=9054
+  _DOCUMENTPROCESSORSERVICE._serialized_end=14544
 # @@protoc_insertion_point(module_scope)

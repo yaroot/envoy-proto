@@ -34,89 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SequencedMessage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.pubsublite.proto.Cursor.Builder subBuilder = null;
-            if (cursor_ != null) {
-              subBuilder = cursor_.toBuilder();
-            }
-            cursor_ = input.readMessage(com.google.cloud.pubsublite.proto.Cursor.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cursor_);
-              cursor_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (publishTime_ != null) {
-              subBuilder = publishTime_.toBuilder();
-            }
-            publishTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(publishTime_);
-              publishTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.pubsublite.proto.PubSubMessage.Builder subBuilder = null;
-            if (message_ != null) {
-              subBuilder = message_.toBuilder();
-            }
-            message_ = input.readMessage(com.google.cloud.pubsublite.proto.PubSubMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(message_);
-              message_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            sizeBytes_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.pubsublite.proto.CommonProto.internal_static_google_cloud_pubsublite_v1_SequencedMessage_descriptor;
@@ -165,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.pubsublite.proto.CursorOrBuilder getCursorOrBuilder() {
-    return getCursor();
+    return cursor_ == null ? com.google.cloud.pubsublite.proto.Cursor.getDefaultInstance() : cursor_;
   }
 
   public static final int PUBLISH_TIME_FIELD_NUMBER = 2;
@@ -206,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getPublishTimeOrBuilder() {
-    return getPublishTime();
+    return publishTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : publishTime_;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 3;
@@ -244,11 +161,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.pubsublite.proto.PubSubMessageOrBuilder getMessageOrBuilder() {
-    return getMessage();
+    return message_ == null ? com.google.cloud.pubsublite.proto.PubSubMessage.getDefaultInstance() : message_;
   }
 
   public static final int SIZE_BYTES_FIELD_NUMBER = 4;
-  private long sizeBytes_;
+  private long sizeBytes_ = 0L;
   /**
    * <pre>
    * The size in bytes of this message for flow control and quota purposes.
@@ -288,7 +205,7 @@ private static final long serialVersionUID = 0L;
     if (sizeBytes_ != 0L) {
       output.writeInt64(4, sizeBytes_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -313,7 +230,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(4, sizeBytes_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -345,7 +262,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getSizeBytes()
         != other.getSizeBytes()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -371,7 +288,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SIZE_BYTES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getSizeBytes());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -492,42 +409,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.pubsublite.proto.SequencedMessage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (cursorBuilder_ == null) {
-        cursor_ = null;
-      } else {
-        cursor_ = null;
+      bitField0_ = 0;
+      cursor_ = null;
+      if (cursorBuilder_ != null) {
+        cursorBuilder_.dispose();
         cursorBuilder_ = null;
       }
-      if (publishTimeBuilder_ == null) {
-        publishTime_ = null;
-      } else {
-        publishTime_ = null;
+      publishTime_ = null;
+      if (publishTimeBuilder_ != null) {
+        publishTimeBuilder_.dispose();
         publishTimeBuilder_ = null;
       }
-      if (messageBuilder_ == null) {
-        message_ = null;
-      } else {
-        message_ = null;
+      message_ = null;
+      if (messageBuilder_ != null) {
+        messageBuilder_.dispose();
         messageBuilder_ = null;
       }
       sizeBytes_ = 0L;
-
       return this;
     }
 
@@ -554,24 +463,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.pubsublite.proto.SequencedMessage buildPartial() {
       com.google.cloud.pubsublite.proto.SequencedMessage result = new com.google.cloud.pubsublite.proto.SequencedMessage(this);
-      if (cursorBuilder_ == null) {
-        result.cursor_ = cursor_;
-      } else {
-        result.cursor_ = cursorBuilder_.build();
-      }
-      if (publishTimeBuilder_ == null) {
-        result.publishTime_ = publishTime_;
-      } else {
-        result.publishTime_ = publishTimeBuilder_.build();
-      }
-      if (messageBuilder_ == null) {
-        result.message_ = message_;
-      } else {
-        result.message_ = messageBuilder_.build();
-      }
-      result.sizeBytes_ = sizeBytes_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.pubsublite.proto.SequencedMessage result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.cursor_ = cursorBuilder_ == null
+            ? cursor_
+            : cursorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.publishTime_ = publishTimeBuilder_ == null
+            ? publishTime_
+            : publishTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.message_ = messageBuilder_ == null
+            ? message_
+            : messageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.sizeBytes_ = sizeBytes_;
+      }
     }
 
     @java.lang.Override
@@ -630,7 +546,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSizeBytes() != 0L) {
         setSizeBytes(other.getSizeBytes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -645,19 +561,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.pubsublite.proto.SequencedMessage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCursorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPublishTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getMessageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              sizeBytes_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.pubsublite.proto.SequencedMessage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.pubsublite.proto.Cursor cursor_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -671,7 +627,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cursor field is set.
      */
     public boolean hasCursor() {
-      return cursorBuilder_ != null || cursor_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -701,11 +657,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cursor_ = value;
-        onChanged();
       } else {
         cursorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -719,11 +675,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.pubsublite.proto.Cursor.Builder builderForValue) {
       if (cursorBuilder_ == null) {
         cursor_ = builderForValue.build();
-        onChanged();
       } else {
         cursorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -735,17 +691,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCursor(com.google.cloud.pubsublite.proto.Cursor value) {
       if (cursorBuilder_ == null) {
-        if (cursor_ != null) {
-          cursor_ =
-            com.google.cloud.pubsublite.proto.Cursor.newBuilder(cursor_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          cursor_ != null &&
+          cursor_ != com.google.cloud.pubsublite.proto.Cursor.getDefaultInstance()) {
+          getCursorBuilder().mergeFrom(value);
         } else {
           cursor_ = value;
         }
-        onChanged();
       } else {
         cursorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -756,14 +713,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Cursor cursor = 1;</code>
      */
     public Builder clearCursor() {
-      if (cursorBuilder_ == null) {
-        cursor_ = null;
-        onChanged();
-      } else {
-        cursor_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      cursor_ = null;
+      if (cursorBuilder_ != null) {
+        cursorBuilder_.dispose();
         cursorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -774,7 +730,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Cursor cursor = 1;</code>
      */
     public com.google.cloud.pubsublite.proto.Cursor.Builder getCursorBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCursorFieldBuilder().getBuilder();
     }
@@ -827,7 +783,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the publishTime field is set.
      */
     public boolean hasPublishTime() {
-      return publishTimeBuilder_ != null || publishTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -859,11 +815,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         publishTime_ = value;
-        onChanged();
       } else {
         publishTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -878,11 +834,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (publishTimeBuilder_ == null) {
         publishTime_ = builderForValue.build();
-        onChanged();
       } else {
         publishTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -895,17 +851,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePublishTime(com.google.protobuf.Timestamp value) {
       if (publishTimeBuilder_ == null) {
-        if (publishTime_ != null) {
-          publishTime_ =
-            com.google.protobuf.Timestamp.newBuilder(publishTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          publishTime_ != null &&
+          publishTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getPublishTimeBuilder().mergeFrom(value);
         } else {
           publishTime_ = value;
         }
-        onChanged();
       } else {
         publishTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -917,14 +874,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp publish_time = 2;</code>
      */
     public Builder clearPublishTime() {
-      if (publishTimeBuilder_ == null) {
-        publishTime_ = null;
-        onChanged();
-      } else {
-        publishTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      publishTime_ = null;
+      if (publishTimeBuilder_ != null) {
+        publishTimeBuilder_.dispose();
         publishTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -936,7 +892,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp publish_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getPublishTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPublishTimeFieldBuilder().getBuilder();
     }
@@ -990,7 +946,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the message field is set.
      */
     public boolean hasMessage() {
-      return messageBuilder_ != null || message_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1020,11 +976,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         message_ = value;
-        onChanged();
       } else {
         messageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1038,11 +994,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.pubsublite.proto.PubSubMessage.Builder builderForValue) {
       if (messageBuilder_ == null) {
         message_ = builderForValue.build();
-        onChanged();
       } else {
         messageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1054,17 +1010,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMessage(com.google.cloud.pubsublite.proto.PubSubMessage value) {
       if (messageBuilder_ == null) {
-        if (message_ != null) {
-          message_ =
-            com.google.cloud.pubsublite.proto.PubSubMessage.newBuilder(message_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          message_ != null &&
+          message_ != com.google.cloud.pubsublite.proto.PubSubMessage.getDefaultInstance()) {
+          getMessageBuilder().mergeFrom(value);
         } else {
           message_ = value;
         }
-        onChanged();
       } else {
         messageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1075,14 +1032,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.PubSubMessage message = 3;</code>
      */
     public Builder clearMessage() {
-      if (messageBuilder_ == null) {
-        message_ = null;
-        onChanged();
-      } else {
-        message_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      message_ = null;
+      if (messageBuilder_ != null) {
+        messageBuilder_.dispose();
         messageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1093,7 +1049,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.PubSubMessage message = 3;</code>
      */
     public com.google.cloud.pubsublite.proto.PubSubMessage.Builder getMessageBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMessageFieldBuilder().getBuilder();
     }
@@ -1158,6 +1114,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSizeBytes(long value) {
       
       sizeBytes_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1170,7 +1127,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSizeBytes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       sizeBytes_ = 0L;
       onChanged();
       return this;
@@ -1208,7 +1165,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SequencedMessage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,7 +36,8 @@ public interface UpdateInstanceMetadataOrBuilder extends
 
   /**
    * <pre>
-   * The time at which [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance]
+   * The time at which
+   * [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance]
    * request was received.
    * </pre>
    *
@@ -46,7 +47,8 @@ public interface UpdateInstanceMetadataOrBuilder extends
   boolean hasStartTime();
   /**
    * <pre>
-   * The time at which [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance]
+   * The time at which
+   * [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance]
    * request was received.
    * </pre>
    *
@@ -56,7 +58,8 @@ public interface UpdateInstanceMetadataOrBuilder extends
   com.google.protobuf.Timestamp getStartTime();
   /**
    * <pre>
-   * The time at which [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance]
+   * The time at which
+   * [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance]
    * request was received.
    * </pre>
    *

@@ -41,88 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MasterAuth(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            username_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            password_ = s;
-            break;
-          }
-          case 26: {
-            com.google.container.v1beta1.ClientCertificateConfig.Builder subBuilder = null;
-            if (clientCertificateConfig_ != null) {
-              subBuilder = clientCertificateConfig_.toBuilder();
-            }
-            clientCertificateConfig_ = input.readMessage(com.google.container.v1beta1.ClientCertificateConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(clientCertificateConfig_);
-              clientCertificateConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 802: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterCaCertificate_ = s;
-            break;
-          }
-          case 810: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clientCertificate_ = s;
-            break;
-          }
-          case 818: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clientKey_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_MasterAuth_descriptor;
@@ -137,7 +55,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USERNAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object username_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object username_ = "";
   /**
    * <pre>
    * The username to use for HTTP basic authentication to the master endpoint.
@@ -151,7 +70,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string username = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.MasterAuth.username is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=979
+   *     See google/container/v1beta1/cluster_service.proto;l=1002
    * @return The username.
    */
   @java.lang.Override
@@ -180,7 +99,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string username = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.MasterAuth.username is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=979
+   *     See google/container/v1beta1/cluster_service.proto;l=1002
    * @return The bytes for username.
    */
   @java.lang.Override
@@ -199,7 +118,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PASSWORD_FIELD_NUMBER = 2;
-  private volatile java.lang.Object password_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object password_ = "";
   /**
    * <pre>
    * The password to use for HTTP basic authentication to the master endpoint.
@@ -214,7 +134,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string password = 2 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.MasterAuth.password is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=990
+   *     See google/container/v1beta1/cluster_service.proto;l=1013
    * @return The password.
    */
   @java.lang.Override
@@ -244,7 +164,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string password = 2 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.MasterAuth.password is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=990
+   *     See google/container/v1beta1/cluster_service.proto;l=1013
    * @return The bytes for password.
    */
   @java.lang.Override
@@ -303,11 +223,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.ClientCertificateConfigOrBuilder getClientCertificateConfigOrBuilder() {
-    return getClientCertificateConfig();
+    return clientCertificateConfig_ == null ? com.google.container.v1beta1.ClientCertificateConfig.getDefaultInstance() : clientCertificateConfig_;
   }
 
   public static final int CLUSTER_CA_CERTIFICATE_FIELD_NUMBER = 100;
-  private volatile java.lang.Object clusterCaCertificate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterCaCertificate_ = "";
   /**
    * <code>string cluster_ca_certificate = 100;</code>
    * @return The clusterCaCertificate.
@@ -345,7 +266,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_CERTIFICATE_FIELD_NUMBER = 101;
-  private volatile java.lang.Object clientCertificate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clientCertificate_ = "";
   /**
    * <pre>
    * [Output only] Base64-encoded public certificate used by clients to
@@ -393,7 +315,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_KEY_FIELD_NUMBER = 102;
-  private volatile java.lang.Object clientKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clientKey_ = "";
   /**
    * <pre>
    * [Output only] Base64-encoded private key used by clients to authenticate
@@ -472,7 +395,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientKey_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 102, clientKey_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -500,7 +423,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientKey_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(102, clientKey_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -530,7 +453,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getClientCertificate())) return false;
     if (!getClientKey()
         .equals(other.getClientKey())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -555,7 +478,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getClientCertificate().hashCode();
     hash = (37 * hash) + CLIENT_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getClientKey().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -678,38 +601,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.MasterAuth.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       username_ = "";
-
       password_ = "";
-
-      if (clientCertificateConfigBuilder_ == null) {
-        clientCertificateConfig_ = null;
-      } else {
-        clientCertificateConfig_ = null;
+      clientCertificateConfig_ = null;
+      if (clientCertificateConfigBuilder_ != null) {
+        clientCertificateConfigBuilder_.dispose();
         clientCertificateConfigBuilder_ = null;
       }
       clusterCaCertificate_ = "";
-
       clientCertificate_ = "";
-
       clientKey_ = "";
-
       return this;
     }
 
@@ -736,18 +649,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.MasterAuth buildPartial() {
       com.google.container.v1beta1.MasterAuth result = new com.google.container.v1beta1.MasterAuth(this);
-      result.username_ = username_;
-      result.password_ = password_;
-      if (clientCertificateConfigBuilder_ == null) {
-        result.clientCertificateConfig_ = clientCertificateConfig_;
-      } else {
-        result.clientCertificateConfig_ = clientCertificateConfigBuilder_.build();
-      }
-      result.clusterCaCertificate_ = clusterCaCertificate_;
-      result.clientCertificate_ = clientCertificate_;
-      result.clientKey_ = clientKey_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.MasterAuth result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.username_ = username_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.password_ = password_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.clientCertificateConfig_ = clientCertificateConfigBuilder_ == null
+            ? clientCertificateConfig_
+            : clientCertificateConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.clusterCaCertificate_ = clusterCaCertificate_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.clientCertificate_ = clientCertificate_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.clientKey_ = clientKey_;
+      }
     }
 
     @java.lang.Override
@@ -796,10 +724,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.container.v1beta1.MasterAuth.getDefaultInstance()) return this;
       if (!other.getUsername().isEmpty()) {
         username_ = other.username_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getPassword().isEmpty()) {
         password_ = other.password_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasClientCertificateConfig()) {
@@ -807,17 +737,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getClusterCaCertificate().isEmpty()) {
         clusterCaCertificate_ = other.clusterCaCertificate_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getClientCertificate().isEmpty()) {
         clientCertificate_ = other.clientCertificate_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getClientKey().isEmpty()) {
         clientKey_ = other.clientKey_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -832,19 +765,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.MasterAuth parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              username_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              password_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getClientCertificateConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 802: {
+              clusterCaCertificate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 802
+            case 810: {
+              clientCertificate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 810
+            case 818: {
+              clientKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 818
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.MasterAuth) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object username_ = "";
     /**
@@ -860,7 +839,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string username = 1 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.username is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=979
+     *     See google/container/v1beta1/cluster_service.proto;l=1002
      * @return The username.
      */
     @java.lang.Deprecated public java.lang.String getUsername() {
@@ -888,7 +867,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string username = 1 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.username is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=979
+     *     See google/container/v1beta1/cluster_service.proto;l=1002
      * @return The bytes for username.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -917,17 +896,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string username = 1 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.username is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=979
+     *     See google/container/v1beta1/cluster_service.proto;l=1002
      * @param value The username to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setUsername(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       username_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -944,12 +921,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string username = 1 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.username is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=979
+     *     See google/container/v1beta1/cluster_service.proto;l=1002
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearUsername() {
-      
       username_ = getDefaultInstance().getUsername();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -966,18 +943,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string username = 1 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.username is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=979
+     *     See google/container/v1beta1/cluster_service.proto;l=1002
      * @param value The bytes for username to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setUsernameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       username_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -997,7 +972,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string password = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.password is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=990
+     *     See google/container/v1beta1/cluster_service.proto;l=1013
      * @return The password.
      */
     @java.lang.Deprecated public java.lang.String getPassword() {
@@ -1026,7 +1001,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string password = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.password is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=990
+     *     See google/container/v1beta1/cluster_service.proto;l=1013
      * @return The bytes for password.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1056,17 +1031,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string password = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.password is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=990
+     *     See google/container/v1beta1/cluster_service.proto;l=1013
      * @param value The password to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setPassword(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       password_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1084,12 +1057,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string password = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.password is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=990
+     *     See google/container/v1beta1/cluster_service.proto;l=1013
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearPassword() {
-      
       password_ = getDefaultInstance().getPassword();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1107,18 +1080,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string password = 2 [deprecated = true];</code>
      * @deprecated google.container.v1beta1.MasterAuth.password is deprecated.
-     *     See google/container/v1beta1/cluster_service.proto;l=990
+     *     See google/container/v1beta1/cluster_service.proto;l=1013
      * @param value The bytes for password to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setPasswordBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       password_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1137,7 +1108,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the clientCertificateConfig field is set.
      */
     public boolean hasClientCertificateConfig() {
-      return clientCertificateConfigBuilder_ != null || clientCertificateConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1171,11 +1142,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         clientCertificateConfig_ = value;
-        onChanged();
       } else {
         clientCertificateConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1191,11 +1162,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.ClientCertificateConfig.Builder builderForValue) {
       if (clientCertificateConfigBuilder_ == null) {
         clientCertificateConfig_ = builderForValue.build();
-        onChanged();
       } else {
         clientCertificateConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1209,17 +1180,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeClientCertificateConfig(com.google.container.v1beta1.ClientCertificateConfig value) {
       if (clientCertificateConfigBuilder_ == null) {
-        if (clientCertificateConfig_ != null) {
-          clientCertificateConfig_ =
-            com.google.container.v1beta1.ClientCertificateConfig.newBuilder(clientCertificateConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          clientCertificateConfig_ != null &&
+          clientCertificateConfig_ != com.google.container.v1beta1.ClientCertificateConfig.getDefaultInstance()) {
+          getClientCertificateConfigBuilder().mergeFrom(value);
         } else {
           clientCertificateConfig_ = value;
         }
-        onChanged();
       } else {
         clientCertificateConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1232,14 +1204,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.ClientCertificateConfig client_certificate_config = 3;</code>
      */
     public Builder clearClientCertificateConfig() {
-      if (clientCertificateConfigBuilder_ == null) {
-        clientCertificateConfig_ = null;
-        onChanged();
-      } else {
-        clientCertificateConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      clientCertificateConfig_ = null;
+      if (clientCertificateConfigBuilder_ != null) {
+        clientCertificateConfigBuilder_.dispose();
         clientCertificateConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1252,7 +1223,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.ClientCertificateConfig client_certificate_config = 3;</code>
      */
     public com.google.container.v1beta1.ClientCertificateConfig.Builder getClientCertificateConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getClientCertificateConfigFieldBuilder().getBuilder();
     }
@@ -1337,11 +1308,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterCaCertificate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterCaCertificate_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1350,8 +1319,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClusterCaCertificate() {
-      
       clusterCaCertificate_ = getDefaultInstance().getClusterCaCertificate();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1362,12 +1331,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterCaCertificateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterCaCertificate_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1428,11 +1395,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientCertificate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientCertificate_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1446,8 +1411,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientCertificate() {
-      
       clientCertificate_ = getDefaultInstance().getClientCertificate();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1463,12 +1428,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientCertificateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clientCertificate_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1529,11 +1492,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientKey_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1547,8 +1508,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientKey() {
-      
       clientKey_ = getDefaultInstance().getClientKey();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1564,12 +1525,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clientKey_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1606,7 +1565,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MasterAuth(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

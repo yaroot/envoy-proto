@@ -473,5 +473,41 @@ public interface TcpProxyOrBuilder extends
    */
   com.google.protobuf.DurationOrBuilder getMaxDownstreamConnectionDurationOrBuilder();
 
+  /**
+   * <pre>
+   * The interval to flush access log. The TCP proxy will flush only one access log when the connection
+   * is closed by default. If this field is set, the TCP proxy will flush access log periodically with
+   * the specified interval.
+   * The interval must be at least 1ms.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration access_log_flush_interval = 15 [(.validate.rules) = { ... }</code>
+   * @return Whether the accessLogFlushInterval field is set.
+   */
+  boolean hasAccessLogFlushInterval();
+  /**
+   * <pre>
+   * The interval to flush access log. The TCP proxy will flush only one access log when the connection
+   * is closed by default. If this field is set, the TCP proxy will flush access log periodically with
+   * the specified interval.
+   * The interval must be at least 1ms.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration access_log_flush_interval = 15 [(.validate.rules) = { ... }</code>
+   * @return The accessLogFlushInterval.
+   */
+  com.google.protobuf.Duration getAccessLogFlushInterval();
+  /**
+   * <pre>
+   * The interval to flush access log. The TCP proxy will flush only one access log when the connection
+   * is closed by default. If this field is set, the TCP proxy will flush access log periodically with
+   * the specified interval.
+   * The interval must be at least 1ms.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration access_log_flush_interval = 15 [(.validate.rules) = { ... }</code>
+   */
+  com.google.protobuf.DurationOrBuilder getAccessLogFlushIntervalOrBuilder();
+
   public io.envoyproxy.envoy.extensions.filters.network.tcp_proxy.v3.TcpProxy.ClusterSpecifierCase getClusterSpecifierCase();
 }

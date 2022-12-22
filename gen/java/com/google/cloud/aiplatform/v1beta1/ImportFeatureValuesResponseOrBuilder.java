@@ -40,4 +40,15 @@ public interface ImportFeatureValuesResponseOrBuilder extends
    * @return The invalidRowCount.
    */
   long getInvalidRowCount();
+
+  /**
+   * <pre>
+   * The number rows that weren't ingested due to having feature timestamps
+   * outside the retention boundary.
+   * </pre>
+   *
+   * <code>int64 timestamp_outside_retention_rows_count = 4;</code>
+   * @return The timestampOutsideRetentionRowsCount.
+   */
+  long getTimestampOutsideRetentionRowsCount();
 }

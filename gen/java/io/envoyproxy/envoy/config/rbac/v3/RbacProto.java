@@ -72,82 +72,84 @@ public final class RbacProto {
       ".config.rbac.v3\032\"envoy/config/core/v3/ad" +
       "dress.proto\032$envoy/config/core/v3/extens" +
       "ion.proto\032,envoy/config/route/v3/route_c" +
-      "omponents.proto\032$envoy/type/matcher/v3/m" +
-      "etadata.proto\032 envoy/type/matcher/v3/pat" +
-      "h.proto\032\"envoy/type/matcher/v3/string.pr" +
-      "oto\032\031envoy/type/v3/range.proto\032&google/a" +
-      "pi/expr/v1alpha1/checked.proto\032%google/a" +
-      "pi/expr/v1alpha1/syntax.proto\032#envoy/ann" +
-      "otations/deprecation.proto\032\036udpa/annotat" +
-      "ions/migrate.proto\032\035udpa/annotations/sta" +
-      "tus.proto\032!udpa/annotations/versioning.p" +
-      "roto\032\027validate/validate.proto\"\230\002\n\004RBAC\022;" +
-      "\n\006action\030\001 \001(\0162!.envoy.config.rbac.v3.RB" +
-      "AC.ActionB\010\372B\005\202\001\002\020\001\022:\n\010policies\030\002 \003(\0132(." +
-      "envoy.config.rbac.v3.RBAC.PoliciesEntry\032" +
-      "M\n\rPoliciesEntry\022\013\n\003key\030\001 \001(\t\022+\n\005value\030\002" +
-      " \001(\0132\034.envoy.config.rbac.v3.Policy:\0028\001\"&" +
-      "\n\006Action\022\t\n\005ALLOW\020\000\022\010\n\004DENY\020\001\022\007\n\003LOG\020\002: " +
-      "\232\305\210\036\033\n\031envoy.config.rbac.v2.RBAC\"\335\002\n\006Pol" +
-      "icy\022?\n\013permissions\030\001 \003(\0132 .envoy.config." +
-      "rbac.v3.PermissionB\010\372B\005\222\001\002\010\001\022=\n\nprincipa" +
-      "ls\030\002 \003(\0132\037.envoy.config.rbac.v3.Principa" +
-      "lB\010\372B\005\222\001\002\010\001\022O\n\tcondition\030\003 \001(\0132\036.google." +
-      "api.expr.v1alpha1.ExprB\034\362\230\376\217\005\026\022\024expressi" +
-      "on_specifier\022^\n\021checked_condition\030\004 \001(\0132" +
-      "%.google.api.expr.v1alpha1.CheckedExprB\034" +
-      "\362\230\376\217\005\026\022\024expression_specifier:\"\232\305\210\036\035\n\033env" +
-      "oy.config.rbac.v2.Policy\"\303\006\n\nPermission\022" +
-      "9\n\tand_rules\030\001 \001(\0132$.envoy.config.rbac.v" +
-      "3.Permission.SetH\000\0228\n\010or_rules\030\002 \001(\0132$.e" +
-      "nvoy.config.rbac.v3.Permission.SetH\000\022\026\n\003" +
-      "any\030\003 \001(\010B\007\372B\004j\002\010\001H\000\0226\n\006header\030\004 \001(\0132$.e" +
-      "nvoy.config.route.v3.HeaderMatcherH\000\0226\n\010" +
-      "url_path\030\n \001(\0132\".envoy.type.matcher.v3.P" +
-      "athMatcherH\000\0229\n\016destination_ip\030\005 \001(\0132\037.e" +
-      "nvoy.config.core.v3.CidrRangeH\000\022%\n\020desti" +
-      "nation_port\030\006 \001(\rB\t\372B\006*\004\030\377\377\003H\000\022;\n\026destin" +
-      "ation_port_range\030\013 \001(\0132\031.envoy.type.v3.I" +
-      "nt32RangeH\000\022:\n\010metadata\030\007 \001(\0132&.envoy.ty" +
-      "pe.matcher.v3.MetadataMatcherH\000\0224\n\010not_r" +
-      "ule\030\010 \001(\0132 .envoy.config.rbac.v3.Permiss" +
-      "ionH\000\022E\n\025requested_server_name\030\t \001(\0132$.e" +
-      "nvoy.type.matcher.v3.StringMatcherH\000\022=\n\007" +
-      "matcher\030\014 \001(\0132*.envoy.config.core.v3.Typ" +
-      "edExtensionConfigH\000\032l\n\003Set\0229\n\005rules\030\001 \003(" +
-      "\0132 .envoy.config.rbac.v3.PermissionB\010\372B\005" +
-      "\222\001\002\010\001:*\232\305\210\036%\n#envoy.config.rbac.v2.Permi" +
-      "ssion.Set:&\232\305\210\036!\n\037envoy.config.rbac.v2.P" +
-      "ermissionB\013\n\004rule\022\003\370B\001\"\236\007\n\tPrincipal\0226\n\007" +
-      "and_ids\030\001 \001(\0132#.envoy.config.rbac.v3.Pri" +
-      "ncipal.SetH\000\0225\n\006or_ids\030\002 \001(\0132#.envoy.con" +
-      "fig.rbac.v3.Principal.SetH\000\022\026\n\003any\030\003 \001(\010" +
-      "B\007\372B\004j\002\010\001H\000\022F\n\rauthenticated\030\004 \001(\0132-.env" +
-      "oy.config.rbac.v3.Principal.Authenticate" +
-      "dH\000\022A\n\tsource_ip\030\005 \001(\0132\037.envoy.config.co" +
-      "re.v3.CidrRangeB\013\030\001\222\307\206\330\004\0033.0H\000\022;\n\020direct" +
-      "_remote_ip\030\n \001(\0132\037.envoy.config.core.v3." +
-      "CidrRangeH\000\0224\n\tremote_ip\030\013 \001(\0132\037.envoy.c" +
-      "onfig.core.v3.CidrRangeH\000\0226\n\006header\030\006 \001(" +
-      "\0132$.envoy.config.route.v3.HeaderMatcherH" +
-      "\000\0226\n\010url_path\030\t \001(\0132\".envoy.type.matcher" +
-      ".v3.PathMatcherH\000\022:\n\010metadata\030\007 \001(\0132&.en" +
-      "voy.type.matcher.v3.MetadataMatcherH\000\0221\n" +
-      "\006not_id\030\010 \001(\0132\037.envoy.config.rbac.v3.Pri" +
-      "ncipalH\000\032h\n\003Set\0226\n\003ids\030\001 \003(\0132\037.envoy.con" +
-      "fig.rbac.v3.PrincipalB\010\372B\005\222\001\002\010\001:)\232\305\210\036$\n\"" +
-      "envoy.config.rbac.v2.Principal.Set\032\210\001\n\rA" +
-      "uthenticated\022<\n\016principal_name\030\002 \001(\0132$.e" +
-      "nvoy.type.matcher.v3.StringMatcher:3\232\305\210\036" +
-      ".\n,envoy.config.rbac.v2.Principal.Authen" +
-      "ticatedJ\004\010\001\020\002:%\232\305\210\036 \n\036envoy.config.rbac." +
-      "v2.PrincipalB\021\n\nidentifier\022\003\370B\001\"R\n\006Actio" +
-      "n\022\025\n\004name\030\001 \001(\tB\007\372B\004r\002\020\001\0221\n\006action\030\002 \001(\016" +
-      "2!.envoy.config.rbac.v3.RBAC.ActionB}\n\"i" +
-      "o.envoyproxy.envoy.config.rbac.v3B\tRbacP" +
-      "rotoP\001ZBgithub.com/envoyproxy/go-control" +
-      "-plane/envoy/config/rbac/v3;rbacv3\272\200\310\321\006\002" +
-      "\020\002b\006proto3"
+      "omponents.proto\032(envoy/type/matcher/v3/f" +
+      "ilter_state.proto\032$envoy/type/matcher/v3" +
+      "/metadata.proto\032 envoy/type/matcher/v3/p" +
+      "ath.proto\032\"envoy/type/matcher/v3/string." +
+      "proto\032\031envoy/type/v3/range.proto\032&google" +
+      "/api/expr/v1alpha1/checked.proto\032%google" +
+      "/api/expr/v1alpha1/syntax.proto\032#envoy/a" +
+      "nnotations/deprecation.proto\032\036udpa/annot" +
+      "ations/migrate.proto\032\035udpa/annotations/s" +
+      "tatus.proto\032!udpa/annotations/versioning" +
+      ".proto\032\027validate/validate.proto\"\230\002\n\004RBAC" +
+      "\022;\n\006action\030\001 \001(\0162!.envoy.config.rbac.v3." +
+      "RBAC.ActionB\010\372B\005\202\001\002\020\001\022:\n\010policies\030\002 \003(\0132" +
+      "(.envoy.config.rbac.v3.RBAC.PoliciesEntr" +
+      "y\032M\n\rPoliciesEntry\022\013\n\003key\030\001 \001(\t\022+\n\005value" +
+      "\030\002 \001(\0132\034.envoy.config.rbac.v3.Policy:\0028\001" +
+      "\"&\n\006Action\022\t\n\005ALLOW\020\000\022\010\n\004DENY\020\001\022\007\n\003LOG\020\002" +
+      ": \232\305\210\036\033\n\031envoy.config.rbac.v2.RBAC\"\335\002\n\006P" +
+      "olicy\022?\n\013permissions\030\001 \003(\0132 .envoy.confi" +
+      "g.rbac.v3.PermissionB\010\372B\005\222\001\002\010\001\022=\n\nprinci" +
+      "pals\030\002 \003(\0132\037.envoy.config.rbac.v3.Princi" +
+      "palB\010\372B\005\222\001\002\010\001\022O\n\tcondition\030\003 \001(\0132\036.googl" +
+      "e.api.expr.v1alpha1.ExprB\034\362\230\376\217\005\026\022\024expres" +
+      "sion_specifier\022^\n\021checked_condition\030\004 \001(" +
+      "\0132%.google.api.expr.v1alpha1.CheckedExpr" +
+      "B\034\362\230\376\217\005\026\022\024expression_specifier:\"\232\305\210\036\035\n\033e" +
+      "nvoy.config.rbac.v2.Policy\"\303\006\n\nPermissio" +
+      "n\0229\n\tand_rules\030\001 \001(\0132$.envoy.config.rbac" +
+      ".v3.Permission.SetH\000\0228\n\010or_rules\030\002 \001(\0132$" +
+      ".envoy.config.rbac.v3.Permission.SetH\000\022\026" +
+      "\n\003any\030\003 \001(\010B\007\372B\004j\002\010\001H\000\0226\n\006header\030\004 \001(\0132$" +
+      ".envoy.config.route.v3.HeaderMatcherH\000\0226" +
+      "\n\010url_path\030\n \001(\0132\".envoy.type.matcher.v3" +
+      ".PathMatcherH\000\0229\n\016destination_ip\030\005 \001(\0132\037" +
+      ".envoy.config.core.v3.CidrRangeH\000\022%\n\020des" +
+      "tination_port\030\006 \001(\rB\t\372B\006*\004\030\377\377\003H\000\022;\n\026dest" +
+      "ination_port_range\030\013 \001(\0132\031.envoy.type.v3" +
+      ".Int32RangeH\000\022:\n\010metadata\030\007 \001(\0132&.envoy." +
+      "type.matcher.v3.MetadataMatcherH\000\0224\n\010not" +
+      "_rule\030\010 \001(\0132 .envoy.config.rbac.v3.Permi" +
+      "ssionH\000\022E\n\025requested_server_name\030\t \001(\0132$" +
+      ".envoy.type.matcher.v3.StringMatcherH\000\022=" +
+      "\n\007matcher\030\014 \001(\0132*.envoy.config.core.v3.T" +
+      "ypedExtensionConfigH\000\032l\n\003Set\0229\n\005rules\030\001 " +
+      "\003(\0132 .envoy.config.rbac.v3.PermissionB\010\372" +
+      "B\005\222\001\002\010\001:*\232\305\210\036%\n#envoy.config.rbac.v2.Per" +
+      "mission.Set:&\232\305\210\036!\n\037envoy.config.rbac.v2" +
+      ".PermissionB\013\n\004rule\022\003\370B\001\"\341\007\n\tPrincipal\0226" +
+      "\n\007and_ids\030\001 \001(\0132#.envoy.config.rbac.v3.P" +
+      "rincipal.SetH\000\0225\n\006or_ids\030\002 \001(\0132#.envoy.c" +
+      "onfig.rbac.v3.Principal.SetH\000\022\026\n\003any\030\003 \001" +
+      "(\010B\007\372B\004j\002\010\001H\000\022F\n\rauthenticated\030\004 \001(\0132-.e" +
+      "nvoy.config.rbac.v3.Principal.Authentica" +
+      "tedH\000\022A\n\tsource_ip\030\005 \001(\0132\037.envoy.config." +
+      "core.v3.CidrRangeB\013\030\001\222\307\206\330\004\0033.0H\000\022;\n\020dire" +
+      "ct_remote_ip\030\n \001(\0132\037.envoy.config.core.v" +
+      "3.CidrRangeH\000\0224\n\tremote_ip\030\013 \001(\0132\037.envoy" +
+      ".config.core.v3.CidrRangeH\000\0226\n\006header\030\006 " +
+      "\001(\0132$.envoy.config.route.v3.HeaderMatche" +
+      "rH\000\0226\n\010url_path\030\t \001(\0132\".envoy.type.match" +
+      "er.v3.PathMatcherH\000\022:\n\010metadata\030\007 \001(\0132&." +
+      "envoy.type.matcher.v3.MetadataMatcherH\000\022" +
+      "A\n\014filter_state\030\014 \001(\0132).envoy.type.match" +
+      "er.v3.FilterStateMatcherH\000\0221\n\006not_id\030\010 \001" +
+      "(\0132\037.envoy.config.rbac.v3.PrincipalH\000\032h\n" +
+      "\003Set\0226\n\003ids\030\001 \003(\0132\037.envoy.config.rbac.v3" +
+      ".PrincipalB\010\372B\005\222\001\002\010\001:)\232\305\210\036$\n\"envoy.confi" +
+      "g.rbac.v2.Principal.Set\032\210\001\n\rAuthenticate" +
+      "d\022<\n\016principal_name\030\002 \001(\0132$.envoy.type.m" +
+      "atcher.v3.StringMatcher:3\232\305\210\036.\n,envoy.co" +
+      "nfig.rbac.v2.Principal.AuthenticatedJ\004\010\001" +
+      "\020\002:%\232\305\210\036 \n\036envoy.config.rbac.v2.Principa" +
+      "lB\021\n\nidentifier\022\003\370B\001\"R\n\006Action\022\025\n\004name\030\001" +
+      " \001(\tB\007\372B\004r\002\020\001\0221\n\006action\030\002 \001(\0162!.envoy.co" +
+      "nfig.rbac.v3.RBAC.ActionB}\n\"io.envoyprox" +
+      "y.envoy.config.rbac.v3B\tRbacProtoP\001ZBgit" +
+      "hub.com/envoyproxy/go-control-plane/envo" +
+      "y/config/rbac/v3;rbacv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -155,6 +157,7 @@ public final class RbacProto {
           io.envoyproxy.envoy.config.core.v3.AddressProto.getDescriptor(),
           io.envoyproxy.envoy.config.core.v3.ExtensionProto.getDescriptor(),
           io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.getDescriptor(),
+          io.envoyproxy.envoy.type.matcher.v3.FilterStateProto.getDescriptor(),
           io.envoyproxy.envoy.type.matcher.v3.MetadataProto.getDescriptor(),
           io.envoyproxy.envoy.type.matcher.v3.PathProto.getDescriptor(),
           io.envoyproxy.envoy.type.matcher.v3.StringProto.getDescriptor(),
@@ -202,7 +205,7 @@ public final class RbacProto {
     internal_static_envoy_config_rbac_v3_Principal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_rbac_v3_Principal_descriptor,
-        new java.lang.String[] { "AndIds", "OrIds", "Any", "Authenticated", "SourceIp", "DirectRemoteIp", "RemoteIp", "Header", "UrlPath", "Metadata", "NotId", "Identifier", });
+        new java.lang.String[] { "AndIds", "OrIds", "Any", "Authenticated", "SourceIp", "DirectRemoteIp", "RemoteIp", "Header", "UrlPath", "Metadata", "FilterState", "NotId", "Identifier", });
     internal_static_envoy_config_rbac_v3_Principal_Set_descriptor =
       internal_static_envoy_config_rbac_v3_Principal_descriptor.getNestedTypes().get(0);
     internal_static_envoy_config_rbac_v3_Principal_Set_fieldAccessorTable = new
@@ -234,6 +237,7 @@ public final class RbacProto {
     io.envoyproxy.envoy.config.core.v3.AddressProto.getDescriptor();
     io.envoyproxy.envoy.config.core.v3.ExtensionProto.getDescriptor();
     io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.getDescriptor();
+    io.envoyproxy.envoy.type.matcher.v3.FilterStateProto.getDescriptor();
     io.envoyproxy.envoy.type.matcher.v3.MetadataProto.getDescriptor();
     io.envoyproxy.envoy.type.matcher.v3.PathProto.getDescriptor();
     io.envoyproxy.envoy.type.matcher.v3.StringProto.getDescriptor();

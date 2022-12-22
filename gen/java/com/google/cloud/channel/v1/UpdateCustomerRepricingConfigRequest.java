@@ -5,7 +5,8 @@ package com.google.cloud.channel.v1;
 
 /**
  * <pre>
- * Request message for [CloudChannelService.UpdateCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.UpdateCustomerRepricingConfig].
+ * Request message for
+ * [CloudChannelService.UpdateCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.UpdateCustomerRepricingConfig].
  * </pre>
  *
  * Protobuf type {@code google.cloud.channel.v1.UpdateCustomerRepricingConfigRequest}
@@ -33,58 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private UpdateCustomerRepricingConfigRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.channel.v1.CustomerRepricingConfig.Builder subBuilder = null;
-            if (customerRepricingConfig_ != null) {
-              subBuilder = customerRepricingConfig_.toBuilder();
-            }
-            customerRepricingConfig_ = input.readMessage(com.google.cloud.channel.v1.CustomerRepricingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(customerRepricingConfig_);
-              customerRepricingConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -134,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.CustomerRepricingConfigOrBuilder getCustomerRepricingConfigOrBuilder() {
-    return getCustomerRepricingConfig();
+    return customerRepricingConfig_ == null ? com.google.cloud.channel.v1.CustomerRepricingConfig.getDefaultInstance() : customerRepricingConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +103,7 @@ private static final long serialVersionUID = 0L;
     if (customerRepricingConfig_ != null) {
       output.writeMessage(1, getCustomerRepricingConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +116,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getCustomerRepricingConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +136,7 @@ private static final long serialVersionUID = 0L;
       if (!getCustomerRepricingConfig()
           .equals(other.getCustomerRepricingConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +151,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CUSTOMER_REPRICING_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getCustomerRepricingConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -299,7 +248,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Request message for [CloudChannelService.UpdateCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.UpdateCustomerRepricingConfig].
+   * Request message for
+   * [CloudChannelService.UpdateCustomerRepricingConfig][google.cloud.channel.v1.CloudChannelService.UpdateCustomerRepricingConfig].
    * </pre>
    *
    * Protobuf type {@code google.cloud.channel.v1.UpdateCustomerRepricingConfigRequest}
@@ -323,26 +273,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.UpdateCustomerRepricingConfigRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (customerRepricingConfigBuilder_ == null) {
-        customerRepricingConfig_ = null;
-      } else {
-        customerRepricingConfig_ = null;
+      bitField0_ = 0;
+      customerRepricingConfig_ = null;
+      if (customerRepricingConfigBuilder_ != null) {
+        customerRepricingConfigBuilder_.dispose();
         customerRepricingConfigBuilder_ = null;
       }
       return this;
@@ -371,13 +316,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.UpdateCustomerRepricingConfigRequest buildPartial() {
       com.google.cloud.channel.v1.UpdateCustomerRepricingConfigRequest result = new com.google.cloud.channel.v1.UpdateCustomerRepricingConfigRequest(this);
-      if (customerRepricingConfigBuilder_ == null) {
-        result.customerRepricingConfig_ = customerRepricingConfig_;
-      } else {
-        result.customerRepricingConfig_ = customerRepricingConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.UpdateCustomerRepricingConfigRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.customerRepricingConfig_ = customerRepricingConfigBuilder_ == null
+            ? customerRepricingConfig_
+            : customerRepricingConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -427,7 +377,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCustomerRepricingConfig()) {
         mergeCustomerRepricingConfig(other.getCustomerRepricingConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +392,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.UpdateCustomerRepricingConfigRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCustomerRepricingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.UpdateCustomerRepricingConfigRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.channel.v1.CustomerRepricingConfig customerRepricingConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +439,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the customerRepricingConfig field is set.
      */
     public boolean hasCustomerRepricingConfig() {
-      return customerRepricingConfigBuilder_ != null || customerRepricingConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +469,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         customerRepricingConfig_ = value;
-        onChanged();
       } else {
         customerRepricingConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +487,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.CustomerRepricingConfig.Builder builderForValue) {
       if (customerRepricingConfigBuilder_ == null) {
         customerRepricingConfig_ = builderForValue.build();
-        onChanged();
       } else {
         customerRepricingConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +503,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCustomerRepricingConfig(com.google.cloud.channel.v1.CustomerRepricingConfig value) {
       if (customerRepricingConfigBuilder_ == null) {
-        if (customerRepricingConfig_ != null) {
-          customerRepricingConfig_ =
-            com.google.cloud.channel.v1.CustomerRepricingConfig.newBuilder(customerRepricingConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          customerRepricingConfig_ != null &&
+          customerRepricingConfig_ != com.google.cloud.channel.v1.CustomerRepricingConfig.getDefaultInstance()) {
+          getCustomerRepricingConfigBuilder().mergeFrom(value);
         } else {
           customerRepricingConfig_ = value;
         }
-        onChanged();
       } else {
         customerRepricingConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +525,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.CustomerRepricingConfig customer_repricing_config = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearCustomerRepricingConfig() {
-      if (customerRepricingConfigBuilder_ == null) {
-        customerRepricingConfig_ = null;
-        onChanged();
-      } else {
-        customerRepricingConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      customerRepricingConfig_ = null;
+      if (customerRepricingConfigBuilder_ != null) {
+        customerRepricingConfigBuilder_.dispose();
         customerRepricingConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +542,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.CustomerRepricingConfig customer_repricing_config = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.channel.v1.CustomerRepricingConfig.Builder getCustomerRepricingConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCustomerRepricingConfigFieldBuilder().getBuilder();
     }
@@ -643,7 +614,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateCustomerRepricingConfigRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

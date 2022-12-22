@@ -49,218 +49,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserEvent(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            eventType_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            visitorId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (eventTime_ != null) {
-              subBuilder = eventTime_.toBuilder();
-            }
-            eventTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventTime_);
-              eventTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              experimentIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            experimentIds_.add(s);
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            attributionToken_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              productDetails_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.ProductDetail>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            productDetails_.add(
-                input.readMessage(com.google.cloud.retail.v2beta.ProductDetail.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              attributes_ = com.google.protobuf.MapField.newMapField(
-                  AttributesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
-            attributes__ = input.readMessage(
-                AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            attributes_.getMutableMap().put(
-                attributes__.getKey(), attributes__.getValue());
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cartId_ = s;
-            break;
-          }
-          case 74: {
-            com.google.cloud.retail.v2beta.PurchaseTransaction.Builder subBuilder = null;
-            if (purchaseTransaction_ != null) {
-              subBuilder = purchaseTransaction_.toBuilder();
-            }
-            purchaseTransaction_ = input.readMessage(com.google.cloud.retail.v2beta.PurchaseTransaction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(purchaseTransaction_);
-              purchaseTransaction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            searchQuery_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              pageCategories_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            pageCategories_.add(s);
-            break;
-          }
-          case 98: {
-            com.google.cloud.retail.v2beta.UserInfo.Builder subBuilder = null;
-            if (userInfo_ != null) {
-              subBuilder = userInfo_.toBuilder();
-            }
-            userInfo_ = input.readMessage(com.google.cloud.retail.v2beta.UserInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(userInfo_);
-              userInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uri_ = s;
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            referrerUri_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageViewId_ = s;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filter_ = s;
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            orderBy_ = s;
-            break;
-          }
-          case 144: {
-
-            offset_ = input.readInt32();
-            break;
-          }
-          case 170: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sessionId_ = s;
-            break;
-          }
-          case 178: {
-            com.google.cloud.retail.v2beta.CompletionDetail.Builder subBuilder = null;
-            if (completionDetail_ != null) {
-              subBuilder = completionDetail_.toBuilder();
-            }
-            completionDetail_ = input.readMessage(com.google.cloud.retail.v2beta.CompletionDetail.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(completionDetail_);
-              completionDetail_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        experimentIds_ = experimentIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        productDetails_ = java.util.Collections.unmodifiableList(productDetails_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        pageCategories_ = pageCategories_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2beta.UserEventProto.internal_static_google_cloud_retail_v2beta_UserEvent_descriptor;
@@ -287,7 +75,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_TYPE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object eventType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object eventType_ = "";
   /**
    * <pre>
    * Required. User event type. Allowed values are:
@@ -353,7 +142,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VISITOR_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object visitorId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object visitorId_ = "";
   /**
    * <pre>
    * Required. A unique identifier for tracking visitors.
@@ -423,7 +213,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SESSION_ID_FIELD_NUMBER = 21;
-  private volatile java.lang.Object sessionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sessionId_ = "";
   /**
    * <pre>
    * A unique identifier for tracking a visitor session with a length limit of
@@ -521,10 +312,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEventTimeOrBuilder() {
-    return getEventTime();
+    return eventTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : eventTime_;
   }
 
   public static final int EXPERIMENT_IDS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList experimentIds_;
   /**
    * <pre>
@@ -588,7 +380,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ATTRIBUTION_TOKEN_FIELD_NUMBER = 5;
-  private volatile java.lang.Object attributionToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object attributionToken_ = "";
   /**
    * <pre>
    * Highly recommended for user events that are the result of
@@ -674,6 +467,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRODUCT_DETAILS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.retail.v2beta.ProductDetail> productDetails_;
   /**
    * <pre>
@@ -829,7 +623,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2beta.CompletionDetailOrBuilder getCompletionDetailOrBuilder() {
-    return getCompletionDetail();
+    return completionDetail_ == null ? com.google.cloud.retail.v2beta.CompletionDetail.getDefaultInstance() : completionDetail_;
   }
 
   public static final int ATTRIBUTES_FIELD_NUMBER = 7;
@@ -844,6 +638,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.retail.v2beta.CustomAttribute.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> attributes_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
@@ -854,7 +649,6 @@ private static final long serialVersionUID = 0L;
     }
     return attributes_;
   }
-
   public int getAttributesCount() {
     return internalGetAttributes().getMap().size();
   }
@@ -883,7 +677,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
    */
-
   @java.lang.Override
   public boolean containsAttributes(
       java.lang.String key) {
@@ -924,7 +717,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> getAttributesMap() {
     return internalGetAttributes().getMap();
   }
@@ -954,10 +746,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrDefault(
+  public /* nullable */
+com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrDefault(
       java.lang.String key,
-      com.google.cloud.retail.v2beta.CustomAttribute defaultValue) {
+      /* nullable */
+com.google.cloud.retail.v2beta.CustomAttribute defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> map =
         internalGetAttributes().getMap();
@@ -989,7 +782,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1002,7 +794,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CART_ID_FIELD_NUMBER = 8;
-  private volatile java.lang.Object cartId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cartId_ = "";
   /**
    * <pre>
    * The ID or name of the associated shopping cart. This ID is used
@@ -1094,11 +887,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2beta.PurchaseTransactionOrBuilder getPurchaseTransactionOrBuilder() {
-    return getPurchaseTransaction();
+    return purchaseTransaction_ == null ? com.google.cloud.retail.v2beta.PurchaseTransaction.getDefaultInstance() : purchaseTransaction_;
   }
 
   public static final int SEARCH_QUERY_FIELD_NUMBER = 10;
-  private volatile java.lang.Object searchQuery_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object searchQuery_ = "";
   /**
    * <pre>
    * The user's search query.
@@ -1162,7 +956,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_FIELD_NUMBER = 16;
-  private volatile java.lang.Object filter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filter_ = "";
   /**
    * <pre>
    * The filter syntax consists of an expression language for constructing a
@@ -1218,7 +1013,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORDER_BY_FIELD_NUMBER = 17;
-  private volatile java.lang.Object orderBy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object orderBy_ = "";
   /**
    * <pre>
    * The order in which products are returned.
@@ -1278,7 +1074,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OFFSET_FIELD_NUMBER = 18;
-  private int offset_;
+  private int offset_ = 0;
   /**
    * <pre>
    * An integer that specifies the current offset for pagination (the 0-indexed
@@ -1299,12 +1095,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_CATEGORIES_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList pageCategories_;
   /**
    * <pre>
    * The categories associated with a category page.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * Category pages include special pages such as sales or promotions. For
    * instance, a special sale page may have the category hierarchy:
@@ -1327,7 +1124,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The categories associated with a category page.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * Category pages include special pages such as sales or promotions. For
    * instance, a special sale page may have the category hierarchy:
@@ -1349,7 +1146,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The categories associated with a category page.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * Category pages include special pages such as sales or promotions. For
    * instance, a special sale page may have the category hierarchy:
@@ -1372,7 +1169,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The categories associated with a category page.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * Category pages include special pages such as sales or promotions. For
    * instance, a special sale page may have the category hierarchy:
@@ -1428,11 +1225,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2beta.UserInfoOrBuilder getUserInfoOrBuilder() {
-    return getUserInfo();
+    return userInfo_ == null ? com.google.cloud.retail.v2beta.UserInfo.getDefaultInstance() : userInfo_;
   }
 
   public static final int URI_FIELD_NUMBER = 13;
-  private volatile java.lang.Object uri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uri_ = "";
   /**
    * <pre>
    * Complete URL (window.location.href) of the user's current page.
@@ -1484,7 +1282,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REFERRER_URI_FIELD_NUMBER = 14;
-  private volatile java.lang.Object referrerUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object referrerUri_ = "";
   /**
    * <pre>
    * The referrer URL of the current page.
@@ -1534,7 +1333,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_VIEW_ID_FIELD_NUMBER = 15;
-  private volatile java.lang.Object pageViewId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageViewId_ = "";
   /**
    * <pre>
    * A unique ID of a web page view.
@@ -1670,7 +1470,7 @@ private static final long serialVersionUID = 0L;
     if (completionDetail_ != null) {
       output.writeMessage(22, getCompletionDetail());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1762,7 +1562,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(22, getCompletionDetail());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1829,7 +1629,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getReferrerUri())) return false;
     if (!getPageViewId()
         .equals(other.getPageViewId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1896,7 +1696,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getReferrerUri().hashCode();
     hash = (37 * hash) + PAGE_VIEW_ID_FIELD_NUMBER;
     hash = (53 * hash) + getPageViewId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2040,82 +1840,62 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2beta.UserEvent.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getProductDetailsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       eventType_ = "";
-
       visitorId_ = "";
-
       sessionId_ = "";
-
-      if (eventTimeBuilder_ == null) {
-        eventTime_ = null;
-      } else {
-        eventTime_ = null;
+      eventTime_ = null;
+      if (eventTimeBuilder_ != null) {
+        eventTimeBuilder_.dispose();
         eventTimeBuilder_ = null;
       }
       experimentIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       attributionToken_ = "";
-
       if (productDetailsBuilder_ == null) {
         productDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        productDetails_ = null;
         productDetailsBuilder_.clear();
       }
-      if (completionDetailBuilder_ == null) {
-        completionDetail_ = null;
-      } else {
-        completionDetail_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      completionDetail_ = null;
+      if (completionDetailBuilder_ != null) {
+        completionDetailBuilder_.dispose();
         completionDetailBuilder_ = null;
       }
       internalGetMutableAttributes().clear();
       cartId_ = "";
-
-      if (purchaseTransactionBuilder_ == null) {
-        purchaseTransaction_ = null;
-      } else {
-        purchaseTransaction_ = null;
+      purchaseTransaction_ = null;
+      if (purchaseTransactionBuilder_ != null) {
+        purchaseTransactionBuilder_.dispose();
         purchaseTransactionBuilder_ = null;
       }
       searchQuery_ = "";
-
       filter_ = "";
-
       orderBy_ = "";
-
       offset_ = 0;
-
       pageCategories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
-      if (userInfoBuilder_ == null) {
-        userInfo_ = null;
-      } else {
-        userInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      userInfo_ = null;
+      if (userInfoBuilder_ != null) {
+        userInfoBuilder_.dispose();
         userInfoBuilder_ = null;
       }
       uri_ = "";
-
       referrerUri_ = "";
-
       pageViewId_ = "";
-
       return this;
     }
 
@@ -2142,62 +1922,96 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2beta.UserEvent buildPartial() {
       com.google.cloud.retail.v2beta.UserEvent result = new com.google.cloud.retail.v2beta.UserEvent(this);
-      int from_bitField0_ = bitField0_;
-      result.eventType_ = eventType_;
-      result.visitorId_ = visitorId_;
-      result.sessionId_ = sessionId_;
-      if (eventTimeBuilder_ == null) {
-        result.eventTime_ = eventTime_;
-      } else {
-        result.eventTime_ = eventTimeBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2beta.UserEvent result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         experimentIds_ = experimentIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.experimentIds_ = experimentIds_;
-      result.attributionToken_ = attributionToken_;
       if (productDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           productDetails_ = java.util.Collections.unmodifiableList(productDetails_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.productDetails_ = productDetails_;
       } else {
         result.productDetails_ = productDetailsBuilder_.build();
       }
-      if (completionDetailBuilder_ == null) {
-        result.completionDetail_ = completionDetail_;
-      } else {
-        result.completionDetail_ = completionDetailBuilder_.build();
-      }
-      result.attributes_ = internalGetAttributes();
-      result.attributes_.makeImmutable();
-      result.cartId_ = cartId_;
-      if (purchaseTransactionBuilder_ == null) {
-        result.purchaseTransaction_ = purchaseTransaction_;
-      } else {
-        result.purchaseTransaction_ = purchaseTransactionBuilder_.build();
-      }
-      result.searchQuery_ = searchQuery_;
-      result.filter_ = filter_;
-      result.orderBy_ = orderBy_;
-      result.offset_ = offset_;
-      if (((bitField0_ & 0x00000008) != 0)) {
+      if (((bitField0_ & 0x00008000) != 0)) {
         pageCategories_ = pageCategories_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00008000);
       }
       result.pageCategories_ = pageCategories_;
-      if (userInfoBuilder_ == null) {
-        result.userInfo_ = userInfo_;
-      } else {
-        result.userInfo_ = userInfoBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2beta.UserEvent result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.eventType_ = eventType_;
       }
-      result.uri_ = uri_;
-      result.referrerUri_ = referrerUri_;
-      result.pageViewId_ = pageViewId_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.visitorId_ = visitorId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sessionId_ = sessionId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.eventTime_ = eventTimeBuilder_ == null
+            ? eventTime_
+            : eventTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.attributionToken_ = attributionToken_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.completionDetail_ = completionDetailBuilder_ == null
+            ? completionDetail_
+            : completionDetailBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.attributes_ = internalGetAttributes();
+        result.attributes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.cartId_ = cartId_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.purchaseTransaction_ = purchaseTransactionBuilder_ == null
+            ? purchaseTransaction_
+            : purchaseTransactionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.searchQuery_ = searchQuery_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.filter_ = filter_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.orderBy_ = orderBy_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.offset_ = offset_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.userInfo_ = userInfoBuilder_ == null
+            ? userInfo_
+            : userInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.uri_ = uri_;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.referrerUri_ = referrerUri_;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.pageViewId_ = pageViewId_;
+      }
     }
 
     @java.lang.Override
@@ -2246,14 +2060,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2beta.UserEvent.getDefaultInstance()) return this;
       if (!other.getEventType().isEmpty()) {
         eventType_ = other.eventType_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getVisitorId().isEmpty()) {
         visitorId_ = other.visitorId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getSessionId().isEmpty()) {
         sessionId_ = other.sessionId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasEventTime()) {
@@ -2262,7 +2079,7 @@ private static final long serialVersionUID = 0L;
       if (!other.experimentIds_.isEmpty()) {
         if (experimentIds_.isEmpty()) {
           experimentIds_ = other.experimentIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureExperimentIdsIsMutable();
           experimentIds_.addAll(other.experimentIds_);
@@ -2271,13 +2088,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAttributionToken().isEmpty()) {
         attributionToken_ = other.attributionToken_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (productDetailsBuilder_ == null) {
         if (!other.productDetails_.isEmpty()) {
           if (productDetails_.isEmpty()) {
             productDetails_ = other.productDetails_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureProductDetailsIsMutable();
             productDetails_.addAll(other.productDetails_);
@@ -2290,7 +2108,7 @@ private static final long serialVersionUID = 0L;
             productDetailsBuilder_.dispose();
             productDetailsBuilder_ = null;
             productDetails_ = other.productDetails_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
             productDetailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getProductDetailsFieldBuilder() : null;
@@ -2304,8 +2122,10 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableAttributes().mergeFrom(
           other.internalGetAttributes());
+      bitField0_ |= 0x00000100;
       if (!other.getCartId().isEmpty()) {
         cartId_ = other.cartId_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasPurchaseTransaction()) {
@@ -2313,14 +2133,17 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSearchQuery().isEmpty()) {
         searchQuery_ = other.searchQuery_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (!other.getFilter().isEmpty()) {
         filter_ = other.filter_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (!other.getOrderBy().isEmpty()) {
         orderBy_ = other.orderBy_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (other.getOffset() != 0) {
@@ -2329,7 +2152,7 @@ private static final long serialVersionUID = 0L;
       if (!other.pageCategories_.isEmpty()) {
         if (pageCategories_.isEmpty()) {
           pageCategories_ = other.pageCategories_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00008000);
         } else {
           ensurePageCategoriesIsMutable();
           pageCategories_.addAll(other.pageCategories_);
@@ -2341,17 +2164,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUri().isEmpty()) {
         uri_ = other.uri_;
+        bitField0_ |= 0x00020000;
         onChanged();
       }
       if (!other.getReferrerUri().isEmpty()) {
         referrerUri_ = other.referrerUri_;
+        bitField0_ |= 0x00040000;
         onChanged();
       }
       if (!other.getPageViewId().isEmpty()) {
         pageViewId_ = other.pageViewId_;
+        bitField0_ |= 0x00080000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2366,17 +2192,152 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2beta.UserEvent parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              eventType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              visitorId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getEventTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureExperimentIdsIsMutable();
+              experimentIds_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              attributionToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              com.google.cloud.retail.v2beta.ProductDetail m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2beta.ProductDetail.parser(),
+                      extensionRegistry);
+              if (productDetailsBuilder_ == null) {
+                ensureProductDetailsIsMutable();
+                productDetails_.add(m);
+              } else {
+                productDetailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
+              attributes__ = input.readMessage(
+                  AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAttributes().getMutableMap().put(
+                  attributes__.getKey(), attributes__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 58
+            case 66: {
+              cartId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getPurchaseTransactionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 74
+            case 82: {
+              searchQuery_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 82
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePageCategoriesIsMutable();
+              pageCategories_.add(s);
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getUserInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 98
+            case 106: {
+              uri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 106
+            case 114: {
+              referrerUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 114
+            case 122: {
+              pageViewId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 122
+            case 130: {
+              filter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 130
+            case 138: {
+              orderBy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 138
+            case 144: {
+              offset_ = input.readInt32();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 144
+            case 170: {
+              sessionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  getCompletionDetailFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 178
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2beta.UserEvent) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2464,11 +2425,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       eventType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2491,8 +2450,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEventType() {
-      
       eventType_ = getDefaultInstance().getEventType();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2517,12 +2476,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       eventType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2616,11 +2573,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVisitorId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       visitorId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2645,8 +2600,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVisitorId() {
-      
       visitorId_ = getDefaultInstance().getVisitorId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2673,12 +2628,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVisitorIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       visitorId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2754,11 +2707,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sessionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2777,8 +2728,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSessionId() {
-      
       sessionId_ = getDefaultInstance().getSessionId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2799,12 +2750,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sessionId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2823,7 +2772,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventTime field is set.
      */
     public boolean hasEventTime() {
-      return eventTimeBuilder_ != null || eventTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2857,11 +2806,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventTime_ = value;
-        onChanged();
       } else {
         eventTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2877,11 +2826,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (eventTimeBuilder_ == null) {
         eventTime_ = builderForValue.build();
-        onChanged();
       } else {
         eventTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2895,17 +2844,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventTime(com.google.protobuf.Timestamp value) {
       if (eventTimeBuilder_ == null) {
-        if (eventTime_ != null) {
-          eventTime_ =
-            com.google.protobuf.Timestamp.newBuilder(eventTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          eventTime_ != null &&
+          eventTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEventTimeBuilder().mergeFrom(value);
         } else {
           eventTime_ = value;
         }
-        onChanged();
       } else {
         eventTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2918,14 +2868,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp event_time = 3;</code>
      */
     public Builder clearEventTime() {
-      if (eventTimeBuilder_ == null) {
-        eventTime_ = null;
-        onChanged();
-      } else {
-        eventTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      eventTime_ = null;
+      if (eventTimeBuilder_ != null) {
+        eventTimeBuilder_.dispose();
         eventTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2938,7 +2887,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp event_time = 3;</code>
      */
     public com.google.protobuf.Timestamp.Builder getEventTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getEventTimeFieldBuilder().getBuilder();
     }
@@ -2984,9 +2933,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList experimentIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureExperimentIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         experimentIds_ = new com.google.protobuf.LazyStringArrayList(experimentIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -3064,10 +3013,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExperimentIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExperimentIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExperimentIdsIsMutable();
       experimentIds_.set(index, value);
       onChanged();
       return this;
@@ -3086,10 +3033,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExperimentIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExperimentIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExperimentIdsIsMutable();
       experimentIds_.add(value);
       onChanged();
       return this;
@@ -3127,7 +3072,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearExperimentIds() {
       experimentIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3145,10 +3090,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExperimentIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureExperimentIdsIsMutable();
       experimentIds_.add(value);
       onChanged();
@@ -3268,11 +3211,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAttributionToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       attributionToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3305,8 +3246,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAttributionToken() {
-      
       attributionToken_ = getDefaultInstance().getAttributionToken();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3341,12 +3282,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAttributionTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       attributionToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3354,9 +3293,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.retail.v2beta.ProductDetail> productDetails_ =
       java.util.Collections.emptyList();
     private void ensureProductDetailsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         productDetails_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.ProductDetail>(productDetails_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -3671,7 +3610,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearProductDetails() {
       if (productDetailsBuilder_ == null) {
         productDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         productDetailsBuilder_.clear();
@@ -3853,7 +3792,7 @@ private static final long serialVersionUID = 0L;
         productDetailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.retail.v2beta.ProductDetail, com.google.cloud.retail.v2beta.ProductDetail.Builder, com.google.cloud.retail.v2beta.ProductDetailOrBuilder>(
                 productDetails_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         productDetails_ = null;
@@ -3875,7 +3814,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the completionDetail field is set.
      */
     public boolean hasCompletionDetail() {
-      return completionDetailBuilder_ != null || completionDetail_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3909,11 +3848,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         completionDetail_ = value;
-        onChanged();
       } else {
         completionDetailBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3929,11 +3868,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2beta.CompletionDetail.Builder builderForValue) {
       if (completionDetailBuilder_ == null) {
         completionDetail_ = builderForValue.build();
-        onChanged();
       } else {
         completionDetailBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3947,17 +3886,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCompletionDetail(com.google.cloud.retail.v2beta.CompletionDetail value) {
       if (completionDetailBuilder_ == null) {
-        if (completionDetail_ != null) {
-          completionDetail_ =
-            com.google.cloud.retail.v2beta.CompletionDetail.newBuilder(completionDetail_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          completionDetail_ != null &&
+          completionDetail_ != com.google.cloud.retail.v2beta.CompletionDetail.getDefaultInstance()) {
+          getCompletionDetailBuilder().mergeFrom(value);
         } else {
           completionDetail_ = value;
         }
-        onChanged();
       } else {
         completionDetailBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3970,14 +3910,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.CompletionDetail completion_detail = 22;</code>
      */
     public Builder clearCompletionDetail() {
-      if (completionDetailBuilder_ == null) {
-        completionDetail_ = null;
-        onChanged();
-      } else {
-        completionDetail_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      completionDetail_ = null;
+      if (completionDetailBuilder_ != null) {
+        completionDetailBuilder_.dispose();
         completionDetailBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3990,7 +3929,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.CompletionDetail completion_detail = 22;</code>
      */
     public com.google.cloud.retail.v2beta.CompletionDetail.Builder getCompletionDetailBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getCompletionDetailFieldBuilder().getBuilder();
     }
@@ -4037,7 +3976,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> attributes_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
-    internalGetAttributes() {
+        internalGetAttributes() {
       if (attributes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -4045,8 +3984,7 @@ private static final long serialVersionUID = 0L;
       return attributes_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
-    internalGetMutableAttributes() {
-      onChanged();;
+        internalGetMutableAttributes() {
       if (attributes_ == null) {
         attributes_ = com.google.protobuf.MapField.newMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -4054,9 +3992,10 @@ private static final long serialVersionUID = 0L;
       if (!attributes_.isMutable()) {
         attributes_ = attributes_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return attributes_;
     }
-
     public int getAttributesCount() {
       return internalGetAttributes().getMap().size();
     }
@@ -4085,7 +4024,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
      */
-
     @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
@@ -4126,7 +4064,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> getAttributesMap() {
       return internalGetAttributes().getMap();
     }
@@ -4156,10 +4093,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrDefault(
+    public /* nullable */
+com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrDefault(
         java.lang.String key,
-        com.google.cloud.retail.v2beta.CustomAttribute defaultValue) {
+        /* nullable */
+com.google.cloud.retail.v2beta.CustomAttribute defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> map =
           internalGetAttributes().getMap();
@@ -4191,7 +4129,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4202,8 +4139,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAttributes() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutableAttributes().getMutableMap()
           .clear();
       return this;
@@ -4233,7 +4170,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
      */
-
     public Builder removeAttributes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4246,7 +4182,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
-    getMutableAttributes() {
+        getMutableAttributes() {
+      bitField0_ |= 0x00000100;
       return internalGetMutableAttributes().getMutableMap();
     }
     /**
@@ -4278,12 +4215,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.retail.v2beta.CustomAttribute value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAttributes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -4311,11 +4246,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 7;</code>
      */
-
     public Builder putAllAttributes(
         java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> values) {
       internalGetMutableAttributes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
 
@@ -4381,11 +4316,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCartId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cartId_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -4401,8 +4334,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCartId() {
-      
       cartId_ = getDefaultInstance().getCartId();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -4420,12 +4353,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCartIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cartId_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -4444,7 +4375,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the purchaseTransaction field is set.
      */
     public boolean hasPurchaseTransaction() {
-      return purchaseTransactionBuilder_ != null || purchaseTransaction_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -4478,11 +4409,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         purchaseTransaction_ = value;
-        onChanged();
       } else {
         purchaseTransactionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4498,11 +4429,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2beta.PurchaseTransaction.Builder builderForValue) {
       if (purchaseTransactionBuilder_ == null) {
         purchaseTransaction_ = builderForValue.build();
-        onChanged();
       } else {
         purchaseTransactionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4516,17 +4447,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePurchaseTransaction(com.google.cloud.retail.v2beta.PurchaseTransaction value) {
       if (purchaseTransactionBuilder_ == null) {
-        if (purchaseTransaction_ != null) {
-          purchaseTransaction_ =
-            com.google.cloud.retail.v2beta.PurchaseTransaction.newBuilder(purchaseTransaction_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          purchaseTransaction_ != null &&
+          purchaseTransaction_ != com.google.cloud.retail.v2beta.PurchaseTransaction.getDefaultInstance()) {
+          getPurchaseTransactionBuilder().mergeFrom(value);
         } else {
           purchaseTransaction_ = value;
         }
-        onChanged();
       } else {
         purchaseTransactionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4539,14 +4471,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.PurchaseTransaction purchase_transaction = 9;</code>
      */
     public Builder clearPurchaseTransaction() {
-      if (purchaseTransactionBuilder_ == null) {
-        purchaseTransaction_ = null;
-        onChanged();
-      } else {
-        purchaseTransaction_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      purchaseTransaction_ = null;
+      if (purchaseTransactionBuilder_ != null) {
+        purchaseTransactionBuilder_.dispose();
         purchaseTransactionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4559,7 +4490,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.PurchaseTransaction purchase_transaction = 9;</code>
      */
     public com.google.cloud.retail.v2beta.PurchaseTransaction.Builder getPurchaseTransactionBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getPurchaseTransactionFieldBuilder().getBuilder();
     }
@@ -4683,11 +4614,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSearchQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       searchQuery_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4709,8 +4638,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSearchQuery() {
-      
       searchQuery_ = getDefaultInstance().getSearchQuery();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -4734,12 +4663,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSearchQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       searchQuery_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4812,11 +4739,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filter_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -4834,8 +4759,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilter() {
-      
       filter_ = getDefaultInstance().getFilter();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -4855,12 +4780,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filter_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -4939,11 +4862,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderBy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       orderBy_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -4963,8 +4884,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrderBy() {
-      
       orderBy_ = getDefaultInstance().getOrderBy();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -4986,12 +4907,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderByBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       orderBy_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -5033,6 +4952,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOffset(int value) {
       
       offset_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -5051,7 +4971,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       offset_ = 0;
       onChanged();
       return this;
@@ -5059,16 +4979,16 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList pageCategories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensurePageCategoriesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00008000) != 0)) {
         pageCategories_ = new com.google.protobuf.LazyStringArrayList(pageCategories_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00008000;
        }
     }
     /**
      * <pre>
      * The categories associated with a category page.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * Category pages include special pages such as sales or promotions. For
      * instance, a special sale page may have the category hierarchy:
@@ -5091,7 +5011,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The categories associated with a category page.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * Category pages include special pages such as sales or promotions. For
      * instance, a special sale page may have the category hierarchy:
@@ -5113,7 +5033,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The categories associated with a category page.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * Category pages include special pages such as sales or promotions. For
      * instance, a special sale page may have the category hierarchy:
@@ -5136,7 +5056,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The categories associated with a category page.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * Category pages include special pages such as sales or promotions. For
      * instance, a special sale page may have the category hierarchy:
@@ -5160,7 +5080,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The categories associated with a category page.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * Category pages include special pages such as sales or promotions. For
      * instance, a special sale page may have the category hierarchy:
@@ -5179,10 +5099,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageCategories(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePageCategoriesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePageCategoriesIsMutable();
       pageCategories_.set(index, value);
       onChanged();
       return this;
@@ -5191,7 +5109,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The categories associated with a category page.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * Category pages include special pages such as sales or promotions. For
      * instance, a special sale page may have the category hierarchy:
@@ -5209,10 +5127,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPageCategories(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePageCategoriesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePageCategoriesIsMutable();
       pageCategories_.add(value);
       onChanged();
       return this;
@@ -5221,7 +5137,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The categories associated with a category page.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * Category pages include special pages such as sales or promotions. For
      * instance, a special sale page may have the category hierarchy:
@@ -5249,7 +5165,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The categories associated with a category page.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * Category pages include special pages such as sales or promotions. For
      * instance, a special sale page may have the category hierarchy:
@@ -5266,7 +5182,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPageCategories() {
       pageCategories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -5274,7 +5190,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The categories associated with a category page.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * Category pages include special pages such as sales or promotions. For
      * instance, a special sale page may have the category hierarchy:
@@ -5292,10 +5208,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPageCategoriesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensurePageCategoriesIsMutable();
       pageCategories_.add(value);
       onChanged();
@@ -5314,7 +5228,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the userInfo field is set.
      */
     public boolean hasUserInfo() {
-      return userInfoBuilder_ != null || userInfo_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -5344,11 +5258,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         userInfo_ = value;
-        onChanged();
       } else {
         userInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5362,11 +5276,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2beta.UserInfo.Builder builderForValue) {
       if (userInfoBuilder_ == null) {
         userInfo_ = builderForValue.build();
-        onChanged();
       } else {
         userInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5378,17 +5292,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUserInfo(com.google.cloud.retail.v2beta.UserInfo value) {
       if (userInfoBuilder_ == null) {
-        if (userInfo_ != null) {
-          userInfo_ =
-            com.google.cloud.retail.v2beta.UserInfo.newBuilder(userInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          userInfo_ != null &&
+          userInfo_ != com.google.cloud.retail.v2beta.UserInfo.getDefaultInstance()) {
+          getUserInfoBuilder().mergeFrom(value);
         } else {
           userInfo_ = value;
         }
-        onChanged();
       } else {
         userInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5399,14 +5314,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.UserInfo user_info = 12;</code>
      */
     public Builder clearUserInfo() {
-      if (userInfoBuilder_ == null) {
-        userInfo_ = null;
-        onChanged();
-      } else {
-        userInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      userInfo_ = null;
+      if (userInfoBuilder_ != null) {
+        userInfoBuilder_.dispose();
         userInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5417,7 +5331,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.UserInfo user_info = 12;</code>
      */
     public com.google.cloud.retail.v2beta.UserInfo.Builder getUserInfoBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getUserInfoFieldBuilder().getBuilder();
     }
@@ -5519,11 +5433,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uri_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -5539,8 +5451,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUri() {
-      
       uri_ = getDefaultInstance().getUri();
+      bitField0_ = (bitField0_ & ~0x00020000);
       onChanged();
       return this;
     }
@@ -5558,12 +5470,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uri_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -5627,11 +5537,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReferrerUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       referrerUri_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -5646,8 +5554,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReferrerUri() {
-      
       referrerUri_ = getDefaultInstance().getReferrerUri();
+      bitField0_ = (bitField0_ & ~0x00040000);
       onChanged();
       return this;
     }
@@ -5664,12 +5572,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReferrerUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       referrerUri_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -5748,11 +5654,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageViewId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageViewId_ = value;
+      bitField0_ |= 0x00080000;
       onChanged();
       return this;
     }
@@ -5772,8 +5676,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageViewId() {
-      
       pageViewId_ = getDefaultInstance().getPageViewId();
+      bitField0_ = (bitField0_ & ~0x00080000);
       onChanged();
       return this;
     }
@@ -5795,12 +5699,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageViewIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageViewId_ = value;
+      bitField0_ |= 0x00080000;
       onChanged();
       return this;
     }
@@ -5837,7 +5739,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserEvent(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

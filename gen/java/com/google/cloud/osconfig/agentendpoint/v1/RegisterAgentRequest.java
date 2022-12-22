@@ -41,94 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RegisterAgentRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instanceIdToken_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            agentVersion_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              supportedCapabilities_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            supportedCapabilities_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            osLongName_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            osShortName_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            osVersion_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            osArchitecture_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        supportedCapabilities_ = supportedCapabilities_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.osconfig.agentendpoint.v1.AgentEndpointProto.internal_static_google_cloud_osconfig_agentendpoint_v1_RegisterAgentRequest_descriptor;
@@ -143,7 +55,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_ID_TOKEN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object instanceIdToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instanceIdToken_ = "";
   /**
    * <pre>
    * Required. This is the Compute Engine instance identity token described in
@@ -193,7 +106,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AGENT_VERSION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object agentVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object agentVersion_ = "";
   /**
    * <pre>
    * Required. The version of the agent.
@@ -239,6 +153,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUPPORTED_CAPABILITIES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList supportedCapabilities_;
   /**
    * <pre>
@@ -302,7 +217,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OS_LONG_NAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object osLongName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object osLongName_ = "";
   /**
    * <pre>
    * The operating system long name.
@@ -352,7 +268,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OS_SHORT_NAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object osShortName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object osShortName_ = "";
   /**
    * <pre>
    * The operating system short name.
@@ -400,7 +317,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OS_VERSION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object osVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object osVersion_ = "";
   /**
    * <pre>
    * The version of the operating system.
@@ -446,7 +364,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OS_ARCHITECTURE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object osArchitecture_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object osArchitecture_ = "";
   /**
    * <pre>
    * The system architecture of the operating system.
@@ -526,7 +445,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osArchitecture_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, osArchitecture_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -561,7 +480,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osArchitecture_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, osArchitecture_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -590,7 +509,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOsVersion())) return false;
     if (!getOsArchitecture()
         .equals(other.getOsArchitecture())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -617,7 +536,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getOsVersion().hashCode();
     hash = (37 * hash) + OS_ARCHITECTURE_FIELD_NUMBER;
     hash = (53 * hash) + getOsArchitecture().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -738,36 +657,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       instanceIdToken_ = "";
-
       agentVersion_ = "";
-
       supportedCapabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       osLongName_ = "";
-
       osShortName_ = "";
-
       osVersion_ = "";
-
       osArchitecture_ = "";
-
       return this;
     }
 
@@ -794,20 +703,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest buildPartial() {
       com.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest result = new com.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.instanceIdToken_ = instanceIdToken_;
-      result.agentVersion_ = agentVersion_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        supportedCapabilities_ = supportedCapabilities_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.supportedCapabilities_ = supportedCapabilities_;
-      result.osLongName_ = osLongName_;
-      result.osShortName_ = osShortName_;
-      result.osVersion_ = osVersion_;
-      result.osArchitecture_ = osArchitecture_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        supportedCapabilities_ = supportedCapabilities_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.supportedCapabilities_ = supportedCapabilities_;
+    }
+
+    private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.instanceIdToken_ = instanceIdToken_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.agentVersion_ = agentVersion_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.osLongName_ = osLongName_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.osShortName_ = osShortName_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.osVersion_ = osVersion_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.osArchitecture_ = osArchitecture_;
+      }
     }
 
     @java.lang.Override
@@ -856,16 +785,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest.getDefaultInstance()) return this;
       if (!other.getInstanceIdToken().isEmpty()) {
         instanceIdToken_ = other.instanceIdToken_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAgentVersion().isEmpty()) {
         agentVersion_ = other.agentVersion_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.supportedCapabilities_.isEmpty()) {
         if (supportedCapabilities_.isEmpty()) {
           supportedCapabilities_ = other.supportedCapabilities_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureSupportedCapabilitiesIsMutable();
           supportedCapabilities_.addAll(other.supportedCapabilities_);
@@ -874,21 +805,25 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOsLongName().isEmpty()) {
         osLongName_ = other.osLongName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getOsShortName().isEmpty()) {
         osShortName_ = other.osShortName_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getOsVersion().isEmpty()) {
         osVersion_ = other.osVersion_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getOsArchitecture().isEmpty()) {
         osArchitecture_ = other.osArchitecture_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -903,17 +838,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instanceIdToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              agentVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSupportedCapabilitiesIsMutable();
+              supportedCapabilities_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              osLongName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              osShortName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              osVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              osArchitecture_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.RegisterAgentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -977,11 +961,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceIdToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       instanceIdToken_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -996,8 +978,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstanceIdToken() {
-      
       instanceIdToken_ = getDefaultInstance().getInstanceIdToken();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1014,12 +996,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceIdTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instanceIdToken_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1077,11 +1057,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAgentVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       agentVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1094,8 +1072,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAgentVersion() {
-      
       agentVersion_ = getDefaultInstance().getAgentVersion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1110,21 +1088,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAgentVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       agentVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList supportedCapabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSupportedCapabilitiesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         supportedCapabilities_ = new com.google.protobuf.LazyStringArrayList(supportedCapabilities_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1202,10 +1178,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSupportedCapabilities(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSupportedCapabilitiesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedCapabilitiesIsMutable();
       supportedCapabilities_.set(index, value);
       onChanged();
       return this;
@@ -1224,10 +1198,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSupportedCapabilities(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSupportedCapabilitiesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedCapabilitiesIsMutable();
       supportedCapabilities_.add(value);
       onChanged();
       return this;
@@ -1265,7 +1237,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSupportedCapabilities() {
       supportedCapabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1283,10 +1255,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSupportedCapabilitiesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSupportedCapabilitiesIsMutable();
       supportedCapabilities_.add(value);
       onChanged();
@@ -1352,11 +1322,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsLongName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       osLongName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1371,8 +1339,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOsLongName() {
-      
       osLongName_ = getDefaultInstance().getOsLongName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1389,12 +1357,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsLongNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       osLongName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1455,11 +1421,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsShortName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       osShortName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1473,8 +1437,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOsShortName() {
-      
       osShortName_ = getDefaultInstance().getOsShortName();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1490,12 +1454,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsShortNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       osShortName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1553,11 +1515,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       osVersion_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1570,8 +1530,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOsVersion() {
-      
       osVersion_ = getDefaultInstance().getOsVersion();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1586,12 +1546,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       osVersion_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1649,11 +1607,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsArchitecture(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       osArchitecture_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1666,8 +1622,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOsArchitecture() {
-      
       osArchitecture_ = getDefaultInstance().getOsArchitecture();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1682,12 +1638,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsArchitectureBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       osArchitecture_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1724,7 +1678,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RegisterAgentRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

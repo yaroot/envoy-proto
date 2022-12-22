@@ -35,76 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Filter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            maxLocationCount_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            com.google.maps.playablelocations.v3.sample.SpacingOptions.Builder subBuilder = null;
-            if (spacing_ != null) {
-              subBuilder = spacing_.toBuilder();
-            }
-            spacing_ = input.readMessage(com.google.maps.playablelocations.v3.sample.SpacingOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(spacing_);
-              spacing_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              includedTypes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            includedTypes_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        includedTypes_ = includedTypes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.playablelocations.v3.sample.ResourcesProto.internal_static_google_maps_playablelocations_v3_sample_Filter_descriptor;
@@ -119,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_LOCATION_COUNT_FIELD_NUMBER = 1;
-  private int maxLocationCount_;
+  private int maxLocationCount_ = 0;
   /**
    * <pre>
    * Specifies the maximum number of playable locations to return. This value
@@ -173,10 +103,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.playablelocations.v3.sample.SpacingOptionsOrBuilder getSpacingOrBuilder() {
-    return getSpacing();
+    return spacing_ == null ? com.google.maps.playablelocations.v3.sample.SpacingOptions.getDefaultInstance() : spacing_;
   }
 
   public static final int INCLUDED_TYPES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList includedTypes_;
   /**
    * <pre>
@@ -254,7 +185,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < includedTypes_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, includedTypes_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -279,7 +210,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getIncludedTypesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -303,7 +234,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getIncludedTypesList()
         .equals(other.getIncludedTypesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -324,7 +255,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INCLUDED_TYPES_FIELD_NUMBER;
       hash = (53 * hash) + getIncludedTypesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -445,32 +376,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.playablelocations.v3.sample.Filter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       maxLocationCount_ = 0;
-
-      if (spacingBuilder_ == null) {
-        spacing_ = null;
-      } else {
-        spacing_ = null;
+      spacing_ = null;
+      if (spacingBuilder_ != null) {
+        spacingBuilder_.dispose();
         spacingBuilder_ = null;
       }
       includedTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -497,20 +422,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.playablelocations.v3.sample.Filter buildPartial() {
       com.google.maps.playablelocations.v3.sample.Filter result = new com.google.maps.playablelocations.v3.sample.Filter(this);
-      int from_bitField0_ = bitField0_;
-      result.maxLocationCount_ = maxLocationCount_;
-      if (spacingBuilder_ == null) {
-        result.spacing_ = spacing_;
-      } else {
-        result.spacing_ = spacingBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        includedTypes_ = includedTypes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.includedTypes_ = includedTypes_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.maps.playablelocations.v3.sample.Filter result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        includedTypes_ = includedTypes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.includedTypes_ = includedTypes_;
+    }
+
+    private void buildPartial0(com.google.maps.playablelocations.v3.sample.Filter result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maxLocationCount_ = maxLocationCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.spacing_ = spacingBuilder_ == null
+            ? spacing_
+            : spacingBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -566,14 +501,14 @@ private static final long serialVersionUID = 0L;
       if (!other.includedTypes_.isEmpty()) {
         if (includedTypes_.isEmpty()) {
           includedTypes_ = other.includedTypes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureIncludedTypesIsMutable();
           includedTypes_.addAll(other.includedTypes_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -588,17 +523,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.playablelocations.v3.sample.Filter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              maxLocationCount_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getSpacingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIncludedTypesIsMutable();
+              includedTypes_.add(s);
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.playablelocations.v3.sample.Filter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -632,6 +598,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxLocationCount(int value) {
       
       maxLocationCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -646,7 +613,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxLocationCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       maxLocationCount_ = 0;
       onChanged();
       return this;
@@ -665,7 +632,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the spacing field is set.
      */
     public boolean hasSpacing() {
-      return spacingBuilder_ != null || spacing_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -697,11 +664,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         spacing_ = value;
-        onChanged();
       } else {
         spacingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -716,11 +683,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.playablelocations.v3.sample.SpacingOptions.Builder builderForValue) {
       if (spacingBuilder_ == null) {
         spacing_ = builderForValue.build();
-        onChanged();
       } else {
         spacingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -733,17 +700,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSpacing(com.google.maps.playablelocations.v3.sample.SpacingOptions value) {
       if (spacingBuilder_ == null) {
-        if (spacing_ != null) {
-          spacing_ =
-            com.google.maps.playablelocations.v3.sample.SpacingOptions.newBuilder(spacing_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          spacing_ != null &&
+          spacing_ != com.google.maps.playablelocations.v3.sample.SpacingOptions.getDefaultInstance()) {
+          getSpacingBuilder().mergeFrom(value);
         } else {
           spacing_ = value;
         }
-        onChanged();
       } else {
         spacingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -755,14 +723,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.playablelocations.v3.sample.SpacingOptions spacing = 2;</code>
      */
     public Builder clearSpacing() {
-      if (spacingBuilder_ == null) {
-        spacing_ = null;
-        onChanged();
-      } else {
-        spacing_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      spacing_ = null;
+      if (spacingBuilder_ != null) {
+        spacingBuilder_.dispose();
         spacingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -774,7 +741,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.playablelocations.v3.sample.SpacingOptions spacing = 2;</code>
      */
     public com.google.maps.playablelocations.v3.sample.SpacingOptions.Builder getSpacingBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSpacingFieldBuilder().getBuilder();
     }
@@ -818,9 +785,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList includedTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureIncludedTypesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         includedTypes_ = new com.google.protobuf.LazyStringArrayList(includedTypes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -888,10 +855,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIncludedTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncludedTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIncludedTypesIsMutable();
       includedTypes_.set(index, value);
       onChanged();
       return this;
@@ -908,10 +873,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIncludedTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncludedTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIncludedTypesIsMutable();
       includedTypes_.add(value);
       onChanged();
       return this;
@@ -945,7 +908,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearIncludedTypes() {
       includedTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -961,10 +924,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIncludedTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIncludedTypesIsMutable();
       includedTypes_.add(value);
       onChanged();
@@ -1003,7 +964,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Filter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

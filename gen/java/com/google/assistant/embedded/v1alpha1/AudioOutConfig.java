@@ -36,61 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AudioOutConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            encoding_ = rawValue;
-            break;
-          }
-          case 16: {
-
-            sampleRateHertz_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            volumePercentage_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.assistant.embedded.v1alpha1.AssistantProto.internal_static_google_assistant_embedded_v1alpha1_AudioOutConfig_descriptor;
@@ -274,7 +219,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCODING_FIELD_NUMBER = 1;
-  private int encoding_;
+  private int encoding_ = 0;
   /**
    * <pre>
    * *Required* The encoding of audio data to be returned in all `audio_out`
@@ -297,13 +242,12 @@ private static final long serialVersionUID = 0L;
    * @return The encoding.
    */
   @java.lang.Override public com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding getEncoding() {
-    @SuppressWarnings("deprecation")
-    com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding result = com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding.valueOf(encoding_);
+    com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding result = com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding.forNumber(encoding_);
     return result == null ? com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding.UNRECOGNIZED : result;
   }
 
   public static final int SAMPLE_RATE_HERTZ_FIELD_NUMBER = 2;
-  private int sampleRateHertz_;
+  private int sampleRateHertz_ = 0;
   /**
    * <pre>
    * *Required* The sample rate in Hertz of the audio data returned in
@@ -319,7 +263,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VOLUME_PERCENTAGE_FIELD_NUMBER = 3;
-  private int volumePercentage_;
+  private int volumePercentage_ = 0;
   /**
    * <pre>
    * *Required* Current volume setting of the device's audio output.
@@ -357,7 +301,7 @@ private static final long serialVersionUID = 0L;
     if (volumePercentage_ != 0) {
       output.writeInt32(3, volumePercentage_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -378,7 +322,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, volumePercentage_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -398,7 +342,7 @@ private static final long serialVersionUID = 0L;
         != other.getSampleRateHertz()) return false;
     if (getVolumePercentage()
         != other.getVolumePercentage()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -415,7 +359,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSampleRateHertz();
     hash = (37 * hash) + VOLUME_PERCENTAGE_FIELD_NUMBER;
     hash = (53 * hash) + getVolumePercentage();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -537,28 +481,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.assistant.embedded.v1alpha1.AudioOutConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       encoding_ = 0;
-
       sampleRateHertz_ = 0;
-
       volumePercentage_ = 0;
-
       return this;
     }
 
@@ -585,11 +522,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha1.AudioOutConfig buildPartial() {
       com.google.assistant.embedded.v1alpha1.AudioOutConfig result = new com.google.assistant.embedded.v1alpha1.AudioOutConfig(this);
-      result.encoding_ = encoding_;
-      result.sampleRateHertz_ = sampleRateHertz_;
-      result.volumePercentage_ = volumePercentage_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.assistant.embedded.v1alpha1.AudioOutConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.encoding_ = encoding_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sampleRateHertz_ = sampleRateHertz_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.volumePercentage_ = volumePercentage_;
+      }
     }
 
     @java.lang.Override
@@ -645,7 +593,7 @@ private static final long serialVersionUID = 0L;
       if (other.getVolumePercentage() != 0) {
         setVolumePercentage(other.getVolumePercentage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -660,19 +608,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.assistant.embedded.v1alpha1.AudioOutConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              encoding_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              sampleRateHertz_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              volumePercentage_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.assistant.embedded.v1alpha1.AudioOutConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int encoding_ = 0;
     /**
@@ -698,8 +675,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEncodingValue(int value) {
-      
       encoding_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -714,8 +691,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding getEncoding() {
-      @SuppressWarnings("deprecation")
-      com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding result = com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding.valueOf(encoding_);
+      com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding result = com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding.forNumber(encoding_);
       return result == null ? com.google.assistant.embedded.v1alpha1.AudioOutConfig.Encoding.UNRECOGNIZED : result;
     }
     /**
@@ -732,7 +708,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       encoding_ = value.getNumber();
       onChanged();
       return this;
@@ -747,7 +723,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEncoding() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       encoding_ = 0;
       onChanged();
       return this;
@@ -780,6 +756,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSampleRateHertz(int value) {
       
       sampleRateHertz_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -793,7 +770,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSampleRateHertz() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       sampleRateHertz_ = 0;
       onChanged();
       return this;
@@ -826,6 +803,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVolumePercentage(int value) {
       
       volumePercentage_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -839,7 +817,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVolumePercentage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       volumePercentage_ = 0;
       onChanged();
       return this;
@@ -877,7 +855,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AudioOutConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

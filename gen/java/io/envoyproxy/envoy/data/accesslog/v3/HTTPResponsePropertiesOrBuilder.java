@@ -97,7 +97,6 @@ public interface HTTPResponsePropertiesOrBuilder extends
    *
    * <code>map&lt;string, string&gt; response_headers = 4;</code>
    */
-
   /* nullable */
 java.lang.String getResponseHeadersOrDefault(
       java.lang.String key,
@@ -110,7 +109,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; response_headers = 4;</code>
    */
-
   java.lang.String getResponseHeadersOrThrow(
       java.lang.String key);
 
@@ -153,7 +151,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; response_trailers = 5;</code>
    */
-
   /* nullable */
 java.lang.String getResponseTrailersOrDefault(
       java.lang.String key,
@@ -166,7 +163,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; response_trailers = 5;</code>
    */
-
   java.lang.String getResponseTrailersOrThrow(
       java.lang.String key);
 

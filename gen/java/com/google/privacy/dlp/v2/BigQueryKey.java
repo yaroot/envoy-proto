@@ -34,63 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BigQueryKey(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.privacy.dlp.v2.BigQueryTable.Builder subBuilder = null;
-            if (tableReference_ != null) {
-              subBuilder = tableReference_.toBuilder();
-            }
-            tableReference_ = input.readMessage(com.google.privacy.dlp.v2.BigQueryTable.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tableReference_);
-              tableReference_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            rowNumber_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpStorage.internal_static_google_privacy_dlp_v2_BigQueryKey_descriptor;
@@ -139,11 +82,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.BigQueryTableOrBuilder getTableReferenceOrBuilder() {
-    return getTableReference();
+    return tableReference_ == null ? com.google.privacy.dlp.v2.BigQueryTable.getDefaultInstance() : tableReference_;
   }
 
   public static final int ROW_NUMBER_FIELD_NUMBER = 2;
-  private long rowNumber_;
+  private long rowNumber_ = 0L;
   /**
    * <pre>
    * Row number inferred at the time the table was scanned. This value is
@@ -181,7 +124,7 @@ private static final long serialVersionUID = 0L;
     if (rowNumber_ != 0L) {
       output.writeInt64(2, rowNumber_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -198,7 +141,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, rowNumber_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -220,7 +163,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getRowNumber()
         != other.getRowNumber()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -238,7 +181,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ROW_NUMBER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getRowNumber());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -359,30 +302,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.BigQueryKey.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (tableReferenceBuilder_ == null) {
-        tableReference_ = null;
-      } else {
-        tableReference_ = null;
+      bitField0_ = 0;
+      tableReference_ = null;
+      if (tableReferenceBuilder_ != null) {
+        tableReferenceBuilder_.dispose();
         tableReferenceBuilder_ = null;
       }
       rowNumber_ = 0L;
-
       return this;
     }
 
@@ -409,14 +346,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.BigQueryKey buildPartial() {
       com.google.privacy.dlp.v2.BigQueryKey result = new com.google.privacy.dlp.v2.BigQueryKey(this);
-      if (tableReferenceBuilder_ == null) {
-        result.tableReference_ = tableReference_;
-      } else {
-        result.tableReference_ = tableReferenceBuilder_.build();
-      }
-      result.rowNumber_ = rowNumber_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.BigQueryKey result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tableReference_ = tableReferenceBuilder_ == null
+            ? tableReference_
+            : tableReferenceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.rowNumber_ = rowNumber_;
+      }
     }
 
     @java.lang.Override
@@ -469,7 +413,7 @@ private static final long serialVersionUID = 0L;
       if (other.getRowNumber() != 0L) {
         setRowNumber(other.getRowNumber());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -484,19 +428,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.BigQueryKey parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTableReferenceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              rowNumber_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.BigQueryKey) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.privacy.dlp.v2.BigQueryTable tableReference_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -510,7 +480,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tableReference field is set.
      */
     public boolean hasTableReference() {
-      return tableReferenceBuilder_ != null || tableReference_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -540,11 +510,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tableReference_ = value;
-        onChanged();
       } else {
         tableReferenceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -558,11 +528,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.BigQueryTable.Builder builderForValue) {
       if (tableReferenceBuilder_ == null) {
         tableReference_ = builderForValue.build();
-        onChanged();
       } else {
         tableReferenceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -574,17 +544,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTableReference(com.google.privacy.dlp.v2.BigQueryTable value) {
       if (tableReferenceBuilder_ == null) {
-        if (tableReference_ != null) {
-          tableReference_ =
-            com.google.privacy.dlp.v2.BigQueryTable.newBuilder(tableReference_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          tableReference_ != null &&
+          tableReference_ != com.google.privacy.dlp.v2.BigQueryTable.getDefaultInstance()) {
+          getTableReferenceBuilder().mergeFrom(value);
         } else {
           tableReference_ = value;
         }
-        onChanged();
       } else {
         tableReferenceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -595,14 +566,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.BigQueryTable table_reference = 1;</code>
      */
     public Builder clearTableReference() {
-      if (tableReferenceBuilder_ == null) {
-        tableReference_ = null;
-        onChanged();
-      } else {
-        tableReference_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      tableReference_ = null;
+      if (tableReferenceBuilder_ != null) {
+        tableReferenceBuilder_.dispose();
         tableReferenceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -613,7 +583,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.BigQueryTable table_reference = 1;</code>
      */
     public com.google.privacy.dlp.v2.BigQueryTable.Builder getTableReferenceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTableReferenceFieldBuilder().getBuilder();
     }
@@ -686,6 +656,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRowNumber(long value) {
       
       rowNumber_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -702,7 +673,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRowNumber() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       rowNumber_ = 0L;
       onChanged();
       return this;
@@ -740,7 +711,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BigQueryKey(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

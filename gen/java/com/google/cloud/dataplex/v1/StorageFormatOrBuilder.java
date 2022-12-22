@@ -9,8 +9,8 @@ public interface StorageFormatOrBuilder extends
 
   /**
    * <pre>
-   * Output only. The data format associated with the stored data, which represents
-   * content type values. The value is inferred from mime type.
+   * Output only. The data format associated with the stored data, which
+   * represents content type values. The value is inferred from mime type.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.StorageFormat.Format format = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -19,8 +19,8 @@ public interface StorageFormatOrBuilder extends
   int getFormatValue();
   /**
    * <pre>
-   * Output only. The data format associated with the stored data, which represents
-   * content type values. The value is inferred from mime type.
+   * Output only. The data format associated with the stored data, which
+   * represents content type values. The value is inferred from mime type.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.StorageFormat.Format format = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -57,6 +57,9 @@ public interface StorageFormatOrBuilder extends
    * - application/x-avro
    * - application/x-orc
    * - application/x-tfrecord
+   * - application/x-parquet+iceberg
+   * - application/x-avro+iceberg
+   * - application/x-orc+iceberg
    * - application/json
    * - application/{subtypes}
    * - text/csv
@@ -78,6 +81,9 @@ public interface StorageFormatOrBuilder extends
    * - application/x-avro
    * - application/x-orc
    * - application/x-tfrecord
+   * - application/x-parquet+iceberg
+   * - application/x-avro+iceberg
+   * - application/x-orc+iceberg
    * - application/json
    * - application/{subtypes}
    * - text/csv
@@ -146,6 +152,33 @@ public interface StorageFormatOrBuilder extends
    * <code>.google.cloud.dataplex.v1.StorageFormat.JsonOptions json = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   com.google.cloud.dataplex.v1.StorageFormat.JsonOptionsOrBuilder getJsonOrBuilder();
+
+  /**
+   * <pre>
+   * Optional. Additional information about iceberg tables.
+   * </pre>
+   *
+   * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the iceberg field is set.
+   */
+  boolean hasIceberg();
+  /**
+   * <pre>
+   * Optional. Additional information about iceberg tables.
+   * </pre>
+   *
+   * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The iceberg.
+   */
+  com.google.cloud.dataplex.v1.StorageFormat.IcebergOptions getIceberg();
+  /**
+   * <pre>
+   * Optional. Additional information about iceberg tables.
+   * </pre>
+   *
+   * <code>.google.cloud.dataplex.v1.StorageFormat.IcebergOptions iceberg = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  com.google.cloud.dataplex.v1.StorageFormat.IcebergOptionsOrBuilder getIcebergOrBuilder();
 
   public com.google.cloud.dataplex.v1.StorageFormat.OptionsCase getOptionsCase();
 }

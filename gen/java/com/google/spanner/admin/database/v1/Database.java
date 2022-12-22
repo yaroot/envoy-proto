@@ -40,140 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Database(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.spanner.admin.database.v1.RestoreInfo.Builder subBuilder = null;
-            if (restoreInfo_ != null) {
-              subBuilder = restoreInfo_.toBuilder();
-            }
-            restoreInfo_ = input.readMessage(com.google.spanner.admin.database.v1.RestoreInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(restoreInfo_);
-              restoreInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.spanner.admin.database.v1.EncryptionConfig.Builder subBuilder = null;
-            if (encryptionConfig_ != null) {
-              subBuilder = encryptionConfig_.toBuilder();
-            }
-            encryptionConfig_ = input.readMessage(com.google.spanner.admin.database.v1.EncryptionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(encryptionConfig_);
-              encryptionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            versionRetentionPeriod_ = s;
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (earliestVersionTime_ != null) {
-              subBuilder = earliestVersionTime_.toBuilder();
-            }
-            earliestVersionTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(earliestVersionTime_);
-              earliestVersionTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              encryptionInfo_ = new java.util.ArrayList<com.google.spanner.admin.database.v1.EncryptionInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            encryptionInfo_.add(
-                input.readMessage(com.google.spanner.admin.database.v1.EncryptionInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            defaultLeader_ = s;
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            databaseDialect_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        encryptionInfo_ = java.util.Collections.unmodifiableList(encryptionInfo_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.spanner.admin.database.v1.SpannerDatabaseAdminProto.internal_static_google_spanner_admin_database_v1_Database_descriptor;
@@ -364,7 +230,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The name of the database. Values are of the form
@@ -418,7 +285,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 2;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The current database state.
@@ -439,8 +306,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.spanner.admin.database.v1.Database.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.spanner.admin.database.v1.Database.State result = com.google.spanner.admin.database.v1.Database.State.valueOf(state_);
+    com.google.spanner.admin.database.v1.Database.State result = com.google.spanner.admin.database.v1.Database.State.forNumber(state_);
     return result == null ? com.google.spanner.admin.database.v1.Database.State.UNRECOGNIZED : result;
   }
 
@@ -479,7 +345,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int RESTORE_INFO_FIELD_NUMBER = 4;
@@ -520,7 +386,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.spanner.admin.database.v1.RestoreInfoOrBuilder getRestoreInfoOrBuilder() {
-    return getRestoreInfo();
+    return restoreInfo_ == null ? com.google.spanner.admin.database.v1.RestoreInfo.getDefaultInstance() : restoreInfo_;
   }
 
   public static final int ENCRYPTION_CONFIG_FIELD_NUMBER = 5;
@@ -567,10 +433,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.spanner.admin.database.v1.EncryptionConfigOrBuilder getEncryptionConfigOrBuilder() {
-    return getEncryptionConfig();
+    return encryptionConfig_ == null ? com.google.spanner.admin.database.v1.EncryptionConfig.getDefaultInstance() : encryptionConfig_;
   }
 
   public static final int ENCRYPTION_INFO_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.spanner.admin.database.v1.EncryptionInfo> encryptionInfo_;
   /**
    * <pre>
@@ -661,7 +528,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_RETENTION_PERIOD_FIELD_NUMBER = 6;
-  private volatile java.lang.Object versionRetentionPeriod_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object versionRetentionPeriod_ = "";
   /**
    * <pre>
    * Output only. The period in which Cloud Spanner retains all versions of data
@@ -761,11 +629,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEarliestVersionTimeOrBuilder() {
-    return getEarliestVersionTime();
+    return earliestVersionTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : earliestVersionTime_;
   }
 
   public static final int DEFAULT_LEADER_FIELD_NUMBER = 9;
-  private volatile java.lang.Object defaultLeader_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object defaultLeader_ = "";
   /**
    * <pre>
    * Output only. The read-write region which contains the database's leader
@@ -819,7 +688,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATABASE_DIALECT_FIELD_NUMBER = 10;
-  private int databaseDialect_;
+  private int databaseDialect_ = 0;
   /**
    * <pre>
    * Output only. The dialect of the Cloud Spanner Database.
@@ -840,8 +709,7 @@ private static final long serialVersionUID = 0L;
    * @return The databaseDialect.
    */
   @java.lang.Override public com.google.spanner.admin.database.v1.DatabaseDialect getDatabaseDialect() {
-    @SuppressWarnings("deprecation")
-    com.google.spanner.admin.database.v1.DatabaseDialect result = com.google.spanner.admin.database.v1.DatabaseDialect.valueOf(databaseDialect_);
+    com.google.spanner.admin.database.v1.DatabaseDialect result = com.google.spanner.admin.database.v1.DatabaseDialect.forNumber(databaseDialect_);
     return result == null ? com.google.spanner.admin.database.v1.DatabaseDialect.UNRECOGNIZED : result;
   }
 
@@ -889,7 +757,7 @@ private static final long serialVersionUID = 0L;
     if (databaseDialect_ != com.google.spanner.admin.database.v1.DatabaseDialect.DATABASE_DIALECT_UNSPECIFIED.getNumber()) {
       output.writeEnum(10, databaseDialect_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -935,7 +803,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(10, databaseDialect_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -980,7 +848,7 @@ private static final long serialVersionUID = 0L;
     if (!getDefaultLeader()
         .equals(other.getDefaultLeader())) return false;
     if (databaseDialect_ != other.databaseDialect_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1021,7 +889,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDefaultLeader().hashCode();
     hash = (37 * hash) + DATABASE_DIALECT_FIELD_NUMBER;
     hash = (53 * hash) + databaseDialect_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1142,63 +1010,50 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.spanner.admin.database.v1.Database.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getEncryptionInfoFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       state_ = 0;
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (restoreInfoBuilder_ == null) {
-        restoreInfo_ = null;
-      } else {
-        restoreInfo_ = null;
+      restoreInfo_ = null;
+      if (restoreInfoBuilder_ != null) {
+        restoreInfoBuilder_.dispose();
         restoreInfoBuilder_ = null;
       }
-      if (encryptionConfigBuilder_ == null) {
-        encryptionConfig_ = null;
-      } else {
-        encryptionConfig_ = null;
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
         encryptionConfigBuilder_ = null;
       }
       if (encryptionInfoBuilder_ == null) {
         encryptionInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        encryptionInfo_ = null;
         encryptionInfoBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       versionRetentionPeriod_ = "";
-
-      if (earliestVersionTimeBuilder_ == null) {
-        earliestVersionTime_ = null;
-      } else {
-        earliestVersionTime_ = null;
+      earliestVersionTime_ = null;
+      if (earliestVersionTimeBuilder_ != null) {
+        earliestVersionTimeBuilder_.dispose();
         earliestVersionTimeBuilder_ = null;
       }
       defaultLeader_ = "";
-
       databaseDialect_ = 0;
-
       return this;
     }
 
@@ -1225,43 +1080,61 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.spanner.admin.database.v1.Database buildPartial() {
       com.google.spanner.admin.database.v1.Database result = new com.google.spanner.admin.database.v1.Database(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.state_ = state_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (restoreInfoBuilder_ == null) {
-        result.restoreInfo_ = restoreInfo_;
-      } else {
-        result.restoreInfo_ = restoreInfoBuilder_.build();
-      }
-      if (encryptionConfigBuilder_ == null) {
-        result.encryptionConfig_ = encryptionConfig_;
-      } else {
-        result.encryptionConfig_ = encryptionConfigBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.spanner.admin.database.v1.Database result) {
       if (encryptionInfoBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           encryptionInfo_ = java.util.Collections.unmodifiableList(encryptionInfo_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.encryptionInfo_ = encryptionInfo_;
       } else {
         result.encryptionInfo_ = encryptionInfoBuilder_.build();
       }
-      result.versionRetentionPeriod_ = versionRetentionPeriod_;
-      if (earliestVersionTimeBuilder_ == null) {
-        result.earliestVersionTime_ = earliestVersionTime_;
-      } else {
-        result.earliestVersionTime_ = earliestVersionTimeBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.spanner.admin.database.v1.Database result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      result.defaultLeader_ = defaultLeader_;
-      result.databaseDialect_ = databaseDialect_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.restoreInfo_ = restoreInfoBuilder_ == null
+            ? restoreInfo_
+            : restoreInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.encryptionConfig_ = encryptionConfigBuilder_ == null
+            ? encryptionConfig_
+            : encryptionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.versionRetentionPeriod_ = versionRetentionPeriod_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.earliestVersionTime_ = earliestVersionTimeBuilder_ == null
+            ? earliestVersionTime_
+            : earliestVersionTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.defaultLeader_ = defaultLeader_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.databaseDialect_ = databaseDialect_;
+      }
     }
 
     @java.lang.Override
@@ -1310,6 +1183,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.spanner.admin.database.v1.Database.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -1328,7 +1202,7 @@ private static final long serialVersionUID = 0L;
         if (!other.encryptionInfo_.isEmpty()) {
           if (encryptionInfo_.isEmpty()) {
             encryptionInfo_ = other.encryptionInfo_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureEncryptionInfoIsMutable();
             encryptionInfo_.addAll(other.encryptionInfo_);
@@ -1341,7 +1215,7 @@ private static final long serialVersionUID = 0L;
             encryptionInfoBuilder_.dispose();
             encryptionInfoBuilder_ = null;
             encryptionInfo_ = other.encryptionInfo_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             encryptionInfoBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEncryptionInfoFieldBuilder() : null;
@@ -1352,6 +1226,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVersionRetentionPeriod().isEmpty()) {
         versionRetentionPeriod_ = other.versionRetentionPeriod_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasEarliestVersionTime()) {
@@ -1359,12 +1234,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDefaultLeader().isEmpty()) {
         defaultLeader_ = other.defaultLeader_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.databaseDialect_ != 0) {
         setDatabaseDialectValue(other.getDatabaseDialectValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1379,17 +1255,96 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.spanner.admin.database.v1.Database parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getRestoreInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getEncryptionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              versionRetentionPeriod_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getEarliestVersionTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              com.google.spanner.admin.database.v1.EncryptionInfo m =
+                  input.readMessage(
+                      com.google.spanner.admin.database.v1.EncryptionInfo.parser(),
+                      extensionRegistry);
+              if (encryptionInfoBuilder_ == null) {
+                ensureEncryptionInfoIsMutable();
+                encryptionInfo_.add(m);
+              } else {
+                encryptionInfoBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              defaultLeader_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              databaseDialect_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.spanner.admin.database.v1.Database) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1459,11 +1414,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1480,8 +1433,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1500,12 +1453,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1532,8 +1483,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1547,8 +1498,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.spanner.admin.database.v1.Database.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.spanner.admin.database.v1.Database.State result = com.google.spanner.admin.database.v1.Database.State.valueOf(state_);
+      com.google.spanner.admin.database.v1.Database.State result = com.google.spanner.admin.database.v1.Database.State.forNumber(state_);
       return result == null ? com.google.spanner.admin.database.v1.Database.State.UNRECOGNIZED : result;
     }
     /**
@@ -1564,7 +1514,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1578,7 +1528,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       state_ = 0;
       onChanged();
       return this;
@@ -1596,7 +1546,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1626,11 +1576,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1644,11 +1594,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1660,17 +1610,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1681,14 +1632,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1699,7 +1649,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1752,7 +1702,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the restoreInfo field is set.
      */
     public boolean hasRestoreInfo() {
-      return restoreInfoBuilder_ != null || restoreInfo_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1784,11 +1734,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         restoreInfo_ = value;
-        onChanged();
       } else {
         restoreInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1803,11 +1753,11 @@ private static final long serialVersionUID = 0L;
         com.google.spanner.admin.database.v1.RestoreInfo.Builder builderForValue) {
       if (restoreInfoBuilder_ == null) {
         restoreInfo_ = builderForValue.build();
-        onChanged();
       } else {
         restoreInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1820,17 +1770,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRestoreInfo(com.google.spanner.admin.database.v1.RestoreInfo value) {
       if (restoreInfoBuilder_ == null) {
-        if (restoreInfo_ != null) {
-          restoreInfo_ =
-            com.google.spanner.admin.database.v1.RestoreInfo.newBuilder(restoreInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          restoreInfo_ != null &&
+          restoreInfo_ != com.google.spanner.admin.database.v1.RestoreInfo.getDefaultInstance()) {
+          getRestoreInfoBuilder().mergeFrom(value);
         } else {
           restoreInfo_ = value;
         }
-        onChanged();
       } else {
         restoreInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1842,14 +1793,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.admin.database.v1.RestoreInfo restore_info = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearRestoreInfo() {
-      if (restoreInfoBuilder_ == null) {
-        restoreInfo_ = null;
-        onChanged();
-      } else {
-        restoreInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      restoreInfo_ = null;
+      if (restoreInfoBuilder_ != null) {
+        restoreInfoBuilder_.dispose();
         restoreInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1861,7 +1811,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.admin.database.v1.RestoreInfo restore_info = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.spanner.admin.database.v1.RestoreInfo.Builder getRestoreInfoBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRestoreInfoFieldBuilder().getBuilder();
     }
@@ -1918,7 +1868,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the encryptionConfig field is set.
      */
     public boolean hasEncryptionConfig() {
-      return encryptionConfigBuilder_ != null || encryptionConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1954,11 +1904,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         encryptionConfig_ = value;
-        onChanged();
       } else {
         encryptionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1975,11 +1925,11 @@ private static final long serialVersionUID = 0L;
         com.google.spanner.admin.database.v1.EncryptionConfig.Builder builderForValue) {
       if (encryptionConfigBuilder_ == null) {
         encryptionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         encryptionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1994,17 +1944,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEncryptionConfig(com.google.spanner.admin.database.v1.EncryptionConfig value) {
       if (encryptionConfigBuilder_ == null) {
-        if (encryptionConfig_ != null) {
-          encryptionConfig_ =
-            com.google.spanner.admin.database.v1.EncryptionConfig.newBuilder(encryptionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          encryptionConfig_ != null &&
+          encryptionConfig_ != com.google.spanner.admin.database.v1.EncryptionConfig.getDefaultInstance()) {
+          getEncryptionConfigBuilder().mergeFrom(value);
         } else {
           encryptionConfig_ = value;
         }
-        onChanged();
       } else {
         encryptionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2018,14 +1969,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.admin.database.v1.EncryptionConfig encryption_config = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearEncryptionConfig() {
-      if (encryptionConfigBuilder_ == null) {
-        encryptionConfig_ = null;
-        onChanged();
-      } else {
-        encryptionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      encryptionConfig_ = null;
+      if (encryptionConfigBuilder_ != null) {
+        encryptionConfigBuilder_.dispose();
         encryptionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2039,7 +1989,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.admin.database.v1.EncryptionConfig encryption_config = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.spanner.admin.database.v1.EncryptionConfig.Builder getEncryptionConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getEncryptionConfigFieldBuilder().getBuilder();
     }
@@ -2088,9 +2038,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.spanner.admin.database.v1.EncryptionInfo> encryptionInfo_ =
       java.util.Collections.emptyList();
     private void ensureEncryptionInfoIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         encryptionInfo_ = new java.util.ArrayList<com.google.spanner.admin.database.v1.EncryptionInfo>(encryptionInfo_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2350,7 +2300,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEncryptionInfo() {
       if (encryptionInfoBuilder_ == null) {
         encryptionInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         encryptionInfoBuilder_.clear();
@@ -2497,7 +2447,7 @@ private static final long serialVersionUID = 0L;
         encryptionInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.spanner.admin.database.v1.EncryptionInfo, com.google.spanner.admin.database.v1.EncryptionInfo.Builder, com.google.spanner.admin.database.v1.EncryptionInfoOrBuilder>(
                 encryptionInfo_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         encryptionInfo_ = null;
@@ -2570,11 +2520,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionRetentionPeriod(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       versionRetentionPeriod_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2591,8 +2539,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersionRetentionPeriod() {
-      
       versionRetentionPeriod_ = getDefaultInstance().getVersionRetentionPeriod();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2611,12 +2559,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionRetentionPeriodBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       versionRetentionPeriod_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2637,7 +2583,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the earliestVersionTime field is set.
      */
     public boolean hasEarliestVersionTime() {
-      return earliestVersionTimeBuilder_ != null || earliestVersionTime_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2675,11 +2621,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         earliestVersionTime_ = value;
-        onChanged();
       } else {
         earliestVersionTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2697,11 +2643,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (earliestVersionTimeBuilder_ == null) {
         earliestVersionTime_ = builderForValue.build();
-        onChanged();
       } else {
         earliestVersionTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2717,17 +2663,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEarliestVersionTime(com.google.protobuf.Timestamp value) {
       if (earliestVersionTimeBuilder_ == null) {
-        if (earliestVersionTime_ != null) {
-          earliestVersionTime_ =
-            com.google.protobuf.Timestamp.newBuilder(earliestVersionTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          earliestVersionTime_ != null &&
+          earliestVersionTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEarliestVersionTimeBuilder().mergeFrom(value);
         } else {
           earliestVersionTime_ = value;
         }
-        onChanged();
       } else {
         earliestVersionTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2742,14 +2689,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp earliest_version_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearEarliestVersionTime() {
-      if (earliestVersionTimeBuilder_ == null) {
-        earliestVersionTime_ = null;
-        onChanged();
-      } else {
-        earliestVersionTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      earliestVersionTime_ = null;
+      if (earliestVersionTimeBuilder_ != null) {
+        earliestVersionTimeBuilder_.dispose();
         earliestVersionTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2764,7 +2710,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp earliest_version_time = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEarliestVersionTimeBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getEarliestVersionTimeFieldBuilder().getBuilder();
     }
@@ -2877,11 +2823,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultLeader(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       defaultLeader_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2898,8 +2842,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultLeader() {
-      
       defaultLeader_ = getDefaultInstance().getDefaultLeader();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2918,12 +2862,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultLeaderBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       defaultLeader_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2950,8 +2892,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDatabaseDialectValue(int value) {
-      
       databaseDialect_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2965,8 +2907,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.spanner.admin.database.v1.DatabaseDialect getDatabaseDialect() {
-      @SuppressWarnings("deprecation")
-      com.google.spanner.admin.database.v1.DatabaseDialect result = com.google.spanner.admin.database.v1.DatabaseDialect.valueOf(databaseDialect_);
+      com.google.spanner.admin.database.v1.DatabaseDialect result = com.google.spanner.admin.database.v1.DatabaseDialect.forNumber(databaseDialect_);
       return result == null ? com.google.spanner.admin.database.v1.DatabaseDialect.UNRECOGNIZED : result;
     }
     /**
@@ -2982,7 +2923,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       databaseDialect_ = value.getNumber();
       onChanged();
       return this;
@@ -2996,7 +2937,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatabaseDialect() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       databaseDialect_ = 0;
       onChanged();
       return this;
@@ -3034,7 +2975,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Database(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

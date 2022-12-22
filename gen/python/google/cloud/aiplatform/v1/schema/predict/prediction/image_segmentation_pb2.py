@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nMgoogle/cloud/aiplatform/v1/schema/predict/prediction/image_segmentation.proto\x12\x34google.cloud.aiplatform.v1.schema.predict.prediction\x1a\x1cgoogle/api/annotations.proto\"S\n!ImageSegmentationPredictionResult\x12\x15\n\rcategory_mask\x18\x01 \x01(\t\x12\x17\n\x0f\x63onfidence_mask\x18\x02 \x01(\tB\xef\x02\n8com.google.cloud.aiplatform.v1.schema.predict.predictionB&ImageSegmentationPredictionResultProtoP\x01Z^google.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/prediction;prediction\xaa\x02\x34Google.Cloud.AIPlatform.V1.Schema.Predict.Prediction\xca\x02\x34Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Prediction\xea\x02:Google::Cloud::AIPlatform::V1::Schema::Predict::Predictionb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nMgoogle/cloud/aiplatform/v1/schema/predict/prediction/image_segmentation.proto\x12\x34google.cloud.aiplatform.v1.schema.predict.prediction\"S\n!ImageSegmentationPredictionResult\x12\x15\n\rcategory_mask\x18\x01 \x01(\t\x12\x17\n\x0f\x63onfidence_mask\x18\x02 \x01(\tB\xef\x02\n8com.google.cloud.aiplatform.v1.schema.predict.predictionB&ImageSegmentationPredictionResultProtoP\x01Z^google.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/prediction;prediction\xaa\x02\x34Google.Cloud.AIPlatform.V1.Schema.Predict.Prediction\xca\x02\x34Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Prediction\xea\x02:Google::Cloud::AIPlatform::V1::Schema::Predict::Predictionb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1.schema.predict.prediction.image_segmentation_pb2', globals())
@@ -22,6 +21,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n8com.google.cloud.aiplatform.v1.schema.predict.predictionB&ImageSegmentationPredictionResultProtoP\001Z^google.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/prediction;prediction\252\0024Google.Cloud.AIPlatform.V1.Schema.Predict.Prediction\312\0024Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Prediction\352\002:Google::Cloud::AIPlatform::V1::Schema::Predict::Prediction'
-  _IMAGESEGMENTATIONPREDICTIONRESULT._serialized_start=165
-  _IMAGESEGMENTATIONPREDICTIONRESULT._serialized_end=248
+  _IMAGESEGMENTATIONPREDICTIONRESULT._serialized_start=135
+  _IMAGESEGMENTATIONPREDICTIONRESULT._serialized_end=218
 # @@protoc_insertion_point(module_scope)

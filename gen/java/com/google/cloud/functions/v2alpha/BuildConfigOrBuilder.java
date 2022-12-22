@@ -220,7 +220,6 @@ public interface BuildConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; environment_variables = 6;</code>
    */
-
   /* nullable */
 java.lang.String getEnvironmentVariablesOrDefault(
       java.lang.String key,
@@ -233,7 +232,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; environment_variables = 6;</code>
    */
-
   java.lang.String getEnvironmentVariablesOrThrow(
       java.lang.String key);
 

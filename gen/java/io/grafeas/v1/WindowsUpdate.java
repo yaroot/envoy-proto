@@ -42,114 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WindowsUpdate(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.grafeas.v1.WindowsUpdate.Identity.Builder subBuilder = null;
-            if (identity_ != null) {
-              subBuilder = identity_.toBuilder();
-            }
-            identity_ = input.readMessage(io.grafeas.v1.WindowsUpdate.Identity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(identity_);
-              identity_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            title_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              categories_ = new java.util.ArrayList<io.grafeas.v1.WindowsUpdate.Category>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            categories_.add(
-                input.readMessage(io.grafeas.v1.WindowsUpdate.Category.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              kbArticleIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            kbArticleIds_.add(s);
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            supportUrl_ = s;
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastPublishedTimestamp_ != null) {
-              subBuilder = lastPublishedTimestamp_.toBuilder();
-            }
-            lastPublishedTimestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastPublishedTimestamp_);
-              lastPublishedTimestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        categories_ = java.util.Collections.unmodifiableList(categories_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        kbArticleIds_ = kbArticleIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1.Upgrade.internal_static_grafeas_v1_WindowsUpdate_descriptor;
@@ -229,56 +121,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Identity(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              updateId_ = s;
-              break;
-            }
-            case 16: {
-
-              revision_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.grafeas.v1.Upgrade.internal_static_grafeas_v1_WindowsUpdate_Identity_descriptor;
@@ -293,7 +135,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int UPDATE_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object updateId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object updateId_ = "";
     /**
      * <pre>
      * The revision independent identifier of the update.
@@ -339,7 +182,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int REVISION_FIELD_NUMBER = 2;
-    private int revision_;
+    private int revision_ = 0;
     /**
      * <pre>
      * The revision number of the update.
@@ -373,7 +216,7 @@ private static final long serialVersionUID = 0L;
       if (revision_ != 0) {
         output.writeInt32(2, revision_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -389,7 +232,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, revision_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -408,7 +251,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getUpdateId())) return false;
       if (getRevision()
           != other.getRevision()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -423,7 +266,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getUpdateId().hashCode();
       hash = (37 * hash) + REVISION_FIELD_NUMBER;
       hash = (53 * hash) + getRevision();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -544,26 +387,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.grafeas.v1.WindowsUpdate.Identity.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         updateId_ = "";
-
         revision_ = 0;
-
         return this;
       }
 
@@ -590,10 +427,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.grafeas.v1.WindowsUpdate.Identity buildPartial() {
         io.grafeas.v1.WindowsUpdate.Identity result = new io.grafeas.v1.WindowsUpdate.Identity(this);
-        result.updateId_ = updateId_;
-        result.revision_ = revision_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.grafeas.v1.WindowsUpdate.Identity result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.updateId_ = updateId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.revision_ = revision_;
+        }
       }
 
       @java.lang.Override
@@ -642,12 +488,13 @@ private static final long serialVersionUID = 0L;
         if (other == io.grafeas.v1.WindowsUpdate.Identity.getDefaultInstance()) return this;
         if (!other.getUpdateId().isEmpty()) {
           updateId_ = other.updateId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getRevision() != 0) {
           setRevision(other.getRevision());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -662,19 +509,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.grafeas.v1.WindowsUpdate.Identity parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                updateId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                revision_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.grafeas.v1.WindowsUpdate.Identity) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object updateId_ = "";
       /**
@@ -729,11 +600,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUpdateId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         updateId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -746,8 +615,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearUpdateId() {
-        
         updateId_ = getDefaultInstance().getUpdateId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -762,12 +631,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUpdateIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         updateId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -797,6 +664,7 @@ private static final long serialVersionUID = 0L;
       public Builder setRevision(int value) {
         
         revision_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -809,7 +677,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearRevision() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         revision_ = 0;
         onChanged();
         return this;
@@ -847,7 +715,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Identity(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -944,57 +823,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Category(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              categoryId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.grafeas.v1.Upgrade.internal_static_grafeas_v1_WindowsUpdate_Category_descriptor;
@@ -1009,7 +837,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CATEGORY_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object categoryId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object categoryId_ = "";
     /**
      * <pre>
      * The identifier of the category.
@@ -1055,7 +884,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * The localized name of the category.
@@ -1120,7 +950,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1135,7 +965,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1154,7 +984,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getCategoryId())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1169,7 +999,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getCategoryId().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1290,26 +1120,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.grafeas.v1.WindowsUpdate.Category.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         categoryId_ = "";
-
         name_ = "";
-
         return this;
       }
 
@@ -1336,10 +1160,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.grafeas.v1.WindowsUpdate.Category buildPartial() {
         io.grafeas.v1.WindowsUpdate.Category result = new io.grafeas.v1.WindowsUpdate.Category(this);
-        result.categoryId_ = categoryId_;
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.grafeas.v1.WindowsUpdate.Category result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.categoryId_ = categoryId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -1388,13 +1221,15 @@ private static final long serialVersionUID = 0L;
         if (other == io.grafeas.v1.WindowsUpdate.Category.getDefaultInstance()) return this;
         if (!other.getCategoryId().isEmpty()) {
           categoryId_ = other.categoryId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1409,19 +1244,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.grafeas.v1.WindowsUpdate.Category parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                categoryId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.grafeas.v1.WindowsUpdate.Category) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object categoryId_ = "";
       /**
@@ -1476,11 +1335,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCategoryId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         categoryId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1493,8 +1350,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCategoryId() {
-        
         categoryId_ = getDefaultInstance().getCategoryId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1509,12 +1366,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCategoryIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         categoryId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1572,11 +1427,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1589,8 +1442,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1605,12 +1458,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1647,7 +1498,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Category(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1702,11 +1564,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.grafeas.v1.WindowsUpdate.IdentityOrBuilder getIdentityOrBuilder() {
-    return getIdentity();
+    return identity_ == null ? io.grafeas.v1.WindowsUpdate.Identity.getDefaultInstance() : identity_;
   }
 
   public static final int TITLE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object title_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object title_ = "";
   /**
    * <pre>
    * The localized title of the update.
@@ -1752,7 +1615,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * The localized description of the update.
@@ -1798,6 +1662,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CATEGORIES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<io.grafeas.v1.WindowsUpdate.Category> categories_;
   /**
    * <pre>
@@ -1858,6 +1723,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KB_ARTICLE_IDS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList kbArticleIds_;
   /**
    * <pre>
@@ -1913,7 +1779,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUPPORT_URL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object supportUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object supportUrl_ = "";
   /**
    * <pre>
    * The hyperlink to the support information for the update.
@@ -1993,7 +1860,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastPublishedTimestampOrBuilder() {
-    return getLastPublishedTimestamp();
+    return lastPublishedTimestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastPublishedTimestamp_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2031,7 +1898,7 @@ private static final long serialVersionUID = 0L;
     if (lastPublishedTimestamp_ != null) {
       output.writeMessage(7, getLastPublishedTimestamp());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2069,7 +1936,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getLastPublishedTimestamp());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2104,7 +1971,7 @@ private static final long serialVersionUID = 0L;
       if (!getLastPublishedTimestamp()
           .equals(other.getLastPublishedTimestamp())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2137,7 +2004,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LAST_PUBLISHED_TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getLastPublishedTimestamp().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2261,47 +2128,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1.WindowsUpdate.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCategoriesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (identityBuilder_ == null) {
-        identity_ = null;
-      } else {
-        identity_ = null;
+      bitField0_ = 0;
+      identity_ = null;
+      if (identityBuilder_ != null) {
+        identityBuilder_.dispose();
         identityBuilder_ = null;
       }
       title_ = "";
-
       description_ = "";
-
       if (categoriesBuilder_ == null) {
         categories_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        categories_ = null;
         categoriesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       kbArticleIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       supportUrl_ = "";
-
-      if (lastPublishedTimestampBuilder_ == null) {
-        lastPublishedTimestamp_ = null;
-      } else {
-        lastPublishedTimestamp_ = null;
+      lastPublishedTimestamp_ = null;
+      if (lastPublishedTimestampBuilder_ != null) {
+        lastPublishedTimestampBuilder_.dispose();
         lastPublishedTimestampBuilder_ = null;
       }
       return this;
@@ -2330,36 +2188,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1.WindowsUpdate buildPartial() {
       io.grafeas.v1.WindowsUpdate result = new io.grafeas.v1.WindowsUpdate(this);
-      int from_bitField0_ = bitField0_;
-      if (identityBuilder_ == null) {
-        result.identity_ = identity_;
-      } else {
-        result.identity_ = identityBuilder_.build();
-      }
-      result.title_ = title_;
-      result.description_ = description_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.grafeas.v1.WindowsUpdate result) {
       if (categoriesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           categories_ = java.util.Collections.unmodifiableList(categories_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.categories_ = categories_;
       } else {
         result.categories_ = categoriesBuilder_.build();
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         kbArticleIds_ = kbArticleIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.kbArticleIds_ = kbArticleIds_;
-      result.supportUrl_ = supportUrl_;
-      if (lastPublishedTimestampBuilder_ == null) {
-        result.lastPublishedTimestamp_ = lastPublishedTimestamp_;
-      } else {
-        result.lastPublishedTimestamp_ = lastPublishedTimestampBuilder_.build();
+    }
+
+    private void buildPartial0(io.grafeas.v1.WindowsUpdate result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.identity_ = identityBuilder_ == null
+            ? identity_
+            : identityBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.title_ = title_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.supportUrl_ = supportUrl_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.lastPublishedTimestamp_ = lastPublishedTimestampBuilder_ == null
+            ? lastPublishedTimestamp_
+            : lastPublishedTimestampBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2411,17 +2283,19 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (categoriesBuilder_ == null) {
         if (!other.categories_.isEmpty()) {
           if (categories_.isEmpty()) {
             categories_ = other.categories_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureCategoriesIsMutable();
             categories_.addAll(other.categories_);
@@ -2434,7 +2308,7 @@ private static final long serialVersionUID = 0L;
             categoriesBuilder_.dispose();
             categoriesBuilder_ = null;
             categories_ = other.categories_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             categoriesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCategoriesFieldBuilder() : null;
@@ -2446,7 +2320,7 @@ private static final long serialVersionUID = 0L;
       if (!other.kbArticleIds_.isEmpty()) {
         if (kbArticleIds_.isEmpty()) {
           kbArticleIds_ = other.kbArticleIds_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureKbArticleIdsIsMutable();
           kbArticleIds_.addAll(other.kbArticleIds_);
@@ -2455,12 +2329,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSupportUrl().isEmpty()) {
         supportUrl_ = other.supportUrl_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasLastPublishedTimestamp()) {
         mergeLastPublishedTimestamp(other.getLastPublishedTimestamp());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2475,17 +2350,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1.WindowsUpdate parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getIdentityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              title_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              io.grafeas.v1.WindowsUpdate.Category m =
+                  input.readMessage(
+                      io.grafeas.v1.WindowsUpdate.Category.parser(),
+                      extensionRegistry);
+              if (categoriesBuilder_ == null) {
+                ensureCategoriesIsMutable();
+                categories_.add(m);
+              } else {
+                categoriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureKbArticleIdsIsMutable();
+              kbArticleIds_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              supportUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getLastPublishedTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1.WindowsUpdate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2502,7 +2438,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the identity field is set.
      */
     public boolean hasIdentity() {
-      return identityBuilder_ != null || identity_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2532,11 +2468,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         identity_ = value;
-        onChanged();
       } else {
         identityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2550,11 +2486,11 @@ private static final long serialVersionUID = 0L;
         io.grafeas.v1.WindowsUpdate.Identity.Builder builderForValue) {
       if (identityBuilder_ == null) {
         identity_ = builderForValue.build();
-        onChanged();
       } else {
         identityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2566,17 +2502,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIdentity(io.grafeas.v1.WindowsUpdate.Identity value) {
       if (identityBuilder_ == null) {
-        if (identity_ != null) {
-          identity_ =
-            io.grafeas.v1.WindowsUpdate.Identity.newBuilder(identity_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          identity_ != null &&
+          identity_ != io.grafeas.v1.WindowsUpdate.Identity.getDefaultInstance()) {
+          getIdentityBuilder().mergeFrom(value);
         } else {
           identity_ = value;
         }
-        onChanged();
       } else {
         identityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2587,14 +2524,13 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.WindowsUpdate.Identity identity = 1;</code>
      */
     public Builder clearIdentity() {
-      if (identityBuilder_ == null) {
-        identity_ = null;
-        onChanged();
-      } else {
-        identity_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      identity_ = null;
+      if (identityBuilder_ != null) {
+        identityBuilder_.dispose();
         identityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2605,7 +2541,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.WindowsUpdate.Identity identity = 1;</code>
      */
     public io.grafeas.v1.WindowsUpdate.Identity.Builder getIdentityBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getIdentityFieldBuilder().getBuilder();
     }
@@ -2698,11 +2634,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       title_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2715,8 +2649,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
-      
       title_ = getDefaultInstance().getTitle();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2731,12 +2665,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       title_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2794,11 +2726,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2811,8 +2741,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2827,12 +2757,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2840,9 +2768,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.grafeas.v1.WindowsUpdate.Category> categories_ =
       java.util.Collections.emptyList();
     private void ensureCategoriesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         categories_ = new java.util.ArrayList<io.grafeas.v1.WindowsUpdate.Category>(categories_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -3036,7 +2964,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCategories() {
       if (categoriesBuilder_ == null) {
         categories_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         categoriesBuilder_.clear();
@@ -3141,7 +3069,7 @@ private static final long serialVersionUID = 0L;
         categoriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.grafeas.v1.WindowsUpdate.Category, io.grafeas.v1.WindowsUpdate.Category.Builder, io.grafeas.v1.WindowsUpdate.CategoryOrBuilder>(
                 categories_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         categories_ = null;
@@ -3151,9 +3079,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList kbArticleIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureKbArticleIdsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         kbArticleIds_ = new com.google.protobuf.LazyStringArrayList(kbArticleIds_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -3221,10 +3149,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKbArticleIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureKbArticleIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureKbArticleIdsIsMutable();
       kbArticleIds_.set(index, value);
       onChanged();
       return this;
@@ -3241,10 +3167,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addKbArticleIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureKbArticleIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureKbArticleIdsIsMutable();
       kbArticleIds_.add(value);
       onChanged();
       return this;
@@ -3278,7 +3202,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearKbArticleIds() {
       kbArticleIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3294,10 +3218,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addKbArticleIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureKbArticleIdsIsMutable();
       kbArticleIds_.add(value);
       onChanged();
@@ -3357,11 +3279,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSupportUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       supportUrl_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3374,8 +3294,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSupportUrl() {
-      
       supportUrl_ = getDefaultInstance().getSupportUrl();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3390,12 +3310,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSupportUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       supportUrl_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3412,7 +3330,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastPublishedTimestamp field is set.
      */
     public boolean hasLastPublishedTimestamp() {
-      return lastPublishedTimestampBuilder_ != null || lastPublishedTimestamp_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3442,11 +3360,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastPublishedTimestamp_ = value;
-        onChanged();
       } else {
         lastPublishedTimestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3460,11 +3378,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastPublishedTimestampBuilder_ == null) {
         lastPublishedTimestamp_ = builderForValue.build();
-        onChanged();
       } else {
         lastPublishedTimestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3476,17 +3394,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastPublishedTimestamp(com.google.protobuf.Timestamp value) {
       if (lastPublishedTimestampBuilder_ == null) {
-        if (lastPublishedTimestamp_ != null) {
-          lastPublishedTimestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(lastPublishedTimestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          lastPublishedTimestamp_ != null &&
+          lastPublishedTimestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastPublishedTimestampBuilder().mergeFrom(value);
         } else {
           lastPublishedTimestamp_ = value;
         }
-        onChanged();
       } else {
         lastPublishedTimestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3497,14 +3416,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_published_timestamp = 7;</code>
      */
     public Builder clearLastPublishedTimestamp() {
-      if (lastPublishedTimestampBuilder_ == null) {
-        lastPublishedTimestamp_ = null;
-        onChanged();
-      } else {
-        lastPublishedTimestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      lastPublishedTimestamp_ = null;
+      if (lastPublishedTimestampBuilder_ != null) {
+        lastPublishedTimestampBuilder_.dispose();
         lastPublishedTimestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3515,7 +3433,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_published_timestamp = 7;</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastPublishedTimestampBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getLastPublishedTimestampFieldBuilder().getBuilder();
     }
@@ -3587,7 +3505,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WindowsUpdate(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

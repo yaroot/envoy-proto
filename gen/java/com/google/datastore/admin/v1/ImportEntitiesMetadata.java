@@ -35,103 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImportEntitiesMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.datastore.admin.v1.CommonMetadata.Builder subBuilder = null;
-            if (common_ != null) {
-              subBuilder = common_.toBuilder();
-            }
-            common_ = input.readMessage(com.google.datastore.admin.v1.CommonMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(common_);
-              common_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.datastore.admin.v1.Progress.Builder subBuilder = null;
-            if (progressEntities_ != null) {
-              subBuilder = progressEntities_.toBuilder();
-            }
-            progressEntities_ = input.readMessage(com.google.datastore.admin.v1.Progress.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(progressEntities_);
-              progressEntities_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.datastore.admin.v1.Progress.Builder subBuilder = null;
-            if (progressBytes_ != null) {
-              subBuilder = progressBytes_.toBuilder();
-            }
-            progressBytes_ = input.readMessage(com.google.datastore.admin.v1.Progress.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(progressBytes_);
-              progressBytes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.datastore.admin.v1.EntityFilter.Builder subBuilder = null;
-            if (entityFilter_ != null) {
-              subBuilder = entityFilter_.toBuilder();
-            }
-            entityFilter_ = input.readMessage(com.google.datastore.admin.v1.EntityFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(entityFilter_);
-              entityFilter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            inputUrl_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.datastore.admin.v1.DatastoreAdminProto.internal_static_google_datastore_admin_v1_ImportEntitiesMetadata_descriptor;
@@ -180,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.datastore.admin.v1.CommonMetadataOrBuilder getCommonOrBuilder() {
-    return getCommon();
+    return common_ == null ? com.google.datastore.admin.v1.CommonMetadata.getDefaultInstance() : common_;
   }
 
   public static final int PROGRESS_ENTITIES_FIELD_NUMBER = 2;
@@ -218,7 +121,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.datastore.admin.v1.ProgressOrBuilder getProgressEntitiesOrBuilder() {
-    return getProgressEntities();
+    return progressEntities_ == null ? com.google.datastore.admin.v1.Progress.getDefaultInstance() : progressEntities_;
   }
 
   public static final int PROGRESS_BYTES_FIELD_NUMBER = 3;
@@ -256,7 +159,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.datastore.admin.v1.ProgressOrBuilder getProgressBytesOrBuilder() {
-    return getProgressBytes();
+    return progressBytes_ == null ? com.google.datastore.admin.v1.Progress.getDefaultInstance() : progressBytes_;
   }
 
   public static final int ENTITY_FILTER_FIELD_NUMBER = 4;
@@ -294,11 +197,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.datastore.admin.v1.EntityFilterOrBuilder getEntityFilterOrBuilder() {
-    return getEntityFilter();
+    return entityFilter_ == null ? com.google.datastore.admin.v1.EntityFilter.getDefaultInstance() : entityFilter_;
   }
 
   public static final int INPUT_URL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object inputUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inputUrl_ = "";
   /**
    * <pre>
    * The location of the import metadata file. This will be the same value as
@@ -374,7 +278,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(inputUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, inputUrl_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -402,7 +306,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(inputUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, inputUrl_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -439,7 +343,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getInputUrl()
         .equals(other.getInputUrl())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -468,7 +372,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + INPUT_URL_FIELD_NUMBER;
     hash = (53 * hash) + getInputUrl().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -589,48 +493,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.datastore.admin.v1.ImportEntitiesMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (commonBuilder_ == null) {
-        common_ = null;
-      } else {
-        common_ = null;
+      bitField0_ = 0;
+      common_ = null;
+      if (commonBuilder_ != null) {
+        commonBuilder_.dispose();
         commonBuilder_ = null;
       }
-      if (progressEntitiesBuilder_ == null) {
-        progressEntities_ = null;
-      } else {
-        progressEntities_ = null;
+      progressEntities_ = null;
+      if (progressEntitiesBuilder_ != null) {
+        progressEntitiesBuilder_.dispose();
         progressEntitiesBuilder_ = null;
       }
-      if (progressBytesBuilder_ == null) {
-        progressBytes_ = null;
-      } else {
-        progressBytes_ = null;
+      progressBytes_ = null;
+      if (progressBytesBuilder_ != null) {
+        progressBytesBuilder_.dispose();
         progressBytesBuilder_ = null;
       }
-      if (entityFilterBuilder_ == null) {
-        entityFilter_ = null;
-      } else {
-        entityFilter_ = null;
+      entityFilter_ = null;
+      if (entityFilterBuilder_ != null) {
+        entityFilterBuilder_.dispose();
         entityFilterBuilder_ = null;
       }
       inputUrl_ = "";
-
       return this;
     }
 
@@ -657,29 +552,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.datastore.admin.v1.ImportEntitiesMetadata buildPartial() {
       com.google.datastore.admin.v1.ImportEntitiesMetadata result = new com.google.datastore.admin.v1.ImportEntitiesMetadata(this);
-      if (commonBuilder_ == null) {
-        result.common_ = common_;
-      } else {
-        result.common_ = commonBuilder_.build();
-      }
-      if (progressEntitiesBuilder_ == null) {
-        result.progressEntities_ = progressEntities_;
-      } else {
-        result.progressEntities_ = progressEntitiesBuilder_.build();
-      }
-      if (progressBytesBuilder_ == null) {
-        result.progressBytes_ = progressBytes_;
-      } else {
-        result.progressBytes_ = progressBytesBuilder_.build();
-      }
-      if (entityFilterBuilder_ == null) {
-        result.entityFilter_ = entityFilter_;
-      } else {
-        result.entityFilter_ = entityFilterBuilder_.build();
-      }
-      result.inputUrl_ = inputUrl_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.datastore.admin.v1.ImportEntitiesMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.common_ = commonBuilder_ == null
+            ? common_
+            : commonBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.progressEntities_ = progressEntitiesBuilder_ == null
+            ? progressEntities_
+            : progressEntitiesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.progressBytes_ = progressBytesBuilder_ == null
+            ? progressBytes_
+            : progressBytesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.entityFilter_ = entityFilterBuilder_ == null
+            ? entityFilter_
+            : entityFilterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.inputUrl_ = inputUrl_;
+      }
     }
 
     @java.lang.Override
@@ -740,9 +642,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getInputUrl().isEmpty()) {
         inputUrl_ = other.inputUrl_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -757,19 +660,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.datastore.admin.v1.ImportEntitiesMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCommonFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getProgressEntitiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getProgressBytesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getEntityFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              inputUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.datastore.admin.v1.ImportEntitiesMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.datastore.admin.v1.CommonMetadata common_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -783,7 +733,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the common field is set.
      */
     public boolean hasCommon() {
-      return commonBuilder_ != null || common_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -813,11 +763,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         common_ = value;
-        onChanged();
       } else {
         commonBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -831,11 +781,11 @@ private static final long serialVersionUID = 0L;
         com.google.datastore.admin.v1.CommonMetadata.Builder builderForValue) {
       if (commonBuilder_ == null) {
         common_ = builderForValue.build();
-        onChanged();
       } else {
         commonBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -847,17 +797,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommon(com.google.datastore.admin.v1.CommonMetadata value) {
       if (commonBuilder_ == null) {
-        if (common_ != null) {
-          common_ =
-            com.google.datastore.admin.v1.CommonMetadata.newBuilder(common_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          common_ != null &&
+          common_ != com.google.datastore.admin.v1.CommonMetadata.getDefaultInstance()) {
+          getCommonBuilder().mergeFrom(value);
         } else {
           common_ = value;
         }
-        onChanged();
       } else {
         commonBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -868,14 +819,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.admin.v1.CommonMetadata common = 1;</code>
      */
     public Builder clearCommon() {
-      if (commonBuilder_ == null) {
-        common_ = null;
-        onChanged();
-      } else {
-        common_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      common_ = null;
+      if (commonBuilder_ != null) {
+        commonBuilder_.dispose();
         commonBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -886,7 +836,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.admin.v1.CommonMetadata common = 1;</code>
      */
     public com.google.datastore.admin.v1.CommonMetadata.Builder getCommonBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCommonFieldBuilder().getBuilder();
     }
@@ -938,7 +888,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the progressEntities field is set.
      */
     public boolean hasProgressEntities() {
-      return progressEntitiesBuilder_ != null || progressEntities_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -968,11 +918,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         progressEntities_ = value;
-        onChanged();
       } else {
         progressEntitiesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -986,11 +936,11 @@ private static final long serialVersionUID = 0L;
         com.google.datastore.admin.v1.Progress.Builder builderForValue) {
       if (progressEntitiesBuilder_ == null) {
         progressEntities_ = builderForValue.build();
-        onChanged();
       } else {
         progressEntitiesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1002,17 +952,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProgressEntities(com.google.datastore.admin.v1.Progress value) {
       if (progressEntitiesBuilder_ == null) {
-        if (progressEntities_ != null) {
-          progressEntities_ =
-            com.google.datastore.admin.v1.Progress.newBuilder(progressEntities_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          progressEntities_ != null &&
+          progressEntities_ != com.google.datastore.admin.v1.Progress.getDefaultInstance()) {
+          getProgressEntitiesBuilder().mergeFrom(value);
         } else {
           progressEntities_ = value;
         }
-        onChanged();
       } else {
         progressEntitiesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1023,14 +974,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.admin.v1.Progress progress_entities = 2;</code>
      */
     public Builder clearProgressEntities() {
-      if (progressEntitiesBuilder_ == null) {
-        progressEntities_ = null;
-        onChanged();
-      } else {
-        progressEntities_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      progressEntities_ = null;
+      if (progressEntitiesBuilder_ != null) {
+        progressEntitiesBuilder_.dispose();
         progressEntitiesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1041,7 +991,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.admin.v1.Progress progress_entities = 2;</code>
      */
     public com.google.datastore.admin.v1.Progress.Builder getProgressEntitiesBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getProgressEntitiesFieldBuilder().getBuilder();
     }
@@ -1093,7 +1043,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the progressBytes field is set.
      */
     public boolean hasProgressBytes() {
-      return progressBytesBuilder_ != null || progressBytes_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1123,11 +1073,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         progressBytes_ = value;
-        onChanged();
       } else {
         progressBytesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1141,11 +1091,11 @@ private static final long serialVersionUID = 0L;
         com.google.datastore.admin.v1.Progress.Builder builderForValue) {
       if (progressBytesBuilder_ == null) {
         progressBytes_ = builderForValue.build();
-        onChanged();
       } else {
         progressBytesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1157,17 +1107,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProgressBytes(com.google.datastore.admin.v1.Progress value) {
       if (progressBytesBuilder_ == null) {
-        if (progressBytes_ != null) {
-          progressBytes_ =
-            com.google.datastore.admin.v1.Progress.newBuilder(progressBytes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          progressBytes_ != null &&
+          progressBytes_ != com.google.datastore.admin.v1.Progress.getDefaultInstance()) {
+          getProgressBytesBuilder().mergeFrom(value);
         } else {
           progressBytes_ = value;
         }
-        onChanged();
       } else {
         progressBytesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1178,14 +1129,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.admin.v1.Progress progress_bytes = 3;</code>
      */
     public Builder clearProgressBytes() {
-      if (progressBytesBuilder_ == null) {
-        progressBytes_ = null;
-        onChanged();
-      } else {
-        progressBytes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      progressBytes_ = null;
+      if (progressBytesBuilder_ != null) {
+        progressBytesBuilder_.dispose();
         progressBytesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1196,7 +1146,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.admin.v1.Progress progress_bytes = 3;</code>
      */
     public com.google.datastore.admin.v1.Progress.Builder getProgressBytesBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getProgressBytesFieldBuilder().getBuilder();
     }
@@ -1248,7 +1198,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the entityFilter field is set.
      */
     public boolean hasEntityFilter() {
-      return entityFilterBuilder_ != null || entityFilter_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1278,11 +1228,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         entityFilter_ = value;
-        onChanged();
       } else {
         entityFilterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1296,11 +1246,11 @@ private static final long serialVersionUID = 0L;
         com.google.datastore.admin.v1.EntityFilter.Builder builderForValue) {
       if (entityFilterBuilder_ == null) {
         entityFilter_ = builderForValue.build();
-        onChanged();
       } else {
         entityFilterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1312,17 +1262,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEntityFilter(com.google.datastore.admin.v1.EntityFilter value) {
       if (entityFilterBuilder_ == null) {
-        if (entityFilter_ != null) {
-          entityFilter_ =
-            com.google.datastore.admin.v1.EntityFilter.newBuilder(entityFilter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          entityFilter_ != null &&
+          entityFilter_ != com.google.datastore.admin.v1.EntityFilter.getDefaultInstance()) {
+          getEntityFilterBuilder().mergeFrom(value);
         } else {
           entityFilter_ = value;
         }
-        onChanged();
       } else {
         entityFilterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1333,14 +1284,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.admin.v1.EntityFilter entity_filter = 4;</code>
      */
     public Builder clearEntityFilter() {
-      if (entityFilterBuilder_ == null) {
-        entityFilter_ = null;
-        onChanged();
-      } else {
-        entityFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      entityFilter_ = null;
+      if (entityFilterBuilder_ != null) {
+        entityFilterBuilder_.dispose();
         entityFilterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1351,7 +1301,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.admin.v1.EntityFilter entity_filter = 4;</code>
      */
     public com.google.datastore.admin.v1.EntityFilter.Builder getEntityFilterBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getEntityFilterFieldBuilder().getBuilder();
     }
@@ -1447,11 +1397,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInputUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       inputUrl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1465,8 +1413,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInputUrl() {
-      
       inputUrl_ = getDefaultInstance().getInputUrl();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1482,12 +1430,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInputUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inputUrl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1524,7 +1470,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportEntitiesMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,97 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HiveMetastoreConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              configOverrides_ = com.google.protobuf.MapField.newMapField(
-                  ConfigOverridesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            configOverrides__ = input.readMessage(
-                ConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            configOverrides_.getMutableMap().put(
-                configOverrides__.getKey(), configOverrides__.getValue());
-            break;
-          }
-          case 26: {
-            com.google.cloud.metastore.v1alpha.KerberosConfig.Builder subBuilder = null;
-            if (kerberosConfig_ != null) {
-              subBuilder = kerberosConfig_.toBuilder();
-            }
-            kerberosConfig_ = input.readMessage(com.google.cloud.metastore.v1alpha.KerberosConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kerberosConfig_);
-              kerberosConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            endpointProtocol_ = rawValue;
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              auxiliaryVersions_ = com.google.protobuf.MapField.newMapField(
-                  AuxiliaryVersionsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig>
-            auxiliaryVersions__ = input.readMessage(
-                AuxiliaryVersionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            auxiliaryVersions_.getMutableMap().put(
-                auxiliaryVersions__.getKey(), auxiliaryVersions__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1alpha.MetastoreProto.internal_static_google_cloud_metastore_v1alpha_HiveMetastoreConfig_descriptor;
@@ -301,7 +210,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * Immutable. The Hive metastore schema version.
@@ -358,6 +268,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> configOverrides_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -368,7 +279,6 @@ private static final long serialVersionUID = 0L;
     }
     return configOverrides_;
   }
-
   public int getConfigOverridesCount() {
     return internalGetConfigOverrides().getMap().size();
   }
@@ -383,7 +293,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsConfigOverrides(
       java.lang.String key) {
@@ -410,7 +319,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getConfigOverridesMap() {
     return internalGetConfigOverrides().getMap();
   }
@@ -426,10 +334,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getConfigOverridesOrDefault(
+  public /* nullable */
+java.lang.String getConfigOverridesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetConfigOverrides().getMap();
@@ -447,7 +356,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getConfigOverridesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -506,11 +414,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.metastore.v1alpha.KerberosConfigOrBuilder getKerberosConfigOrBuilder() {
-    return getKerberosConfig();
+    return kerberosConfig_ == null ? com.google.cloud.metastore.v1alpha.KerberosConfig.getDefaultInstance() : kerberosConfig_;
   }
 
   public static final int ENDPOINT_PROTOCOL_FIELD_NUMBER = 4;
-  private int endpointProtocol_;
+  private int endpointProtocol_ = 0;
   /**
    * <pre>
    * The protocol to use for the metastore service endpoint. If unspecified,
@@ -533,8 +441,7 @@ private static final long serialVersionUID = 0L;
    * @return The endpointProtocol.
    */
   @java.lang.Override public com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol getEndpointProtocol() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol result = com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol.valueOf(endpointProtocol_);
+    com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol result = com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol.forNumber(endpointProtocol_);
     return result == null ? com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol.UNRECOGNIZED : result;
   }
 
@@ -550,6 +457,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig> auxiliaryVersions_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig>
@@ -560,7 +468,6 @@ private static final long serialVersionUID = 0L;
     }
     return auxiliaryVersions_;
   }
-
   public int getAuxiliaryVersionsCount() {
     return internalGetAuxiliaryVersions().getMap().size();
   }
@@ -578,7 +485,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsAuxiliaryVersions(
       java.lang.String key) {
@@ -608,7 +514,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig> getAuxiliaryVersionsMap() {
     return internalGetAuxiliaryVersions().getMap();
   }
@@ -627,10 +532,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig getAuxiliaryVersionsOrDefault(
+  public /* nullable */
+com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig getAuxiliaryVersionsOrDefault(
       java.lang.String key,
-      com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig defaultValue) {
+      /* nullable */
+com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig> map =
         internalGetAuxiliaryVersions().getMap();
@@ -651,7 +557,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig getAuxiliaryVersionsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -698,7 +603,7 @@ private static final long serialVersionUID = 0L;
         internalGetAuxiliaryVersions(),
         AuxiliaryVersionsDefaultEntryHolder.defaultEntry,
         5);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -738,7 +643,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, auxiliaryVersions__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -765,7 +670,7 @@ private static final long serialVersionUID = 0L;
     if (endpointProtocol_ != other.endpointProtocol_) return false;
     if (!internalGetAuxiliaryVersions().equals(
         other.internalGetAuxiliaryVersions())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -792,7 +697,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AUXILIARY_VERSIONS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetAuxiliaryVersions().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -940,33 +845,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       version_ = "";
-
       internalGetMutableConfigOverrides().clear();
-      if (kerberosConfigBuilder_ == null) {
-        kerberosConfig_ = null;
-      } else {
-        kerberosConfig_ = null;
+      kerberosConfig_ = null;
+      if (kerberosConfigBuilder_ != null) {
+        kerberosConfigBuilder_.dispose();
         kerberosConfigBuilder_ = null;
       }
       endpointProtocol_ = 0;
-
       internalGetMutableAuxiliaryVersions().clear();
       return this;
     }
@@ -994,20 +892,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1alpha.HiveMetastoreConfig buildPartial() {
       com.google.cloud.metastore.v1alpha.HiveMetastoreConfig result = new com.google.cloud.metastore.v1alpha.HiveMetastoreConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.version_ = version_;
-      result.configOverrides_ = internalGetConfigOverrides();
-      result.configOverrides_.makeImmutable();
-      if (kerberosConfigBuilder_ == null) {
-        result.kerberosConfig_ = kerberosConfig_;
-      } else {
-        result.kerberosConfig_ = kerberosConfigBuilder_.build();
-      }
-      result.endpointProtocol_ = endpointProtocol_;
-      result.auxiliaryVersions_ = internalGetAuxiliaryVersions();
-      result.auxiliaryVersions_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1alpha.HiveMetastoreConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.version_ = version_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.configOverrides_ = internalGetConfigOverrides();
+        result.configOverrides_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.kerberosConfig_ = kerberosConfigBuilder_ == null
+            ? kerberosConfig_
+            : kerberosConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.endpointProtocol_ = endpointProtocol_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.auxiliaryVersions_ = internalGetAuxiliaryVersions();
+        result.auxiliaryVersions_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1056,10 +966,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.getDefaultInstance()) return this;
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableConfigOverrides().mergeFrom(
           other.internalGetConfigOverrides());
+      bitField0_ |= 0x00000002;
       if (other.hasKerberosConfig()) {
         mergeKerberosConfig(other.getKerberosConfig());
       }
@@ -1068,7 +980,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableAuxiliaryVersions().mergeFrom(
           other.internalGetAuxiliaryVersions());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1083,17 +996,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1alpha.HiveMetastoreConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              configOverrides__ = input.readMessage(
+                  ConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableConfigOverrides().getMutableMap().put(
+                  configOverrides__.getKey(), configOverrides__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getKerberosConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              endpointProtocol_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig>
+              auxiliaryVersions__ = input.readMessage(
+                  AuxiliaryVersionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAuxiliaryVersions().getMutableMap().put(
+                  auxiliaryVersions__.getKey(), auxiliaryVersions__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1alpha.HiveMetastoreConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1151,11 +1112,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1168,8 +1127,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1184,12 +1143,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1197,7 +1154,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> configOverrides_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetConfigOverrides() {
+        internalGetConfigOverrides() {
       if (configOverrides_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -1205,8 +1162,7 @@ private static final long serialVersionUID = 0L;
       return configOverrides_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableConfigOverrides() {
-      onChanged();;
+        internalGetMutableConfigOverrides() {
       if (configOverrides_ == null) {
         configOverrides_ = com.google.protobuf.MapField.newMapField(
             ConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -1214,9 +1170,10 @@ private static final long serialVersionUID = 0L;
       if (!configOverrides_.isMutable()) {
         configOverrides_ = configOverrides_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return configOverrides_;
     }
-
     public int getConfigOverridesCount() {
       return internalGetConfigOverrides().getMap().size();
     }
@@ -1231,7 +1188,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsConfigOverrides(
         java.lang.String key) {
@@ -1258,7 +1214,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getConfigOverridesMap() {
       return internalGetConfigOverrides().getMap();
     }
@@ -1274,10 +1229,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getConfigOverridesOrDefault(
+    public /* nullable */
+java.lang.String getConfigOverridesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetConfigOverrides().getMap();
@@ -1295,7 +1251,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getConfigOverridesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1306,8 +1261,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearConfigOverrides() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableConfigOverrides().getMutableMap()
           .clear();
       return this;
@@ -1323,7 +1278,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     public Builder removeConfigOverrides(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1336,7 +1290,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableConfigOverrides() {
+        getMutableConfigOverrides() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableConfigOverrides().getMutableMap();
     }
     /**
@@ -1354,12 +1309,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableConfigOverrides().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1373,11 +1326,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     public Builder putAllConfigOverrides(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableConfigOverrides().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -1397,7 +1350,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kerberosConfig field is set.
      */
     public boolean hasKerberosConfig() {
-      return kerberosConfigBuilder_ != null || kerberosConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1435,11 +1388,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kerberosConfig_ = value;
-        onChanged();
       } else {
         kerberosConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1457,11 +1410,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1alpha.KerberosConfig.Builder builderForValue) {
       if (kerberosConfigBuilder_ == null) {
         kerberosConfig_ = builderForValue.build();
-        onChanged();
       } else {
         kerberosConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1477,17 +1430,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKerberosConfig(com.google.cloud.metastore.v1alpha.KerberosConfig value) {
       if (kerberosConfigBuilder_ == null) {
-        if (kerberosConfig_ != null) {
-          kerberosConfig_ =
-            com.google.cloud.metastore.v1alpha.KerberosConfig.newBuilder(kerberosConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          kerberosConfig_ != null &&
+          kerberosConfig_ != com.google.cloud.metastore.v1alpha.KerberosConfig.getDefaultInstance()) {
+          getKerberosConfigBuilder().mergeFrom(value);
         } else {
           kerberosConfig_ = value;
         }
-        onChanged();
       } else {
         kerberosConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1502,14 +1456,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1alpha.KerberosConfig kerberos_config = 3;</code>
      */
     public Builder clearKerberosConfig() {
-      if (kerberosConfigBuilder_ == null) {
-        kerberosConfig_ = null;
-        onChanged();
-      } else {
-        kerberosConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      kerberosConfig_ = null;
+      if (kerberosConfigBuilder_ != null) {
+        kerberosConfigBuilder_.dispose();
         kerberosConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1524,7 +1477,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1alpha.KerberosConfig kerberos_config = 3;</code>
      */
     public com.google.cloud.metastore.v1alpha.KerberosConfig.Builder getKerberosConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getKerberosConfigFieldBuilder().getBuilder();
     }
@@ -1596,8 +1549,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEndpointProtocolValue(int value) {
-      
       endpointProtocol_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1612,8 +1565,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol getEndpointProtocol() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol result = com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol.valueOf(endpointProtocol_);
+      com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol result = com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol.forNumber(endpointProtocol_);
       return result == null ? com.google.cloud.metastore.v1alpha.HiveMetastoreConfig.EndpointProtocol.UNRECOGNIZED : result;
     }
     /**
@@ -1630,7 +1582,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       endpointProtocol_ = value.getNumber();
       onChanged();
       return this;
@@ -1645,7 +1597,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndpointProtocol() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       endpointProtocol_ = 0;
       onChanged();
       return this;
@@ -1654,7 +1606,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig> auxiliaryVersions_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig>
-    internalGetAuxiliaryVersions() {
+        internalGetAuxiliaryVersions() {
       if (auxiliaryVersions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AuxiliaryVersionsDefaultEntryHolder.defaultEntry);
@@ -1662,8 +1614,7 @@ private static final long serialVersionUID = 0L;
       return auxiliaryVersions_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig>
-    internalGetMutableAuxiliaryVersions() {
-      onChanged();;
+        internalGetMutableAuxiliaryVersions() {
       if (auxiliaryVersions_ == null) {
         auxiliaryVersions_ = com.google.protobuf.MapField.newMapField(
             AuxiliaryVersionsDefaultEntryHolder.defaultEntry);
@@ -1671,9 +1622,10 @@ private static final long serialVersionUID = 0L;
       if (!auxiliaryVersions_.isMutable()) {
         auxiliaryVersions_ = auxiliaryVersions_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return auxiliaryVersions_;
     }
-
     public int getAuxiliaryVersionsCount() {
       return internalGetAuxiliaryVersions().getMap().size();
     }
@@ -1691,7 +1643,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsAuxiliaryVersions(
         java.lang.String key) {
@@ -1721,7 +1672,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig> getAuxiliaryVersionsMap() {
       return internalGetAuxiliaryVersions().getMap();
     }
@@ -1740,10 +1690,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig getAuxiliaryVersionsOrDefault(
+    public /* nullable */
+com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig getAuxiliaryVersionsOrDefault(
         java.lang.String key,
-        com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig defaultValue) {
+        /* nullable */
+com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig> map =
           internalGetAuxiliaryVersions().getMap();
@@ -1764,7 +1715,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig getAuxiliaryVersionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1775,8 +1725,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAuxiliaryVersions() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableAuxiliaryVersions().getMutableMap()
           .clear();
       return this;
@@ -1795,7 +1745,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
      */
-
     public Builder removeAuxiliaryVersions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1808,7 +1757,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig>
-    getMutableAuxiliaryVersions() {
+        getMutableAuxiliaryVersions() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableAuxiliaryVersions().getMutableMap();
     }
     /**
@@ -1829,12 +1779,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAuxiliaryVersions().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1851,11 +1799,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.metastore.v1alpha.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
      */
-
     public Builder putAllAuxiliaryVersions(
         java.util.Map<java.lang.String, com.google.cloud.metastore.v1alpha.AuxiliaryVersionConfig> values) {
       internalGetMutableAuxiliaryVersions().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -1891,7 +1839,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HiveMetastoreConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

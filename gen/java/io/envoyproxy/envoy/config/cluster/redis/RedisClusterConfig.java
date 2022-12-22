@@ -34,107 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RedisClusterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (clusterRefreshRate_ != null) {
-              subBuilder = clusterRefreshRate_.toBuilder();
-            }
-            clusterRefreshRate_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(clusterRefreshRate_);
-              clusterRefreshRate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (clusterRefreshTimeout_ != null) {
-              subBuilder = clusterRefreshTimeout_.toBuilder();
-            }
-            clusterRefreshTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(clusterRefreshTimeout_);
-              clusterRefreshTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (redirectRefreshInterval_ != null) {
-              subBuilder = redirectRefreshInterval_.toBuilder();
-            }
-            redirectRefreshInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(redirectRefreshInterval_);
-              redirectRefreshInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (redirectRefreshThreshold_ != null) {
-              subBuilder = redirectRefreshThreshold_.toBuilder();
-            }
-            redirectRefreshThreshold_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(redirectRefreshThreshold_);
-              redirectRefreshThreshold_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            failureRefreshThreshold_ = input.readUInt32();
-            break;
-          }
-          case 48: {
-
-            hostDegradedRefreshThreshold_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.cluster.redis.RedisClusterProto.internal_static_envoy_config_cluster_redis_RedisClusterConfig_descriptor;
@@ -183,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getClusterRefreshRateOrBuilder() {
-    return getClusterRefreshRate();
+    return clusterRefreshRate_ == null ? com.google.protobuf.Duration.getDefaultInstance() : clusterRefreshRate_;
   }
 
   public static final int CLUSTER_REFRESH_TIMEOUT_FIELD_NUMBER = 2;
@@ -221,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getClusterRefreshTimeoutOrBuilder() {
-    return getClusterRefreshTimeout();
+    return clusterRefreshTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : clusterRefreshTimeout_;
   }
 
   public static final int REDIRECT_REFRESH_INTERVAL_FIELD_NUMBER = 3;
@@ -265,7 +164,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getRedirectRefreshIntervalOrBuilder() {
-    return getRedirectRefreshInterval();
+    return redirectRefreshInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : redirectRefreshInterval_;
   }
 
   public static final int REDIRECT_REFRESH_THRESHOLD_FIELD_NUMBER = 4;
@@ -309,11 +208,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getRedirectRefreshThresholdOrBuilder() {
-    return getRedirectRefreshThreshold();
+    return redirectRefreshThreshold_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : redirectRefreshThreshold_;
   }
 
   public static final int FAILURE_REFRESH_THRESHOLD_FIELD_NUMBER = 5;
-  private int failureRefreshThreshold_;
+  private int failureRefreshThreshold_ = 0;
   /**
    * <pre>
    * The number of failures that must be received before triggering a topology refresh request.
@@ -329,7 +228,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOST_DEGRADED_REFRESH_THRESHOLD_FIELD_NUMBER = 6;
-  private int hostDegradedRefreshThreshold_;
+  private int hostDegradedRefreshThreshold_ = 0;
   /**
    * <pre>
    * The number of hosts became degraded or unhealthy before triggering a topology refresh request.
@@ -377,7 +276,7 @@ private static final long serialVersionUID = 0L;
     if (hostDegradedRefreshThreshold_ != 0) {
       output.writeUInt32(6, hostDegradedRefreshThreshold_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -410,7 +309,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(6, hostDegradedRefreshThreshold_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -449,7 +348,7 @@ private static final long serialVersionUID = 0L;
         != other.getFailureRefreshThreshold()) return false;
     if (getHostDegradedRefreshThreshold()
         != other.getHostDegradedRefreshThreshold()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -480,7 +379,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFailureRefreshThreshold();
     hash = (37 * hash) + HOST_DEGRADED_REFRESH_THRESHOLD_FIELD_NUMBER;
     hash = (53 * hash) + getHostDegradedRefreshThreshold();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -601,50 +500,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.cluster.redis.RedisClusterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (clusterRefreshRateBuilder_ == null) {
-        clusterRefreshRate_ = null;
-      } else {
-        clusterRefreshRate_ = null;
+      bitField0_ = 0;
+      clusterRefreshRate_ = null;
+      if (clusterRefreshRateBuilder_ != null) {
+        clusterRefreshRateBuilder_.dispose();
         clusterRefreshRateBuilder_ = null;
       }
-      if (clusterRefreshTimeoutBuilder_ == null) {
-        clusterRefreshTimeout_ = null;
-      } else {
-        clusterRefreshTimeout_ = null;
+      clusterRefreshTimeout_ = null;
+      if (clusterRefreshTimeoutBuilder_ != null) {
+        clusterRefreshTimeoutBuilder_.dispose();
         clusterRefreshTimeoutBuilder_ = null;
       }
-      if (redirectRefreshIntervalBuilder_ == null) {
-        redirectRefreshInterval_ = null;
-      } else {
-        redirectRefreshInterval_ = null;
+      redirectRefreshInterval_ = null;
+      if (redirectRefreshIntervalBuilder_ != null) {
+        redirectRefreshIntervalBuilder_.dispose();
         redirectRefreshIntervalBuilder_ = null;
       }
-      if (redirectRefreshThresholdBuilder_ == null) {
-        redirectRefreshThreshold_ = null;
-      } else {
-        redirectRefreshThreshold_ = null;
+      redirectRefreshThreshold_ = null;
+      if (redirectRefreshThresholdBuilder_ != null) {
+        redirectRefreshThresholdBuilder_.dispose();
         redirectRefreshThresholdBuilder_ = null;
       }
       failureRefreshThreshold_ = 0;
-
       hostDegradedRefreshThreshold_ = 0;
-
       return this;
     }
 
@@ -671,30 +560,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.cluster.redis.RedisClusterConfig buildPartial() {
       io.envoyproxy.envoy.config.cluster.redis.RedisClusterConfig result = new io.envoyproxy.envoy.config.cluster.redis.RedisClusterConfig(this);
-      if (clusterRefreshRateBuilder_ == null) {
-        result.clusterRefreshRate_ = clusterRefreshRate_;
-      } else {
-        result.clusterRefreshRate_ = clusterRefreshRateBuilder_.build();
-      }
-      if (clusterRefreshTimeoutBuilder_ == null) {
-        result.clusterRefreshTimeout_ = clusterRefreshTimeout_;
-      } else {
-        result.clusterRefreshTimeout_ = clusterRefreshTimeoutBuilder_.build();
-      }
-      if (redirectRefreshIntervalBuilder_ == null) {
-        result.redirectRefreshInterval_ = redirectRefreshInterval_;
-      } else {
-        result.redirectRefreshInterval_ = redirectRefreshIntervalBuilder_.build();
-      }
-      if (redirectRefreshThresholdBuilder_ == null) {
-        result.redirectRefreshThreshold_ = redirectRefreshThreshold_;
-      } else {
-        result.redirectRefreshThreshold_ = redirectRefreshThresholdBuilder_.build();
-      }
-      result.failureRefreshThreshold_ = failureRefreshThreshold_;
-      result.hostDegradedRefreshThreshold_ = hostDegradedRefreshThreshold_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.cluster.redis.RedisClusterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.clusterRefreshRate_ = clusterRefreshRateBuilder_ == null
+            ? clusterRefreshRate_
+            : clusterRefreshRateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.clusterRefreshTimeout_ = clusterRefreshTimeoutBuilder_ == null
+            ? clusterRefreshTimeout_
+            : clusterRefreshTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.redirectRefreshInterval_ = redirectRefreshIntervalBuilder_ == null
+            ? redirectRefreshInterval_
+            : redirectRefreshIntervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.redirectRefreshThreshold_ = redirectRefreshThresholdBuilder_ == null
+            ? redirectRefreshThreshold_
+            : redirectRefreshThresholdBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.failureRefreshThreshold_ = failureRefreshThreshold_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.hostDegradedRefreshThreshold_ = hostDegradedRefreshThreshold_;
+      }
     }
 
     @java.lang.Override
@@ -759,7 +657,7 @@ private static final long serialVersionUID = 0L;
       if (other.getHostDegradedRefreshThreshold() != 0) {
         setHostDegradedRefreshThreshold(other.getHostDegradedRefreshThreshold());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -774,19 +672,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.cluster.redis.RedisClusterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getClusterRefreshRateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getClusterRefreshTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRedirectRefreshIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getRedirectRefreshThresholdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              failureRefreshThreshold_ = input.readUInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              hostDegradedRefreshThreshold_ = input.readUInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.cluster.redis.RedisClusterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Duration clusterRefreshRate_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -800,7 +750,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the clusterRefreshRate field is set.
      */
     public boolean hasClusterRefreshRate() {
-      return clusterRefreshRateBuilder_ != null || clusterRefreshRate_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -830,11 +780,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         clusterRefreshRate_ = value;
-        onChanged();
       } else {
         clusterRefreshRateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -848,11 +798,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (clusterRefreshRateBuilder_ == null) {
         clusterRefreshRate_ = builderForValue.build();
-        onChanged();
       } else {
         clusterRefreshRateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -864,17 +814,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeClusterRefreshRate(com.google.protobuf.Duration value) {
       if (clusterRefreshRateBuilder_ == null) {
-        if (clusterRefreshRate_ != null) {
-          clusterRefreshRate_ =
-            com.google.protobuf.Duration.newBuilder(clusterRefreshRate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          clusterRefreshRate_ != null &&
+          clusterRefreshRate_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getClusterRefreshRateBuilder().mergeFrom(value);
         } else {
           clusterRefreshRate_ = value;
         }
-        onChanged();
       } else {
         clusterRefreshRateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -885,14 +836,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration cluster_refresh_rate = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearClusterRefreshRate() {
-      if (clusterRefreshRateBuilder_ == null) {
-        clusterRefreshRate_ = null;
-        onChanged();
-      } else {
-        clusterRefreshRate_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      clusterRefreshRate_ = null;
+      if (clusterRefreshRateBuilder_ != null) {
+        clusterRefreshRateBuilder_.dispose();
         clusterRefreshRateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -903,7 +853,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration cluster_refresh_rate = 1 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getClusterRefreshRateBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getClusterRefreshRateFieldBuilder().getBuilder();
     }
@@ -955,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the clusterRefreshTimeout field is set.
      */
     public boolean hasClusterRefreshTimeout() {
-      return clusterRefreshTimeoutBuilder_ != null || clusterRefreshTimeout_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -985,11 +935,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         clusterRefreshTimeout_ = value;
-        onChanged();
       } else {
         clusterRefreshTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1003,11 +953,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (clusterRefreshTimeoutBuilder_ == null) {
         clusterRefreshTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         clusterRefreshTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1019,17 +969,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeClusterRefreshTimeout(com.google.protobuf.Duration value) {
       if (clusterRefreshTimeoutBuilder_ == null) {
-        if (clusterRefreshTimeout_ != null) {
-          clusterRefreshTimeout_ =
-            com.google.protobuf.Duration.newBuilder(clusterRefreshTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          clusterRefreshTimeout_ != null &&
+          clusterRefreshTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getClusterRefreshTimeoutBuilder().mergeFrom(value);
         } else {
           clusterRefreshTimeout_ = value;
         }
-        onChanged();
       } else {
         clusterRefreshTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1040,14 +991,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration cluster_refresh_timeout = 2 [(.validate.rules) = { ... }</code>
      */
     public Builder clearClusterRefreshTimeout() {
-      if (clusterRefreshTimeoutBuilder_ == null) {
-        clusterRefreshTimeout_ = null;
-        onChanged();
-      } else {
-        clusterRefreshTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      clusterRefreshTimeout_ = null;
+      if (clusterRefreshTimeoutBuilder_ != null) {
+        clusterRefreshTimeoutBuilder_.dispose();
         clusterRefreshTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1058,7 +1008,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration cluster_refresh_timeout = 2 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getClusterRefreshTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getClusterRefreshTimeoutFieldBuilder().getBuilder();
     }
@@ -1112,7 +1062,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the redirectRefreshInterval field is set.
      */
     public boolean hasRedirectRefreshInterval() {
-      return redirectRefreshIntervalBuilder_ != null || redirectRefreshInterval_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1146,11 +1096,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         redirectRefreshInterval_ = value;
-        onChanged();
       } else {
         redirectRefreshIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1166,11 +1116,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (redirectRefreshIntervalBuilder_ == null) {
         redirectRefreshInterval_ = builderForValue.build();
-        onChanged();
       } else {
         redirectRefreshIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1184,17 +1134,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRedirectRefreshInterval(com.google.protobuf.Duration value) {
       if (redirectRefreshIntervalBuilder_ == null) {
-        if (redirectRefreshInterval_ != null) {
-          redirectRefreshInterval_ =
-            com.google.protobuf.Duration.newBuilder(redirectRefreshInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          redirectRefreshInterval_ != null &&
+          redirectRefreshInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getRedirectRefreshIntervalBuilder().mergeFrom(value);
         } else {
           redirectRefreshInterval_ = value;
         }
-        onChanged();
       } else {
         redirectRefreshIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1207,14 +1158,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration redirect_refresh_interval = 3;</code>
      */
     public Builder clearRedirectRefreshInterval() {
-      if (redirectRefreshIntervalBuilder_ == null) {
-        redirectRefreshInterval_ = null;
-        onChanged();
-      } else {
-        redirectRefreshInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      redirectRefreshInterval_ = null;
+      if (redirectRefreshIntervalBuilder_ != null) {
+        redirectRefreshIntervalBuilder_.dispose();
         redirectRefreshIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1227,7 +1177,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration redirect_refresh_interval = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getRedirectRefreshIntervalBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRedirectRefreshIntervalFieldBuilder().getBuilder();
     }
@@ -1285,7 +1235,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the redirectRefreshThreshold field is set.
      */
     public boolean hasRedirectRefreshThreshold() {
-      return redirectRefreshThresholdBuilder_ != null || redirectRefreshThreshold_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1319,11 +1269,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         redirectRefreshThreshold_ = value;
-        onChanged();
       } else {
         redirectRefreshThresholdBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1339,11 +1289,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (redirectRefreshThresholdBuilder_ == null) {
         redirectRefreshThreshold_ = builderForValue.build();
-        onChanged();
       } else {
         redirectRefreshThresholdBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1357,17 +1307,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRedirectRefreshThreshold(com.google.protobuf.UInt32Value value) {
       if (redirectRefreshThresholdBuilder_ == null) {
-        if (redirectRefreshThreshold_ != null) {
-          redirectRefreshThreshold_ =
-            com.google.protobuf.UInt32Value.newBuilder(redirectRefreshThreshold_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          redirectRefreshThreshold_ != null &&
+          redirectRefreshThreshold_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getRedirectRefreshThresholdBuilder().mergeFrom(value);
         } else {
           redirectRefreshThreshold_ = value;
         }
-        onChanged();
       } else {
         redirectRefreshThresholdBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1380,14 +1331,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value redirect_refresh_threshold = 4;</code>
      */
     public Builder clearRedirectRefreshThreshold() {
-      if (redirectRefreshThresholdBuilder_ == null) {
-        redirectRefreshThreshold_ = null;
-        onChanged();
-      } else {
-        redirectRefreshThreshold_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      redirectRefreshThreshold_ = null;
+      if (redirectRefreshThresholdBuilder_ != null) {
+        redirectRefreshThresholdBuilder_.dispose();
         redirectRefreshThresholdBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1400,7 +1350,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value redirect_refresh_threshold = 4;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getRedirectRefreshThresholdBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRedirectRefreshThresholdFieldBuilder().getBuilder();
     }
@@ -1471,6 +1421,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFailureRefreshThreshold(int value) {
       
       failureRefreshThreshold_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1484,7 +1435,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailureRefreshThreshold() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       failureRefreshThreshold_ = 0;
       onChanged();
       return this;
@@ -1519,6 +1470,7 @@ private static final long serialVersionUID = 0L;
     public Builder setHostDegradedRefreshThreshold(int value) {
       
       hostDegradedRefreshThreshold_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1533,7 +1485,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHostDegradedRefreshThreshold() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       hostDegradedRefreshThreshold_ = 0;
       onChanged();
       return this;
@@ -1571,7 +1523,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RedisClusterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

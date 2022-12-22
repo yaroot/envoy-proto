@@ -19,7 +19,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from google.type import money_pb2 as google_dot_type_dot_money__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/billing/v1/cloud_catalog.proto\x12\x17google.cloud.billing.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/type/money.proto\"\x9d\x01\n\x07Service\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nservice_id\x18\x02 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x1c\n\x14\x62usiness_entity_name\x18\x04 \x01(\t:<\xea\x41\x39\n#cloudbilling.googleapis.com/Service\x12\x12services/{service}\"\xa6\x02\n\x03Sku\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06sku_id\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x33\n\x08\x63\x61tegory\x18\x04 \x01(\x0b\x32!.google.cloud.billing.v1.Category\x12\x17\n\x0fservice_regions\x18\x05 \x03(\t\x12:\n\x0cpricing_info\x18\x06 \x03(\x0b\x32$.google.cloud.billing.v1.PricingInfo\x12\x1d\n\x15service_provider_name\x18\x07 \x01(\t:C\xea\x41@\n\x1f\x63loudbilling.googleapis.com/Sku\x12\x1dservices/{service}/skus/{sku}\"m\n\x08\x43\x61tegory\x12\x1c\n\x14service_display_name\x18\x01 \x01(\t\x12\x17\n\x0fresource_family\x18\x02 \x01(\t\x12\x16\n\x0eresource_group\x18\x03 \x01(\t\x12\x12\n\nusage_type\x18\x04 \x01(\t\"\x80\x02\n\x0bPricingInfo\x12\x32\n\x0e\x65\x66\x66\x65\x63tive_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0f\n\x07summary\x18\x02 \x01(\t\x12\x46\n\x12pricing_expression\x18\x03 \x01(\x0b\x32*.google.cloud.billing.v1.PricingExpression\x12\x42\n\x10\x61ggregation_info\x18\x04 \x01(\x0b\x32(.google.cloud.billing.v1.AggregationInfo\x12 \n\x18\x63urrency_conversion_rate\x18\x05 \x01(\x01\"\xd3\x02\n\x11PricingExpression\x12\x12\n\nusage_unit\x18\x01 \x01(\t\x12\x1e\n\x16usage_unit_description\x18\x04 \x01(\t\x12\x11\n\tbase_unit\x18\x05 \x01(\t\x12\x1d\n\x15\x62\x61se_unit_description\x18\x06 \x01(\t\x12#\n\x1b\x62\x61se_unit_conversion_factor\x18\x07 \x01(\x01\x12\x18\n\x10\x64isplay_quantity\x18\x02 \x01(\x01\x12I\n\x0ctiered_rates\x18\x03 \x03(\x0b\x32\x33.google.cloud.billing.v1.PricingExpression.TierRate\x1aN\n\x08TierRate\x12\x1a\n\x12start_usage_amount\x18\x01 \x01(\x01\x12&\n\nunit_price\x18\x02 \x01(\x0b\x32\x12.google.type.Money\"\x84\x03\n\x0f\x41ggregationInfo\x12T\n\x11\x61ggregation_level\x18\x01 \x01(\x0e\x32\x39.google.cloud.billing.v1.AggregationInfo.AggregationLevel\x12Z\n\x14\x61ggregation_interval\x18\x02 \x01(\x0e\x32<.google.cloud.billing.v1.AggregationInfo.AggregationInterval\x12\x19\n\x11\x61ggregation_count\x18\x03 \x01(\x05\"O\n\x10\x41ggregationLevel\x12!\n\x1d\x41GGREGATION_LEVEL_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x41\x43\x43OUNT\x10\x01\x12\x0b\n\x07PROJECT\x10\x02\"S\n\x13\x41ggregationInterval\x12$\n AGGREGATION_INTERVAL_UNSPECIFIED\x10\x00\x12\t\n\x05\x44\x41ILY\x10\x01\x12\x0b\n\x07MONTHLY\x10\x02\"<\n\x13ListServicesRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\"c\n\x14ListServicesResponse\x12\x32\n\x08services\x18\x01 \x03(\x0b\x32 .google.cloud.billing.v1.Service\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xea\x01\n\x0fListSkusRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#cloudbilling.googleapis.com/Service\x12.\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rcurrency_code\x18\x04 \x01(\t\x12\x11\n\tpage_size\x18\x05 \x01(\x05\x12\x12\n\npage_token\x18\x06 \x01(\t\"W\n\x10ListSkusResponse\x12*\n\x04skus\x18\x01 \x03(\x0b\x32\x1c.google.cloud.billing.v1.Sku\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xf7\x02\n\x0c\x43loudCatalog\x12\x84\x01\n\x0cListServices\x12,.google.cloud.billing.v1.ListServicesRequest\x1a-.google.cloud.billing.v1.ListServicesResponse\"\x17\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/services\xda\x41\x00\x12\x8e\x01\n\x08ListSkus\x12(.google.cloud.billing.v1.ListSkusRequest\x1a).google.cloud.billing.v1.ListSkusResponse\"-\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/{parent=services/*}/skus\xda\x41\x06parent\x1aO\xca\x41\x1b\x63loudbilling.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x96\x01\n\x1b\x63om.google.cloud.billing.v1B\x11\x43loudCatalogProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/billing/v1;billing\xa2\x02\x07\x43LDCTLG\xaa\x02\x17Google.Cloud.Billing.V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/billing/v1/cloud_catalog.proto\x12\x17google.cloud.billing.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/type/money.proto\"\x9d\x01\n\x07Service\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nservice_id\x18\x02 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x03 \x01(\t\x12\x1c\n\x14\x62usiness_entity_name\x18\x04 \x01(\t:<\xea\x41\x39\n#cloudbilling.googleapis.com/Service\x12\x12services/{service}\"\xe2\x02\n\x03Sku\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06sku_id\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x33\n\x08\x63\x61tegory\x18\x04 \x01(\x0b\x32!.google.cloud.billing.v1.Category\x12\x17\n\x0fservice_regions\x18\x05 \x03(\t\x12:\n\x0cpricing_info\x18\x06 \x03(\x0b\x32$.google.cloud.billing.v1.PricingInfo\x12\x1d\n\x15service_provider_name\x18\x07 \x01(\t\x12:\n\x0cgeo_taxonomy\x18\x08 \x01(\x0b\x32$.google.cloud.billing.v1.GeoTaxonomy:C\xea\x41@\n\x1f\x63loudbilling.googleapis.com/Sku\x12\x1dservices/{service}/skus/{sku}\"m\n\x08\x43\x61tegory\x12\x1c\n\x14service_display_name\x18\x01 \x01(\t\x12\x17\n\x0fresource_family\x18\x02 \x01(\t\x12\x16\n\x0eresource_group\x18\x03 \x01(\t\x12\x12\n\nusage_type\x18\x04 \x01(\t\"\x80\x02\n\x0bPricingInfo\x12\x32\n\x0e\x65\x66\x66\x65\x63tive_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0f\n\x07summary\x18\x02 \x01(\t\x12\x46\n\x12pricing_expression\x18\x03 \x01(\x0b\x32*.google.cloud.billing.v1.PricingExpression\x12\x42\n\x10\x61ggregation_info\x18\x04 \x01(\x0b\x32(.google.cloud.billing.v1.AggregationInfo\x12 \n\x18\x63urrency_conversion_rate\x18\x05 \x01(\x01\"\xd3\x02\n\x11PricingExpression\x12\x12\n\nusage_unit\x18\x01 \x01(\t\x12\x18\n\x10\x64isplay_quantity\x18\x02 \x01(\x01\x12I\n\x0ctiered_rates\x18\x03 \x03(\x0b\x32\x33.google.cloud.billing.v1.PricingExpression.TierRate\x12\x1e\n\x16usage_unit_description\x18\x04 \x01(\t\x12\x11\n\tbase_unit\x18\x05 \x01(\t\x12\x1d\n\x15\x62\x61se_unit_description\x18\x06 \x01(\t\x12#\n\x1b\x62\x61se_unit_conversion_factor\x18\x07 \x01(\x01\x1aN\n\x08TierRate\x12\x1a\n\x12start_usage_amount\x18\x01 \x01(\x01\x12&\n\nunit_price\x18\x02 \x01(\x0b\x32\x12.google.type.Money\"\x84\x03\n\x0f\x41ggregationInfo\x12T\n\x11\x61ggregation_level\x18\x01 \x01(\x0e\x32\x39.google.cloud.billing.v1.AggregationInfo.AggregationLevel\x12Z\n\x14\x61ggregation_interval\x18\x02 \x01(\x0e\x32<.google.cloud.billing.v1.AggregationInfo.AggregationInterval\x12\x19\n\x11\x61ggregation_count\x18\x03 \x01(\x05\"O\n\x10\x41ggregationLevel\x12!\n\x1d\x41GGREGATION_LEVEL_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x41\x43\x43OUNT\x10\x01\x12\x0b\n\x07PROJECT\x10\x02\"S\n\x13\x41ggregationInterval\x12$\n AGGREGATION_INTERVAL_UNSPECIFIED\x10\x00\x12\t\n\x05\x44\x41ILY\x10\x01\x12\x0b\n\x07MONTHLY\x10\x02\"\xa3\x01\n\x0bGeoTaxonomy\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32).google.cloud.billing.v1.GeoTaxonomy.Type\x12\x0f\n\x07regions\x18\x02 \x03(\t\"J\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\n\n\x06GLOBAL\x10\x01\x12\x0c\n\x08REGIONAL\x10\x02\x12\x12\n\x0eMULTI_REGIONAL\x10\x03\"<\n\x13ListServicesRequest\x12\x11\n\tpage_size\x18\x01 \x01(\x05\x12\x12\n\npage_token\x18\x02 \x01(\t\"c\n\x14ListServicesResponse\x12\x32\n\x08services\x18\x01 \x03(\x0b\x32 .google.cloud.billing.v1.Service\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\xea\x01\n\x0fListSkusRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#cloudbilling.googleapis.com/Service\x12.\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rcurrency_code\x18\x04 \x01(\t\x12\x11\n\tpage_size\x18\x05 \x01(\x05\x12\x12\n\npage_token\x18\x06 \x01(\t\"W\n\x10ListSkusResponse\x12*\n\x04skus\x18\x01 \x03(\x0b\x32\x1c.google.cloud.billing.v1.Sku\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t2\xde\x03\n\x0c\x43loudCatalog\x12\x84\x01\n\x0cListServices\x12,.google.cloud.billing.v1.ListServicesRequest\x1a-.google.cloud.billing.v1.ListServicesResponse\"\x17\x82\xd3\xe4\x93\x02\x0e\x12\x0c/v1/services\xda\x41\x00\x12\x8e\x01\n\x08ListSkus\x12(.google.cloud.billing.v1.ListSkusRequest\x1a).google.cloud.billing.v1.ListSkusResponse\"-\x82\xd3\xe4\x93\x02\x1e\x12\x1c/v1/{parent=services/*}/skus\xda\x41\x06parent\x1a\xb5\x01\xca\x41\x1b\x63loudbilling.googleapis.com\xd2\x41\x93\x01https://www.googleapis.com/auth/cloud-billing,https://www.googleapis.com/auth/cloud-billing.readonly,https://www.googleapis.com/auth/cloud-platformB\x96\x01\n\x1b\x63om.google.cloud.billing.v1B\x11\x43loudCatalogProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/billing/v1;billing\xa2\x02\x07\x43LDCTLG\xaa\x02\x17Google.Cloud.Billing.V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.billing.v1.cloud_catalog_pb2', globals())
@@ -34,7 +34,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LISTSKUSREQUEST.fields_by_name['parent']._options = None
   _LISTSKUSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A%\n#cloudbilling.googleapis.com/Service'
   _CLOUDCATALOG._options = None
-  _CLOUDCATALOG._serialized_options = b'\312A\033cloudbilling.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform'
+  _CLOUDCATALOG._serialized_options = b'\312A\033cloudbilling.googleapis.com\322A\223\001https://www.googleapis.com/auth/cloud-billing,https://www.googleapis.com/auth/cloud-billing.readonly,https://www.googleapis.com/auth/cloud-platform'
   _CLOUDCATALOG.methods_by_name['ListServices']._options = None
   _CLOUDCATALOG.methods_by_name['ListServices']._serialized_options = b'\202\323\344\223\002\016\022\014/v1/services\332A\000'
   _CLOUDCATALOG.methods_by_name['ListSkus']._options = None
@@ -42,29 +42,33 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SERVICE._serialized_start=246
   _SERVICE._serialized_end=403
   _SKU._serialized_start=406
-  _SKU._serialized_end=700
-  _CATEGORY._serialized_start=702
-  _CATEGORY._serialized_end=811
-  _PRICINGINFO._serialized_start=814
-  _PRICINGINFO._serialized_end=1070
-  _PRICINGEXPRESSION._serialized_start=1073
-  _PRICINGEXPRESSION._serialized_end=1412
-  _PRICINGEXPRESSION_TIERRATE._serialized_start=1334
-  _PRICINGEXPRESSION_TIERRATE._serialized_end=1412
-  _AGGREGATIONINFO._serialized_start=1415
-  _AGGREGATIONINFO._serialized_end=1803
-  _AGGREGATIONINFO_AGGREGATIONLEVEL._serialized_start=1639
-  _AGGREGATIONINFO_AGGREGATIONLEVEL._serialized_end=1718
-  _AGGREGATIONINFO_AGGREGATIONINTERVAL._serialized_start=1720
-  _AGGREGATIONINFO_AGGREGATIONINTERVAL._serialized_end=1803
-  _LISTSERVICESREQUEST._serialized_start=1805
-  _LISTSERVICESREQUEST._serialized_end=1865
-  _LISTSERVICESRESPONSE._serialized_start=1867
-  _LISTSERVICESRESPONSE._serialized_end=1966
-  _LISTSKUSREQUEST._serialized_start=1969
-  _LISTSKUSREQUEST._serialized_end=2203
-  _LISTSKUSRESPONSE._serialized_start=2205
-  _LISTSKUSRESPONSE._serialized_end=2292
-  _CLOUDCATALOG._serialized_start=2295
-  _CLOUDCATALOG._serialized_end=2670
+  _SKU._serialized_end=760
+  _CATEGORY._serialized_start=762
+  _CATEGORY._serialized_end=871
+  _PRICINGINFO._serialized_start=874
+  _PRICINGINFO._serialized_end=1130
+  _PRICINGEXPRESSION._serialized_start=1133
+  _PRICINGEXPRESSION._serialized_end=1472
+  _PRICINGEXPRESSION_TIERRATE._serialized_start=1394
+  _PRICINGEXPRESSION_TIERRATE._serialized_end=1472
+  _AGGREGATIONINFO._serialized_start=1475
+  _AGGREGATIONINFO._serialized_end=1863
+  _AGGREGATIONINFO_AGGREGATIONLEVEL._serialized_start=1699
+  _AGGREGATIONINFO_AGGREGATIONLEVEL._serialized_end=1778
+  _AGGREGATIONINFO_AGGREGATIONINTERVAL._serialized_start=1780
+  _AGGREGATIONINFO_AGGREGATIONINTERVAL._serialized_end=1863
+  _GEOTAXONOMY._serialized_start=1866
+  _GEOTAXONOMY._serialized_end=2029
+  _GEOTAXONOMY_TYPE._serialized_start=1955
+  _GEOTAXONOMY_TYPE._serialized_end=2029
+  _LISTSERVICESREQUEST._serialized_start=2031
+  _LISTSERVICESREQUEST._serialized_end=2091
+  _LISTSERVICESRESPONSE._serialized_start=2093
+  _LISTSERVICESRESPONSE._serialized_end=2192
+  _LISTSKUSREQUEST._serialized_start=2195
+  _LISTSKUSREQUEST._serialized_end=2429
+  _LISTSKUSRESPONSE._serialized_start=2431
+  _LISTSKUSRESPONSE._serialized_end=2518
+  _CLOUDCATALOG._serialized_start=2521
+  _CLOUDCATALOG._serialized_end=2999
 # @@protoc_insertion_point(module_scope)

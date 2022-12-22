@@ -9,7 +9,7 @@ public interface OutputResultOrBuilder extends
 
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -18,7 +18,7 @@ public interface OutputResultOrBuilder extends
       getBigqueryResultList();
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -26,7 +26,7 @@ public interface OutputResultOrBuilder extends
   com.google.cloud.retail.v2beta.BigQueryOutputResult getBigqueryResult(int index);
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -34,7 +34,7 @@ public interface OutputResultOrBuilder extends
   int getBigqueryResultCount();
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
@@ -43,11 +43,55 @@ public interface OutputResultOrBuilder extends
       getBigqueryResultOrBuilderList();
   /**
    * <pre>
-   * Export result in BigQuery.
+   * The BigQuery location where the result is stored.
    * </pre>
    *
    * <code>repeated .google.cloud.retail.v2beta.BigQueryOutputResult bigquery_result = 1;</code>
    */
   com.google.cloud.retail.v2beta.BigQueryOutputResultOrBuilder getBigqueryResultOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  java.util.List<com.google.cloud.retail.v2beta.GcsOutputResult> 
+      getGcsResultList();
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  com.google.cloud.retail.v2beta.GcsOutputResult getGcsResult(int index);
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  int getGcsResultCount();
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  java.util.List<? extends com.google.cloud.retail.v2beta.GcsOutputResultOrBuilder> 
+      getGcsResultOrBuilderList();
+  /**
+   * <pre>
+   * The Google Cloud Storage location where the result is stored.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.GcsOutputResult gcs_result = 2;</code>
+   */
+  com.google.cloud.retail.v2beta.GcsOutputResultOrBuilder getGcsResultOrBuilder(
       int index);
 }

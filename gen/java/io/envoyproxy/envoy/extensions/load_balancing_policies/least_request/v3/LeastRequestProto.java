@@ -31,28 +31,32 @@ public final class LeastRequestProto {
       "\nMenvoy/extensions/load_balancing_polici" +
       "es/least_request/v3/least_request.proto\022" +
       "9envoy.extensions.load_balancing_policie" +
-      "s.least_request.v3\032%envoy/config/cluster" +
-      "/v3/cluster.proto\032\037envoy/config/core/v3/" +
-      "base.proto\032\036google/protobuf/wrappers.pro" +
-      "to\032\035udpa/annotations/status.proto\032\027valid" +
-      "ate/validate.proto\"\332\001\n\014LeastRequest\022;\n\014c" +
-      "hoice_count\030\001 \001(\0132\034.google.protobuf.UInt" +
-      "32ValueB\007\372B\004*\002(\002\022@\n\023active_request_bias\030" +
-      "\002 \001(\0132#.envoy.config.core.v3.RuntimeDoub" +
-      "le\022K\n\021slow_start_config\030\003 \001(\01320.envoy.co" +
-      "nfig.cluster.v3.Cluster.SlowStartConfigB" +
-      "\330\001\nGio.envoyproxy.envoy.extensions.load_" +
-      "balancing_policies.least_request.v3B\021Lea" +
-      "stRequestProtoP\001Zpgithub.com/envoyproxy/" +
-      "go-control-plane/envoy/extensions/load_b" +
-      "alancing_policies/least_request/v3;least" +
-      "_requestv3\272\200\310\321\006\002\020\002b\006proto3"
+      "s.least_request.v3\032\037envoy/config/core/v3" +
+      "/base.proto\032?envoy/extensions/load_balan" +
+      "cing_policies/common/v3/common.proto\032\036go" +
+      "ogle/protobuf/wrappers.proto\032\035udpa/annot" +
+      "ations/status.proto\032\027validate/validate.p" +
+      "roto\"\317\002\n\014LeastRequest\022;\n\014choice_count\030\001 " +
+      "\001(\0132\034.google.protobuf.UInt32ValueB\007\372B\004*\002" +
+      "(\002\022@\n\023active_request_bias\030\002 \001(\0132#.envoy." +
+      "config.core.v3.RuntimeDouble\022^\n\021slow_sta" +
+      "rt_config\030\003 \001(\0132C.envoy.extensions.load_" +
+      "balancing_policies.common.v3.SlowStartCo" +
+      "nfig\022`\n\022locality_lb_config\030\004 \001(\0132D.envoy" +
+      ".extensions.load_balancing_policies.comm" +
+      "on.v3.LocalityLbConfigB\330\001\nGio.envoyproxy" +
+      ".envoy.extensions.load_balancing_policie" +
+      "s.least_request.v3B\021LeastRequestProtoP\001Z" +
+      "pgithub.com/envoyproxy/go-control-plane/" +
+      "envoy/extensions/load_balancing_policies" +
+      "/least_request/v3;least_requestv3\272\200\310\321\006\002\020" +
+      "\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          io.envoyproxy.envoy.config.cluster.v3.ClusterProto.getDescriptor(),
           io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor(),
+          io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.CommonProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
           udpa.annotations.Status.getDescriptor(),
           io.envoyproxy.pgv.validate.Validate.getDescriptor(),
@@ -62,15 +66,15 @@ public final class LeastRequestProto {
     internal_static_envoy_extensions_load_balancing_policies_least_request_v3_LeastRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_load_balancing_policies_least_request_v3_LeastRequest_descriptor,
-        new java.lang.String[] { "ChoiceCount", "ActiveRequestBias", "SlowStartConfig", });
+        new java.lang.String[] { "ChoiceCount", "ActiveRequestBias", "SlowStartConfig", "LocalityLbConfig", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    io.envoyproxy.envoy.config.cluster.v3.ClusterProto.getDescriptor();
     io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor();
+    io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.CommonProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
     udpa.annotations.Status.getDescriptor();
     io.envoyproxy.pgv.validate.Validate.getDescriptor();

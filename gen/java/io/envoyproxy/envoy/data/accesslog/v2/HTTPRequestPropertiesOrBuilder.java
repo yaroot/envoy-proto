@@ -285,7 +285,6 @@ public interface HTTPRequestPropertiesOrBuilder extends
    *
    * <code>map&lt;string, string&gt; request_headers = 13;</code>
    */
-
   /* nullable */
 java.lang.String getRequestHeadersOrDefault(
       java.lang.String key,
@@ -298,7 +297,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; request_headers = 13;</code>
    */
-
   java.lang.String getRequestHeadersOrThrow(
       java.lang.String key);
 }

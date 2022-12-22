@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LoggingConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              driverLogLevels_ = com.google.protobuf.MapField.newMapField(
-                  DriverLogLevelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-            driverLogLevels__ = input.readMessage(
-                DriverLogLevelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            driverLogLevels_.getMutableMap().put(
-                driverLogLevels__.getKey(), driverLogLevels__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.JobsProto.internal_static_google_cloud_dataproc_v1_LoggingConfig_descriptor;
@@ -373,6 +320,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.ENUM,
                 com.google.cloud.dataproc.v1.LoggingConfig.Level.LEVEL_UNSPECIFIED.getNumber());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Integer> driverLogLevels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -396,7 +344,6 @@ private static final long serialVersionUID = 0L;
         java.lang.String, com.google.cloud.dataproc.v1.LoggingConfig.Level, java.lang.Integer>(
             map, driverLogLevelsValueConverter);
   }
-
   public int getDriverLogLevelsCount() {
     return internalGetDriverLogLevels().getMap().size();
   }
@@ -410,7 +357,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsDriverLogLevels(
       java.lang.String key) {
@@ -437,7 +383,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.dataproc.v1.LoggingConfig.Level>
   getDriverLogLevelsMap() {
     return internalGetAdaptedDriverLogLevelsMap(
@@ -453,7 +398,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
    */
   @java.lang.Override
-
   public /* nullable */
 com.google.cloud.dataproc.v1.LoggingConfig.Level getDriverLogLevelsOrDefault(
       java.lang.String key,
@@ -477,7 +421,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
    * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.dataproc.v1.LoggingConfig.Level getDriverLogLevelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -508,7 +451,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
    * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Integer>
   getDriverLogLevelsValueMap() {
     return internalGetDriverLogLevels().getMap();
@@ -524,7 +466,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
    * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
    */
   @java.lang.Override
-
   public int getDriverLogLevelsValueOrDefault(
       java.lang.String key,
       int defaultValue) {
@@ -544,7 +485,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
    * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
    */
   @java.lang.Override
-
   public int getDriverLogLevelsValueOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -576,7 +516,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
         internalGetDriverLogLevels(),
         DriverLogLevelsDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -595,7 +535,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, driverLogLevels__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -612,7 +552,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
 
     if (!internalGetDriverLogLevels().equals(
         other.internalGetDriverLogLevels())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -627,7 +567,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
       hash = (37 * hash) + DRIVER_LOG_LEVELS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetDriverLogLevels().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -770,22 +710,18 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
 
     // Construct using com.google.cloud.dataproc.v1.LoggingConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableDriverLogLevels().clear();
       return this;
     }
@@ -813,11 +749,17 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
     @java.lang.Override
     public com.google.cloud.dataproc.v1.LoggingConfig buildPartial() {
       com.google.cloud.dataproc.v1.LoggingConfig result = new com.google.cloud.dataproc.v1.LoggingConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.driverLogLevels_ = internalGetDriverLogLevels();
-      result.driverLogLevels_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.LoggingConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.driverLogLevels_ = internalGetDriverLogLevels();
+        result.driverLogLevels_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -866,7 +808,8 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
       if (other == com.google.cloud.dataproc.v1.LoggingConfig.getDefaultInstance()) return this;
       internalGetMutableDriverLogLevels().mergeFrom(
           other.internalGetDriverLogLevels());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -881,17 +824,39 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.LoggingConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              driverLogLevels__ = input.readMessage(
+                  DriverLogLevelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDriverLogLevels().getMutableMap().put(
+                  driverLogLevels__.getKey(), driverLogLevels__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.LoggingConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -899,7 +864,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> driverLogLevels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetDriverLogLevels() {
+        internalGetDriverLogLevels() {
       if (driverLogLevels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DriverLogLevelsDefaultEntryHolder.defaultEntry);
@@ -907,8 +872,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
       return driverLogLevels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetMutableDriverLogLevels() {
-      onChanged();;
+        internalGetMutableDriverLogLevels() {
       if (driverLogLevels_ == null) {
         driverLogLevels_ = com.google.protobuf.MapField.newMapField(
             DriverLogLevelsDefaultEntryHolder.defaultEntry);
@@ -916,9 +880,10 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
       if (!driverLogLevels_.isMutable()) {
         driverLogLevels_ = driverLogLevels_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return driverLogLevels_;
     }
-
     public int getDriverLogLevelsCount() {
       return internalGetDriverLogLevels().getMap().size();
     }
@@ -932,7 +897,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
      *
      * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsDriverLogLevels(
         java.lang.String key) {
@@ -959,7 +923,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
      * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.dataproc.v1.LoggingConfig.Level>
     getDriverLogLevelsMap() {
       return internalGetAdaptedDriverLogLevelsMap(
@@ -975,7 +938,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
      * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
      */
     @java.lang.Override
-
     public /* nullable */
 com.google.cloud.dataproc.v1.LoggingConfig.Level getDriverLogLevelsOrDefault(
         java.lang.String key,
@@ -999,7 +961,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
      * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.dataproc.v1.LoggingConfig.Level getDriverLogLevelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1030,7 +991,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
      * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Integer>
     getDriverLogLevelsValueMap() {
       return internalGetDriverLogLevels().getMap();
@@ -1046,7 +1006,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
      * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
      */
     @java.lang.Override
-
     public int getDriverLogLevelsValueOrDefault(
         java.lang.String key,
         int defaultValue) {
@@ -1066,7 +1025,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
      * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
      */
     @java.lang.Override
-
     public int getDriverLogLevelsValueOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1077,8 +1035,8 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
       }
       return map.get(key);
     }
-
     public Builder clearDriverLogLevels() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableDriverLogLevels().getMutableMap()
           .clear();
       return this;
@@ -1093,7 +1051,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
      *
      * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
      */
-
     public Builder removeDriverLogLevels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1106,7 +1063,8 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.dataproc.v1.LoggingConfig.Level>
-    getMutableDriverLogLevels() {
+        getMutableDriverLogLevels() {
+      bitField0_ |= 0x00000001;
       return internalGetAdaptedDriverLogLevelsMap(
            internalGetMutableDriverLogLevels().getMutableMap());
     }
@@ -1127,6 +1085,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
       
       internalGetMutableDriverLogLevels().getMutableMap()
           .put(key, driverLogLevelsValueConverter.doBackward(value));
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -1144,6 +1103,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
       internalGetAdaptedDriverLogLevelsMap(
           internalGetMutableDriverLogLevels().getMutableMap())
               .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -1152,6 +1112,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
     getMutableDriverLogLevelsValue() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableDriverLogLevels().getMutableMap();
     }
     /**
@@ -1171,6 +1132,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
       
       internalGetMutableDriverLogLevels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -1187,6 +1149,7 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
         java.util.Map<java.lang.String, java.lang.Integer> values) {
       internalGetMutableDriverLogLevels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -1222,7 +1185,18 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level defaultValue) {
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LoggingConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

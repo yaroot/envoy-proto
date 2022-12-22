@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RunContinuousTestResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dialogflow.cx.v3.ContinuousTestResult.Builder subBuilder = null;
-            if (continuousTestResult_ != null) {
-              subBuilder = continuousTestResult_.toBuilder();
-            }
-            continuousTestResult_ = input.readMessage(com.google.cloud.dialogflow.cx.v3.ContinuousTestResult.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(continuousTestResult_);
-              continuousTestResult_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.cx.v3.EnvironmentProto.internal_static_google_cloud_dialogflow_cx_v3_RunContinuousTestResponse_descriptor;
@@ -134,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.cx.v3.ContinuousTestResultOrBuilder getContinuousTestResultOrBuilder() {
-    return getContinuousTestResult();
+    return continuousTestResult_ == null ? com.google.cloud.dialogflow.cx.v3.ContinuousTestResult.getDefaultInstance() : continuousTestResult_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +102,7 @@ private static final long serialVersionUID = 0L;
     if (continuousTestResult_ != null) {
       output.writeMessage(1, getContinuousTestResult());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +115,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getContinuousTestResult());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +135,7 @@ private static final long serialVersionUID = 0L;
       if (!getContinuousTestResult()
           .equals(other.getContinuousTestResult())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +150,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONTINUOUS_TEST_RESULT_FIELD_NUMBER;
       hash = (53 * hash) + getContinuousTestResult().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,26 +271,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.cx.v3.RunContinuousTestResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (continuousTestResultBuilder_ == null) {
-        continuousTestResult_ = null;
-      } else {
-        continuousTestResult_ = null;
+      bitField0_ = 0;
+      continuousTestResult_ = null;
+      if (continuousTestResultBuilder_ != null) {
+        continuousTestResultBuilder_.dispose();
         continuousTestResultBuilder_ = null;
       }
       return this;
@@ -371,13 +314,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.cx.v3.RunContinuousTestResponse buildPartial() {
       com.google.cloud.dialogflow.cx.v3.RunContinuousTestResponse result = new com.google.cloud.dialogflow.cx.v3.RunContinuousTestResponse(this);
-      if (continuousTestResultBuilder_ == null) {
-        result.continuousTestResult_ = continuousTestResult_;
-      } else {
-        result.continuousTestResult_ = continuousTestResultBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.cx.v3.RunContinuousTestResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.continuousTestResult_ = continuousTestResultBuilder_ == null
+            ? continuousTestResult_
+            : continuousTestResultBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -427,7 +375,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasContinuousTestResult()) {
         mergeContinuousTestResult(other.getContinuousTestResult());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +390,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.cx.v3.RunContinuousTestResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getContinuousTestResultFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.cx.v3.RunContinuousTestResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.dialogflow.cx.v3.ContinuousTestResult continuousTestResult_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the continuousTestResult field is set.
      */
     public boolean hasContinuousTestResult() {
-      return continuousTestResultBuilder_ != null || continuousTestResult_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +467,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         continuousTestResult_ = value;
-        onChanged();
       } else {
         continuousTestResultBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +485,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.cx.v3.ContinuousTestResult.Builder builderForValue) {
       if (continuousTestResultBuilder_ == null) {
         continuousTestResult_ = builderForValue.build();
-        onChanged();
       } else {
         continuousTestResultBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +501,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeContinuousTestResult(com.google.cloud.dialogflow.cx.v3.ContinuousTestResult value) {
       if (continuousTestResultBuilder_ == null) {
-        if (continuousTestResult_ != null) {
-          continuousTestResult_ =
-            com.google.cloud.dialogflow.cx.v3.ContinuousTestResult.newBuilder(continuousTestResult_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          continuousTestResult_ != null &&
+          continuousTestResult_ != com.google.cloud.dialogflow.cx.v3.ContinuousTestResult.getDefaultInstance()) {
+          getContinuousTestResultBuilder().mergeFrom(value);
         } else {
           continuousTestResult_ = value;
         }
-        onChanged();
       } else {
         continuousTestResultBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +523,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3.ContinuousTestResult continuous_test_result = 1;</code>
      */
     public Builder clearContinuousTestResult() {
-      if (continuousTestResultBuilder_ == null) {
-        continuousTestResult_ = null;
-        onChanged();
-      } else {
-        continuousTestResult_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      continuousTestResult_ = null;
+      if (continuousTestResultBuilder_ != null) {
+        continuousTestResultBuilder_.dispose();
         continuousTestResultBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +540,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.cx.v3.ContinuousTestResult continuous_test_result = 1;</code>
      */
     public com.google.cloud.dialogflow.cx.v3.ContinuousTestResult.Builder getContinuousTestResultBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getContinuousTestResultFieldBuilder().getBuilder();
     }
@@ -643,7 +612,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RunContinuousTestResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

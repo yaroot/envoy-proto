@@ -23,9 +23,15 @@ public enum RoutingPreference
   ROUTING_PREFERENCE_UNSPECIFIED(0),
   /**
    * <pre>
-   * Computes routes without taking traffic conditions into consideration.
-   * Suitable when traffic conditions don't matter. Using this value produces
-   * the lowest latency.
+   * Computes routes without taking live traffic conditions into consideration.
+   * Suitable when traffic conditions don't matter or are not applicable.
+   * Using this value produces the lowest latency.
+   * Note: For `RouteTravelMode` DRIVE and TWO_WHEELER choice of route and
+   * duration are based on road network and average time-independent traffic
+   * conditions. Results for a given request may vary over time due to changes
+   * in the road network, updated average traffic conditions, and the
+   * distributed nature of the service. Results may also vary between
+   * nearly-equivalent routes at any time or frequency.
    * </pre>
    *
    * <code>TRAFFIC_UNAWARE = 1;</code>
@@ -33,9 +39,9 @@ public enum RoutingPreference
   TRAFFIC_UNAWARE(1),
   /**
    * <pre>
-   * Calculates routes taking traffic conditions into consideration. In contrast
-   * to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied to significantly
-   * reduce latency.
+   * Calculates routes taking live traffic conditions into consideration.
+   * In contrast to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied to
+   * significantly reduce latency.
    * </pre>
    *
    * <code>TRAFFIC_AWARE = 2;</code>
@@ -43,7 +49,7 @@ public enum RoutingPreference
   TRAFFIC_AWARE(2),
   /**
    * <pre>
-   * Calculates the routes taking traffic conditions into consideration,
+   * Calculates the routes taking live traffic conditions into consideration,
    * without applying most performance optimizations. Using this value produces
    * the highest latency.
    * </pre>
@@ -64,9 +70,15 @@ public enum RoutingPreference
   public static final int ROUTING_PREFERENCE_UNSPECIFIED_VALUE = 0;
   /**
    * <pre>
-   * Computes routes without taking traffic conditions into consideration.
-   * Suitable when traffic conditions don't matter. Using this value produces
-   * the lowest latency.
+   * Computes routes without taking live traffic conditions into consideration.
+   * Suitable when traffic conditions don't matter or are not applicable.
+   * Using this value produces the lowest latency.
+   * Note: For `RouteTravelMode` DRIVE and TWO_WHEELER choice of route and
+   * duration are based on road network and average time-independent traffic
+   * conditions. Results for a given request may vary over time due to changes
+   * in the road network, updated average traffic conditions, and the
+   * distributed nature of the service. Results may also vary between
+   * nearly-equivalent routes at any time or frequency.
    * </pre>
    *
    * <code>TRAFFIC_UNAWARE = 1;</code>
@@ -74,9 +86,9 @@ public enum RoutingPreference
   public static final int TRAFFIC_UNAWARE_VALUE = 1;
   /**
    * <pre>
-   * Calculates routes taking traffic conditions into consideration. In contrast
-   * to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied to significantly
-   * reduce latency.
+   * Calculates routes taking live traffic conditions into consideration.
+   * In contrast to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied to
+   * significantly reduce latency.
    * </pre>
    *
    * <code>TRAFFIC_AWARE = 2;</code>
@@ -84,7 +96,7 @@ public enum RoutingPreference
   public static final int TRAFFIC_AWARE_VALUE = 2;
   /**
    * <pre>
-   * Calculates the routes taking traffic conditions into consideration,
+   * Calculates the routes taking live traffic conditions into consideration,
    * without applying most performance optimizations. Using this value produces
    * the highest latency.
    * </pre>

@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private BackendBucket() {
     bucketName_ = "";
+    compressionMode_ = "";
     creationTimestamp_ = "";
     customResponseHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     description_ = "";
@@ -42,123 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BackendBucket(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26840: {
-            bitField0_ |= 0x00000040;
-            id_ = input.readUInt64();
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            kind_ = s;
-            break;
-          }
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            name_ = s;
-            break;
-          }
-          case 244202930: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            creationTimestamp_ = s;
-            break;
-          }
-          case 328295546: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            edgeSecurityPolicy_ = s;
-            break;
-          }
-          case 1711811618: {
-            com.google.cloud.compute.v1.BackendBucketCdnPolicy.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              subBuilder = cdnPolicy_.toBuilder();
-            }
-            cdnPolicy_ = input.readMessage(com.google.cloud.compute.v1.BackendBucketCdnPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cdnPolicy_);
-              cdnPolicy_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000002;
-            break;
-          }
-          case -2031428728: {
-            bitField0_ |= 0x00000020;
-            enableCdn_ = input.readBool();
-            break;
-          }
-          case -2026086910: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            bucketName_ = s;
-            break;
-          }
-          case -1194654542: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              customResponseHeaders_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            customResponseHeaders_.add(s);
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            description_ = s;
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000200;
-            selfLink_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        customResponseHeaders_ = customResponseHeaders_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_BackendBucket_descriptor;
@@ -172,9 +56,155 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.compute.v1.BackendBucket.class, com.google.cloud.compute.v1.BackendBucket.Builder.class);
   }
 
+  /**
+   * <pre>
+   * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.compute.v1.BackendBucket.CompressionMode}
+   */
+  public enum CompressionMode
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * A value indicating that the enum field is not set.
+     * </pre>
+     *
+     * <code>UNDEFINED_COMPRESSION_MODE = 0;</code>
+     */
+    UNDEFINED_COMPRESSION_MODE(0),
+    /**
+     * <pre>
+     * Automatically uses the best compression based on the Accept-Encoding header sent by the client.
+     * </pre>
+     *
+     * <code>AUTOMATIC = 165298699;</code>
+     */
+    AUTOMATIC(165298699),
+    /**
+     * <pre>
+     * Disables compression. Existing compressed responses cached by Cloud CDN will not be served to clients.
+     * </pre>
+     *
+     * <code>DISABLED = 516696700;</code>
+     */
+    DISABLED(516696700),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * A value indicating that the enum field is not set.
+     * </pre>
+     *
+     * <code>UNDEFINED_COMPRESSION_MODE = 0;</code>
+     */
+    public static final int UNDEFINED_COMPRESSION_MODE_VALUE = 0;
+    /**
+     * <pre>
+     * Automatically uses the best compression based on the Accept-Encoding header sent by the client.
+     * </pre>
+     *
+     * <code>AUTOMATIC = 165298699;</code>
+     */
+    public static final int AUTOMATIC_VALUE = 165298699;
+    /**
+     * <pre>
+     * Disables compression. Existing compressed responses cached by Cloud CDN will not be served to clients.
+     * </pre>
+     *
+     * <code>DISABLED = 516696700;</code>
+     */
+    public static final int DISABLED_VALUE = 516696700;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static CompressionMode valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static CompressionMode forNumber(int value) {
+      switch (value) {
+        case 0: return UNDEFINED_COMPRESSION_MODE;
+        case 165298699: return AUTOMATIC;
+        case 516696700: return DISABLED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<CompressionMode>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        CompressionMode> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<CompressionMode>() {
+            public CompressionMode findValueByNumber(int number) {
+              return CompressionMode.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.compute.v1.BackendBucket.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final CompressionMode[] VALUES = values();
+
+    public static CompressionMode valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private CompressionMode(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.compute.v1.BackendBucket.CompressionMode)
+  }
+
   private int bitField0_;
   public static final int BUCKET_NAME_FIELD_NUMBER = 283610048;
-  private volatile java.lang.Object bucketName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bucketName_ = "";
   /**
    * <pre>
    * Cloud Storage bucket name.
@@ -269,8 +299,71 @@ private static final long serialVersionUID = 0L;
     return cdnPolicy_ == null ? com.google.cloud.compute.v1.BackendBucketCdnPolicy.getDefaultInstance() : cdnPolicy_;
   }
 
+  public static final int COMPRESSION_MODE_FIELD_NUMBER = 95520988;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object compressionMode_ = "";
+  /**
+   * <pre>
+   * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+   * Check the CompressionMode enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string compression_mode = 95520988;</code>
+   * @return Whether the compressionMode field is set.
+   */
+  @java.lang.Override
+  public boolean hasCompressionMode() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <pre>
+   * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+   * Check the CompressionMode enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string compression_mode = 95520988;</code>
+   * @return The compressionMode.
+   */
+  @java.lang.Override
+  public java.lang.String getCompressionMode() {
+    java.lang.Object ref = compressionMode_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      compressionMode_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+   * Check the CompressionMode enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string compression_mode = 95520988;</code>
+   * @return The bytes for compressionMode.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCompressionModeBytes() {
+    java.lang.Object ref = compressionMode_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      compressionMode_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int CREATION_TIMESTAMP_FIELD_NUMBER = 30525366;
-  private volatile java.lang.Object creationTimestamp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object creationTimestamp_ = "";
   /**
    * <pre>
    * [Output Only] Creation timestamp in RFC3339 text format.
@@ -281,7 +374,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasCreationTimestamp() {
-    return ((bitField0_ & 0x00000004) != 0);
+    return ((bitField0_ & 0x00000008) != 0);
   }
   /**
    * <pre>
@@ -328,6 +421,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_RESPONSE_HEADERS_FIELD_NUMBER = 387539094;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList customResponseHeaders_;
   /**
    * <pre>
@@ -379,7 +473,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional textual description of the resource; provided by the client when the resource is created.
@@ -390,7 +485,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasDescription() {
-    return ((bitField0_ & 0x00000008) != 0);
+    return ((bitField0_ & 0x00000010) != 0);
   }
   /**
    * <pre>
@@ -437,7 +532,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EDGE_SECURITY_POLICY_FIELD_NUMBER = 41036943;
-  private volatile java.lang.Object edgeSecurityPolicy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object edgeSecurityPolicy_ = "";
   /**
    * <pre>
    * [Output Only] The resource URL for the edge security policy associated with this backend bucket.
@@ -448,7 +544,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasEdgeSecurityPolicy() {
-    return ((bitField0_ & 0x00000010) != 0);
+    return ((bitField0_ & 0x00000020) != 0);
   }
   /**
    * <pre>
@@ -495,7 +591,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_CDN_FIELD_NUMBER = 282942321;
-  private boolean enableCdn_;
+  private boolean enableCdn_ = false;
   /**
    * <pre>
    * If true, enable Cloud CDN for this BackendBucket.
@@ -506,7 +602,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasEnableCdn() {
-    return ((bitField0_ & 0x00000020) != 0);
+    return ((bitField0_ & 0x00000040) != 0);
   }
   /**
    * <pre>
@@ -522,7 +618,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3355;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * [Output Only] Unique identifier for the resource; defined by the server.
@@ -533,7 +629,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasId() {
-    return ((bitField0_ & 0x00000040) != 0);
+    return ((bitField0_ & 0x00000080) != 0);
   }
   /**
    * <pre>
@@ -549,7 +645,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * Type of the resource.
@@ -560,7 +657,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasKind() {
-    return ((bitField0_ & 0x00000080) != 0);
+    return ((bitField0_ & 0x00000100) != 0);
   }
   /**
    * <pre>
@@ -607,7 +704,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
@@ -618,7 +716,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasName() {
-    return ((bitField0_ & 0x00000100) != 0);
+    return ((bitField0_ & 0x00000200) != 0);
   }
   /**
    * <pre>
@@ -665,7 +763,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined URL for the resource.
@@ -676,7 +775,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasSelfLink() {
-    return ((bitField0_ & 0x00000200) != 0);
+    return ((bitField0_ & 0x00000400) != 0);
   }
   /**
    * <pre>
@@ -736,25 +835,28 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       output.writeUInt64(3355, id_);
     }
-    if (((bitField0_ & 0x00000080) != 0)) {
+    if (((bitField0_ & 0x00000100) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3292052, kind_);
     }
-    if (((bitField0_ & 0x00000100) != 0)) {
+    if (((bitField0_ & 0x00000200) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3373707, name_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 30525366, creationTimestamp_);
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 41036943, edgeSecurityPolicy_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 95520988, compressionMode_);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(213976452, getCdnPolicy());
     }
-    if (((bitField0_ & 0x00000020) != 0)) {
+    if (((bitField0_ & 0x00000040) != 0)) {
       output.writeBool(282942321, enableCdn_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
@@ -763,13 +865,13 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < customResponseHeaders_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 387539094, customResponseHeaders_.getRaw(i));
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 422937596, description_);
     }
-    if (((bitField0_ & 0x00000200) != 0)) {
+    if (((bitField0_ & 0x00000400) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 456214797, selfLink_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -778,27 +880,30 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(3355, id_);
     }
-    if (((bitField0_ & 0x00000080) != 0)) {
+    if (((bitField0_ & 0x00000100) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3292052, kind_);
     }
-    if (((bitField0_ & 0x00000100) != 0)) {
+    if (((bitField0_ & 0x00000200) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3373707, name_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(30525366, creationTimestamp_);
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(41036943, edgeSecurityPolicy_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(95520988, compressionMode_);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(213976452, getCdnPolicy());
     }
-    if (((bitField0_ & 0x00000020) != 0)) {
+    if (((bitField0_ & 0x00000040) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(282942321, enableCdn_);
     }
@@ -813,13 +918,13 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 5 * getCustomResponseHeadersList().size();
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(422937596, description_);
     }
-    if (((bitField0_ & 0x00000200) != 0)) {
+    if (((bitField0_ & 0x00000400) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(456214797, selfLink_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -843,6 +948,11 @@ private static final long serialVersionUID = 0L;
     if (hasCdnPolicy()) {
       if (!getCdnPolicy()
           .equals(other.getCdnPolicy())) return false;
+    }
+    if (hasCompressionMode() != other.hasCompressionMode()) return false;
+    if (hasCompressionMode()) {
+      if (!getCompressionMode()
+          .equals(other.getCompressionMode())) return false;
     }
     if (hasCreationTimestamp() != other.hasCreationTimestamp()) return false;
     if (hasCreationTimestamp()) {
@@ -886,7 +996,7 @@ private static final long serialVersionUID = 0L;
       if (!getSelfLink()
           .equals(other.getSelfLink())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -904,6 +1014,10 @@ private static final long serialVersionUID = 0L;
     if (hasCdnPolicy()) {
       hash = (37 * hash) + CDN_POLICY_FIELD_NUMBER;
       hash = (53 * hash) + getCdnPolicy().hashCode();
+    }
+    if (hasCompressionMode()) {
+      hash = (37 * hash) + COMPRESSION_MODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCompressionMode().hashCode();
     }
     if (hasCreationTimestamp()) {
       hash = (37 * hash) + CREATION_TIMESTAMP_FIELD_NUMBER;
@@ -943,7 +1057,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SELF_LINK_FIELD_NUMBER;
       hash = (53 * hash) + getSelfLink().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1081,32 +1195,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       bucketName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (cdnPolicyBuilder_ == null) {
-        cdnPolicy_ = null;
-      } else {
-        cdnPolicyBuilder_.clear();
+      cdnPolicy_ = null;
+      if (cdnPolicyBuilder_ != null) {
+        cdnPolicyBuilder_.dispose();
+        cdnPolicyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
+      compressionMode_ = "";
       creationTimestamp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       customResponseHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
-      description_ = "";
       bitField0_ = (bitField0_ & ~0x00000010);
+      description_ = "";
       edgeSecurityPolicy_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       enableCdn_ = false;
-      bitField0_ = (bitField0_ & ~0x00000040);
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000080);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000100);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000200);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
       return this;
     }
 
@@ -1133,60 +1239,70 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.BackendBucket buildPartial() {
       com.google.cloud.compute.v1.BackendBucket result = new com.google.cloud.compute.v1.BackendBucket(this);
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.BackendBucket result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
+        customResponseHeaders_ = customResponseHeaders_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.customResponseHeaders_ = customResponseHeaders_;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.BackendBucket result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.bucketName_ = bucketName_;
         to_bitField0_ |= 0x00000001;
       }
-      result.bucketName_ = bucketName_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (cdnPolicyBuilder_ == null) {
-          result.cdnPolicy_ = cdnPolicy_;
-        } else {
-          result.cdnPolicy_ = cdnPolicyBuilder_.build();
-        }
+        result.cdnPolicy_ = cdnPolicyBuilder_ == null
+            ? cdnPolicy_
+            : cdnPolicyBuilder_.build();
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.compressionMode_ = compressionMode_;
         to_bitField0_ |= 0x00000004;
       }
-      result.creationTimestamp_ = creationTimestamp_;
-      if (((bitField0_ & 0x00000008) != 0)) {
-        customResponseHeaders_ = customResponseHeaders_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
-      }
-      result.customResponseHeaders_ = customResponseHeaders_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.creationTimestamp_ = creationTimestamp_;
         to_bitField0_ |= 0x00000008;
       }
-      result.description_ = description_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.description_ = description_;
         to_bitField0_ |= 0x00000010;
       }
-      result.edgeSecurityPolicy_ = edgeSecurityPolicy_;
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.enableCdn_ = enableCdn_;
+        result.edgeSecurityPolicy_ = edgeSecurityPolicy_;
         to_bitField0_ |= 0x00000020;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.id_ = id_;
+        result.enableCdn_ = enableCdn_;
         to_bitField0_ |= 0x00000040;
       }
       if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.id_ = id_;
         to_bitField0_ |= 0x00000080;
       }
-      result.kind_ = kind_;
       if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.kind_ = kind_;
         to_bitField0_ |= 0x00000100;
       }
-      result.name_ = name_;
       if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.name_ = name_;
         to_bitField0_ |= 0x00000200;
       }
-      result.selfLink_ = selfLink_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.selfLink_ = selfLink_;
+        to_bitField0_ |= 0x00000400;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1234,22 +1350,27 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.BackendBucket other) {
       if (other == com.google.cloud.compute.v1.BackendBucket.getDefaultInstance()) return this;
       if (other.hasBucketName()) {
-        bitField0_ |= 0x00000001;
         bucketName_ = other.bucketName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCdnPolicy()) {
         mergeCdnPolicy(other.getCdnPolicy());
       }
-      if (other.hasCreationTimestamp()) {
+      if (other.hasCompressionMode()) {
+        compressionMode_ = other.compressionMode_;
         bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      if (other.hasCreationTimestamp()) {
         creationTimestamp_ = other.creationTimestamp_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.customResponseHeaders_.isEmpty()) {
         if (customResponseHeaders_.isEmpty()) {
           customResponseHeaders_ = other.customResponseHeaders_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureCustomResponseHeadersIsMutable();
           customResponseHeaders_.addAll(other.customResponseHeaders_);
@@ -1257,13 +1378,13 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000010;
         description_ = other.description_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasEdgeSecurityPolicy()) {
-        bitField0_ |= 0x00000020;
         edgeSecurityPolicy_ = other.edgeSecurityPolicy_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasEnableCdn()) {
@@ -1273,21 +1394,21 @@ private static final long serialVersionUID = 0L;
         setId(other.getId());
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000100;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000200;
         name_ = other.name_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x00000400;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1302,17 +1423,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.BackendBucket parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26840: {
+              id_ = input.readUInt64();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 26840
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 26336418
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 26989658
+            case 244202930: {
+              creationTimestamp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 244202930
+            case 328295546: {
+              edgeSecurityPolicy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 328295546
+            case 764167906: {
+              compressionMode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 764167906
+            case 1711811618: {
+              input.readMessage(
+                  getCdnPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1711811618
+            case -2031428728: {
+              enableCdn_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -2031428728
+            case -2026086910: {
+              bucketName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -2026086910
+            case -1194654542: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCustomResponseHeadersIsMutable();
+              customResponseHeaders_.add(s);
+              break;
+            } // case -1194654542
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -911466526
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case -645248918
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.BackendBucket) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1381,11 +1578,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucketName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       bucketName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1398,8 +1593,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBucketName() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       bucketName_ = getDefaultInstance().getBucketName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1414,12 +1609,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucketNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bucketName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1466,11 +1659,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cdnPolicy_ = value;
-        onChanged();
       } else {
         cdnPolicyBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1484,11 +1677,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.BackendBucketCdnPolicy.Builder builderForValue) {
       if (cdnPolicyBuilder_ == null) {
         cdnPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         cdnPolicyBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1501,18 +1694,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeCdnPolicy(com.google.cloud.compute.v1.BackendBucketCdnPolicy value) {
       if (cdnPolicyBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            cdnPolicy_ != null &&
-            cdnPolicy_ != com.google.cloud.compute.v1.BackendBucketCdnPolicy.getDefaultInstance()) {
-          cdnPolicy_ =
-            com.google.cloud.compute.v1.BackendBucketCdnPolicy.newBuilder(cdnPolicy_).mergeFrom(value).buildPartial();
+          cdnPolicy_ != null &&
+          cdnPolicy_ != com.google.cloud.compute.v1.BackendBucketCdnPolicy.getDefaultInstance()) {
+          getCdnPolicyBuilder().mergeFrom(value);
         } else {
           cdnPolicy_ = value;
         }
-        onChanged();
       } else {
         cdnPolicyBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1523,13 +1715,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.BackendBucketCdnPolicy cdn_policy = 213976452;</code>
      */
     public Builder clearCdnPolicy() {
-      if (cdnPolicyBuilder_ == null) {
-        cdnPolicy_ = null;
-        onChanged();
-      } else {
-        cdnPolicyBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      cdnPolicy_ = null;
+      if (cdnPolicyBuilder_ != null) {
+        cdnPolicyBuilder_.dispose();
+        cdnPolicyBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1580,6 +1772,115 @@ private static final long serialVersionUID = 0L;
       return cdnPolicyBuilder_;
     }
 
+    private java.lang.Object compressionMode_ = "";
+    /**
+     * <pre>
+     * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+     * Check the CompressionMode enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string compression_mode = 95520988;</code>
+     * @return Whether the compressionMode field is set.
+     */
+    public boolean hasCompressionMode() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+     * Check the CompressionMode enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string compression_mode = 95520988;</code>
+     * @return The compressionMode.
+     */
+    public java.lang.String getCompressionMode() {
+      java.lang.Object ref = compressionMode_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        compressionMode_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+     * Check the CompressionMode enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string compression_mode = 95520988;</code>
+     * @return The bytes for compressionMode.
+     */
+    public com.google.protobuf.ByteString
+        getCompressionModeBytes() {
+      java.lang.Object ref = compressionMode_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        compressionMode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+     * Check the CompressionMode enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string compression_mode = 95520988;</code>
+     * @param value The compressionMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCompressionMode(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      compressionMode_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+     * Check the CompressionMode enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string compression_mode = 95520988;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCompressionMode() {
+      compressionMode_ = getDefaultInstance().getCompressionMode();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+     * Check the CompressionMode enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string compression_mode = 95520988;</code>
+     * @param value The bytes for compressionMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCompressionModeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      compressionMode_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object creationTimestamp_ = "";
     /**
      * <pre>
@@ -1590,7 +1891,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the creationTimestamp field is set.
      */
     public boolean hasCreationTimestamp() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1644,11 +1945,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestamp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1661,8 +1960,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       creationTimestamp_ = getDefaultInstance().getCreationTimestamp();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1677,21 +1976,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestampBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList customResponseHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCustomResponseHeadersIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         customResponseHeaders_ = new com.google.protobuf.LazyStringArrayList(customResponseHeaders_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1754,10 +2051,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomResponseHeaders(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCustomResponseHeadersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCustomResponseHeadersIsMutable();
       customResponseHeaders_.set(index, value);
       onChanged();
       return this;
@@ -1773,10 +2068,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCustomResponseHeaders(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCustomResponseHeadersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCustomResponseHeadersIsMutable();
       customResponseHeaders_.add(value);
       onChanged();
       return this;
@@ -1808,7 +2101,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCustomResponseHeaders() {
       customResponseHeaders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1823,10 +2116,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCustomResponseHeadersBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCustomResponseHeadersIsMutable();
       customResponseHeaders_.add(value);
       onChanged();
@@ -1843,7 +2134,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the description field is set.
      */
     public boolean hasDescription() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1897,11 +2188,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1914,8 +2203,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1930,12 +2219,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1950,7 +2237,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the edgeSecurityPolicy field is set.
      */
     public boolean hasEdgeSecurityPolicy() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2004,11 +2291,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEdgeSecurityPolicy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       edgeSecurityPolicy_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2021,8 +2306,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEdgeSecurityPolicy() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       edgeSecurityPolicy_ = getDefaultInstance().getEdgeSecurityPolicy();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2037,12 +2322,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEdgeSecurityPolicyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       edgeSecurityPolicy_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2058,7 +2341,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasEnableCdn() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2082,8 +2365,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableCdn(boolean value) {
-      bitField0_ |= 0x00000040;
+      
       enableCdn_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2096,7 +2380,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableCdn() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       enableCdn_ = false;
       onChanged();
       return this;
@@ -2113,7 +2397,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasId() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2137,8 +2421,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000080;
+      
       id_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2151,7 +2436,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000100);
       id_ = 0L;
       onChanged();
       return this;
@@ -2167,7 +2452,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kind field is set.
      */
     public boolean hasKind() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2221,11 +2506,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2238,8 +2521,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2254,12 +2537,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2274,7 +2555,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the name field is set.
      */
     public boolean hasName() {
-      return ((bitField0_ & 0x00000200) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -2328,11 +2609,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2345,8 +2624,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000200);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2361,12 +2640,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2381,7 +2658,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the selfLink field is set.
      */
     public boolean hasSelfLink() {
-      return ((bitField0_ & 0x00000400) != 0);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -2435,11 +2712,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2452,8 +2727,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -2468,12 +2743,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2510,7 +2783,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BackendBucket(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

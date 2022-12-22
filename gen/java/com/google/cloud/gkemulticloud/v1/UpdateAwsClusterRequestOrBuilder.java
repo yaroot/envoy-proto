@@ -9,7 +9,8 @@ public interface UpdateAwsClusterRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource to update.
+   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AwsCluster aws_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -18,7 +19,8 @@ public interface UpdateAwsClusterRequestOrBuilder extends
   boolean hasAwsCluster();
   /**
    * <pre>
-   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource to update.
+   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AwsCluster aws_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -27,7 +29,8 @@ public interface UpdateAwsClusterRequestOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AwsCluster getAwsCluster();
   /**
    * <pre>
-   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource to update.
+   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+   * resource to update.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AwsCluster aws_cluster = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -61,14 +64,17 @@ public interface UpdateAwsClusterRequestOrBuilder extends
    *  *   `control_plane.proxy_config`.
    *  *   `control_plane.proxy_config.secret_arn`.
    *  *   `control_plane.proxy_config.secret_version`.
+   *  *   `control_plane.root_volume.size_gib`.
+   *  *   `control_plane.root_volume.volume_type`.
    *  *   `control_plane.root_volume.iops`.
    *  *   `control_plane.root_volume.kms_key_arn`.
-   *  *   `control_plane.root_volume.volume_type`.
-   *  *   `control_plane.root_volume.size_gib`.
    *  *   `control_plane.ssh_config`.
    *  *   `control_plane.ssh_config.ec2_key_pair`.
    *  *   `control_plane.instance_placement.tenancy`.
-   *  *   `logging_config`.
+   *  *   `control_plane.iam_instance_profile`.
+   *  *   `logging_config.component_config.enable_components`.
+   *  *   `control_plane.tags`.
+   *  *   `monitoring_config.managed_prometheus_config.enabled`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -92,14 +98,17 @@ public interface UpdateAwsClusterRequestOrBuilder extends
    *  *   `control_plane.proxy_config`.
    *  *   `control_plane.proxy_config.secret_arn`.
    *  *   `control_plane.proxy_config.secret_version`.
+   *  *   `control_plane.root_volume.size_gib`.
+   *  *   `control_plane.root_volume.volume_type`.
    *  *   `control_plane.root_volume.iops`.
    *  *   `control_plane.root_volume.kms_key_arn`.
-   *  *   `control_plane.root_volume.volume_type`.
-   *  *   `control_plane.root_volume.size_gib`.
    *  *   `control_plane.ssh_config`.
    *  *   `control_plane.ssh_config.ec2_key_pair`.
    *  *   `control_plane.instance_placement.tenancy`.
-   *  *   `logging_config`.
+   *  *   `control_plane.iam_instance_profile`.
+   *  *   `logging_config.component_config.enable_components`.
+   *  *   `control_plane.tags`.
+   *  *   `monitoring_config.managed_prometheus_config.enabled`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -123,14 +132,17 @@ public interface UpdateAwsClusterRequestOrBuilder extends
    *  *   `control_plane.proxy_config`.
    *  *   `control_plane.proxy_config.secret_arn`.
    *  *   `control_plane.proxy_config.secret_version`.
+   *  *   `control_plane.root_volume.size_gib`.
+   *  *   `control_plane.root_volume.volume_type`.
    *  *   `control_plane.root_volume.iops`.
    *  *   `control_plane.root_volume.kms_key_arn`.
-   *  *   `control_plane.root_volume.volume_type`.
-   *  *   `control_plane.root_volume.size_gib`.
    *  *   `control_plane.ssh_config`.
    *  *   `control_plane.ssh_config.ec2_key_pair`.
    *  *   `control_plane.instance_placement.tenancy`.
-   *  *   `logging_config`.
+   *  *   `control_plane.iam_instance_profile`.
+   *  *   `logging_config.component_config.enable_components`.
+   *  *   `control_plane.tags`.
+   *  *   `monitoring_config.managed_prometheus_config.enabled`.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4 [(.google.api.field_behavior) = REQUIRED];</code>

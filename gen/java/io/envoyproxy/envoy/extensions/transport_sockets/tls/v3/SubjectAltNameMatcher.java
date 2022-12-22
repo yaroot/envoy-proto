@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SubjectAltNameMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            sanType_ = rawValue;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder subBuilder = null;
-            if (matcher_ != null) {
-              subBuilder = matcher_.toBuilder();
-            }
-            matcher_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.StringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(matcher_);
-              matcher_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonProto.internal_static_envoy_extensions_transport_sockets_tls_v3_SubjectAltNameMatcher_descriptor;
@@ -247,7 +189,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAN_TYPE_FIELD_NUMBER = 1;
-  private int sanType_;
+  private int sanType_ = 0;
   /**
    * <pre>
    * Specification of type of SAN. Note that the default enum value is an invalid choice.
@@ -268,8 +210,7 @@ private static final long serialVersionUID = 0L;
    * @return The sanType.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType getSanType() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType.valueOf(sanType_);
+    io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType.forNumber(sanType_);
     return result == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType.UNRECOGNIZED : result;
   }
 
@@ -308,7 +249,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.StringMatcherOrBuilder getMatcherOrBuilder() {
-    return getMatcher();
+    return matcher_ == null ? io.envoyproxy.envoy.type.matcher.v3.StringMatcher.getDefaultInstance() : matcher_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -331,7 +272,7 @@ private static final long serialVersionUID = 0L;
     if (matcher_ != null) {
       output.writeMessage(2, getMatcher());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -348,7 +289,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getMatcher());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -369,7 +310,7 @@ private static final long serialVersionUID = 0L;
       if (!getMatcher()
           .equals(other.getMatcher())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -386,7 +327,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MATCHER_FIELD_NUMBER;
       hash = (53 * hash) + getMatcher().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -507,28 +448,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       sanType_ = 0;
-
-      if (matcherBuilder_ == null) {
-        matcher_ = null;
-      } else {
-        matcher_ = null;
+      matcher_ = null;
+      if (matcherBuilder_ != null) {
+        matcherBuilder_.dispose();
         matcherBuilder_ = null;
       }
       return this;
@@ -557,14 +492,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher buildPartial() {
       io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher result = new io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher(this);
-      result.sanType_ = sanType_;
-      if (matcherBuilder_ == null) {
-        result.matcher_ = matcher_;
-      } else {
-        result.matcher_ = matcherBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sanType_ = sanType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.matcher_ = matcherBuilder_ == null
+            ? matcher_
+            : matcherBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -617,7 +559,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMatcher()) {
         mergeMatcher(other.getMatcher());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -632,19 +574,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              sanType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getMatcherFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int sanType_ = 0;
     /**
@@ -668,8 +636,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSanTypeValue(int value) {
-      
       sanType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -683,8 +651,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType getSanType() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType.valueOf(sanType_);
+      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType.forNumber(sanType_);
       return result == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.SanType.UNRECOGNIZED : result;
     }
     /**
@@ -700,7 +667,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       sanType_ = value.getNumber();
       onChanged();
       return this;
@@ -714,7 +681,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSanType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       sanType_ = 0;
       onChanged();
       return this;
@@ -732,7 +699,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the matcher field is set.
      */
     public boolean hasMatcher() {
-      return matcherBuilder_ != null || matcher_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -762,11 +729,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         matcher_ = value;
-        onChanged();
       } else {
         matcherBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -780,11 +747,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder builderForValue) {
       if (matcherBuilder_ == null) {
         matcher_ = builderForValue.build();
-        onChanged();
       } else {
         matcherBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -796,17 +763,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMatcher(io.envoyproxy.envoy.type.matcher.v3.StringMatcher value) {
       if (matcherBuilder_ == null) {
-        if (matcher_ != null) {
-          matcher_ =
-            io.envoyproxy.envoy.type.matcher.v3.StringMatcher.newBuilder(matcher_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          matcher_ != null &&
+          matcher_ != io.envoyproxy.envoy.type.matcher.v3.StringMatcher.getDefaultInstance()) {
+          getMatcherBuilder().mergeFrom(value);
         } else {
           matcher_ = value;
         }
-        onChanged();
       } else {
         matcherBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -817,14 +785,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.StringMatcher matcher = 2 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMatcher() {
-      if (matcherBuilder_ == null) {
-        matcher_ = null;
-        onChanged();
-      } else {
-        matcher_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      matcher_ = null;
+      if (matcherBuilder_ != null) {
+        matcherBuilder_.dispose();
         matcherBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -835,7 +802,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.StringMatcher matcher = 2 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder getMatcherBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMatcherFieldBuilder().getBuilder();
     }
@@ -907,7 +874,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SubjectAltNameMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

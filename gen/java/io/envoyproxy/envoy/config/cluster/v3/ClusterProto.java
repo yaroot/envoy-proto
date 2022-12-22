@@ -125,11 +125,6 @@ public final class ClusterProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_envoy_config_cluster_v3_LoadBalancingPolicy_Policy_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_envoy_config_cluster_v3_UpstreamBindConfig_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_envoy_config_cluster_v3_UpstreamBindConfig_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_envoy_config_cluster_v3_UpstreamConnectionOptions_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -171,7 +166,7 @@ public final class ClusterProto {
       "notations/status.proto\032!udpa/annotations" +
       "/versioning.proto\032\027validate/validate.pro" +
       "to\"B\n\021ClusterCollection\022-\n\007entries\030\001 \001(\013" +
-      "2\034.xds.core.v3.CollectionEntry\"\351A\n\007Clust" +
+      "2\034.xds.core.v3.CollectionEntry\"\376C\n\007Clust" +
       "er\022W\n\030transport_socket_matches\030+ \003(\01325.e" +
       "nvoy.config.cluster.v3.Cluster.Transport" +
       "SocketMatch\022\025\n\004name\030\001 \001(\tB\007\372B\004r\002\020\001\0221\n\ral" +
@@ -275,7 +270,7 @@ public final class ClusterProto {
       "g\0226\n\neds_config\030\001 \001(\0132\".envoy.config.cor" +
       "e.v3.ConfigSource\022\024\n\014service_name\030\002 \001(\t:" +
       ",\232\305\210\036\'\n%envoy.api.v2.Cluster.EdsClusterC" +
-      "onfig\032\216\007\n\016LbSubsetConfig\022i\n\017fallback_pol" +
+      "onfig\032\331\010\n\016LbSubsetConfig\022i\n\017fallback_pol" +
       "icy\030\001 \001(\0162F.envoy.config.cluster.v3.Clus" +
       "ter.LbSubsetConfig.LbSubsetFallbackPolic" +
       "yB\010\372B\005\202\001\002\020\001\022/\n\016default_subset\030\002 \001(\0132\027.go" +
@@ -284,116 +279,120 @@ public final class ClusterProto {
       ".LbSubsetConfig.LbSubsetSelector\022\035\n\025loca" +
       "lity_weight_aware\030\004 \001(\010\022\035\n\025scale_localit" +
       "y_weight\030\005 \001(\010\022\026\n\016panic_mode_any\030\006 \001(\010\022\023" +
-      "\n\013list_as_any\030\007 \001(\010\032\233\003\n\020LbSubsetSelector" +
-      "\022\014\n\004keys\030\001 \003(\t\022\036\n\026single_host_per_subset" +
-      "\030\004 \001(\010\022\202\001\n\017fallback_policy\030\002 \001(\0162_.envoy" +
-      ".config.cluster.v3.Cluster.LbSubsetConfi" +
-      "g.LbSubsetSelector.LbSubsetSelectorFallb" +
-      "ackPolicyB\010\372B\005\202\001\002\020\001\022\034\n\024fallback_keys_sub" +
-      "set\030\003 \003(\t\"y\n\036LbSubsetSelectorFallbackPol" +
-      "icy\022\017\n\013NOT_DEFINED\020\000\022\017\n\013NO_FALLBACK\020\001\022\020\n" +
-      "\014ANY_ENDPOINT\020\002\022\022\n\016DEFAULT_SUBSET\020\003\022\017\n\013K" +
-      "EYS_SUBSET\020\004:;\232\305\210\0366\n4envoy.api.v2.Cluste" +
-      "r.LbSubsetConfig.LbSubsetSelector\"O\n\026LbS" +
-      "ubsetFallbackPolicy\022\017\n\013NO_FALLBACK\020\000\022\020\n\014" +
-      "ANY_ENDPOINT\020\001\022\022\n\016DEFAULT_SUBSET\020\002:*\232\305\210\036" +
-      "%\n#envoy.api.v2.Cluster.LbSubsetConfig\032\264" +
-      "\001\n\017SlowStartConfig\0224\n\021slow_start_window\030" +
-      "\001 \001(\0132\031.google.protobuf.Duration\0227\n\naggr" +
-      "ession\030\002 \001(\0132#.envoy.config.core.v3.Runt" +
-      "imeDouble\0222\n\022min_weight_percent\030\003 \001(\0132\026." +
-      "envoy.type.v3.Percent\032a\n\022RoundRobinLbCon" +
-      "fig\022K\n\021slow_start_config\030\001 \001(\01320.envoy.c" +
-      "onfig.cluster.v3.Cluster.SlowStartConfig" +
-      "\032\224\002\n\024LeastRequestLbConfig\022;\n\014choice_coun" +
-      "t\030\001 \001(\0132\034.google.protobuf.UInt32ValueB\007\372" +
-      "B\004*\002(\002\022@\n\023active_request_bias\030\002 \001(\0132#.en" +
-      "voy.config.core.v3.RuntimeDouble\022K\n\021slow" +
-      "_start_config\030\003 \001(\01320.envoy.config.clust" +
-      "er.v3.Cluster.SlowStartConfig:0\232\305\210\036+\n)en" +
-      "voy.api.v2.Cluster.LeastRequestLbConfig\032" +
-      "\341\002\n\020RingHashLbConfig\022C\n\021minimum_ring_siz" +
-      "e\030\001 \001(\0132\034.google.protobuf.UInt64ValueB\n\372" +
-      "B\0072\005\030\200\200\200\004\022_\n\rhash_function\030\003 \001(\0162>.envoy" +
-      ".config.cluster.v3.Cluster.RingHashLbCon" +
-      "fig.HashFunctionB\010\372B\005\202\001\002\020\001\022C\n\021maximum_ri" +
-      "ng_size\030\004 \001(\0132\034.google.protobuf.UInt64Va" +
-      "lueB\n\372B\0072\005\030\200\200\200\004\".\n\014HashFunction\022\013\n\007XX_HA" +
-      "SH\020\000\022\021\n\rMURMUR_HASH_2\020\001:,\232\305\210\036\'\n%envoy.ap" +
-      "i.v2.Cluster.RingHashLbConfigJ\004\010\002\020\003\032N\n\016M" +
-      "aglevLbConfig\022<\n\ntable_size\030\001 \001(\0132\034.goog" +
-      "le.protobuf.UInt64ValueB\n\372B\0072\005\030\313\226\261\002\032y\n\023O" +
-      "riginalDstLbConfig\022\027\n\017use_http_header\030\001 " +
-      "\001(\010\022\030\n\020http_header_name\030\002 \001(\t:/\232\305\210\036*\n(en" +
-      "voy.api.v2.Cluster.OriginalDstLbConfig\032\262" +
-      "\t\n\016CommonLbConfig\0227\n\027healthy_panic_thres" +
-      "hold\030\001 \001(\0132\026.envoy.type.v3.Percent\022a\n\024zo" +
-      "ne_aware_lb_config\030\002 \001(\0132A.envoy.config." +
-      "cluster.v3.Cluster.CommonLbConfig.ZoneAw" +
-      "areLbConfigH\000\022o\n\033locality_weighted_lb_co" +
-      "nfig\030\003 \001(\0132H.envoy.config.cluster.v3.Clu" +
-      "ster.CommonLbConfig.LocalityWeightedLbCo" +
-      "nfigH\000\0226\n\023update_merge_window\030\004 \001(\0132\031.go" +
-      "ogle.protobuf.Duration\022\'\n\037ignore_new_hos" +
-      "ts_until_first_hc\030\005 \001(\010\022,\n$close_connect" +
-      "ions_on_host_set_change\030\006 \001(\010\022o\n\034consist" +
-      "ent_hashing_lb_config\030\007 \001(\0132I.envoy.conf" +
-      "ig.cluster.v3.Cluster.CommonLbConfig.Con" +
-      "sistentHashingLbConfig\022C\n\024override_host_" +
-      "status\030\010 \001(\0132%.envoy.config.core.v3.Heal" +
-      "thStatusSet\032\331\001\n\021ZoneAwareLbConfig\022/\n\017rou" +
-      "ting_enabled\030\001 \001(\0132\026.envoy.type.v3.Perce" +
-      "nt\0226\n\020min_cluster_size\030\002 \001(\0132\034.google.pr" +
-      "otobuf.UInt64Value\022\035\n\025fail_traffic_on_pa" +
-      "nic\030\003 \001(\010:<\232\305\210\0367\n5envoy.api.v2.Cluster.C" +
-      "ommonLbConfig.ZoneAwareLbConfig\032_\n\030Local" +
-      "ityWeightedLbConfig:C\232\305\210\036>\n<envoy.api.v2" +
-      ".Cluster.CommonLbConfig.LocalityWeighted" +
-      "LbConfig\032\307\001\n\031ConsistentHashingLbConfig\022 " +
-      "\n\030use_hostname_for_hashing\030\001 \001(\010\022B\n\023hash" +
-      "_balance_factor\030\002 \001(\0132\034.google.protobuf." +
-      "UInt32ValueB\007\372B\004*\002(d:D\232\305\210\036?\n=envoy.api.v" +
-      "2.Cluster.CommonLbConfig.ConsistentHashi" +
-      "ngLbConfig:*\232\305\210\036%\n#envoy.api.v2.Cluster." +
-      "CommonLbConfigB\033\n\031locality_config_specif" +
-      "ier\032\267\001\n\013RefreshRate\022@\n\rbase_interval\030\001 \001" +
-      "(\0132\031.google.protobuf.DurationB\016\372B\013\252\001\010\010\001*" +
-      "\004\020\300\204=\022=\n\014max_interval\030\002 \001(\0132\031.google.pro" +
-      "tobuf.DurationB\014\372B\t\252\001\006*\004\020\300\204=:\'\232\305\210\036\"\n env" +
-      "oy.api.v2.Cluster.RefreshRate\032\314\001\n\020Precon" +
-      "nectPolicy\022\\\n\035per_upstream_preconnect_ra" +
-      "tio\030\001 \001(\0132\034.google.protobuf.DoubleValueB" +
-      "\027\372B\024\022\022\031\000\000\000\000\000\000\010@)\000\000\000\000\000\000\360?\022Z\n\033predictive_p" +
-      "reconnect_ratio\030\002 \001(\0132\034.google.protobuf." +
-      "DoubleValueB\027\372B\024\022\022\031\000\000\000\000\000\000\010@)\000\000\000\000\000\000\360?\032Z\n\"" +
-      "TypedExtensionProtocolOptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022#\n\005value\030\002 \001(\0132\024.google.protobuf" +
-      ".Any:\0028\001\"W\n\rDiscoveryType\022\n\n\006STATIC\020\000\022\016\n" +
-      "\nSTRICT_DNS\020\001\022\017\n\013LOGICAL_DNS\020\002\022\007\n\003EDS\020\003\022" +
-      "\020\n\014ORIGINAL_DST\020\004\"\244\001\n\010LbPolicy\022\017\n\013ROUND_" +
-      "ROBIN\020\000\022\021\n\rLEAST_REQUEST\020\001\022\r\n\tRING_HASH\020" +
-      "\002\022\n\n\006RANDOM\020\003\022\n\n\006MAGLEV\020\005\022\024\n\020CLUSTER_PRO" +
-      "VIDED\020\006\022 \n\034LOAD_BALANCING_POLICY_CONFIG\020" +
-      "\007\"\004\010\004\020\004*\017ORIGINAL_DST_LB\"P\n\017DnsLookupFam" +
-      "ily\022\010\n\004AUTO\020\000\022\013\n\007V4_ONLY\020\001\022\013\n\007V6_ONLY\020\002\022" +
-      "\020\n\014V4_PREFERRED\020\003\022\007\n\003ALL\020\004\"T\n\030ClusterPro" +
-      "tocolSelection\022\033\n\027USE_CONFIGURED_PROTOCO" +
-      "L\020\000\022\033\n\027USE_DOWNSTREAM_PROTOCOL\020\001:\033\232\305\210\036\026\n" +
-      "\024envoy.api.v2.ClusterB\030\n\026cluster_discove" +
-      "ry_typeB\013\n\tlb_configJ\004\010\014\020\rJ\004\010\017\020\020J\004\010\007\020\010J\004" +
-      "\010\013\020\014J\004\010#\020$R\005hostsR\013tls_contextR\032extensio" +
-      "n_protocol_options\"\272\002\n\023LoadBalancingPoli" +
-      "cy\022E\n\010policies\030\001 \003(\01323.envoy.config.clus" +
-      "ter.v3.LoadBalancingPolicy.Policy\032\262\001\n\006Po" +
-      "licy\022J\n\026typed_extension_config\030\004 \001(\0132*.e" +
-      "nvoy.config.core.v3.TypedExtensionConfig" +
-      ":.\232\305\210\036)\n\'envoy.api.v2.LoadBalancingPolic" +
-      "y.PolicyJ\004\010\002\020\003J\004\010\001\020\002J\004\010\003\020\004R\006configR\004name" +
-      "R\014typed_config:\'\232\305\210\036\"\n envoy.api.v2.Load" +
-      "BalancingPolicy\"s\n\022UpstreamBindConfig\0225\n" +
-      "\016source_address\030\001 \001(\0132\035.envoy.config.cor" +
-      "e.v3.Address:&\232\305\210\036!\n\037envoy.api.v2.Upstre" +
-      "amBindConfig\"\277\001\n\031UpstreamConnectionOptio" +
+      "\n\013list_as_any\030\007 \001(\010\022z\n\030metadata_fallback" +
+      "_policy\030\010 \001(\0162N.envoy.config.cluster.v3." +
+      "Cluster.LbSubsetConfig.LbSubsetMetadataF" +
+      "allbackPolicyB\010\372B\005\202\001\002\020\001\032\233\003\n\020LbSubsetSele" +
+      "ctor\022\014\n\004keys\030\001 \003(\t\022\036\n\026single_host_per_su" +
+      "bset\030\004 \001(\010\022\202\001\n\017fallback_policy\030\002 \001(\0162_.e" +
+      "nvoy.config.cluster.v3.Cluster.LbSubsetC" +
+      "onfig.LbSubsetSelector.LbSubsetSelectorF" +
+      "allbackPolicyB\010\372B\005\202\001\002\020\001\022\034\n\024fallback_keys" +
+      "_subset\030\003 \003(\t\"y\n\036LbSubsetSelectorFallbac" +
+      "kPolicy\022\017\n\013NOT_DEFINED\020\000\022\017\n\013NO_FALLBACK\020" +
+      "\001\022\020\n\014ANY_ENDPOINT\020\002\022\022\n\016DEFAULT_SUBSET\020\003\022" +
+      "\017\n\013KEYS_SUBSET\020\004:;\232\305\210\0366\n4envoy.api.v2.Cl" +
+      "uster.LbSubsetConfig.LbSubsetSelector\"O\n" +
+      "\026LbSubsetFallbackPolicy\022\017\n\013NO_FALLBACK\020\000" +
+      "\022\020\n\014ANY_ENDPOINT\020\001\022\022\n\016DEFAULT_SUBSET\020\002\"M" +
+      "\n\036LbSubsetMetadataFallbackPolicy\022\030\n\024META" +
+      "DATA_NO_FALLBACK\020\000\022\021\n\rFALLBACK_LIST\020\001:*\232" +
+      "\305\210\036%\n#envoy.api.v2.Cluster.LbSubsetConfi" +
+      "g\032\264\001\n\017SlowStartConfig\0224\n\021slow_start_wind" +
+      "ow\030\001 \001(\0132\031.google.protobuf.Duration\0227\n\na" +
+      "ggression\030\002 \001(\0132#.envoy.config.core.v3.R" +
+      "untimeDouble\0222\n\022min_weight_percent\030\003 \001(\013" +
+      "2\026.envoy.type.v3.Percent\032a\n\022RoundRobinLb" +
+      "Config\022K\n\021slow_start_config\030\001 \001(\01320.envo" +
+      "y.config.cluster.v3.Cluster.SlowStartCon" +
+      "fig\032\224\002\n\024LeastRequestLbConfig\022;\n\014choice_c" +
+      "ount\030\001 \001(\0132\034.google.protobuf.UInt32Value" +
+      "B\007\372B\004*\002(\002\022@\n\023active_request_bias\030\002 \001(\0132#" +
+      ".envoy.config.core.v3.RuntimeDouble\022K\n\021s" +
+      "low_start_config\030\003 \001(\01320.envoy.config.cl" +
+      "uster.v3.Cluster.SlowStartConfig:0\232\305\210\036+\n" +
+      ")envoy.api.v2.Cluster.LeastRequestLbConf" +
+      "ig\032\341\002\n\020RingHashLbConfig\022C\n\021minimum_ring_" +
+      "size\030\001 \001(\0132\034.google.protobuf.UInt64Value" +
+      "B\n\372B\0072\005\030\200\200\200\004\022_\n\rhash_function\030\003 \001(\0162>.en" +
+      "voy.config.cluster.v3.Cluster.RingHashLb" +
+      "Config.HashFunctionB\010\372B\005\202\001\002\020\001\022C\n\021maximum" +
+      "_ring_size\030\004 \001(\0132\034.google.protobuf.UInt6" +
+      "4ValueB\n\372B\0072\005\030\200\200\200\004\".\n\014HashFunction\022\013\n\007XX" +
+      "_HASH\020\000\022\021\n\rMURMUR_HASH_2\020\001:,\232\305\210\036\'\n%envoy" +
+      ".api.v2.Cluster.RingHashLbConfigJ\004\010\002\020\003\032N" +
+      "\n\016MaglevLbConfig\022<\n\ntable_size\030\001 \001(\0132\034.g" +
+      "oogle.protobuf.UInt64ValueB\n\372B\0072\005\030\313\226\261\002\032\302" +
+      "\001\n\023OriginalDstLbConfig\022\027\n\017use_http_heade" +
+      "r\030\001 \001(\010\022\030\n\020http_header_name\030\002 \001(\t\022G\n\026ups" +
+      "tream_port_override\030\003 \001(\0132\034.google.proto" +
+      "buf.UInt32ValueB\t\372B\006*\004\030\377\377\003:/\232\305\210\036*\n(envoy" +
+      ".api.v2.Cluster.OriginalDstLbConfig\032\262\t\n\016" +
+      "CommonLbConfig\0227\n\027healthy_panic_threshol" +
+      "d\030\001 \001(\0132\026.envoy.type.v3.Percent\022a\n\024zone_" +
+      "aware_lb_config\030\002 \001(\0132A.envoy.config.clu" +
+      "ster.v3.Cluster.CommonLbConfig.ZoneAware" +
+      "LbConfigH\000\022o\n\033locality_weighted_lb_confi" +
+      "g\030\003 \001(\0132H.envoy.config.cluster.v3.Cluste" +
+      "r.CommonLbConfig.LocalityWeightedLbConfi" +
+      "gH\000\0226\n\023update_merge_window\030\004 \001(\0132\031.googl" +
+      "e.protobuf.Duration\022\'\n\037ignore_new_hosts_" +
+      "until_first_hc\030\005 \001(\010\022,\n$close_connection" +
+      "s_on_host_set_change\030\006 \001(\010\022o\n\034consistent" +
+      "_hashing_lb_config\030\007 \001(\0132I.envoy.config." +
+      "cluster.v3.Cluster.CommonLbConfig.Consis" +
+      "tentHashingLbConfig\022C\n\024override_host_sta" +
+      "tus\030\010 \001(\0132%.envoy.config.core.v3.HealthS" +
+      "tatusSet\032\331\001\n\021ZoneAwareLbConfig\022/\n\017routin" +
+      "g_enabled\030\001 \001(\0132\026.envoy.type.v3.Percent\022" +
+      "6\n\020min_cluster_size\030\002 \001(\0132\034.google.proto" +
+      "buf.UInt64Value\022\035\n\025fail_traffic_on_panic" +
+      "\030\003 \001(\010:<\232\305\210\0367\n5envoy.api.v2.Cluster.Comm" +
+      "onLbConfig.ZoneAwareLbConfig\032_\n\030Locality" +
+      "WeightedLbConfig:C\232\305\210\036>\n<envoy.api.v2.Cl" +
+      "uster.CommonLbConfig.LocalityWeightedLbC" +
+      "onfig\032\307\001\n\031ConsistentHashingLbConfig\022 \n\030u" +
+      "se_hostname_for_hashing\030\001 \001(\010\022B\n\023hash_ba" +
+      "lance_factor\030\002 \001(\0132\034.google.protobuf.UIn" +
+      "t32ValueB\007\372B\004*\002(d:D\232\305\210\036?\n=envoy.api.v2.C" +
+      "luster.CommonLbConfig.ConsistentHashingL" +
+      "bConfig:*\232\305\210\036%\n#envoy.api.v2.Cluster.Com" +
+      "monLbConfigB\033\n\031locality_config_specifier" +
+      "\032\267\001\n\013RefreshRate\022@\n\rbase_interval\030\001 \001(\0132" +
+      "\031.google.protobuf.DurationB\016\372B\013\252\001\010\010\001*\004\020\300" +
+      "\204=\022=\n\014max_interval\030\002 \001(\0132\031.google.protob" +
+      "uf.DurationB\014\372B\t\252\001\006*\004\020\300\204=:\'\232\305\210\036\"\n envoy." +
+      "api.v2.Cluster.RefreshRate\032\314\001\n\020Preconnec" +
+      "tPolicy\022\\\n\035per_upstream_preconnect_ratio" +
+      "\030\001 \001(\0132\034.google.protobuf.DoubleValueB\027\372B" +
+      "\024\022\022\031\000\000\000\000\000\000\010@)\000\000\000\000\000\000\360?\022Z\n\033predictive_prec" +
+      "onnect_ratio\030\002 \001(\0132\034.google.protobuf.Dou" +
+      "bleValueB\027\372B\024\022\022\031\000\000\000\000\000\000\010@)\000\000\000\000\000\000\360?\032Z\n\"Typ" +
+      "edExtensionProtocolOptionsEntry\022\013\n\003key\030\001" +
+      " \001(\t\022#\n\005value\030\002 \001(\0132\024.google.protobuf.An" +
+      "y:\0028\001\"W\n\rDiscoveryType\022\n\n\006STATIC\020\000\022\016\n\nST" +
+      "RICT_DNS\020\001\022\017\n\013LOGICAL_DNS\020\002\022\007\n\003EDS\020\003\022\020\n\014" +
+      "ORIGINAL_DST\020\004\"\244\001\n\010LbPolicy\022\017\n\013ROUND_ROB" +
+      "IN\020\000\022\021\n\rLEAST_REQUEST\020\001\022\r\n\tRING_HASH\020\002\022\n" +
+      "\n\006RANDOM\020\003\022\n\n\006MAGLEV\020\005\022\024\n\020CLUSTER_PROVID" +
+      "ED\020\006\022 \n\034LOAD_BALANCING_POLICY_CONFIG\020\007\"\004" +
+      "\010\004\020\004*\017ORIGINAL_DST_LB\"P\n\017DnsLookupFamily" +
+      "\022\010\n\004AUTO\020\000\022\013\n\007V4_ONLY\020\001\022\013\n\007V6_ONLY\020\002\022\020\n\014" +
+      "V4_PREFERRED\020\003\022\007\n\003ALL\020\004\"T\n\030ClusterProtoc" +
+      "olSelection\022\033\n\027USE_CONFIGURED_PROTOCOL\020\000" +
+      "\022\033\n\027USE_DOWNSTREAM_PROTOCOL\020\001:\033\232\305\210\036\026\n\024en" +
+      "voy.api.v2.ClusterB\030\n\026cluster_discovery_" +
+      "typeB\013\n\tlb_configJ\004\010\014\020\rJ\004\010\017\020\020J\004\010\007\020\010J\004\010\013\020" +
+      "\014J\004\010#\020$R\005hostsR\013tls_contextR\032extension_p" +
+      "rotocol_options\"\272\002\n\023LoadBalancingPolicy\022" +
+      "E\n\010policies\030\001 \003(\01323.envoy.config.cluster" +
+      ".v3.LoadBalancingPolicy.Policy\032\262\001\n\006Polic" +
+      "y\022J\n\026typed_extension_config\030\004 \001(\0132*.envo" +
+      "y.config.core.v3.TypedExtensionConfig:.\232" +
+      "\305\210\036)\n\'envoy.api.v2.LoadBalancingPolicy.P" +
+      "olicyJ\004\010\002\020\003J\004\010\001\020\002J\004\010\003\020\004R\006configR\004nameR\014t" +
+      "yped_config:\'\232\305\210\036\"\n envoy.api.v2.LoadBal" +
+      "ancingPolicy\"\277\001\n\031UpstreamConnectionOptio" +
       "ns\0229\n\rtcp_keepalive\030\001 \001(\0132\".envoy.config" +
       ".core.v3.TcpKeepalive\0228\n0set_local_inter" +
       "face_name_on_upstream_connections\030\002 \001(\010:" +
@@ -467,7 +466,7 @@ public final class ClusterProto {
     internal_static_envoy_config_cluster_v3_Cluster_LbSubsetConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_cluster_v3_Cluster_LbSubsetConfig_descriptor,
-        new java.lang.String[] { "FallbackPolicy", "DefaultSubset", "SubsetSelectors", "LocalityWeightAware", "ScaleLocalityWeight", "PanicModeAny", "ListAsAny", });
+        new java.lang.String[] { "FallbackPolicy", "DefaultSubset", "SubsetSelectors", "LocalityWeightAware", "ScaleLocalityWeight", "PanicModeAny", "ListAsAny", "MetadataFallbackPolicy", });
     internal_static_envoy_config_cluster_v3_Cluster_LbSubsetConfig_LbSubsetSelector_descriptor =
       internal_static_envoy_config_cluster_v3_Cluster_LbSubsetConfig_descriptor.getNestedTypes().get(0);
     internal_static_envoy_config_cluster_v3_Cluster_LbSubsetConfig_LbSubsetSelector_fieldAccessorTable = new
@@ -509,7 +508,7 @@ public final class ClusterProto {
     internal_static_envoy_config_cluster_v3_Cluster_OriginalDstLbConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_cluster_v3_Cluster_OriginalDstLbConfig_descriptor,
-        new java.lang.String[] { "UseHttpHeader", "HttpHeaderName", });
+        new java.lang.String[] { "UseHttpHeader", "HttpHeaderName", "UpstreamPortOverride", });
     internal_static_envoy_config_cluster_v3_Cluster_CommonLbConfig_descriptor =
       internal_static_envoy_config_cluster_v3_Cluster_descriptor.getNestedTypes().get(10);
     internal_static_envoy_config_cluster_v3_Cluster_CommonLbConfig_fieldAccessorTable = new
@@ -564,20 +563,14 @@ public final class ClusterProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_cluster_v3_LoadBalancingPolicy_Policy_descriptor,
         new java.lang.String[] { "TypedExtensionConfig", });
-    internal_static_envoy_config_cluster_v3_UpstreamBindConfig_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_envoy_config_cluster_v3_UpstreamBindConfig_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_envoy_config_cluster_v3_UpstreamBindConfig_descriptor,
-        new java.lang.String[] { "SourceAddress", });
     internal_static_envoy_config_cluster_v3_UpstreamConnectionOptions_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_envoy_config_cluster_v3_UpstreamConnectionOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_cluster_v3_UpstreamConnectionOptions_descriptor,
         new java.lang.String[] { "TcpKeepalive", "SetLocalInterfaceNameOnUpstreamConnections", });
     internal_static_envoy_config_cluster_v3_TrackClusterStats_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_envoy_config_cluster_v3_TrackClusterStats_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_cluster_v3_TrackClusterStats_descriptor,

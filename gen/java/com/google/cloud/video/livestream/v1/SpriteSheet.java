@@ -36,95 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SpriteSheet(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            format_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filePrefix_ = s;
-            break;
-          }
-          case 24: {
-
-            spriteWidthPixels_ = input.readInt32();
-            break;
-          }
-          case 32: {
-
-            spriteHeightPixels_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            columnCount_ = input.readInt32();
-            break;
-          }
-          case 48: {
-
-            rowCount_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (interval_ != null) {
-              subBuilder = interval_.toBuilder();
-            }
-            interval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(interval_);
-              interval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-
-            quality_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.livestream.v1.OutputsProto.internal_static_google_cloud_video_livestream_v1_SpriteSheet_descriptor;
@@ -139,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMAT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object format_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object format_ = "";
   /**
    * <pre>
    * Format type. The default is `jpeg`.
@@ -189,7 +101,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_PREFIX_FIELD_NUMBER = 2;
-  private volatile java.lang.Object filePrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filePrefix_ = "";
   /**
    * <pre>
    * Required. File name prefix for the generated sprite sheets. If multiple
@@ -243,7 +156,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPRITE_WIDTH_PIXELS_FIELD_NUMBER = 3;
-  private int spriteWidthPixels_;
+  private int spriteWidthPixels_ = 0;
   /**
    * <pre>
    * Required. The width of the sprite in pixels. Must be an even integer.
@@ -258,7 +171,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPRITE_HEIGHT_PIXELS_FIELD_NUMBER = 4;
-  private int spriteHeightPixels_;
+  private int spriteHeightPixels_ = 0;
   /**
    * <pre>
    * Required. The height of the sprite in pixels. Must be an even integer.
@@ -273,7 +186,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COLUMN_COUNT_FIELD_NUMBER = 5;
-  private int columnCount_;
+  private int columnCount_ = 0;
   /**
    * <pre>
    * The maximum number of sprites per row in a sprite sheet. Valid range is
@@ -289,7 +202,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROW_COUNT_FIELD_NUMBER = 6;
-  private int rowCount_;
+  private int rowCount_ = 0;
   /**
    * <pre>
    * The maximum number of rows per sprite sheet. When the sprite sheet is full,
@@ -343,11 +256,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getIntervalOrBuilder() {
-    return getInterval();
+    return interval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : interval_;
   }
 
   public static final int QUALITY_FIELD_NUMBER = 8;
-  private int quality_;
+  private int quality_ = 0;
   /**
    * <pre>
    * The quality of the generated sprite sheet. Enter a value between 1
@@ -402,7 +315,7 @@ private static final long serialVersionUID = 0L;
     if (quality_ != 0) {
       output.writeInt32(8, quality_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -441,7 +354,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(8, quality_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -475,7 +388,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getQuality()
         != other.getQuality()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -504,7 +417,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + QUALITY_FIELD_NUMBER;
     hash = (53 * hash) + getQuality();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -625,42 +538,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.livestream.v1.SpriteSheet.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       format_ = "";
-
       filePrefix_ = "";
-
       spriteWidthPixels_ = 0;
-
       spriteHeightPixels_ = 0;
-
       columnCount_ = 0;
-
       rowCount_ = 0;
-
-      if (intervalBuilder_ == null) {
-        interval_ = null;
-      } else {
-        interval_ = null;
+      interval_ = null;
+      if (intervalBuilder_ != null) {
+        intervalBuilder_.dispose();
         intervalBuilder_ = null;
       }
       quality_ = 0;
-
       return this;
     }
 
@@ -687,20 +588,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.livestream.v1.SpriteSheet buildPartial() {
       com.google.cloud.video.livestream.v1.SpriteSheet result = new com.google.cloud.video.livestream.v1.SpriteSheet(this);
-      result.format_ = format_;
-      result.filePrefix_ = filePrefix_;
-      result.spriteWidthPixels_ = spriteWidthPixels_;
-      result.spriteHeightPixels_ = spriteHeightPixels_;
-      result.columnCount_ = columnCount_;
-      result.rowCount_ = rowCount_;
-      if (intervalBuilder_ == null) {
-        result.interval_ = interval_;
-      } else {
-        result.interval_ = intervalBuilder_.build();
-      }
-      result.quality_ = quality_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.livestream.v1.SpriteSheet result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.format_ = format_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.filePrefix_ = filePrefix_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.spriteWidthPixels_ = spriteWidthPixels_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.spriteHeightPixels_ = spriteHeightPixels_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.columnCount_ = columnCount_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.rowCount_ = rowCount_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.interval_ = intervalBuilder_ == null
+            ? interval_
+            : intervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.quality_ = quality_;
+      }
     }
 
     @java.lang.Override
@@ -749,10 +669,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.livestream.v1.SpriteSheet.getDefaultInstance()) return this;
       if (!other.getFormat().isEmpty()) {
         format_ = other.format_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getFilePrefix().isEmpty()) {
         filePrefix_ = other.filePrefix_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getSpriteWidthPixels() != 0) {
@@ -773,7 +695,7 @@ private static final long serialVersionUID = 0L;
       if (other.getQuality() != 0) {
         setQuality(other.getQuality());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -788,19 +710,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.livestream.v1.SpriteSheet parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              format_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              filePrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              spriteWidthPixels_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              spriteHeightPixels_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              columnCount_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              rowCount_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 64: {
+              quality_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.livestream.v1.SpriteSheet) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object format_ = "";
     /**
@@ -861,11 +839,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormat(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       format_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -880,8 +856,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormat() {
-      
       format_ = getDefaultInstance().getFormat();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -898,12 +874,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFormatBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       format_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -973,11 +947,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilePrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filePrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -994,8 +966,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilePrefix() {
-      
       filePrefix_ = getDefaultInstance().getFilePrefix();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1014,12 +986,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilePrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filePrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1049,6 +1019,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSpriteWidthPixels(int value) {
       
       spriteWidthPixels_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1061,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpriteWidthPixels() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       spriteWidthPixels_ = 0;
       onChanged();
       return this;
@@ -1092,6 +1063,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSpriteHeightPixels(int value) {
       
       spriteHeightPixels_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1104,7 +1076,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpriteHeightPixels() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       spriteHeightPixels_ = 0;
       onChanged();
       return this;
@@ -1137,6 +1109,7 @@ private static final long serialVersionUID = 0L;
     public Builder setColumnCount(int value) {
       
       columnCount_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1150,7 +1123,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearColumnCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       columnCount_ = 0;
       onChanged();
       return this;
@@ -1185,6 +1158,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRowCount(int value) {
       
       rowCount_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1199,7 +1173,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRowCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       rowCount_ = 0;
       onChanged();
       return this;
@@ -1218,7 +1192,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the interval field is set.
      */
     public boolean hasInterval() {
-      return intervalBuilder_ != null || interval_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1250,11 +1224,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         interval_ = value;
-        onChanged();
       } else {
         intervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1269,11 +1243,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (intervalBuilder_ == null) {
         interval_ = builderForValue.build();
-        onChanged();
       } else {
         intervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1286,17 +1260,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInterval(com.google.protobuf.Duration value) {
       if (intervalBuilder_ == null) {
-        if (interval_ != null) {
-          interval_ =
-            com.google.protobuf.Duration.newBuilder(interval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          interval_ != null &&
+          interval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getIntervalBuilder().mergeFrom(value);
         } else {
           interval_ = value;
         }
-        onChanged();
       } else {
         intervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1308,14 +1283,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration interval = 7;</code>
      */
     public Builder clearInterval() {
-      if (intervalBuilder_ == null) {
-        interval_ = null;
-        onChanged();
-      } else {
-        interval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      interval_ = null;
+      if (intervalBuilder_ != null) {
+        intervalBuilder_.dispose();
         intervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1327,7 +1301,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration interval = 7;</code>
      */
     public com.google.protobuf.Duration.Builder getIntervalBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getIntervalFieldBuilder().getBuilder();
     }
@@ -1400,6 +1374,7 @@ private static final long serialVersionUID = 0L;
     public Builder setQuality(int value) {
       
       quality_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1415,7 +1390,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuality() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       quality_ = 0;
       onChanged();
       return this;
@@ -1453,7 +1428,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SpriteSheet(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

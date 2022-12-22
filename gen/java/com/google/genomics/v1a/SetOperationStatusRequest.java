@@ -39,81 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SetOperationStatusRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            operationId_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              timestampEvents_ = new java.util.ArrayList<com.google.genomics.v1a.TimestampEvent>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            timestampEvents_.add(
-                input.readMessage(com.google.genomics.v1a.TimestampEvent.parser(), extensionRegistry));
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            errorCode_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            errorMessage_ = s;
-            break;
-          }
-          case 40: {
-
-            validationToken_ = input.readUInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        timestampEvents_ = java.util.Collections.unmodifiableList(timestampEvents_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1a.PipelinesProto.internal_static_google_genomics_v1alpha2_SetOperationStatusRequest_descriptor;
@@ -128,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATION_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object operationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object operationId_ = "";
   /**
    * <code>string operation_id = 1;</code>
    * @return The operationId.
@@ -166,6 +92,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIMESTAMP_EVENTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.genomics.v1a.TimestampEvent> timestampEvents_;
   /**
    * <code>repeated .google.genomics.v1alpha2.TimestampEvent timestamp_events = 2;</code>
@@ -206,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ERROR_CODE_FIELD_NUMBER = 3;
-  private int errorCode_;
+  private int errorCode_ = 0;
   /**
    * <code>.google.rpc.Code error_code = 3;</code>
    * @return The enum numeric value on the wire for errorCode.
@@ -219,13 +146,13 @@ private static final long serialVersionUID = 0L;
    * @return The errorCode.
    */
   @java.lang.Override public com.google.rpc.Code getErrorCode() {
-    @SuppressWarnings("deprecation")
-    com.google.rpc.Code result = com.google.rpc.Code.valueOf(errorCode_);
+    com.google.rpc.Code result = com.google.rpc.Code.forNumber(errorCode_);
     return result == null ? com.google.rpc.Code.UNRECOGNIZED : result;
   }
 
   public static final int ERROR_MESSAGE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object errorMessage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object errorMessage_ = "";
   /**
    * <code>string error_message = 4;</code>
    * @return The errorMessage.
@@ -263,7 +190,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATION_TOKEN_FIELD_NUMBER = 5;
-  private long validationToken_;
+  private long validationToken_ = 0L;
   /**
    * <code>uint64 validation_token = 5;</code>
    * @return The validationToken.
@@ -302,7 +229,7 @@ private static final long serialVersionUID = 0L;
     if (validationToken_ != 0L) {
       output.writeUInt64(5, validationToken_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -329,7 +256,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(5, validationToken_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -353,7 +280,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getErrorMessage())) return false;
     if (getValidationToken()
         != other.getValidationToken()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -377,7 +304,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VALIDATION_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getValidationToken());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -499,37 +426,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1a.SetOperationStatusRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTimestampEventsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       operationId_ = "";
-
       if (timestampEventsBuilder_ == null) {
         timestampEvents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        timestampEvents_ = null;
         timestampEventsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       errorCode_ = 0;
-
       errorMessage_ = "";
-
       validationToken_ = 0L;
-
       return this;
     }
 
@@ -556,22 +475,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1a.SetOperationStatusRequest buildPartial() {
       com.google.genomics.v1a.SetOperationStatusRequest result = new com.google.genomics.v1a.SetOperationStatusRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.operationId_ = operationId_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.genomics.v1a.SetOperationStatusRequest result) {
       if (timestampEventsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           timestampEvents_ = java.util.Collections.unmodifiableList(timestampEvents_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.timestampEvents_ = timestampEvents_;
       } else {
         result.timestampEvents_ = timestampEventsBuilder_.build();
       }
-      result.errorCode_ = errorCode_;
-      result.errorMessage_ = errorMessage_;
-      result.validationToken_ = validationToken_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.genomics.v1a.SetOperationStatusRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.operationId_ = operationId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.errorCode_ = errorCode_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.errorMessage_ = errorMessage_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.validationToken_ = validationToken_;
+      }
     }
 
     @java.lang.Override
@@ -620,13 +555,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.genomics.v1a.SetOperationStatusRequest.getDefaultInstance()) return this;
       if (!other.getOperationId().isEmpty()) {
         operationId_ = other.operationId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (timestampEventsBuilder_ == null) {
         if (!other.timestampEvents_.isEmpty()) {
           if (timestampEvents_.isEmpty()) {
             timestampEvents_ = other.timestampEvents_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureTimestampEventsIsMutable();
             timestampEvents_.addAll(other.timestampEvents_);
@@ -639,7 +575,7 @@ private static final long serialVersionUID = 0L;
             timestampEventsBuilder_.dispose();
             timestampEventsBuilder_ = null;
             timestampEvents_ = other.timestampEvents_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             timestampEventsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTimestampEventsFieldBuilder() : null;
@@ -653,12 +589,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getErrorMessage().isEmpty()) {
         errorMessage_ = other.errorMessage_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getValidationToken() != 0L) {
         setValidationToken(other.getValidationToken());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -673,17 +610,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1a.SetOperationStatusRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              operationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.genomics.v1a.TimestampEvent m =
+                  input.readMessage(
+                      com.google.genomics.v1a.TimestampEvent.parser(),
+                      extensionRegistry);
+              if (timestampEventsBuilder_ == null) {
+                ensureTimestampEventsIsMutable();
+                timestampEvents_.add(m);
+              } else {
+                timestampEventsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 24: {
+              errorCode_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              errorMessage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              validationToken_ = input.readUInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1a.SetOperationStatusRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -729,11 +712,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       operationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -742,8 +723,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperationId() {
-      
       operationId_ = getDefaultInstance().getOperationId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -754,12 +735,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       operationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -767,9 +746,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.genomics.v1a.TimestampEvent> timestampEvents_ =
       java.util.Collections.emptyList();
     private void ensureTimestampEventsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         timestampEvents_ = new java.util.ArrayList<com.google.genomics.v1a.TimestampEvent>(timestampEvents_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -919,7 +898,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTimestampEvents() {
       if (timestampEventsBuilder_ == null) {
         timestampEvents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         timestampEventsBuilder_.clear();
@@ -996,7 +975,7 @@ private static final long serialVersionUID = 0L;
         timestampEventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.genomics.v1a.TimestampEvent, com.google.genomics.v1a.TimestampEvent.Builder, com.google.genomics.v1a.TimestampEventOrBuilder>(
                 timestampEvents_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         timestampEvents_ = null;
@@ -1018,8 +997,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setErrorCodeValue(int value) {
-      
       errorCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1029,8 +1008,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.rpc.Code getErrorCode() {
-      @SuppressWarnings("deprecation")
-      com.google.rpc.Code result = com.google.rpc.Code.valueOf(errorCode_);
+      com.google.rpc.Code result = com.google.rpc.Code.forNumber(errorCode_);
       return result == null ? com.google.rpc.Code.UNRECOGNIZED : result;
     }
     /**
@@ -1042,7 +1020,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       errorCode_ = value.getNumber();
       onChanged();
       return this;
@@ -1052,7 +1030,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearErrorCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       errorCode_ = 0;
       onChanged();
       return this;
@@ -1099,11 +1077,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setErrorMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       errorMessage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1112,8 +1088,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearErrorMessage() {
-      
       errorMessage_ = getDefaultInstance().getErrorMessage();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1124,12 +1100,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setErrorMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       errorMessage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1151,6 +1125,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidationToken(long value) {
       
       validationToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1159,7 +1134,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidationToken() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       validationToken_ = 0L;
       onChanged();
       return this;
@@ -1197,7 +1172,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SetOperationStatusRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

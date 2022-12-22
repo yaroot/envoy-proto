@@ -34,126 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SegmentParameterFilter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            oneParameterCase_ = 1;
-            oneParameter_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            oneParameterCase_ = 2;
-            oneParameter_ = s;
-            break;
-          }
-          case 34: {
-            com.google.analytics.data.v1alpha.StringFilter.Builder subBuilder = null;
-            if (oneFilterCase_ == 4) {
-              subBuilder = ((com.google.analytics.data.v1alpha.StringFilter) oneFilter_).toBuilder();
-            }
-            oneFilter_ =
-                input.readMessage(com.google.analytics.data.v1alpha.StringFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1alpha.StringFilter) oneFilter_);
-              oneFilter_ = subBuilder.buildPartial();
-            }
-            oneFilterCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.analytics.data.v1alpha.InListFilter.Builder subBuilder = null;
-            if (oneFilterCase_ == 5) {
-              subBuilder = ((com.google.analytics.data.v1alpha.InListFilter) oneFilter_).toBuilder();
-            }
-            oneFilter_ =
-                input.readMessage(com.google.analytics.data.v1alpha.InListFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1alpha.InListFilter) oneFilter_);
-              oneFilter_ = subBuilder.buildPartial();
-            }
-            oneFilterCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.analytics.data.v1alpha.NumericFilter.Builder subBuilder = null;
-            if (oneFilterCase_ == 6) {
-              subBuilder = ((com.google.analytics.data.v1alpha.NumericFilter) oneFilter_).toBuilder();
-            }
-            oneFilter_ =
-                input.readMessage(com.google.analytics.data.v1alpha.NumericFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1alpha.NumericFilter) oneFilter_);
-              oneFilter_ = subBuilder.buildPartial();
-            }
-            oneFilterCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.analytics.data.v1alpha.BetweenFilter.Builder subBuilder = null;
-            if (oneFilterCase_ == 7) {
-              subBuilder = ((com.google.analytics.data.v1alpha.BetweenFilter) oneFilter_).toBuilder();
-            }
-            oneFilter_ =
-                input.readMessage(com.google.analytics.data.v1alpha.BetweenFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1alpha.BetweenFilter) oneFilter_);
-              oneFilter_ = subBuilder.buildPartial();
-            }
-            oneFilterCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.analytics.data.v1alpha.SegmentParameterFilterScoping.Builder subBuilder = null;
-            if (filterScoping_ != null) {
-              subBuilder = filterScoping_.toBuilder();
-            }
-            filterScoping_ = input.readMessage(com.google.analytics.data.v1alpha.SegmentParameterFilterScoping.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filterScoping_);
-              filterScoping_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.ReportingApiProto.internal_static_google_analytics_data_v1alpha_SegmentParameterFilter_descriptor;
@@ -630,7 +510,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.SegmentParameterFilterScopingOrBuilder getFilterScopingOrBuilder() {
-    return getFilterScoping();
+    return filterScoping_ == null ? com.google.analytics.data.v1alpha.SegmentParameterFilterScoping.getDefaultInstance() : filterScoping_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -668,7 +548,7 @@ private static final long serialVersionUID = 0L;
     if (filterScoping_ != null) {
       output.writeMessage(8, getFilterScoping());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -703,7 +583,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getFilterScoping());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -757,7 +637,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -804,7 +684,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -925,26 +805,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1alpha.SegmentParameterFilter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (filterScopingBuilder_ == null) {
-        filterScoping_ = null;
-      } else {
-        filterScoping_ = null;
+      bitField0_ = 0;
+      if (stringFilterBuilder_ != null) {
+        stringFilterBuilder_.clear();
+      }
+      if (inListFilterBuilder_ != null) {
+        inListFilterBuilder_.clear();
+      }
+      if (numericFilterBuilder_ != null) {
+        numericFilterBuilder_.clear();
+      }
+      if (betweenFilterBuilder_ != null) {
+        betweenFilterBuilder_.clear();
+      }
+      filterScoping_ = null;
+      if (filterScopingBuilder_ != null) {
+        filterScopingBuilder_.dispose();
         filterScopingBuilder_ = null;
       }
       oneParameterCase_ = 0;
@@ -977,49 +864,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.SegmentParameterFilter buildPartial() {
       com.google.analytics.data.v1alpha.SegmentParameterFilter result = new com.google.analytics.data.v1alpha.SegmentParameterFilter(this);
-      if (oneParameterCase_ == 1) {
-        result.oneParameter_ = oneParameter_;
-      }
-      if (oneParameterCase_ == 2) {
-        result.oneParameter_ = oneParameter_;
-      }
-      if (oneFilterCase_ == 4) {
-        if (stringFilterBuilder_ == null) {
-          result.oneFilter_ = oneFilter_;
-        } else {
-          result.oneFilter_ = stringFilterBuilder_.build();
-        }
-      }
-      if (oneFilterCase_ == 5) {
-        if (inListFilterBuilder_ == null) {
-          result.oneFilter_ = oneFilter_;
-        } else {
-          result.oneFilter_ = inListFilterBuilder_.build();
-        }
-      }
-      if (oneFilterCase_ == 6) {
-        if (numericFilterBuilder_ == null) {
-          result.oneFilter_ = oneFilter_;
-        } else {
-          result.oneFilter_ = numericFilterBuilder_.build();
-        }
-      }
-      if (oneFilterCase_ == 7) {
-        if (betweenFilterBuilder_ == null) {
-          result.oneFilter_ = oneFilter_;
-        } else {
-          result.oneFilter_ = betweenFilterBuilder_.build();
-        }
-      }
-      if (filterScopingBuilder_ == null) {
-        result.filterScoping_ = filterScoping_;
-      } else {
-        result.filterScoping_ = filterScopingBuilder_.build();
-      }
-      result.oneParameterCase_ = oneParameterCase_;
-      result.oneFilterCase_ = oneFilterCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.SegmentParameterFilter result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.filterScoping_ = filterScopingBuilder_ == null
+            ? filterScoping_
+            : filterScopingBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.analytics.data.v1alpha.SegmentParameterFilter result) {
+      result.oneParameterCase_ = oneParameterCase_;
+      result.oneParameter_ = this.oneParameter_;
+      result.oneFilterCase_ = oneFilterCase_;
+      result.oneFilter_ = this.oneFilter_;
+      if (oneFilterCase_ == 4 &&
+          stringFilterBuilder_ != null) {
+        result.oneFilter_ = stringFilterBuilder_.build();
+      }
+      if (oneFilterCase_ == 5 &&
+          inListFilterBuilder_ != null) {
+        result.oneFilter_ = inListFilterBuilder_.build();
+      }
+      if (oneFilterCase_ == 6 &&
+          numericFilterBuilder_ != null) {
+        result.oneFilter_ = numericFilterBuilder_.build();
+      }
+      if (oneFilterCase_ == 7 &&
+          betweenFilterBuilder_ != null) {
+        result.oneFilter_ = betweenFilterBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1107,7 +987,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1122,17 +1002,77 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.SegmentParameterFilter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              oneParameterCase_ = 1;
+              oneParameter_ = s;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              oneParameterCase_ = 2;
+              oneParameter_ = s;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getStringFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneFilterCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getInListFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneFilterCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getNumericFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneFilterCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getBetweenFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneFilterCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getFilterScopingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.SegmentParameterFilter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int oneParameterCase_ = 0;
@@ -1165,6 +1105,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1262,10 +1203,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventParameterName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  oneParameterCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      oneParameterCase_ = 1;
       oneParameter_ = value;
       onChanged();
       return this;
@@ -1307,10 +1246,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventParameterNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       oneParameterCase_ = 1;
       oneParameter_ = value;
       onChanged();
@@ -1429,10 +1366,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemParameterName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  oneParameterCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      oneParameterCase_ = 2;
       oneParameter_ = value;
       onChanged();
       return this;
@@ -1482,10 +1417,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemParameterNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       oneParameterCase_ = 2;
       oneParameter_ = value;
       onChanged();
@@ -1666,7 +1599,7 @@ private static final long serialVersionUID = 0L;
         oneFilter_ = null;
       }
       oneFilterCase_ = 4;
-      onChanged();;
+      onChanged();
       return stringFilterBuilder_;
     }
 
@@ -1844,7 +1777,7 @@ private static final long serialVersionUID = 0L;
         oneFilter_ = null;
       }
       oneFilterCase_ = 5;
-      onChanged();;
+      onChanged();
       return inListFilterBuilder_;
     }
 
@@ -2022,7 +1955,7 @@ private static final long serialVersionUID = 0L;
         oneFilter_ = null;
       }
       oneFilterCase_ = 6;
-      onChanged();;
+      onChanged();
       return numericFilterBuilder_;
     }
 
@@ -2200,7 +2133,7 @@ private static final long serialVersionUID = 0L;
         oneFilter_ = null;
       }
       oneFilterCase_ = 7;
-      onChanged();;
+      onChanged();
       return betweenFilterBuilder_;
     }
 
@@ -2216,7 +2149,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the filterScoping field is set.
      */
     public boolean hasFilterScoping() {
-      return filterScopingBuilder_ != null || filterScoping_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2246,11 +2179,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         filterScoping_ = value;
-        onChanged();
       } else {
         filterScopingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2264,11 +2197,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.SegmentParameterFilterScoping.Builder builderForValue) {
       if (filterScopingBuilder_ == null) {
         filterScoping_ = builderForValue.build();
-        onChanged();
       } else {
         filterScopingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2280,17 +2213,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFilterScoping(com.google.analytics.data.v1alpha.SegmentParameterFilterScoping value) {
       if (filterScopingBuilder_ == null) {
-        if (filterScoping_ != null) {
-          filterScoping_ =
-            com.google.analytics.data.v1alpha.SegmentParameterFilterScoping.newBuilder(filterScoping_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          filterScoping_ != null &&
+          filterScoping_ != com.google.analytics.data.v1alpha.SegmentParameterFilterScoping.getDefaultInstance()) {
+          getFilterScopingBuilder().mergeFrom(value);
         } else {
           filterScoping_ = value;
         }
-        onChanged();
       } else {
         filterScopingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2301,14 +2235,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.SegmentParameterFilterScoping filter_scoping = 8;</code>
      */
     public Builder clearFilterScoping() {
-      if (filterScopingBuilder_ == null) {
-        filterScoping_ = null;
-        onChanged();
-      } else {
-        filterScoping_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      filterScoping_ = null;
+      if (filterScopingBuilder_ != null) {
+        filterScopingBuilder_.dispose();
         filterScopingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2319,7 +2252,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.SegmentParameterFilterScoping filter_scoping = 8;</code>
      */
     public com.google.analytics.data.v1alpha.SegmentParameterFilterScoping.Builder getFilterScopingBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getFilterScopingFieldBuilder().getBuilder();
     }
@@ -2391,7 +2324,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SegmentParameterFilter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

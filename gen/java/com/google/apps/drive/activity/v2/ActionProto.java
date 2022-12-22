@@ -124,6 +124,66 @@ public final class ActionProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_apps_drive_activity_v2_SettingsChange_RestrictionChange_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Text_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Text_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_TextList_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_TextList_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Selection_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Selection_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SelectionList_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SelectionList_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Integer_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Integer_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SingleUser_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SingleUser_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_UserList_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_UserList_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Date_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Date_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -146,7 +206,7 @@ public final class ActionProto {
       ".activity.v2.Target\022/\n\ttimestamp\030\005 \001(\0132\032" +
       ".google.protobuf.TimestampH\000\022>\n\ntime_ran" +
       "ge\030\006 \001(\0132(.google.apps.drive.activity.v2" +
-      ".TimeRangeH\000B\006\n\004time\"\333\005\n\014ActionDetail\0227\n" +
+      ".TimeRangeH\000B\006\n\004time\"\256\006\n\014ActionDetail\0227\n" +
       "\006create\030\001 \001(\0132%.google.apps.drive.activi" +
       "ty.v2.CreateH\000\0223\n\004edit\030\002 \001(\0132#.google.ap" +
       "ps.drive.activity.v2.EditH\000\0223\n\004move\030\003 \001(" +
@@ -164,95 +224,165 @@ public final class ActionProto {
       "ce\030\014 \001(\01323.google.apps.drive.activity.v2" +
       ".ApplicationReferenceH\000\022H\n\017settings_chan" +
       "ge\030\r \001(\0132-.google.apps.drive.activity.v2" +
-      ".SettingsChangeH\000B\017\n\raction_detail\"\252\002\n\006C" +
-      "reate\0228\n\003new\030\001 \001(\0132).google.apps.drive.a" +
-      "ctivity.v2.Create.NewH\000\022>\n\006upload\030\002 \001(\0132" +
-      ",.google.apps.drive.activity.v2.Create.U" +
-      "ploadH\000\022:\n\004copy\030\003 \001(\0132*.google.apps.driv" +
-      "e.activity.v2.Create.CopyH\000\032\005\n\003New\032\010\n\006Up" +
-      "load\032O\n\004Copy\022G\n\017original_object\030\001 \001(\0132.." +
-      "google.apps.drive.activity.v2.TargetRefe" +
-      "renceB\010\n\006origin\"\006\n\004Edit\"\226\001\n\004Move\022E\n\radde" +
-      "d_parents\030\001 \003(\0132..google.apps.drive.acti" +
-      "vity.v2.TargetReference\022G\n\017removed_paren" +
-      "ts\030\002 \003(\0132..google.apps.drive.activity.v2" +
-      ".TargetReference\".\n\006Rename\022\021\n\told_title\030" +
-      "\001 \001(\t\022\021\n\tnew_title\030\002 \001(\t\"\201\001\n\006Delete\0228\n\004t" +
-      "ype\030\001 \001(\0162*.google.apps.drive.activity.v" +
-      "2.Delete.Type\"=\n\004Type\022\024\n\020TYPE_UNSPECIFIE" +
-      "D\020\000\022\t\n\005TRASH\020\001\022\024\n\020PERMANENT_DELETE\020\002\"o\n\007" +
-      "Restore\0229\n\004type\030\001 \001(\0162+.google.apps.driv" +
-      "e.activity.v2.Restore.Type\")\n\004Type\022\024\n\020TY" +
-      "PE_UNSPECIFIED\020\000\022\013\n\007UNTRASH\020\001\"\240\001\n\020Permis" +
-      "sionChange\022D\n\021added_permissions\030\001 \003(\0132)." +
-      "google.apps.drive.activity.v2.Permission" +
-      "\022F\n\023removed_permissions\030\002 \003(\0132).google.a" +
-      "pps.drive.activity.v2.Permission\"\351\003\n\nPer" +
-      "mission\022<\n\004role\030\001 \001(\0162..google.apps.driv" +
-      "e.activity.v2.Permission.Role\0223\n\004user\030\002 " +
-      "\001(\0132#.google.apps.drive.activity.v2.User" +
-      "H\000\0225\n\005group\030\003 \001(\0132$.google.apps.drive.ac" +
-      "tivity.v2.GroupH\000\0227\n\006domain\030\004 \001(\0132%.goog" +
-      "le.apps.drive.activity.v2.DomainH\000\022B\n\006an" +
-      "yone\030\005 \001(\01320.google.apps.drive.activity." +
-      "v2.Permission.AnyoneH\000\022\027\n\017allow_discover" +
-      "y\030\006 \001(\010\032\010\n\006Anyone\"\207\001\n\004Role\022\024\n\020ROLE_UNSPE" +
-      "CIFIED\020\000\022\t\n\005OWNER\020\001\022\r\n\tORGANIZER\020\002\022\022\n\016FI" +
-      "LE_ORGANIZER\020\003\022\n\n\006EDITOR\020\004\022\r\n\tCOMMENTER\020" +
-      "\005\022\n\n\006VIEWER\020\006\022\024\n\020PUBLISHED_VIEWER\020\007B\007\n\005s" +
-      "cope\"\215\010\n\007Comment\022;\n\004post\030\001 \001(\0132+.google." +
-      "apps.drive.activity.v2.Comment.PostH\000\022G\n" +
-      "\nassignment\030\002 \001(\01321.google.apps.drive.ac" +
-      "tivity.v2.Comment.AssignmentH\000\022G\n\nsugges" +
-      "tion\030\003 \001(\01321.google.apps.drive.activity." +
-      "v2.Comment.SuggestionH\000\022<\n\017mentioned_use" +
-      "rs\030\007 \003(\0132#.google.apps.drive.activity.v2" +
-      ".User\032\310\001\n\004Post\022D\n\007subtype\030\001 \001(\01623.google" +
-      ".apps.drive.activity.v2.Comment.Post.Sub" +
-      "type\"z\n\007Subtype\022\027\n\023SUBTYPE_UNSPECIFIED\020\000" +
-      "\022\t\n\005ADDED\020\001\022\013\n\007DELETED\020\002\022\017\n\013REPLY_ADDED\020" +
-      "\003\022\021\n\rREPLY_DELETED\020\004\022\014\n\010RESOLVED\020\005\022\014\n\010RE" +
-      "OPENED\020\006\032\241\002\n\nAssignment\022J\n\007subtype\030\001 \001(\016" +
-      "29.google.apps.drive.activity.v2.Comment" +
-      ".Assignment.Subtype\022:\n\rassigned_user\030\007 \001" +
-      "(\0132#.google.apps.drive.activity.v2.User\"" +
-      "\212\001\n\007Subtype\022\027\n\023SUBTYPE_UNSPECIFIED\020\000\022\t\n\005" +
-      "ADDED\020\001\022\013\n\007DELETED\020\002\022\017\n\013REPLY_ADDED\020\003\022\021\n" +
-      "\rREPLY_DELETED\020\004\022\014\n\010RESOLVED\020\005\022\014\n\010REOPEN" +
-      "ED\020\006\022\016\n\nREASSIGNED\020\007\032\375\001\n\nSuggestion\022J\n\007s" +
-      "ubtype\030\001 \001(\01629.google.apps.drive.activit" +
-      "y.v2.Comment.Suggestion.Subtype\"\242\001\n\007Subt" +
-      "ype\022\027\n\023SUBTYPE_UNSPECIFIED\020\000\022\t\n\005ADDED\020\001\022" +
-      "\013\n\007DELETED\020\002\022\017\n\013REPLY_ADDED\020\003\022\021\n\rREPLY_D" +
-      "ELETED\020\004\022\014\n\010ACCEPTED\020\007\022\014\n\010REJECTED\020\010\022\022\n\016" +
-      "ACCEPT_DELETED\020\t\022\022\n\016REJECT_DELETED\020\nB\006\n\004" +
-      "type\"\236\001\n\030DataLeakPreventionChange\022J\n\004typ" +
-      "e\030\001 \001(\0162<.google.apps.drive.activity.v2." +
-      "DataLeakPreventionChange.Type\"6\n\004Type\022\024\n" +
-      "\020TYPE_UNSPECIFIED\020\000\022\013\n\007FLAGGED\020\001\022\013\n\007CLEA" +
-      "RED\020\002\"\235\001\n\024ApplicationReference\022F\n\004type\030\001" +
-      " \001(\01628.google.apps.drive.activity.v2.App" +
-      "licationReference.Type\"=\n\004Type\022\036\n\032UNSPEC" +
-      "IFIED_REFERENCE_TYPE\020\000\022\010\n\004LINK\020\001\022\013\n\007DISC" +
-      "USS\020\002\"\231\004\n\016SettingsChange\022\\\n\023restriction_" +
-      "changes\030\001 \003(\0132?.google.apps.drive.activi" +
-      "ty.v2.SettingsChange.RestrictionChange\032\250" +
-      "\003\n\021RestrictionChange\022X\n\007feature\030\001 \001(\0162G." +
-      "google.apps.drive.activity.v2.SettingsCh" +
-      "ange.RestrictionChange.Feature\022d\n\017new_re" +
-      "striction\030\002 \001(\0162K.google.apps.drive.acti" +
-      "vity.v2.SettingsChange.RestrictionChange" +
-      ".Restriction\"\177\n\007Feature\022\027\n\023FEATURE_UNSPE" +
-      "CIFIED\020\000\022\032\n\026SHARING_OUTSIDE_DOMAIN\020\001\022\022\n\016" +
-      "DIRECT_SHARING\020\002\022\024\n\020ITEM_DUPLICATION\020\003\022\025" +
-      "\n\021DRIVE_FILE_STREAM\020\004\"R\n\013Restriction\022\033\n\027" +
-      "RESTRICTION_UNSPECIFIED\020\000\022\020\n\014UNRESTRICTE" +
-      "D\020\001\022\024\n\020FULLY_RESTRICTED\020\002B\300\001\n!com.google" +
-      ".apps.drive.activity.v2B\013ActionProtoP\001ZE" +
-      "google.golang.org/genproto/googleapis/ap" +
-      "ps/drive/activity/v2;activity\242\002\004GADA\252\002\035G" +
-      "oogle.Apps.Drive.Activity.V2\312\002\035Google\\Ap" +
-      "ps\\Drive\\Activity\\V2b\006proto3"
+      ".SettingsChangeH\000\022Q\n\024applied_label_chang" +
+      "e\030\023 \001(\01321.google.apps.drive.activity.v2." +
+      "AppliedLabelChangeH\000B\017\n\raction_detail\"\252\002" +
+      "\n\006Create\0228\n\003new\030\001 \001(\0132).google.apps.driv" +
+      "e.activity.v2.Create.NewH\000\022>\n\006upload\030\002 \001" +
+      "(\0132,.google.apps.drive.activity.v2.Creat" +
+      "e.UploadH\000\022:\n\004copy\030\003 \001(\0132*.google.apps.d" +
+      "rive.activity.v2.Create.CopyH\000\032\005\n\003New\032\010\n" +
+      "\006Upload\032O\n\004Copy\022G\n\017original_object\030\001 \001(\013" +
+      "2..google.apps.drive.activity.v2.TargetR" +
+      "eferenceB\010\n\006origin\"\006\n\004Edit\"\226\001\n\004Move\022E\n\ra" +
+      "dded_parents\030\001 \003(\0132..google.apps.drive.a" +
+      "ctivity.v2.TargetReference\022G\n\017removed_pa" +
+      "rents\030\002 \003(\0132..google.apps.drive.activity" +
+      ".v2.TargetReference\".\n\006Rename\022\021\n\told_tit" +
+      "le\030\001 \001(\t\022\021\n\tnew_title\030\002 \001(\t\"\201\001\n\006Delete\0228" +
+      "\n\004type\030\001 \001(\0162*.google.apps.drive.activit" +
+      "y.v2.Delete.Type\"=\n\004Type\022\024\n\020TYPE_UNSPECI" +
+      "FIED\020\000\022\t\n\005TRASH\020\001\022\024\n\020PERMANENT_DELETE\020\002\"" +
+      "o\n\007Restore\0229\n\004type\030\001 \001(\0162+.google.apps.d" +
+      "rive.activity.v2.Restore.Type\")\n\004Type\022\024\n" +
+      "\020TYPE_UNSPECIFIED\020\000\022\013\n\007UNTRASH\020\001\"\240\001\n\020Per" +
+      "missionChange\022D\n\021added_permissions\030\001 \003(\013" +
+      "2).google.apps.drive.activity.v2.Permiss" +
+      "ion\022F\n\023removed_permissions\030\002 \003(\0132).googl" +
+      "e.apps.drive.activity.v2.Permission\"\351\003\n\n" +
+      "Permission\022<\n\004role\030\001 \001(\0162..google.apps.d" +
+      "rive.activity.v2.Permission.Role\0223\n\004user" +
+      "\030\002 \001(\0132#.google.apps.drive.activity.v2.U" +
+      "serH\000\0225\n\005group\030\003 \001(\0132$.google.apps.drive" +
+      ".activity.v2.GroupH\000\0227\n\006domain\030\004 \001(\0132%.g" +
+      "oogle.apps.drive.activity.v2.DomainH\000\022B\n" +
+      "\006anyone\030\005 \001(\01320.google.apps.drive.activi" +
+      "ty.v2.Permission.AnyoneH\000\022\027\n\017allow_disco" +
+      "very\030\006 \001(\010\032\010\n\006Anyone\"\207\001\n\004Role\022\024\n\020ROLE_UN" +
+      "SPECIFIED\020\000\022\t\n\005OWNER\020\001\022\r\n\tORGANIZER\020\002\022\022\n" +
+      "\016FILE_ORGANIZER\020\003\022\n\n\006EDITOR\020\004\022\r\n\tCOMMENT" +
+      "ER\020\005\022\n\n\006VIEWER\020\006\022\024\n\020PUBLISHED_VIEWER\020\007B\007" +
+      "\n\005scope\"\215\010\n\007Comment\022;\n\004post\030\001 \001(\0132+.goog" +
+      "le.apps.drive.activity.v2.Comment.PostH\000" +
+      "\022G\n\nassignment\030\002 \001(\01321.google.apps.drive" +
+      ".activity.v2.Comment.AssignmentH\000\022G\n\nsug" +
+      "gestion\030\003 \001(\01321.google.apps.drive.activi" +
+      "ty.v2.Comment.SuggestionH\000\022<\n\017mentioned_" +
+      "users\030\007 \003(\0132#.google.apps.drive.activity" +
+      ".v2.User\032\310\001\n\004Post\022D\n\007subtype\030\001 \001(\01623.goo" +
+      "gle.apps.drive.activity.v2.Comment.Post." +
+      "Subtype\"z\n\007Subtype\022\027\n\023SUBTYPE_UNSPECIFIE" +
+      "D\020\000\022\t\n\005ADDED\020\001\022\013\n\007DELETED\020\002\022\017\n\013REPLY_ADD" +
+      "ED\020\003\022\021\n\rREPLY_DELETED\020\004\022\014\n\010RESOLVED\020\005\022\014\n" +
+      "\010REOPENED\020\006\032\241\002\n\nAssignment\022J\n\007subtype\030\001 " +
+      "\001(\01629.google.apps.drive.activity.v2.Comm" +
+      "ent.Assignment.Subtype\022:\n\rassigned_user\030" +
+      "\007 \001(\0132#.google.apps.drive.activity.v2.Us" +
+      "er\"\212\001\n\007Subtype\022\027\n\023SUBTYPE_UNSPECIFIED\020\000\022" +
+      "\t\n\005ADDED\020\001\022\013\n\007DELETED\020\002\022\017\n\013REPLY_ADDED\020\003" +
+      "\022\021\n\rREPLY_DELETED\020\004\022\014\n\010RESOLVED\020\005\022\014\n\010REO" +
+      "PENED\020\006\022\016\n\nREASSIGNED\020\007\032\375\001\n\nSuggestion\022J" +
+      "\n\007subtype\030\001 \001(\01629.google.apps.drive.acti" +
+      "vity.v2.Comment.Suggestion.Subtype\"\242\001\n\007S" +
+      "ubtype\022\027\n\023SUBTYPE_UNSPECIFIED\020\000\022\t\n\005ADDED" +
+      "\020\001\022\013\n\007DELETED\020\002\022\017\n\013REPLY_ADDED\020\003\022\021\n\rREPL" +
+      "Y_DELETED\020\004\022\014\n\010ACCEPTED\020\007\022\014\n\010REJECTED\020\010\022" +
+      "\022\n\016ACCEPT_DELETED\020\t\022\022\n\016REJECT_DELETED\020\nB" +
+      "\006\n\004type\"\236\001\n\030DataLeakPreventionChange\022J\n\004" +
+      "type\030\001 \001(\0162<.google.apps.drive.activity." +
+      "v2.DataLeakPreventionChange.Type\"6\n\004Type" +
+      "\022\024\n\020TYPE_UNSPECIFIED\020\000\022\013\n\007FLAGGED\020\001\022\013\n\007C" +
+      "LEARED\020\002\"\235\001\n\024ApplicationReference\022F\n\004typ" +
+      "e\030\001 \001(\01628.google.apps.drive.activity.v2." +
+      "ApplicationReference.Type\"=\n\004Type\022\036\n\032UNS" +
+      "PECIFIED_REFERENCE_TYPE\020\000\022\010\n\004LINK\020\001\022\013\n\007D" +
+      "ISCUSS\020\002\"\231\004\n\016SettingsChange\022\\\n\023restricti" +
+      "on_changes\030\001 \003(\0132?.google.apps.drive.act" +
+      "ivity.v2.SettingsChange.RestrictionChang" +
+      "e\032\250\003\n\021RestrictionChange\022X\n\007feature\030\001 \001(\016" +
+      "2G.google.apps.drive.activity.v2.Setting" +
+      "sChange.RestrictionChange.Feature\022d\n\017new" +
+      "_restriction\030\002 \001(\0162K.google.apps.drive.a" +
+      "ctivity.v2.SettingsChange.RestrictionCha" +
+      "nge.Restriction\"\177\n\007Feature\022\027\n\023FEATURE_UN" +
+      "SPECIFIED\020\000\022\032\n\026SHARING_OUTSIDE_DOMAIN\020\001\022" +
+      "\022\n\016DIRECT_SHARING\020\002\022\024\n\020ITEM_DUPLICATION\020" +
+      "\003\022\025\n\021DRIVE_FILE_STREAM\020\004\"R\n\013Restriction\022" +
+      "\033\n\027RESTRICTION_UNSPECIFIED\020\000\022\020\n\014UNRESTRI" +
+      "CTED\020\001\022\024\n\020FULLY_RESTRICTED\020\002\"\212\025\n\022Applied" +
+      "LabelChange\022[\n\007changes\030\001 \003(\0132J.google.ap" +
+      "ps.drive.activity.v2.AppliedLabelChange." +
+      "AppliedLabelChangeDetail\032\226\024\n\030AppliedLabe" +
+      "lChangeDetail\022\r\n\005label\030\001 \001(\t\022^\n\005types\030\002 " +
+      "\003(\0162O.google.apps.drive.activity.v2.Appl" +
+      "iedLabelChange.AppliedLabelChangeDetail." +
+      "Type\022\r\n\005title\030\003 \001(\t\022r\n\rfield_changes\030\004 \003" +
+      "(\0132[.google.apps.drive.activity.v2.Appli" +
+      "edLabelChange.AppliedLabelChangeDetail.F" +
+      "ieldValueChange\032\203\021\n\020FieldValueChange\022\025\n\010" +
+      "field_id\030\001 \001(\tH\000\210\001\001\022~\n\told_value\030\002 \001(\0132f" +
+      ".google.apps.drive.activity.v2.AppliedLa" +
+      "belChange.AppliedLabelChangeDetail.Field" +
+      "ValueChange.FieldValueH\001\210\001\001\022~\n\tnew_value" +
+      "\030\003 \001(\0132f.google.apps.drive.activity.v2.A" +
+      "ppliedLabelChange.AppliedLabelChangeDeta" +
+      "il.FieldValueChange.FieldValueH\002\210\001\001\022\031\n\014d" +
+      "isplay_name\030\004 \001(\tH\003\210\001\001\032\202\016\n\nFieldValue\022{\n" +
+      "\004text\030\001 \001(\0132k.google.apps.drive.activity" +
+      ".v2.AppliedLabelChange.AppliedLabelChang" +
+      "eDetail.FieldValueChange.FieldValue.Text" +
+      "H\000\022\204\001\n\ttext_list\030\003 \001(\0132o.google.apps.dri" +
+      "ve.activity.v2.AppliedLabelChange.Applie" +
+      "dLabelChangeDetail.FieldValueChange.Fiel" +
+      "dValue.TextListH\000\022\205\001\n\tselection\030\004 \001(\0132p." +
+      "google.apps.drive.activity.v2.AppliedLab" +
+      "elChange.AppliedLabelChangeDetail.FieldV" +
+      "alueChange.FieldValue.SelectionH\000\022\216\001\n\016se" +
+      "lection_list\030\005 \001(\0132t.google.apps.drive.a" +
+      "ctivity.v2.AppliedLabelChange.AppliedLab" +
+      "elChangeDetail.FieldValueChange.FieldVal" +
+      "ue.SelectionListH\000\022\201\001\n\007integer\030\006 \001(\0132n.g" +
+      "oogle.apps.drive.activity.v2.AppliedLabe" +
+      "lChange.AppliedLabelChangeDetail.FieldVa" +
+      "lueChange.FieldValue.IntegerH\000\022\201\001\n\004user\030" +
+      "\007 \001(\0132q.google.apps.drive.activity.v2.Ap" +
+      "pliedLabelChange.AppliedLabelChangeDetai" +
+      "l.FieldValueChange.FieldValue.SingleUser" +
+      "H\000\022\204\001\n\tuser_list\030\010 \001(\0132o.google.apps.dri" +
+      "ve.activity.v2.AppliedLabelChange.Applie" +
+      "dLabelChangeDetail.FieldValueChange.Fiel" +
+      "dValue.UserListH\000\022{\n\004date\030\t \001(\0132k.google" +
+      ".apps.drive.activity.v2.AppliedLabelChan" +
+      "ge.AppliedLabelChangeDetail.FieldValueCh" +
+      "ange.FieldValue.DateH\000\032$\n\004Text\022\022\n\005value\030" +
+      "\001 \001(\tH\000\210\001\001B\010\n\006_value\032\207\001\n\010TextList\022{\n\006val" +
+      "ues\030\001 \003(\0132k.google.apps.drive.activity.v" +
+      "2.AppliedLabelChange.AppliedLabelChangeD" +
+      "etail.FieldValueChange.FieldValue.Text\032U" +
+      "\n\tSelection\022\022\n\005value\030\001 \001(\tH\000\210\001\001\022\031\n\014displ" +
+      "ay_name\030\002 \001(\tH\001\210\001\001B\010\n\006_valueB\017\n\r_display" +
+      "_name\032\222\001\n\rSelectionList\022\200\001\n\006values\030\001 \003(\013" +
+      "2p.google.apps.drive.activity.v2.Applied" +
+      "LabelChange.AppliedLabelChangeDetail.Fie" +
+      "ldValueChange.FieldValue.Selection\032\'\n\007In" +
+      "teger\022\022\n\005value\030\001 \001(\003H\000\210\001\001B\010\n\006_value\032*\n\nS" +
+      "ingleUser\022\022\n\005value\030\001 \001(\tH\000\210\001\001B\010\n\006_value\032" +
+      "\216\001\n\010UserList\022\201\001\n\006values\030\001 \003(\0132q.google.a" +
+      "pps.drive.activity.v2.AppliedLabelChange" +
+      ".AppliedLabelChangeDetail.FieldValueChan" +
+      "ge.FieldValue.SingleUser\032@\n\004Date\022.\n\005valu" +
+      "e\030\001 \001(\0132\032.google.protobuf.TimestampH\000\210\001\001" +
+      "B\010\n\006_valueB\007\n\005valueB\013\n\t_field_idB\014\n\n_old" +
+      "_valueB\014\n\n_new_valueB\017\n\r_display_name\"\201\001" +
+      "\n\004Type\022\024\n\020TYPE_UNSPECIFIED\020\000\022\017\n\013LABEL_AD" +
+      "DED\020\001\022\021\n\rLABEL_REMOVED\020\002\022\035\n\031LABEL_FIELD_" +
+      "VALUE_CHANGED\020\003\022 \n\034LABEL_APPLIED_BY_ITEM" +
+      "_CREATE\020\004B\300\001\n!com.google.apps.drive.acti" +
+      "vity.v2B\013ActionProtoP\001ZEgoogle.golang.or" +
+      "g/genproto/googleapis/apps/drive/activit" +
+      "y/v2;activity\242\002\004GADA\252\002\035Google.Apps.Drive" +
+      ".Activity.V2\312\002\035Google\\Apps\\Drive\\Activit" +
+      "y\\V2b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -273,7 +403,7 @@ public final class ActionProto {
     internal_static_google_apps_drive_activity_v2_ActionDetail_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_apps_drive_activity_v2_ActionDetail_descriptor,
-        new java.lang.String[] { "Create", "Edit", "Move", "Rename", "Delete", "Restore", "PermissionChange", "Comment", "DlpChange", "Reference", "SettingsChange", "ActionDetail", });
+        new java.lang.String[] { "Create", "Edit", "Move", "Rename", "Delete", "Restore", "PermissionChange", "Comment", "DlpChange", "Reference", "SettingsChange", "AppliedLabelChange", "ActionDetail", });
     internal_static_google_apps_drive_activity_v2_Create_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_google_apps_drive_activity_v2_Create_fieldAccessorTable = new
@@ -394,6 +524,78 @@ public final class ActionProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_apps_drive_activity_v2_SettingsChange_RestrictionChange_descriptor,
         new java.lang.String[] { "Feature", "NewRestriction", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_descriptor,
+        new java.lang.String[] { "Changes", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_descriptor.getNestedTypes().get(0);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_descriptor,
+        new java.lang.String[] { "Label", "Types", "Title", "FieldChanges", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_descriptor.getNestedTypes().get(0);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_descriptor,
+        new java.lang.String[] { "FieldId", "OldValue", "NewValue", "DisplayName", "FieldId", "OldValue", "NewValue", "DisplayName", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_descriptor.getNestedTypes().get(0);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor,
+        new java.lang.String[] { "Text", "TextList", "Selection", "SelectionList", "Integer", "User", "UserList", "Date", "Value", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Text_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor.getNestedTypes().get(0);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Text_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Text_descriptor,
+        new java.lang.String[] { "Value", "Value", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_TextList_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor.getNestedTypes().get(1);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_TextList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_TextList_descriptor,
+        new java.lang.String[] { "Values", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Selection_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor.getNestedTypes().get(2);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Selection_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Selection_descriptor,
+        new java.lang.String[] { "Value", "DisplayName", "Value", "DisplayName", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SelectionList_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor.getNestedTypes().get(3);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SelectionList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SelectionList_descriptor,
+        new java.lang.String[] { "Values", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Integer_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor.getNestedTypes().get(4);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Integer_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Integer_descriptor,
+        new java.lang.String[] { "Value", "Value", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SingleUser_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor.getNestedTypes().get(5);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SingleUser_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_SingleUser_descriptor,
+        new java.lang.String[] { "Value", "Value", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_UserList_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor.getNestedTypes().get(6);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_UserList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_UserList_descriptor,
+        new java.lang.String[] { "Values", });
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Date_descriptor =
+      internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_descriptor.getNestedTypes().get(7);
+    internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Date_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_apps_drive_activity_v2_AppliedLabelChange_AppliedLabelChangeDetail_FieldValueChange_FieldValue_Date_descriptor,
+        new java.lang.String[] { "Value", "Value", });
     com.google.apps.drive.activity.v2.ActorProto.getDescriptor();
     com.google.apps.drive.activity.v2.CommonProto.getDescriptor();
     com.google.apps.drive.activity.v2.TargetProto.getDescriptor();

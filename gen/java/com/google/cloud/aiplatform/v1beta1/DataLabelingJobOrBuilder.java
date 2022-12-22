@@ -30,7 +30,7 @@ public interface DataLabelingJobOrBuilder extends
   /**
    * <pre>
    * Required. The user-defined name of the DataLabelingJob.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * Display name of a DataLabelingJob.
    * </pre>
@@ -42,7 +42,7 @@ public interface DataLabelingJobOrBuilder extends
   /**
    * <pre>
    * Required. The user-defined name of the DataLabelingJob.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * Display name of a DataLabelingJob.
    * </pre>
@@ -169,7 +169,6 @@ public interface DataLabelingJobOrBuilder extends
    *
    * <code>map&lt;string, string&gt; annotation_labels = 12;</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationLabelsOrDefault(
       java.lang.String key,
@@ -188,7 +187,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotation_labels = 12;</code>
    */
-
   java.lang.String getAnnotationLabelsOrThrow(
       java.lang.String key);
 
@@ -496,7 +494,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 11;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -517,7 +514,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 11;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

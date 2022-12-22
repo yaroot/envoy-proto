@@ -63,7 +63,16 @@ public interface ProcessRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of the
+   * [Processor][google.cloud.documentai.v1beta3.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1beta3.ProcessorVersion]
+   * to use for processing. If a
+   * [Processor][google.cloud.documentai.v1beta3.Processor] is specified, the
+   * server will use its [default
+   * version][google.cloud.documentai.v1beta3.Processor.default_processor_version].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -72,7 +81,16 @@ public interface ProcessRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of the
+   * [Processor][google.cloud.documentai.v1beta3.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1beta3.ProcessorVersion]
+   * to use for processing. If a
+   * [Processor][google.cloud.documentai.v1beta3.Processor] is specified, the
+   * server will use its [default
+   * version][google.cloud.documentai.v1beta3.Processor.default_processor_version].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -88,7 +106,7 @@ public interface ProcessRequestOrBuilder extends
    *
    * <code>.google.cloud.documentai.v1beta3.Document document = 2 [deprecated = true];</code>
    * @deprecated google.cloud.documentai.v1beta3.ProcessRequest.document is deprecated.
-   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=182
+   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=351
    * @return Whether the document field is set.
    */
   @java.lang.Deprecated boolean hasDocument();
@@ -99,7 +117,7 @@ public interface ProcessRequestOrBuilder extends
    *
    * <code>.google.cloud.documentai.v1beta3.Document document = 2 [deprecated = true];</code>
    * @deprecated google.cloud.documentai.v1beta3.ProcessRequest.document is deprecated.
-   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=182
+   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=351
    * @return The document.
    */
   @java.lang.Deprecated com.google.cloud.documentai.v1beta3.Document getDocument();
@@ -122,6 +140,66 @@ public interface ProcessRequestOrBuilder extends
    * @return The skipHumanReview.
    */
   boolean getSkipHumanReview();
+
+  /**
+   * <pre>
+   * Specifies which fields to include in ProcessResponse's document.
+   * Only supports top level document and pages field so it must be in the form
+   * of `{document_field_name}` or `pages.{page_field_name}`.
+   * </pre>
+   *
+   * <code>.google.protobuf.FieldMask field_mask = 6;</code>
+   * @return Whether the fieldMask field is set.
+   */
+  boolean hasFieldMask();
+  /**
+   * <pre>
+   * Specifies which fields to include in ProcessResponse's document.
+   * Only supports top level document and pages field so it must be in the form
+   * of `{document_field_name}` or `pages.{page_field_name}`.
+   * </pre>
+   *
+   * <code>.google.protobuf.FieldMask field_mask = 6;</code>
+   * @return The fieldMask.
+   */
+  com.google.protobuf.FieldMask getFieldMask();
+  /**
+   * <pre>
+   * Specifies which fields to include in ProcessResponse's document.
+   * Only supports top level document and pages field so it must be in the form
+   * of `{document_field_name}` or `pages.{page_field_name}`.
+   * </pre>
+   *
+   * <code>.google.protobuf.FieldMask field_mask = 6;</code>
+   */
+  com.google.protobuf.FieldMaskOrBuilder getFieldMaskOrBuilder();
+
+  /**
+   * <pre>
+   * Inference-time options for the process API
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.ProcessOptions process_options = 7;</code>
+   * @return Whether the processOptions field is set.
+   */
+  boolean hasProcessOptions();
+  /**
+   * <pre>
+   * Inference-time options for the process API
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.ProcessOptions process_options = 7;</code>
+   * @return The processOptions.
+   */
+  com.google.cloud.documentai.v1beta3.ProcessOptions getProcessOptions();
+  /**
+   * <pre>
+   * Inference-time options for the process API
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.ProcessOptions process_options = 7;</code>
+   */
+  com.google.cloud.documentai.v1beta3.ProcessOptionsOrBuilder getProcessOptionsOrBuilder();
 
   public com.google.cloud.documentai.v1beta3.ProcessRequest.SourceCase getSourceCase();
 }

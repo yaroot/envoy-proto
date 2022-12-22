@@ -35,84 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExplanationSpecOverride(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1beta1.ExplanationParameters.Builder subBuilder = null;
-            if (parameters_ != null) {
-              subBuilder = parameters_.toBuilder();
-            }
-            parameters_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ExplanationParameters.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(parameters_);
-              parameters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.Builder subBuilder = null;
-            if (metadata_ != null) {
-              subBuilder = metadata_.toBuilder();
-            }
-            metadata_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.aiplatform.v1beta1.ExamplesOverride.Builder subBuilder = null;
-            if (examplesOverride_ != null) {
-              subBuilder = examplesOverride_.toBuilder();
-            }
-            examplesOverride_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ExamplesOverride.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(examplesOverride_);
-              examplesOverride_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.ExplanationProto.internal_static_google_cloud_aiplatform_v1beta1_ExplanationSpecOverride_descriptor;
@@ -167,7 +89,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ExplanationParametersOrBuilder getParametersOrBuilder() {
-    return getParameters();
+    return parameters_ == null ? com.google.cloud.aiplatform.v1beta1.ExplanationParameters.getDefaultInstance() : parameters_;
   }
 
   public static final int METADATA_FIELD_NUMBER = 2;
@@ -205,7 +127,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverrideOrBuilder getMetadataOrBuilder() {
-    return getMetadata();
+    return metadata_ == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.getDefaultInstance() : metadata_;
   }
 
   public static final int EXAMPLES_OVERRIDE_FIELD_NUMBER = 3;
@@ -243,7 +165,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ExamplesOverrideOrBuilder getExamplesOverrideOrBuilder() {
-    return getExamplesOverride();
+    return examplesOverride_ == null ? com.google.cloud.aiplatform.v1beta1.ExamplesOverride.getDefaultInstance() : examplesOverride_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -269,7 +191,7 @@ private static final long serialVersionUID = 0L;
     if (examplesOverride_ != null) {
       output.writeMessage(3, getExamplesOverride());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -290,7 +212,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getExamplesOverride());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -320,7 +242,7 @@ private static final long serialVersionUID = 0L;
       if (!getExamplesOverride()
           .equals(other.getExamplesOverride())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -343,7 +265,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXAMPLES_OVERRIDE_FIELD_NUMBER;
       hash = (53 * hash) + getExamplesOverride().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -465,38 +387,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.ExplanationSpecOverride.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (parametersBuilder_ == null) {
-        parameters_ = null;
-      } else {
-        parameters_ = null;
+      bitField0_ = 0;
+      parameters_ = null;
+      if (parametersBuilder_ != null) {
+        parametersBuilder_.dispose();
         parametersBuilder_ = null;
       }
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-      } else {
-        metadata_ = null;
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
-      if (examplesOverrideBuilder_ == null) {
-        examplesOverride_ = null;
-      } else {
-        examplesOverride_ = null;
+      examplesOverride_ = null;
+      if (examplesOverrideBuilder_ != null) {
+        examplesOverrideBuilder_.dispose();
         examplesOverrideBuilder_ = null;
       }
       return this;
@@ -525,23 +440,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.ExplanationSpecOverride buildPartial() {
       com.google.cloud.aiplatform.v1beta1.ExplanationSpecOverride result = new com.google.cloud.aiplatform.v1beta1.ExplanationSpecOverride(this);
-      if (parametersBuilder_ == null) {
-        result.parameters_ = parameters_;
-      } else {
-        result.parameters_ = parametersBuilder_.build();
-      }
-      if (metadataBuilder_ == null) {
-        result.metadata_ = metadata_;
-      } else {
-        result.metadata_ = metadataBuilder_.build();
-      }
-      if (examplesOverrideBuilder_ == null) {
-        result.examplesOverride_ = examplesOverride_;
-      } else {
-        result.examplesOverride_ = examplesOverrideBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ExplanationSpecOverride result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parameters_ = parametersBuilder_ == null
+            ? parameters_
+            : parametersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.metadata_ = metadataBuilder_ == null
+            ? metadata_
+            : metadataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.examplesOverride_ = examplesOverrideBuilder_ == null
+            ? examplesOverride_
+            : examplesOverrideBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -597,7 +517,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasExamplesOverride()) {
         mergeExamplesOverride(other.getExamplesOverride());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -612,19 +532,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.ExplanationSpecOverride parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getExamplesOverrideFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.ExplanationSpecOverride) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.aiplatform.v1beta1.ExplanationParameters parameters_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -640,7 +595,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the parameters field is set.
      */
     public boolean hasParameters() {
-      return parametersBuilder_ != null || parameters_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -674,11 +629,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         parameters_ = value;
-        onChanged();
       } else {
         parametersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -694,11 +649,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.ExplanationParameters.Builder builderForValue) {
       if (parametersBuilder_ == null) {
         parameters_ = builderForValue.build();
-        onChanged();
       } else {
         parametersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -712,17 +667,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeParameters(com.google.cloud.aiplatform.v1beta1.ExplanationParameters value) {
       if (parametersBuilder_ == null) {
-        if (parameters_ != null) {
-          parameters_ =
-            com.google.cloud.aiplatform.v1beta1.ExplanationParameters.newBuilder(parameters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          parameters_ != null &&
+          parameters_ != com.google.cloud.aiplatform.v1beta1.ExplanationParameters.getDefaultInstance()) {
+          getParametersBuilder().mergeFrom(value);
         } else {
           parameters_ = value;
         }
-        onChanged();
       } else {
         parametersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -735,14 +691,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ExplanationParameters parameters = 1;</code>
      */
     public Builder clearParameters() {
-      if (parametersBuilder_ == null) {
-        parameters_ = null;
-        onChanged();
-      } else {
-        parameters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      parameters_ = null;
+      if (parametersBuilder_ != null) {
+        parametersBuilder_.dispose();
         parametersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -755,7 +710,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ExplanationParameters parameters = 1;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.ExplanationParameters.Builder getParametersBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getParametersFieldBuilder().getBuilder();
     }
@@ -811,7 +766,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metadata field is set.
      */
     public boolean hasMetadata() {
-      return metadataBuilder_ != null || metadata_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -841,11 +796,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metadata_ = value;
-        onChanged();
       } else {
         metadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -859,11 +814,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.Builder builderForValue) {
       if (metadataBuilder_ == null) {
         metadata_ = builderForValue.build();
-        onChanged();
       } else {
         metadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -875,17 +830,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetadata(com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride value) {
       if (metadataBuilder_ == null) {
-        if (metadata_ != null) {
-          metadata_ =
-            com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.newBuilder(metadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          metadata_ != null &&
+          metadata_ != com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.getDefaultInstance()) {
+          getMetadataBuilder().mergeFrom(value);
         } else {
           metadata_ = value;
         }
-        onChanged();
       } else {
         metadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -896,14 +852,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride metadata = 2;</code>
      */
     public Builder clearMetadata() {
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-        onChanged();
-      } else {
-        metadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -914,7 +869,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride metadata = 2;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.Builder getMetadataBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMetadataFieldBuilder().getBuilder();
     }
@@ -966,7 +921,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the examplesOverride field is set.
      */
     public boolean hasExamplesOverride() {
-      return examplesOverrideBuilder_ != null || examplesOverride_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -996,11 +951,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         examplesOverride_ = value;
-        onChanged();
       } else {
         examplesOverrideBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1014,11 +969,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.ExamplesOverride.Builder builderForValue) {
       if (examplesOverrideBuilder_ == null) {
         examplesOverride_ = builderForValue.build();
-        onChanged();
       } else {
         examplesOverrideBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1030,17 +985,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExamplesOverride(com.google.cloud.aiplatform.v1beta1.ExamplesOverride value) {
       if (examplesOverrideBuilder_ == null) {
-        if (examplesOverride_ != null) {
-          examplesOverride_ =
-            com.google.cloud.aiplatform.v1beta1.ExamplesOverride.newBuilder(examplesOverride_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          examplesOverride_ != null &&
+          examplesOverride_ != com.google.cloud.aiplatform.v1beta1.ExamplesOverride.getDefaultInstance()) {
+          getExamplesOverrideBuilder().mergeFrom(value);
         } else {
           examplesOverride_ = value;
         }
-        onChanged();
       } else {
         examplesOverrideBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1051,14 +1007,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ExamplesOverride examples_override = 3;</code>
      */
     public Builder clearExamplesOverride() {
-      if (examplesOverrideBuilder_ == null) {
-        examplesOverride_ = null;
-        onChanged();
-      } else {
-        examplesOverride_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      examplesOverride_ = null;
+      if (examplesOverrideBuilder_ != null) {
+        examplesOverrideBuilder_.dispose();
         examplesOverrideBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1069,7 +1024,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.ExamplesOverride examples_override = 3;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.ExamplesOverride.Builder getExamplesOverrideBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getExamplesOverrideFieldBuilder().getBuilder();
     }
@@ -1141,7 +1096,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExplanationSpecOverride(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -43,6 +43,7 @@ private static final long serialVersionUID = 0L;
     conditions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     promotions_ = java.util.Collections.emptyList();
     variants_ = java.util.Collections.emptyList();
+    localInventories_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -56,395 +57,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Product(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            primaryProductId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              collectionMemberIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            collectionMemberIds_.add(s);
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gtin_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              categories_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            categories_.add(s);
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            title_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              brands_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            brands_.add(s);
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 98: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              attributes_ = com.google.protobuf.MapField.newMapField(
-                  AttributesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000008;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
-            attributes__ = input.readMessage(
-                AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            attributes_.getMutableMap().put(
-                attributes__.getKey(), attributes__.getValue());
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              tags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            tags_.add(s);
-            break;
-          }
-          case 114: {
-            com.google.cloud.retail.v2beta.PriceInfo.Builder subBuilder = null;
-            if (priceInfo_ != null) {
-              subBuilder = priceInfo_.toBuilder();
-            }
-            priceInfo_ = input.readMessage(com.google.cloud.retail.v2beta.PriceInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(priceInfo_);
-              priceInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.cloud.retail.v2beta.Rating.Builder subBuilder = null;
-            if (rating_ != null) {
-              subBuilder = rating_.toBuilder();
-            }
-            rating_ = input.readMessage(com.google.cloud.retail.v2beta.Rating.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rating_);
-              rating_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (expirationCase_ == 16) {
-              subBuilder = ((com.google.protobuf.Timestamp) expiration_).toBuilder();
-            }
-            expiration_ =
-                input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Timestamp) expiration_);
-              expiration_ = subBuilder.buildPartial();
-            }
-            expirationCase_ = 16;
-            break;
-          }
-          case 138: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (expirationCase_ == 17) {
-              subBuilder = ((com.google.protobuf.Duration) expiration_).toBuilder();
-            }
-            expiration_ =
-                input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Duration) expiration_);
-              expiration_ = subBuilder.buildPartial();
-            }
-            expirationCase_ = 17;
-            break;
-          }
-          case 146: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (availableTime_ != null) {
-              subBuilder = availableTime_.toBuilder();
-            }
-            availableTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(availableTime_);
-              availableTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 152: {
-            int rawValue = input.readEnum();
-
-            availability_ = rawValue;
-            break;
-          }
-          case 162: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (availableQuantity_ != null) {
-              subBuilder = availableQuantity_.toBuilder();
-            }
-            availableQuantity_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(availableQuantity_);
-              availableQuantity_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 170: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              fulfillmentInfo_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.FulfillmentInfo>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            fulfillmentInfo_.add(
-                input.readMessage(com.google.cloud.retail.v2beta.FulfillmentInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 178: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uri_ = s;
-            break;
-          }
-          case 186: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              images_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.Image>();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            images_.add(
-                input.readMessage(com.google.cloud.retail.v2beta.Image.parser(), extensionRegistry));
-            break;
-          }
-          case 194: {
-            com.google.cloud.retail.v2beta.Audience.Builder subBuilder = null;
-            if (audience_ != null) {
-              subBuilder = audience_.toBuilder();
-            }
-            audience_ = input.readMessage(com.google.cloud.retail.v2beta.Audience.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(audience_);
-              audience_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 202: {
-            com.google.cloud.retail.v2beta.ColorInfo.Builder subBuilder = null;
-            if (colorInfo_ != null) {
-              subBuilder = colorInfo_.toBuilder();
-            }
-            colorInfo_ = input.readMessage(com.google.cloud.retail.v2beta.ColorInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(colorInfo_);
-              colorInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 210: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              sizes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            sizes_.add(s);
-            break;
-          }
-          case 218: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              materials_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000100;
-            }
-            materials_.add(s);
-            break;
-          }
-          case 226: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              patterns_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000200;
-            }
-            patterns_.add(s);
-            break;
-          }
-          case 234: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-              conditions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000400;
-            }
-            conditions_.add(s);
-            break;
-          }
-          case 242: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (retrievableFields_ != null) {
-              subBuilder = retrievableFields_.toBuilder();
-            }
-            retrievableFields_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retrievableFields_);
-              retrievableFields_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 250: {
-            if (!((mutable_bitField0_ & 0x00001000) != 0)) {
-              variants_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.Product>();
-              mutable_bitField0_ |= 0x00001000;
-            }
-            variants_.add(
-                input.readMessage(com.google.cloud.retail.v2beta.Product.parser(), extensionRegistry));
-            break;
-          }
-          case 266: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (publishTime_ != null) {
-              subBuilder = publishTime_.toBuilder();
-            }
-            publishTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(publishTime_);
-              publishTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 274: {
-            if (!((mutable_bitField0_ & 0x00000800) != 0)) {
-              promotions_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.Promotion>();
-              mutable_bitField0_ |= 0x00000800;
-            }
-            promotions_.add(
-                input.readMessage(com.google.cloud.retail.v2beta.Promotion.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        collectionMemberIds_ = collectionMemberIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        categories_ = categories_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        brands_ = brands_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        tags_ = tags_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        fulfillmentInfo_ = java.util.Collections.unmodifiableList(fulfillmentInfo_);
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        images_ = java.util.Collections.unmodifiableList(images_);
-      }
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        sizes_ = sizes_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000100) != 0)) {
-        materials_ = materials_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000200) != 0)) {
-        patterns_ = patterns_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000400) != 0)) {
-        conditions_ = conditions_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00001000) != 0)) {
-        variants_ = java.util.Collections.unmodifiableList(variants_);
-      }
-      if (((mutable_bitField0_ & 0x00000800) != 0)) {
-        promotions_ = java.util.Collections.unmodifiableList(promotions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -899,6 +511,13 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The timestamp when this product becomes unavailable for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
    * available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -927,6 +546,13 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The timestamp when this product becomes unavailable for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
    * available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -958,6 +584,13 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The timestamp when this product becomes unavailable for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
    * available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -988,7 +621,14 @@ private static final long serialVersionUID = 0L;
   public static final int TTL_FIELD_NUMBER = 17;
   /**
    * <pre>
-   * Input only. The TTL (time to live) of the product.
+   * Input only. The TTL (time to live) of the product. Note that this is only
+   * applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, it must be a non-negative value, and
    * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
    * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -1015,7 +655,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The TTL (time to live) of the product.
+   * Input only. The TTL (time to live) of the product. Note that this is only
+   * applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, it must be a non-negative value, and
    * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
    * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -1045,7 +692,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The TTL (time to live) of the product.
+   * Input only. The TTL (time to live) of the product. Note that this is only
+   * applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+   * and ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+   * general, we suggest the users to delete the stale products explicitly,
+   * instead of using this field to determine staleness.
    * If it is set, it must be a non-negative value, and
    * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
    * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -1074,7 +728,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Immutable. Full resource name of the product, such as
@@ -1122,7 +777,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * Immutable. [Product][google.cloud.retail.v2beta.Product] identifier, which
@@ -1186,7 +842,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 3;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Immutable. The type of the product. Default to
@@ -1211,13 +867,13 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.retail.v2beta.Product.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.retail.v2beta.Product.Type result = com.google.cloud.retail.v2beta.Product.Type.valueOf(type_);
+    com.google.cloud.retail.v2beta.Product.Type result = com.google.cloud.retail.v2beta.Product.Type.forNumber(type_);
     return result == null ? com.google.cloud.retail.v2beta.Product.Type.UNRECOGNIZED : result;
   }
 
   public static final int PRIMARY_PRODUCT_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object primaryProductId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object primaryProductId_ = "";
   /**
    * <pre>
    * Variant group identifier. Must be an
@@ -1293,6 +949,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COLLECTION_MEMBER_IDS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList collectionMemberIds_;
   /**
    * <pre>
@@ -1303,7 +960,7 @@ private static final long serialVersionUID = 0L;
    * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
    * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
    * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-   * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+   * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
    * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
    * return.
    * </pre>
@@ -1324,7 +981,7 @@ private static final long serialVersionUID = 0L;
    * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
    * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
    * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-   * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+   * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
    * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
    * return.
    * </pre>
@@ -1344,7 +1001,7 @@ private static final long serialVersionUID = 0L;
    * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
    * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
    * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-   * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+   * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
    * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
    * return.
    * </pre>
@@ -1365,7 +1022,7 @@ private static final long serialVersionUID = 0L;
    * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
    * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
    * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-   * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+   * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
    * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
    * return.
    * </pre>
@@ -1380,7 +1037,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GTIN_FIELD_NUMBER = 6;
-  private volatile java.lang.Object gtin_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gtin_ = "";
   /**
    * <pre>
    * The Global Trade Item Number (GTIN) of the product.
@@ -1452,6 +1110,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CATEGORIES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList categories_;
   /**
    * <pre>
@@ -1459,7 +1118,7 @@ private static final long serialVersionUID = 0L;
    * belonging to several parallel categories. Strongly recommended using the
    * full path for better search / recommendation quality.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * For example, if a shoes product belongs to both
    * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -1497,7 +1156,7 @@ private static final long serialVersionUID = 0L;
    * belonging to several parallel categories. Strongly recommended using the
    * full path for better search / recommendation quality.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * For example, if a shoes product belongs to both
    * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -1534,7 +1193,7 @@ private static final long serialVersionUID = 0L;
    * belonging to several parallel categories. Strongly recommended using the
    * full path for better search / recommendation quality.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * For example, if a shoes product belongs to both
    * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -1572,7 +1231,7 @@ private static final long serialVersionUID = 0L;
    * belonging to several parallel categories. Strongly recommended using the
    * full path for better search / recommendation quality.
    * To represent full path of category, use '&gt;' sign to separate different
-   * hierarchies. If '&gt;' is part of the category name, please replace it with
+   * hierarchies. If '&gt;' is part of the category name, replace it with
    * other character(s).
    * For example, if a shoes product belongs to both
    * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -1607,7 +1266,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TITLE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object title_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object title_ = "";
   /**
    * <pre>
    * Required. Product title.
@@ -1663,6 +1323,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BRANDS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList brands_;
   /**
    * <pre>
@@ -1738,7 +1399,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 10;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Product description.
@@ -1794,7 +1456,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 11;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Language of the title/description and other string attributes. Use language
@@ -1867,6 +1530,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.retail.v2beta.CustomAttribute.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> attributes_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
@@ -1877,7 +1541,6 @@ private static final long serialVersionUID = 0L;
     }
     return attributes_;
   }
-
   public int getAttributesCount() {
     return internalGetAttributes().getMap().size();
   }
@@ -1911,7 +1574,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
    */
-
   @java.lang.Override
   public boolean containsAttributes(
       java.lang.String key) {
@@ -1957,7 +1619,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> getAttributesMap() {
     return internalGetAttributes().getMap();
   }
@@ -1992,10 +1653,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrDefault(
+  public /* nullable */
+com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrDefault(
       java.lang.String key,
-      com.google.cloud.retail.v2beta.CustomAttribute defaultValue) {
+      /* nullable */
+com.google.cloud.retail.v2beta.CustomAttribute defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> map =
         internalGetAttributes().getMap();
@@ -2032,7 +1694,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2045,6 +1706,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAGS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList tags_;
   /**
    * <pre>
@@ -2172,7 +1834,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2beta.PriceInfoOrBuilder getPriceInfoOrBuilder() {
-    return getPriceInfo();
+    return priceInfo_ == null ? com.google.cloud.retail.v2beta.PriceInfo.getDefaultInstance() : priceInfo_;
   }
 
   public static final int RATING_FIELD_NUMBER = 15;
@@ -2210,7 +1872,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2beta.RatingOrBuilder getRatingOrBuilder() {
-    return getRating();
+    return rating_ == null ? com.google.cloud.retail.v2beta.Rating.getDefaultInstance() : rating_;
   }
 
   public static final int AVAILABLE_TIME_FIELD_NUMBER = 18;
@@ -2220,6 +1882,11 @@ private static final long serialVersionUID = 0L;
    * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
    * becomes available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+   * ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
    * </pre>
    *
    * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -2234,6 +1901,11 @@ private static final long serialVersionUID = 0L;
    * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
    * becomes available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+   * ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
    * </pre>
    *
    * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -2248,17 +1920,22 @@ private static final long serialVersionUID = 0L;
    * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
    * becomes available for
    * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+   * Note that this is only applicable to
+   * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+   * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+   * ignored for
+   * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
    * </pre>
    *
    * <code>.google.protobuf.Timestamp available_time = 18;</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getAvailableTimeOrBuilder() {
-    return getAvailableTime();
+    return availableTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : availableTime_;
   }
 
   public static final int AVAILABILITY_FIELD_NUMBER = 19;
-  private int availability_;
+  private int availability_ = 0;
   /**
    * <pre>
    * The online availability of the
@@ -2289,8 +1966,7 @@ private static final long serialVersionUID = 0L;
    * @return The availability.
    */
   @java.lang.Override public com.google.cloud.retail.v2beta.Product.Availability getAvailability() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.retail.v2beta.Product.Availability result = com.google.cloud.retail.v2beta.Product.Availability.valueOf(availability_);
+    com.google.cloud.retail.v2beta.Product.Availability result = com.google.cloud.retail.v2beta.Product.Availability.forNumber(availability_);
     return result == null ? com.google.cloud.retail.v2beta.Product.Availability.UNRECOGNIZED : result;
   }
 
@@ -2329,10 +2005,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getAvailableQuantityOrBuilder() {
-    return getAvailableQuantity();
+    return availableQuantity_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : availableQuantity_;
   }
 
   public static final int FULFILLMENT_INFO_FIELD_NUMBER = 21;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.retail.v2beta.FulfillmentInfo> fulfillmentInfo_;
   /**
    * <pre>
@@ -2413,7 +2090,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URI_FIELD_NUMBER = 22;
-  private volatile java.lang.Object uri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uri_ = "";
   /**
    * <pre>
    * Canonical URL directly linking to the product detail page.
@@ -2473,6 +2151,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGES_FIELD_NUMBER = 23;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.retail.v2beta.Image> images_;
   /**
    * <pre>
@@ -2595,7 +2274,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2beta.AudienceOrBuilder getAudienceOrBuilder() {
-    return getAudience();
+    return audience_ == null ? com.google.cloud.retail.v2beta.Audience.getDefaultInstance() : audience_;
   }
 
   public static final int COLOR_INFO_FIELD_NUMBER = 25;
@@ -2642,10 +2321,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2beta.ColorInfoOrBuilder getColorInfoOrBuilder() {
-    return getColorInfo();
+    return colorInfo_ == null ? com.google.cloud.retail.v2beta.ColorInfo.getDefaultInstance() : colorInfo_;
   }
 
   public static final int SIZES_FIELD_NUMBER = 26;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList sizes_;
   /**
    * <pre>
@@ -2753,6 +2433,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MATERIALS_FIELD_NUMBER = 27;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList materials_;
   /**
    * <pre>
@@ -2828,6 +2509,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATTERNS_FIELD_NUMBER = 28;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList patterns_;
   /**
    * <pre>
@@ -2911,6 +2593,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONDITIONS_FIELD_NUMBER = 29;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList conditions_;
   /**
    * <pre>
@@ -2998,6 +2681,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROMOTIONS_FIELD_NUMBER = 34;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.retail.v2beta.Promotion> promotions_;
   /**
    * <pre>
@@ -3122,7 +2806,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getPublishTimeOrBuilder() {
-    return getPublishTime();
+    return publishTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : publishTime_;
   }
 
   public static final int RETRIEVABLE_FIELDS_FIELD_NUMBER = 30;
@@ -3175,13 +2859,16 @@ private static final long serialVersionUID = 0L;
    * Note: Returning more fields in
    * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
    * response payload size and serving latency.
+   * This field is deprecated. Use the retrievable site-wide control instead.
    * </pre>
    *
-   * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+   * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
+   * @deprecated google.cloud.retail.v2beta.Product.retrievable_fields is deprecated.
+   *     See google/cloud/retail/v2beta/product.proto;l=573
    * @return Whether the retrievableFields field is set.
    */
   @java.lang.Override
-  public boolean hasRetrievableFields() {
+  @java.lang.Deprecated public boolean hasRetrievableFields() {
     return retrievableFields_ != null;
   }
   /**
@@ -3232,13 +2919,16 @@ private static final long serialVersionUID = 0L;
    * Note: Returning more fields in
    * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
    * response payload size and serving latency.
+   * This field is deprecated. Use the retrievable site-wide control instead.
    * </pre>
    *
-   * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+   * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
+   * @deprecated google.cloud.retail.v2beta.Product.retrievable_fields is deprecated.
+   *     See google/cloud/retail/v2beta/product.proto;l=573
    * @return The retrievableFields.
    */
   @java.lang.Override
-  public com.google.protobuf.FieldMask getRetrievableFields() {
+  @java.lang.Deprecated public com.google.protobuf.FieldMask getRetrievableFields() {
     return retrievableFields_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : retrievableFields_;
   }
   /**
@@ -3289,16 +2979,18 @@ private static final long serialVersionUID = 0L;
    * Note: Returning more fields in
    * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
    * response payload size and serving latency.
+   * This field is deprecated. Use the retrievable site-wide control instead.
    * </pre>
    *
-   * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+   * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.FieldMaskOrBuilder getRetrievableFieldsOrBuilder() {
-    return getRetrievableFields();
+  @java.lang.Deprecated public com.google.protobuf.FieldMaskOrBuilder getRetrievableFieldsOrBuilder() {
+    return retrievableFields_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : retrievableFields_;
   }
 
   public static final int VARIANTS_FIELD_NUMBER = 31;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.retail.v2beta.Product> variants_;
   /**
    * <pre>
@@ -3396,6 +3088,97 @@ private static final long serialVersionUID = 0L;
   public com.google.cloud.retail.v2beta.ProductOrBuilder getVariantsOrBuilder(
       int index) {
     return variants_.get(index);
+  }
+
+  public static final int LOCAL_INVENTORIES_FIELD_NUMBER = 35;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloud.retail.v2beta.LocalInventory> localInventories_;
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.retail.v2beta.LocalInventory> getLocalInventoriesList() {
+    return localInventories_;
+  }
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloud.retail.v2beta.LocalInventoryOrBuilder> 
+      getLocalInventoriesOrBuilderList() {
+    return localInventories_;
+  }
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public int getLocalInventoriesCount() {
+    return localInventories_.size();
+  }
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.retail.v2beta.LocalInventory getLocalInventories(int index) {
+    return localInventories_.get(index);
+  }
+  /**
+   * <pre>
+   * Output only. A list of local inventories specific to different places.
+   * This is only available for users who have Retail Search enabled, and it can
+   * be managed by
+   * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+   * and
+   * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+   * APIs.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.retail.v2beta.LocalInventoryOrBuilder getLocalInventoriesOrBuilder(
+      int index) {
+    return localInventories_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3514,7 +3297,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < promotions_.size(); i++) {
       output.writeMessage(34, promotions_.get(i));
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < localInventories_.size(); i++) {
+      output.writeMessage(35, localInventories_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3685,7 +3471,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(34, promotions_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < localInventories_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(35, localInventories_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3784,6 +3574,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getVariantsList()
         .equals(other.getVariantsList())) return false;
+    if (!getLocalInventoriesList()
+        .equals(other.getLocalInventoriesList())) return false;
     if (!getExpirationCase().equals(other.getExpirationCase())) return false;
     switch (expirationCase_) {
       case 16:
@@ -3797,7 +3589,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3912,6 +3704,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VARIANTS_FIELD_NUMBER;
       hash = (53 * hash) + getVariantsList().hashCode();
     }
+    if (getLocalInventoriesCount() > 0) {
+      hash = (37 * hash) + LOCAL_INVENTORIES_FIELD_NUMBER;
+      hash = (53 * hash) + getLocalInventoriesList().hashCode();
+    }
     switch (expirationCase_) {
       case 16:
         hash = (37 * hash) + EXPIRE_TIME_FIELD_NUMBER;
@@ -3924,7 +3720,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4068,135 +3864,127 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2beta.Product.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFulfillmentInfoFieldBuilder();
-        getImagesFieldBuilder();
-        getPromotionsFieldBuilder();
-        getVariantsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      bitField1_ = 0;
+      if (expireTimeBuilder_ != null) {
+        expireTimeBuilder_.clear();
+      }
+      if (ttlBuilder_ != null) {
+        ttlBuilder_.clear();
+      }
       name_ = "";
-
       id_ = "";
-
       type_ = 0;
-
       primaryProductId_ = "";
-
       collectionMemberIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000040);
       gtin_ = "";
-
       categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000100);
       title_ = "";
-
       brands_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000400);
       description_ = "";
-
       languageCode_ = "";
-
       internalGetMutableAttributes().clear();
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
-      if (priceInfoBuilder_ == null) {
-        priceInfo_ = null;
-      } else {
-        priceInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      priceInfo_ = null;
+      if (priceInfoBuilder_ != null) {
+        priceInfoBuilder_.dispose();
         priceInfoBuilder_ = null;
       }
-      if (ratingBuilder_ == null) {
-        rating_ = null;
-      } else {
-        rating_ = null;
+      rating_ = null;
+      if (ratingBuilder_ != null) {
+        ratingBuilder_.dispose();
         ratingBuilder_ = null;
       }
-      if (availableTimeBuilder_ == null) {
-        availableTime_ = null;
-      } else {
-        availableTime_ = null;
+      availableTime_ = null;
+      if (availableTimeBuilder_ != null) {
+        availableTimeBuilder_.dispose();
         availableTimeBuilder_ = null;
       }
       availability_ = 0;
-
-      if (availableQuantityBuilder_ == null) {
-        availableQuantity_ = null;
-      } else {
-        availableQuantity_ = null;
+      availableQuantity_ = null;
+      if (availableQuantityBuilder_ != null) {
+        availableQuantityBuilder_.dispose();
         availableQuantityBuilder_ = null;
       }
       if (fulfillmentInfoBuilder_ == null) {
         fulfillmentInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
+        fulfillmentInfo_ = null;
         fulfillmentInfoBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00100000);
       uri_ = "";
-
       if (imagesBuilder_ == null) {
         images_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
       } else {
+        images_ = null;
         imagesBuilder_.clear();
       }
-      if (audienceBuilder_ == null) {
-        audience_ = null;
-      } else {
-        audience_ = null;
+      bitField0_ = (bitField0_ & ~0x00400000);
+      audience_ = null;
+      if (audienceBuilder_ != null) {
+        audienceBuilder_.dispose();
         audienceBuilder_ = null;
       }
-      if (colorInfoBuilder_ == null) {
-        colorInfo_ = null;
-      } else {
-        colorInfo_ = null;
+      colorInfo_ = null;
+      if (colorInfoBuilder_ != null) {
+        colorInfoBuilder_.dispose();
         colorInfoBuilder_ = null;
       }
       sizes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x02000000);
       materials_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x04000000);
       patterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000200);
+      bitField0_ = (bitField0_ & ~0x08000000);
       conditions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000400);
+      bitField0_ = (bitField0_ & ~0x10000000);
       if (promotionsBuilder_ == null) {
         promotions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000800);
       } else {
+        promotions_ = null;
         promotionsBuilder_.clear();
       }
-      if (publishTimeBuilder_ == null) {
-        publishTime_ = null;
-      } else {
-        publishTime_ = null;
+      bitField0_ = (bitField0_ & ~0x20000000);
+      publishTime_ = null;
+      if (publishTimeBuilder_ != null) {
+        publishTimeBuilder_.dispose();
         publishTimeBuilder_ = null;
       }
-      if (retrievableFieldsBuilder_ == null) {
-        retrievableFields_ = null;
-      } else {
-        retrievableFields_ = null;
+      retrievableFields_ = null;
+      if (retrievableFieldsBuilder_ != null) {
+        retrievableFieldsBuilder_.dispose();
         retrievableFieldsBuilder_ = null;
       }
       if (variantsBuilder_ == null) {
         variants_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00001000);
       } else {
+        variants_ = null;
         variantsBuilder_.clear();
       }
+      bitField1_ = (bitField1_ & ~0x00000001);
+      if (localInventoriesBuilder_ == null) {
+        localInventories_ = java.util.Collections.emptyList();
+      } else {
+        localInventories_ = null;
+        localInventoriesBuilder_.clear();
+      }
+      bitField1_ = (bitField1_ & ~0x00000002);
       expirationCase_ = 0;
       expiration_ = null;
       return this;
@@ -4225,152 +4013,195 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2beta.Product buildPartial() {
       com.google.cloud.retail.v2beta.Product result = new com.google.cloud.retail.v2beta.Product(this);
-      int from_bitField0_ = bitField0_;
-      if (expirationCase_ == 16) {
-        if (expireTimeBuilder_ == null) {
-          result.expiration_ = expiration_;
-        } else {
-          result.expiration_ = expireTimeBuilder_.build();
-        }
-      }
-      if (expirationCase_ == 17) {
-        if (ttlBuilder_ == null) {
-          result.expiration_ = expiration_;
-        } else {
-          result.expiration_ = ttlBuilder_.build();
-        }
-      }
-      result.name_ = name_;
-      result.id_ = id_;
-      result.type_ = type_;
-      result.primaryProductId_ = primaryProductId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      if (bitField1_ != 0) { buildPartial1(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2beta.Product result) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         collectionMemberIds_ = collectionMemberIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000040);
       }
       result.collectionMemberIds_ = collectionMemberIds_;
-      result.gtin_ = gtin_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         categories_ = categories_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000100);
       }
       result.categories_ = categories_;
-      result.title_ = title_;
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000400) != 0)) {
         brands_ = brands_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000400);
       }
       result.brands_ = brands_;
-      result.description_ = description_;
-      result.languageCode_ = languageCode_;
-      result.attributes_ = internalGetAttributes();
-      result.attributes_.makeImmutable();
-      if (((bitField0_ & 0x00000010) != 0)) {
+      if (((bitField0_ & 0x00004000) != 0)) {
         tags_ = tags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00004000);
       }
       result.tags_ = tags_;
-      if (priceInfoBuilder_ == null) {
-        result.priceInfo_ = priceInfo_;
-      } else {
-        result.priceInfo_ = priceInfoBuilder_.build();
-      }
-      if (ratingBuilder_ == null) {
-        result.rating_ = rating_;
-      } else {
-        result.rating_ = ratingBuilder_.build();
-      }
-      if (availableTimeBuilder_ == null) {
-        result.availableTime_ = availableTime_;
-      } else {
-        result.availableTime_ = availableTimeBuilder_.build();
-      }
-      result.availability_ = availability_;
-      if (availableQuantityBuilder_ == null) {
-        result.availableQuantity_ = availableQuantity_;
-      } else {
-        result.availableQuantity_ = availableQuantityBuilder_.build();
-      }
       if (fulfillmentInfoBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0)) {
+        if (((bitField0_ & 0x00100000) != 0)) {
           fulfillmentInfo_ = java.util.Collections.unmodifiableList(fulfillmentInfo_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00100000);
         }
         result.fulfillmentInfo_ = fulfillmentInfo_;
       } else {
         result.fulfillmentInfo_ = fulfillmentInfoBuilder_.build();
       }
-      result.uri_ = uri_;
       if (imagesBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0)) {
+        if (((bitField0_ & 0x00400000) != 0)) {
           images_ = java.util.Collections.unmodifiableList(images_);
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00400000);
         }
         result.images_ = images_;
       } else {
         result.images_ = imagesBuilder_.build();
       }
-      if (audienceBuilder_ == null) {
-        result.audience_ = audience_;
-      } else {
-        result.audience_ = audienceBuilder_.build();
-      }
-      if (colorInfoBuilder_ == null) {
-        result.colorInfo_ = colorInfo_;
-      } else {
-        result.colorInfo_ = colorInfoBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000080) != 0)) {
+      if (((bitField0_ & 0x02000000) != 0)) {
         sizes_ = sizes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x02000000);
       }
       result.sizes_ = sizes_;
-      if (((bitField0_ & 0x00000100) != 0)) {
+      if (((bitField0_ & 0x04000000) != 0)) {
         materials_ = materials_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x04000000);
       }
       result.materials_ = materials_;
-      if (((bitField0_ & 0x00000200) != 0)) {
+      if (((bitField0_ & 0x08000000) != 0)) {
         patterns_ = patterns_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x08000000);
       }
       result.patterns_ = patterns_;
-      if (((bitField0_ & 0x00000400) != 0)) {
+      if (((bitField0_ & 0x10000000) != 0)) {
         conditions_ = conditions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x10000000);
       }
       result.conditions_ = conditions_;
       if (promotionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000800) != 0)) {
+        if (((bitField0_ & 0x20000000) != 0)) {
           promotions_ = java.util.Collections.unmodifiableList(promotions_);
-          bitField0_ = (bitField0_ & ~0x00000800);
+          bitField0_ = (bitField0_ & ~0x20000000);
         }
         result.promotions_ = promotions_;
       } else {
         result.promotions_ = promotionsBuilder_.build();
       }
-      if (publishTimeBuilder_ == null) {
-        result.publishTime_ = publishTime_;
-      } else {
-        result.publishTime_ = publishTimeBuilder_.build();
-      }
-      if (retrievableFieldsBuilder_ == null) {
-        result.retrievableFields_ = retrievableFields_;
-      } else {
-        result.retrievableFields_ = retrievableFieldsBuilder_.build();
-      }
       if (variantsBuilder_ == null) {
-        if (((bitField0_ & 0x00001000) != 0)) {
+        if (((bitField1_ & 0x00000001) != 0)) {
           variants_ = java.util.Collections.unmodifiableList(variants_);
-          bitField0_ = (bitField0_ & ~0x00001000);
+          bitField1_ = (bitField1_ & ~0x00000001);
         }
         result.variants_ = variants_;
       } else {
         result.variants_ = variantsBuilder_.build();
       }
+      if (localInventoriesBuilder_ == null) {
+        if (((bitField1_ & 0x00000002) != 0)) {
+          localInventories_ = java.util.Collections.unmodifiableList(localInventories_);
+          bitField1_ = (bitField1_ & ~0x00000002);
+        }
+        result.localInventories_ = localInventories_;
+      } else {
+        result.localInventories_ = localInventoriesBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2beta.Product result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.primaryProductId_ = primaryProductId_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.gtin_ = gtin_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.title_ = title_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.attributes_ = internalGetAttributes();
+        result.attributes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.priceInfo_ = priceInfoBuilder_ == null
+            ? priceInfo_
+            : priceInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.rating_ = ratingBuilder_ == null
+            ? rating_
+            : ratingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.availableTime_ = availableTimeBuilder_ == null
+            ? availableTime_
+            : availableTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.availability_ = availability_;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.availableQuantity_ = availableQuantityBuilder_ == null
+            ? availableQuantity_
+            : availableQuantityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.uri_ = uri_;
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.audience_ = audienceBuilder_ == null
+            ? audience_
+            : audienceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.colorInfo_ = colorInfoBuilder_ == null
+            ? colorInfo_
+            : colorInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x40000000) != 0)) {
+        result.publishTime_ = publishTimeBuilder_ == null
+            ? publishTime_
+            : publishTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x80000000) != 0)) {
+        result.retrievableFields_ = retrievableFieldsBuilder_ == null
+            ? retrievableFields_
+            : retrievableFieldsBuilder_.build();
+      }
+    }
+
+    private void buildPartial1(com.google.cloud.retail.v2beta.Product result) {
+      int from_bitField1_ = bitField1_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.retail.v2beta.Product result) {
       result.expirationCase_ = expirationCase_;
-      onBuilt();
-      return result;
+      result.expiration_ = this.expiration_;
+      if (expirationCase_ == 16 &&
+          expireTimeBuilder_ != null) {
+        result.expiration_ = expireTimeBuilder_.build();
+      }
+      if (expirationCase_ == 17 &&
+          ttlBuilder_ != null) {
+        result.expiration_ = ttlBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -4419,10 +4250,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2beta.Product.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.type_ != 0) {
@@ -4430,12 +4263,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPrimaryProductId().isEmpty()) {
         primaryProductId_ = other.primaryProductId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.collectionMemberIds_.isEmpty()) {
         if (collectionMemberIds_.isEmpty()) {
           collectionMemberIds_ = other.collectionMemberIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureCollectionMemberIdsIsMutable();
           collectionMemberIds_.addAll(other.collectionMemberIds_);
@@ -4444,12 +4278,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getGtin().isEmpty()) {
         gtin_ = other.gtin_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.categories_.isEmpty()) {
         if (categories_.isEmpty()) {
           categories_ = other.categories_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensureCategoriesIsMutable();
           categories_.addAll(other.categories_);
@@ -4458,12 +4293,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.brands_.isEmpty()) {
         if (brands_.isEmpty()) {
           brands_ = other.brands_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000400);
         } else {
           ensureBrandsIsMutable();
           brands_.addAll(other.brands_);
@@ -4472,18 +4308,21 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       internalGetMutableAttributes().mergeFrom(
           other.internalGetAttributes());
+      bitField0_ |= 0x00002000;
       if (!other.tags_.isEmpty()) {
         if (tags_.isEmpty()) {
           tags_ = other.tags_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00004000);
         } else {
           ensureTagsIsMutable();
           tags_.addAll(other.tags_);
@@ -4509,7 +4348,7 @@ private static final long serialVersionUID = 0L;
         if (!other.fulfillmentInfo_.isEmpty()) {
           if (fulfillmentInfo_.isEmpty()) {
             fulfillmentInfo_ = other.fulfillmentInfo_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00100000);
           } else {
             ensureFulfillmentInfoIsMutable();
             fulfillmentInfo_.addAll(other.fulfillmentInfo_);
@@ -4522,7 +4361,7 @@ private static final long serialVersionUID = 0L;
             fulfillmentInfoBuilder_.dispose();
             fulfillmentInfoBuilder_ = null;
             fulfillmentInfo_ = other.fulfillmentInfo_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00100000);
             fulfillmentInfoBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFulfillmentInfoFieldBuilder() : null;
@@ -4533,13 +4372,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUri().isEmpty()) {
         uri_ = other.uri_;
+        bitField0_ |= 0x00200000;
         onChanged();
       }
       if (imagesBuilder_ == null) {
         if (!other.images_.isEmpty()) {
           if (images_.isEmpty()) {
             images_ = other.images_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00400000);
           } else {
             ensureImagesIsMutable();
             images_.addAll(other.images_);
@@ -4552,7 +4392,7 @@ private static final long serialVersionUID = 0L;
             imagesBuilder_.dispose();
             imagesBuilder_ = null;
             images_ = other.images_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00400000);
             imagesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getImagesFieldBuilder() : null;
@@ -4570,7 +4410,7 @@ private static final long serialVersionUID = 0L;
       if (!other.sizes_.isEmpty()) {
         if (sizes_.isEmpty()) {
           sizes_ = other.sizes_;
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x02000000);
         } else {
           ensureSizesIsMutable();
           sizes_.addAll(other.sizes_);
@@ -4580,7 +4420,7 @@ private static final long serialVersionUID = 0L;
       if (!other.materials_.isEmpty()) {
         if (materials_.isEmpty()) {
           materials_ = other.materials_;
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x04000000);
         } else {
           ensureMaterialsIsMutable();
           materials_.addAll(other.materials_);
@@ -4590,7 +4430,7 @@ private static final long serialVersionUID = 0L;
       if (!other.patterns_.isEmpty()) {
         if (patterns_.isEmpty()) {
           patterns_ = other.patterns_;
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x08000000);
         } else {
           ensurePatternsIsMutable();
           patterns_.addAll(other.patterns_);
@@ -4600,7 +4440,7 @@ private static final long serialVersionUID = 0L;
       if (!other.conditions_.isEmpty()) {
         if (conditions_.isEmpty()) {
           conditions_ = other.conditions_;
-          bitField0_ = (bitField0_ & ~0x00000400);
+          bitField0_ = (bitField0_ & ~0x10000000);
         } else {
           ensureConditionsIsMutable();
           conditions_.addAll(other.conditions_);
@@ -4611,7 +4451,7 @@ private static final long serialVersionUID = 0L;
         if (!other.promotions_.isEmpty()) {
           if (promotions_.isEmpty()) {
             promotions_ = other.promotions_;
-            bitField0_ = (bitField0_ & ~0x00000800);
+            bitField0_ = (bitField0_ & ~0x20000000);
           } else {
             ensurePromotionsIsMutable();
             promotions_.addAll(other.promotions_);
@@ -4624,7 +4464,7 @@ private static final long serialVersionUID = 0L;
             promotionsBuilder_.dispose();
             promotionsBuilder_ = null;
             promotions_ = other.promotions_;
-            bitField0_ = (bitField0_ & ~0x00000800);
+            bitField0_ = (bitField0_ & ~0x20000000);
             promotionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPromotionsFieldBuilder() : null;
@@ -4643,7 +4483,7 @@ private static final long serialVersionUID = 0L;
         if (!other.variants_.isEmpty()) {
           if (variants_.isEmpty()) {
             variants_ = other.variants_;
-            bitField0_ = (bitField0_ & ~0x00001000);
+            bitField1_ = (bitField1_ & ~0x00000001);
           } else {
             ensureVariantsIsMutable();
             variants_.addAll(other.variants_);
@@ -4656,12 +4496,38 @@ private static final long serialVersionUID = 0L;
             variantsBuilder_.dispose();
             variantsBuilder_ = null;
             variants_ = other.variants_;
-            bitField0_ = (bitField0_ & ~0x00001000);
+            bitField1_ = (bitField1_ & ~0x00000001);
             variantsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVariantsFieldBuilder() : null;
           } else {
             variantsBuilder_.addAllMessages(other.variants_);
+          }
+        }
+      }
+      if (localInventoriesBuilder_ == null) {
+        if (!other.localInventories_.isEmpty()) {
+          if (localInventories_.isEmpty()) {
+            localInventories_ = other.localInventories_;
+            bitField1_ = (bitField1_ & ~0x00000002);
+          } else {
+            ensureLocalInventoriesIsMutable();
+            localInventories_.addAll(other.localInventories_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.localInventories_.isEmpty()) {
+          if (localInventoriesBuilder_.isEmpty()) {
+            localInventoriesBuilder_.dispose();
+            localInventoriesBuilder_ = null;
+            localInventories_ = other.localInventories_;
+            bitField1_ = (bitField1_ & ~0x00000002);
+            localInventoriesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getLocalInventoriesFieldBuilder() : null;
+          } else {
+            localInventoriesBuilder_.addAllMessages(other.localInventories_);
           }
         }
       }
@@ -4678,7 +4544,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4693,17 +4559,272 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2beta.Product parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 18
+            case 24: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 24
+            case 34: {
+              primaryProductId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCollectionMemberIdsIsMutable();
+              collectionMemberIds_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              gtin_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCategoriesIsMutable();
+              categories_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              title_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 66
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureBrandsIsMutable();
+              brands_.add(s);
+              break;
+            } // case 74
+            case 82: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 82
+            case 90: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 90
+            case 98: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
+              attributes__ = input.readMessage(
+                  AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAttributes().getMutableMap().put(
+                  attributes__.getKey(), attributes__.getValue());
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 98
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTagsIsMutable();
+              tags_.add(s);
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getPriceInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getRatingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getExpireTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expirationCase_ = 16;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getTtlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expirationCase_ = 17;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getAvailableTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 146
+            case 152: {
+              availability_ = input.readEnum();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 152
+            case 162: {
+              input.readMessage(
+                  getAvailableQuantityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 162
+            case 170: {
+              com.google.cloud.retail.v2beta.FulfillmentInfo m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2beta.FulfillmentInfo.parser(),
+                      extensionRegistry);
+              if (fulfillmentInfoBuilder_ == null) {
+                ensureFulfillmentInfoIsMutable();
+                fulfillmentInfo_.add(m);
+              } else {
+                fulfillmentInfoBuilder_.addMessage(m);
+              }
+              break;
+            } // case 170
+            case 178: {
+              uri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 178
+            case 186: {
+              com.google.cloud.retail.v2beta.Image m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2beta.Image.parser(),
+                      extensionRegistry);
+              if (imagesBuilder_ == null) {
+                ensureImagesIsMutable();
+                images_.add(m);
+              } else {
+                imagesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 186
+            case 194: {
+              input.readMessage(
+                  getAudienceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 194
+            case 202: {
+              input.readMessage(
+                  getColorInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 202
+            case 210: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSizesIsMutable();
+              sizes_.add(s);
+              break;
+            } // case 210
+            case 218: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureMaterialsIsMutable();
+              materials_.add(s);
+              break;
+            } // case 218
+            case 226: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePatternsIsMutable();
+              patterns_.add(s);
+              break;
+            } // case 226
+            case 234: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureConditionsIsMutable();
+              conditions_.add(s);
+              break;
+            } // case 234
+            case 242: {
+              input.readMessage(
+                  getRetrievableFieldsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x80000000;
+              break;
+            } // case 242
+            case 250: {
+              com.google.cloud.retail.v2beta.Product m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2beta.Product.parser(),
+                      extensionRegistry);
+              if (variantsBuilder_ == null) {
+                ensureVariantsIsMutable();
+                variants_.add(m);
+              } else {
+                variantsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 250
+            case 266: {
+              input.readMessage(
+                  getPublishTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x40000000;
+              break;
+            } // case 266
+            case 274: {
+              com.google.cloud.retail.v2beta.Promotion m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2beta.Promotion.parser(),
+                      extensionRegistry);
+              if (promotionsBuilder_ == null) {
+                ensurePromotionsIsMutable();
+                promotions_.add(m);
+              } else {
+                promotionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 274
+            case 282: {
+              com.google.cloud.retail.v2beta.LocalInventory m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2beta.LocalInventory.parser(),
+                      extensionRegistry);
+              if (localInventoriesBuilder_ == null) {
+                ensureLocalInventoriesIsMutable();
+                localInventories_.add(m);
+              } else {
+                localInventoriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 282
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2beta.Product) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int expirationCase_ = 0;
@@ -4722,6 +4843,7 @@ private static final long serialVersionUID = 0L;
     }
 
     private int bitField0_;
+    private int bitField1_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expireTimeBuilder_;
@@ -4729,6 +4851,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The timestamp when this product becomes unavailable for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
      * available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -4757,6 +4886,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The timestamp when this product becomes unavailable for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
      * available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -4795,6 +4931,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The timestamp when this product becomes unavailable for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
      * available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -4831,6 +4974,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The timestamp when this product becomes unavailable for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
      * available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -4865,6 +5015,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The timestamp when this product becomes unavailable for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
      * available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -4908,6 +5065,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The timestamp when this product becomes unavailable for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
      * available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -4947,6 +5111,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The timestamp when this product becomes unavailable for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
      * available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -4973,6 +5144,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The timestamp when this product becomes unavailable for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
      * available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -5007,6 +5185,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The timestamp when this product becomes unavailable for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, the [Product][google.cloud.retail.v2beta.Product] is not
      * available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search]
@@ -5041,7 +5226,7 @@ private static final long serialVersionUID = 0L;
         expiration_ = null;
       }
       expirationCase_ = 16;
-      onChanged();;
+      onChanged();
       return expireTimeBuilder_;
     }
 
@@ -5049,7 +5234,14 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> ttlBuilder_;
     /**
      * <pre>
-     * Input only. The TTL (time to live) of the product.
+     * Input only. The TTL (time to live) of the product. Note that this is only
+     * applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, it must be a non-negative value, and
      * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
      * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -5076,7 +5268,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL (time to live) of the product.
+     * Input only. The TTL (time to live) of the product. Note that this is only
+     * applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, it must be a non-negative value, and
      * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
      * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -5113,7 +5312,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL (time to live) of the product.
+     * Input only. The TTL (time to live) of the product. Note that this is only
+     * applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, it must be a non-negative value, and
      * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
      * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -5148,7 +5354,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL (time to live) of the product.
+     * Input only. The TTL (time to live) of the product. Note that this is only
+     * applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, it must be a non-negative value, and
      * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
      * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -5181,7 +5394,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL (time to live) of the product.
+     * Input only. The TTL (time to live) of the product. Note that this is only
+     * applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, it must be a non-negative value, and
      * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
      * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -5223,7 +5443,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL (time to live) of the product.
+     * Input only. The TTL (time to live) of the product. Note that this is only
+     * applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, it must be a non-negative value, and
      * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
      * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -5261,7 +5488,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL (time to live) of the product.
+     * Input only. The TTL (time to live) of the product. Note that this is only
+     * applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, it must be a non-negative value, and
      * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
      * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -5286,7 +5520,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL (time to live) of the product.
+     * Input only. The TTL (time to live) of the product. Note that this is only
+     * applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, it must be a non-negative value, and
      * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
      * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -5319,7 +5560,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL (time to live) of the product.
+     * Input only. The TTL (time to live) of the product. Note that this is only
+     * applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION],
+     * and ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT]. In
+     * general, we suggest the users to delete the stale products explicitly,
+     * instead of using this field to determine staleness.
      * If it is set, it must be a non-negative value, and
      * [expire_time][google.cloud.retail.v2beta.Product.expire_time] is set as
      * current timestamp plus [ttl][google.cloud.retail.v2beta.Product.ttl]. The
@@ -5354,7 +5602,7 @@ private static final long serialVersionUID = 0L;
         expiration_ = null;
       }
       expirationCase_ = 17;
-      onChanged();;
+      onChanged();
       return ttlBuilder_;
     }
 
@@ -5414,11 +5662,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5432,8 +5678,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -5449,12 +5695,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -5539,11 +5783,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -5565,8 +5807,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -5590,12 +5832,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -5626,8 +5866,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -5643,8 +5883,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.retail.v2beta.Product.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.retail.v2beta.Product.Type result = com.google.cloud.retail.v2beta.Product.Type.valueOf(type_);
+      com.google.cloud.retail.v2beta.Product.Type result = com.google.cloud.retail.v2beta.Product.Type.forNumber(type_);
       return result == null ? com.google.cloud.retail.v2beta.Product.Type.UNRECOGNIZED : result;
     }
     /**
@@ -5662,7 +5901,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -5678,7 +5917,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       type_ = 0;
       onChanged();
       return this;
@@ -5782,11 +6021,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryProductId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       primaryProductId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -5814,8 +6051,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrimaryProductId() {
-      
       primaryProductId_ = getDefaultInstance().getPrimaryProductId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -5845,21 +6082,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryProductIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       primaryProductId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList collectionMemberIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCollectionMemberIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         collectionMemberIds_ = new com.google.protobuf.LazyStringArrayList(collectionMemberIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -5871,7 +6106,7 @@ private static final long serialVersionUID = 0L;
      * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
      * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
      * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-     * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+     * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
      * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
      * return.
      * </pre>
@@ -5892,7 +6127,7 @@ private static final long serialVersionUID = 0L;
      * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
      * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
      * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-     * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+     * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
      * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
      * return.
      * </pre>
@@ -5912,7 +6147,7 @@ private static final long serialVersionUID = 0L;
      * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
      * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
      * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-     * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+     * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
      * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
      * return.
      * </pre>
@@ -5933,7 +6168,7 @@ private static final long serialVersionUID = 0L;
      * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
      * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
      * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-     * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+     * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
      * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
      * return.
      * </pre>
@@ -5955,7 +6190,7 @@ private static final long serialVersionUID = 0L;
      * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
      * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
      * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-     * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+     * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
      * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
      * return.
      * </pre>
@@ -5967,10 +6202,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCollectionMemberIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCollectionMemberIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCollectionMemberIdsIsMutable();
       collectionMemberIds_.set(index, value);
       onChanged();
       return this;
@@ -5984,7 +6217,7 @@ private static final long serialVersionUID = 0L;
      * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
      * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
      * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-     * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+     * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
      * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
      * return.
      * </pre>
@@ -5995,10 +6228,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCollectionMemberIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCollectionMemberIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCollectionMemberIdsIsMutable();
       collectionMemberIds_.add(value);
       onChanged();
       return this;
@@ -6012,7 +6243,7 @@ private static final long serialVersionUID = 0L;
      * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
      * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
      * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-     * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+     * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
      * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
      * return.
      * </pre>
@@ -6038,7 +6269,7 @@ private static final long serialVersionUID = 0L;
      * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
      * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
      * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-     * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+     * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
      * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
      * return.
      * </pre>
@@ -6048,7 +6279,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCollectionMemberIds() {
       collectionMemberIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -6061,7 +6292,7 @@ private static final long serialVersionUID = 0L;
      * The [type][google.cloud.retail.v2beta.Product.type] of the members must be
      * either [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] or
      * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT] otherwise
-     * and INVALID_ARGUMENT error is thrown. Should not set it for other types. A
+     * an INVALID_ARGUMENT error is thrown. Should not set it for other types. A
      * maximum of 1000 values are allowed. Otherwise, an INVALID_ARGUMENT error is
      * return.
      * </pre>
@@ -6072,10 +6303,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCollectionMemberIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCollectionMemberIdsIsMutable();
       collectionMemberIds_.add(value);
       onChanged();
@@ -6174,11 +6403,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGtin(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gtin_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -6204,8 +6431,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGtin() {
-      
       gtin_ = getDefaultInstance().getGtin();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -6233,21 +6460,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGtinBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gtin_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCategoriesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         categories_ = new com.google.protobuf.LazyStringArrayList(categories_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000100;
        }
     }
     /**
@@ -6256,7 +6481,7 @@ private static final long serialVersionUID = 0L;
      * belonging to several parallel categories. Strongly recommended using the
      * full path for better search / recommendation quality.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * For example, if a shoes product belongs to both
      * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -6294,7 +6519,7 @@ private static final long serialVersionUID = 0L;
      * belonging to several parallel categories. Strongly recommended using the
      * full path for better search / recommendation quality.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * For example, if a shoes product belongs to both
      * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -6331,7 +6556,7 @@ private static final long serialVersionUID = 0L;
      * belonging to several parallel categories. Strongly recommended using the
      * full path for better search / recommendation quality.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * For example, if a shoes product belongs to both
      * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -6369,7 +6594,7 @@ private static final long serialVersionUID = 0L;
      * belonging to several parallel categories. Strongly recommended using the
      * full path for better search / recommendation quality.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * For example, if a shoes product belongs to both
      * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -6408,7 +6633,7 @@ private static final long serialVersionUID = 0L;
      * belonging to several parallel categories. Strongly recommended using the
      * full path for better search / recommendation quality.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * For example, if a shoes product belongs to both
      * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -6440,10 +6665,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCategories(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCategoriesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCategoriesIsMutable();
       categories_.set(index, value);
       onChanged();
       return this;
@@ -6454,7 +6677,7 @@ private static final long serialVersionUID = 0L;
      * belonging to several parallel categories. Strongly recommended using the
      * full path for better search / recommendation quality.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * For example, if a shoes product belongs to both
      * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -6485,10 +6708,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCategories(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCategoriesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCategoriesIsMutable();
       categories_.add(value);
       onChanged();
       return this;
@@ -6499,7 +6720,7 @@ private static final long serialVersionUID = 0L;
      * belonging to several parallel categories. Strongly recommended using the
      * full path for better search / recommendation quality.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * For example, if a shoes product belongs to both
      * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -6542,7 +6763,7 @@ private static final long serialVersionUID = 0L;
      * belonging to several parallel categories. Strongly recommended using the
      * full path for better search / recommendation quality.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * For example, if a shoes product belongs to both
      * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -6572,7 +6793,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCategories() {
       categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -6582,7 +6803,7 @@ private static final long serialVersionUID = 0L;
      * belonging to several parallel categories. Strongly recommended using the
      * full path for better search / recommendation quality.
      * To represent full path of category, use '&gt;' sign to separate different
-     * hierarchies. If '&gt;' is part of the category name, please replace it with
+     * hierarchies. If '&gt;' is part of the category name, replace it with
      * other character(s).
      * For example, if a shoes product belongs to both
      * ["Shoes &amp; Accessories" -&gt; "Shoes"] and
@@ -6613,10 +6834,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCategoriesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCategoriesIsMutable();
       categories_.add(value);
       onChanged();
@@ -6691,11 +6910,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       title_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -6713,8 +6930,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
-      
       title_ = getDefaultInstance().getTitle();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -6734,21 +6951,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       title_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList brands_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureBrandsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         brands_ = new com.google.protobuf.LazyStringArrayList(brands_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000400;
        }
     }
     /**
@@ -6841,10 +7056,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBrands(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureBrandsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureBrandsIsMutable();
       brands_.set(index, value);
       onChanged();
       return this;
@@ -6866,10 +7079,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addBrands(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureBrandsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureBrandsIsMutable();
       brands_.add(value);
       onChanged();
       return this;
@@ -6913,7 +7124,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearBrands() {
       brands_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -6934,10 +7145,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addBrandsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureBrandsIsMutable();
       brands_.add(value);
       onChanged();
@@ -7012,11 +7221,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -7034,8 +7241,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -7055,12 +7262,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -7142,11 +7347,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -7167,8 +7370,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -7191,12 +7394,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -7204,7 +7405,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> attributes_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
-    internalGetAttributes() {
+        internalGetAttributes() {
       if (attributes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -7212,8 +7413,7 @@ private static final long serialVersionUID = 0L;
       return attributes_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
-    internalGetMutableAttributes() {
-      onChanged();;
+        internalGetMutableAttributes() {
       if (attributes_ == null) {
         attributes_ = com.google.protobuf.MapField.newMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -7221,9 +7421,10 @@ private static final long serialVersionUID = 0L;
       if (!attributes_.isMutable()) {
         attributes_ = attributes_.copy();
       }
+      bitField0_ |= 0x00002000;
+      onChanged();
       return attributes_;
     }
-
     public int getAttributesCount() {
       return internalGetAttributes().getMap().size();
     }
@@ -7257,7 +7458,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
      */
-
     @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
@@ -7303,7 +7503,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> getAttributesMap() {
       return internalGetAttributes().getMap();
     }
@@ -7338,10 +7537,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrDefault(
+    public /* nullable */
+com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrDefault(
         java.lang.String key,
-        com.google.cloud.retail.v2beta.CustomAttribute defaultValue) {
+        /* nullable */
+com.google.cloud.retail.v2beta.CustomAttribute defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> map =
           internalGetAttributes().getMap();
@@ -7378,7 +7578,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.retail.v2beta.CustomAttribute getAttributesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -7389,8 +7588,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAttributes() {
+      bitField0_ = (bitField0_ & ~0x00002000);
       internalGetMutableAttributes().getMutableMap()
           .clear();
       return this;
@@ -7425,7 +7624,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
      */
-
     public Builder removeAttributes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -7438,7 +7636,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute>
-    getMutableAttributes() {
+        getMutableAttributes() {
+      bitField0_ |= 0x00002000;
       return internalGetMutableAttributes().getMutableMap();
     }
     /**
@@ -7475,12 +7674,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.retail.v2beta.CustomAttribute value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAttributes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00002000;
       return this;
     }
     /**
@@ -7513,19 +7710,19 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.retail.v2beta.CustomAttribute&gt; attributes = 12;</code>
      */
-
     public Builder putAllAttributes(
         java.util.Map<java.lang.String, com.google.cloud.retail.v2beta.CustomAttribute> values) {
       internalGetMutableAttributes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00002000;
       return this;
     }
 
     private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTagsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00004000) != 0)) {
         tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00004000;
        }
     }
     /**
@@ -7633,10 +7830,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagsIsMutable();
       tags_.set(index, value);
       onChanged();
       return this;
@@ -7661,10 +7856,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagsIsMutable();
       tags_.add(value);
       onChanged();
       return this;
@@ -7714,7 +7907,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTags() {
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -7738,10 +7931,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTagsIsMutable();
       tags_.add(value);
       onChanged();
@@ -7762,7 +7953,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the priceInfo field is set.
      */
     public boolean hasPriceInfo() {
-      return priceInfoBuilder_ != null || priceInfo_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -7796,11 +7987,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         priceInfo_ = value;
-        onChanged();
       } else {
         priceInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -7816,11 +8007,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2beta.PriceInfo.Builder builderForValue) {
       if (priceInfoBuilder_ == null) {
         priceInfo_ = builderForValue.build();
-        onChanged();
       } else {
         priceInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -7834,17 +8025,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePriceInfo(com.google.cloud.retail.v2beta.PriceInfo value) {
       if (priceInfoBuilder_ == null) {
-        if (priceInfo_ != null) {
-          priceInfo_ =
-            com.google.cloud.retail.v2beta.PriceInfo.newBuilder(priceInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          priceInfo_ != null &&
+          priceInfo_ != com.google.cloud.retail.v2beta.PriceInfo.getDefaultInstance()) {
+          getPriceInfoBuilder().mergeFrom(value);
         } else {
           priceInfo_ = value;
         }
-        onChanged();
       } else {
         priceInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -7857,14 +8049,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.PriceInfo price_info = 14;</code>
      */
     public Builder clearPriceInfo() {
-      if (priceInfoBuilder_ == null) {
-        priceInfo_ = null;
-        onChanged();
-      } else {
-        priceInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      priceInfo_ = null;
+      if (priceInfoBuilder_ != null) {
+        priceInfoBuilder_.dispose();
         priceInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7877,7 +8068,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.PriceInfo price_info = 14;</code>
      */
     public com.google.cloud.retail.v2beta.PriceInfo.Builder getPriceInfoBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getPriceInfoFieldBuilder().getBuilder();
     }
@@ -7933,7 +8124,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rating field is set.
      */
     public boolean hasRating() {
-      return ratingBuilder_ != null || rating_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -7963,11 +8154,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rating_ = value;
-        onChanged();
       } else {
         ratingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -7981,11 +8172,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2beta.Rating.Builder builderForValue) {
       if (ratingBuilder_ == null) {
         rating_ = builderForValue.build();
-        onChanged();
       } else {
         ratingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -7997,17 +8188,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRating(com.google.cloud.retail.v2beta.Rating value) {
       if (ratingBuilder_ == null) {
-        if (rating_ != null) {
-          rating_ =
-            com.google.cloud.retail.v2beta.Rating.newBuilder(rating_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          rating_ != null &&
+          rating_ != com.google.cloud.retail.v2beta.Rating.getDefaultInstance()) {
+          getRatingBuilder().mergeFrom(value);
         } else {
           rating_ = value;
         }
-        onChanged();
       } else {
         ratingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -8018,14 +8210,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.Rating rating = 15;</code>
      */
     public Builder clearRating() {
-      if (ratingBuilder_ == null) {
-        rating_ = null;
-        onChanged();
-      } else {
-        rating_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      rating_ = null;
+      if (ratingBuilder_ != null) {
+        ratingBuilder_.dispose();
         ratingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8036,7 +8227,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.Rating rating = 15;</code>
      */
     public com.google.cloud.retail.v2beta.Rating.Builder getRatingBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getRatingFieldBuilder().getBuilder();
     }
@@ -8084,19 +8275,29 @@ private static final long serialVersionUID = 0L;
      * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
      * becomes available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+     * ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp available_time = 18;</code>
      * @return Whether the availableTime field is set.
      */
     public boolean hasAvailableTime() {
-      return availableTimeBuilder_ != null || availableTime_ != null;
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <pre>
      * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
      * becomes available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+     * ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -8114,6 +8315,11 @@ private static final long serialVersionUID = 0L;
      * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
      * becomes available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+     * ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -8124,11 +8330,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         availableTime_ = value;
-        onChanged();
       } else {
         availableTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -8136,6 +8342,11 @@ private static final long serialVersionUID = 0L;
      * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
      * becomes available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+     * ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -8144,11 +8355,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (availableTimeBuilder_ == null) {
         availableTime_ = builderForValue.build();
-        onChanged();
       } else {
         availableTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -8156,23 +8367,29 @@ private static final long serialVersionUID = 0L;
      * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
      * becomes available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+     * ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp available_time = 18;</code>
      */
     public Builder mergeAvailableTime(com.google.protobuf.Timestamp value) {
       if (availableTimeBuilder_ == null) {
-        if (availableTime_ != null) {
-          availableTime_ =
-            com.google.protobuf.Timestamp.newBuilder(availableTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00020000) != 0) &&
+          availableTime_ != null &&
+          availableTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getAvailableTimeBuilder().mergeFrom(value);
         } else {
           availableTime_ = value;
         }
-        onChanged();
       } else {
         availableTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -8180,19 +8397,23 @@ private static final long serialVersionUID = 0L;
      * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
      * becomes available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+     * ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp available_time = 18;</code>
      */
     public Builder clearAvailableTime() {
-      if (availableTimeBuilder_ == null) {
-        availableTime_ = null;
-        onChanged();
-      } else {
-        availableTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      availableTime_ = null;
+      if (availableTimeBuilder_ != null) {
+        availableTimeBuilder_.dispose();
         availableTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8200,12 +8421,17 @@ private static final long serialVersionUID = 0L;
      * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
      * becomes available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+     * ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp available_time = 18;</code>
      */
     public com.google.protobuf.Timestamp.Builder getAvailableTimeBuilder() {
-      
+      bitField0_ |= 0x00020000;
       onChanged();
       return getAvailableTimeFieldBuilder().getBuilder();
     }
@@ -8214,6 +8440,11 @@ private static final long serialVersionUID = 0L;
      * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
      * becomes available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+     * ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -8231,6 +8462,11 @@ private static final long serialVersionUID = 0L;
      * The timestamp when this [Product][google.cloud.retail.v2beta.Product]
      * becomes available for
      * [SearchService.Search][google.cloud.retail.v2beta.SearchService.Search].
+     * Note that this is only applicable to
+     * [Type.PRIMARY][google.cloud.retail.v2beta.Product.Type.PRIMARY] and
+     * [Type.COLLECTION][google.cloud.retail.v2beta.Product.Type.COLLECTION], and
+     * ignored for
+     * [Type.VARIANT][google.cloud.retail.v2beta.Product.Type.VARIANT].
      * </pre>
      *
      * <code>.google.protobuf.Timestamp available_time = 18;</code>
@@ -8281,8 +8517,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAvailabilityValue(int value) {
-      
       availability_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -8301,8 +8537,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.retail.v2beta.Product.Availability getAvailability() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.retail.v2beta.Product.Availability result = com.google.cloud.retail.v2beta.Product.Availability.valueOf(availability_);
+      com.google.cloud.retail.v2beta.Product.Availability result = com.google.cloud.retail.v2beta.Product.Availability.forNumber(availability_);
       return result == null ? com.google.cloud.retail.v2beta.Product.Availability.UNRECOGNIZED : result;
     }
     /**
@@ -8323,7 +8558,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00040000;
       availability_ = value.getNumber();
       onChanged();
       return this;
@@ -8342,7 +8577,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAvailability() {
-      
+      bitField0_ = (bitField0_ & ~0x00040000);
       availability_ = 0;
       onChanged();
       return this;
@@ -8360,7 +8595,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the availableQuantity field is set.
      */
     public boolean hasAvailableQuantity() {
-      return availableQuantityBuilder_ != null || availableQuantity_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
@@ -8390,11 +8625,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         availableQuantity_ = value;
-        onChanged();
       } else {
         availableQuantityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -8408,11 +8643,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (availableQuantityBuilder_ == null) {
         availableQuantity_ = builderForValue.build();
-        onChanged();
       } else {
         availableQuantityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -8424,17 +8659,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAvailableQuantity(com.google.protobuf.Int32Value value) {
       if (availableQuantityBuilder_ == null) {
-        if (availableQuantity_ != null) {
-          availableQuantity_ =
-            com.google.protobuf.Int32Value.newBuilder(availableQuantity_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          availableQuantity_ != null &&
+          availableQuantity_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getAvailableQuantityBuilder().mergeFrom(value);
         } else {
           availableQuantity_ = value;
         }
-        onChanged();
       } else {
         availableQuantityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -8445,14 +8681,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value available_quantity = 20;</code>
      */
     public Builder clearAvailableQuantity() {
-      if (availableQuantityBuilder_ == null) {
-        availableQuantity_ = null;
-        onChanged();
-      } else {
-        availableQuantity_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      availableQuantity_ = null;
+      if (availableQuantityBuilder_ != null) {
+        availableQuantityBuilder_.dispose();
         availableQuantityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8463,7 +8698,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value available_quantity = 20;</code>
      */
     public com.google.protobuf.Int32Value.Builder getAvailableQuantityBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getAvailableQuantityFieldBuilder().getBuilder();
     }
@@ -8506,9 +8741,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.retail.v2beta.FulfillmentInfo> fulfillmentInfo_ =
       java.util.Collections.emptyList();
     private void ensureFulfillmentInfoIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00100000) != 0)) {
         fulfillmentInfo_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.FulfillmentInfo>(fulfillmentInfo_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00100000;
        }
     }
 
@@ -8746,7 +8981,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFulfillmentInfo() {
       if (fulfillmentInfoBuilder_ == null) {
         fulfillmentInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00100000);
         onChanged();
       } else {
         fulfillmentInfoBuilder_.clear();
@@ -8879,7 +9114,7 @@ private static final long serialVersionUID = 0L;
         fulfillmentInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.retail.v2beta.FulfillmentInfo, com.google.cloud.retail.v2beta.FulfillmentInfo.Builder, com.google.cloud.retail.v2beta.FulfillmentInfoOrBuilder>(
                 fulfillmentInfo_,
-                ((bitField0_ & 0x00000020) != 0),
+                ((bitField0_ & 0x00100000) != 0),
                 getParentForChildren(),
                 isClean());
         fulfillmentInfo_ = null;
@@ -8961,11 +9196,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uri_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -8985,8 +9218,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUri() {
-      
       uri_ = getDefaultInstance().getUri();
+      bitField0_ = (bitField0_ & ~0x00200000);
       onChanged();
       return this;
     }
@@ -9008,12 +9241,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uri_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -9021,9 +9252,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.retail.v2beta.Image> images_ =
       java.util.Collections.emptyList();
     private void ensureImagesIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00400000) != 0)) {
         images_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.Image>(images_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00400000;
        }
     }
 
@@ -9272,7 +9503,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearImages() {
       if (imagesBuilder_ == null) {
         images_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00400000);
         onChanged();
       } else {
         imagesBuilder_.clear();
@@ -9412,7 +9643,7 @@ private static final long serialVersionUID = 0L;
         imagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.retail.v2beta.Image, com.google.cloud.retail.v2beta.Image.Builder, com.google.cloud.retail.v2beta.ImageOrBuilder>(
                 images_,
-                ((bitField0_ & 0x00000040) != 0),
+                ((bitField0_ & 0x00400000) != 0),
                 getParentForChildren(),
                 isClean());
         images_ = null;
@@ -9433,7 +9664,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the audience field is set.
      */
     public boolean hasAudience() {
-      return audienceBuilder_ != null || audience_ != null;
+      return ((bitField0_ & 0x00800000) != 0);
     }
     /**
      * <pre>
@@ -9465,11 +9696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         audience_ = value;
-        onChanged();
       } else {
         audienceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -9484,11 +9715,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2beta.Audience.Builder builderForValue) {
       if (audienceBuilder_ == null) {
         audience_ = builderForValue.build();
-        onChanged();
       } else {
         audienceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -9501,17 +9732,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAudience(com.google.cloud.retail.v2beta.Audience value) {
       if (audienceBuilder_ == null) {
-        if (audience_ != null) {
-          audience_ =
-            com.google.cloud.retail.v2beta.Audience.newBuilder(audience_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00800000) != 0) &&
+          audience_ != null &&
+          audience_ != com.google.cloud.retail.v2beta.Audience.getDefaultInstance()) {
+          getAudienceBuilder().mergeFrom(value);
         } else {
           audience_ = value;
         }
-        onChanged();
       } else {
         audienceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -9523,14 +9755,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.Audience audience = 24;</code>
      */
     public Builder clearAudience() {
-      if (audienceBuilder_ == null) {
-        audience_ = null;
-        onChanged();
-      } else {
-        audience_ = null;
+      bitField0_ = (bitField0_ & ~0x00800000);
+      audience_ = null;
+      if (audienceBuilder_ != null) {
+        audienceBuilder_.dispose();
         audienceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -9542,7 +9773,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.Audience audience = 24;</code>
      */
     public com.google.cloud.retail.v2beta.Audience.Builder getAudienceBuilder() {
-      
+      bitField0_ |= 0x00800000;
       onChanged();
       return getAudienceFieldBuilder().getBuilder();
     }
@@ -9599,7 +9830,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the colorInfo field is set.
      */
     public boolean hasColorInfo() {
-      return colorInfoBuilder_ != null || colorInfo_ != null;
+      return ((bitField0_ & 0x01000000) != 0);
     }
     /**
      * <pre>
@@ -9635,11 +9866,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         colorInfo_ = value;
-        onChanged();
       } else {
         colorInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -9656,11 +9887,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2beta.ColorInfo.Builder builderForValue) {
       if (colorInfoBuilder_ == null) {
         colorInfo_ = builderForValue.build();
-        onChanged();
       } else {
         colorInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -9675,17 +9906,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeColorInfo(com.google.cloud.retail.v2beta.ColorInfo value) {
       if (colorInfoBuilder_ == null) {
-        if (colorInfo_ != null) {
-          colorInfo_ =
-            com.google.cloud.retail.v2beta.ColorInfo.newBuilder(colorInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x01000000) != 0) &&
+          colorInfo_ != null &&
+          colorInfo_ != com.google.cloud.retail.v2beta.ColorInfo.getDefaultInstance()) {
+          getColorInfoBuilder().mergeFrom(value);
         } else {
           colorInfo_ = value;
         }
-        onChanged();
       } else {
         colorInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -9699,14 +9931,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.ColorInfo color_info = 25;</code>
      */
     public Builder clearColorInfo() {
-      if (colorInfoBuilder_ == null) {
-        colorInfo_ = null;
-        onChanged();
-      } else {
-        colorInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x01000000);
+      colorInfo_ = null;
+      if (colorInfoBuilder_ != null) {
+        colorInfoBuilder_.dispose();
         colorInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -9720,7 +9951,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2beta.ColorInfo color_info = 25;</code>
      */
     public com.google.cloud.retail.v2beta.ColorInfo.Builder getColorInfoBuilder() {
-      
+      bitField0_ |= 0x01000000;
       onChanged();
       return getColorInfoFieldBuilder().getBuilder();
     }
@@ -9768,9 +9999,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList sizes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSizesIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
+      if (!((bitField0_ & 0x02000000) != 0)) {
         sizes_ = new com.google.protobuf.LazyStringArrayList(sizes_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x02000000;
        }
     }
     /**
@@ -9903,10 +10134,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSizes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSizesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSizesIsMutable();
       sizes_.set(index, value);
       onChanged();
       return this;
@@ -9936,10 +10165,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSizes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSizesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSizesIsMutable();
       sizes_.add(value);
       onChanged();
       return this;
@@ -9999,7 +10226,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSizes() {
       sizes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x02000000);
       onChanged();
       return this;
     }
@@ -10028,10 +10255,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSizesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSizesIsMutable();
       sizes_.add(value);
       onChanged();
@@ -10040,9 +10265,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList materials_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureMaterialsIsMutable() {
-      if (!((bitField0_ & 0x00000100) != 0)) {
+      if (!((bitField0_ & 0x04000000) != 0)) {
         materials_ = new com.google.protobuf.LazyStringArrayList(materials_);
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x04000000;
        }
     }
     /**
@@ -10135,10 +10360,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMaterials(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMaterialsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMaterialsIsMutable();
       materials_.set(index, value);
       onChanged();
       return this;
@@ -10160,10 +10383,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMaterials(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMaterialsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMaterialsIsMutable();
       materials_.add(value);
       onChanged();
       return this;
@@ -10207,7 +10428,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearMaterials() {
       materials_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x04000000);
       onChanged();
       return this;
     }
@@ -10228,10 +10449,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMaterialsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureMaterialsIsMutable();
       materials_.add(value);
       onChanged();
@@ -10240,9 +10459,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList patterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensurePatternsIsMutable() {
-      if (!((bitField0_ & 0x00000200) != 0)) {
+      if (!((bitField0_ & 0x08000000) != 0)) {
         patterns_ = new com.google.protobuf.LazyStringArrayList(patterns_);
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x08000000;
        }
     }
     /**
@@ -10345,10 +10564,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPatterns(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePatternsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePatternsIsMutable();
       patterns_.set(index, value);
       onChanged();
       return this;
@@ -10372,10 +10589,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPatterns(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePatternsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePatternsIsMutable();
       patterns_.add(value);
       onChanged();
       return this;
@@ -10423,7 +10638,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPatterns() {
       patterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000200);
+      bitField0_ = (bitField0_ & ~0x08000000);
       onChanged();
       return this;
     }
@@ -10446,10 +10661,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPatternsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensurePatternsIsMutable();
       patterns_.add(value);
       onChanged();
@@ -10458,9 +10671,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList conditions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureConditionsIsMutable() {
-      if (!((bitField0_ & 0x00000400) != 0)) {
+      if (!((bitField0_ & 0x10000000) != 0)) {
         conditions_ = new com.google.protobuf.LazyStringArrayList(conditions_);
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x10000000;
        }
     }
     /**
@@ -10568,10 +10781,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConditions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureConditionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureConditionsIsMutable();
       conditions_.set(index, value);
       onChanged();
       return this;
@@ -10596,10 +10807,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addConditions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureConditionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureConditionsIsMutable();
       conditions_.add(value);
       onChanged();
       return this;
@@ -10649,7 +10858,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearConditions() {
       conditions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000400);
+      bitField0_ = (bitField0_ & ~0x10000000);
       onChanged();
       return this;
     }
@@ -10673,10 +10882,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addConditionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureConditionsIsMutable();
       conditions_.add(value);
       onChanged();
@@ -10686,9 +10893,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.retail.v2beta.Promotion> promotions_ =
       java.util.Collections.emptyList();
     private void ensurePromotionsIsMutable() {
-      if (!((bitField0_ & 0x00000800) != 0)) {
+      if (!((bitField0_ & 0x20000000) != 0)) {
         promotions_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.Promotion>(promotions_);
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x20000000;
        }
     }
 
@@ -10915,7 +11122,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPromotions() {
       if (promotionsBuilder_ == null) {
         promotions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x20000000);
         onChanged();
       } else {
         promotionsBuilder_.clear();
@@ -11041,7 +11248,7 @@ private static final long serialVersionUID = 0L;
         promotionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.retail.v2beta.Promotion, com.google.cloud.retail.v2beta.Promotion.Builder, com.google.cloud.retail.v2beta.PromotionOrBuilder>(
                 promotions_,
-                ((bitField0_ & 0x00000800) != 0),
+                ((bitField0_ & 0x20000000) != 0),
                 getParentForChildren(),
                 isClean());
         promotions_ = null;
@@ -11066,7 +11273,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the publishTime field is set.
      */
     public boolean hasPublishTime() {
-      return publishTimeBuilder_ != null || publishTime_ != null;
+      return ((bitField0_ & 0x40000000) != 0);
     }
     /**
      * <pre>
@@ -11106,11 +11313,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         publishTime_ = value;
-        onChanged();
       } else {
         publishTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x40000000;
+      onChanged();
       return this;
     }
     /**
@@ -11129,11 +11336,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (publishTimeBuilder_ == null) {
         publishTime_ = builderForValue.build();
-        onChanged();
       } else {
         publishTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x40000000;
+      onChanged();
       return this;
     }
     /**
@@ -11150,17 +11357,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePublishTime(com.google.protobuf.Timestamp value) {
       if (publishTimeBuilder_ == null) {
-        if (publishTime_ != null) {
-          publishTime_ =
-            com.google.protobuf.Timestamp.newBuilder(publishTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x40000000) != 0) &&
+          publishTime_ != null &&
+          publishTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getPublishTimeBuilder().mergeFrom(value);
         } else {
           publishTime_ = value;
         }
-        onChanged();
       } else {
         publishTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x40000000;
+      onChanged();
       return this;
     }
     /**
@@ -11176,14 +11384,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp publish_time = 33;</code>
      */
     public Builder clearPublishTime() {
-      if (publishTimeBuilder_ == null) {
-        publishTime_ = null;
-        onChanged();
-      } else {
-        publishTime_ = null;
+      bitField0_ = (bitField0_ & ~0x40000000);
+      publishTime_ = null;
+      if (publishTimeBuilder_ != null) {
+        publishTimeBuilder_.dispose();
         publishTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11199,7 +11406,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp publish_time = 33;</code>
      */
     public com.google.protobuf.Timestamp.Builder getPublishTimeBuilder() {
-      
+      bitField0_ |= 0x40000000;
       onChanged();
       return getPublishTimeFieldBuilder().getBuilder();
     }
@@ -11300,13 +11507,16 @@ private static final long serialVersionUID = 0L;
      * Note: Returning more fields in
      * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
      * response payload size and serving latency.
+     * This field is deprecated. Use the retrievable site-wide control instead.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+     * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
+     * @deprecated google.cloud.retail.v2beta.Product.retrievable_fields is deprecated.
+     *     See google/cloud/retail/v2beta/product.proto;l=573
      * @return Whether the retrievableFields field is set.
      */
-    public boolean hasRetrievableFields() {
-      return retrievableFieldsBuilder_ != null || retrievableFields_ != null;
+    @java.lang.Deprecated public boolean hasRetrievableFields() {
+      return ((bitField0_ & 0x80000000) != 0);
     }
     /**
      * <pre>
@@ -11356,12 +11566,15 @@ private static final long serialVersionUID = 0L;
      * Note: Returning more fields in
      * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
      * response payload size and serving latency.
+     * This field is deprecated. Use the retrievable site-wide control instead.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+     * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
+     * @deprecated google.cloud.retail.v2beta.Product.retrievable_fields is deprecated.
+     *     See google/cloud/retail/v2beta/product.proto;l=573
      * @return The retrievableFields.
      */
-    public com.google.protobuf.FieldMask getRetrievableFields() {
+    @java.lang.Deprecated public com.google.protobuf.FieldMask getRetrievableFields() {
       if (retrievableFieldsBuilder_ == null) {
         return retrievableFields_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : retrievableFields_;
       } else {
@@ -11416,21 +11629,22 @@ private static final long serialVersionUID = 0L;
      * Note: Returning more fields in
      * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
      * response payload size and serving latency.
+     * This field is deprecated. Use the retrievable site-wide control instead.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+     * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
      */
-    public Builder setRetrievableFields(com.google.protobuf.FieldMask value) {
+    @java.lang.Deprecated public Builder setRetrievableFields(com.google.protobuf.FieldMask value) {
       if (retrievableFieldsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         retrievableFields_ = value;
-        onChanged();
       } else {
         retrievableFieldsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x80000000;
+      onChanged();
       return this;
     }
     /**
@@ -11481,19 +11695,20 @@ private static final long serialVersionUID = 0L;
      * Note: Returning more fields in
      * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
      * response payload size and serving latency.
+     * This field is deprecated. Use the retrievable site-wide control instead.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+     * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
      */
-    public Builder setRetrievableFields(
+    @java.lang.Deprecated public Builder setRetrievableFields(
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (retrievableFieldsBuilder_ == null) {
         retrievableFields_ = builderForValue.build();
-        onChanged();
       } else {
         retrievableFieldsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x80000000;
+      onChanged();
       return this;
     }
     /**
@@ -11544,23 +11759,25 @@ private static final long serialVersionUID = 0L;
      * Note: Returning more fields in
      * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
      * response payload size and serving latency.
+     * This field is deprecated. Use the retrievable site-wide control instead.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+     * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
      */
-    public Builder mergeRetrievableFields(com.google.protobuf.FieldMask value) {
+    @java.lang.Deprecated public Builder mergeRetrievableFields(com.google.protobuf.FieldMask value) {
       if (retrievableFieldsBuilder_ == null) {
-        if (retrievableFields_ != null) {
-          retrievableFields_ =
-            com.google.protobuf.FieldMask.newBuilder(retrievableFields_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x80000000) != 0) &&
+          retrievableFields_ != null &&
+          retrievableFields_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getRetrievableFieldsBuilder().mergeFrom(value);
         } else {
           retrievableFields_ = value;
         }
-        onChanged();
       } else {
         retrievableFieldsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x80000000;
+      onChanged();
       return this;
     }
     /**
@@ -11611,19 +11828,19 @@ private static final long serialVersionUID = 0L;
      * Note: Returning more fields in
      * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
      * response payload size and serving latency.
+     * This field is deprecated. Use the retrievable site-wide control instead.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+     * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
      */
-    public Builder clearRetrievableFields() {
-      if (retrievableFieldsBuilder_ == null) {
-        retrievableFields_ = null;
-        onChanged();
-      } else {
-        retrievableFields_ = null;
+    @java.lang.Deprecated public Builder clearRetrievableFields() {
+      bitField0_ = (bitField0_ & ~0x80000000);
+      retrievableFields_ = null;
+      if (retrievableFieldsBuilder_ != null) {
+        retrievableFieldsBuilder_.dispose();
         retrievableFieldsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11674,12 +11891,13 @@ private static final long serialVersionUID = 0L;
      * Note: Returning more fields in
      * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
      * response payload size and serving latency.
+     * This field is deprecated. Use the retrievable site-wide control instead.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+     * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
      */
-    public com.google.protobuf.FieldMask.Builder getRetrievableFieldsBuilder() {
-      
+    @java.lang.Deprecated public com.google.protobuf.FieldMask.Builder getRetrievableFieldsBuilder() {
+      bitField0_ |= 0x80000000;
       onChanged();
       return getRetrievableFieldsFieldBuilder().getBuilder();
     }
@@ -11731,11 +11949,12 @@ private static final long serialVersionUID = 0L;
      * Note: Returning more fields in
      * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
      * response payload size and serving latency.
+     * This field is deprecated. Use the retrievable site-wide control instead.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+     * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
      */
-    public com.google.protobuf.FieldMaskOrBuilder getRetrievableFieldsOrBuilder() {
+    @java.lang.Deprecated public com.google.protobuf.FieldMaskOrBuilder getRetrievableFieldsOrBuilder() {
       if (retrievableFieldsBuilder_ != null) {
         return retrievableFieldsBuilder_.getMessageOrBuilder();
       } else {
@@ -11791,9 +12010,10 @@ private static final long serialVersionUID = 0L;
      * Note: Returning more fields in
      * [SearchResponse][google.cloud.retail.v2beta.SearchResponse] can increase
      * response payload size and serving latency.
+     * This field is deprecated. Use the retrievable site-wide control instead.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask retrievable_fields = 30;</code>
+     * <code>.google.protobuf.FieldMask retrievable_fields = 30 [deprecated = true];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> 
@@ -11812,9 +12032,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.retail.v2beta.Product> variants_ =
       java.util.Collections.emptyList();
     private void ensureVariantsIsMutable() {
-      if (!((bitField0_ & 0x00001000) != 0)) {
+      if (!((bitField1_ & 0x00000001) != 0)) {
         variants_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.Product>(variants_);
-        bitField0_ |= 0x00001000;
+        bitField1_ |= 0x00000001;
        }
     }
 
@@ -12096,7 +12316,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearVariants() {
       if (variantsBuilder_ == null) {
         variants_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00001000);
+        bitField1_ = (bitField1_ & ~0x00000001);
         onChanged();
       } else {
         variantsBuilder_.clear();
@@ -12257,12 +12477,432 @@ private static final long serialVersionUID = 0L;
         variantsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.retail.v2beta.Product, com.google.cloud.retail.v2beta.Product.Builder, com.google.cloud.retail.v2beta.ProductOrBuilder>(
                 variants_,
-                ((bitField0_ & 0x00001000) != 0),
+                ((bitField1_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
         variants_ = null;
       }
       return variantsBuilder_;
+    }
+
+    private java.util.List<com.google.cloud.retail.v2beta.LocalInventory> localInventories_ =
+      java.util.Collections.emptyList();
+    private void ensureLocalInventoriesIsMutable() {
+      if (!((bitField1_ & 0x00000002) != 0)) {
+        localInventories_ = new java.util.ArrayList<com.google.cloud.retail.v2beta.LocalInventory>(localInventories_);
+        bitField1_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.retail.v2beta.LocalInventory, com.google.cloud.retail.v2beta.LocalInventory.Builder, com.google.cloud.retail.v2beta.LocalInventoryOrBuilder> localInventoriesBuilder_;
+
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<com.google.cloud.retail.v2beta.LocalInventory> getLocalInventoriesList() {
+      if (localInventoriesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(localInventories_);
+      } else {
+        return localInventoriesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public int getLocalInventoriesCount() {
+      if (localInventoriesBuilder_ == null) {
+        return localInventories_.size();
+      } else {
+        return localInventoriesBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.retail.v2beta.LocalInventory getLocalInventories(int index) {
+      if (localInventoriesBuilder_ == null) {
+        return localInventories_.get(index);
+      } else {
+        return localInventoriesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setLocalInventories(
+        int index, com.google.cloud.retail.v2beta.LocalInventory value) {
+      if (localInventoriesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLocalInventoriesIsMutable();
+        localInventories_.set(index, value);
+        onChanged();
+      } else {
+        localInventoriesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setLocalInventories(
+        int index, com.google.cloud.retail.v2beta.LocalInventory.Builder builderForValue) {
+      if (localInventoriesBuilder_ == null) {
+        ensureLocalInventoriesIsMutable();
+        localInventories_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        localInventoriesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addLocalInventories(com.google.cloud.retail.v2beta.LocalInventory value) {
+      if (localInventoriesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLocalInventoriesIsMutable();
+        localInventories_.add(value);
+        onChanged();
+      } else {
+        localInventoriesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addLocalInventories(
+        int index, com.google.cloud.retail.v2beta.LocalInventory value) {
+      if (localInventoriesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureLocalInventoriesIsMutable();
+        localInventories_.add(index, value);
+        onChanged();
+      } else {
+        localInventoriesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addLocalInventories(
+        com.google.cloud.retail.v2beta.LocalInventory.Builder builderForValue) {
+      if (localInventoriesBuilder_ == null) {
+        ensureLocalInventoriesIsMutable();
+        localInventories_.add(builderForValue.build());
+        onChanged();
+      } else {
+        localInventoriesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addLocalInventories(
+        int index, com.google.cloud.retail.v2beta.LocalInventory.Builder builderForValue) {
+      if (localInventoriesBuilder_ == null) {
+        ensureLocalInventoriesIsMutable();
+        localInventories_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        localInventoriesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addAllLocalInventories(
+        java.lang.Iterable<? extends com.google.cloud.retail.v2beta.LocalInventory> values) {
+      if (localInventoriesBuilder_ == null) {
+        ensureLocalInventoriesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, localInventories_);
+        onChanged();
+      } else {
+        localInventoriesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder clearLocalInventories() {
+      if (localInventoriesBuilder_ == null) {
+        localInventories_ = java.util.Collections.emptyList();
+        bitField1_ = (bitField1_ & ~0x00000002);
+        onChanged();
+      } else {
+        localInventoriesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder removeLocalInventories(int index) {
+      if (localInventoriesBuilder_ == null) {
+        ensureLocalInventoriesIsMutable();
+        localInventories_.remove(index);
+        onChanged();
+      } else {
+        localInventoriesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.retail.v2beta.LocalInventory.Builder getLocalInventoriesBuilder(
+        int index) {
+      return getLocalInventoriesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.retail.v2beta.LocalInventoryOrBuilder getLocalInventoriesOrBuilder(
+        int index) {
+      if (localInventoriesBuilder_ == null) {
+        return localInventories_.get(index);  } else {
+        return localInventoriesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<? extends com.google.cloud.retail.v2beta.LocalInventoryOrBuilder> 
+         getLocalInventoriesOrBuilderList() {
+      if (localInventoriesBuilder_ != null) {
+        return localInventoriesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(localInventories_);
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.retail.v2beta.LocalInventory.Builder addLocalInventoriesBuilder() {
+      return getLocalInventoriesFieldBuilder().addBuilder(
+          com.google.cloud.retail.v2beta.LocalInventory.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.retail.v2beta.LocalInventory.Builder addLocalInventoriesBuilder(
+        int index) {
+      return getLocalInventoriesFieldBuilder().addBuilder(
+          index, com.google.cloud.retail.v2beta.LocalInventory.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Output only. A list of local inventories specific to different places.
+     * This is only available for users who have Retail Search enabled, and it can
+     * be managed by
+     * [ProductService.AddLocalInventories][google.cloud.retail.v2beta.ProductService.AddLocalInventories]
+     * and
+     * [ProductService.RemoveLocalInventories][google.cloud.retail.v2beta.ProductService.RemoveLocalInventories]
+     * APIs.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.retail.v2beta.LocalInventory local_inventories = 35 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<com.google.cloud.retail.v2beta.LocalInventory.Builder> 
+         getLocalInventoriesBuilderList() {
+      return getLocalInventoriesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.retail.v2beta.LocalInventory, com.google.cloud.retail.v2beta.LocalInventory.Builder, com.google.cloud.retail.v2beta.LocalInventoryOrBuilder> 
+        getLocalInventoriesFieldBuilder() {
+      if (localInventoriesBuilder_ == null) {
+        localInventoriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloud.retail.v2beta.LocalInventory, com.google.cloud.retail.v2beta.LocalInventory.Builder, com.google.cloud.retail.v2beta.LocalInventoryOrBuilder>(
+                localInventories_,
+                ((bitField1_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        localInventories_ = null;
+      }
+      return localInventoriesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -12297,7 +12937,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Product(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

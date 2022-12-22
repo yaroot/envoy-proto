@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateCertificateMapEntryRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            certificateMapEntryId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.certificatemanager.v1.CertificateMapEntry.Builder subBuilder = null;
-            if (certificateMapEntry_ != null) {
-              subBuilder = certificateMapEntry_.toBuilder();
-            }
-            certificateMapEntry_ = input.readMessage(com.google.cloud.certificatemanager.v1.CertificateMapEntry.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(certificateMapEntry_);
-              certificateMapEntry_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.certificatemanager.v1.CertificateManagerProto.internal_static_google_cloud_certificatemanager_v1_CreateCertificateMapEntryRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent resource of the certificate map entry. Must be in the
@@ -162,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CERTIFICATE_MAP_ENTRY_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object certificateMapEntryId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object certificateMapEntryId_ = "";
   /**
    * <pre>
    * Required. A user-provided name of the certificate map entry.
@@ -242,7 +180,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.certificatemanager.v1.CertificateMapEntryOrBuilder getCertificateMapEntryOrBuilder() {
-    return getCertificateMapEntry();
+    return certificateMapEntry_ == null ? com.google.cloud.certificatemanager.v1.CertificateMapEntry.getDefaultInstance() : certificateMapEntry_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -268,7 +206,7 @@ private static final long serialVersionUID = 0L;
     if (certificateMapEntry_ != null) {
       output.writeMessage(3, getCertificateMapEntry());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -287,7 +225,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getCertificateMapEntry());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -311,7 +249,7 @@ private static final long serialVersionUID = 0L;
       if (!getCertificateMapEntry()
           .equals(other.getCertificateMapEntry())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -330,7 +268,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CERTIFICATE_MAP_ENTRY_FIELD_NUMBER;
       hash = (53 * hash) + getCertificateMapEntry().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -451,30 +389,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.certificatemanager.v1.CreateCertificateMapEntryRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       certificateMapEntryId_ = "";
-
-      if (certificateMapEntryBuilder_ == null) {
-        certificateMapEntry_ = null;
-      } else {
-        certificateMapEntry_ = null;
+      certificateMapEntry_ = null;
+      if (certificateMapEntryBuilder_ != null) {
+        certificateMapEntryBuilder_.dispose();
         certificateMapEntryBuilder_ = null;
       }
       return this;
@@ -503,15 +434,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.certificatemanager.v1.CreateCertificateMapEntryRequest buildPartial() {
       com.google.cloud.certificatemanager.v1.CreateCertificateMapEntryRequest result = new com.google.cloud.certificatemanager.v1.CreateCertificateMapEntryRequest(this);
-      result.parent_ = parent_;
-      result.certificateMapEntryId_ = certificateMapEntryId_;
-      if (certificateMapEntryBuilder_ == null) {
-        result.certificateMapEntry_ = certificateMapEntry_;
-      } else {
-        result.certificateMapEntry_ = certificateMapEntryBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.certificatemanager.v1.CreateCertificateMapEntryRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.certificateMapEntryId_ = certificateMapEntryId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.certificateMapEntry_ = certificateMapEntryBuilder_ == null
+            ? certificateMapEntry_
+            : certificateMapEntryBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -560,16 +500,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.certificatemanager.v1.CreateCertificateMapEntryRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCertificateMapEntryId().isEmpty()) {
         certificateMapEntryId_ = other.certificateMapEntryId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCertificateMapEntry()) {
         mergeCertificateMapEntry(other.getCertificateMapEntry());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -584,19 +526,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.certificatemanager.v1.CreateCertificateMapEntryRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              certificateMapEntryId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCertificateMapEntryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.certificatemanager.v1.CreateCertificateMapEntryRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -654,11 +627,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -672,8 +643,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -689,12 +660,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -752,11 +721,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCertificateMapEntryId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       certificateMapEntryId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -769,8 +736,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCertificateMapEntryId() {
-      
       certificateMapEntryId_ = getDefaultInstance().getCertificateMapEntryId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -785,12 +752,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCertificateMapEntryIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       certificateMapEntryId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -807,7 +772,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the certificateMapEntry field is set.
      */
     public boolean hasCertificateMapEntry() {
-      return certificateMapEntryBuilder_ != null || certificateMapEntry_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -837,11 +802,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         certificateMapEntry_ = value;
-        onChanged();
       } else {
         certificateMapEntryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -855,11 +820,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.certificatemanager.v1.CertificateMapEntry.Builder builderForValue) {
       if (certificateMapEntryBuilder_ == null) {
         certificateMapEntry_ = builderForValue.build();
-        onChanged();
       } else {
         certificateMapEntryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -871,17 +836,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCertificateMapEntry(com.google.cloud.certificatemanager.v1.CertificateMapEntry value) {
       if (certificateMapEntryBuilder_ == null) {
-        if (certificateMapEntry_ != null) {
-          certificateMapEntry_ =
-            com.google.cloud.certificatemanager.v1.CertificateMapEntry.newBuilder(certificateMapEntry_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          certificateMapEntry_ != null &&
+          certificateMapEntry_ != com.google.cloud.certificatemanager.v1.CertificateMapEntry.getDefaultInstance()) {
+          getCertificateMapEntryBuilder().mergeFrom(value);
         } else {
           certificateMapEntry_ = value;
         }
-        onChanged();
       } else {
         certificateMapEntryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -892,14 +858,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.certificatemanager.v1.CertificateMapEntry certificate_map_entry = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearCertificateMapEntry() {
-      if (certificateMapEntryBuilder_ == null) {
-        certificateMapEntry_ = null;
-        onChanged();
-      } else {
-        certificateMapEntry_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      certificateMapEntry_ = null;
+      if (certificateMapEntryBuilder_ != null) {
+        certificateMapEntryBuilder_.dispose();
         certificateMapEntryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -910,7 +875,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.certificatemanager.v1.CertificateMapEntry certificate_map_entry = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.certificatemanager.v1.CertificateMapEntry.Builder getCertificateMapEntryBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCertificateMapEntryFieldBuilder().getBuilder();
     }
@@ -982,7 +947,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateCertificateMapEntryRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

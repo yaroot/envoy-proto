@@ -35,84 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Metric(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.opencensus.proto.metrics.v1.MetricDescriptor.Builder subBuilder = null;
-            if (metricDescriptor_ != null) {
-              subBuilder = metricDescriptor_.toBuilder();
-            }
-            metricDescriptor_ = input.readMessage(io.opencensus.proto.metrics.v1.MetricDescriptor.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metricDescriptor_);
-              metricDescriptor_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              timeseries_ = new java.util.ArrayList<io.opencensus.proto.metrics.v1.TimeSeries>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            timeseries_.add(
-                input.readMessage(io.opencensus.proto.metrics.v1.TimeSeries.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            io.opencensus.proto.resource.v1.Resource.Builder subBuilder = null;
-            if (resource_ != null) {
-              subBuilder = resource_.toBuilder();
-            }
-            resource_ = input.readMessage(io.opencensus.proto.resource.v1.Resource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resource_);
-              resource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        timeseries_ = java.util.Collections.unmodifiableList(timeseries_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opencensus.proto.metrics.v1.MetricsProto.internal_static_opencensus_proto_metrics_v1_Metric_descriptor;
@@ -167,10 +89,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opencensus.proto.metrics.v1.MetricDescriptorOrBuilder getMetricDescriptorOrBuilder() {
-    return getMetricDescriptor();
+    return metricDescriptor_ == null ? io.opencensus.proto.metrics.v1.MetricDescriptor.getDefaultInstance() : metricDescriptor_;
   }
 
   public static final int TIMESERIES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.opencensus.proto.metrics.v1.TimeSeries> timeseries_;
   /**
    * <pre>
@@ -273,7 +196,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opencensus.proto.resource.v1.ResourceOrBuilder getResourceOrBuilder() {
-    return getResource();
+    return resource_ == null ? io.opencensus.proto.resource.v1.Resource.getDefaultInstance() : resource_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -299,7 +222,7 @@ private static final long serialVersionUID = 0L;
     if (resource_ != null) {
       output.writeMessage(3, getResource());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -320,7 +243,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getResource());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -347,7 +270,7 @@ private static final long serialVersionUID = 0L;
       if (!getResource()
           .equals(other.getResource())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -370,7 +293,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESOURCE_FIELD_NUMBER;
       hash = (53 * hash) + getResource().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -491,39 +414,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opencensus.proto.metrics.v1.Metric.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTimeseriesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (metricDescriptorBuilder_ == null) {
-        metricDescriptor_ = null;
-      } else {
-        metricDescriptor_ = null;
+      bitField0_ = 0;
+      metricDescriptor_ = null;
+      if (metricDescriptorBuilder_ != null) {
+        metricDescriptorBuilder_.dispose();
         metricDescriptorBuilder_ = null;
       }
       if (timeseriesBuilder_ == null) {
         timeseries_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        timeseries_ = null;
         timeseriesBuilder_.clear();
       }
-      if (resourceBuilder_ == null) {
-        resource_ = null;
-      } else {
-        resource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      resource_ = null;
+      if (resourceBuilder_ != null) {
+        resourceBuilder_.dispose();
         resourceBuilder_ = null;
       }
       return this;
@@ -552,28 +469,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opencensus.proto.metrics.v1.Metric buildPartial() {
       io.opencensus.proto.metrics.v1.Metric result = new io.opencensus.proto.metrics.v1.Metric(this);
-      int from_bitField0_ = bitField0_;
-      if (metricDescriptorBuilder_ == null) {
-        result.metricDescriptor_ = metricDescriptor_;
-      } else {
-        result.metricDescriptor_ = metricDescriptorBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.opencensus.proto.metrics.v1.Metric result) {
       if (timeseriesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           timeseries_ = java.util.Collections.unmodifiableList(timeseries_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.timeseries_ = timeseries_;
       } else {
         result.timeseries_ = timeseriesBuilder_.build();
       }
-      if (resourceBuilder_ == null) {
-        result.resource_ = resource_;
-      } else {
-        result.resource_ = resourceBuilder_.build();
+    }
+
+    private void buildPartial0(io.opencensus.proto.metrics.v1.Metric result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.metricDescriptor_ = metricDescriptorBuilder_ == null
+            ? metricDescriptor_
+            : metricDescriptorBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.resource_ = resourceBuilder_ == null
+            ? resource_
+            : resourceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -627,7 +552,7 @@ private static final long serialVersionUID = 0L;
         if (!other.timeseries_.isEmpty()) {
           if (timeseries_.isEmpty()) {
             timeseries_ = other.timeseries_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureTimeseriesIsMutable();
             timeseries_.addAll(other.timeseries_);
@@ -640,7 +565,7 @@ private static final long serialVersionUID = 0L;
             timeseriesBuilder_.dispose();
             timeseriesBuilder_ = null;
             timeseries_ = other.timeseries_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             timeseriesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTimeseriesFieldBuilder() : null;
@@ -652,7 +577,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasResource()) {
         mergeResource(other.getResource());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -667,17 +592,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opencensus.proto.metrics.v1.Metric parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMetricDescriptorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.opencensus.proto.metrics.v1.TimeSeries m =
+                  input.readMessage(
+                      io.opencensus.proto.metrics.v1.TimeSeries.parser(),
+                      extensionRegistry);
+              if (timeseriesBuilder_ == null) {
+                ensureTimeseriesIsMutable();
+                timeseries_.add(m);
+              } else {
+                timeseriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opencensus.proto.metrics.v1.Metric) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -696,7 +661,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metricDescriptor field is set.
      */
     public boolean hasMetricDescriptor() {
-      return metricDescriptorBuilder_ != null || metricDescriptor_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -730,11 +695,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metricDescriptor_ = value;
-        onChanged();
       } else {
         metricDescriptorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -750,11 +715,11 @@ private static final long serialVersionUID = 0L;
         io.opencensus.proto.metrics.v1.MetricDescriptor.Builder builderForValue) {
       if (metricDescriptorBuilder_ == null) {
         metricDescriptor_ = builderForValue.build();
-        onChanged();
       } else {
         metricDescriptorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +733,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetricDescriptor(io.opencensus.proto.metrics.v1.MetricDescriptor value) {
       if (metricDescriptorBuilder_ == null) {
-        if (metricDescriptor_ != null) {
-          metricDescriptor_ =
-            io.opencensus.proto.metrics.v1.MetricDescriptor.newBuilder(metricDescriptor_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          metricDescriptor_ != null &&
+          metricDescriptor_ != io.opencensus.proto.metrics.v1.MetricDescriptor.getDefaultInstance()) {
+          getMetricDescriptorBuilder().mergeFrom(value);
         } else {
           metricDescriptor_ = value;
         }
-        onChanged();
       } else {
         metricDescriptorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -791,14 +757,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.metrics.v1.MetricDescriptor metric_descriptor = 1;</code>
      */
     public Builder clearMetricDescriptor() {
-      if (metricDescriptorBuilder_ == null) {
-        metricDescriptor_ = null;
-        onChanged();
-      } else {
-        metricDescriptor_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      metricDescriptor_ = null;
+      if (metricDescriptorBuilder_ != null) {
+        metricDescriptorBuilder_.dispose();
         metricDescriptorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -811,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.metrics.v1.MetricDescriptor metric_descriptor = 1;</code>
      */
     public io.opencensus.proto.metrics.v1.MetricDescriptor.Builder getMetricDescriptorBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMetricDescriptorFieldBuilder().getBuilder();
     }
@@ -858,9 +823,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.opencensus.proto.metrics.v1.TimeSeries> timeseries_ =
       java.util.Collections.emptyList();
     private void ensureTimeseriesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         timeseries_ = new java.util.ArrayList<io.opencensus.proto.metrics.v1.TimeSeries>(timeseries_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1065,7 +1030,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTimeseries() {
       if (timeseriesBuilder_ == null) {
         timeseries_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         timeseriesBuilder_.clear();
@@ -1177,7 +1142,7 @@ private static final long serialVersionUID = 0L;
         timeseriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.opencensus.proto.metrics.v1.TimeSeries, io.opencensus.proto.metrics.v1.TimeSeries.Builder, io.opencensus.proto.metrics.v1.TimeSeriesOrBuilder>(
                 timeseries_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         timeseries_ = null;
@@ -1198,7 +1163,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resource field is set.
      */
     public boolean hasResource() {
-      return resourceBuilder_ != null || resource_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1230,11 +1195,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resource_ = value;
-        onChanged();
       } else {
         resourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1249,11 +1214,11 @@ private static final long serialVersionUID = 0L;
         io.opencensus.proto.resource.v1.Resource.Builder builderForValue) {
       if (resourceBuilder_ == null) {
         resource_ = builderForValue.build();
-        onChanged();
       } else {
         resourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1266,17 +1231,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResource(io.opencensus.proto.resource.v1.Resource value) {
       if (resourceBuilder_ == null) {
-        if (resource_ != null) {
-          resource_ =
-            io.opencensus.proto.resource.v1.Resource.newBuilder(resource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          resource_ != null &&
+          resource_ != io.opencensus.proto.resource.v1.Resource.getDefaultInstance()) {
+          getResourceBuilder().mergeFrom(value);
         } else {
           resource_ = value;
         }
-        onChanged();
       } else {
         resourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1288,14 +1254,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.resource.v1.Resource resource = 3;</code>
      */
     public Builder clearResource() {
-      if (resourceBuilder_ == null) {
-        resource_ = null;
-        onChanged();
-      } else {
-        resource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      resource_ = null;
+      if (resourceBuilder_ != null) {
+        resourceBuilder_.dispose();
         resourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1307,7 +1272,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.resource.v1.Resource resource = 3;</code>
      */
     public io.opencensus.proto.resource.v1.Resource.Builder getResourceBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getResourceFieldBuilder().getBuilder();
     }
@@ -1381,7 +1346,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Metric(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

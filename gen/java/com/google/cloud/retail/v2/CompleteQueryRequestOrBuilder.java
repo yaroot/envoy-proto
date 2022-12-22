@@ -154,8 +154,9 @@ public interface CompleteQueryRequestOrBuilder extends
 
   /**
    * <pre>
-   * The device type context for completion suggestions.
-   * It is useful to apply different suggestions on different device types, e.g.
+   * The device type context for completion suggestions. We recommend that you
+   * leave this field empty.
+   * It can apply different suggestions on different device types, e.g.
    * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
    * types.
    * Supported formats:
@@ -171,8 +172,9 @@ public interface CompleteQueryRequestOrBuilder extends
   java.lang.String getDeviceType();
   /**
    * <pre>
-   * The device type context for completion suggestions.
-   * It is useful to apply different suggestions on different device types, e.g.
+   * The device type context for completion suggestions. We recommend that you
+   * leave this field empty.
+   * It can apply different suggestions on different device types, e.g.
    * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
    * types.
    * Supported formats:
@@ -229,7 +231,8 @@ public interface CompleteQueryRequestOrBuilder extends
   /**
    * <pre>
    * Completion max suggestions. If left unset or set to 0, then will fallback
-   * to the configured value [CompletionConfig.max_suggestions][].
+   * to the configured value
+   * [CompletionConfig.max_suggestions][google.cloud.retail.v2.CompletionConfig.max_suggestions].
    * The maximum allowed max suggestions is 20. If it is set higher, it will be
    * capped by 20.
    * </pre>

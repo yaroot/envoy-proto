@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PurchasableOffer(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.channel.v1.Offer.Builder subBuilder = null;
-            if (offer_ != null) {
-              subBuilder = offer_.toBuilder();
-            }
-            offer_ = input.readMessage(com.google.cloud.channel.v1.Offer.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(offer_);
-              offer_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.ServiceProto.internal_static_google_cloud_channel_v1_PurchasableOffer_descriptor;
@@ -135,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.OfferOrBuilder getOfferOrBuilder() {
-    return getOffer();
+    return offer_ == null ? com.google.cloud.channel.v1.Offer.getDefaultInstance() : offer_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -155,7 +103,7 @@ private static final long serialVersionUID = 0L;
     if (offer_ != null) {
       output.writeMessage(1, getOffer());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -168,7 +116,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getOffer());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -188,7 +136,7 @@ private static final long serialVersionUID = 0L;
       if (!getOffer()
           .equals(other.getOffer())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -203,7 +151,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OFFER_FIELD_NUMBER;
       hash = (53 * hash) + getOffer().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -325,26 +273,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.PurchasableOffer.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (offerBuilder_ == null) {
-        offer_ = null;
-      } else {
-        offer_ = null;
+      bitField0_ = 0;
+      offer_ = null;
+      if (offerBuilder_ != null) {
+        offerBuilder_.dispose();
         offerBuilder_ = null;
       }
       return this;
@@ -373,13 +316,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.PurchasableOffer buildPartial() {
       com.google.cloud.channel.v1.PurchasableOffer result = new com.google.cloud.channel.v1.PurchasableOffer(this);
-      if (offerBuilder_ == null) {
-        result.offer_ = offer_;
-      } else {
-        result.offer_ = offerBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.PurchasableOffer result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.offer_ = offerBuilder_ == null
+            ? offer_
+            : offerBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -429,7 +377,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasOffer()) {
         mergeOffer(other.getOffer());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -444,19 +392,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.PurchasableOffer parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getOfferFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.PurchasableOffer) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.channel.v1.Offer offer_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -470,7 +439,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the offer field is set.
      */
     public boolean hasOffer() {
-      return offerBuilder_ != null || offer_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -500,11 +469,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         offer_ = value;
-        onChanged();
       } else {
         offerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -518,11 +487,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.Offer.Builder builderForValue) {
       if (offerBuilder_ == null) {
         offer_ = builderForValue.build();
-        onChanged();
       } else {
         offerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -534,17 +503,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOffer(com.google.cloud.channel.v1.Offer value) {
       if (offerBuilder_ == null) {
-        if (offer_ != null) {
-          offer_ =
-            com.google.cloud.channel.v1.Offer.newBuilder(offer_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          offer_ != null &&
+          offer_ != com.google.cloud.channel.v1.Offer.getDefaultInstance()) {
+          getOfferBuilder().mergeFrom(value);
         } else {
           offer_ = value;
         }
-        onChanged();
       } else {
         offerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -555,14 +525,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Offer offer = 1;</code>
      */
     public Builder clearOffer() {
-      if (offerBuilder_ == null) {
-        offer_ = null;
-        onChanged();
-      } else {
-        offer_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      offer_ = null;
+      if (offerBuilder_ != null) {
+        offerBuilder_.dispose();
         offerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -573,7 +542,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Offer offer = 1;</code>
      */
     public com.google.cloud.channel.v1.Offer.Builder getOfferBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getOfferFieldBuilder().getBuilder();
     }
@@ -645,7 +614,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PurchasableOffer(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

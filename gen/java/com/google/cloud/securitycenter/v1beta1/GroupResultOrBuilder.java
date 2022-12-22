@@ -46,7 +46,6 @@ public interface GroupResultOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; properties = 1;</code>
    */
-
   /* nullable */
 com.google.protobuf.Value getPropertiesOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; properties = 1;</code>
    */
-
   com.google.protobuf.Value getPropertiesOrThrow(
       java.lang.String key);
 

@@ -42,106 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OnPremisesConfiguration(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            hostPort_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kind_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            username_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            password_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            caCertificate_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clientCertificate_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clientKey_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dumpFilePath_ = s;
-            break;
-          }
-          case 122: {
-            com.google.cloud.sql.v1.InstanceReference.Builder subBuilder = null;
-            if (sourceInstance_ != null) {
-              subBuilder = sourceInstance_.toBuilder();
-            }
-            sourceInstance_ = input.readMessage(com.google.cloud.sql.v1.InstanceReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sourceInstance_);
-              sourceInstance_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1.CloudSqlServiceProto.internal_static_google_cloud_sql_v1_OnPremisesConfiguration_descriptor;
@@ -156,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOST_PORT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object hostPort_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hostPort_ = "";
   /**
    * <pre>
    * The host and port of the on-premises instance in host:port format
@@ -202,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 2;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * This is always **sql#onPremisesConfiguration**.
@@ -248,7 +150,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USERNAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object username_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object username_ = "";
   /**
    * <pre>
    * The username for connecting to on-premises instance.
@@ -294,7 +197,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PASSWORD_FIELD_NUMBER = 4;
-  private volatile java.lang.Object password_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object password_ = "";
   /**
    * <pre>
    * The password for connecting to on-premises instance.
@@ -340,7 +244,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CA_CERTIFICATE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object caCertificate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object caCertificate_ = "";
   /**
    * <pre>
    * PEM representation of the trusted CA's x509 certificate.
@@ -386,7 +291,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_CERTIFICATE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object clientCertificate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clientCertificate_ = "";
   /**
    * <pre>
    * PEM representation of the replica's x509 certificate.
@@ -432,7 +338,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_KEY_FIELD_NUMBER = 7;
-  private volatile java.lang.Object clientKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clientKey_ = "";
   /**
    * <pre>
    * PEM representation of the replica's private key. The corresponsing public
@@ -480,7 +387,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DUMP_FILE_PATH_FIELD_NUMBER = 8;
-  private volatile java.lang.Object dumpFilePath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dumpFilePath_ = "";
   /**
    * <pre>
    * The dump file to create the Cloud SQL replica.
@@ -560,7 +468,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.sql.v1.InstanceReferenceOrBuilder getSourceInstanceOrBuilder() {
-    return getSourceInstance();
+    return sourceInstance_ == null ? com.google.cloud.sql.v1.InstanceReference.getDefaultInstance() : sourceInstance_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -604,7 +512,7 @@ private static final long serialVersionUID = 0L;
     if (sourceInstance_ != null) {
       output.writeMessage(15, getSourceInstance());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -641,7 +549,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getSourceInstance());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -677,7 +585,7 @@ private static final long serialVersionUID = 0L;
       if (!getSourceInstance()
           .equals(other.getSourceInstance())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -708,7 +616,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOURCE_INSTANCE_FIELD_NUMBER;
       hash = (53 * hash) + getSourceInstance().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -829,42 +737,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1.OnPremisesConfiguration.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       hostPort_ = "";
-
       kind_ = "";
-
       username_ = "";
-
       password_ = "";
-
       caCertificate_ = "";
-
       clientCertificate_ = "";
-
       clientKey_ = "";
-
       dumpFilePath_ = "";
-
-      if (sourceInstanceBuilder_ == null) {
-        sourceInstance_ = null;
-      } else {
-        sourceInstance_ = null;
+      sourceInstance_ = null;
+      if (sourceInstanceBuilder_ != null) {
+        sourceInstanceBuilder_.dispose();
         sourceInstanceBuilder_ = null;
       }
       return this;
@@ -893,21 +788,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1.OnPremisesConfiguration buildPartial() {
       com.google.cloud.sql.v1.OnPremisesConfiguration result = new com.google.cloud.sql.v1.OnPremisesConfiguration(this);
-      result.hostPort_ = hostPort_;
-      result.kind_ = kind_;
-      result.username_ = username_;
-      result.password_ = password_;
-      result.caCertificate_ = caCertificate_;
-      result.clientCertificate_ = clientCertificate_;
-      result.clientKey_ = clientKey_;
-      result.dumpFilePath_ = dumpFilePath_;
-      if (sourceInstanceBuilder_ == null) {
-        result.sourceInstance_ = sourceInstance_;
-      } else {
-        result.sourceInstance_ = sourceInstanceBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1.OnPremisesConfiguration result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.hostPort_ = hostPort_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.kind_ = kind_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.username_ = username_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.password_ = password_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.caCertificate_ = caCertificate_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.clientCertificate_ = clientCertificate_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.clientKey_ = clientKey_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.dumpFilePath_ = dumpFilePath_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.sourceInstance_ = sourceInstanceBuilder_ == null
+            ? sourceInstance_
+            : sourceInstanceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -956,40 +872,48 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.sql.v1.OnPremisesConfiguration.getDefaultInstance()) return this;
       if (!other.getHostPort().isEmpty()) {
         hostPort_ = other.hostPort_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getKind().isEmpty()) {
         kind_ = other.kind_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getUsername().isEmpty()) {
         username_ = other.username_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPassword().isEmpty()) {
         password_ = other.password_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getCaCertificate().isEmpty()) {
         caCertificate_ = other.caCertificate_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getClientCertificate().isEmpty()) {
         clientCertificate_ = other.clientCertificate_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getClientKey().isEmpty()) {
         clientKey_ = other.clientKey_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getDumpFilePath().isEmpty()) {
         dumpFilePath_ = other.dumpFilePath_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasSourceInstance()) {
         mergeSourceInstance(other.getSourceInstance());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1004,19 +928,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1.OnPremisesConfiguration parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              hostPort_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              username_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              password_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              caCertificate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              clientCertificate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              clientKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              dumpFilePath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 122: {
+              input.readMessage(
+                  getSourceInstanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1.OnPremisesConfiguration) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object hostPort_ = "";
     /**
@@ -1071,11 +1056,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostPort(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hostPort_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1088,8 +1071,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHostPort() {
-      
       hostPort_ = getDefaultInstance().getHostPort();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1104,12 +1087,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostPortBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hostPort_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1167,11 +1148,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1184,8 +1163,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1200,12 +1179,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1263,11 +1240,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsername(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       username_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1280,8 +1255,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsername() {
-      
       username_ = getDefaultInstance().getUsername();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1296,12 +1271,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsernameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       username_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1359,11 +1332,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPassword(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       password_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1376,8 +1347,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPassword() {
-      
       password_ = getDefaultInstance().getPassword();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1392,12 +1363,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPasswordBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       password_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1455,11 +1424,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCaCertificate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       caCertificate_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1472,8 +1439,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCaCertificate() {
-      
       caCertificate_ = getDefaultInstance().getCaCertificate();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1488,12 +1455,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCaCertificateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       caCertificate_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1551,11 +1516,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientCertificate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientCertificate_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1568,8 +1531,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientCertificate() {
-      
       clientCertificate_ = getDefaultInstance().getClientCertificate();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1584,12 +1547,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientCertificateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clientCertificate_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1650,11 +1611,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientKey_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1668,8 +1627,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientKey() {
-      
       clientKey_ = getDefaultInstance().getClientKey();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1685,12 +1644,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clientKey_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1748,11 +1705,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDumpFilePath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dumpFilePath_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1765,8 +1720,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDumpFilePath() {
-      
       dumpFilePath_ = getDefaultInstance().getDumpFilePath();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1781,12 +1736,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDumpFilePathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dumpFilePath_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1803,7 +1756,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sourceInstance field is set.
      */
     public boolean hasSourceInstance() {
-      return sourceInstanceBuilder_ != null || sourceInstance_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -1833,11 +1786,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sourceInstance_ = value;
-        onChanged();
       } else {
         sourceInstanceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1851,11 +1804,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.sql.v1.InstanceReference.Builder builderForValue) {
       if (sourceInstanceBuilder_ == null) {
         sourceInstance_ = builderForValue.build();
-        onChanged();
       } else {
         sourceInstanceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1867,17 +1820,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSourceInstance(com.google.cloud.sql.v1.InstanceReference value) {
       if (sourceInstanceBuilder_ == null) {
-        if (sourceInstance_ != null) {
-          sourceInstance_ =
-            com.google.cloud.sql.v1.InstanceReference.newBuilder(sourceInstance_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          sourceInstance_ != null &&
+          sourceInstance_ != com.google.cloud.sql.v1.InstanceReference.getDefaultInstance()) {
+          getSourceInstanceBuilder().mergeFrom(value);
         } else {
           sourceInstance_ = value;
         }
-        onChanged();
       } else {
         sourceInstanceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1888,14 +1842,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.InstanceReference source_instance = 15;</code>
      */
     public Builder clearSourceInstance() {
-      if (sourceInstanceBuilder_ == null) {
-        sourceInstance_ = null;
-        onChanged();
-      } else {
-        sourceInstance_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      sourceInstance_ = null;
+      if (sourceInstanceBuilder_ != null) {
+        sourceInstanceBuilder_.dispose();
         sourceInstanceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1906,7 +1859,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.InstanceReference source_instance = 15;</code>
      */
     public com.google.cloud.sql.v1.InstanceReference.Builder getSourceInstanceBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getSourceInstanceFieldBuilder().getBuilder();
     }
@@ -1978,7 +1931,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OnPremisesConfiguration(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

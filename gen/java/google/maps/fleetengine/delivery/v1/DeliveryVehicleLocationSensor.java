@@ -60,6 +60,14 @@ public enum DeliveryVehicleLocationSensor
    * <code>FUSED_LOCATION_PROVIDER = 100;</code>
    */
   FUSED_LOCATION_PROVIDER(100),
+  /**
+   * <pre>
+   * The location provider on Apple operating systems.
+   * </pre>
+   *
+   * <code>CORE_LOCATION = 200;</code>
+   */
+  CORE_LOCATION(200),
   UNRECOGNIZED(-1),
   ;
 
@@ -111,6 +119,14 @@ public enum DeliveryVehicleLocationSensor
    * <code>FUSED_LOCATION_PROVIDER = 100;</code>
    */
   public static final int FUSED_LOCATION_PROVIDER_VALUE = 100;
+  /**
+   * <pre>
+   * The location provider on Apple operating systems.
+   * </pre>
+   *
+   * <code>CORE_LOCATION = 200;</code>
+   */
+  public static final int CORE_LOCATION_VALUE = 200;
 
 
   public final int getNumber() {
@@ -143,6 +159,7 @@ public enum DeliveryVehicleLocationSensor
       case 3: return PASSIVE;
       case 4: return ROAD_SNAPPED_LOCATION_PROVIDER;
       case 100: return FUSED_LOCATION_PROVIDER;
+      case 200: return CORE_LOCATION;
       default: return null;
     }
   }

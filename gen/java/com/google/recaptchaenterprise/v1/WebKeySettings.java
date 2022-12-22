@@ -37,80 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WebKeySettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              allowedDomains_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            allowedDomains_.add(s);
-            break;
-          }
-          case 16: {
-
-            allowAmpTraffic_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            allowAllDomains_ = input.readBool();
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            integrationType_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            challengeSecurityPreference_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        allowedDomains_ = allowedDomains_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.recaptchaenterprise.v1.RecaptchaEnterpriseProto.internal_static_google_cloud_recaptchaenterprise_v1_WebKeySettings_descriptor;
@@ -460,7 +386,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_ALL_DOMAINS_FIELD_NUMBER = 3;
-  private boolean allowAllDomains_;
+  private boolean allowAllDomains_ = false;
   /**
    * <pre>
    * If set to true, it means allowed_domains will not be enforced.
@@ -475,6 +401,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOWED_DOMAINS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList allowedDomains_;
   /**
    * <pre>
@@ -538,7 +465,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_AMP_TRAFFIC_FIELD_NUMBER = 2;
-  private boolean allowAmpTraffic_;
+  private boolean allowAmpTraffic_ = false;
   /**
    * <pre>
    * If set to true, the key can be used on AMP (Accelerated Mobile Pages)
@@ -554,7 +481,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTEGRATION_TYPE_FIELD_NUMBER = 4;
-  private int integrationType_;
+  private int integrationType_ = 0;
   /**
    * <pre>
    * Required. Describes how this key is integrated with the website.
@@ -575,13 +502,12 @@ private static final long serialVersionUID = 0L;
    * @return The integrationType.
    */
   @java.lang.Override public com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType getIntegrationType() {
-    @SuppressWarnings("deprecation")
-    com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType result = com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType.valueOf(integrationType_);
+    com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType result = com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType.forNumber(integrationType_);
     return result == null ? com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType.UNRECOGNIZED : result;
   }
 
   public static final int CHALLENGE_SECURITY_PREFERENCE_FIELD_NUMBER = 5;
-  private int challengeSecurityPreference_;
+  private int challengeSecurityPreference_ = 0;
   /**
    * <pre>
    * Settings for the frequency and difficulty at which this key triggers
@@ -606,8 +532,7 @@ private static final long serialVersionUID = 0L;
    * @return The challengeSecurityPreference.
    */
   @java.lang.Override public com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference getChallengeSecurityPreference() {
-    @SuppressWarnings("deprecation")
-    com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference result = com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference.valueOf(challengeSecurityPreference_);
+    com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference result = com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference.forNumber(challengeSecurityPreference_);
     return result == null ? com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference.UNRECOGNIZED : result;
   }
 
@@ -640,7 +565,7 @@ private static final long serialVersionUID = 0L;
     if (challengeSecurityPreference_ != com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference.CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED.getNumber()) {
       output.writeEnum(5, challengeSecurityPreference_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -673,7 +598,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, challengeSecurityPreference_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -696,7 +621,7 @@ private static final long serialVersionUID = 0L;
         != other.getAllowAmpTraffic()) return false;
     if (integrationType_ != other.integrationType_) return false;
     if (challengeSecurityPreference_ != other.challengeSecurityPreference_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -721,7 +646,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + integrationType_;
     hash = (37 * hash) + CHALLENGE_SECURITY_PREFERENCE_FIELD_NUMBER;
     hash = (53 * hash) + challengeSecurityPreference_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -842,32 +767,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1.WebKeySettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       allowAllDomains_ = false;
-
       allowedDomains_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       allowAmpTraffic_ = false;
-
       integrationType_ = 0;
-
       challengeSecurityPreference_ = 0;
-
       return this;
     }
 
@@ -894,18 +811,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.WebKeySettings buildPartial() {
       com.google.recaptchaenterprise.v1.WebKeySettings result = new com.google.recaptchaenterprise.v1.WebKeySettings(this);
-      int from_bitField0_ = bitField0_;
-      result.allowAllDomains_ = allowAllDomains_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        allowedDomains_ = allowedDomains_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.allowedDomains_ = allowedDomains_;
-      result.allowAmpTraffic_ = allowAmpTraffic_;
-      result.integrationType_ = integrationType_;
-      result.challengeSecurityPreference_ = challengeSecurityPreference_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.recaptchaenterprise.v1.WebKeySettings result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        allowedDomains_ = allowedDomains_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.allowedDomains_ = allowedDomains_;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1.WebKeySettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.allowAllDomains_ = allowAllDomains_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.allowAmpTraffic_ = allowAmpTraffic_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.integrationType_ = integrationType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.challengeSecurityPreference_ = challengeSecurityPreference_;
+      }
     }
 
     @java.lang.Override
@@ -958,7 +891,7 @@ private static final long serialVersionUID = 0L;
       if (!other.allowedDomains_.isEmpty()) {
         if (allowedDomains_.isEmpty()) {
           allowedDomains_ = other.allowedDomains_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureAllowedDomainsIsMutable();
           allowedDomains_.addAll(other.allowedDomains_);
@@ -974,7 +907,7 @@ private static final long serialVersionUID = 0L;
       if (other.challengeSecurityPreference_ != 0) {
         setChallengeSecurityPreferenceValue(other.getChallengeSecurityPreferenceValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -989,17 +922,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1.WebKeySettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAllowedDomainsIsMutable();
+              allowedDomains_.add(s);
+              break;
+            } // case 10
+            case 16: {
+              allowAmpTraffic_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 16
+            case 24: {
+              allowAllDomains_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 24
+            case 32: {
+              integrationType_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              challengeSecurityPreference_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1.WebKeySettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1029,6 +1001,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowAllDomains(boolean value) {
       
       allowAllDomains_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1041,7 +1014,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowAllDomains() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       allowAllDomains_ = false;
       onChanged();
       return this;
@@ -1049,9 +1022,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList allowedDomains_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAllowedDomainsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         allowedDomains_ = new com.google.protobuf.LazyStringArrayList(allowedDomains_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -1129,10 +1102,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAllowedDomains(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedDomainsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAllowedDomainsIsMutable();
       allowedDomains_.set(index, value);
       onChanged();
       return this;
@@ -1151,10 +1122,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAllowedDomains(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedDomainsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAllowedDomainsIsMutable();
       allowedDomains_.add(value);
       onChanged();
       return this;
@@ -1192,7 +1161,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAllowedDomains() {
       allowedDomains_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1210,10 +1179,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAllowedDomainsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAllowedDomainsIsMutable();
       allowedDomains_.add(value);
       onChanged();
@@ -1247,6 +1214,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowAmpTraffic(boolean value) {
       
       allowAmpTraffic_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1260,7 +1228,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowAmpTraffic() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       allowAmpTraffic_ = false;
       onChanged();
       return this;
@@ -1288,8 +1256,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIntegrationTypeValue(int value) {
-      
       integrationType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1303,8 +1271,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType getIntegrationType() {
-      @SuppressWarnings("deprecation")
-      com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType result = com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType.valueOf(integrationType_);
+      com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType result = com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType.forNumber(integrationType_);
       return result == null ? com.google.recaptchaenterprise.v1.WebKeySettings.IntegrationType.UNRECOGNIZED : result;
     }
     /**
@@ -1320,7 +1287,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       integrationType_ = value.getNumber();
       onChanged();
       return this;
@@ -1334,7 +1301,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIntegrationType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       integrationType_ = 0;
       onChanged();
       return this;
@@ -1366,8 +1333,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setChallengeSecurityPreferenceValue(int value) {
-      
       challengeSecurityPreference_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1383,8 +1350,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference getChallengeSecurityPreference() {
-      @SuppressWarnings("deprecation")
-      com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference result = com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference.valueOf(challengeSecurityPreference_);
+      com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference result = com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference.forNumber(challengeSecurityPreference_);
       return result == null ? com.google.recaptchaenterprise.v1.WebKeySettings.ChallengeSecurityPreference.UNRECOGNIZED : result;
     }
     /**
@@ -1402,7 +1368,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       challengeSecurityPreference_ = value.getNumber();
       onChanged();
       return this;
@@ -1418,7 +1384,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearChallengeSecurityPreference() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       challengeSecurityPreference_ = 0;
       onChanged();
       return this;
@@ -1456,7 +1422,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WebKeySettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

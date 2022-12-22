@@ -9,8 +9,9 @@ public interface CreateCustomerRepricingConfigRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The resource name of the customer that will receive this repricing config.
-   * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+   * Required. The resource name of the customer that will receive this
+   * repricing config. Parent uses the format:
+   * accounts/{account_id}/customers/{customer_id}
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -19,8 +20,9 @@ public interface CreateCustomerRepricingConfigRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The resource name of the customer that will receive this repricing config.
-   * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+   * Required. The resource name of the customer that will receive this
+   * repricing config. Parent uses the format:
+   * accounts/{account_id}/customers/{customer_id}
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

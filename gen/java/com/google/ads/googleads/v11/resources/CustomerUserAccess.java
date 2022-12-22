@@ -39,81 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CustomerUserAccess(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 16: {
-
-            userId_ = input.readInt64();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            emailAddress_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            accessRole_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            accessCreationDateTime_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            inviterUserEmailAddress_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.resources.CustomerUserAccessProto.internal_static_google_ads_googleads_v11_resources_CustomerUserAccess_descriptor;
@@ -129,7 +54,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Immutable. Name of the resource.
@@ -179,7 +105,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 2;
-  private long userId_;
+  private long userId_ = 0L;
   /**
    * <pre>
    * Output only. User id of the user with the customer access.
@@ -195,7 +121,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMAIL_ADDRESS_FIELD_NUMBER = 3;
-  private volatile java.lang.Object emailAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object emailAddress_ = "";
   /**
    * <pre>
    * Output only. Email address of the user.
@@ -256,7 +183,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCESS_ROLE_FIELD_NUMBER = 4;
-  private int accessRole_;
+  private int accessRole_ = 0;
   /**
    * <pre>
    * Access role of the user.
@@ -277,13 +204,13 @@ private static final long serialVersionUID = 0L;
    * @return The accessRole.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole getAccessRole() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole result = com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.valueOf(accessRole_);
+    com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole result = com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.forNumber(accessRole_);
     return result == null ? com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.UNRECOGNIZED : result;
   }
 
   public static final int ACCESS_CREATION_DATE_TIME_FIELD_NUMBER = 6;
-  private volatile java.lang.Object accessCreationDateTime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object accessCreationDateTime_ = "";
   /**
    * <pre>
    * Output only. The customer user access creation time.
@@ -350,7 +277,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INVITER_USER_EMAIL_ADDRESS_FIELD_NUMBER = 7;
-  private volatile java.lang.Object inviterUserEmailAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inviterUserEmailAddress_ = "";
   /**
    * <pre>
    * Output only. The email address of the inviter user.
@@ -442,7 +370,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, inviterUserEmailAddress_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -471,7 +399,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, inviterUserEmailAddress_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -506,7 +434,7 @@ private static final long serialVersionUID = 0L;
       if (!getInviterUserEmailAddress()
           .equals(other.getInviterUserEmailAddress())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -536,7 +464,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INVITER_USER_EMAIL_ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getInviterUserEmailAddress().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -657,34 +585,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.resources.CustomerUserAccess.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       userId_ = 0L;
-
       emailAddress_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       accessRole_ = 0;
-
       accessCreationDateTime_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       inviterUserEmailAddress_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -711,26 +629,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.resources.CustomerUserAccess buildPartial() {
       com.google.ads.googleads.v11.resources.CustomerUserAccess result = new com.google.ads.googleads.v11.resources.CustomerUserAccess(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
-      result.userId_ = userId_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.emailAddress_ = emailAddress_;
-      result.accessRole_ = accessRole_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.accessCreationDateTime_ = accessCreationDateTime_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.inviterUserEmailAddress_ = inviterUserEmailAddress_;
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.resources.CustomerUserAccess result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.userId_ = userId_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.emailAddress_ = emailAddress_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.accessRole_ = accessRole_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.accessCreationDateTime_ = accessCreationDateTime_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.inviterUserEmailAddress_ = inviterUserEmailAddress_;
+        to_bitField0_ |= 0x00000004;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -779,30 +707,31 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.resources.CustomerUserAccess.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
       }
       if (other.hasEmailAddress()) {
-        bitField0_ |= 0x00000001;
         emailAddress_ = other.emailAddress_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.accessRole_ != 0) {
         setAccessRoleValue(other.getAccessRoleValue());
       }
       if (other.hasAccessCreationDateTime()) {
-        bitField0_ |= 0x00000002;
         accessCreationDateTime_ = other.accessCreationDateTime_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasInviterUserEmailAddress()) {
-        bitField0_ |= 0x00000004;
         inviterUserEmailAddress_ = other.inviterUserEmailAddress_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -817,17 +746,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.resources.CustomerUserAccess parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              userId_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              emailAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              accessRole_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 50: {
+              accessCreationDateTime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 58: {
+              inviterUserEmailAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.resources.CustomerUserAccess) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -891,11 +863,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -910,8 +880,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -928,12 +898,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -965,6 +933,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUserId(long value) {
       
       userId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -978,7 +947,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       userId_ = 0L;
       onChanged();
       return this;
@@ -995,7 +964,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the emailAddress field is set.
      */
     public boolean hasEmailAddress() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1052,11 +1021,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEmailAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       emailAddress_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1070,8 +1037,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEmailAddress() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       emailAddress_ = getDefaultInstance().getEmailAddress();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1087,12 +1054,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEmailAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       emailAddress_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1119,8 +1084,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAccessRoleValue(int value) {
-      
       accessRole_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1134,8 +1099,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole getAccessRole() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole result = com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.valueOf(accessRole_);
+      com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole result = com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.forNumber(accessRole_);
       return result == null ? com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.UNRECOGNIZED : result;
     }
     /**
@@ -1151,7 +1115,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       accessRole_ = value.getNumber();
       onChanged();
       return this;
@@ -1165,7 +1129,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAccessRole() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       accessRole_ = 0;
       onChanged();
       return this;
@@ -1184,7 +1148,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accessCreationDateTime field is set.
      */
     public boolean hasAccessCreationDateTime() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1247,11 +1211,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAccessCreationDateTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       accessCreationDateTime_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1267,8 +1229,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAccessCreationDateTime() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       accessCreationDateTime_ = getDefaultInstance().getAccessCreationDateTime();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1286,12 +1248,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAccessCreationDateTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       accessCreationDateTime_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1307,7 +1267,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inviterUserEmailAddress field is set.
      */
     public boolean hasInviterUserEmailAddress() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1364,11 +1324,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInviterUserEmailAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       inviterUserEmailAddress_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1382,8 +1340,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInviterUserEmailAddress() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       inviterUserEmailAddress_ = getDefaultInstance().getInviterUserEmailAddress();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1399,12 +1357,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInviterUserEmailAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inviterUserEmailAddress_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1441,7 +1397,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CustomerUserAccess(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

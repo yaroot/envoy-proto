@@ -36,88 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CustomerLicense(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kind_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            state_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            applicationId_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              editions_ = new java.util.ArrayList<com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            editions_.add(
-                input.readMessage(com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions.parser(), extensionRegistry));
-            break;
-          }
-          case 810: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 818: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customerId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        editions_ = java.util.Collections.unmodifiableList(editions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ccc.hosted.marketplace.v2.ResourcesProto.internal_static_ccc_hosted_marketplace_v2_CustomerLicense_descriptor;
@@ -142,7 +60,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string edition_id = 405 [deprecated = true];</code>
      * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.edition_id is deprecated.
-     *     See google/apps/market/v2/resources.proto;l=29
+     *     See google/apps/market/v2/resources.proto;l=28
      * @return The editionId.
      */
     @java.lang.Deprecated java.lang.String getEditionId();
@@ -153,7 +71,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string edition_id = 405 [deprecated = true];</code>
      * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.edition_id is deprecated.
-     *     See google/apps/market/v2/resources.proto;l=29
+     *     See google/apps/market/v2/resources.proto;l=28
      * @return The bytes for editionId.
      */
     @java.lang.Deprecated com.google.protobuf.ByteString
@@ -166,7 +84,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 seat_count = 406 [deprecated = true];</code>
      * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.seat_count is deprecated.
-     *     See google/apps/market/v2/resources.proto;l=32
+     *     See google/apps/market/v2/resources.proto;l=31
      * @return The seatCount.
      */
     @java.lang.Deprecated int getSeatCount();
@@ -178,7 +96,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 assigned_seats = 409 [deprecated = true];</code>
      * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.assigned_seats is deprecated.
-     *     See google/apps/market/v2/resources.proto;l=35
+     *     See google/apps/market/v2/resources.proto;l=34
      * @return The assignedSeats.
      */
     @java.lang.Deprecated int getAssignedSeats();
@@ -211,61 +129,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Editions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 3242: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              editionId_ = s;
-              break;
-            }
-            case 3248: {
-
-              seatCount_ = input.readInt32();
-              break;
-            }
-            case 3272: {
-
-              assignedSeats_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ccc.hosted.marketplace.v2.ResourcesProto.internal_static_ccc_hosted_marketplace_v2_CustomerLicense_Editions_descriptor;
@@ -280,7 +143,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int EDITION_ID_FIELD_NUMBER = 405;
-    private volatile java.lang.Object editionId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object editionId_ = "";
     /**
      * <pre>
      * (Deprecated)
@@ -288,7 +152,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string edition_id = 405 [deprecated = true];</code>
      * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.edition_id is deprecated.
-     *     See google/apps/market/v2/resources.proto;l=29
+     *     See google/apps/market/v2/resources.proto;l=28
      * @return The editionId.
      */
     @java.lang.Override
@@ -311,7 +175,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string edition_id = 405 [deprecated = true];</code>
      * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.edition_id is deprecated.
-     *     See google/apps/market/v2/resources.proto;l=29
+     *     See google/apps/market/v2/resources.proto;l=28
      * @return The bytes for editionId.
      */
     @java.lang.Override
@@ -330,7 +194,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SEAT_COUNT_FIELD_NUMBER = 406;
-    private int seatCount_;
+    private int seatCount_ = 0;
     /**
      * <pre>
      * (Deprecated)
@@ -338,7 +202,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 seat_count = 406 [deprecated = true];</code>
      * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.seat_count is deprecated.
-     *     See google/apps/market/v2/resources.proto;l=32
+     *     See google/apps/market/v2/resources.proto;l=31
      * @return The seatCount.
      */
     @java.lang.Override
@@ -347,7 +211,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ASSIGNED_SEATS_FIELD_NUMBER = 409;
-    private int assignedSeats_;
+    private int assignedSeats_ = 0;
     /**
      * <pre>
      * (Deprecated)
@@ -355,7 +219,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 assigned_seats = 409 [deprecated = true];</code>
      * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.assigned_seats is deprecated.
-     *     See google/apps/market/v2/resources.proto;l=35
+     *     See google/apps/market/v2/resources.proto;l=34
      * @return The assignedSeats.
      */
     @java.lang.Override
@@ -386,7 +250,7 @@ private static final long serialVersionUID = 0L;
       if (assignedSeats_ != 0) {
         output.writeInt32(409, assignedSeats_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -406,7 +270,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(409, assignedSeats_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -427,7 +291,7 @@ private static final long serialVersionUID = 0L;
           != other.getSeatCount()) return false;
       if (getAssignedSeats()
           != other.getAssignedSeats()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -444,7 +308,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getSeatCount();
       hash = (37 * hash) + ASSIGNED_SEATS_FIELD_NUMBER;
       hash = (53 * hash) + getAssignedSeats();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -561,28 +425,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         editionId_ = "";
-
         seatCount_ = 0;
-
         assignedSeats_ = 0;
-
         return this;
       }
 
@@ -609,11 +466,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions buildPartial() {
         com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions result = new com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions(this);
-        result.editionId_ = editionId_;
-        result.seatCount_ = seatCount_;
-        result.assignedSeats_ = assignedSeats_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.editionId_ = editionId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.seatCount_ = seatCount_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.assignedSeats_ = assignedSeats_;
+        }
       }
 
       @java.lang.Override
@@ -662,6 +530,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions.getDefaultInstance()) return this;
         if (!other.getEditionId().isEmpty()) {
           editionId_ = other.editionId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getSeatCount() != 0) {
@@ -670,7 +539,7 @@ private static final long serialVersionUID = 0L;
         if (other.getAssignedSeats() != 0) {
           setAssignedSeats(other.getAssignedSeats());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -685,19 +554,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 3242: {
+                editionId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 3242
+              case 3248: {
+                seatCount_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 3248
+              case 3272: {
+                assignedSeats_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 3272
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object editionId_ = "";
       /**
@@ -707,7 +605,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string edition_id = 405 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.edition_id is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=29
+       *     See google/apps/market/v2/resources.proto;l=28
        * @return The editionId.
        */
       @java.lang.Deprecated public java.lang.String getEditionId() {
@@ -729,7 +627,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string edition_id = 405 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.edition_id is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=29
+       *     See google/apps/market/v2/resources.proto;l=28
        * @return The bytes for editionId.
        */
       @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -752,17 +650,15 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string edition_id = 405 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.edition_id is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=29
+       *     See google/apps/market/v2/resources.proto;l=28
        * @param value The editionId to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setEditionId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         editionId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -773,12 +669,12 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string edition_id = 405 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.edition_id is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=29
+       *     See google/apps/market/v2/resources.proto;l=28
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearEditionId() {
-        
         editionId_ = getDefaultInstance().getEditionId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -789,18 +685,16 @@ private static final long serialVersionUID = 0L;
        *
        * <code>string edition_id = 405 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.edition_id is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=29
+       *     See google/apps/market/v2/resources.proto;l=28
        * @param value The bytes for editionId to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setEditionIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         editionId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -813,7 +707,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 seat_count = 406 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.seat_count is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=32
+       *     See google/apps/market/v2/resources.proto;l=31
        * @return The seatCount.
        */
       @java.lang.Override
@@ -827,13 +721,14 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 seat_count = 406 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.seat_count is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=32
+       *     See google/apps/market/v2/resources.proto;l=31
        * @param value The seatCount to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setSeatCount(int value) {
         
         seatCount_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -844,11 +739,11 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 seat_count = 406 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.seat_count is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=32
+       *     See google/apps/market/v2/resources.proto;l=31
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearSeatCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         seatCount_ = 0;
         onChanged();
         return this;
@@ -862,7 +757,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 assigned_seats = 409 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.assigned_seats is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=35
+       *     See google/apps/market/v2/resources.proto;l=34
        * @return The assignedSeats.
        */
       @java.lang.Override
@@ -876,13 +771,14 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 assigned_seats = 409 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.assigned_seats is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=35
+       *     See google/apps/market/v2/resources.proto;l=34
        * @param value The assignedSeats to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setAssignedSeats(int value) {
         
         assignedSeats_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -893,11 +789,11 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 assigned_seats = 409 [deprecated = true];</code>
        * @deprecated ccc.hosted.marketplace.v2.CustomerLicense.Editions.assigned_seats is deprecated.
-       *     See google/apps/market/v2/resources.proto;l=35
+       *     See google/apps/market/v2/resources.proto;l=34
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearAssignedSeats() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         assignedSeats_ = 0;
         onChanged();
         return this;
@@ -935,7 +831,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Editions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -956,7 +863,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 1;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * The type of API resource. This is always appsmarket#customerLicense.
@@ -1002,7 +910,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object state_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object state_ = "";
   /**
    * <pre>
    * The customer's license status. One of:
@@ -1054,7 +963,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPLICATION_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object applicationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object applicationId_ = "";
   /**
    * <pre>
    * The ID of the application corresponding to this license query.
@@ -1100,6 +1010,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EDITIONS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions> editions_;
   /**
    * <pre>
@@ -1160,7 +1071,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 101;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The ID of the customer license.
@@ -1206,7 +1118,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_ID_FIELD_NUMBER = 102;
-  private volatile java.lang.Object customerId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerId_ = "";
   /**
    * <pre>
    * The domain name of the customer.
@@ -1283,7 +1196,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customerId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 102, customerId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1311,7 +1224,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customerId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(102, customerId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1338,7 +1251,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getId())) return false;
     if (!getCustomerId()
         .equals(other.getCustomerId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1363,7 +1276,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + CUSTOMER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getCustomerId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1480,39 +1393,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ccc.hosted.marketplace.v2.CustomerLicense.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getEditionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       kind_ = "";
-
       state_ = "";
-
       applicationId_ = "";
-
       if (editionsBuilder_ == null) {
         editions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        editions_ = null;
         editionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       id_ = "";
-
       customerId_ = "";
-
       return this;
     }
 
@@ -1539,23 +1443,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ccc.hosted.marketplace.v2.CustomerLicense buildPartial() {
       com.google.ccc.hosted.marketplace.v2.CustomerLicense result = new com.google.ccc.hosted.marketplace.v2.CustomerLicense(this);
-      int from_bitField0_ = bitField0_;
-      result.kind_ = kind_;
-      result.state_ = state_;
-      result.applicationId_ = applicationId_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ccc.hosted.marketplace.v2.CustomerLicense result) {
       if (editionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           editions_ = java.util.Collections.unmodifiableList(editions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.editions_ = editions_;
       } else {
         result.editions_ = editionsBuilder_.build();
       }
-      result.id_ = id_;
-      result.customerId_ = customerId_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.ccc.hosted.marketplace.v2.CustomerLicense result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.kind_ = kind_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.applicationId_ = applicationId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.customerId_ = customerId_;
+      }
     }
 
     @java.lang.Override
@@ -1604,21 +1526,24 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ccc.hosted.marketplace.v2.CustomerLicense.getDefaultInstance()) return this;
       if (!other.getKind().isEmpty()) {
         kind_ = other.kind_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getState().isEmpty()) {
         state_ = other.state_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getApplicationId().isEmpty()) {
         applicationId_ = other.applicationId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (editionsBuilder_ == null) {
         if (!other.editions_.isEmpty()) {
           if (editions_.isEmpty()) {
             editions_ = other.editions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureEditionsIsMutable();
             editions_.addAll(other.editions_);
@@ -1631,7 +1556,7 @@ private static final long serialVersionUID = 0L;
             editionsBuilder_.dispose();
             editionsBuilder_ = null;
             editions_ = other.editions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             editionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEditionsFieldBuilder() : null;
@@ -1642,13 +1567,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getCustomerId().isEmpty()) {
         customerId_ = other.customerId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1663,17 +1590,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ccc.hosted.marketplace.v2.CustomerLicense parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              state_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              applicationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions m =
+                  input.readMessage(
+                      com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions.parser(),
+                      extensionRegistry);
+              if (editionsBuilder_ == null) {
+                ensureEditionsIsMutable();
+                editions_.add(m);
+              } else {
+                editionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 810: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 810
+            case 818: {
+              customerId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 818
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ccc.hosted.marketplace.v2.CustomerLicense) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1731,11 +1709,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1748,8 +1724,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1764,12 +1740,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1836,11 +1810,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setState(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       state_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1856,8 +1828,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
       state_ = getDefaultInstance().getState();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1875,12 +1847,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       state_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1938,11 +1908,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       applicationId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1955,8 +1923,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApplicationId() {
-      
       applicationId_ = getDefaultInstance().getApplicationId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1971,12 +1939,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       applicationId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1984,9 +1950,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions> editions_ =
       java.util.Collections.emptyList();
     private void ensureEditionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         editions_ = new java.util.ArrayList<com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions>(editions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2180,7 +2146,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder clearEditions() {
       if (editionsBuilder_ == null) {
         editions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         editionsBuilder_.clear();
@@ -2285,7 +2251,7 @@ private static final long serialVersionUID = 0L;
         editionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions, com.google.ccc.hosted.marketplace.v2.CustomerLicense.Editions.Builder, com.google.ccc.hosted.marketplace.v2.CustomerLicense.EditionsOrBuilder>(
                 editions_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         editions_ = null;
@@ -2346,11 +2312,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2363,8 +2327,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2379,12 +2343,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2442,11 +2404,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customerId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2459,8 +2419,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerId() {
-      
       customerId_ = getDefaultInstance().getCustomerId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2475,12 +2435,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2517,7 +2475,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CustomerLicense(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AssistQueryParameters(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              documentsMetadataFilters_ = com.google.protobuf.MapField.newMapField(
-                  DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            documentsMetadataFilters__ = input.readMessage(
-                DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            documentsMetadataFilters_.getMutableMap().put(
-                documentsMetadataFilters__.getKey(), documentsMetadataFilters__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2beta1.ParticipantProto.internal_static_google_cloud_dialogflow_v2beta1_AssistQueryParameters_descriptor;
@@ -124,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> documentsMetadataFilters_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -134,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return documentsMetadataFilters_;
   }
-
   public int getDocumentsMetadataFiltersCount() {
     return internalGetDocumentsMetadataFilters().getMap().size();
   }
@@ -160,7 +107,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsDocumentsMetadataFilters(
       java.lang.String key) {
@@ -198,7 +144,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getDocumentsMetadataFiltersMap() {
     return internalGetDocumentsMetadataFilters().getMap();
   }
@@ -225,10 +170,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getDocumentsMetadataFiltersOrDefault(
+  public /* nullable */
+java.lang.String getDocumentsMetadataFiltersOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetDocumentsMetadataFilters().getMap();
@@ -257,7 +203,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
    */
   @java.lang.Override
-
   public java.lang.String getDocumentsMetadataFiltersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -289,7 +234,7 @@ private static final long serialVersionUID = 0L;
         internalGetDocumentsMetadataFilters(),
         DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -308,7 +253,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, documentsMetadataFilters__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -325,7 +270,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetDocumentsMetadataFilters().equals(
         other.internalGetDocumentsMetadataFilters())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -340,7 +285,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOCUMENTS_METADATA_FILTERS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetDocumentsMetadataFilters().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -483,22 +428,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2beta1.AssistQueryParameters.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableDocumentsMetadataFilters().clear();
       return this;
     }
@@ -526,11 +467,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.AssistQueryParameters buildPartial() {
       com.google.cloud.dialogflow.v2beta1.AssistQueryParameters result = new com.google.cloud.dialogflow.v2beta1.AssistQueryParameters(this);
-      int from_bitField0_ = bitField0_;
-      result.documentsMetadataFilters_ = internalGetDocumentsMetadataFilters();
-      result.documentsMetadataFilters_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2beta1.AssistQueryParameters result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.documentsMetadataFilters_ = internalGetDocumentsMetadataFilters();
+        result.documentsMetadataFilters_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -579,7 +526,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dialogflow.v2beta1.AssistQueryParameters.getDefaultInstance()) return this;
       internalGetMutableDocumentsMetadataFilters().mergeFrom(
           other.internalGetDocumentsMetadataFilters());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -594,17 +542,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2beta1.AssistQueryParameters parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              documentsMetadataFilters__ = input.readMessage(
+                  DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDocumentsMetadataFilters().getMutableMap().put(
+                  documentsMetadataFilters__.getKey(), documentsMetadataFilters__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2beta1.AssistQueryParameters) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -612,7 +582,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> documentsMetadataFilters_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetDocumentsMetadataFilters() {
+        internalGetDocumentsMetadataFilters() {
       if (documentsMetadataFilters_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry);
@@ -620,8 +590,7 @@ private static final long serialVersionUID = 0L;
       return documentsMetadataFilters_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableDocumentsMetadataFilters() {
-      onChanged();;
+        internalGetMutableDocumentsMetadataFilters() {
       if (documentsMetadataFilters_ == null) {
         documentsMetadataFilters_ = com.google.protobuf.MapField.newMapField(
             DocumentsMetadataFiltersDefaultEntryHolder.defaultEntry);
@@ -629,9 +598,10 @@ private static final long serialVersionUID = 0L;
       if (!documentsMetadataFilters_.isMutable()) {
         documentsMetadataFilters_ = documentsMetadataFilters_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return documentsMetadataFilters_;
     }
-
     public int getDocumentsMetadataFiltersCount() {
       return internalGetDocumentsMetadataFilters().getMap().size();
     }
@@ -657,7 +627,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsDocumentsMetadataFilters(
         java.lang.String key) {
@@ -695,7 +664,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getDocumentsMetadataFiltersMap() {
       return internalGetDocumentsMetadataFilters().getMap();
     }
@@ -722,10 +690,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getDocumentsMetadataFiltersOrDefault(
+    public /* nullable */
+java.lang.String getDocumentsMetadataFiltersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetDocumentsMetadataFilters().getMap();
@@ -754,7 +723,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
      */
     @java.lang.Override
-
     public java.lang.String getDocumentsMetadataFiltersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -765,8 +733,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDocumentsMetadataFilters() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableDocumentsMetadataFilters().getMutableMap()
           .clear();
       return this;
@@ -793,7 +761,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
      */
-
     public Builder removeDocumentsMetadataFilters(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -806,7 +773,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableDocumentsMetadataFilters() {
+        getMutableDocumentsMetadataFilters() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableDocumentsMetadataFilters().getMutableMap();
     }
     /**
@@ -835,12 +803,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDocumentsMetadataFilters().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -865,11 +831,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; documents_metadata_filters = 1;</code>
      */
-
     public Builder putAllDocumentsMetadataFilters(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableDocumentsMetadataFilters().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -905,7 +871,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AssistQueryParameters(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -586,7 +586,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.google.protobuf.UInt32Value max_requests_per_connection = 9 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.max_requests_per_connection is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=811
+   *     See envoy/config/cluster/v3/cluster.proto;l=869
    * @return Whether the maxRequestsPerConnection field is set.
    */
   @java.lang.Deprecated boolean hasMaxRequestsPerConnection();
@@ -602,7 +602,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.google.protobuf.UInt32Value max_requests_per_connection = 9 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.max_requests_per_connection is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=811
+   *     See envoy/config/cluster/v3/cluster.proto;l=869
    * @return The maxRequestsPerConnection.
    */
   @java.lang.Deprecated com.google.protobuf.UInt32Value getMaxRequestsPerConnection();
@@ -663,7 +663,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.envoy.config.core.v3.UpstreamHttpProtocolOptions upstream_http_protocol_options = 46 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.upstream_http_protocol_options is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=827
+   *     See envoy/config/cluster/v3/cluster.proto;l=885
    * @return Whether the upstreamHttpProtocolOptions field is set.
    */
   @java.lang.Deprecated boolean hasUpstreamHttpProtocolOptions();
@@ -683,7 +683,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.envoy.config.core.v3.UpstreamHttpProtocolOptions upstream_http_protocol_options = 46 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.upstream_http_protocol_options is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=827
+   *     See envoy/config/cluster/v3/cluster.proto;l=885
    * @return The upstreamHttpProtocolOptions.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptions getUpstreamHttpProtocolOptions();
@@ -721,7 +721,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.envoy.config.core.v3.HttpProtocolOptions common_http_protocol_options = 29 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.common_http_protocol_options is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=840
+   *     See envoy/config/cluster/v3/cluster.proto;l=898
    * @return Whether the commonHttpProtocolOptions field is set.
    */
   @java.lang.Deprecated boolean hasCommonHttpProtocolOptions();
@@ -741,7 +741,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.envoy.config.core.v3.HttpProtocolOptions common_http_protocol_options = 29 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.common_http_protocol_options is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=840
+   *     See envoy/config/cluster/v3/cluster.proto;l=898
    * @return The commonHttpProtocolOptions.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.core.v3.HttpProtocolOptions getCommonHttpProtocolOptions();
@@ -777,7 +777,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.envoy.config.core.v3.Http1ProtocolOptions http_protocol_options = 13 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.http_protocol_options is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=851
+   *     See envoy/config/cluster/v3/cluster.proto;l=909
    * @return Whether the httpProtocolOptions field is set.
    */
   @java.lang.Deprecated boolean hasHttpProtocolOptions();
@@ -795,7 +795,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.envoy.config.core.v3.Http1ProtocolOptions http_protocol_options = 13 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.http_protocol_options is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=851
+   *     See envoy/config/cluster/v3/cluster.proto;l=909
    * @return The httpProtocolOptions.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions getHttpProtocolOptions();
@@ -834,7 +834,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.envoy.config.core.v3.Http2ProtocolOptions http2_protocol_options = 14 [deprecated = true, (.udpa.annotations.security) = { ... }</code>
    * @deprecated envoy.config.cluster.v3.Cluster.http2_protocol_options is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=867
+   *     See envoy/config/cluster/v3/cluster.proto;l=925
    * @return Whether the http2ProtocolOptions field is set.
    */
   @java.lang.Deprecated boolean hasHttp2ProtocolOptions();
@@ -857,7 +857,7 @@ public interface ClusterOrBuilder extends
    *
    * <code>.envoy.config.core.v3.Http2ProtocolOptions http2_protocol_options = 14 [deprecated = true, (.udpa.annotations.security) = { ... }</code>
    * @deprecated envoy.config.cluster.v3.Cluster.http2_protocol_options is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=867
+   *     See envoy/config/cluster/v3/cluster.proto;l=925
    * @return The http2ProtocolOptions.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions getHttp2ProtocolOptions();
@@ -937,7 +937,6 @@ public interface ClusterOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_extension_protocol_options = 36;</code>
    */
-
   /* nullable */
 com.google.protobuf.Any getTypedExtensionProtocolOptionsOrDefault(
       java.lang.String key,
@@ -954,7 +953,6 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_extension_protocol_options = 36;</code>
    */
-
   com.google.protobuf.Any getTypedExtensionProtocolOptionsOrThrow(
       java.lang.String key);
 
@@ -1200,7 +1198,7 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>bool use_tcp_for_dns_lookups = 45 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.use_tcp_for_dns_lookups is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=930
+   *     See envoy/config/cluster/v3/cluster.proto;l=988
    * @return The useTcpForDnsLookups.
    */
   @java.lang.Deprecated boolean getUseTcpForDnsLookups();
@@ -1214,7 +1212,7 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>.envoy.config.core.v3.DnsResolutionConfig dns_resolution_config = 53 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.dns_resolution_config is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=936
+   *     See envoy/config/cluster/v3/cluster.proto;l=994
    * @return Whether the dnsResolutionConfig field is set.
    */
   @java.lang.Deprecated boolean hasDnsResolutionConfig();
@@ -1227,7 +1225,7 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>.envoy.config.core.v3.DnsResolutionConfig dns_resolution_config = 53 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.dns_resolution_config is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=936
+   *     See envoy/config/cluster/v3/cluster.proto;l=994
    * @return The dnsResolutionConfig.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.core.v3.DnsResolutionConfig getDnsResolutionConfig();
@@ -1746,7 +1744,7 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>.envoy.config.cluster.v3.Cluster.ClusterProtocolSelection protocol_selection = 26 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.protocol_selection is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=1035
+   *     See envoy/config/cluster/v3/cluster.proto;l=1093
    * @return The enum numeric value on the wire for protocolSelection.
    */
   @java.lang.Deprecated int getProtocolSelectionValue();
@@ -1762,7 +1760,7 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>.envoy.config.cluster.v3.Cluster.ClusterProtocolSelection protocol_selection = 26 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.protocol_selection is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=1035
+   *     See envoy/config/cluster/v3/cluster.proto;l=1093
    * @return The protocolSelection.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.cluster.v3.Cluster.ClusterProtocolSelection getProtocolSelection();
@@ -1982,7 +1980,7 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>bool track_timeout_budgets = 47 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.cluster.v3.Cluster.track_timeout_budgets is deprecated.
-   *     See envoy/config/cluster/v3/cluster.proto;l=1096
+   *     See envoy/config/cluster/v3/cluster.proto;l=1154
    * @return The trackTimeoutBudgets.
    */
   @java.lang.Deprecated boolean getTrackTimeoutBudgets();

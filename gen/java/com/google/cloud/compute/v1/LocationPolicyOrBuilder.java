@@ -46,7 +46,6 @@ public interface LocationPolicyOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.LocationPolicyLocation&gt; locations = 413423454;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.LocationPolicyLocation getLocationsOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ com.google.cloud.compute.v1.LocationPolicyLocation defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.LocationPolicyLocation&gt; locations = 413423454;</code>
    */
-
   com.google.cloud.compute.v1.LocationPolicyLocation getLocationsOrThrow(
       java.lang.String key);
 

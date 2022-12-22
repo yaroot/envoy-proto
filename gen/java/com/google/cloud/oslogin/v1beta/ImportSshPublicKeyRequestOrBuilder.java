@@ -73,4 +73,23 @@ public interface ImportSshPublicKeyRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getProjectIdBytes();
+
+  /**
+   * <pre>
+   * The view configures whether to retrieve security keys information.
+   * </pre>
+   *
+   * <code>.google.cloud.oslogin.v1beta.LoginProfileView view = 4;</code>
+   * @return The enum numeric value on the wire for view.
+   */
+  int getViewValue();
+  /**
+   * <pre>
+   * The view configures whether to retrieve security keys information.
+   * </pre>
+   *
+   * <code>.google.cloud.oslogin.v1beta.LoginProfileView view = 4;</code>
+   * @return The view.
+   */
+  com.google.cloud.oslogin.v1beta.LoginProfileView getView();
 }

@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ServiceAttachmentConsumerProjectLimit() {
+    networkUrl_ = "";
     projectIdOrNum_ = "";
   }
 
@@ -33,57 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ServiceAttachmentConsumerProjectLimit(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1051228368: {
-            bitField0_ |= 0x00000001;
-            connectionLimit_ = input.readUInt32();
-            break;
-          }
-          case -1496700606: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            projectIdOrNum_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -100,7 +50,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int CONNECTION_LIMIT_FIELD_NUMBER = 131403546;
-  private int connectionLimit_;
+  private int connectionLimit_ = 0;
   /**
    * <pre>
    * The value of the limit to set.
@@ -126,8 +76,68 @@ private static final long serialVersionUID = 0L;
     return connectionLimit_;
   }
 
+  public static final int NETWORK_URL_FIELD_NUMBER = 207194078;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object networkUrl_ = "";
+  /**
+   * <pre>
+   * The network URL for the network to set the limit for.
+   * </pre>
+   *
+   * <code>optional string network_url = 207194078;</code>
+   * @return Whether the networkUrl field is set.
+   */
+  @java.lang.Override
+  public boolean hasNetworkUrl() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <pre>
+   * The network URL for the network to set the limit for.
+   * </pre>
+   *
+   * <code>optional string network_url = 207194078;</code>
+   * @return The networkUrl.
+   */
+  @java.lang.Override
+  public java.lang.String getNetworkUrl() {
+    java.lang.Object ref = networkUrl_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      networkUrl_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The network URL for the network to set the limit for.
+   * </pre>
+   *
+   * <code>optional string network_url = 207194078;</code>
+   * @return The bytes for networkUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getNetworkUrlBytes() {
+    java.lang.Object ref = networkUrl_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      networkUrl_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int PROJECT_ID_OR_NUM_FIELD_NUMBER = 349783336;
-  private volatile java.lang.Object projectIdOrNum_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectIdOrNum_ = "";
   /**
    * <pre>
    * The project id or number for the project to set the limit for.
@@ -138,7 +148,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasProjectIdOrNum() {
-    return ((bitField0_ & 0x00000002) != 0);
+    return ((bitField0_ & 0x00000004) != 0);
   }
   /**
    * <pre>
@@ -202,9 +212,12 @@ private static final long serialVersionUID = 0L;
       output.writeUInt32(131403546, connectionLimit_);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 207194078, networkUrl_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 349783336, projectIdOrNum_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -218,9 +231,12 @@ private static final long serialVersionUID = 0L;
         .computeUInt32Size(131403546, connectionLimit_);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(207194078, networkUrl_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(349783336, projectIdOrNum_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -240,12 +256,17 @@ private static final long serialVersionUID = 0L;
       if (getConnectionLimit()
           != other.getConnectionLimit()) return false;
     }
+    if (hasNetworkUrl() != other.hasNetworkUrl()) return false;
+    if (hasNetworkUrl()) {
+      if (!getNetworkUrl()
+          .equals(other.getNetworkUrl())) return false;
+    }
     if (hasProjectIdOrNum() != other.hasProjectIdOrNum()) return false;
     if (hasProjectIdOrNum()) {
       if (!getProjectIdOrNum()
           .equals(other.getProjectIdOrNum())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -260,11 +281,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONNECTION_LIMIT_FIELD_NUMBER;
       hash = (53 * hash) + getConnectionLimit();
     }
+    if (hasNetworkUrl()) {
+      hash = (37 * hash) + NETWORK_URL_FIELD_NUMBER;
+      hash = (53 * hash) + getNetworkUrl().hashCode();
+    }
     if (hasProjectIdOrNum()) {
       hash = (37 * hash) + PROJECT_ID_OR_NUM_FIELD_NUMBER;
       hash = (53 * hash) + getProjectIdOrNum().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -384,26 +409,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       connectionLimit_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      networkUrl_ = "";
       projectIdOrNum_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -430,6 +450,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit buildPartial() {
       com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit result = new com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -437,12 +463,14 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.networkUrl_ = networkUrl_;
         to_bitField0_ |= 0x00000002;
       }
-      result.projectIdOrNum_ = projectIdOrNum_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.projectIdOrNum_ = projectIdOrNum_;
+        to_bitField0_ |= 0x00000004;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -492,12 +520,17 @@ private static final long serialVersionUID = 0L;
       if (other.hasConnectionLimit()) {
         setConnectionLimit(other.getConnectionLimit());
       }
-      if (other.hasProjectIdOrNum()) {
+      if (other.hasNetworkUrl()) {
+        networkUrl_ = other.networkUrl_;
         bitField0_ |= 0x00000002;
-        projectIdOrNum_ = other.projectIdOrNum_;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasProjectIdOrNum()) {
+        projectIdOrNum_ = other.projectIdOrNum_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -512,17 +545,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1051228368: {
+              connectionLimit_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1051228368
+            case 1657552626: {
+              networkUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1657552626
+            case -1496700606: {
+              projectIdOrNum_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1496700606
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -562,8 +623,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConnectionLimit(int value) {
-      bitField0_ |= 0x00000001;
+      
       connectionLimit_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -582,6 +644,109 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object networkUrl_ = "";
+    /**
+     * <pre>
+     * The network URL for the network to set the limit for.
+     * </pre>
+     *
+     * <code>optional string network_url = 207194078;</code>
+     * @return Whether the networkUrl field is set.
+     */
+    public boolean hasNetworkUrl() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * The network URL for the network to set the limit for.
+     * </pre>
+     *
+     * <code>optional string network_url = 207194078;</code>
+     * @return The networkUrl.
+     */
+    public java.lang.String getNetworkUrl() {
+      java.lang.Object ref = networkUrl_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        networkUrl_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The network URL for the network to set the limit for.
+     * </pre>
+     *
+     * <code>optional string network_url = 207194078;</code>
+     * @return The bytes for networkUrl.
+     */
+    public com.google.protobuf.ByteString
+        getNetworkUrlBytes() {
+      java.lang.Object ref = networkUrl_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        networkUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The network URL for the network to set the limit for.
+     * </pre>
+     *
+     * <code>optional string network_url = 207194078;</code>
+     * @param value The networkUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetworkUrl(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      networkUrl_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The network URL for the network to set the limit for.
+     * </pre>
+     *
+     * <code>optional string network_url = 207194078;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNetworkUrl() {
+      networkUrl_ = getDefaultInstance().getNetworkUrl();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The network URL for the network to set the limit for.
+     * </pre>
+     *
+     * <code>optional string network_url = 207194078;</code>
+     * @param value The bytes for networkUrl to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetworkUrlBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      networkUrl_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object projectIdOrNum_ = "";
     /**
      * <pre>
@@ -592,7 +757,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the projectIdOrNum field is set.
      */
     public boolean hasProjectIdOrNum() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -646,11 +811,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdOrNum(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       projectIdOrNum_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -663,8 +826,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectIdOrNum() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       projectIdOrNum_ = getDefaultInstance().getProjectIdOrNum();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -679,12 +842,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdOrNumBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectIdOrNum_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -721,7 +882,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ServiceAttachmentConsumerProjectLimit(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

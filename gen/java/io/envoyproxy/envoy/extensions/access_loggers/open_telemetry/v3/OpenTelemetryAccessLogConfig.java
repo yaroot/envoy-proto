@@ -38,97 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OpenTelemetryAccessLogConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.Builder subBuilder = null;
-            if (commonConfig_ != null) {
-              subBuilder = commonConfig_.toBuilder();
-            }
-            commonConfig_ = input.readMessage(io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commonConfig_);
-              commonConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.opentelemetry.proto.common.v1.AnyValue.Builder subBuilder = null;
-            if (body_ != null) {
-              subBuilder = body_.toBuilder();
-            }
-            body_ = input.readMessage(io.opentelemetry.proto.common.v1.AnyValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(body_);
-              body_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.opentelemetry.proto.common.v1.KeyValueList.Builder subBuilder = null;
-            if (attributes_ != null) {
-              subBuilder = attributes_.toBuilder();
-            }
-            attributes_ = input.readMessage(io.opentelemetry.proto.common.v1.KeyValueList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(attributes_);
-              attributes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            io.opentelemetry.proto.common.v1.KeyValueList.Builder subBuilder = null;
-            if (resourceAttributes_ != null) {
-              subBuilder = resourceAttributes_.toBuilder();
-            }
-            resourceAttributes_ = input.readMessage(io.opentelemetry.proto.common.v1.KeyValueList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resourceAttributes_);
-              resourceAttributes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.access_loggers.open_telemetry.v3.LogsServiceProto.internal_static_envoy_extensions_access_loggers_open_telemetry_v3_OpenTelemetryAccessLogConfig_descriptor;
@@ -177,7 +86,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfigOrBuilder getCommonConfigOrBuilder() {
-    return getCommonConfig();
+    return commonConfig_ == null ? io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.getDefaultInstance() : commonConfig_;
   }
 
   public static final int RESOURCE_ATTRIBUTES_FIELD_NUMBER = 4;
@@ -221,7 +130,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opentelemetry.proto.common.v1.KeyValueListOrBuilder getResourceAttributesOrBuilder() {
-    return getResourceAttributes();
+    return resourceAttributes_ == null ? io.opentelemetry.proto.common.v1.KeyValueList.getDefaultInstance() : resourceAttributes_;
   }
 
   public static final int BODY_FIELD_NUMBER = 2;
@@ -268,7 +177,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opentelemetry.proto.common.v1.AnyValueOrBuilder getBodyOrBuilder() {
-    return getBody();
+    return body_ == null ? io.opentelemetry.proto.common.v1.AnyValue.getDefaultInstance() : body_;
   }
 
   public static final int ATTRIBUTES_FIELD_NUMBER = 3;
@@ -309,7 +218,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opentelemetry.proto.common.v1.KeyValueListOrBuilder getAttributesOrBuilder() {
-    return getAttributes();
+    return attributes_ == null ? io.opentelemetry.proto.common.v1.KeyValueList.getDefaultInstance() : attributes_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -338,7 +247,7 @@ private static final long serialVersionUID = 0L;
     if (resourceAttributes_ != null) {
       output.writeMessage(4, getResourceAttributes());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -363,7 +272,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getResourceAttributes());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -398,7 +307,7 @@ private static final long serialVersionUID = 0L;
       if (!getAttributes()
           .equals(other.getAttributes())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -425,7 +334,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
       hash = (53 * hash) + getAttributes().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -550,44 +459,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.access_loggers.open_telemetry.v3.OpenTelemetryAccessLogConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (commonConfigBuilder_ == null) {
-        commonConfig_ = null;
-      } else {
-        commonConfig_ = null;
+      bitField0_ = 0;
+      commonConfig_ = null;
+      if (commonConfigBuilder_ != null) {
+        commonConfigBuilder_.dispose();
         commonConfigBuilder_ = null;
       }
-      if (resourceAttributesBuilder_ == null) {
-        resourceAttributes_ = null;
-      } else {
-        resourceAttributes_ = null;
+      resourceAttributes_ = null;
+      if (resourceAttributesBuilder_ != null) {
+        resourceAttributesBuilder_.dispose();
         resourceAttributesBuilder_ = null;
       }
-      if (bodyBuilder_ == null) {
-        body_ = null;
-      } else {
-        body_ = null;
+      body_ = null;
+      if (bodyBuilder_ != null) {
+        bodyBuilder_.dispose();
         bodyBuilder_ = null;
       }
-      if (attributesBuilder_ == null) {
-        attributes_ = null;
-      } else {
-        attributes_ = null;
+      attributes_ = null;
+      if (attributesBuilder_ != null) {
+        attributesBuilder_.dispose();
         attributesBuilder_ = null;
       }
       return this;
@@ -616,28 +517,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.access_loggers.open_telemetry.v3.OpenTelemetryAccessLogConfig buildPartial() {
       io.envoyproxy.envoy.extensions.access_loggers.open_telemetry.v3.OpenTelemetryAccessLogConfig result = new io.envoyproxy.envoy.extensions.access_loggers.open_telemetry.v3.OpenTelemetryAccessLogConfig(this);
-      if (commonConfigBuilder_ == null) {
-        result.commonConfig_ = commonConfig_;
-      } else {
-        result.commonConfig_ = commonConfigBuilder_.build();
-      }
-      if (resourceAttributesBuilder_ == null) {
-        result.resourceAttributes_ = resourceAttributes_;
-      } else {
-        result.resourceAttributes_ = resourceAttributesBuilder_.build();
-      }
-      if (bodyBuilder_ == null) {
-        result.body_ = body_;
-      } else {
-        result.body_ = bodyBuilder_.build();
-      }
-      if (attributesBuilder_ == null) {
-        result.attributes_ = attributes_;
-      } else {
-        result.attributes_ = attributesBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.access_loggers.open_telemetry.v3.OpenTelemetryAccessLogConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.commonConfig_ = commonConfigBuilder_ == null
+            ? commonConfig_
+            : commonConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.resourceAttributes_ = resourceAttributesBuilder_ == null
+            ? resourceAttributes_
+            : resourceAttributesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.body_ = bodyBuilder_ == null
+            ? body_
+            : bodyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.attributes_ = attributesBuilder_ == null
+            ? attributes_
+            : attributesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -696,7 +602,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAttributes()) {
         mergeAttributes(other.getAttributes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -711,19 +617,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.access_loggers.open_telemetry.v3.OpenTelemetryAccessLogConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCommonConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getBodyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAttributesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getResourceAttributesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.access_loggers.open_telemetry.v3.OpenTelemetryAccessLogConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig commonConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -737,7 +685,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commonConfig field is set.
      */
     public boolean hasCommonConfig() {
-      return commonConfigBuilder_ != null || commonConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -767,11 +715,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commonConfig_ = value;
-        onChanged();
       } else {
         commonConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -785,11 +733,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.Builder builderForValue) {
       if (commonConfigBuilder_ == null) {
         commonConfig_ = builderForValue.build();
-        onChanged();
       } else {
         commonConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -801,17 +749,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommonConfig(io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig value) {
       if (commonConfigBuilder_ == null) {
-        if (commonConfig_ != null) {
-          commonConfig_ =
-            io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.newBuilder(commonConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          commonConfig_ != null &&
+          commonConfig_ != io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.getDefaultInstance()) {
+          getCommonConfigBuilder().mergeFrom(value);
         } else {
           commonConfig_ = value;
         }
-        onChanged();
       } else {
         commonConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -822,14 +771,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig common_config = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearCommonConfig() {
-      if (commonConfigBuilder_ == null) {
-        commonConfig_ = null;
-        onChanged();
-      } else {
-        commonConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      commonConfig_ = null;
+      if (commonConfigBuilder_ != null) {
+        commonConfigBuilder_.dispose();
         commonConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -840,7 +788,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig common_config = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.extensions.access_loggers.grpc.v3.CommonGrpcAccessLogConfig.Builder getCommonConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCommonConfigFieldBuilder().getBuilder();
     }
@@ -894,7 +842,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resourceAttributes field is set.
      */
     public boolean hasResourceAttributes() {
-      return resourceAttributesBuilder_ != null || resourceAttributes_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -928,11 +876,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resourceAttributes_ = value;
-        onChanged();
       } else {
         resourceAttributesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -948,11 +896,11 @@ private static final long serialVersionUID = 0L;
         io.opentelemetry.proto.common.v1.KeyValueList.Builder builderForValue) {
       if (resourceAttributesBuilder_ == null) {
         resourceAttributes_ = builderForValue.build();
-        onChanged();
       } else {
         resourceAttributesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -966,17 +914,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResourceAttributes(io.opentelemetry.proto.common.v1.KeyValueList value) {
       if (resourceAttributesBuilder_ == null) {
-        if (resourceAttributes_ != null) {
-          resourceAttributes_ =
-            io.opentelemetry.proto.common.v1.KeyValueList.newBuilder(resourceAttributes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          resourceAttributes_ != null &&
+          resourceAttributes_ != io.opentelemetry.proto.common.v1.KeyValueList.getDefaultInstance()) {
+          getResourceAttributesBuilder().mergeFrom(value);
         } else {
           resourceAttributes_ = value;
         }
-        onChanged();
       } else {
         resourceAttributesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -989,14 +938,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.common.v1.KeyValueList resource_attributes = 4;</code>
      */
     public Builder clearResourceAttributes() {
-      if (resourceAttributesBuilder_ == null) {
-        resourceAttributes_ = null;
-        onChanged();
-      } else {
-        resourceAttributes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      resourceAttributes_ = null;
+      if (resourceAttributesBuilder_ != null) {
+        resourceAttributesBuilder_.dispose();
         resourceAttributesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1009,7 +957,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.common.v1.KeyValueList resource_attributes = 4;</code>
      */
     public io.opentelemetry.proto.common.v1.KeyValueList.Builder getResourceAttributesBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getResourceAttributesFieldBuilder().getBuilder();
     }
@@ -1068,7 +1016,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the body field is set.
      */
     public boolean hasBody() {
-      return bodyBuilder_ != null || body_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1104,11 +1052,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         body_ = value;
-        onChanged();
       } else {
         bodyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1125,11 +1073,11 @@ private static final long serialVersionUID = 0L;
         io.opentelemetry.proto.common.v1.AnyValue.Builder builderForValue) {
       if (bodyBuilder_ == null) {
         body_ = builderForValue.build();
-        onChanged();
       } else {
         bodyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1144,17 +1092,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBody(io.opentelemetry.proto.common.v1.AnyValue value) {
       if (bodyBuilder_ == null) {
-        if (body_ != null) {
-          body_ =
-            io.opentelemetry.proto.common.v1.AnyValue.newBuilder(body_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          body_ != null &&
+          body_ != io.opentelemetry.proto.common.v1.AnyValue.getDefaultInstance()) {
+          getBodyBuilder().mergeFrom(value);
         } else {
           body_ = value;
         }
-        onChanged();
       } else {
         bodyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1168,14 +1117,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.common.v1.AnyValue body = 2;</code>
      */
     public Builder clearBody() {
-      if (bodyBuilder_ == null) {
-        body_ = null;
-        onChanged();
-      } else {
-        body_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      body_ = null;
+      if (bodyBuilder_ != null) {
+        bodyBuilder_.dispose();
         bodyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1189,7 +1137,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.common.v1.AnyValue body = 2;</code>
      */
     public io.opentelemetry.proto.common.v1.AnyValue.Builder getBodyBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getBodyFieldBuilder().getBuilder();
     }
@@ -1248,7 +1196,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the attributes field is set.
      */
     public boolean hasAttributes() {
-      return attributesBuilder_ != null || attributes_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1280,11 +1228,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         attributes_ = value;
-        onChanged();
       } else {
         attributesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1299,11 +1247,11 @@ private static final long serialVersionUID = 0L;
         io.opentelemetry.proto.common.v1.KeyValueList.Builder builderForValue) {
       if (attributesBuilder_ == null) {
         attributes_ = builderForValue.build();
-        onChanged();
       } else {
         attributesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1316,17 +1264,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAttributes(io.opentelemetry.proto.common.v1.KeyValueList value) {
       if (attributesBuilder_ == null) {
-        if (attributes_ != null) {
-          attributes_ =
-            io.opentelemetry.proto.common.v1.KeyValueList.newBuilder(attributes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          attributes_ != null &&
+          attributes_ != io.opentelemetry.proto.common.v1.KeyValueList.getDefaultInstance()) {
+          getAttributesBuilder().mergeFrom(value);
         } else {
           attributes_ = value;
         }
-        onChanged();
       } else {
         attributesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1338,14 +1287,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.common.v1.KeyValueList attributes = 3;</code>
      */
     public Builder clearAttributes() {
-      if (attributesBuilder_ == null) {
-        attributes_ = null;
-        onChanged();
-      } else {
-        attributes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      attributes_ = null;
+      if (attributesBuilder_ != null) {
+        attributesBuilder_.dispose();
         attributesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1357,7 +1305,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.common.v1.KeyValueList attributes = 3;</code>
      */
     public io.opentelemetry.proto.common.v1.KeyValueList.Builder getAttributesBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAttributesFieldBuilder().getBuilder();
     }
@@ -1431,7 +1379,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OpenTelemetryAccessLogConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

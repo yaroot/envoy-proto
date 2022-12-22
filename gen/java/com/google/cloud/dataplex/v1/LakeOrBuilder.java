@@ -51,8 +51,8 @@ public interface LakeOrBuilder extends
 
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the lake. This ID will be
-   * different if the lake is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the lake. This ID will
+   * be different if the lake is deleted and re-created with the same name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -61,8 +61,8 @@ public interface LakeOrBuilder extends
   java.lang.String getUid();
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the lake. This ID will be
-   * different if the lake is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the lake. This ID will
+   * be different if the lake is deleted and re-created with the same name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -164,7 +164,6 @@ public interface LakeOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -177,7 +176,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -222,8 +220,9 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. Service account associated with this lake. This service account must be
-   * authorized to access or operate on resources managed by the lake.
+   * Output only. Service account associated with this lake. This service
+   * account must be authorized to access or operate on resources managed by the
+   * lake.
    * </pre>
    *
    * <code>string service_account = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -232,8 +231,9 @@ java.lang.String defaultValue);
   java.lang.String getServiceAccount();
   /**
    * <pre>
-   * Output only. Service account associated with this lake. This service account must be
-   * authorized to access or operate on resources managed by the lake.
+   * Output only. Service account associated with this lake. This service
+   * account must be authorized to access or operate on resources managed by the
+   * lake.
    * </pre>
    *
    * <code>string service_account = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

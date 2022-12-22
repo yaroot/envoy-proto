@@ -41,87 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AzureProperties(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            application_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clientId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            objectId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customerTenantId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            redirectUri_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            federatedApplicationClientId_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            identity_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.connection.v1.ConnectionOuterClass.internal_static_google_cloud_bigquery_connection_v1_AzureProperties_descriptor;
@@ -136,7 +55,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPLICATION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object application_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object application_ = "";
   /**
    * <pre>
    * Output only. The name of the Azure Active Directory Application.
@@ -182,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object clientId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clientId_ = "";
   /**
    * <pre>
    * Output only. The client id of the Azure Active Directory Application.
@@ -228,7 +149,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OBJECT_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object objectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object objectId_ = "";
   /**
    * <pre>
    * Output only. The object id of the Azure Active Directory Application.
@@ -274,7 +196,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_TENANT_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object customerTenantId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerTenantId_ = "";
   /**
    * <pre>
    * The id of customer's directory that host the data.
@@ -320,7 +243,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REDIRECT_URI_FIELD_NUMBER = 5;
-  private volatile java.lang.Object redirectUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object redirectUri_ = "";
   /**
    * <pre>
    * The URL user will be redirected to after granting consent during connection
@@ -368,7 +292,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FEDERATED_APPLICATION_CLIENT_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object federatedApplicationClientId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object federatedApplicationClientId_ = "";
   /**
    * <pre>
    * The client id of the user's Azure Active Directory Application used for a
@@ -416,7 +341,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IDENTITY_FIELD_NUMBER = 7;
-  private volatile java.lang.Object identity_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object identity_ = "";
   /**
    * <pre>
    * Output only. A unique Google-owned and Google-generated identity for the Connection.
@@ -500,7 +426,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(identity_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, identity_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -530,7 +456,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(identity_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, identity_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -559,7 +485,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFederatedApplicationClientId())) return false;
     if (!getIdentity()
         .equals(other.getIdentity())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -584,7 +510,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFederatedApplicationClientId().hashCode();
     hash = (37 * hash) + IDENTITY_FIELD_NUMBER;
     hash = (53 * hash) + getIdentity().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -705,36 +631,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.connection.v1.AzureProperties.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       application_ = "";
-
       clientId_ = "";
-
       objectId_ = "";
-
       customerTenantId_ = "";
-
       redirectUri_ = "";
-
       federatedApplicationClientId_ = "";
-
       identity_ = "";
-
       return this;
     }
 
@@ -761,15 +676,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.connection.v1.AzureProperties buildPartial() {
       com.google.cloud.bigquery.connection.v1.AzureProperties result = new com.google.cloud.bigquery.connection.v1.AzureProperties(this);
-      result.application_ = application_;
-      result.clientId_ = clientId_;
-      result.objectId_ = objectId_;
-      result.customerTenantId_ = customerTenantId_;
-      result.redirectUri_ = redirectUri_;
-      result.federatedApplicationClientId_ = federatedApplicationClientId_;
-      result.identity_ = identity_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.connection.v1.AzureProperties result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.application_ = application_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.clientId_ = clientId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.objectId_ = objectId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.customerTenantId_ = customerTenantId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.redirectUri_ = redirectUri_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.federatedApplicationClientId_ = federatedApplicationClientId_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.identity_ = identity_;
+      }
     }
 
     @java.lang.Override
@@ -818,33 +752,40 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.connection.v1.AzureProperties.getDefaultInstance()) return this;
       if (!other.getApplication().isEmpty()) {
         application_ = other.application_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getClientId().isEmpty()) {
         clientId_ = other.clientId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getObjectId().isEmpty()) {
         objectId_ = other.objectId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getCustomerTenantId().isEmpty()) {
         customerTenantId_ = other.customerTenantId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getRedirectUri().isEmpty()) {
         redirectUri_ = other.redirectUri_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getFederatedApplicationClientId().isEmpty()) {
         federatedApplicationClientId_ = other.federatedApplicationClientId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getIdentity().isEmpty()) {
         identity_ = other.identity_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -859,19 +800,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.connection.v1.AzureProperties parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              application_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              clientId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              objectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              customerTenantId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              redirectUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              federatedApplicationClientId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              identity_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.connection.v1.AzureProperties) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object application_ = "";
     /**
@@ -926,11 +916,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplication(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       application_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -943,8 +931,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApplication() {
-      
       application_ = getDefaultInstance().getApplication();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -959,12 +947,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       application_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1022,11 +1008,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1039,8 +1023,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientId() {
-      
       clientId_ = getDefaultInstance().getClientId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1055,12 +1039,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clientId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1118,11 +1100,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setObjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       objectId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1135,8 +1115,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearObjectId() {
-      
       objectId_ = getDefaultInstance().getObjectId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1151,12 +1131,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setObjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       objectId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1214,11 +1192,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerTenantId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customerTenantId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1231,8 +1207,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerTenantId() {
-      
       customerTenantId_ = getDefaultInstance().getCustomerTenantId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1247,12 +1223,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerTenantIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerTenantId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1313,11 +1287,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedirectUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       redirectUri_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1331,8 +1303,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRedirectUri() {
-      
       redirectUri_ = getDefaultInstance().getRedirectUri();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1348,12 +1320,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedirectUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       redirectUri_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1414,11 +1384,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFederatedApplicationClientId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       federatedApplicationClientId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1432,8 +1400,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFederatedApplicationClientId() {
-      
       federatedApplicationClientId_ = getDefaultInstance().getFederatedApplicationClientId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1449,12 +1417,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFederatedApplicationClientIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       federatedApplicationClientId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1518,11 +1484,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdentity(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       identity_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1537,8 +1501,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIdentity() {
-      
       identity_ = getDefaultInstance().getIdentity();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1555,12 +1519,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdentityBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       identity_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1597,7 +1559,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AzureProperties(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

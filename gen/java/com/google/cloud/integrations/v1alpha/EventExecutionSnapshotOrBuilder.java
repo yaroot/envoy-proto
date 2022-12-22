@@ -210,7 +210,6 @@ public interface EventExecutionSnapshotOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; event_params = 6;</code>
    */
-
   /* nullable */
 com.google.cloud.integrations.v1alpha.EventParameter getEventParamsOrDefault(
       java.lang.String key,
@@ -223,7 +222,6 @@ com.google.cloud.integrations.v1alpha.EventParameter defaultValue);
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; event_params = 6;</code>
    */
-
   com.google.cloud.integrations.v1alpha.EventParameter getEventParamsOrThrow(
       java.lang.String key);
 
@@ -266,7 +264,6 @@ com.google.cloud.integrations.v1alpha.EventParameter defaultValue);
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; diff_params = 7;</code>
    */
-
   /* nullable */
 com.google.cloud.integrations.v1alpha.EventParameter getDiffParamsOrDefault(
       java.lang.String key,
@@ -279,7 +276,6 @@ com.google.cloud.integrations.v1alpha.EventParameter defaultValue);
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; diff_params = 7;</code>
    */
-
   com.google.cloud.integrations.v1alpha.EventParameter getDiffParamsOrThrow(
       java.lang.String key);
 }

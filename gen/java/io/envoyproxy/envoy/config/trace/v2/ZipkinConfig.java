@@ -39,81 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ZipkinConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            collectorCluster_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            collectorEndpoint_ = s;
-            break;
-          }
-          case 24: {
-
-            traceId128Bit_ = input.readBool();
-            break;
-          }
-          case 34: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (sharedSpanContext_ != null) {
-              subBuilder = sharedSpanContext_.toBuilder();
-            }
-            sharedSpanContext_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sharedSpanContext_);
-              sharedSpanContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            collectorEndpointVersion_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.trace.v2.ZipkinProto.internal_static_envoy_config_trace_v2_ZipkinConfig_descriptor;
@@ -303,7 +228,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COLLECTOR_CLUSTER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object collectorCluster_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object collectorCluster_ = "";
   /**
    * <pre>
    * The cluster manager cluster that hosts the Zipkin collectors. Note that the
@@ -353,7 +279,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COLLECTOR_ENDPOINT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object collectorEndpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object collectorEndpoint_ = "";
   /**
    * <pre>
    * The API endpoint of the Zipkin service where the spans will be sent. When
@@ -403,7 +330,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRACE_ID_128BIT_FIELD_NUMBER = 3;
-  private boolean traceId128Bit_;
+  private boolean traceId128Bit_ = false;
   /**
    * <pre>
    * Determines whether a 128bit trace id will be used when creating a new
@@ -456,11 +383,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getSharedSpanContextOrBuilder() {
-    return getSharedSpanContext();
+    return sharedSpanContext_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : sharedSpanContext_;
   }
 
   public static final int COLLECTOR_ENDPOINT_VERSION_FIELD_NUMBER = 5;
-  private int collectorEndpointVersion_;
+  private int collectorEndpointVersion_ = 0;
   /**
    * <pre>
    * Determines the selected collector endpoint version. By default, the ``HTTP_JSON_V1`` will be
@@ -483,8 +410,7 @@ private static final long serialVersionUID = 0L;
    * @return The collectorEndpointVersion.
    */
   @java.lang.Override public io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion getCollectorEndpointVersion() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion result = io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion.valueOf(collectorEndpointVersion_);
+    io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion result = io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion.forNumber(collectorEndpointVersion_);
     return result == null ? io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion.UNRECOGNIZED : result;
   }
 
@@ -517,7 +443,7 @@ private static final long serialVersionUID = 0L;
     if (collectorEndpointVersion_ != io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion.HTTP_JSON_V1.getNumber()) {
       output.writeEnum(5, collectorEndpointVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -544,7 +470,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, collectorEndpointVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -571,7 +497,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getSharedSpanContext())) return false;
     }
     if (collectorEndpointVersion_ != other.collectorEndpointVersion_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -595,7 +521,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + COLLECTOR_ENDPOINT_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + collectorEndpointVersion_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -718,36 +644,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       collectorCluster_ = "";
-
       collectorEndpoint_ = "";
-
       traceId128Bit_ = false;
-
-      if (sharedSpanContextBuilder_ == null) {
-        sharedSpanContext_ = null;
-      } else {
-        sharedSpanContext_ = null;
+      sharedSpanContext_ = null;
+      if (sharedSpanContextBuilder_ != null) {
+        sharedSpanContextBuilder_.dispose();
         sharedSpanContextBuilder_ = null;
       }
       collectorEndpointVersion_ = 0;
-
       return this;
     }
 
@@ -774,17 +691,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.trace.v2.ZipkinConfig buildPartial() {
       io.envoyproxy.envoy.config.trace.v2.ZipkinConfig result = new io.envoyproxy.envoy.config.trace.v2.ZipkinConfig(this);
-      result.collectorCluster_ = collectorCluster_;
-      result.collectorEndpoint_ = collectorEndpoint_;
-      result.traceId128Bit_ = traceId128Bit_;
-      if (sharedSpanContextBuilder_ == null) {
-        result.sharedSpanContext_ = sharedSpanContext_;
-      } else {
-        result.sharedSpanContext_ = sharedSpanContextBuilder_.build();
-      }
-      result.collectorEndpointVersion_ = collectorEndpointVersion_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.trace.v2.ZipkinConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.collectorCluster_ = collectorCluster_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.collectorEndpoint_ = collectorEndpoint_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.traceId128Bit_ = traceId128Bit_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.sharedSpanContext_ = sharedSpanContextBuilder_ == null
+            ? sharedSpanContext_
+            : sharedSpanContextBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.collectorEndpointVersion_ = collectorEndpointVersion_;
+      }
     }
 
     @java.lang.Override
@@ -833,10 +763,12 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.getDefaultInstance()) return this;
       if (!other.getCollectorCluster().isEmpty()) {
         collectorCluster_ = other.collectorCluster_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCollectorEndpoint().isEmpty()) {
         collectorEndpoint_ = other.collectorEndpoint_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getTraceId128Bit() != false) {
@@ -848,7 +780,7 @@ private static final long serialVersionUID = 0L;
       if (other.collectorEndpointVersion_ != 0) {
         setCollectorEndpointVersionValue(other.getCollectorEndpointVersionValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -863,19 +795,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.trace.v2.ZipkinConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              collectorCluster_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              collectorEndpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              traceId128Bit_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getSharedSpanContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              collectorEndpointVersion_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.trace.v2.ZipkinConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object collectorCluster_ = "";
     /**
@@ -936,11 +909,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCollectorCluster(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       collectorCluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -955,8 +926,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCollectorCluster() {
-      
       collectorCluster_ = getDefaultInstance().getCollectorCluster();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -973,12 +944,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCollectorClusterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       collectorCluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1042,11 +1011,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCollectorEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       collectorEndpoint_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1061,8 +1028,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCollectorEndpoint() {
-      
       collectorEndpoint_ = getDefaultInstance().getCollectorEndpoint();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1079,12 +1046,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCollectorEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       collectorEndpoint_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1116,6 +1081,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTraceId128Bit(boolean value) {
       
       traceId128Bit_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1129,7 +1095,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTraceId128Bit() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       traceId128Bit_ = false;
       onChanged();
       return this;
@@ -1148,7 +1114,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sharedSpanContext field is set.
      */
     public boolean hasSharedSpanContext() {
-      return sharedSpanContextBuilder_ != null || sharedSpanContext_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1180,11 +1146,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sharedSpanContext_ = value;
-        onChanged();
       } else {
         sharedSpanContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1199,11 +1165,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (sharedSpanContextBuilder_ == null) {
         sharedSpanContext_ = builderForValue.build();
-        onChanged();
       } else {
         sharedSpanContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1216,17 +1182,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSharedSpanContext(com.google.protobuf.BoolValue value) {
       if (sharedSpanContextBuilder_ == null) {
-        if (sharedSpanContext_ != null) {
-          sharedSpanContext_ =
-            com.google.protobuf.BoolValue.newBuilder(sharedSpanContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          sharedSpanContext_ != null &&
+          sharedSpanContext_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getSharedSpanContextBuilder().mergeFrom(value);
         } else {
           sharedSpanContext_ = value;
         }
-        onChanged();
       } else {
         sharedSpanContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1238,14 +1205,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue shared_span_context = 4;</code>
      */
     public Builder clearSharedSpanContext() {
-      if (sharedSpanContextBuilder_ == null) {
-        sharedSpanContext_ = null;
-        onChanged();
-      } else {
-        sharedSpanContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      sharedSpanContext_ = null;
+      if (sharedSpanContextBuilder_ != null) {
+        sharedSpanContextBuilder_.dispose();
         sharedSpanContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1257,7 +1223,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue shared_span_context = 4;</code>
      */
     public com.google.protobuf.BoolValue.Builder getSharedSpanContextBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getSharedSpanContextFieldBuilder().getBuilder();
     }
@@ -1323,8 +1289,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCollectorEndpointVersionValue(int value) {
-      
       collectorEndpointVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1339,8 +1305,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion getCollectorEndpointVersion() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion result = io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion.valueOf(collectorEndpointVersion_);
+      io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion result = io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion.forNumber(collectorEndpointVersion_);
       return result == null ? io.envoyproxy.envoy.config.trace.v2.ZipkinConfig.CollectorEndpointVersion.UNRECOGNIZED : result;
     }
     /**
@@ -1357,7 +1322,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       collectorEndpointVersion_ = value.getNumber();
       onChanged();
       return this;
@@ -1372,7 +1337,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCollectorEndpointVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       collectorEndpointVersion_ = 0;
       onChanged();
       return this;
@@ -1410,7 +1375,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ZipkinConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

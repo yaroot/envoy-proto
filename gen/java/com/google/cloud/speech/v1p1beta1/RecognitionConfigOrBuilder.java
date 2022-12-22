@@ -50,8 +50,7 @@ public interface RecognitionConfigOrBuilder extends
    * <pre>
    * The number of channels in the input audio data.
    * ONLY set this for MULTI-CHANNEL recognition.
-   * Valid values for LINEAR16 and FLAC are `1`-`8`.
-   * Valid values for OGG_OPUS are '1'-'254'.
+   * Valid values for LINEAR16, OGG_OPUS and FLAC are `1`-`8`.
    * Valid value for MULAW, AMR, AMR_WB and SPEEX_WITH_HEADER_BYTE is only `1`.
    * If `0` or omitted, defaults to one channel (mono).
    * Note: We only recognize the first channel by default.
@@ -493,7 +492,7 @@ public interface RecognitionConfigOrBuilder extends
    *
    * <code>bool enable_speaker_diarization = 16 [deprecated = true];</code>
    * @deprecated google.cloud.speech.v1p1beta1.RecognitionConfig.enable_speaker_diarization is deprecated.
-   *     See google/cloud/speech/v1p1beta1/cloud_speech.proto;l=378
+   *     See google/cloud/speech/v1p1beta1/cloud_speech.proto;l=377
    * @return The enableSpeakerDiarization.
    */
   @java.lang.Deprecated boolean getEnableSpeakerDiarization();
@@ -507,7 +506,7 @@ public interface RecognitionConfigOrBuilder extends
    *
    * <code>int32 diarization_speaker_count = 17 [deprecated = true];</code>
    * @deprecated google.cloud.speech.v1p1beta1.RecognitionConfig.diarization_speaker_count is deprecated.
-   *     See google/cloud/speech/v1p1beta1/cloud_speech.proto;l=383
+   *     See google/cloud/speech/v1p1beta1/cloud_speech.proto;l=382
    * @return The diarizationSpeakerCount.
    */
   @java.lang.Deprecated int getDiarizationSpeakerCount();

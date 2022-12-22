@@ -68,7 +68,7 @@ public interface StopLocationOrBuilder extends
    *
    * <code>.google.protobuf.Timestamp stop_time = 3 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
    * @deprecated maps.fleetengine.v1.StopLocation.stop_time is deprecated.
-   *     See google/maps/fleetengine/v1/trips.proto;l=208
+   *     See google/maps/fleetengine/v1/trips.proto;l=234
    * @return Whether the stopTime field is set.
    */
   @java.lang.Deprecated boolean hasStopTime();
@@ -79,7 +79,7 @@ public interface StopLocationOrBuilder extends
    *
    * <code>.google.protobuf.Timestamp stop_time = 3 [deprecated = true, (.google.api.field_behavior) = INPUT_ONLY];</code>
    * @deprecated maps.fleetengine.v1.StopLocation.stop_time is deprecated.
-   *     See google/maps/fleetengine/v1/trips.proto;l=208
+   *     See google/maps/fleetengine/v1/trips.proto;l=234
    * @return The stopTime.
    */
   @java.lang.Deprecated com.google.protobuf.Timestamp getStopTime();

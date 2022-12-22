@@ -420,7 +420,6 @@ public interface JobOrBuilder extends
    *
    * <code>map&lt;string, string&gt; transform_name_mapping = 13;</code>
    */
-
   /* nullable */
 java.lang.String getTransformNameMappingOrDefault(
       java.lang.String key,
@@ -434,7 +433,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; transform_name_mapping = 13;</code>
    */
-
   java.lang.String getTransformNameMappingOrThrow(
       java.lang.String key);
 
@@ -628,7 +626,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 17;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -647,7 +644,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 17;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

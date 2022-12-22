@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ObbFile(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            obbFileName_ = s;
-            break;
-          }
-          case 18: {
-            com.google.devtools.testing.v1.FileReference.Builder subBuilder = null;
-            if (obb_ != null) {
-              subBuilder = obb_.toBuilder();
-            }
-            obb_ = input.readMessage(com.google.devtools.testing.v1.FileReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(obb_);
-              obb_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_ObbFile_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OBB_FILE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object obbFileName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object obbFileName_ = "";
   /**
    * <pre>
    * Required. OBB file name which must conform to the format as specified by
@@ -197,7 +140,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.FileReferenceOrBuilder getObbOrBuilder() {
-    return getObb();
+    return obb_ == null ? com.google.devtools.testing.v1.FileReference.getDefaultInstance() : obb_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -220,7 +163,7 @@ private static final long serialVersionUID = 0L;
     if (obb_ != null) {
       output.writeMessage(2, getObb());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -236,7 +179,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getObb());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -258,7 +201,7 @@ private static final long serialVersionUID = 0L;
       if (!getObb()
           .equals(other.getObb())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -275,7 +218,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OBB_FIELD_NUMBER;
       hash = (53 * hash) + getObb().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -396,28 +339,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.ObbFile.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       obbFileName_ = "";
-
-      if (obbBuilder_ == null) {
-        obb_ = null;
-      } else {
-        obb_ = null;
+      obb_ = null;
+      if (obbBuilder_ != null) {
+        obbBuilder_.dispose();
         obbBuilder_ = null;
       }
       return this;
@@ -446,14 +383,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.ObbFile buildPartial() {
       com.google.devtools.testing.v1.ObbFile result = new com.google.devtools.testing.v1.ObbFile(this);
-      result.obbFileName_ = obbFileName_;
-      if (obbBuilder_ == null) {
-        result.obb_ = obb_;
-      } else {
-        result.obb_ = obbBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.ObbFile result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.obbFileName_ = obbFileName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.obb_ = obbBuilder_ == null
+            ? obb_
+            : obbBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -502,12 +446,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.testing.v1.ObbFile.getDefaultInstance()) return this;
       if (!other.getObbFileName().isEmpty()) {
         obbFileName_ = other.obbFileName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasObb()) {
         mergeObb(other.getObb());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -522,19 +467,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.ObbFile parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              obbFileName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getObbFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.ObbFile) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object obbFileName_ = "";
     /**
@@ -604,11 +575,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setObbFileName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       obbFileName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -626,8 +595,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearObbFileName() {
-      
       obbFileName_ = getDefaultInstance().getObbFileName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -647,12 +616,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setObbFileNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       obbFileName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -669,7 +636,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the obb field is set.
      */
     public boolean hasObb() {
-      return obbBuilder_ != null || obb_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -699,11 +666,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         obb_ = value;
-        onChanged();
       } else {
         obbBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -717,11 +684,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.FileReference.Builder builderForValue) {
       if (obbBuilder_ == null) {
         obb_ = builderForValue.build();
-        onChanged();
       } else {
         obbBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -733,17 +700,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeObb(com.google.devtools.testing.v1.FileReference value) {
       if (obbBuilder_ == null) {
-        if (obb_ != null) {
-          obb_ =
-            com.google.devtools.testing.v1.FileReference.newBuilder(obb_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          obb_ != null &&
+          obb_ != com.google.devtools.testing.v1.FileReference.getDefaultInstance()) {
+          getObbBuilder().mergeFrom(value);
         } else {
           obb_ = value;
         }
-        onChanged();
       } else {
         obbBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -754,14 +722,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.FileReference obb = 2;</code>
      */
     public Builder clearObb() {
-      if (obbBuilder_ == null) {
-        obb_ = null;
-        onChanged();
-      } else {
-        obb_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      obb_ = null;
+      if (obbBuilder_ != null) {
+        obbBuilder_.dispose();
         obbBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -772,7 +739,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.FileReference obb = 2;</code>
      */
     public com.google.devtools.testing.v1.FileReference.Builder getObbBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getObbFieldBuilder().getBuilder();
     }
@@ -844,7 +811,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ObbFile(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

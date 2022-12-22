@@ -42,101 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PublishLifecycleEventRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            serviceLevel_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.devtools.build.v1.OrderedBuildEvent.Builder subBuilder = null;
-            if (buildEvent_ != null) {
-              subBuilder = buildEvent_.toBuilder();
-            }
-            buildEvent_ = input.readMessage(com.google.devtools.build.v1.OrderedBuildEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(buildEvent_);
-              buildEvent_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (streamTimeout_ != null) {
-              subBuilder = streamTimeout_.toBuilder();
-            }
-            streamTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(streamTimeout_);
-              streamTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              notificationKeywords_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            notificationKeywords_.add(s);
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 56: {
-
-            checkPrecedingLifecycleEventsPresent_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        notificationKeywords_ = notificationKeywords_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.build.v1.BackendProto.internal_static_google_devtools_build_v1_PublishLifecycleEventRequest_descriptor;
@@ -283,7 +188,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_LEVEL_FIELD_NUMBER = 1;
-  private int serviceLevel_;
+  private int serviceLevel_ = 0;
   /**
    * <pre>
    * The interactivity of this build.
@@ -304,8 +209,7 @@ private static final long serialVersionUID = 0L;
    * @return The serviceLevel.
    */
   @java.lang.Override public com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel getServiceLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel result = com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel.valueOf(serviceLevel_);
+    com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel result = com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel.forNumber(serviceLevel_);
     return result == null ? com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel.UNRECOGNIZED : result;
   }
 
@@ -313,8 +217,8 @@ private static final long serialVersionUID = 0L;
   private com.google.devtools.build.v1.OrderedBuildEvent buildEvent_;
   /**
    * <pre>
-   * Required. The lifecycle build event. If this is a build tool event, the RPC
-   * will fail with INVALID_REQUEST.
+   * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+   * with INVALID_REQUEST.
    * </pre>
    *
    * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -326,8 +230,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The lifecycle build event. If this is a build tool event, the RPC
-   * will fail with INVALID_REQUEST.
+   * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+   * with INVALID_REQUEST.
    * </pre>
    *
    * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -339,15 +243,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The lifecycle build event. If this is a build tool event, the RPC
-   * will fail with INVALID_REQUEST.
+   * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+   * with INVALID_REQUEST.
    * </pre>
    *
    * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.devtools.build.v1.OrderedBuildEventOrBuilder getBuildEventOrBuilder() {
-    return getBuildEvent();
+    return buildEvent_ == null ? com.google.devtools.build.v1.OrderedBuildEvent.getDefaultInstance() : buildEvent_;
   }
 
   public static final int STREAM_TIMEOUT_FIELD_NUMBER = 3;
@@ -394,10 +298,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getStreamTimeoutOrBuilder() {
-    return getStreamTimeout();
+    return streamTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : streamTimeout_;
   }
 
   public static final int NOTIFICATION_KEYWORDS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList notificationKeywords_;
   /**
    * <pre>
@@ -465,7 +370,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * Required. The project this build is associated with.
@@ -515,7 +421,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHECK_PRECEDING_LIFECYCLE_EVENTS_PRESENT_FIELD_NUMBER = 7;
-  private boolean checkPrecedingLifecycleEventsPresent_;
+  private boolean checkPrecedingLifecycleEventsPresent_ = false;
   /**
    * <pre>
    * Whether to require a previously received matching parent lifecycle event
@@ -566,7 +472,7 @@ private static final long serialVersionUID = 0L;
     if (checkPrecedingLifecycleEventsPresent_ != false) {
       output.writeBool(7, checkPrecedingLifecycleEventsPresent_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -602,7 +508,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, checkPrecedingLifecycleEventsPresent_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -634,7 +540,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getProjectId())) return false;
     if (getCheckPrecedingLifecycleEventsPresent()
         != other.getCheckPrecedingLifecycleEventsPresent()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -664,7 +570,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CHECK_PRECEDING_LIFECYCLE_EVENTS_PRESENT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getCheckPrecedingLifecycleEventsPresent());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -790,42 +696,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.build.v1.PublishLifecycleEventRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       serviceLevel_ = 0;
-
-      if (buildEventBuilder_ == null) {
-        buildEvent_ = null;
-      } else {
-        buildEvent_ = null;
+      buildEvent_ = null;
+      if (buildEventBuilder_ != null) {
+        buildEventBuilder_.dispose();
         buildEventBuilder_ = null;
       }
-      if (streamTimeoutBuilder_ == null) {
-        streamTimeout_ = null;
-      } else {
-        streamTimeout_ = null;
+      streamTimeout_ = null;
+      if (streamTimeoutBuilder_ != null) {
+        streamTimeoutBuilder_.dispose();
         streamTimeoutBuilder_ = null;
       }
       notificationKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       projectId_ = "";
-
       checkPrecedingLifecycleEventsPresent_ = false;
-
       return this;
     }
 
@@ -852,27 +749,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.build.v1.PublishLifecycleEventRequest buildPartial() {
       com.google.devtools.build.v1.PublishLifecycleEventRequest result = new com.google.devtools.build.v1.PublishLifecycleEventRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.serviceLevel_ = serviceLevel_;
-      if (buildEventBuilder_ == null) {
-        result.buildEvent_ = buildEvent_;
-      } else {
-        result.buildEvent_ = buildEventBuilder_.build();
-      }
-      if (streamTimeoutBuilder_ == null) {
-        result.streamTimeout_ = streamTimeout_;
-      } else {
-        result.streamTimeout_ = streamTimeoutBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        notificationKeywords_ = notificationKeywords_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.notificationKeywords_ = notificationKeywords_;
-      result.projectId_ = projectId_;
-      result.checkPrecedingLifecycleEventsPresent_ = checkPrecedingLifecycleEventsPresent_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.build.v1.PublishLifecycleEventRequest result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        notificationKeywords_ = notificationKeywords_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.notificationKeywords_ = notificationKeywords_;
+    }
+
+    private void buildPartial0(com.google.devtools.build.v1.PublishLifecycleEventRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.serviceLevel_ = serviceLevel_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.buildEvent_ = buildEventBuilder_ == null
+            ? buildEvent_
+            : buildEventBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.streamTimeout_ = streamTimeoutBuilder_ == null
+            ? streamTimeout_
+            : streamTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.projectId_ = projectId_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.checkPrecedingLifecycleEventsPresent_ = checkPrecedingLifecycleEventsPresent_;
+      }
     }
 
     @java.lang.Override
@@ -931,7 +842,7 @@ private static final long serialVersionUID = 0L;
       if (!other.notificationKeywords_.isEmpty()) {
         if (notificationKeywords_.isEmpty()) {
           notificationKeywords_ = other.notificationKeywords_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureNotificationKeywordsIsMutable();
           notificationKeywords_.addAll(other.notificationKeywords_);
@@ -940,12 +851,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getCheckPrecedingLifecycleEventsPresent() != false) {
         setCheckPrecedingLifecycleEventsPresent(other.getCheckPrecedingLifecycleEventsPresent());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -960,17 +872,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.build.v1.PublishLifecycleEventRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              serviceLevel_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getBuildEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getStreamTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureNotificationKeywordsIsMutable();
+              notificationKeywords_.add(s);
+              break;
+            } // case 34
+            case 50: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 56: {
+              checkPrecedingLifecycleEventsPresent_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.build.v1.PublishLifecycleEventRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -997,8 +957,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setServiceLevelValue(int value) {
-      
       serviceLevel_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1012,8 +972,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel getServiceLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel result = com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel.valueOf(serviceLevel_);
+      com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel result = com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel.forNumber(serviceLevel_);
       return result == null ? com.google.devtools.build.v1.PublishLifecycleEventRequest.ServiceLevel.UNRECOGNIZED : result;
     }
     /**
@@ -1029,7 +988,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       serviceLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -1043,7 +1002,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       serviceLevel_ = 0;
       onChanged();
       return this;
@@ -1054,20 +1013,20 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.build.v1.OrderedBuildEvent, com.google.devtools.build.v1.OrderedBuildEvent.Builder, com.google.devtools.build.v1.OrderedBuildEventOrBuilder> buildEventBuilder_;
     /**
      * <pre>
-     * Required. The lifecycle build event. If this is a build tool event, the RPC
-     * will fail with INVALID_REQUEST.
+     * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+     * with INVALID_REQUEST.
      * </pre>
      *
      * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the buildEvent field is set.
      */
     public boolean hasBuildEvent() {
-      return buildEventBuilder_ != null || buildEvent_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. The lifecycle build event. If this is a build tool event, the RPC
-     * will fail with INVALID_REQUEST.
+     * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+     * with INVALID_REQUEST.
      * </pre>
      *
      * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1082,8 +1041,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The lifecycle build event. If this is a build tool event, the RPC
-     * will fail with INVALID_REQUEST.
+     * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+     * with INVALID_REQUEST.
      * </pre>
      *
      * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1094,17 +1053,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         buildEvent_ = value;
-        onChanged();
       } else {
         buildEventBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The lifecycle build event. If this is a build tool event, the RPC
-     * will fail with INVALID_REQUEST.
+     * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+     * with INVALID_REQUEST.
      * </pre>
      *
      * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1113,72 +1072,72 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.build.v1.OrderedBuildEvent.Builder builderForValue) {
       if (buildEventBuilder_ == null) {
         buildEvent_ = builderForValue.build();
-        onChanged();
       } else {
         buildEventBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The lifecycle build event. If this is a build tool event, the RPC
-     * will fail with INVALID_REQUEST.
+     * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+     * with INVALID_REQUEST.
      * </pre>
      *
      * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeBuildEvent(com.google.devtools.build.v1.OrderedBuildEvent value) {
       if (buildEventBuilder_ == null) {
-        if (buildEvent_ != null) {
-          buildEvent_ =
-            com.google.devtools.build.v1.OrderedBuildEvent.newBuilder(buildEvent_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          buildEvent_ != null &&
+          buildEvent_ != com.google.devtools.build.v1.OrderedBuildEvent.getDefaultInstance()) {
+          getBuildEventBuilder().mergeFrom(value);
         } else {
           buildEvent_ = value;
         }
-        onChanged();
       } else {
         buildEventBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The lifecycle build event. If this is a build tool event, the RPC
-     * will fail with INVALID_REQUEST.
+     * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+     * with INVALID_REQUEST.
      * </pre>
      *
      * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearBuildEvent() {
-      if (buildEventBuilder_ == null) {
-        buildEvent_ = null;
-        onChanged();
-      } else {
-        buildEvent_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      buildEvent_ = null;
+      if (buildEventBuilder_ != null) {
+        buildEventBuilder_.dispose();
         buildEventBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The lifecycle build event. If this is a build tool event, the RPC
-     * will fail with INVALID_REQUEST.
+     * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+     * with INVALID_REQUEST.
      * </pre>
      *
      * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.devtools.build.v1.OrderedBuildEvent.Builder getBuildEventBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getBuildEventFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The lifecycle build event. If this is a build tool event, the RPC
-     * will fail with INVALID_REQUEST.
+     * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+     * with INVALID_REQUEST.
      * </pre>
      *
      * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1193,8 +1152,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The lifecycle build event. If this is a build tool event, the RPC
-     * will fail with INVALID_REQUEST.
+     * Required. The lifecycle build event. If this is a build tool event, the RPC will fail
+     * with INVALID_REQUEST.
      * </pre>
      *
      * <code>.google.devtools.build.v1.OrderedBuildEvent build_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1228,7 +1187,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the streamTimeout field is set.
      */
     public boolean hasStreamTimeout() {
-      return streamTimeoutBuilder_ != null || streamTimeout_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1264,11 +1223,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         streamTimeout_ = value;
-        onChanged();
       } else {
         streamTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1285,11 +1244,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (streamTimeoutBuilder_ == null) {
         streamTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         streamTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1304,17 +1263,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStreamTimeout(com.google.protobuf.Duration value) {
       if (streamTimeoutBuilder_ == null) {
-        if (streamTimeout_ != null) {
-          streamTimeout_ =
-            com.google.protobuf.Duration.newBuilder(streamTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          streamTimeout_ != null &&
+          streamTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getStreamTimeoutBuilder().mergeFrom(value);
         } else {
           streamTimeout_ = value;
         }
-        onChanged();
       } else {
         streamTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1328,14 +1288,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration stream_timeout = 3;</code>
      */
     public Builder clearStreamTimeout() {
-      if (streamTimeoutBuilder_ == null) {
-        streamTimeout_ = null;
-        onChanged();
-      } else {
-        streamTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      streamTimeout_ = null;
+      if (streamTimeoutBuilder_ != null) {
+        streamTimeoutBuilder_.dispose();
         streamTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1349,7 +1308,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration stream_timeout = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getStreamTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getStreamTimeoutFieldBuilder().getBuilder();
     }
@@ -1397,9 +1356,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList notificationKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureNotificationKeywordsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         notificationKeywords_ = new com.google.protobuf.LazyStringArrayList(notificationKeywords_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1482,10 +1441,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNotificationKeywords(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNotificationKeywordsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNotificationKeywordsIsMutable();
       notificationKeywords_.set(index, value);
       onChanged();
       return this;
@@ -1505,10 +1462,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNotificationKeywords(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNotificationKeywordsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNotificationKeywordsIsMutable();
       notificationKeywords_.add(value);
       onChanged();
       return this;
@@ -1548,7 +1503,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearNotificationKeywords() {
       notificationKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1567,10 +1522,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNotificationKeywordsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureNotificationKeywordsIsMutable();
       notificationKeywords_.add(value);
       onChanged();
@@ -1636,11 +1589,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1655,8 +1606,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1673,12 +1624,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1718,6 +1667,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCheckPrecedingLifecycleEventsPresent(boolean value) {
       
       checkPrecedingLifecycleEventsPresent_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1735,7 +1685,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCheckPrecedingLifecycleEventsPresent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       checkPrecedingLifecycleEventsPresent_ = false;
       onChanged();
       return this;
@@ -1773,7 +1723,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PublishLifecycleEventRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -122,7 +122,7 @@ public enum ServiceAccountKeyAlgorithm
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.google.iam.admin.v1.IamProto.getDescriptor().getEnumTypes().get(0);
+    return com.google.iam.admin.v1.Iam.getDescriptor().getEnumTypes().get(0);
   }
 
   private static final ServiceAccountKeyAlgorithm[] VALUES = values();

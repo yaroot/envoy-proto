@@ -36,78 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HiveMetastoreConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              configOverrides_ = com.google.protobuf.MapField.newMapField(
-                  ConfigOverridesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            configOverrides__ = input.readMessage(
-                ConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            configOverrides_.getMutableMap().put(
-                configOverrides__.getKey(), configOverrides__.getValue());
-            break;
-          }
-          case 26: {
-            com.google.cloud.metastore.v1.KerberosConfig.Builder subBuilder = null;
-            if (kerberosConfig_ != null) {
-              subBuilder = kerberosConfig_.toBuilder();
-            }
-            kerberosConfig_ = input.readMessage(com.google.cloud.metastore.v1.KerberosConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kerberosConfig_);
-              kerberosConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1.MetastoreProto.internal_static_google_cloud_metastore_v1_HiveMetastoreConfig_descriptor;
@@ -134,7 +62,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * Immutable. The Hive metastore schema version.
@@ -191,6 +120,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> configOverrides_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -201,7 +131,6 @@ private static final long serialVersionUID = 0L;
     }
     return configOverrides_;
   }
-
   public int getConfigOverridesCount() {
     return internalGetConfigOverrides().getMap().size();
   }
@@ -209,12 +138,13 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A mapping of Hive metastore configuration key-value pairs to apply to the
    * Hive metastore (configured in `hive-site.xml`). The mappings
-   * override system defaults (some keys cannot be overridden).
+   * override system defaults (some keys cannot be overridden). These
+   * overrides are also applied to auxiliary versions and can be further
+   * customized in the auxiliary version's `AuxiliaryVersionConfig`.
    * </pre>
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsConfigOverrides(
       java.lang.String key) {
@@ -233,13 +163,14 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A mapping of Hive metastore configuration key-value pairs to apply to the
    * Hive metastore (configured in `hive-site.xml`). The mappings
-   * override system defaults (some keys cannot be overridden).
+   * override system defaults (some keys cannot be overridden). These
+   * overrides are also applied to auxiliary versions and can be further
+   * customized in the auxiliary version's `AuxiliaryVersionConfig`.
    * </pre>
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getConfigOverridesMap() {
     return internalGetConfigOverrides().getMap();
   }
@@ -247,16 +178,19 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A mapping of Hive metastore configuration key-value pairs to apply to the
    * Hive metastore (configured in `hive-site.xml`). The mappings
-   * override system defaults (some keys cannot be overridden).
+   * override system defaults (some keys cannot be overridden). These
+   * overrides are also applied to auxiliary versions and can be further
+   * customized in the auxiliary version's `AuxiliaryVersionConfig`.
    * </pre>
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getConfigOverridesOrDefault(
+  public /* nullable */
+java.lang.String getConfigOverridesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetConfigOverrides().getMap();
@@ -266,13 +200,14 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A mapping of Hive metastore configuration key-value pairs to apply to the
    * Hive metastore (configured in `hive-site.xml`). The mappings
-   * override system defaults (some keys cannot be overridden).
+   * override system defaults (some keys cannot be overridden). These
+   * overrides are also applied to auxiliary versions and can be further
+   * customized in the auxiliary version's `AuxiliaryVersionConfig`.
    * </pre>
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getConfigOverridesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -331,7 +266,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.metastore.v1.KerberosConfigOrBuilder getKerberosConfigOrBuilder() {
-    return getKerberosConfig();
+    return kerberosConfig_ == null ? com.google.cloud.metastore.v1.KerberosConfig.getDefaultInstance() : kerberosConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -360,7 +295,7 @@ private static final long serialVersionUID = 0L;
     if (kerberosConfig_ != null) {
       output.writeMessage(3, getKerberosConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -386,7 +321,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getKerberosConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -410,7 +345,7 @@ private static final long serialVersionUID = 0L;
       if (!getKerberosConfig()
           .equals(other.getKerberosConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -431,7 +366,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + KERBEROS_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getKerberosConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -575,29 +510,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1.HiveMetastoreConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       version_ = "";
-
       internalGetMutableConfigOverrides().clear();
-      if (kerberosConfigBuilder_ == null) {
-        kerberosConfig_ = null;
-      } else {
-        kerberosConfig_ = null;
+      kerberosConfig_ = null;
+      if (kerberosConfigBuilder_ != null) {
+        kerberosConfigBuilder_.dispose();
         kerberosConfigBuilder_ = null;
       }
       return this;
@@ -626,17 +555,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1.HiveMetastoreConfig buildPartial() {
       com.google.cloud.metastore.v1.HiveMetastoreConfig result = new com.google.cloud.metastore.v1.HiveMetastoreConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.version_ = version_;
-      result.configOverrides_ = internalGetConfigOverrides();
-      result.configOverrides_.makeImmutable();
-      if (kerberosConfigBuilder_ == null) {
-        result.kerberosConfig_ = kerberosConfig_;
-      } else {
-        result.kerberosConfig_ = kerberosConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1.HiveMetastoreConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.version_ = version_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.configOverrides_ = internalGetConfigOverrides();
+        result.configOverrides_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.kerberosConfig_ = kerberosConfigBuilder_ == null
+            ? kerberosConfig_
+            : kerberosConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -685,14 +622,16 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.metastore.v1.HiveMetastoreConfig.getDefaultInstance()) return this;
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableConfigOverrides().mergeFrom(
           other.internalGetConfigOverrides());
+      bitField0_ |= 0x00000002;
       if (other.hasKerberosConfig()) {
         mergeKerberosConfig(other.getKerberosConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -707,17 +646,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1.HiveMetastoreConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              configOverrides__ = input.readMessage(
+                  ConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableConfigOverrides().getMutableMap().put(
+                  configOverrides__.getKey(), configOverrides__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getKerberosConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1.HiveMetastoreConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -775,11 +748,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -792,8 +763,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -808,12 +779,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -821,7 +790,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> configOverrides_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetConfigOverrides() {
+        internalGetConfigOverrides() {
       if (configOverrides_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -829,8 +798,7 @@ private static final long serialVersionUID = 0L;
       return configOverrides_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableConfigOverrides() {
-      onChanged();;
+        internalGetMutableConfigOverrides() {
       if (configOverrides_ == null) {
         configOverrides_ = com.google.protobuf.MapField.newMapField(
             ConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -838,9 +806,10 @@ private static final long serialVersionUID = 0L;
       if (!configOverrides_.isMutable()) {
         configOverrides_ = configOverrides_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return configOverrides_;
     }
-
     public int getConfigOverridesCount() {
       return internalGetConfigOverrides().getMap().size();
     }
@@ -848,12 +817,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsConfigOverrides(
         java.lang.String key) {
@@ -872,13 +842,14 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getConfigOverridesMap() {
       return internalGetConfigOverrides().getMap();
     }
@@ -886,16 +857,19 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getConfigOverridesOrDefault(
+    public /* nullable */
+java.lang.String getConfigOverridesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetConfigOverrides().getMap();
@@ -905,13 +879,14 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getConfigOverridesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -922,8 +897,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearConfigOverrides() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableConfigOverrides().getMutableMap()
           .clear();
       return this;
@@ -932,12 +907,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     public Builder removeConfigOverrides(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -950,14 +926,17 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableConfigOverrides() {
+        getMutableConfigOverrides() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableConfigOverrides().getMutableMap();
     }
     /**
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
@@ -966,28 +945,28 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableConfigOverrides().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     public Builder putAllConfigOverrides(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableConfigOverrides().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -1007,7 +986,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kerberosConfig field is set.
      */
     public boolean hasKerberosConfig() {
-      return kerberosConfigBuilder_ != null || kerberosConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1045,11 +1024,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kerberosConfig_ = value;
-        onChanged();
       } else {
         kerberosConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1067,11 +1046,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1.KerberosConfig.Builder builderForValue) {
       if (kerberosConfigBuilder_ == null) {
         kerberosConfig_ = builderForValue.build();
-        onChanged();
       } else {
         kerberosConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1087,17 +1066,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKerberosConfig(com.google.cloud.metastore.v1.KerberosConfig value) {
       if (kerberosConfigBuilder_ == null) {
-        if (kerberosConfig_ != null) {
-          kerberosConfig_ =
-            com.google.cloud.metastore.v1.KerberosConfig.newBuilder(kerberosConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          kerberosConfig_ != null &&
+          kerberosConfig_ != com.google.cloud.metastore.v1.KerberosConfig.getDefaultInstance()) {
+          getKerberosConfigBuilder().mergeFrom(value);
         } else {
           kerberosConfig_ = value;
         }
-        onChanged();
       } else {
         kerberosConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1112,14 +1092,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1.KerberosConfig kerberos_config = 3;</code>
      */
     public Builder clearKerberosConfig() {
-      if (kerberosConfigBuilder_ == null) {
-        kerberosConfig_ = null;
-        onChanged();
-      } else {
-        kerberosConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      kerberosConfig_ = null;
+      if (kerberosConfigBuilder_ != null) {
+        kerberosConfigBuilder_.dispose();
         kerberosConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1134,7 +1113,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1.KerberosConfig kerberos_config = 3;</code>
      */
     public com.google.cloud.metastore.v1.KerberosConfig.Builder getKerberosConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getKerberosConfigFieldBuilder().getBuilder();
     }
@@ -1214,7 +1193,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HiveMetastoreConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

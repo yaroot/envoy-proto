@@ -37,69 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BackendServiceIAP(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8149512: {
-            bitField0_ |= 0x00000001;
-            enabled_ = input.readBool();
-            break;
-          }
-          case 407996162: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            oauth2ClientSecret_ = s;
-            break;
-          }
-          case 903230258: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            oauth2ClientSecretSha256_ = s;
-            break;
-          }
-          case -1782826406: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            oauth2ClientId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_BackendServiceIAP_descriptor;
@@ -115,7 +52,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ENABLED_FIELD_NUMBER = 1018689;
-  private boolean enabled_;
+  private boolean enabled_ = false;
   /**
    * <pre>
    * Whether the serving infrastructure will authenticate and authorize all incoming requests. If true, the oauth2ClientId and oauth2ClientSecret fields must be non-empty.
@@ -142,7 +79,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OAUTH2_CLIENT_ID_FIELD_NUMBER = 314017611;
-  private volatile java.lang.Object oauth2ClientId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object oauth2ClientId_ = "";
   /**
    * <pre>
    * OAuth2 client ID to use for the authentication flow.
@@ -200,7 +138,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OAUTH2_CLIENT_SECRET_FIELD_NUMBER = 50999520;
-  private volatile java.lang.Object oauth2ClientSecret_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object oauth2ClientSecret_ = "";
   /**
    * <pre>
    * OAuth2 client secret to use for the authentication flow. For security reasons, this value cannot be retrieved via the API. Instead, the SHA-256 hash of the value is returned in the oauth2ClientSecretSha256 field. &#64;InputOnly
@@ -258,7 +197,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OAUTH2_CLIENT_SECRET_SHA256_FIELD_NUMBER = 112903782;
-  private volatile java.lang.Object oauth2ClientSecretSha256_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object oauth2ClientSecretSha256_ = "";
   /**
    * <pre>
    * [Output Only] SHA256 hash value for the field oauth2_client_secret above.
@@ -341,7 +281,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 314017611, oauth2ClientId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -363,7 +303,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(314017611, oauth2ClientId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -398,7 +338,7 @@ private static final long serialVersionUID = 0L;
       if (!getOauth2ClientSecretSha256()
           .equals(other.getOauth2ClientSecretSha256())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -426,7 +366,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OAUTH2_CLIENT_SECRET_SHA256_FIELD_NUMBER;
       hash = (53 * hash) + getOauth2ClientSecretSha256().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -547,30 +487,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.BackendServiceIAP.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enabled_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       oauth2ClientId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       oauth2ClientSecret_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       oauth2ClientSecretSha256_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -597,6 +529,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.BackendServiceIAP buildPartial() {
       com.google.cloud.compute.v1.BackendServiceIAP result = new com.google.cloud.compute.v1.BackendServiceIAP(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.BackendServiceIAP result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -604,20 +542,18 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.oauth2ClientId_ = oauth2ClientId_;
         to_bitField0_ |= 0x00000002;
       }
-      result.oauth2ClientId_ = oauth2ClientId_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.oauth2ClientSecret_ = oauth2ClientSecret_;
         to_bitField0_ |= 0x00000004;
       }
-      result.oauth2ClientSecret_ = oauth2ClientSecret_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.oauth2ClientSecretSha256_ = oauth2ClientSecretSha256_;
         to_bitField0_ |= 0x00000008;
       }
-      result.oauth2ClientSecretSha256_ = oauth2ClientSecretSha256_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -668,21 +604,21 @@ private static final long serialVersionUID = 0L;
         setEnabled(other.getEnabled());
       }
       if (other.hasOauth2ClientId()) {
-        bitField0_ |= 0x00000002;
         oauth2ClientId_ = other.oauth2ClientId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasOauth2ClientSecret()) {
-        bitField0_ |= 0x00000004;
         oauth2ClientSecret_ = other.oauth2ClientSecret_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasOauth2ClientSecretSha256()) {
-        bitField0_ |= 0x00000008;
         oauth2ClientSecretSha256_ = other.oauth2ClientSecretSha256_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -697,17 +633,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.BackendServiceIAP parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8149512: {
+              enabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8149512
+            case 407996162: {
+              oauth2ClientSecret_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 407996162
+            case 903230258: {
+              oauth2ClientSecretSha256_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 903230258
+            case -1782826406: {
+              oauth2ClientId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1782826406
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.BackendServiceIAP) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -747,8 +716,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnabled(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       enabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -831,11 +801,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOauth2ClientId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       oauth2ClientId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -848,8 +816,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOauth2ClientId() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       oauth2ClientId_ = getDefaultInstance().getOauth2ClientId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -864,12 +832,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOauth2ClientIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       oauth2ClientId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -938,11 +904,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOauth2ClientSecret(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       oauth2ClientSecret_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -955,8 +919,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOauth2ClientSecret() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       oauth2ClientSecret_ = getDefaultInstance().getOauth2ClientSecret();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -971,12 +935,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOauth2ClientSecretBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       oauth2ClientSecret_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1045,11 +1007,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOauth2ClientSecretSha256(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       oauth2ClientSecretSha256_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1062,8 +1022,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOauth2ClientSecretSha256() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       oauth2ClientSecretSha256_ = getDefaultInstance().getOauth2ClientSecretSha256();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1078,12 +1038,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOauth2ClientSecretSha256Bytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       oauth2ClientSecretSha256_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1120,7 +1078,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BackendServiceIAP(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

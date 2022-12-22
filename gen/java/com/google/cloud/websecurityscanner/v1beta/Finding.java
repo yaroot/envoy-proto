@@ -45,183 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Finding(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            findingType_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            httpMethod_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fuzzedUrl_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            body_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            reproductionUrl_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            frameUrl_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            finalUrl_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            trackingId_ = s;
-            break;
-          }
-          case 90: {
-            com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary.Builder subBuilder = null;
-            if (outdatedLibrary_ != null) {
-              subBuilder = outdatedLibrary_.toBuilder();
-            }
-            outdatedLibrary_ = input.readMessage(com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outdatedLibrary_);
-              outdatedLibrary_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.cloud.websecurityscanner.v1beta.ViolatingResource.Builder subBuilder = null;
-            if (violatingResource_ != null) {
-              subBuilder = violatingResource_.toBuilder();
-            }
-            violatingResource_ = input.readMessage(com.google.cloud.websecurityscanner.v1beta.ViolatingResource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(violatingResource_);
-              violatingResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            com.google.cloud.websecurityscanner.v1beta.VulnerableParameters.Builder subBuilder = null;
-            if (vulnerableParameters_ != null) {
-              subBuilder = vulnerableParameters_.toBuilder();
-            }
-            vulnerableParameters_ = input.readMessage(com.google.cloud.websecurityscanner.v1beta.VulnerableParameters.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vulnerableParameters_);
-              vulnerableParameters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            com.google.cloud.websecurityscanner.v1beta.Xss.Builder subBuilder = null;
-            if (xss_ != null) {
-              subBuilder = xss_.toBuilder();
-            }
-            xss_ = input.readMessage(com.google.cloud.websecurityscanner.v1beta.Xss.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(xss_);
-              xss_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.cloud.websecurityscanner.v1beta.VulnerableHeaders.Builder subBuilder = null;
-            if (vulnerableHeaders_ != null) {
-              subBuilder = vulnerableHeaders_.toBuilder();
-            }
-            vulnerableHeaders_ = input.readMessage(com.google.cloud.websecurityscanner.v1beta.VulnerableHeaders.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vulnerableHeaders_);
-              vulnerableHeaders_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.cloud.websecurityscanner.v1beta.Form.Builder subBuilder = null;
-            if (form_ != null) {
-              subBuilder = form_.toBuilder();
-            }
-            form_ = input.readMessage(com.google.cloud.websecurityscanner.v1beta.Form.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(form_);
-              form_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.websecurityscanner.v1beta.FindingProto.internal_static_google_cloud_websecurityscanner_v1beta_Finding_descriptor;
@@ -236,7 +59,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name of the Finding. The name follows the format of
@@ -286,7 +110,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FINDING_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object findingType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object findingType_ = "";
   /**
    * <pre>
    * The type of the Finding.
@@ -336,7 +161,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HTTP_METHOD_FIELD_NUMBER = 3;
-  private volatile java.lang.Object httpMethod_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object httpMethod_ = "";
   /**
    * <pre>
    * The http method of the request that triggered the vulnerability, in
@@ -384,7 +210,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FUZZED_URL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object fuzzedUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fuzzedUrl_ = "";
   /**
    * <pre>
    * The URL produced by the server-side fuzzer and used in the request that
@@ -432,7 +259,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BODY_FIELD_NUMBER = 5;
-  private volatile java.lang.Object body_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object body_ = "";
   /**
    * <pre>
    * The body of the request that triggered the vulnerability.
@@ -478,7 +306,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * The description of the vulnerability.
@@ -524,7 +353,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPRODUCTION_URL_FIELD_NUMBER = 7;
-  private volatile java.lang.Object reproductionUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object reproductionUrl_ = "";
   /**
    * <pre>
    * The URL containing human-readable payload that user can leverage to
@@ -572,7 +402,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FRAME_URL_FIELD_NUMBER = 8;
-  private volatile java.lang.Object frameUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object frameUrl_ = "";
   /**
    * <pre>
    * If the vulnerability was originated from nested IFrame, the immediate
@@ -620,7 +451,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FINAL_URL_FIELD_NUMBER = 9;
-  private volatile java.lang.Object finalUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object finalUrl_ = "";
   /**
    * <pre>
    * The URL where the browser lands when the vulnerability is detected.
@@ -666,7 +498,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRACKING_ID_FIELD_NUMBER = 10;
-  private volatile java.lang.Object trackingId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object trackingId_ = "";
   /**
    * <pre>
    * The tracking ID uniquely identifies a vulnerability instance across
@@ -751,7 +584,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.websecurityscanner.v1beta.FormOrBuilder getFormOrBuilder() {
-    return getForm();
+    return form_ == null ? com.google.cloud.websecurityscanner.v1beta.Form.getDefaultInstance() : form_;
   }
 
   public static final int OUTDATED_LIBRARY_FIELD_NUMBER = 11;
@@ -789,7 +622,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.websecurityscanner.v1beta.OutdatedLibraryOrBuilder getOutdatedLibraryOrBuilder() {
-    return getOutdatedLibrary();
+    return outdatedLibrary_ == null ? com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary.getDefaultInstance() : outdatedLibrary_;
   }
 
   public static final int VIOLATING_RESOURCE_FIELD_NUMBER = 12;
@@ -830,7 +663,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.websecurityscanner.v1beta.ViolatingResourceOrBuilder getViolatingResourceOrBuilder() {
-    return getViolatingResource();
+    return violatingResource_ == null ? com.google.cloud.websecurityscanner.v1beta.ViolatingResource.getDefaultInstance() : violatingResource_;
   }
 
   public static final int VULNERABLE_HEADERS_FIELD_NUMBER = 15;
@@ -868,7 +701,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.websecurityscanner.v1beta.VulnerableHeadersOrBuilder getVulnerableHeadersOrBuilder() {
-    return getVulnerableHeaders();
+    return vulnerableHeaders_ == null ? com.google.cloud.websecurityscanner.v1beta.VulnerableHeaders.getDefaultInstance() : vulnerableHeaders_;
   }
 
   public static final int VULNERABLE_PARAMETERS_FIELD_NUMBER = 13;
@@ -909,7 +742,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.websecurityscanner.v1beta.VulnerableParametersOrBuilder getVulnerableParametersOrBuilder() {
-    return getVulnerableParameters();
+    return vulnerableParameters_ == null ? com.google.cloud.websecurityscanner.v1beta.VulnerableParameters.getDefaultInstance() : vulnerableParameters_;
   }
 
   public static final int XSS_FIELD_NUMBER = 14;
@@ -947,7 +780,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.websecurityscanner.v1beta.XssOrBuilder getXssOrBuilder() {
-    return getXss();
+    return xss_ == null ? com.google.cloud.websecurityscanner.v1beta.Xss.getDefaultInstance() : xss_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1012,7 +845,7 @@ private static final long serialVersionUID = 0L;
     if (form_ != null) {
       output.writeMessage(16, getForm());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1075,7 +908,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, getForm());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1140,7 +973,7 @@ private static final long serialVersionUID = 0L;
       if (!getXss()
           .equals(other.getXss())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1195,7 +1028,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + XSS_FIELD_NUMBER;
       hash = (53 * hash) + getXss().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1317,76 +1150,56 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.websecurityscanner.v1beta.Finding.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       findingType_ = "";
-
       httpMethod_ = "";
-
       fuzzedUrl_ = "";
-
       body_ = "";
-
       description_ = "";
-
       reproductionUrl_ = "";
-
       frameUrl_ = "";
-
       finalUrl_ = "";
-
       trackingId_ = "";
-
-      if (formBuilder_ == null) {
-        form_ = null;
-      } else {
-        form_ = null;
+      form_ = null;
+      if (formBuilder_ != null) {
+        formBuilder_.dispose();
         formBuilder_ = null;
       }
-      if (outdatedLibraryBuilder_ == null) {
-        outdatedLibrary_ = null;
-      } else {
-        outdatedLibrary_ = null;
+      outdatedLibrary_ = null;
+      if (outdatedLibraryBuilder_ != null) {
+        outdatedLibraryBuilder_.dispose();
         outdatedLibraryBuilder_ = null;
       }
-      if (violatingResourceBuilder_ == null) {
-        violatingResource_ = null;
-      } else {
-        violatingResource_ = null;
+      violatingResource_ = null;
+      if (violatingResourceBuilder_ != null) {
+        violatingResourceBuilder_.dispose();
         violatingResourceBuilder_ = null;
       }
-      if (vulnerableHeadersBuilder_ == null) {
-        vulnerableHeaders_ = null;
-      } else {
-        vulnerableHeaders_ = null;
+      vulnerableHeaders_ = null;
+      if (vulnerableHeadersBuilder_ != null) {
+        vulnerableHeadersBuilder_.dispose();
         vulnerableHeadersBuilder_ = null;
       }
-      if (vulnerableParametersBuilder_ == null) {
-        vulnerableParameters_ = null;
-      } else {
-        vulnerableParameters_ = null;
+      vulnerableParameters_ = null;
+      if (vulnerableParametersBuilder_ != null) {
+        vulnerableParametersBuilder_.dispose();
         vulnerableParametersBuilder_ = null;
       }
-      if (xssBuilder_ == null) {
-        xss_ = null;
-      } else {
-        xss_ = null;
+      xss_ = null;
+      if (xssBuilder_ != null) {
+        xssBuilder_.dispose();
         xssBuilder_ = null;
       }
       return this;
@@ -1415,48 +1228,73 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.websecurityscanner.v1beta.Finding buildPartial() {
       com.google.cloud.websecurityscanner.v1beta.Finding result = new com.google.cloud.websecurityscanner.v1beta.Finding(this);
-      result.name_ = name_;
-      result.findingType_ = findingType_;
-      result.httpMethod_ = httpMethod_;
-      result.fuzzedUrl_ = fuzzedUrl_;
-      result.body_ = body_;
-      result.description_ = description_;
-      result.reproductionUrl_ = reproductionUrl_;
-      result.frameUrl_ = frameUrl_;
-      result.finalUrl_ = finalUrl_;
-      result.trackingId_ = trackingId_;
-      if (formBuilder_ == null) {
-        result.form_ = form_;
-      } else {
-        result.form_ = formBuilder_.build();
-      }
-      if (outdatedLibraryBuilder_ == null) {
-        result.outdatedLibrary_ = outdatedLibrary_;
-      } else {
-        result.outdatedLibrary_ = outdatedLibraryBuilder_.build();
-      }
-      if (violatingResourceBuilder_ == null) {
-        result.violatingResource_ = violatingResource_;
-      } else {
-        result.violatingResource_ = violatingResourceBuilder_.build();
-      }
-      if (vulnerableHeadersBuilder_ == null) {
-        result.vulnerableHeaders_ = vulnerableHeaders_;
-      } else {
-        result.vulnerableHeaders_ = vulnerableHeadersBuilder_.build();
-      }
-      if (vulnerableParametersBuilder_ == null) {
-        result.vulnerableParameters_ = vulnerableParameters_;
-      } else {
-        result.vulnerableParameters_ = vulnerableParametersBuilder_.build();
-      }
-      if (xssBuilder_ == null) {
-        result.xss_ = xss_;
-      } else {
-        result.xss_ = xssBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.websecurityscanner.v1beta.Finding result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.findingType_ = findingType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.httpMethod_ = httpMethod_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.fuzzedUrl_ = fuzzedUrl_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.body_ = body_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.reproductionUrl_ = reproductionUrl_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.frameUrl_ = frameUrl_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.finalUrl_ = finalUrl_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.trackingId_ = trackingId_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.form_ = formBuilder_ == null
+            ? form_
+            : formBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.outdatedLibrary_ = outdatedLibraryBuilder_ == null
+            ? outdatedLibrary_
+            : outdatedLibraryBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.violatingResource_ = violatingResourceBuilder_ == null
+            ? violatingResource_
+            : violatingResourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.vulnerableHeaders_ = vulnerableHeadersBuilder_ == null
+            ? vulnerableHeaders_
+            : vulnerableHeadersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.vulnerableParameters_ = vulnerableParametersBuilder_ == null
+            ? vulnerableParameters_
+            : vulnerableParametersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.xss_ = xssBuilder_ == null
+            ? xss_
+            : xssBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1505,42 +1343,52 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.websecurityscanner.v1beta.Finding.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getFindingType().isEmpty()) {
         findingType_ = other.findingType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getHttpMethod().isEmpty()) {
         httpMethod_ = other.httpMethod_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getFuzzedUrl().isEmpty()) {
         fuzzedUrl_ = other.fuzzedUrl_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getBody().isEmpty()) {
         body_ = other.body_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getReproductionUrl().isEmpty()) {
         reproductionUrl_ = other.reproductionUrl_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getFrameUrl().isEmpty()) {
         frameUrl_ = other.frameUrl_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getFinalUrl().isEmpty()) {
         finalUrl_ = other.finalUrl_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getTrackingId().isEmpty()) {
         trackingId_ = other.trackingId_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasForm()) {
@@ -1561,7 +1409,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasXss()) {
         mergeXss(other.getXss());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1576,19 +1424,125 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.websecurityscanner.v1beta.Finding parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              findingType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              httpMethod_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              fuzzedUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              body_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              reproductionUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              frameUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              finalUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              trackingId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getOutdatedLibraryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getViolatingResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getVulnerableParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getXssFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getVulnerableHeadersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getFormFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 130
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.websecurityscanner.v1beta.Finding) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1649,11 +1603,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1668,8 +1620,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1686,12 +1638,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1755,11 +1705,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFindingType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       findingType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1774,8 +1722,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFindingType() {
-      
       findingType_ = getDefaultInstance().getFindingType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1792,12 +1740,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFindingTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       findingType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1858,11 +1804,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHttpMethod(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       httpMethod_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1876,8 +1820,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHttpMethod() {
-      
       httpMethod_ = getDefaultInstance().getHttpMethod();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1893,12 +1837,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHttpMethodBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       httpMethod_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1959,11 +1901,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFuzzedUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       fuzzedUrl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1977,8 +1917,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFuzzedUrl() {
-      
       fuzzedUrl_ = getDefaultInstance().getFuzzedUrl();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1994,12 +1934,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFuzzedUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fuzzedUrl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2057,11 +1995,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBody(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       body_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2074,8 +2010,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBody() {
-      
       body_ = getDefaultInstance().getBody();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2090,12 +2026,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBodyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       body_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2153,11 +2087,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2170,8 +2102,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2186,12 +2118,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2252,11 +2182,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReproductionUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       reproductionUrl_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2270,8 +2198,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReproductionUrl() {
-      
       reproductionUrl_ = getDefaultInstance().getReproductionUrl();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2287,12 +2215,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReproductionUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       reproductionUrl_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2353,11 +2279,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFrameUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       frameUrl_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2371,8 +2295,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFrameUrl() {
-      
       frameUrl_ = getDefaultInstance().getFrameUrl();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2388,12 +2312,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFrameUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       frameUrl_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2451,11 +2373,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFinalUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       finalUrl_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2468,8 +2388,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFinalUrl() {
-      
       finalUrl_ = getDefaultInstance().getFinalUrl();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2484,12 +2404,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFinalUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       finalUrl_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2550,11 +2468,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrackingId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       trackingId_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2568,8 +2484,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrackingId() {
-      
       trackingId_ = getDefaultInstance().getTrackingId();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2585,12 +2501,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTrackingIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       trackingId_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2608,7 +2522,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the form field is set.
      */
     public boolean hasForm() {
-      return formBuilder_ != null || form_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -2640,11 +2554,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         form_ = value;
-        onChanged();
       } else {
         formBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2659,11 +2573,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.websecurityscanner.v1beta.Form.Builder builderForValue) {
       if (formBuilder_ == null) {
         form_ = builderForValue.build();
-        onChanged();
       } else {
         formBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2676,17 +2590,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeForm(com.google.cloud.websecurityscanner.v1beta.Form value) {
       if (formBuilder_ == null) {
-        if (form_ != null) {
-          form_ =
-            com.google.cloud.websecurityscanner.v1beta.Form.newBuilder(form_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          form_ != null &&
+          form_ != com.google.cloud.websecurityscanner.v1beta.Form.getDefaultInstance()) {
+          getFormBuilder().mergeFrom(value);
         } else {
           form_ = value;
         }
-        onChanged();
       } else {
         formBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2698,14 +2613,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.Form form = 16;</code>
      */
     public Builder clearForm() {
-      if (formBuilder_ == null) {
-        form_ = null;
-        onChanged();
-      } else {
-        form_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      form_ = null;
+      if (formBuilder_ != null) {
+        formBuilder_.dispose();
         formBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2717,7 +2631,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.Form form = 16;</code>
      */
     public com.google.cloud.websecurityscanner.v1beta.Form.Builder getFormBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getFormFieldBuilder().getBuilder();
     }
@@ -2771,7 +2685,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outdatedLibrary field is set.
      */
     public boolean hasOutdatedLibrary() {
-      return outdatedLibraryBuilder_ != null || outdatedLibrary_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -2801,11 +2715,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outdatedLibrary_ = value;
-        onChanged();
       } else {
         outdatedLibraryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -2819,11 +2733,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary.Builder builderForValue) {
       if (outdatedLibraryBuilder_ == null) {
         outdatedLibrary_ = builderForValue.build();
-        onChanged();
       } else {
         outdatedLibraryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -2835,17 +2749,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutdatedLibrary(com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary value) {
       if (outdatedLibraryBuilder_ == null) {
-        if (outdatedLibrary_ != null) {
-          outdatedLibrary_ =
-            com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary.newBuilder(outdatedLibrary_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          outdatedLibrary_ != null &&
+          outdatedLibrary_ != com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary.getDefaultInstance()) {
+          getOutdatedLibraryBuilder().mergeFrom(value);
         } else {
           outdatedLibrary_ = value;
         }
-        onChanged();
       } else {
         outdatedLibraryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -2856,14 +2771,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.OutdatedLibrary outdated_library = 11;</code>
      */
     public Builder clearOutdatedLibrary() {
-      if (outdatedLibraryBuilder_ == null) {
-        outdatedLibrary_ = null;
-        onChanged();
-      } else {
-        outdatedLibrary_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      outdatedLibrary_ = null;
+      if (outdatedLibraryBuilder_ != null) {
+        outdatedLibraryBuilder_.dispose();
         outdatedLibraryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2874,7 +2788,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.OutdatedLibrary outdated_library = 11;</code>
      */
     public com.google.cloud.websecurityscanner.v1beta.OutdatedLibrary.Builder getOutdatedLibraryBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getOutdatedLibraryFieldBuilder().getBuilder();
     }
@@ -2927,7 +2841,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the violatingResource field is set.
      */
     public boolean hasViolatingResource() {
-      return violatingResourceBuilder_ != null || violatingResource_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -2959,11 +2873,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         violatingResource_ = value;
-        onChanged();
       } else {
         violatingResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -2978,11 +2892,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.websecurityscanner.v1beta.ViolatingResource.Builder builderForValue) {
       if (violatingResourceBuilder_ == null) {
         violatingResource_ = builderForValue.build();
-        onChanged();
       } else {
         violatingResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -2995,17 +2909,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeViolatingResource(com.google.cloud.websecurityscanner.v1beta.ViolatingResource value) {
       if (violatingResourceBuilder_ == null) {
-        if (violatingResource_ != null) {
-          violatingResource_ =
-            com.google.cloud.websecurityscanner.v1beta.ViolatingResource.newBuilder(violatingResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          violatingResource_ != null &&
+          violatingResource_ != com.google.cloud.websecurityscanner.v1beta.ViolatingResource.getDefaultInstance()) {
+          getViolatingResourceBuilder().mergeFrom(value);
         } else {
           violatingResource_ = value;
         }
-        onChanged();
       } else {
         violatingResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3017,14 +2932,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.ViolatingResource violating_resource = 12;</code>
      */
     public Builder clearViolatingResource() {
-      if (violatingResourceBuilder_ == null) {
-        violatingResource_ = null;
-        onChanged();
-      } else {
-        violatingResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      violatingResource_ = null;
+      if (violatingResourceBuilder_ != null) {
+        violatingResourceBuilder_.dispose();
         violatingResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3036,7 +2950,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.ViolatingResource violating_resource = 12;</code>
      */
     public com.google.cloud.websecurityscanner.v1beta.ViolatingResource.Builder getViolatingResourceBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getViolatingResourceFieldBuilder().getBuilder();
     }
@@ -3090,7 +3004,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the vulnerableHeaders field is set.
      */
     public boolean hasVulnerableHeaders() {
-      return vulnerableHeadersBuilder_ != null || vulnerableHeaders_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -3120,11 +3034,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vulnerableHeaders_ = value;
-        onChanged();
       } else {
         vulnerableHeadersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3138,11 +3052,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.websecurityscanner.v1beta.VulnerableHeaders.Builder builderForValue) {
       if (vulnerableHeadersBuilder_ == null) {
         vulnerableHeaders_ = builderForValue.build();
-        onChanged();
       } else {
         vulnerableHeadersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3154,17 +3068,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVulnerableHeaders(com.google.cloud.websecurityscanner.v1beta.VulnerableHeaders value) {
       if (vulnerableHeadersBuilder_ == null) {
-        if (vulnerableHeaders_ != null) {
-          vulnerableHeaders_ =
-            com.google.cloud.websecurityscanner.v1beta.VulnerableHeaders.newBuilder(vulnerableHeaders_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          vulnerableHeaders_ != null &&
+          vulnerableHeaders_ != com.google.cloud.websecurityscanner.v1beta.VulnerableHeaders.getDefaultInstance()) {
+          getVulnerableHeadersBuilder().mergeFrom(value);
         } else {
           vulnerableHeaders_ = value;
         }
-        onChanged();
       } else {
         vulnerableHeadersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3175,14 +3090,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.VulnerableHeaders vulnerable_headers = 15;</code>
      */
     public Builder clearVulnerableHeaders() {
-      if (vulnerableHeadersBuilder_ == null) {
-        vulnerableHeaders_ = null;
-        onChanged();
-      } else {
-        vulnerableHeaders_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      vulnerableHeaders_ = null;
+      if (vulnerableHeadersBuilder_ != null) {
+        vulnerableHeadersBuilder_.dispose();
         vulnerableHeadersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3193,7 +3107,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.VulnerableHeaders vulnerable_headers = 15;</code>
      */
     public com.google.cloud.websecurityscanner.v1beta.VulnerableHeaders.Builder getVulnerableHeadersBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getVulnerableHeadersFieldBuilder().getBuilder();
     }
@@ -3246,7 +3160,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the vulnerableParameters field is set.
      */
     public boolean hasVulnerableParameters() {
-      return vulnerableParametersBuilder_ != null || vulnerableParameters_ != null;
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -3278,11 +3192,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vulnerableParameters_ = value;
-        onChanged();
       } else {
         vulnerableParametersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3297,11 +3211,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.websecurityscanner.v1beta.VulnerableParameters.Builder builderForValue) {
       if (vulnerableParametersBuilder_ == null) {
         vulnerableParameters_ = builderForValue.build();
-        onChanged();
       } else {
         vulnerableParametersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3314,17 +3228,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVulnerableParameters(com.google.cloud.websecurityscanner.v1beta.VulnerableParameters value) {
       if (vulnerableParametersBuilder_ == null) {
-        if (vulnerableParameters_ != null) {
-          vulnerableParameters_ =
-            com.google.cloud.websecurityscanner.v1beta.VulnerableParameters.newBuilder(vulnerableParameters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00004000) != 0) &&
+          vulnerableParameters_ != null &&
+          vulnerableParameters_ != com.google.cloud.websecurityscanner.v1beta.VulnerableParameters.getDefaultInstance()) {
+          getVulnerableParametersBuilder().mergeFrom(value);
         } else {
           vulnerableParameters_ = value;
         }
-        onChanged();
       } else {
         vulnerableParametersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3336,14 +3251,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.VulnerableParameters vulnerable_parameters = 13;</code>
      */
     public Builder clearVulnerableParameters() {
-      if (vulnerableParametersBuilder_ == null) {
-        vulnerableParameters_ = null;
-        onChanged();
-      } else {
-        vulnerableParameters_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      vulnerableParameters_ = null;
+      if (vulnerableParametersBuilder_ != null) {
+        vulnerableParametersBuilder_.dispose();
         vulnerableParametersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3355,7 +3269,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.VulnerableParameters vulnerable_parameters = 13;</code>
      */
     public com.google.cloud.websecurityscanner.v1beta.VulnerableParameters.Builder getVulnerableParametersBuilder() {
-      
+      bitField0_ |= 0x00004000;
       onChanged();
       return getVulnerableParametersFieldBuilder().getBuilder();
     }
@@ -3409,7 +3323,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the xss field is set.
      */
     public boolean hasXss() {
-      return xssBuilder_ != null || xss_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -3439,11 +3353,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         xss_ = value;
-        onChanged();
       } else {
         xssBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -3457,11 +3371,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.websecurityscanner.v1beta.Xss.Builder builderForValue) {
       if (xssBuilder_ == null) {
         xss_ = builderForValue.build();
-        onChanged();
       } else {
         xssBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -3473,17 +3387,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeXss(com.google.cloud.websecurityscanner.v1beta.Xss value) {
       if (xssBuilder_ == null) {
-        if (xss_ != null) {
-          xss_ =
-            com.google.cloud.websecurityscanner.v1beta.Xss.newBuilder(xss_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          xss_ != null &&
+          xss_ != com.google.cloud.websecurityscanner.v1beta.Xss.getDefaultInstance()) {
+          getXssBuilder().mergeFrom(value);
         } else {
           xss_ = value;
         }
-        onChanged();
       } else {
         xssBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -3494,14 +3409,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.Xss xss = 14;</code>
      */
     public Builder clearXss() {
-      if (xssBuilder_ == null) {
-        xss_ = null;
-        onChanged();
-      } else {
-        xss_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      xss_ = null;
+      if (xssBuilder_ != null) {
+        xssBuilder_.dispose();
         xssBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3512,7 +3426,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.websecurityscanner.v1beta.Xss xss = 14;</code>
      */
     public com.google.cloud.websecurityscanner.v1beta.Xss.Builder getXssBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getXssFieldBuilder().getBuilder();
     }
@@ -3584,7 +3498,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Finding(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,84 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AudioConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            audioEncoding_ = rawValue;
-            break;
-          }
-          case 17: {
-
-            speakingRate_ = input.readDouble();
-            break;
-          }
-          case 25: {
-
-            pitch_ = input.readDouble();
-            break;
-          }
-          case 33: {
-
-            volumeGainDb_ = input.readDouble();
-            break;
-          }
-          case 40: {
-
-            sampleRateHertz_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              effectsProfileId_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            effectsProfileId_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        effectsProfileId_ = effectsProfileId_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.texttospeech.v1beta1.TextToSpeechProto.internal_static_google_cloud_texttospeech_v1beta1_AudioConfig_descriptor;
@@ -128,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUDIO_ENCODING_FIELD_NUMBER = 1;
-  private int audioEncoding_;
+  private int audioEncoding_ = 0;
   /**
    * <pre>
    * Required. The format of the audio byte stream.
@@ -149,13 +71,12 @@ private static final long serialVersionUID = 0L;
    * @return The audioEncoding.
    */
   @java.lang.Override public com.google.cloud.texttospeech.v1beta1.AudioEncoding getAudioEncoding() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.texttospeech.v1beta1.AudioEncoding result = com.google.cloud.texttospeech.v1beta1.AudioEncoding.valueOf(audioEncoding_);
+    com.google.cloud.texttospeech.v1beta1.AudioEncoding result = com.google.cloud.texttospeech.v1beta1.AudioEncoding.forNumber(audioEncoding_);
     return result == null ? com.google.cloud.texttospeech.v1beta1.AudioEncoding.UNRECOGNIZED : result;
   }
 
   public static final int SPEAKING_RATE_FIELD_NUMBER = 2;
-  private double speakingRate_;
+  private double speakingRate_ = 0D;
   /**
    * <pre>
    * Optional. Input only. Speaking rate/speed, in the range [0.25, 4.0]. 1.0 is
@@ -173,7 +94,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PITCH_FIELD_NUMBER = 3;
-  private double pitch_;
+  private double pitch_ = 0D;
   /**
    * <pre>
    * Optional. Input only. Speaking pitch, in the range [-20.0, 20.0]. 20 means
@@ -190,7 +111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VOLUME_GAIN_DB_FIELD_NUMBER = 4;
-  private double volumeGainDb_;
+  private double volumeGainDb_ = 0D;
   /**
    * <pre>
    * Optional. Input only. Volume gain (in dB) of the normal native volume
@@ -212,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAMPLE_RATE_HERTZ_FIELD_NUMBER = 5;
-  private int sampleRateHertz_;
+  private int sampleRateHertz_ = 0;
   /**
    * <pre>
    * Optional. The synthesis sample rate (in hertz) for this audio. When this is
@@ -221,7 +142,7 @@ private static final long serialVersionUID = 0L;
    * converting to the desired sample rate (which might result in worse audio
    * quality), unless the specified sample rate is not supported for the
    * encoding chosen, in which case it will fail the request and return
-   * [google.rpc.Code.INVALID_ARGUMENT][].
+   * [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
    * </pre>
    *
    * <code>int32 sample_rate_hertz = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -233,6 +154,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EFFECTS_PROFILE_ID_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList effectsProfileId_;
   /**
    * <pre>
@@ -335,7 +257,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < effectsProfileId_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, effectsProfileId_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -372,7 +294,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getEffectsProfileIdList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -401,7 +323,7 @@ private static final long serialVersionUID = 0L;
         != other.getSampleRateHertz()) return false;
     if (!getEffectsProfileIdList()
         .equals(other.getEffectsProfileIdList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -429,7 +351,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EFFECTS_PROFILE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getEffectsProfileIdList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -550,34 +472,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.texttospeech.v1beta1.AudioConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       audioEncoding_ = 0;
-
       speakingRate_ = 0D;
-
       pitch_ = 0D;
-
       volumeGainDb_ = 0D;
-
       sampleRateHertz_ = 0;
-
       effectsProfileId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -604,19 +517,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.texttospeech.v1beta1.AudioConfig buildPartial() {
       com.google.cloud.texttospeech.v1beta1.AudioConfig result = new com.google.cloud.texttospeech.v1beta1.AudioConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.audioEncoding_ = audioEncoding_;
-      result.speakingRate_ = speakingRate_;
-      result.pitch_ = pitch_;
-      result.volumeGainDb_ = volumeGainDb_;
-      result.sampleRateHertz_ = sampleRateHertz_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        effectsProfileId_ = effectsProfileId_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.effectsProfileId_ = effectsProfileId_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.texttospeech.v1beta1.AudioConfig result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
+        effectsProfileId_ = effectsProfileId_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.effectsProfileId_ = effectsProfileId_;
+    }
+
+    private void buildPartial0(com.google.cloud.texttospeech.v1beta1.AudioConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.audioEncoding_ = audioEncoding_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.speakingRate_ = speakingRate_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pitch_ = pitch_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.volumeGainDb_ = volumeGainDb_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sampleRateHertz_ = sampleRateHertz_;
+      }
     }
 
     @java.lang.Override
@@ -681,14 +612,14 @@ private static final long serialVersionUID = 0L;
       if (!other.effectsProfileId_.isEmpty()) {
         if (effectsProfileId_.isEmpty()) {
           effectsProfileId_ = other.effectsProfileId_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureEffectsProfileIdIsMutable();
           effectsProfileId_.addAll(other.effectsProfileId_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -703,17 +634,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.texttospeech.v1beta1.AudioConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              audioEncoding_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 17: {
+              speakingRate_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 25: {
+              pitch_ = input.readDouble();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 25
+            case 33: {
+              volumeGainDb_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
+            case 40: {
+              sampleRateHertz_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureEffectsProfileIdIsMutable();
+              effectsProfileId_.add(s);
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.texttospeech.v1beta1.AudioConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -740,8 +715,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAudioEncodingValue(int value) {
-      
       audioEncoding_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -755,8 +730,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.texttospeech.v1beta1.AudioEncoding getAudioEncoding() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.texttospeech.v1beta1.AudioEncoding result = com.google.cloud.texttospeech.v1beta1.AudioEncoding.valueOf(audioEncoding_);
+      com.google.cloud.texttospeech.v1beta1.AudioEncoding result = com.google.cloud.texttospeech.v1beta1.AudioEncoding.forNumber(audioEncoding_);
       return result == null ? com.google.cloud.texttospeech.v1beta1.AudioEncoding.UNRECOGNIZED : result;
     }
     /**
@@ -772,7 +746,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       audioEncoding_ = value.getNumber();
       onChanged();
       return this;
@@ -786,7 +760,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAudioEncoding() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       audioEncoding_ = 0;
       onChanged();
       return this;
@@ -823,6 +797,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSpeakingRate(double value) {
       
       speakingRate_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -838,7 +813,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpeakingRate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       speakingRate_ = 0D;
       onChanged();
       return this;
@@ -873,6 +848,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPitch(double value) {
       
       pitch_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -887,7 +863,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPitch() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       pitch_ = 0D;
       onChanged();
       return this;
@@ -932,6 +908,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVolumeGainDb(double value) {
       
       volumeGainDb_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -951,7 +928,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVolumeGainDb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       volumeGainDb_ = 0D;
       onChanged();
       return this;
@@ -966,7 +943,7 @@ private static final long serialVersionUID = 0L;
      * converting to the desired sample rate (which might result in worse audio
      * quality), unless the specified sample rate is not supported for the
      * encoding chosen, in which case it will fail the request and return
-     * [google.rpc.Code.INVALID_ARGUMENT][].
+     * [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
      * </pre>
      *
      * <code>int32 sample_rate_hertz = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -984,7 +961,7 @@ private static final long serialVersionUID = 0L;
      * converting to the desired sample rate (which might result in worse audio
      * quality), unless the specified sample rate is not supported for the
      * encoding chosen, in which case it will fail the request and return
-     * [google.rpc.Code.INVALID_ARGUMENT][].
+     * [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
      * </pre>
      *
      * <code>int32 sample_rate_hertz = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -994,6 +971,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSampleRateHertz(int value) {
       
       sampleRateHertz_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1005,14 +983,14 @@ private static final long serialVersionUID = 0L;
      * converting to the desired sample rate (which might result in worse audio
      * quality), unless the specified sample rate is not supported for the
      * encoding chosen, in which case it will fail the request and return
-     * [google.rpc.Code.INVALID_ARGUMENT][].
+     * [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
      * </pre>
      *
      * <code>int32 sample_rate_hertz = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearSampleRateHertz() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       sampleRateHertz_ = 0;
       onChanged();
       return this;
@@ -1020,9 +998,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList effectsProfileId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureEffectsProfileIdIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         effectsProfileId_ = new com.google.protobuf.LazyStringArrayList(effectsProfileId_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -1110,10 +1088,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEffectsProfileId(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEffectsProfileIdIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEffectsProfileIdIsMutable();
       effectsProfileId_.set(index, value);
       onChanged();
       return this;
@@ -1134,10 +1110,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEffectsProfileId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEffectsProfileIdIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEffectsProfileIdIsMutable();
       effectsProfileId_.add(value);
       onChanged();
       return this;
@@ -1179,7 +1153,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearEffectsProfileId() {
       effectsProfileId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1199,10 +1173,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEffectsProfileIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureEffectsProfileIdIsMutable();
       effectsProfileId_.add(value);
       onChanged();
@@ -1241,7 +1213,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AudioConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

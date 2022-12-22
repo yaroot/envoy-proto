@@ -5,10 +5,11 @@ package com.google.cloud.secretmanager.v1;
 
 /**
  * <pre>
- * A [Secret][google.cloud.secretmanager.v1.Secret] is a logical secret whose value and versions can
- * be accessed.
- * A [Secret][google.cloud.secretmanager.v1.Secret] is made up of zero or more [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] that
- * represent the secret data.
+ * A [Secret][google.cloud.secretmanager.v1.Secret] is a logical secret whose
+ * value and versions can be accessed.
+ * A [Secret][google.cloud.secretmanager.v1.Secret] is made up of zero or more
+ * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] that represent
+ * the secret data.
  * </pre>
  *
  * Protobuf type {@code google.cloud.secretmanager.v1.Secret}
@@ -40,163 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Secret(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.secretmanager.v1.Replication.Builder subBuilder = null;
-            if (replication_ != null) {
-              subBuilder = replication_.toBuilder();
-            }
-            replication_ = input.readMessage(com.google.cloud.secretmanager.v1.Replication.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(replication_);
-              replication_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              topics_ = new java.util.ArrayList<com.google.cloud.secretmanager.v1.Topic>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            topics_.add(
-                input.readMessage(com.google.cloud.secretmanager.v1.Topic.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (expirationCase_ == 6) {
-              subBuilder = ((com.google.protobuf.Timestamp) expiration_).toBuilder();
-            }
-            expiration_ =
-                input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Timestamp) expiration_);
-              expiration_ = subBuilder.buildPartial();
-            }
-            expirationCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (expirationCase_ == 7) {
-              subBuilder = ((com.google.protobuf.Duration) expiration_).toBuilder();
-            }
-            expiration_ =
-                input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Duration) expiration_);
-              expiration_ = subBuilder.buildPartial();
-            }
-            expirationCase_ = 7;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 74: {
-            com.google.cloud.secretmanager.v1.Rotation.Builder subBuilder = null;
-            if (rotation_ != null) {
-              subBuilder = rotation_.toBuilder();
-            }
-            rotation_ = input.readMessage(com.google.cloud.secretmanager.v1.Rotation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rotation_);
-              rotation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              versionAliases_ = com.google.protobuf.MapField.newMapField(
-                  VersionAliasesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
-            versionAliases__ = input.readMessage(
-                VersionAliasesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            versionAliases_.getMutableMap().put(
-                versionAliases__.getKey(), versionAliases__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        topics_ = java.util.Collections.unmodifiableList(topics_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_Secret_descriptor;
@@ -211,6 +55,8 @@ private static final long serialVersionUID = 0L;
         return internalGetLabels();
       case 11:
         return internalGetVersionAliases();
+      case 13:
+        return internalGetAnnotations();
       default:
         throw new RuntimeException(
             "Invalid map field number: " + number);
@@ -266,10 +112,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * Output only. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] in the format `projects/&#42;&#47;secrets/&#42;`.
+   * Output only. The resource name of the
+   * [Secret][google.cloud.secretmanager.v1.Secret] in the format
+   * `projects/&#42;&#47;secrets/&#42;`.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -290,7 +139,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] in the format `projects/&#42;&#47;secrets/&#42;`.
+   * Output only. The resource name of the
+   * [Secret][google.cloud.secretmanager.v1.Secret] in the format
+   * `projects/&#42;&#47;secrets/&#42;`.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -315,7 +166,8 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.secretmanager.v1.Replication replication_;
   /**
    * <pre>
-   * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+   * Required. Immutable. The replication policy of the secret data attached to
+   * the [Secret][google.cloud.secretmanager.v1.Secret].
    * The replication policy cannot be changed after the Secret has been created.
    * </pre>
    *
@@ -328,7 +180,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+   * Required. Immutable. The replication policy of the secret data attached to
+   * the [Secret][google.cloud.secretmanager.v1.Secret].
    * The replication policy cannot be changed after the Secret has been created.
    * </pre>
    *
@@ -341,7 +194,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+   * Required. Immutable. The replication policy of the secret data attached to
+   * the [Secret][google.cloud.secretmanager.v1.Secret].
    * The replication policy cannot be changed after the Secret has been created.
    * </pre>
    *
@@ -349,14 +203,15 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.secretmanager.v1.ReplicationOrBuilder getReplicationOrBuilder() {
-    return getReplication();
+    return replication_ == null ? com.google.cloud.secretmanager.v1.Replication.getDefaultInstance() : replication_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 3;
   private com.google.protobuf.Timestamp createTime_;
   /**
    * <pre>
-   * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+   * Output only. The time at which the
+   * [Secret][google.cloud.secretmanager.v1.Secret] was created.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -368,7 +223,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+   * Output only. The time at which the
+   * [Secret][google.cloud.secretmanager.v1.Secret] was created.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -380,14 +236,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+   * Output only. The time at which the
+   * [Secret][google.cloud.secretmanager.v1.Secret] was created.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 4;
@@ -402,6 +259,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -412,7 +270,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -430,7 +287,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -460,7 +316,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -479,10 +334,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -503,7 +359,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -516,11 +371,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOPICS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.secretmanager.v1.Topic> topics_;
   /**
    * <pre>
-   * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-   * control plane operations are called on the secret or its versions.
+   * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+   * when control plane operations are called on the secret or its versions.
    * </pre>
    *
    * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -531,8 +387,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-   * control plane operations are called on the secret or its versions.
+   * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+   * when control plane operations are called on the secret or its versions.
    * </pre>
    *
    * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -544,8 +400,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-   * control plane operations are called on the secret or its versions.
+   * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+   * when control plane operations are called on the secret or its versions.
    * </pre>
    *
    * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -556,8 +412,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-   * control plane operations are called on the secret or its versions.
+   * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+   * when control plane operations are called on the secret or its versions.
    * </pre>
    *
    * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -568,8 +424,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-   * control plane operations are called on the secret or its versions.
+   * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+   * when control plane operations are called on the secret or its versions.
    * </pre>
    *
    * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -583,8 +439,9 @@ private static final long serialVersionUID = 0L;
   public static final int EXPIRE_TIME_FIELD_NUMBER = 6;
   /**
    * <pre>
-   * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-   * always provided on output, regardless of what was sent on input.
+   * Optional. Timestamp in UTC when the
+   * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+   * This is always provided on output, regardless of what was sent on input.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -596,8 +453,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-   * always provided on output, regardless of what was sent on input.
+   * Optional. Timestamp in UTC when the
+   * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+   * This is always provided on output, regardless of what was sent on input.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -612,8 +470,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-   * always provided on output, regardless of what was sent on input.
+   * Optional. Timestamp in UTC when the
+   * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+   * This is always provided on output, regardless of what was sent on input.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -629,7 +488,8 @@ private static final long serialVersionUID = 0L;
   public static final int TTL_FIELD_NUMBER = 7;
   /**
    * <pre>
-   * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+   * Input only. The TTL for the
+   * [Secret][google.cloud.secretmanager.v1.Secret].
    * </pre>
    *
    * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -641,7 +501,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+   * Input only. The TTL for the
+   * [Secret][google.cloud.secretmanager.v1.Secret].
    * </pre>
    *
    * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -656,7 +517,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+   * Input only. The TTL for the
+   * [Secret][google.cloud.secretmanager.v1.Secret].
    * </pre>
    *
    * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -670,10 +532,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 8;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
-   * Optional. Etag of the currently stored [Secret][google.cloud.secretmanager.v1.Secret].
+   * Optional. Etag of the currently stored
+   * [Secret][google.cloud.secretmanager.v1.Secret].
    * </pre>
    *
    * <code>string etag = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -694,7 +558,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Etag of the currently stored [Secret][google.cloud.secretmanager.v1.Secret].
+   * Optional. Etag of the currently stored
+   * [Secret][google.cloud.secretmanager.v1.Secret].
    * </pre>
    *
    * <code>string etag = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -719,8 +584,9 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.secretmanager.v1.Rotation rotation_;
   /**
    * <pre>
-   * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-   * rotation policy.
+   * Optional. Rotation policy attached to the
+   * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+   * no rotation policy.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -732,8 +598,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-   * rotation policy.
+   * Optional. Rotation policy attached to the
+   * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+   * no rotation policy.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -745,15 +612,16 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-   * rotation policy.
+   * Optional. Rotation policy attached to the
+   * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+   * no rotation policy.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
   public com.google.cloud.secretmanager.v1.RotationOrBuilder getRotationOrBuilder() {
-    return getRotation();
+    return rotation_ == null ? com.google.cloud.secretmanager.v1.Rotation.getDefaultInstance() : rotation_;
   }
 
   public static final int VERSION_ALIASES_FIELD_NUMBER = 11;
@@ -768,6 +636,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT64,
                 0L);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Long> versionAliases_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
@@ -778,7 +647,6 @@ private static final long serialVersionUID = 0L;
     }
     return versionAliases_;
   }
-
   public int getVersionAliasesCount() {
     return internalGetVersionAliases().getMap().size();
   }
@@ -797,7 +665,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsVersionAliases(
       java.lang.String key) {
@@ -828,7 +695,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Long> getVersionAliasesMap() {
     return internalGetVersionAliases().getMap();
   }
@@ -848,7 +714,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public long getVersionAliasesOrDefault(
       java.lang.String key,
       long defaultValue) {
@@ -873,12 +738,138 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public long getVersionAliasesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.Long> map =
         internalGetVersionAliases().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
+  public static final int ANNOTATIONS_FIELD_NUMBER = 13;
+  private static final class AnnotationsDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_Secret_AnnotationsEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> annotations_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetAnnotations() {
+    if (annotations_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          AnnotationsDefaultEntryHolder.defaultEntry);
+    }
+    return annotations_;
+  }
+  public int getAnnotationsCount() {
+    return internalGetAnnotations().getMap().size();
+  }
+  /**
+   * <pre>
+   * Optional. Custom metadata about the secret.
+   * Annotations are distinct from various forms of labels.
+   * Annotations exist to allow client tools to store their own state
+   * information without requiring a database.
+   * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+   * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+   * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+   * alphanumerics in between these symbols.
+   * The total size of annotation keys and values must be less than 16KiB.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public boolean containsAnnotations(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetAnnotations().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getAnnotationsMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getAnnotations() {
+    return getAnnotationsMap();
+  }
+  /**
+   * <pre>
+   * Optional. Custom metadata about the secret.
+   * Annotations are distinct from various forms of labels.
+   * Annotations exist to allow client tools to store their own state
+   * information without requiring a database.
+   * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+   * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+   * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+   * alphanumerics in between these symbols.
+   * The total size of annotation keys and values must be less than 16KiB.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, java.lang.String> getAnnotationsMap() {
+    return internalGetAnnotations().getMap();
+  }
+  /**
+   * <pre>
+   * Optional. Custom metadata about the secret.
+   * Annotations are distinct from various forms of labels.
+   * Annotations exist to allow client tools to store their own state
+   * information without requiring a database.
+   * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+   * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+   * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+   * alphanumerics in between these symbols.
+   * The total size of annotation keys and values must be less than 16KiB.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+java.lang.String getAnnotationsOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetAnnotations().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * Optional. Custom metadata about the secret.
+   * Annotations are distinct from various forms of labels.
+   * Annotations exist to allow client tools to store their own state
+   * information without requiring a database.
+   * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+   * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+   * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+   * alphanumerics in between these symbols.
+   * The total size of annotation keys and values must be less than 16KiB.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public java.lang.String getAnnotationsOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetAnnotations().getMap();
     if (!map.containsKey(key)) {
       throw new java.lang.IllegalArgumentException();
     }
@@ -935,7 +926,13 @@ private static final long serialVersionUID = 0L;
         internalGetVersionAliases(),
         VersionAliasesDefaultEntryHolder.defaultEntry,
         11);
-    unknownFields.writeTo(output);
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetAnnotations(),
+        AnnotationsDefaultEntryHolder.defaultEntry,
+        13);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -994,7 +991,17 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, versionAliases__);
     }
-    size += unknownFields.getSerializedSize();
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetAnnotations().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      annotations__ = AnnotationsDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, annotations__);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1034,6 +1041,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetVersionAliases().equals(
         other.internalGetVersionAliases())) return false;
+    if (!internalGetAnnotations().equals(
+        other.internalGetAnnotations())) return false;
     if (!getExpirationCase().equals(other.getExpirationCase())) return false;
     switch (expirationCase_) {
       case 6:
@@ -1047,7 +1056,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1086,6 +1095,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VERSION_ALIASES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetVersionAliases().hashCode();
     }
+    if (!internalGetAnnotations().getMap().isEmpty()) {
+      hash = (37 * hash) + ANNOTATIONS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetAnnotations().hashCode();
+    }
     switch (expirationCase_) {
       case 6:
         hash = (37 * hash) + EXPIRE_TIME_FIELD_NUMBER;
@@ -1098,7 +1111,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1195,10 +1208,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A [Secret][google.cloud.secretmanager.v1.Secret] is a logical secret whose value and versions can
-   * be accessed.
-   * A [Secret][google.cloud.secretmanager.v1.Secret] is made up of zero or more [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] that
-   * represent the secret data.
+   * A [Secret][google.cloud.secretmanager.v1.Secret] is a logical secret whose
+   * value and versions can be accessed.
+   * A [Secret][google.cloud.secretmanager.v1.Secret] is made up of zero or more
+   * [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] that represent
+   * the secret data.
    * </pre>
    *
    * Protobuf type {@code google.cloud.secretmanager.v1.Secret}
@@ -1220,6 +1234,8 @@ private static final long serialVersionUID = 0L;
           return internalGetLabels();
         case 11:
           return internalGetVersionAliases();
+        case 13:
+          return internalGetAnnotations();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -1233,6 +1249,8 @@ private static final long serialVersionUID = 0L;
           return internalGetMutableLabels();
         case 11:
           return internalGetMutableVersionAliases();
+        case 13:
+          return internalGetMutableAnnotations();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -1248,53 +1266,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.secretmanager.v1.Secret.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTopicsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (replicationBuilder_ == null) {
-        replication_ = null;
-      } else {
-        replication_ = null;
+      replication_ = null;
+      if (replicationBuilder_ != null) {
+        replicationBuilder_.dispose();
         replicationBuilder_ = null;
       }
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       internalGetMutableLabels().clear();
       if (topicsBuilder_ == null) {
         topics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        topics_ = null;
         topicsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
+      if (expireTimeBuilder_ != null) {
+        expireTimeBuilder_.clear();
+      }
+      if (ttlBuilder_ != null) {
+        ttlBuilder_.clear();
+      }
       etag_ = "";
-
-      if (rotationBuilder_ == null) {
-        rotation_ = null;
-      } else {
-        rotation_ = null;
+      rotation_ = null;
+      if (rotationBuilder_ != null) {
+        rotationBuilder_.dispose();
         rotationBuilder_ = null;
       }
       internalGetMutableVersionAliases().clear();
+      internalGetMutableAnnotations().clear();
       expirationCase_ = 0;
       expiration_ = null;
       return this;
@@ -1323,54 +1339,73 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.secretmanager.v1.Secret buildPartial() {
       com.google.cloud.secretmanager.v1.Secret result = new com.google.cloud.secretmanager.v1.Secret(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (replicationBuilder_ == null) {
-        result.replication_ = replication_;
-      } else {
-        result.replication_ = replicationBuilder_.build();
-      }
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.secretmanager.v1.Secret result) {
       if (topicsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           topics_ = java.util.Collections.unmodifiableList(topics_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.topics_ = topics_;
       } else {
         result.topics_ = topicsBuilder_.build();
       }
-      if (expirationCase_ == 6) {
-        if (expireTimeBuilder_ == null) {
-          result.expiration_ = expiration_;
-        } else {
-          result.expiration_ = expireTimeBuilder_.build();
-        }
+    }
+
+    private void buildPartial0(com.google.cloud.secretmanager.v1.Secret result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      if (expirationCase_ == 7) {
-        if (ttlBuilder_ == null) {
-          result.expiration_ = expiration_;
-        } else {
-          result.expiration_ = ttlBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.replication_ = replicationBuilder_ == null
+            ? replication_
+            : replicationBuilder_.build();
       }
-      result.etag_ = etag_;
-      if (rotationBuilder_ == null) {
-        result.rotation_ = rotation_;
-      } else {
-        result.rotation_ = rotationBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
       }
-      result.versionAliases_ = internalGetVersionAliases();
-      result.versionAliases_.makeImmutable();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.rotation_ = rotationBuilder_ == null
+            ? rotation_
+            : rotationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.versionAliases_ = internalGetVersionAliases();
+        result.versionAliases_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.annotations_ = internalGetAnnotations();
+        result.annotations_.makeImmutable();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.secretmanager.v1.Secret result) {
       result.expirationCase_ = expirationCase_;
-      onBuilt();
-      return result;
+      result.expiration_ = this.expiration_;
+      if (expirationCase_ == 6 &&
+          expireTimeBuilder_ != null) {
+        result.expiration_ = expireTimeBuilder_.build();
+      }
+      if (expirationCase_ == 7 &&
+          ttlBuilder_ != null) {
+        result.expiration_ = ttlBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1419,6 +1454,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.secretmanager.v1.Secret.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasReplication()) {
@@ -1429,11 +1465,12 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000008;
       if (topicsBuilder_ == null) {
         if (!other.topics_.isEmpty()) {
           if (topics_.isEmpty()) {
             topics_ = other.topics_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureTopicsIsMutable();
             topics_.addAll(other.topics_);
@@ -1446,7 +1483,7 @@ private static final long serialVersionUID = 0L;
             topicsBuilder_.dispose();
             topicsBuilder_ = null;
             topics_ = other.topics_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
             topicsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTopicsFieldBuilder() : null;
@@ -1457,6 +1494,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasRotation()) {
@@ -1464,6 +1502,10 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableVersionAliases().mergeFrom(
           other.internalGetVersionAliases());
+      bitField0_ |= 0x00000200;
+      internalGetMutableAnnotations().mergeFrom(
+          other.internalGetAnnotations());
+      bitField0_ |= 0x00000400;
       switch (other.getExpirationCase()) {
         case EXPIRE_TIME: {
           mergeExpireTime(other.getExpireTime());
@@ -1477,7 +1519,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1492,17 +1534,115 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.secretmanager.v1.Secret parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getReplicationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.secretmanager.v1.Topic m =
+                  input.readMessage(
+                      com.google.cloud.secretmanager.v1.Topic.parser(),
+                      extensionRegistry);
+              if (topicsBuilder_ == null) {
+                ensureTopicsIsMutable();
+                topics_.add(m);
+              } else {
+                topicsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getExpireTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expirationCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getTtlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              expirationCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getRotationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              versionAliases__ = input.readMessage(
+                  VersionAliasesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableVersionAliases().getMutableMap().put(
+                  versionAliases__.getKey(), versionAliases__.getValue());
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
+            case 106: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              annotations__ = input.readMessage(
+                  AnnotationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAnnotations().getMutableMap().put(
+                  annotations__.getKey(), annotations__.getValue());
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.secretmanager.v1.Secret) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int expirationCase_ = 0;
@@ -1525,7 +1665,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Output only. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] in the format `projects/&#42;&#47;secrets/&#42;`.
+     * Output only. The resource name of the
+     * [Secret][google.cloud.secretmanager.v1.Secret] in the format
+     * `projects/&#42;&#47;secrets/&#42;`.
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1545,7 +1687,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] in the format `projects/&#42;&#47;secrets/&#42;`.
+     * Output only. The resource name of the
+     * [Secret][google.cloud.secretmanager.v1.Secret] in the format
+     * `projects/&#42;&#47;secrets/&#42;`.
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1566,7 +1710,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] in the format `projects/&#42;&#47;secrets/&#42;`.
+     * Output only. The resource name of the
+     * [Secret][google.cloud.secretmanager.v1.Secret] in the format
+     * `projects/&#42;&#47;secrets/&#42;`.
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1575,31 +1721,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] in the format `projects/&#42;&#47;secrets/&#42;`.
+     * Output only. The resource name of the
+     * [Secret][google.cloud.secretmanager.v1.Secret] in the format
+     * `projects/&#42;&#47;secrets/&#42;`.
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] in the format `projects/&#42;&#47;secrets/&#42;`.
+     * Output only. The resource name of the
+     * [Secret][google.cloud.secretmanager.v1.Secret] in the format
+     * `projects/&#42;&#47;secrets/&#42;`.
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1608,12 +1756,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1623,7 +1769,8 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.secretmanager.v1.Replication, com.google.cloud.secretmanager.v1.Replication.Builder, com.google.cloud.secretmanager.v1.ReplicationOrBuilder> replicationBuilder_;
     /**
      * <pre>
-     * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. Immutable. The replication policy of the secret data attached to
+     * the [Secret][google.cloud.secretmanager.v1.Secret].
      * The replication policy cannot be changed after the Secret has been created.
      * </pre>
      *
@@ -1631,11 +1778,12 @@ private static final long serialVersionUID = 0L;
      * @return Whether the replication field is set.
      */
     public boolean hasReplication() {
-      return replicationBuilder_ != null || replication_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. Immutable. The replication policy of the secret data attached to
+     * the [Secret][google.cloud.secretmanager.v1.Secret].
      * The replication policy cannot be changed after the Secret has been created.
      * </pre>
      *
@@ -1651,7 +1799,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. Immutable. The replication policy of the secret data attached to
+     * the [Secret][google.cloud.secretmanager.v1.Secret].
      * The replication policy cannot be changed after the Secret has been created.
      * </pre>
      *
@@ -1663,16 +1812,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         replication_ = value;
-        onChanged();
       } else {
         replicationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. Immutable. The replication policy of the secret data attached to
+     * the [Secret][google.cloud.secretmanager.v1.Secret].
      * The replication policy cannot be changed after the Secret has been created.
      * </pre>
      *
@@ -1682,16 +1832,17 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.secretmanager.v1.Replication.Builder builderForValue) {
       if (replicationBuilder_ == null) {
         replication_ = builderForValue.build();
-        onChanged();
       } else {
         replicationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. Immutable. The replication policy of the secret data attached to
+     * the [Secret][google.cloud.secretmanager.v1.Secret].
      * The replication policy cannot be changed after the Secret has been created.
      * </pre>
      *
@@ -1699,54 +1850,57 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReplication(com.google.cloud.secretmanager.v1.Replication value) {
       if (replicationBuilder_ == null) {
-        if (replication_ != null) {
-          replication_ =
-            com.google.cloud.secretmanager.v1.Replication.newBuilder(replication_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          replication_ != null &&
+          replication_ != com.google.cloud.secretmanager.v1.Replication.getDefaultInstance()) {
+          getReplicationBuilder().mergeFrom(value);
         } else {
           replication_ = value;
         }
-        onChanged();
       } else {
         replicationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. Immutable. The replication policy of the secret data attached to
+     * the [Secret][google.cloud.secretmanager.v1.Secret].
      * The replication policy cannot be changed after the Secret has been created.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication replication = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearReplication() {
-      if (replicationBuilder_ == null) {
-        replication_ = null;
-        onChanged();
-      } else {
-        replication_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      replication_ = null;
+      if (replicationBuilder_ != null) {
+        replicationBuilder_.dispose();
         replicationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. Immutable. The replication policy of the secret data attached to
+     * the [Secret][google.cloud.secretmanager.v1.Secret].
      * The replication policy cannot be changed after the Secret has been created.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Replication replication = 2 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.secretmanager.v1.Replication.Builder getReplicationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getReplicationFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. Immutable. The replication policy of the secret data attached to
+     * the [Secret][google.cloud.secretmanager.v1.Secret].
      * The replication policy cannot be changed after the Secret has been created.
      * </pre>
      *
@@ -1762,7 +1916,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The replication policy of the secret data attached to the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Required. Immutable. The replication policy of the secret data attached to
+     * the [Secret][google.cloud.secretmanager.v1.Secret].
      * The replication policy cannot be changed after the Secret has been created.
      * </pre>
      *
@@ -1787,18 +1942,20 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createTimeBuilder_;
     /**
      * <pre>
-     * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+     * Output only. The time at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] was created.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+     * Output only. The time at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] was created.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1813,7 +1970,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+     * Output only. The time at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] was created.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1824,16 +1982,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+     * Output only. The time at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] was created.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1842,68 +2001,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+     * Output only. The time at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] was created.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+     * Output only. The time at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] was created.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+     * Output only. The time at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] was created.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+     * Output only. The time at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] was created.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1918,7 +2081,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The time at which the [Secret][google.cloud.secretmanager.v1.Secret] was created.
+     * Output only. The time at which the
+     * [Secret][google.cloud.secretmanager.v1.Secret] was created.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1940,7 +2104,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1948,8 +2112,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1957,9 +2120,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -1977,7 +2141,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -2007,7 +2170,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -2026,10 +2188,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -2050,7 +2213,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2061,8 +2223,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -2081,7 +2243,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2094,7 +2255,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -2115,12 +2277,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -2137,20 +2297,20 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
     private java.util.List<com.google.cloud.secretmanager.v1.Topic> topics_ =
       java.util.Collections.emptyList();
     private void ensureTopicsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         topics_ = new java.util.ArrayList<com.google.cloud.secretmanager.v1.Topic>(topics_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2159,8 +2319,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2174,8 +2334,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2189,8 +2349,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2204,8 +2364,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2226,8 +2386,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2245,8 +2405,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2266,8 +2426,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2288,8 +2448,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2307,8 +2467,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2326,8 +2486,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2346,8 +2506,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2355,7 +2515,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTopics() {
       if (topicsBuilder_ == null) {
         topics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         topicsBuilder_.clear();
@@ -2364,8 +2524,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2382,8 +2542,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2394,8 +2554,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2409,8 +2569,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2425,8 +2585,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2437,8 +2597,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2450,8 +2610,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of up to 10 Pub/Sub topics to which messages are published when
-     * control plane operations are called on the secret or its versions.
+     * Optional. A list of up to 10 Pub/Sub topics to which messages are published
+     * when control plane operations are called on the secret or its versions.
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.Topic topics = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2467,7 +2627,7 @@ private static final long serialVersionUID = 0L;
         topicsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.secretmanager.v1.Topic, com.google.cloud.secretmanager.v1.Topic.Builder, com.google.cloud.secretmanager.v1.TopicOrBuilder>(
                 topics_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         topics_ = null;
@@ -2479,8 +2639,9 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> expireTimeBuilder_;
     /**
      * <pre>
-     * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-     * always provided on output, regardless of what was sent on input.
+     * Optional. Timestamp in UTC when the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+     * This is always provided on output, regardless of what was sent on input.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2492,8 +2653,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-     * always provided on output, regardless of what was sent on input.
+     * Optional. Timestamp in UTC when the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+     * This is always provided on output, regardless of what was sent on input.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2515,8 +2677,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-     * always provided on output, regardless of what was sent on input.
+     * Optional. Timestamp in UTC when the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+     * This is always provided on output, regardless of what was sent on input.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2536,8 +2699,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-     * always provided on output, regardless of what was sent on input.
+     * Optional. Timestamp in UTC when the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+     * This is always provided on output, regardless of what was sent on input.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2555,8 +2719,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-     * always provided on output, regardless of what was sent on input.
+     * Optional. Timestamp in UTC when the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+     * This is always provided on output, regardless of what was sent on input.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2583,8 +2748,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-     * always provided on output, regardless of what was sent on input.
+     * Optional. Timestamp in UTC when the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+     * This is always provided on output, regardless of what was sent on input.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2607,8 +2773,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-     * always provided on output, regardless of what was sent on input.
+     * Optional. Timestamp in UTC when the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+     * This is always provided on output, regardless of what was sent on input.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2618,8 +2785,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-     * always provided on output, regardless of what was sent on input.
+     * Optional. Timestamp in UTC when the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+     * This is always provided on output, regardless of what was sent on input.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2637,8 +2805,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Timestamp in UTC when the [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire. This is
-     * always provided on output, regardless of what was sent on input.
+     * Optional. Timestamp in UTC when the
+     * [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
+     * This is always provided on output, regardless of what was sent on input.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp expire_time = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2658,7 +2827,7 @@ private static final long serialVersionUID = 0L;
         expiration_ = null;
       }
       expirationCase_ = 6;
-      onChanged();;
+      onChanged();
       return expireTimeBuilder_;
     }
 
@@ -2666,7 +2835,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> ttlBuilder_;
     /**
      * <pre>
-     * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Input only. The TTL for the
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2678,7 +2848,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Input only. The TTL for the
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2700,7 +2871,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Input only. The TTL for the
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2720,7 +2892,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Input only. The TTL for the
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2738,7 +2911,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Input only. The TTL for the
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2765,7 +2939,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Input only. The TTL for the
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2788,7 +2963,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Input only. The TTL for the
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2798,7 +2974,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Input only. The TTL for the
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2816,7 +2993,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The TTL for the [Secret][google.cloud.secretmanager.v1.Secret].
+     * Input only. The TTL for the
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>.google.protobuf.Duration ttl = 7 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2836,14 +3014,15 @@ private static final long serialVersionUID = 0L;
         expiration_ = null;
       }
       expirationCase_ = 7;
-      onChanged();;
+      onChanged();
       return ttlBuilder_;
     }
 
     private java.lang.Object etag_ = "";
     /**
      * <pre>
-     * Optional. Etag of the currently stored [Secret][google.cloud.secretmanager.v1.Secret].
+     * Optional. Etag of the currently stored
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>string etag = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2863,7 +3042,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Etag of the currently stored [Secret][google.cloud.secretmanager.v1.Secret].
+     * Optional. Etag of the currently stored
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>string etag = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2884,7 +3064,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Etag of the currently stored [Secret][google.cloud.secretmanager.v1.Secret].
+     * Optional. Etag of the currently stored
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>string etag = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2893,31 +3074,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Etag of the currently stored [Secret][google.cloud.secretmanager.v1.Secret].
+     * Optional. Etag of the currently stored
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>string etag = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Etag of the currently stored [Secret][google.cloud.secretmanager.v1.Secret].
+     * Optional. Etag of the currently stored
+     * [Secret][google.cloud.secretmanager.v1.Secret].
      * </pre>
      *
      * <code>string etag = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2926,12 +3107,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2941,20 +3120,22 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.secretmanager.v1.Rotation, com.google.cloud.secretmanager.v1.Rotation.Builder, com.google.cloud.secretmanager.v1.RotationOrBuilder> rotationBuilder_;
     /**
      * <pre>
-     * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-     * rotation policy.
+     * Optional. Rotation policy attached to the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+     * no rotation policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return Whether the rotation field is set.
      */
     public boolean hasRotation() {
-      return rotationBuilder_ != null || rotation_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
-     * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-     * rotation policy.
+     * Optional. Rotation policy attached to the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+     * no rotation policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2969,8 +3150,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-     * rotation policy.
+     * Optional. Rotation policy attached to the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+     * no rotation policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2981,17 +3163,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rotation_ = value;
-        onChanged();
       } else {
         rotationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-     * rotation policy.
+     * Optional. Rotation policy attached to the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+     * no rotation policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3000,72 +3183,76 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.secretmanager.v1.Rotation.Builder builderForValue) {
       if (rotationBuilder_ == null) {
         rotation_ = builderForValue.build();
-        onChanged();
       } else {
         rotationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-     * rotation policy.
+     * Optional. Rotation policy attached to the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+     * no rotation policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder mergeRotation(com.google.cloud.secretmanager.v1.Rotation value) {
       if (rotationBuilder_ == null) {
-        if (rotation_ != null) {
-          rotation_ =
-            com.google.cloud.secretmanager.v1.Rotation.newBuilder(rotation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          rotation_ != null &&
+          rotation_ != com.google.cloud.secretmanager.v1.Rotation.getDefaultInstance()) {
+          getRotationBuilder().mergeFrom(value);
         } else {
           rotation_ = value;
         }
-        onChanged();
       } else {
         rotationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-     * rotation policy.
+     * Optional. Rotation policy attached to the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+     * no rotation policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearRotation() {
-      if (rotationBuilder_ == null) {
-        rotation_ = null;
-        onChanged();
-      } else {
-        rotation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      rotation_ = null;
+      if (rotationBuilder_ != null) {
+        rotationBuilder_.dispose();
         rotationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-     * rotation policy.
+     * Optional. Rotation policy attached to the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+     * no rotation policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.secretmanager.v1.Rotation.Builder getRotationBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getRotationFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-     * rotation policy.
+     * Optional. Rotation policy attached to the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+     * no rotation policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3080,8 +3267,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Rotation policy attached to the [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is no
-     * rotation policy.
+     * Optional. Rotation policy attached to the
+     * [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
+     * no rotation policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.Rotation rotation = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3103,7 +3291,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Long> versionAliases_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetVersionAliases() {
+        internalGetVersionAliases() {
       if (versionAliases_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             VersionAliasesDefaultEntryHolder.defaultEntry);
@@ -3111,8 +3299,7 @@ private static final long serialVersionUID = 0L;
       return versionAliases_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetMutableVersionAliases() {
-      onChanged();;
+        internalGetMutableVersionAliases() {
       if (versionAliases_ == null) {
         versionAliases_ = com.google.protobuf.MapField.newMapField(
             VersionAliasesDefaultEntryHolder.defaultEntry);
@@ -3120,9 +3307,10 @@ private static final long serialVersionUID = 0L;
       if (!versionAliases_.isMutable()) {
         versionAliases_ = versionAliases_.copy();
       }
+      bitField0_ |= 0x00000200;
+      onChanged();
       return versionAliases_;
     }
-
     public int getVersionAliasesCount() {
       return internalGetVersionAliases().getMap().size();
     }
@@ -3141,7 +3329,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsVersionAliases(
         java.lang.String key) {
@@ -3172,7 +3359,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Long> getVersionAliasesMap() {
       return internalGetVersionAliases().getMap();
     }
@@ -3192,7 +3378,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public long getVersionAliasesOrDefault(
         java.lang.String key,
         long defaultValue) {
@@ -3217,7 +3402,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public long getVersionAliasesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3228,8 +3412,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearVersionAliases() {
+      bitField0_ = (bitField0_ & ~0x00000200);
       internalGetMutableVersionAliases().getMutableMap()
           .clear();
       return this;
@@ -3249,7 +3433,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeVersionAliases(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3262,7 +3445,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Long>
-    getMutableVersionAliases() {
+        getMutableVersionAliases() {
+      bitField0_ |= 0x00000200;
       return internalGetMutableVersionAliases().getMutableMap();
     }
     /**
@@ -3287,6 +3471,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableVersionAliases().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000200;
       return this;
     }
     /**
@@ -3304,11 +3489,222 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; version_aliases = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllVersionAliases(
         java.util.Map<java.lang.String, java.lang.Long> values) {
       internalGetMutableVersionAliases().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000200;
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> annotations_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetAnnotations() {
+      if (annotations_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            AnnotationsDefaultEntryHolder.defaultEntry);
+      }
+      return annotations_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableAnnotations() {
+      if (annotations_ == null) {
+        annotations_ = com.google.protobuf.MapField.newMapField(
+            AnnotationsDefaultEntryHolder.defaultEntry);
+      }
+      if (!annotations_.isMutable()) {
+        annotations_ = annotations_.copy();
+      }
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return annotations_;
+    }
+    public int getAnnotationsCount() {
+      return internalGetAnnotations().getMap().size();
+    }
+    /**
+     * <pre>
+     * Optional. Custom metadata about the secret.
+     * Annotations are distinct from various forms of labels.
+     * Annotations exist to allow client tools to store their own state
+     * information without requiring a database.
+     * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+     * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+     * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+     * alphanumerics in between these symbols.
+     * The total size of annotation keys and values must be less than 16KiB.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    @java.lang.Override
+    public boolean containsAnnotations(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetAnnotations().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAnnotationsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAnnotations() {
+      return getAnnotationsMap();
+    }
+    /**
+     * <pre>
+     * Optional. Custom metadata about the secret.
+     * Annotations are distinct from various forms of labels.
+     * Annotations exist to allow client tools to store their own state
+     * information without requiring a database.
+     * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+     * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+     * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+     * alphanumerics in between these symbols.
+     * The total size of annotation keys and values must be less than 16KiB.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, java.lang.String> getAnnotationsMap() {
+      return internalGetAnnotations().getMap();
+    }
+    /**
+     * <pre>
+     * Optional. Custom metadata about the secret.
+     * Annotations are distinct from various forms of labels.
+     * Annotations exist to allow client tools to store their own state
+     * information without requiring a database.
+     * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+     * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+     * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+     * alphanumerics in between these symbols.
+     * The total size of annotation keys and values must be less than 16KiB.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+java.lang.String getAnnotationsOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAnnotations().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Optional. Custom metadata about the secret.
+     * Annotations are distinct from various forms of labels.
+     * Annotations exist to allow client tools to store their own state
+     * information without requiring a database.
+     * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+     * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+     * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+     * alphanumerics in between these symbols.
+     * The total size of annotation keys and values must be less than 16KiB.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    @java.lang.Override
+    public java.lang.String getAnnotationsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAnnotations().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearAnnotations() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      internalGetMutableAnnotations().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Custom metadata about the secret.
+     * Annotations are distinct from various forms of labels.
+     * Annotations exist to allow client tools to store their own state
+     * information without requiring a database.
+     * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+     * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+     * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+     * alphanumerics in between these symbols.
+     * The total size of annotation keys and values must be less than 16KiB.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder removeAnnotations(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableAnnotations().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+        getMutableAnnotations() {
+      bitField0_ |= 0x00000400;
+      return internalGetMutableAnnotations().getMutableMap();
+    }
+    /**
+     * <pre>
+     * Optional. Custom metadata about the secret.
+     * Annotations are distinct from various forms of labels.
+     * Annotations exist to allow client tools to store their own state
+     * information without requiring a database.
+     * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+     * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+     * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+     * alphanumerics in between these symbols.
+     * The total size of annotation keys and values must be less than 16KiB.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder putAnnotations(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableAnnotations().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00000400;
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Custom metadata about the secret.
+     * Annotations are distinct from various forms of labels.
+     * Annotations exist to allow client tools to store their own state
+     * information without requiring a database.
+     * Annotation keys must be between 1 and 63 characters long, have a UTF-8
+     * encoding of maximum 128 bytes, begin and end with an alphanumeric character
+     * ([a-z0-9A-Z]), and may have dashes (-), underscores (_), dots (.), and
+     * alphanumerics in between these symbols.
+     * The total size of annotation keys and values must be less than 16KiB.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 13 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder putAllAnnotations(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableAnnotations().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00000400;
       return this;
     }
     @java.lang.Override
@@ -3344,7 +3740,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Secret(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -17,7 +17,7 @@ from google.cloud.aiplatform.v1beta1 import encryption_spec_pb2 as google_dot_cl
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/aiplatform/v1beta1/featurestore.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x99\x07\n\x0c\x46\x65\x61turestore\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x11\n\x04\x65tag\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12N\n\x06labels\x18\x06 \x03(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.Featurestore.LabelsEntryB\x03\xe0\x41\x01\x12\x65\n\x15online_serving_config\x18\x07 \x01(\x0b\x32\x41.google.cloud.aiplatform.v1beta1.Featurestore.OnlineServingConfigB\x03\xe0\x41\x01\x12G\n\x05state\x18\x08 \x01(\x0e\x32\x33.google.cloud.aiplatform.v1beta1.Featurestore.StateB\x03\xe0\x41\x03\x12M\n\x0f\x65ncryption_spec\x18\n \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.EncryptionSpecB\x03\xe0\x41\x01\x1a\xcb\x01\n\x13OnlineServingConfig\x12\x18\n\x10\x66ixed_node_count\x18\x02 \x01(\x05\x12Z\n\x07scaling\x18\x04 \x01(\x0b\x32I.google.cloud.aiplatform.v1beta1.Featurestore.OnlineServingConfig.Scaling\x1a>\n\x07Scaling\x12\x1b\n\x0emin_node_count\x18\x01 \x01(\x05\x42\x03\xe0\x41\x02\x12\x16\n\x0emax_node_count\x18\x02 \x01(\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"8\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0c\n\x08UPDATING\x10\x02:q\xea\x41n\n&aiplatform.googleapis.com/Featurestore\x12\x44projects/{project}/locations/{location}/featurestores/{featurestore}B\xee\x01\n#com.google.cloud.aiplatform.v1beta1B\x11\x46\x65\x61turestoreProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/aiplatform/v1beta1/featurestore.proto\x12\x1fgoogle.cloud.aiplatform.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x35google/cloud/aiplatform/v1beta1/encryption_spec.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbf\x07\n\x0c\x46\x65\x61turestore\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x11\n\x04\x65tag\x18\x05 \x01(\tB\x03\xe0\x41\x01\x12N\n\x06labels\x18\x06 \x03(\x0b\x32\x39.google.cloud.aiplatform.v1beta1.Featurestore.LabelsEntryB\x03\xe0\x41\x01\x12\x65\n\x15online_serving_config\x18\x07 \x01(\x0b\x32\x41.google.cloud.aiplatform.v1beta1.Featurestore.OnlineServingConfigB\x03\xe0\x41\x01\x12G\n\x05state\x18\x08 \x01(\x0e\x32\x33.google.cloud.aiplatform.v1beta1.Featurestore.StateB\x03\xe0\x41\x03\x12$\n\x17online_storage_ttl_days\x18\r \x01(\x05\x42\x03\xe0\x41\x01\x12M\n\x0f\x65ncryption_spec\x18\n \x01(\x0b\x32/.google.cloud.aiplatform.v1beta1.EncryptionSpecB\x03\xe0\x41\x01\x1a\xcb\x01\n\x13OnlineServingConfig\x12\x18\n\x10\x66ixed_node_count\x18\x02 \x01(\x05\x12Z\n\x07scaling\x18\x04 \x01(\x0b\x32I.google.cloud.aiplatform.v1beta1.Featurestore.OnlineServingConfig.Scaling\x1a>\n\x07Scaling\x12\x1b\n\x0emin_node_count\x18\x01 \x01(\x05\x42\x03\xe0\x41\x02\x12\x16\n\x0emax_node_count\x18\x02 \x01(\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"8\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06STABLE\x10\x01\x12\x0c\n\x08UPDATING\x10\x02:q\xea\x41n\n&aiplatform.googleapis.com/Featurestore\x12\x44projects/{project}/locations/{location}/featurestores/{featurestore}B\xee\x01\n#com.google.cloud.aiplatform.v1beta1B\x11\x46\x65\x61turestoreProtoP\x01ZIgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1;aiplatform\xaa\x02\x1fGoogle.Cloud.AIPlatform.V1Beta1\xca\x02\x1fGoogle\\Cloud\\AIPlatform\\V1beta1\xea\x02\"Google::Cloud::AIPlatform::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1beta1.featurestore_pb2', globals())
@@ -43,18 +43,20 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _FEATURESTORE.fields_by_name['online_serving_config']._serialized_options = b'\340A\001'
   _FEATURESTORE.fields_by_name['state']._options = None
   _FEATURESTORE.fields_by_name['state']._serialized_options = b'\340A\003'
+  _FEATURESTORE.fields_by_name['online_storage_ttl_days']._options = None
+  _FEATURESTORE.fields_by_name['online_storage_ttl_days']._serialized_options = b'\340A\001'
   _FEATURESTORE.fields_by_name['encryption_spec']._options = None
   _FEATURESTORE.fields_by_name['encryption_spec']._serialized_options = b'\340A\001'
   _FEATURESTORE._options = None
   _FEATURESTORE._serialized_options = b'\352An\n&aiplatform.googleapis.com/Featurestore\022Dprojects/{project}/locations/{location}/featurestores/{featurestore}'
   _FEATURESTORE._serialized_start=236
-  _FEATURESTORE._serialized_end=1157
-  _FEATURESTORE_ONLINESERVINGCONFIG._serialized_start=734
-  _FEATURESTORE_ONLINESERVINGCONFIG._serialized_end=937
-  _FEATURESTORE_ONLINESERVINGCONFIG_SCALING._serialized_start=875
-  _FEATURESTORE_ONLINESERVINGCONFIG_SCALING._serialized_end=937
-  _FEATURESTORE_LABELSENTRY._serialized_start=939
-  _FEATURESTORE_LABELSENTRY._serialized_end=984
-  _FEATURESTORE_STATE._serialized_start=986
-  _FEATURESTORE_STATE._serialized_end=1042
+  _FEATURESTORE._serialized_end=1195
+  _FEATURESTORE_ONLINESERVINGCONFIG._serialized_start=772
+  _FEATURESTORE_ONLINESERVINGCONFIG._serialized_end=975
+  _FEATURESTORE_ONLINESERVINGCONFIG_SCALING._serialized_start=913
+  _FEATURESTORE_ONLINESERVINGCONFIG_SCALING._serialized_end=975
+  _FEATURESTORE_LABELSENTRY._serialized_start=977
+  _FEATURESTORE_LABELSENTRY._serialized_end=1022
+  _FEATURESTORE_STATE._serialized_start=1024
+  _FEATURESTORE_STATE._serialized_end=1080
 # @@protoc_insertion_point(module_scope)

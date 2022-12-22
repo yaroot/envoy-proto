@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Repository(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.Builder subBuilder = null;
-            if (gitRemoteSettings_ != null) {
-              subBuilder = gitRemoteSettings_.toBuilder();
-            }
-            gitRemoteSettings_ = input.readMessage(com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gitRemoteSettings_);
-              gitRemoteSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataform.v1alpha2.DataformProto.internal_static_google_cloud_dataform_v1alpha2_Repository_descriptor;
@@ -227,69 +169,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private GitRemoteSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              url_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              defaultBranch_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              authenticationTokenSecretVersion_ = s;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              tokenStatus_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -469,7 +348,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int URL_FIELD_NUMBER = 1;
-    private volatile java.lang.Object url_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object url_ = "";
     /**
      * <pre>
      * Required. The Git remote's URL.
@@ -515,7 +395,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DEFAULT_BRANCH_FIELD_NUMBER = 2;
-    private volatile java.lang.Object defaultBranch_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object defaultBranch_ = "";
     /**
      * <pre>
      * Required. The Git remote's default branch name.
@@ -561,7 +442,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int AUTHENTICATION_TOKEN_SECRET_VERSION_FIELD_NUMBER = 3;
-    private volatile java.lang.Object authenticationTokenSecretVersion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object authenticationTokenSecretVersion_ = "";
     /**
      * <pre>
      * Required. The name of the Secret Manager secret version to use as an
@@ -611,7 +493,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TOKEN_STATUS_FIELD_NUMBER = 4;
-    private int tokenStatus_;
+    private int tokenStatus_ = 0;
     /**
      * <pre>
      * Output only. Indicates the status of the Git access token.
@@ -632,8 +514,7 @@ private static final long serialVersionUID = 0L;
      * @return The tokenStatus.
      */
     @java.lang.Override public com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus getTokenStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus result = com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus.valueOf(tokenStatus_);
+      com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus result = com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus.forNumber(tokenStatus_);
       return result == null ? com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus.UNRECOGNIZED : result;
     }
 
@@ -663,7 +544,7 @@ private static final long serialVersionUID = 0L;
       if (tokenStatus_ != com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus.TOKEN_STATUS_UNSPECIFIED.getNumber()) {
         output.writeEnum(4, tokenStatus_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -685,7 +566,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, tokenStatus_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -707,7 +588,7 @@ private static final long serialVersionUID = 0L;
       if (!getAuthenticationTokenSecretVersion()
           .equals(other.getAuthenticationTokenSecretVersion())) return false;
       if (tokenStatus_ != other.tokenStatus_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -726,7 +607,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getAuthenticationTokenSecretVersion().hashCode();
       hash = (37 * hash) + TOKEN_STATUS_FIELD_NUMBER;
       hash = (53 * hash) + tokenStatus_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -847,30 +728,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         url_ = "";
-
         defaultBranch_ = "";
-
         authenticationTokenSecretVersion_ = "";
-
         tokenStatus_ = 0;
-
         return this;
       }
 
@@ -897,12 +770,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings buildPartial() {
         com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings result = new com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings(this);
-        result.url_ = url_;
-        result.defaultBranch_ = defaultBranch_;
-        result.authenticationTokenSecretVersion_ = authenticationTokenSecretVersion_;
-        result.tokenStatus_ = tokenStatus_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.url_ = url_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.defaultBranch_ = defaultBranch_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.authenticationTokenSecretVersion_ = authenticationTokenSecretVersion_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.tokenStatus_ = tokenStatus_;
+        }
       }
 
       @java.lang.Override
@@ -951,20 +837,23 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.getDefaultInstance()) return this;
         if (!other.getUrl().isEmpty()) {
           url_ = other.url_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDefaultBranch().isEmpty()) {
           defaultBranch_ = other.defaultBranch_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getAuthenticationTokenSecretVersion().isEmpty()) {
           authenticationTokenSecretVersion_ = other.authenticationTokenSecretVersion_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.tokenStatus_ != 0) {
           setTokenStatusValue(other.getTokenStatusValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -979,19 +868,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                url_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                defaultBranch_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                authenticationTokenSecretVersion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                tokenStatus_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object url_ = "";
       /**
@@ -1046,11 +969,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         url_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1063,8 +984,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearUrl() {
-        
         url_ = getDefaultInstance().getUrl();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1079,12 +1000,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         url_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1142,11 +1061,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDefaultBranch(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         defaultBranch_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1159,8 +1076,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDefaultBranch() {
-        
         defaultBranch_ = getDefaultInstance().getDefaultBranch();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1175,12 +1092,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDefaultBranchBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         defaultBranch_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1244,11 +1159,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAuthenticationTokenSecretVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         authenticationTokenSecretVersion_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1263,8 +1176,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAuthenticationTokenSecretVersion() {
-        
         authenticationTokenSecretVersion_ = getDefaultInstance().getAuthenticationTokenSecretVersion();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1281,12 +1194,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAuthenticationTokenSecretVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         authenticationTokenSecretVersion_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1313,8 +1224,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTokenStatusValue(int value) {
-        
         tokenStatus_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1328,8 +1239,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus getTokenStatus() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus result = com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus.valueOf(tokenStatus_);
+        com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus result = com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus.forNumber(tokenStatus_);
         return result == null ? com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.TokenStatus.UNRECOGNIZED : result;
       }
       /**
@@ -1345,7 +1255,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         tokenStatus_ = value.getNumber();
         onChanged();
         return this;
@@ -1359,7 +1269,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTokenStatus() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         tokenStatus_ = 0;
         onChanged();
         return this;
@@ -1397,7 +1307,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GitRemoteSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1418,7 +1339,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The repository's name.
@@ -1498,7 +1420,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettingsOrBuilder getGitRemoteSettingsOrBuilder() {
-    return getGitRemoteSettings();
+    return gitRemoteSettings_ == null ? com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.getDefaultInstance() : gitRemoteSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1521,7 +1443,7 @@ private static final long serialVersionUID = 0L;
     if (gitRemoteSettings_ != null) {
       output.writeMessage(2, getGitRemoteSettings());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1537,7 +1459,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getGitRemoteSettings());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1559,7 +1481,7 @@ private static final long serialVersionUID = 0L;
       if (!getGitRemoteSettings()
           .equals(other.getGitRemoteSettings())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1576,7 +1498,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GIT_REMOTE_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getGitRemoteSettings().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1697,28 +1619,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataform.v1alpha2.Repository.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (gitRemoteSettingsBuilder_ == null) {
-        gitRemoteSettings_ = null;
-      } else {
-        gitRemoteSettings_ = null;
+      gitRemoteSettings_ = null;
+      if (gitRemoteSettingsBuilder_ != null) {
+        gitRemoteSettingsBuilder_.dispose();
         gitRemoteSettingsBuilder_ = null;
       }
       return this;
@@ -1747,14 +1663,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataform.v1alpha2.Repository buildPartial() {
       com.google.cloud.dataform.v1alpha2.Repository result = new com.google.cloud.dataform.v1alpha2.Repository(this);
-      result.name_ = name_;
-      if (gitRemoteSettingsBuilder_ == null) {
-        result.gitRemoteSettings_ = gitRemoteSettings_;
-      } else {
-        result.gitRemoteSettings_ = gitRemoteSettingsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataform.v1alpha2.Repository result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.gitRemoteSettings_ = gitRemoteSettingsBuilder_ == null
+            ? gitRemoteSettings_
+            : gitRemoteSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1803,12 +1726,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataform.v1alpha2.Repository.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasGitRemoteSettings()) {
         mergeGitRemoteSettings(other.getGitRemoteSettings());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1823,19 +1747,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataform.v1alpha2.Repository parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getGitRemoteSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataform.v1alpha2.Repository) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1890,11 +1840,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1907,8 +1855,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1923,12 +1871,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1945,7 +1891,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gitRemoteSettings field is set.
      */
     public boolean hasGitRemoteSettings() {
-      return gitRemoteSettingsBuilder_ != null || gitRemoteSettings_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1975,11 +1921,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gitRemoteSettings_ = value;
-        onChanged();
       } else {
         gitRemoteSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1993,11 +1939,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.Builder builderForValue) {
       if (gitRemoteSettingsBuilder_ == null) {
         gitRemoteSettings_ = builderForValue.build();
-        onChanged();
       } else {
         gitRemoteSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2009,17 +1955,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGitRemoteSettings(com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings value) {
       if (gitRemoteSettingsBuilder_ == null) {
-        if (gitRemoteSettings_ != null) {
-          gitRemoteSettings_ =
-            com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.newBuilder(gitRemoteSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          gitRemoteSettings_ != null &&
+          gitRemoteSettings_ != com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.getDefaultInstance()) {
+          getGitRemoteSettingsBuilder().mergeFrom(value);
         } else {
           gitRemoteSettings_ = value;
         }
-        onChanged();
       } else {
         gitRemoteSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2030,14 +1977,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings git_remote_settings = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearGitRemoteSettings() {
-      if (gitRemoteSettingsBuilder_ == null) {
-        gitRemoteSettings_ = null;
-        onChanged();
-      } else {
-        gitRemoteSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      gitRemoteSettings_ = null;
+      if (gitRemoteSettingsBuilder_ != null) {
+        gitRemoteSettingsBuilder_.dispose();
         gitRemoteSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2048,7 +1994,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings git_remote_settings = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataform.v1alpha2.Repository.GitRemoteSettings.Builder getGitRemoteSettingsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getGitRemoteSettingsFieldBuilder().getBuilder();
     }
@@ -2120,7 +2066,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Repository(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

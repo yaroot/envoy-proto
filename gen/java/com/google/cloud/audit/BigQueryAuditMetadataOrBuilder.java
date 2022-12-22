@@ -63,6 +63,33 @@ public interface BigQueryAuditMetadataOrBuilder extends
 
   /**
    * <pre>
+   * Job deletion event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.JobDeletion job_deletion = 23;</code>
+   * @return Whether the jobDeletion field is set.
+   */
+  boolean hasJobDeletion();
+  /**
+   * <pre>
+   * Job deletion event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.JobDeletion job_deletion = 23;</code>
+   * @return The jobDeletion.
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.JobDeletion getJobDeletion();
+  /**
+   * <pre>
+   * Job deletion event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.JobDeletion job_deletion = 23;</code>
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.JobDeletionOrBuilder getJobDeletionOrBuilder();
+
+  /**
+   * <pre>
    * Dataset creation event.
    * </pre>
    *
@@ -492,6 +519,141 @@ public interface BigQueryAuditMetadataOrBuilder extends
    * <code>.google.cloud.audit.BigQueryAuditMetadata.RoutineDeletion routine_deletion = 18;</code>
    */
   com.google.cloud.audit.BigQueryAuditMetadata.RoutineDeletionOrBuilder getRoutineDeletionOrBuilder();
+
+  /**
+   * <pre>
+   * Row access policy create event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyCreation row_access_policy_creation = 20;</code>
+   * @return Whether the rowAccessPolicyCreation field is set.
+   */
+  boolean hasRowAccessPolicyCreation();
+  /**
+   * <pre>
+   * Row access policy create event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyCreation row_access_policy_creation = 20;</code>
+   * @return The rowAccessPolicyCreation.
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyCreation getRowAccessPolicyCreation();
+  /**
+   * <pre>
+   * Row access policy create event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyCreation row_access_policy_creation = 20;</code>
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyCreationOrBuilder getRowAccessPolicyCreationOrBuilder();
+
+  /**
+   * <pre>
+   * Row access policy change event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyChange row_access_policy_change = 21;</code>
+   * @return Whether the rowAccessPolicyChange field is set.
+   */
+  boolean hasRowAccessPolicyChange();
+  /**
+   * <pre>
+   * Row access policy change event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyChange row_access_policy_change = 21;</code>
+   * @return The rowAccessPolicyChange.
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyChange getRowAccessPolicyChange();
+  /**
+   * <pre>
+   * Row access policy change event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyChange row_access_policy_change = 21;</code>
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyChangeOrBuilder getRowAccessPolicyChangeOrBuilder();
+
+  /**
+   * <pre>
+   * Row access policy deletion event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyDeletion row_access_policy_deletion = 22;</code>
+   * @return Whether the rowAccessPolicyDeletion field is set.
+   */
+  boolean hasRowAccessPolicyDeletion();
+  /**
+   * <pre>
+   * Row access policy deletion event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyDeletion row_access_policy_deletion = 22;</code>
+   * @return The rowAccessPolicyDeletion.
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyDeletion getRowAccessPolicyDeletion();
+  /**
+   * <pre>
+   * Row access policy deletion event.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyDeletion row_access_policy_deletion = 22;</code>
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.RowAccessPolicyDeletionOrBuilder getRowAccessPolicyDeletionOrBuilder();
+
+  /**
+   * <pre>
+   * Unlink linked dataset from its source dataset event
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.UnlinkDataset unlink_dataset = 25;</code>
+   * @return Whether the unlinkDataset field is set.
+   */
+  boolean hasUnlinkDataset();
+  /**
+   * <pre>
+   * Unlink linked dataset from its source dataset event
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.UnlinkDataset unlink_dataset = 25;</code>
+   * @return The unlinkDataset.
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.UnlinkDataset getUnlinkDataset();
+  /**
+   * <pre>
+   * Unlink linked dataset from its source dataset event
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.UnlinkDataset unlink_dataset = 25;</code>
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.UnlinkDatasetOrBuilder getUnlinkDatasetOrBuilder();
+
+  /**
+   * <pre>
+   * First party (Google) application specific metadata.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.FirstPartyAppMetadata first_party_app_metadata = 24;</code>
+   * @return Whether the firstPartyAppMetadata field is set.
+   */
+  boolean hasFirstPartyAppMetadata();
+  /**
+   * <pre>
+   * First party (Google) application specific metadata.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.FirstPartyAppMetadata first_party_app_metadata = 24;</code>
+   * @return The firstPartyAppMetadata.
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.FirstPartyAppMetadata getFirstPartyAppMetadata();
+  /**
+   * <pre>
+   * First party (Google) application specific metadata.
+   * </pre>
+   *
+   * <code>.google.cloud.audit.BigQueryAuditMetadata.FirstPartyAppMetadata first_party_app_metadata = 24;</code>
+   */
+  com.google.cloud.audit.BigQueryAuditMetadata.FirstPartyAppMetadataOrBuilder getFirstPartyAppMetadataOrBuilder();
 
   public com.google.cloud.audit.BigQueryAuditMetadata.EventCase getEventCase();
 }

@@ -36,71 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TextFrame(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly.Builder subBuilder = null;
-            if (rotatedBoundingBox_ != null) {
-              subBuilder = rotatedBoundingBox_.toBuilder();
-            }
-            rotatedBoundingBox_ = input.readMessage(com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rotatedBoundingBox_);
-              rotatedBoundingBox_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeOffset_ != null) {
-              subBuilder = timeOffset_.toBuilder();
-            }
-            timeOffset_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeOffset_);
-              timeOffset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.videointelligence.v1p3beta1.VideoIntelligenceServiceProto.internal_static_google_cloud_videointelligence_v1p3beta1_TextFrame_descriptor;
@@ -149,7 +84,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPolyOrBuilder getRotatedBoundingBoxOrBuilder() {
-    return getRotatedBoundingBox();
+    return rotatedBoundingBox_ == null ? com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly.getDefaultInstance() : rotatedBoundingBox_;
   }
 
   public static final int TIME_OFFSET_FIELD_NUMBER = 2;
@@ -187,7 +122,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeOffsetOrBuilder() {
-    return getTimeOffset();
+    return timeOffset_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeOffset_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -210,7 +145,7 @@ private static final long serialVersionUID = 0L;
     if (timeOffset_ != null) {
       output.writeMessage(2, getTimeOffset());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -227,7 +162,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getTimeOffset());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -252,7 +187,7 @@ private static final long serialVersionUID = 0L;
       if (!getTimeOffset()
           .equals(other.getTimeOffset())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -271,7 +206,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TIME_OFFSET_FIELD_NUMBER;
       hash = (53 * hash) + getTimeOffset().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -394,32 +329,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.videointelligence.v1p3beta1.TextFrame.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (rotatedBoundingBoxBuilder_ == null) {
-        rotatedBoundingBox_ = null;
-      } else {
-        rotatedBoundingBox_ = null;
+      bitField0_ = 0;
+      rotatedBoundingBox_ = null;
+      if (rotatedBoundingBoxBuilder_ != null) {
+        rotatedBoundingBoxBuilder_.dispose();
         rotatedBoundingBoxBuilder_ = null;
       }
-      if (timeOffsetBuilder_ == null) {
-        timeOffset_ = null;
-      } else {
-        timeOffset_ = null;
+      timeOffset_ = null;
+      if (timeOffsetBuilder_ != null) {
+        timeOffsetBuilder_.dispose();
         timeOffsetBuilder_ = null;
       }
       return this;
@@ -448,18 +377,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.videointelligence.v1p3beta1.TextFrame buildPartial() {
       com.google.cloud.videointelligence.v1p3beta1.TextFrame result = new com.google.cloud.videointelligence.v1p3beta1.TextFrame(this);
-      if (rotatedBoundingBoxBuilder_ == null) {
-        result.rotatedBoundingBox_ = rotatedBoundingBox_;
-      } else {
-        result.rotatedBoundingBox_ = rotatedBoundingBoxBuilder_.build();
-      }
-      if (timeOffsetBuilder_ == null) {
-        result.timeOffset_ = timeOffset_;
-      } else {
-        result.timeOffset_ = timeOffsetBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.videointelligence.v1p3beta1.TextFrame result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.rotatedBoundingBox_ = rotatedBoundingBoxBuilder_ == null
+            ? rotatedBoundingBox_
+            : rotatedBoundingBoxBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.timeOffset_ = timeOffsetBuilder_ == null
+            ? timeOffset_
+            : timeOffsetBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -512,7 +446,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTimeOffset()) {
         mergeTimeOffset(other.getTimeOffset());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -527,19 +461,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.videointelligence.v1p3beta1.TextFrame parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRotatedBoundingBoxFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTimeOffsetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.videointelligence.v1p3beta1.TextFrame) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly rotatedBoundingBox_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -553,7 +515,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rotatedBoundingBox field is set.
      */
     public boolean hasRotatedBoundingBox() {
-      return rotatedBoundingBoxBuilder_ != null || rotatedBoundingBox_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -583,11 +545,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rotatedBoundingBox_ = value;
-        onChanged();
       } else {
         rotatedBoundingBoxBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -601,11 +563,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly.Builder builderForValue) {
       if (rotatedBoundingBoxBuilder_ == null) {
         rotatedBoundingBox_ = builderForValue.build();
-        onChanged();
       } else {
         rotatedBoundingBoxBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -617,17 +579,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRotatedBoundingBox(com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly value) {
       if (rotatedBoundingBoxBuilder_ == null) {
-        if (rotatedBoundingBox_ != null) {
-          rotatedBoundingBox_ =
-            com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly.newBuilder(rotatedBoundingBox_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          rotatedBoundingBox_ != null &&
+          rotatedBoundingBox_ != com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly.getDefaultInstance()) {
+          getRotatedBoundingBoxBuilder().mergeFrom(value);
         } else {
           rotatedBoundingBox_ = value;
         }
-        onChanged();
       } else {
         rotatedBoundingBoxBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -638,14 +601,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly rotated_bounding_box = 1;</code>
      */
     public Builder clearRotatedBoundingBox() {
-      if (rotatedBoundingBoxBuilder_ == null) {
-        rotatedBoundingBox_ = null;
-        onChanged();
-      } else {
-        rotatedBoundingBox_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      rotatedBoundingBox_ = null;
+      if (rotatedBoundingBoxBuilder_ != null) {
+        rotatedBoundingBoxBuilder_.dispose();
         rotatedBoundingBoxBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -656,7 +618,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly rotated_bounding_box = 1;</code>
      */
     public com.google.cloud.videointelligence.v1p3beta1.NormalizedBoundingPoly.Builder getRotatedBoundingBoxBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRotatedBoundingBoxFieldBuilder().getBuilder();
     }
@@ -708,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeOffset field is set.
      */
     public boolean hasTimeOffset() {
-      return timeOffsetBuilder_ != null || timeOffset_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -738,11 +700,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeOffset_ = value;
-        onChanged();
       } else {
         timeOffsetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -756,11 +718,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeOffsetBuilder_ == null) {
         timeOffset_ = builderForValue.build();
-        onChanged();
       } else {
         timeOffsetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -772,17 +734,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeOffset(com.google.protobuf.Duration value) {
       if (timeOffsetBuilder_ == null) {
-        if (timeOffset_ != null) {
-          timeOffset_ =
-            com.google.protobuf.Duration.newBuilder(timeOffset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          timeOffset_ != null &&
+          timeOffset_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeOffsetBuilder().mergeFrom(value);
         } else {
           timeOffset_ = value;
         }
-        onChanged();
       } else {
         timeOffsetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -793,14 +756,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration time_offset = 2;</code>
      */
     public Builder clearTimeOffset() {
-      if (timeOffsetBuilder_ == null) {
-        timeOffset_ = null;
-        onChanged();
-      } else {
-        timeOffset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      timeOffset_ = null;
+      if (timeOffsetBuilder_ != null) {
+        timeOffsetBuilder_.dispose();
         timeOffsetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -811,7 +773,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration time_offset = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeOffsetBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTimeOffsetFieldBuilder().getBuilder();
     }
@@ -883,7 +845,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TextFrame(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

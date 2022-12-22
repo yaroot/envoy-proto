@@ -10,7 +10,7 @@ public interface GetCompletionConfigRequestOrBuilder extends
   /**
    * <pre>
    * Required. Full CompletionConfig resource name. Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/completionConfig
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/completionConfig`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +20,7 @@ public interface GetCompletionConfigRequestOrBuilder extends
   /**
    * <pre>
    * Required. Full CompletionConfig resource name. Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/completionConfig
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/completionConfig`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

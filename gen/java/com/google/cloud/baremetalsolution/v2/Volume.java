@@ -40,138 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Volume(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            storageType_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 32: {
-
-            requestedSizeGib_ = input.readInt64();
-            break;
-          }
-          case 40: {
-
-            currentSizeGib_ = input.readInt64();
-            break;
-          }
-          case 48: {
-
-            autoGrownSizeGib_ = input.readInt64();
-            break;
-          }
-          case 56: {
-
-            remainingSpaceGib_ = input.readInt64();
-            break;
-          }
-          case 66: {
-            com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail.Builder subBuilder = null;
-            if (snapshotReservationDetail_ != null) {
-              subBuilder = snapshotReservationDetail_.toBuilder();
-            }
-            snapshotReservationDetail_ = input.readMessage(com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(snapshotReservationDetail_);
-              snapshotReservationDetail_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            snapshotAutoDeleteBehavior_ = rawValue;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 98: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 104: {
-
-            snapshotEnabled_ = input.readBool();
-            break;
-          }
-          case 112: {
-
-            emergencySizeGib_ = input.readInt64();
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pod_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.baremetalsolution.v2.VolumeProto.internal_static_google_cloud_baremetalsolution_v2_Volume_descriptor;
@@ -752,65 +620,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SnapshotReservationDetail(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              reservedSpaceGib_ = input.readInt64();
-              break;
-            }
-            case 16: {
-
-              reservedSpaceUsedPercent_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              reservedSpaceRemainingGib_ = input.readInt64();
-              break;
-            }
-            case 32: {
-
-              reservedSpacePercent_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.baremetalsolution.v2.VolumeProto.internal_static_google_cloud_baremetalsolution_v2_Volume_SnapshotReservationDetail_descriptor;
@@ -825,7 +634,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESERVED_SPACE_GIB_FIELD_NUMBER = 1;
-    private long reservedSpaceGib_;
+    private long reservedSpaceGib_ = 0L;
     /**
      * <pre>
      * The space on this storage volume reserved for snapshots, shown in GiB.
@@ -840,7 +649,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESERVED_SPACE_USED_PERCENT_FIELD_NUMBER = 2;
-    private int reservedSpaceUsedPercent_;
+    private int reservedSpaceUsedPercent_ = 0;
     /**
      * <pre>
      * The percent of snapshot space on this storage volume actually being used
@@ -858,7 +667,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESERVED_SPACE_REMAINING_GIB_FIELD_NUMBER = 3;
-    private long reservedSpaceRemainingGib_;
+    private long reservedSpaceRemainingGib_ = 0L;
     /**
      * <pre>
      * The amount, in GiB, of available space in this storage volume's reserved
@@ -874,7 +683,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RESERVED_SPACE_PERCENT_FIELD_NUMBER = 4;
-    private int reservedSpacePercent_;
+    private int reservedSpacePercent_ = 0;
     /**
      * <pre>
      * Percent of the total Volume size reserved for snapshot copies.
@@ -918,7 +727,7 @@ private static final long serialVersionUID = 0L;
       if (reservedSpacePercent_ != 0) {
         output.writeInt32(4, reservedSpacePercent_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -943,7 +752,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, reservedSpacePercent_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -966,7 +775,7 @@ private static final long serialVersionUID = 0L;
           != other.getReservedSpaceRemainingGib()) return false;
       if (getReservedSpacePercent()
           != other.getReservedSpacePercent()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -987,7 +796,7 @@ private static final long serialVersionUID = 0L;
           getReservedSpaceRemainingGib());
       hash = (37 * hash) + RESERVED_SPACE_PERCENT_FIELD_NUMBER;
       hash = (53 * hash) + getReservedSpacePercent();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1108,30 +917,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         reservedSpaceGib_ = 0L;
-
         reservedSpaceUsedPercent_ = 0;
-
         reservedSpaceRemainingGib_ = 0L;
-
         reservedSpacePercent_ = 0;
-
         return this;
       }
 
@@ -1158,12 +959,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail buildPartial() {
         com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail result = new com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail(this);
-        result.reservedSpaceGib_ = reservedSpaceGib_;
-        result.reservedSpaceUsedPercent_ = reservedSpaceUsedPercent_;
-        result.reservedSpaceRemainingGib_ = reservedSpaceRemainingGib_;
-        result.reservedSpacePercent_ = reservedSpacePercent_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.reservedSpaceGib_ = reservedSpaceGib_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.reservedSpaceUsedPercent_ = reservedSpaceUsedPercent_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.reservedSpaceRemainingGib_ = reservedSpaceRemainingGib_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.reservedSpacePercent_ = reservedSpacePercent_;
+        }
       }
 
       @java.lang.Override
@@ -1222,7 +1036,7 @@ private static final long serialVersionUID = 0L;
         if (other.getReservedSpacePercent() != 0) {
           setReservedSpacePercent(other.getReservedSpacePercent());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1237,19 +1051,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                reservedSpaceGib_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                reservedSpaceUsedPercent_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                reservedSpaceRemainingGib_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                reservedSpacePercent_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long reservedSpaceGib_ ;
       /**
@@ -1276,6 +1124,7 @@ private static final long serialVersionUID = 0L;
       public Builder setReservedSpaceGib(long value) {
         
         reservedSpaceGib_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1288,7 +1137,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearReservedSpaceGib() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         reservedSpaceGib_ = 0L;
         onChanged();
         return this;
@@ -1325,6 +1174,7 @@ private static final long serialVersionUID = 0L;
       public Builder setReservedSpaceUsedPercent(int value) {
         
         reservedSpaceUsedPercent_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1340,7 +1190,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearReservedSpaceUsedPercent() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         reservedSpaceUsedPercent_ = 0;
         onChanged();
         return this;
@@ -1373,6 +1223,7 @@ private static final long serialVersionUID = 0L;
       public Builder setReservedSpaceRemainingGib(long value) {
         
         reservedSpaceRemainingGib_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1386,7 +1237,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearReservedSpaceRemainingGib() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         reservedSpaceRemainingGib_ = 0L;
         onChanged();
         return this;
@@ -1425,6 +1276,7 @@ private static final long serialVersionUID = 0L;
       public Builder setReservedSpacePercent(int value) {
         
         reservedSpacePercent_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1441,7 +1293,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearReservedSpacePercent() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         reservedSpacePercent_ = 0;
         onChanged();
         return this;
@@ -1479,7 +1331,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SnapshotReservationDetail(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1500,7 +1363,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of this `Volume`.
@@ -1554,7 +1418,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 11;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * An identifier for the `Volume`, generated by the backend.
@@ -1600,7 +1465,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STORAGE_TYPE_FIELD_NUMBER = 2;
-  private int storageType_;
+  private int storageType_ = 0;
   /**
    * <pre>
    * The storage type for this volume.
@@ -1621,13 +1486,12 @@ private static final long serialVersionUID = 0L;
    * @return The storageType.
    */
   @java.lang.Override public com.google.cloud.baremetalsolution.v2.Volume.StorageType getStorageType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.baremetalsolution.v2.Volume.StorageType result = com.google.cloud.baremetalsolution.v2.Volume.StorageType.valueOf(storageType_);
+    com.google.cloud.baremetalsolution.v2.Volume.StorageType result = com.google.cloud.baremetalsolution.v2.Volume.StorageType.forNumber(storageType_);
     return result == null ? com.google.cloud.baremetalsolution.v2.Volume.StorageType.UNRECOGNIZED : result;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * The state of this storage volume.
@@ -1648,13 +1512,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.baremetalsolution.v2.Volume.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.baremetalsolution.v2.Volume.State result = com.google.cloud.baremetalsolution.v2.Volume.State.valueOf(state_);
+    com.google.cloud.baremetalsolution.v2.Volume.State result = com.google.cloud.baremetalsolution.v2.Volume.State.forNumber(state_);
     return result == null ? com.google.cloud.baremetalsolution.v2.Volume.State.UNRECOGNIZED : result;
   }
 
   public static final int REQUESTED_SIZE_GIB_FIELD_NUMBER = 4;
-  private long requestedSizeGib_;
+  private long requestedSizeGib_ = 0L;
   /**
    * <pre>
    * The requested size of this storage volume, in GiB.
@@ -1669,7 +1532,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENT_SIZE_GIB_FIELD_NUMBER = 5;
-  private long currentSizeGib_;
+  private long currentSizeGib_ = 0L;
   /**
    * <pre>
    * The current size of this storage volume, in GiB, including space reserved
@@ -1686,7 +1549,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMERGENCY_SIZE_GIB_FIELD_NUMBER = 14;
-  private long emergencySizeGib_;
+  private long emergencySizeGib_ = 0L;
   /**
    * <pre>
    * Additional emergency size that was requested for this Volume, in GiB.
@@ -1702,7 +1565,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTO_GROWN_SIZE_GIB_FIELD_NUMBER = 6;
-  private long autoGrownSizeGib_;
+  private long autoGrownSizeGib_ = 0L;
   /**
    * <pre>
    * The size, in GiB, that this storage volume has expanded as a result of an
@@ -1718,7 +1581,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REMAINING_SPACE_GIB_FIELD_NUMBER = 7;
-  private long remainingSpaceGib_;
+  private long remainingSpaceGib_ = 0L;
   /**
    * <pre>
    * The space remaining in the storage volume for new LUNs, in GiB, excluding
@@ -1768,11 +1631,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetailOrBuilder getSnapshotReservationDetailOrBuilder() {
-    return getSnapshotReservationDetail();
+    return snapshotReservationDetail_ == null ? com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail.getDefaultInstance() : snapshotReservationDetail_;
   }
 
   public static final int SNAPSHOT_AUTO_DELETE_BEHAVIOR_FIELD_NUMBER = 9;
-  private int snapshotAutoDeleteBehavior_;
+  private int snapshotAutoDeleteBehavior_ = 0;
   /**
    * <pre>
    * The behavior to use when snapshot reserved space is full.
@@ -1793,8 +1656,7 @@ private static final long serialVersionUID = 0L;
    * @return The snapshotAutoDeleteBehavior.
    */
   @java.lang.Override public com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior getSnapshotAutoDeleteBehavior() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior result = com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior.valueOf(snapshotAutoDeleteBehavior_);
+    com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior result = com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior.forNumber(snapshotAutoDeleteBehavior_);
     return result == null ? com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior.UNRECOGNIZED : result;
   }
 
@@ -1810,6 +1672,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1820,7 +1683,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -1831,7 +1693,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 12;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -1854,7 +1715,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 12;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -1866,10 +1726,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 12;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -1883,7 +1744,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 12;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1896,7 +1756,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SNAPSHOT_ENABLED_FIELD_NUMBER = 13;
-  private boolean snapshotEnabled_;
+  private boolean snapshotEnabled_ = false;
   /**
    * <pre>
    * Whether snapshots are enabled.
@@ -1911,7 +1771,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POD_FIELD_NUMBER = 15;
-  private volatile java.lang.Object pod_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pod_ = "";
   /**
    * <pre>
    * Immutable. Pod name.
@@ -2015,7 +1876,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pod_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, pod_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2083,7 +1944,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pod_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, pod_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2126,7 +1987,7 @@ private static final long serialVersionUID = 0L;
         != other.getSnapshotEnabled()) return false;
     if (!getPod()
         .equals(other.getPod())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2175,7 +2036,7 @@ private static final long serialVersionUID = 0L;
         getSnapshotEnabled());
     hash = (37 * hash) + POD_FIELD_NUMBER;
     hash = (53 * hash) + getPod().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2318,53 +2179,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.baremetalsolution.v2.Volume.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       id_ = "";
-
       storageType_ = 0;
-
       state_ = 0;
-
       requestedSizeGib_ = 0L;
-
       currentSizeGib_ = 0L;
-
       emergencySizeGib_ = 0L;
-
       autoGrownSizeGib_ = 0L;
-
       remainingSpaceGib_ = 0L;
-
-      if (snapshotReservationDetailBuilder_ == null) {
-        snapshotReservationDetail_ = null;
-      } else {
-        snapshotReservationDetail_ = null;
+      snapshotReservationDetail_ = null;
+      if (snapshotReservationDetailBuilder_ != null) {
+        snapshotReservationDetailBuilder_.dispose();
         snapshotReservationDetailBuilder_ = null;
       }
       snapshotAutoDeleteBehavior_ = 0;
-
       internalGetMutableLabels().clear();
       snapshotEnabled_ = false;
-
       pod_ = "";
-
       return this;
     }
 
@@ -2391,28 +2235,58 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.baremetalsolution.v2.Volume buildPartial() {
       com.google.cloud.baremetalsolution.v2.Volume result = new com.google.cloud.baremetalsolution.v2.Volume(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.id_ = id_;
-      result.storageType_ = storageType_;
-      result.state_ = state_;
-      result.requestedSizeGib_ = requestedSizeGib_;
-      result.currentSizeGib_ = currentSizeGib_;
-      result.emergencySizeGib_ = emergencySizeGib_;
-      result.autoGrownSizeGib_ = autoGrownSizeGib_;
-      result.remainingSpaceGib_ = remainingSpaceGib_;
-      if (snapshotReservationDetailBuilder_ == null) {
-        result.snapshotReservationDetail_ = snapshotReservationDetail_;
-      } else {
-        result.snapshotReservationDetail_ = snapshotReservationDetailBuilder_.build();
-      }
-      result.snapshotAutoDeleteBehavior_ = snapshotAutoDeleteBehavior_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.snapshotEnabled_ = snapshotEnabled_;
-      result.pod_ = pod_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.baremetalsolution.v2.Volume result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.storageType_ = storageType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.requestedSizeGib_ = requestedSizeGib_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.currentSizeGib_ = currentSizeGib_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.emergencySizeGib_ = emergencySizeGib_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.autoGrownSizeGib_ = autoGrownSizeGib_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.remainingSpaceGib_ = remainingSpaceGib_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.snapshotReservationDetail_ = snapshotReservationDetailBuilder_ == null
+            ? snapshotReservationDetail_
+            : snapshotReservationDetailBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.snapshotAutoDeleteBehavior_ = snapshotAutoDeleteBehavior_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.snapshotEnabled_ = snapshotEnabled_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.pod_ = pod_;
+      }
     }
 
     @java.lang.Override
@@ -2461,10 +2335,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.baremetalsolution.v2.Volume.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.storageType_ != 0) {
@@ -2496,14 +2372,16 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000800;
       if (other.getSnapshotEnabled() != false) {
         setSnapshotEnabled(other.getSnapshotEnabled());
       }
       if (!other.getPod().isEmpty()) {
         pod_ = other.pod_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2518,17 +2396,106 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.baremetalsolution.v2.Volume parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              storageType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 16
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 24
+            case 32: {
+              requestedSizeGib_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 40: {
+              currentSizeGib_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 40
+            case 48: {
+              autoGrownSizeGib_ = input.readInt64();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 48
+            case 56: {
+              remainingSpaceGib_ = input.readInt64();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getSnapshotReservationDetailFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 66
+            case 72: {
+              snapshotAutoDeleteBehavior_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 72
+            case 90: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 90
+            case 98: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 104: {
+              snapshotEnabled_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 112: {
+              emergencySizeGib_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 112
+            case 122: {
+              pod_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.baremetalsolution.v2.Volume) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2598,11 +2565,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2619,8 +2584,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2639,12 +2604,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2702,11 +2665,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2719,8 +2680,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2735,12 +2696,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2767,8 +2726,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStorageTypeValue(int value) {
-      
       storageType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2782,8 +2741,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.baremetalsolution.v2.Volume.StorageType getStorageType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.baremetalsolution.v2.Volume.StorageType result = com.google.cloud.baremetalsolution.v2.Volume.StorageType.valueOf(storageType_);
+      com.google.cloud.baremetalsolution.v2.Volume.StorageType result = com.google.cloud.baremetalsolution.v2.Volume.StorageType.forNumber(storageType_);
       return result == null ? com.google.cloud.baremetalsolution.v2.Volume.StorageType.UNRECOGNIZED : result;
     }
     /**
@@ -2799,7 +2757,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       storageType_ = value.getNumber();
       onChanged();
       return this;
@@ -2813,7 +2771,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStorageType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       storageType_ = 0;
       onChanged();
       return this;
@@ -2841,8 +2799,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2856,8 +2814,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.baremetalsolution.v2.Volume.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.baremetalsolution.v2.Volume.State result = com.google.cloud.baremetalsolution.v2.Volume.State.valueOf(state_);
+      com.google.cloud.baremetalsolution.v2.Volume.State result = com.google.cloud.baremetalsolution.v2.Volume.State.forNumber(state_);
       return result == null ? com.google.cloud.baremetalsolution.v2.Volume.State.UNRECOGNIZED : result;
     }
     /**
@@ -2873,7 +2830,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2887,7 +2844,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       state_ = 0;
       onChanged();
       return this;
@@ -2918,6 +2875,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRequestedSizeGib(long value) {
       
       requestedSizeGib_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2930,7 +2888,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestedSizeGib() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       requestedSizeGib_ = 0L;
       onChanged();
       return this;
@@ -2965,6 +2923,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCurrentSizeGib(long value) {
       
       currentSizeGib_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2979,7 +2938,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrentSizeGib() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       currentSizeGib_ = 0L;
       onChanged();
       return this;
@@ -3012,6 +2971,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEmergencySizeGib(long value) {
       
       emergencySizeGib_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3025,7 +2985,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEmergencySizeGib() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       emergencySizeGib_ = 0L;
       onChanged();
       return this;
@@ -3058,6 +3018,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAutoGrownSizeGib(long value) {
       
       autoGrownSizeGib_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3071,7 +3032,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAutoGrownSizeGib() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       autoGrownSizeGib_ = 0L;
       onChanged();
       return this;
@@ -3104,6 +3065,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRemainingSpaceGib(long value) {
       
       remainingSpaceGib_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3117,7 +3079,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRemainingSpaceGib() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       remainingSpaceGib_ = 0L;
       onChanged();
       return this;
@@ -3135,7 +3097,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the snapshotReservationDetail field is set.
      */
     public boolean hasSnapshotReservationDetail() {
-      return snapshotReservationDetailBuilder_ != null || snapshotReservationDetail_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3165,11 +3127,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         snapshotReservationDetail_ = value;
-        onChanged();
       } else {
         snapshotReservationDetailBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3183,11 +3145,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail.Builder builderForValue) {
       if (snapshotReservationDetailBuilder_ == null) {
         snapshotReservationDetail_ = builderForValue.build();
-        onChanged();
       } else {
         snapshotReservationDetailBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3199,17 +3161,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSnapshotReservationDetail(com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail value) {
       if (snapshotReservationDetailBuilder_ == null) {
-        if (snapshotReservationDetail_ != null) {
-          snapshotReservationDetail_ =
-            com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail.newBuilder(snapshotReservationDetail_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          snapshotReservationDetail_ != null &&
+          snapshotReservationDetail_ != com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail.getDefaultInstance()) {
+          getSnapshotReservationDetailBuilder().mergeFrom(value);
         } else {
           snapshotReservationDetail_ = value;
         }
-        onChanged();
       } else {
         snapshotReservationDetailBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3220,14 +3183,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail snapshot_reservation_detail = 8;</code>
      */
     public Builder clearSnapshotReservationDetail() {
-      if (snapshotReservationDetailBuilder_ == null) {
-        snapshotReservationDetail_ = null;
-        onChanged();
-      } else {
-        snapshotReservationDetail_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      snapshotReservationDetail_ = null;
+      if (snapshotReservationDetailBuilder_ != null) {
+        snapshotReservationDetailBuilder_.dispose();
         snapshotReservationDetailBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3238,7 +3200,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail snapshot_reservation_detail = 8;</code>
      */
     public com.google.cloud.baremetalsolution.v2.Volume.SnapshotReservationDetail.Builder getSnapshotReservationDetailBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getSnapshotReservationDetailFieldBuilder().getBuilder();
     }
@@ -3300,8 +3262,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSnapshotAutoDeleteBehaviorValue(int value) {
-      
       snapshotAutoDeleteBehavior_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3315,8 +3277,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior getSnapshotAutoDeleteBehavior() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior result = com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior.valueOf(snapshotAutoDeleteBehavior_);
+      com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior result = com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior.forNumber(snapshotAutoDeleteBehavior_);
       return result == null ? com.google.cloud.baremetalsolution.v2.Volume.SnapshotAutoDeleteBehavior.UNRECOGNIZED : result;
     }
     /**
@@ -3332,7 +3293,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       snapshotAutoDeleteBehavior_ = value.getNumber();
       onChanged();
       return this;
@@ -3346,7 +3307,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSnapshotAutoDeleteBehavior() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       snapshotAutoDeleteBehavior_ = 0;
       onChanged();
       return this;
@@ -3355,7 +3316,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3363,8 +3324,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3372,9 +3332,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000800;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -3385,7 +3346,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -3408,7 +3368,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -3420,10 +3379,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -3437,7 +3397,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3448,8 +3407,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000800);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -3461,7 +3420,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3474,7 +3432,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000800;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -3488,12 +3447,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000800;
       return this;
     }
     /**
@@ -3503,11 +3460,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 12;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000800;
       return this;
     }
 
@@ -3536,6 +3493,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSnapshotEnabled(boolean value) {
       
       snapshotEnabled_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3548,7 +3506,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSnapshotEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       snapshotEnabled_ = false;
       onChanged();
       return this;
@@ -3607,11 +3565,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPod(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pod_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3624,8 +3580,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPod() {
-      
       pod_ = getDefaultInstance().getPod();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -3640,12 +3596,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPodBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pod_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3682,7 +3636,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Volume(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

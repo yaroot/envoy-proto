@@ -36,75 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateAwsNodePoolRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.gkemulticloud.v1.AwsNodePool.Builder subBuilder = null;
-            if (awsNodePool_ != null) {
-              subBuilder = awsNodePool_.toBuilder();
-            }
-            awsNodePool_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AwsNodePool.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(awsNodePool_);
-              awsNodePool_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            awsNodePoolId_ = s;
-            break;
-          }
-          case 32: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AwsServiceProto.internal_static_google_cloud_gkemulticloud_v1_CreateAwsNodePoolRequest_descriptor;
@@ -119,10 +50,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
-   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource where this node pool will be created.
+   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+   * resource where this node pool will be created.
    * `AwsCluster` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -147,7 +80,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource where this node pool will be created.
+   * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+   * resource where this node pool will be created.
    * `AwsCluster` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -176,7 +110,8 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.gkemulticloud.v1.AwsNodePool awsNodePool_;
   /**
    * <pre>
-   * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+   * Required. The specification of the
+   * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -188,7 +123,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+   * Required. The specification of the
+   * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -200,26 +136,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+   * Required. The specification of the
+   * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AwsNodePoolOrBuilder getAwsNodePoolOrBuilder() {
-    return getAwsNodePool();
+    return awsNodePool_ == null ? com.google.cloud.gkemulticloud.v1.AwsNodePool.getDefaultInstance() : awsNodePool_;
   }
 
   public static final int AWS_NODE_POOL_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object awsNodePoolId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object awsNodePoolId_ = "";
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string aws_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -240,12 +179,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string aws_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -267,7 +207,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 4;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * If set, only validate the request, but do not actually create the node
@@ -308,7 +248,7 @@ private static final long serialVersionUID = 0L;
     if (validateOnly_ != false) {
       output.writeBool(4, validateOnly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -331,7 +271,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, validateOnly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -357,7 +297,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAwsNodePoolId())) return false;
     if (getValidateOnly()
         != other.getValidateOnly()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -379,7 +319,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VALIDATE_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getValidateOnly());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -500,34 +440,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.CreateAwsNodePoolRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (awsNodePoolBuilder_ == null) {
-        awsNodePool_ = null;
-      } else {
-        awsNodePool_ = null;
+      awsNodePool_ = null;
+      if (awsNodePoolBuilder_ != null) {
+        awsNodePoolBuilder_.dispose();
         awsNodePoolBuilder_ = null;
       }
       awsNodePoolId_ = "";
-
       validateOnly_ = false;
-
       return this;
     }
 
@@ -554,16 +486,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.CreateAwsNodePoolRequest buildPartial() {
       com.google.cloud.gkemulticloud.v1.CreateAwsNodePoolRequest result = new com.google.cloud.gkemulticloud.v1.CreateAwsNodePoolRequest(this);
-      result.parent_ = parent_;
-      if (awsNodePoolBuilder_ == null) {
-        result.awsNodePool_ = awsNodePool_;
-      } else {
-        result.awsNodePool_ = awsNodePoolBuilder_.build();
-      }
-      result.awsNodePoolId_ = awsNodePoolId_;
-      result.validateOnly_ = validateOnly_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.CreateAwsNodePoolRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.awsNodePool_ = awsNodePoolBuilder_ == null
+            ? awsNodePool_
+            : awsNodePoolBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.awsNodePoolId_ = awsNodePoolId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
     }
 
     @java.lang.Override
@@ -612,6 +555,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.CreateAwsNodePoolRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAwsNodePool()) {
@@ -619,12 +563,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAwsNodePoolId().isEmpty()) {
         awsNodePoolId_ = other.awsNodePoolId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getValidateOnly() != false) {
         setValidateOnly(other.getValidateOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -639,24 +584,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.CreateAwsNodePoolRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAwsNodePoolFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              awsNodePoolId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.CreateAwsNodePoolRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
-     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource where this node pool will be created.
+     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+     * resource where this node pool will be created.
      * `AwsCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -680,7 +662,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource where this node pool will be created.
+     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+     * resource where this node pool will be created.
      * `AwsCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -705,7 +688,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource where this node pool will be created.
+     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+     * resource where this node pool will be created.
      * `AwsCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -718,17 +702,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource where this node pool will be created.
+     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+     * resource where this node pool will be created.
      * `AwsCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -739,14 +722,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster] resource where this node pool will be created.
+     * Required. The [AwsCluster][google.cloud.gkemulticloud.v1.AwsCluster]
+     * resource where this node pool will be created.
      * `AwsCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -759,12 +743,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -774,18 +756,20 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AwsNodePool, com.google.cloud.gkemulticloud.v1.AwsNodePool.Builder, com.google.cloud.gkemulticloud.v1.AwsNodePoolOrBuilder> awsNodePoolBuilder_;
     /**
      * <pre>
-     * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+     * Required. The specification of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the awsNodePool field is set.
      */
     public boolean hasAwsNodePool() {
-      return awsNodePoolBuilder_ != null || awsNodePool_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+     * Required. The specification of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -800,7 +784,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+     * Required. The specification of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -811,16 +796,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         awsNodePool_ = value;
-        onChanged();
       } else {
         awsNodePoolBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+     * Required. The specification of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -829,68 +815,72 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AwsNodePool.Builder builderForValue) {
       if (awsNodePoolBuilder_ == null) {
         awsNodePool_ = builderForValue.build();
-        onChanged();
       } else {
         awsNodePoolBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+     * Required. The specification of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeAwsNodePool(com.google.cloud.gkemulticloud.v1.AwsNodePool value) {
       if (awsNodePoolBuilder_ == null) {
-        if (awsNodePool_ != null) {
-          awsNodePool_ =
-            com.google.cloud.gkemulticloud.v1.AwsNodePool.newBuilder(awsNodePool_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          awsNodePool_ != null &&
+          awsNodePool_ != com.google.cloud.gkemulticloud.v1.AwsNodePool.getDefaultInstance()) {
+          getAwsNodePoolBuilder().mergeFrom(value);
         } else {
           awsNodePool_ = value;
         }
-        onChanged();
       } else {
         awsNodePoolBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+     * Required. The specification of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAwsNodePool() {
-      if (awsNodePoolBuilder_ == null) {
-        awsNodePool_ = null;
-        onChanged();
-      } else {
-        awsNodePool_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      awsNodePool_ = null;
+      if (awsNodePoolBuilder_ != null) {
+        awsNodePoolBuilder_.dispose();
         awsNodePoolBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+     * Required. The specification of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AwsNodePool.Builder getAwsNodePoolBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAwsNodePoolFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+     * Required. The specification of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -905,7 +895,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The specification of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
+     * Required. The specification of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AwsNodePool aws_node_pool = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -927,12 +918,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object awsNodePoolId_ = "";
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string aws_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -952,12 +944,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string aws_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -978,12 +971,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string aws_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -992,41 +986,41 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAwsNodePoolId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       awsNodePoolId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string aws_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearAwsNodePoolId() {
-      
       awsNodePoolId_ = getDefaultInstance().getAwsNodePoolId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AwsNodePool][google.cloud.gkemulticloud.v1.AwsNodePool] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/awsClusters/&lt;cluster-id&gt;/awsNodePools/&lt;node-pool-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string aws_node_pool_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1035,12 +1029,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAwsNodePoolIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       awsNodePoolId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1072,6 +1064,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1085,7 +1078,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -1123,7 +1116,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateAwsNodePoolRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

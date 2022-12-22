@@ -39,95 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConnectSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kind_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.sql.v1.SslCert.Builder subBuilder = null;
-            if (serverCaCert_ != null) {
-              subBuilder = serverCaCert_.toBuilder();
-            }
-            serverCaCert_ = input.readMessage(com.google.cloud.sql.v1.SslCert.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(serverCaCert_);
-              serverCaCert_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ipAddresses_ = new java.util.ArrayList<com.google.cloud.sql.v1.IpMapping>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            ipAddresses_.add(
-                input.readMessage(com.google.cloud.sql.v1.IpMapping.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            region_ = s;
-            break;
-          }
-          case 248: {
-            int rawValue = input.readEnum();
-
-            databaseVersion_ = rawValue;
-            break;
-          }
-          case 256: {
-            int rawValue = input.readEnum();
-
-            backendType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ipAddresses_ = java.util.Collections.unmodifiableList(ipAddresses_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1.CloudSqlConnectProto.internal_static_google_cloud_sql_v1_ConnectSettings_descriptor;
@@ -142,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 1;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * This is always `sql#connectSettings`.
@@ -222,10 +134,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.sql.v1.SslCertOrBuilder getServerCaCertOrBuilder() {
-    return getServerCaCert();
+    return serverCaCert_ == null ? com.google.cloud.sql.v1.SslCert.getDefaultInstance() : serverCaCert_;
   }
 
   public static final int IP_ADDRESSES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.sql.v1.IpMapping> ipAddresses_;
   /**
    * <pre>
@@ -286,7 +199,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object region_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object region_ = "";
   /**
    * <pre>
    * The cloud region for the instance. e.g. **us-central1**, **europe-west1**.
@@ -334,7 +248,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATABASE_VERSION_FIELD_NUMBER = 31;
-  private int databaseVersion_;
+  private int databaseVersion_ = 0;
   /**
    * <pre>
    * The database engine type and version. The **databaseVersion**
@@ -371,13 +285,12 @@ private static final long serialVersionUID = 0L;
    * @return The databaseVersion.
    */
   @java.lang.Override public com.google.cloud.sql.v1.SqlDatabaseVersion getDatabaseVersion() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.sql.v1.SqlDatabaseVersion result = com.google.cloud.sql.v1.SqlDatabaseVersion.valueOf(databaseVersion_);
+    com.google.cloud.sql.v1.SqlDatabaseVersion result = com.google.cloud.sql.v1.SqlDatabaseVersion.forNumber(databaseVersion_);
     return result == null ? com.google.cloud.sql.v1.SqlDatabaseVersion.UNRECOGNIZED : result;
   }
 
   public static final int BACKEND_TYPE_FIELD_NUMBER = 32;
-  private int backendType_;
+  private int backendType_ = 0;
   /**
    * <pre>
    * **SECOND_GEN**: Cloud SQL database instance.
@@ -404,8 +317,7 @@ private static final long serialVersionUID = 0L;
    * @return The backendType.
    */
   @java.lang.Override public com.google.cloud.sql.v1.SqlBackendType getBackendType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.sql.v1.SqlBackendType result = com.google.cloud.sql.v1.SqlBackendType.valueOf(backendType_);
+    com.google.cloud.sql.v1.SqlBackendType result = com.google.cloud.sql.v1.SqlBackendType.forNumber(backendType_);
     return result == null ? com.google.cloud.sql.v1.SqlBackendType.UNRECOGNIZED : result;
   }
 
@@ -441,7 +353,7 @@ private static final long serialVersionUID = 0L;
     if (backendType_ != com.google.cloud.sql.v1.SqlBackendType.SQL_BACKEND_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(32, backendType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -472,7 +384,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(32, backendType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -500,7 +412,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRegion())) return false;
     if (databaseVersion_ != other.databaseVersion_) return false;
     if (backendType_ != other.backendType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -527,7 +439,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + databaseVersion_;
     hash = (37 * hash) + BACKEND_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + backendType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -648,43 +560,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1.ConnectSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getIpAddressesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       kind_ = "";
-
-      if (serverCaCertBuilder_ == null) {
-        serverCaCert_ = null;
-      } else {
-        serverCaCert_ = null;
+      serverCaCert_ = null;
+      if (serverCaCertBuilder_ != null) {
+        serverCaCertBuilder_.dispose();
         serverCaCertBuilder_ = null;
       }
       if (ipAddressesBuilder_ == null) {
         ipAddresses_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        ipAddresses_ = null;
         ipAddressesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       region_ = "";
-
       databaseVersion_ = 0;
-
       backendType_ = 0;
-
       return this;
     }
 
@@ -711,27 +614,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1.ConnectSettings buildPartial() {
       com.google.cloud.sql.v1.ConnectSettings result = new com.google.cloud.sql.v1.ConnectSettings(this);
-      int from_bitField0_ = bitField0_;
-      result.kind_ = kind_;
-      if (serverCaCertBuilder_ == null) {
-        result.serverCaCert_ = serverCaCert_;
-      } else {
-        result.serverCaCert_ = serverCaCertBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.sql.v1.ConnectSettings result) {
       if (ipAddressesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           ipAddresses_ = java.util.Collections.unmodifiableList(ipAddresses_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.ipAddresses_ = ipAddresses_;
       } else {
         result.ipAddresses_ = ipAddressesBuilder_.build();
       }
-      result.region_ = region_;
-      result.databaseVersion_ = databaseVersion_;
-      result.backendType_ = backendType_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1.ConnectSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.kind_ = kind_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.serverCaCert_ = serverCaCertBuilder_ == null
+            ? serverCaCert_
+            : serverCaCertBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.region_ = region_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.databaseVersion_ = databaseVersion_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.backendType_ = backendType_;
+      }
     }
 
     @java.lang.Override
@@ -780,6 +699,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.sql.v1.ConnectSettings.getDefaultInstance()) return this;
       if (!other.getKind().isEmpty()) {
         kind_ = other.kind_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasServerCaCert()) {
@@ -789,7 +709,7 @@ private static final long serialVersionUID = 0L;
         if (!other.ipAddresses_.isEmpty()) {
           if (ipAddresses_.isEmpty()) {
             ipAddresses_ = other.ipAddresses_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureIpAddressesIsMutable();
             ipAddresses_.addAll(other.ipAddresses_);
@@ -802,7 +722,7 @@ private static final long serialVersionUID = 0L;
             ipAddressesBuilder_.dispose();
             ipAddressesBuilder_ = null;
             ipAddresses_ = other.ipAddresses_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             ipAddressesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getIpAddressesFieldBuilder() : null;
@@ -813,6 +733,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRegion().isEmpty()) {
         region_ = other.region_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.databaseVersion_ != 0) {
@@ -821,7 +742,7 @@ private static final long serialVersionUID = 0L;
       if (other.backendType_ != 0) {
         setBackendTypeValue(other.getBackendTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -836,17 +757,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1.ConnectSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getServerCaCertFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.sql.v1.IpMapping m =
+                  input.readMessage(
+                      com.google.cloud.sql.v1.IpMapping.parser(),
+                      extensionRegistry);
+              if (ipAddressesBuilder_ == null) {
+                ensureIpAddressesIsMutable();
+                ipAddresses_.add(m);
+              } else {
+                ipAddressesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              region_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 248: {
+              databaseVersion_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 248
+            case 256: {
+              backendType_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 256
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1.ConnectSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -904,11 +878,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -921,8 +893,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -937,12 +909,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -959,7 +929,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the serverCaCert field is set.
      */
     public boolean hasServerCaCert() {
-      return serverCaCertBuilder_ != null || serverCaCert_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -989,11 +959,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         serverCaCert_ = value;
-        onChanged();
       } else {
         serverCaCertBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1007,11 +977,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.sql.v1.SslCert.Builder builderForValue) {
       if (serverCaCertBuilder_ == null) {
         serverCaCert_ = builderForValue.build();
-        onChanged();
       } else {
         serverCaCertBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1023,17 +993,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeServerCaCert(com.google.cloud.sql.v1.SslCert value) {
       if (serverCaCertBuilder_ == null) {
-        if (serverCaCert_ != null) {
-          serverCaCert_ =
-            com.google.cloud.sql.v1.SslCert.newBuilder(serverCaCert_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          serverCaCert_ != null &&
+          serverCaCert_ != com.google.cloud.sql.v1.SslCert.getDefaultInstance()) {
+          getServerCaCertBuilder().mergeFrom(value);
         } else {
           serverCaCert_ = value;
         }
-        onChanged();
       } else {
         serverCaCertBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1044,14 +1015,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.SslCert server_ca_cert = 2;</code>
      */
     public Builder clearServerCaCert() {
-      if (serverCaCertBuilder_ == null) {
-        serverCaCert_ = null;
-        onChanged();
-      } else {
-        serverCaCert_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      serverCaCert_ = null;
+      if (serverCaCertBuilder_ != null) {
+        serverCaCertBuilder_.dispose();
         serverCaCertBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1062,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.SslCert server_ca_cert = 2;</code>
      */
     public com.google.cloud.sql.v1.SslCert.Builder getServerCaCertBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getServerCaCertFieldBuilder().getBuilder();
     }
@@ -1105,9 +1075,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.sql.v1.IpMapping> ipAddresses_ =
       java.util.Collections.emptyList();
     private void ensureIpAddressesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         ipAddresses_ = new java.util.ArrayList<com.google.cloud.sql.v1.IpMapping>(ipAddresses_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1301,7 +1271,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearIpAddresses() {
       if (ipAddressesBuilder_ == null) {
         ipAddresses_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         ipAddressesBuilder_.clear();
@@ -1406,7 +1376,7 @@ private static final long serialVersionUID = 0L;
         ipAddressesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.sql.v1.IpMapping, com.google.cloud.sql.v1.IpMapping.Builder, com.google.cloud.sql.v1.IpMappingOrBuilder>(
                 ipAddresses_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         ipAddresses_ = null;
@@ -1470,11 +1440,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       region_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1488,8 +1456,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegion() {
-      
       region_ = getDefaultInstance().getRegion();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1505,12 +1473,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       region_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1553,8 +1519,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDatabaseVersionValue(int value) {
-      
       databaseVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1576,8 +1542,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.sql.v1.SqlDatabaseVersion getDatabaseVersion() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.sql.v1.SqlDatabaseVersion result = com.google.cloud.sql.v1.SqlDatabaseVersion.valueOf(databaseVersion_);
+      com.google.cloud.sql.v1.SqlDatabaseVersion result = com.google.cloud.sql.v1.SqlDatabaseVersion.forNumber(databaseVersion_);
       return result == null ? com.google.cloud.sql.v1.SqlDatabaseVersion.UNRECOGNIZED : result;
     }
     /**
@@ -1601,7 +1566,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       databaseVersion_ = value.getNumber();
       onChanged();
       return this;
@@ -1623,7 +1588,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatabaseVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       databaseVersion_ = 0;
       onChanged();
       return this;
@@ -1657,8 +1622,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBackendTypeValue(int value) {
-      
       backendType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1675,8 +1640,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.sql.v1.SqlBackendType getBackendType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.sql.v1.SqlBackendType result = com.google.cloud.sql.v1.SqlBackendType.valueOf(backendType_);
+      com.google.cloud.sql.v1.SqlBackendType result = com.google.cloud.sql.v1.SqlBackendType.forNumber(backendType_);
       return result == null ? com.google.cloud.sql.v1.SqlBackendType.UNRECOGNIZED : result;
     }
     /**
@@ -1695,7 +1659,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       backendType_ = value.getNumber();
       onChanged();
       return this;
@@ -1712,7 +1676,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBackendType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       backendType_ = 0;
       onChanged();
       return this;
@@ -1750,7 +1714,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConnectSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

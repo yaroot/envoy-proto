@@ -10,7 +10,7 @@ public interface CreateArtifactRequestOrBuilder extends
   /**
    * <pre>
    * Required. The parent, which owns this collection of artifacts.
-   * Format: {parent}
+   * Format: `{parent}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +20,7 @@ public interface CreateArtifactRequestOrBuilder extends
   /**
    * <pre>
    * Required. The parent, which owns this collection of artifacts.
-   * Format: {parent}
+   * Format: `{parent}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

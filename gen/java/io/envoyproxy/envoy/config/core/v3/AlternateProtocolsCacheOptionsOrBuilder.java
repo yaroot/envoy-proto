@@ -156,4 +156,73 @@ public interface AlternateProtocolsCacheOptionsOrBuilder extends
    */
   io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.AlternateProtocolsCacheEntryOrBuilder getPrepopulatedEntriesOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+   * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+   * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+   * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+   * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+   * first listed suffix will be used.
+   * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>repeated string canonical_suffixes = 5;</code>
+   * @return A list containing the canonicalSuffixes.
+   */
+  java.util.List<java.lang.String>
+      getCanonicalSuffixesList();
+  /**
+   * <pre>
+   * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+   * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+   * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+   * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+   * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+   * first listed suffix will be used.
+   * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>repeated string canonical_suffixes = 5;</code>
+   * @return The count of canonicalSuffixes.
+   */
+  int getCanonicalSuffixesCount();
+  /**
+   * <pre>
+   * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+   * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+   * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+   * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+   * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+   * first listed suffix will be used.
+   * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>repeated string canonical_suffixes = 5;</code>
+   * @param index The index of the element to return.
+   * @return The canonicalSuffixes at the given index.
+   */
+  java.lang.String getCanonicalSuffixes(int index);
+  /**
+   * <pre>
+   * Optional list of hostnames suffixes for which Alt-Svc entries can be shared. For example, if
+   * this list contained the value ``.c.example.com``, then an Alt-Svc entry for ``foo.c.example.com``
+   * could be shared with ``bar.c.example.com`` but would not be shared with ``baz.example.com``. On
+   * the other hand, if the list contained the value ``.example.com`` then all three hosts could share
+   * Alt-Svc entries. Each entry must start with ``.``.  If a hostname matches multiple suffixes, the
+   * first listed suffix will be used.
+   * Since lookup in this list is O(n), it is recommended that the number of suffixes be limited.
+   * [#not-implemented-hide:]
+   * </pre>
+   *
+   * <code>repeated string canonical_suffixes = 5;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the canonicalSuffixes at the given index.
+   */
+  com.google.protobuf.ByteString
+      getCanonicalSuffixesBytes(int index);
 }

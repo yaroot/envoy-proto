@@ -38,122 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Queue(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.tasks.v2.AppEngineRouting.Builder subBuilder = null;
-            if (appEngineRoutingOverride_ != null) {
-              subBuilder = appEngineRoutingOverride_.toBuilder();
-            }
-            appEngineRoutingOverride_ = input.readMessage(com.google.cloud.tasks.v2.AppEngineRouting.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(appEngineRoutingOverride_);
-              appEngineRoutingOverride_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.tasks.v2.RateLimits.Builder subBuilder = null;
-            if (rateLimits_ != null) {
-              subBuilder = rateLimits_.toBuilder();
-            }
-            rateLimits_ = input.readMessage(com.google.cloud.tasks.v2.RateLimits.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rateLimits_);
-              rateLimits_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.tasks.v2.RetryConfig.Builder subBuilder = null;
-            if (retryConfig_ != null) {
-              subBuilder = retryConfig_.toBuilder();
-            }
-            retryConfig_ = input.readMessage(com.google.cloud.tasks.v2.RetryConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retryConfig_);
-              retryConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (purgeTime_ != null) {
-              subBuilder = purgeTime_.toBuilder();
-            }
-            purgeTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(purgeTime_);
-              purgeTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.cloud.tasks.v2.StackdriverLoggingConfig.Builder subBuilder = null;
-            if (stackdriverLoggingConfig_ != null) {
-              subBuilder = stackdriverLoggingConfig_.toBuilder();
-            }
-            stackdriverLoggingConfig_ = input.readMessage(com.google.cloud.tasks.v2.StackdriverLoggingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stackdriverLoggingConfig_);
-              stackdriverLoggingConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.tasks.v2.QueueProto.internal_static_google_cloud_tasks_v2_Queue_descriptor;
@@ -366,7 +250,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Caller-specified and required in [CreateQueue][google.cloud.tasks.v2.CloudTasks.CreateQueue],
@@ -500,7 +385,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.tasks.v2.AppEngineRoutingOrBuilder getAppEngineRoutingOverrideOrBuilder() {
-    return getAppEngineRoutingOverride();
+    return appEngineRoutingOverride_ == null ? com.google.cloud.tasks.v2.AppEngineRouting.getDefaultInstance() : appEngineRoutingOverride_;
   }
 
   public static final int RATE_LIMITS_FIELD_NUMBER = 3;
@@ -595,7 +480,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.tasks.v2.RateLimitsOrBuilder getRateLimitsOrBuilder() {
-    return getRateLimits();
+    return rateLimits_ == null ? com.google.cloud.tasks.v2.RateLimits.getDefaultInstance() : rateLimits_;
   }
 
   public static final int RETRY_CONFIG_FIELD_NUMBER = 4;
@@ -657,11 +542,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.tasks.v2.RetryConfigOrBuilder getRetryConfigOrBuilder() {
-    return getRetryConfig();
+    return retryConfig_ == null ? com.google.cloud.tasks.v2.RetryConfig.getDefaultInstance() : retryConfig_;
   }
 
   public static final int STATE_FIELD_NUMBER = 5;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The state of the queue.
@@ -692,8 +577,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.tasks.v2.Queue.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.tasks.v2.Queue.State result = com.google.cloud.tasks.v2.Queue.State.valueOf(state_);
+    com.google.cloud.tasks.v2.Queue.State result = com.google.cloud.tasks.v2.Queue.State.forNumber(state_);
     return result == null ? com.google.cloud.tasks.v2.Queue.State.UNRECOGNIZED : result;
   }
 
@@ -753,7 +637,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getPurgeTimeOrBuilder() {
-    return getPurgeTime();
+    return purgeTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : purgeTime_;
   }
 
   public static final int STACKDRIVER_LOGGING_CONFIG_FIELD_NUMBER = 9;
@@ -797,7 +681,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.tasks.v2.StackdriverLoggingConfigOrBuilder getStackdriverLoggingConfigOrBuilder() {
-    return getStackdriverLoggingConfig();
+    return stackdriverLoggingConfig_ == null ? com.google.cloud.tasks.v2.StackdriverLoggingConfig.getDefaultInstance() : stackdriverLoggingConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -835,7 +719,7 @@ private static final long serialVersionUID = 0L;
     if (stackdriverLoggingConfig_ != null) {
       output.writeMessage(9, getStackdriverLoggingConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -871,7 +755,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getStackdriverLoggingConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -914,7 +798,7 @@ private static final long serialVersionUID = 0L;
       if (!getStackdriverLoggingConfig()
           .equals(other.getStackdriverLoggingConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -949,7 +833,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STACKDRIVER_LOGGING_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getStackdriverLoggingConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1072,54 +956,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.tasks.v2.Queue.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (appEngineRoutingOverrideBuilder_ == null) {
-        appEngineRoutingOverride_ = null;
-      } else {
-        appEngineRoutingOverride_ = null;
+      appEngineRoutingOverride_ = null;
+      if (appEngineRoutingOverrideBuilder_ != null) {
+        appEngineRoutingOverrideBuilder_.dispose();
         appEngineRoutingOverrideBuilder_ = null;
       }
-      if (rateLimitsBuilder_ == null) {
-        rateLimits_ = null;
-      } else {
-        rateLimits_ = null;
+      rateLimits_ = null;
+      if (rateLimitsBuilder_ != null) {
+        rateLimitsBuilder_.dispose();
         rateLimitsBuilder_ = null;
       }
-      if (retryConfigBuilder_ == null) {
-        retryConfig_ = null;
-      } else {
-        retryConfig_ = null;
+      retryConfig_ = null;
+      if (retryConfigBuilder_ != null) {
+        retryConfigBuilder_.dispose();
         retryConfigBuilder_ = null;
       }
       state_ = 0;
-
-      if (purgeTimeBuilder_ == null) {
-        purgeTime_ = null;
-      } else {
-        purgeTime_ = null;
+      purgeTime_ = null;
+      if (purgeTimeBuilder_ != null) {
+        purgeTimeBuilder_.dispose();
         purgeTimeBuilder_ = null;
       }
-      if (stackdriverLoggingConfigBuilder_ == null) {
-        stackdriverLoggingConfig_ = null;
-      } else {
-        stackdriverLoggingConfig_ = null;
+      stackdriverLoggingConfig_ = null;
+      if (stackdriverLoggingConfigBuilder_ != null) {
+        stackdriverLoggingConfigBuilder_.dispose();
         stackdriverLoggingConfigBuilder_ = null;
       }
       return this;
@@ -1148,35 +1021,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.tasks.v2.Queue buildPartial() {
       com.google.cloud.tasks.v2.Queue result = new com.google.cloud.tasks.v2.Queue(this);
-      result.name_ = name_;
-      if (appEngineRoutingOverrideBuilder_ == null) {
-        result.appEngineRoutingOverride_ = appEngineRoutingOverride_;
-      } else {
-        result.appEngineRoutingOverride_ = appEngineRoutingOverrideBuilder_.build();
-      }
-      if (rateLimitsBuilder_ == null) {
-        result.rateLimits_ = rateLimits_;
-      } else {
-        result.rateLimits_ = rateLimitsBuilder_.build();
-      }
-      if (retryConfigBuilder_ == null) {
-        result.retryConfig_ = retryConfig_;
-      } else {
-        result.retryConfig_ = retryConfigBuilder_.build();
-      }
-      result.state_ = state_;
-      if (purgeTimeBuilder_ == null) {
-        result.purgeTime_ = purgeTime_;
-      } else {
-        result.purgeTime_ = purgeTimeBuilder_.build();
-      }
-      if (stackdriverLoggingConfigBuilder_ == null) {
-        result.stackdriverLoggingConfig_ = stackdriverLoggingConfig_;
-      } else {
-        result.stackdriverLoggingConfig_ = stackdriverLoggingConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.tasks.v2.Queue result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.appEngineRoutingOverride_ = appEngineRoutingOverrideBuilder_ == null
+            ? appEngineRoutingOverride_
+            : appEngineRoutingOverrideBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.rateLimits_ = rateLimitsBuilder_ == null
+            ? rateLimits_
+            : rateLimitsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.retryConfig_ = retryConfigBuilder_ == null
+            ? retryConfig_
+            : retryConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.purgeTime_ = purgeTimeBuilder_ == null
+            ? purgeTime_
+            : purgeTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.stackdriverLoggingConfig_ = stackdriverLoggingConfigBuilder_ == null
+            ? stackdriverLoggingConfig_
+            : stackdriverLoggingConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1225,6 +1107,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.tasks.v2.Queue.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAppEngineRoutingOverride()) {
@@ -1245,7 +1128,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasStackdriverLoggingConfig()) {
         mergeStackdriverLoggingConfig(other.getStackdriverLoggingConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1260,19 +1143,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.tasks.v2.Queue parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAppEngineRoutingOverrideFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRateLimitsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getRetryConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getPurgeTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 74: {
+              input.readMessage(
+                  getStackdriverLoggingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.tasks.v2.Queue) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1372,11 +1314,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1404,8 +1344,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1435,12 +1375,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1465,7 +1403,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the appEngineRoutingOverride field is set.
      */
     public boolean hasAppEngineRoutingOverride() {
-      return appEngineRoutingOverrideBuilder_ != null || appEngineRoutingOverride_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1511,11 +1449,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         appEngineRoutingOverride_ = value;
-        onChanged();
       } else {
         appEngineRoutingOverrideBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1537,11 +1475,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.tasks.v2.AppEngineRouting.Builder builderForValue) {
       if (appEngineRoutingOverrideBuilder_ == null) {
         appEngineRoutingOverride_ = builderForValue.build();
-        onChanged();
       } else {
         appEngineRoutingOverrideBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1561,17 +1499,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAppEngineRoutingOverride(com.google.cloud.tasks.v2.AppEngineRouting value) {
       if (appEngineRoutingOverrideBuilder_ == null) {
-        if (appEngineRoutingOverride_ != null) {
-          appEngineRoutingOverride_ =
-            com.google.cloud.tasks.v2.AppEngineRouting.newBuilder(appEngineRoutingOverride_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          appEngineRoutingOverride_ != null &&
+          appEngineRoutingOverride_ != com.google.cloud.tasks.v2.AppEngineRouting.getDefaultInstance()) {
+          getAppEngineRoutingOverrideBuilder().mergeFrom(value);
         } else {
           appEngineRoutingOverride_ = value;
         }
-        onChanged();
       } else {
         appEngineRoutingOverrideBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1590,14 +1529,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2.AppEngineRouting app_engine_routing_override = 2;</code>
      */
     public Builder clearAppEngineRoutingOverride() {
-      if (appEngineRoutingOverrideBuilder_ == null) {
-        appEngineRoutingOverride_ = null;
-        onChanged();
-      } else {
-        appEngineRoutingOverride_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      appEngineRoutingOverride_ = null;
+      if (appEngineRoutingOverrideBuilder_ != null) {
+        appEngineRoutingOverrideBuilder_.dispose();
         appEngineRoutingOverrideBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1616,7 +1554,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2.AppEngineRouting app_engine_routing_override = 2;</code>
      */
     public com.google.cloud.tasks.v2.AppEngineRouting.Builder getAppEngineRoutingOverrideBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAppEngineRoutingOverrideFieldBuilder().getBuilder();
     }
@@ -1703,7 +1641,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rateLimits field is set.
      */
     public boolean hasRateLimits() {
-      return rateLimitsBuilder_ != null || rateLimits_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1771,11 +1709,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rateLimits_ = value;
-        onChanged();
       } else {
         rateLimitsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1808,11 +1746,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.tasks.v2.RateLimits.Builder builderForValue) {
       if (rateLimitsBuilder_ == null) {
         rateLimits_ = builderForValue.build();
-        onChanged();
       } else {
         rateLimitsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1843,17 +1781,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRateLimits(com.google.cloud.tasks.v2.RateLimits value) {
       if (rateLimitsBuilder_ == null) {
-        if (rateLimits_ != null) {
-          rateLimits_ =
-            com.google.cloud.tasks.v2.RateLimits.newBuilder(rateLimits_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          rateLimits_ != null &&
+          rateLimits_ != com.google.cloud.tasks.v2.RateLimits.getDefaultInstance()) {
+          getRateLimitsBuilder().mergeFrom(value);
         } else {
           rateLimits_ = value;
         }
-        onChanged();
       } else {
         rateLimitsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1883,14 +1822,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2.RateLimits rate_limits = 3;</code>
      */
     public Builder clearRateLimits() {
-      if (rateLimitsBuilder_ == null) {
-        rateLimits_ = null;
-        onChanged();
-      } else {
-        rateLimits_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      rateLimits_ = null;
+      if (rateLimitsBuilder_ != null) {
+        rateLimitsBuilder_.dispose();
         rateLimitsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1920,7 +1858,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2.RateLimits rate_limits = 3;</code>
      */
     public com.google.cloud.tasks.v2.RateLimits.Builder getRateLimitsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRateLimitsFieldBuilder().getBuilder();
     }
@@ -2018,7 +1956,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the retryConfig field is set.
      */
     public boolean hasRetryConfig() {
-      return retryConfigBuilder_ != null || retryConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2064,11 +2002,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retryConfig_ = value;
-        onChanged();
       } else {
         retryConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2090,11 +2028,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.tasks.v2.RetryConfig.Builder builderForValue) {
       if (retryConfigBuilder_ == null) {
         retryConfig_ = builderForValue.build();
-        onChanged();
       } else {
         retryConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2114,17 +2052,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRetryConfig(com.google.cloud.tasks.v2.RetryConfig value) {
       if (retryConfigBuilder_ == null) {
-        if (retryConfig_ != null) {
-          retryConfig_ =
-            com.google.cloud.tasks.v2.RetryConfig.newBuilder(retryConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          retryConfig_ != null &&
+          retryConfig_ != com.google.cloud.tasks.v2.RetryConfig.getDefaultInstance()) {
+          getRetryConfigBuilder().mergeFrom(value);
         } else {
           retryConfig_ = value;
         }
-        onChanged();
       } else {
         retryConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2143,14 +2082,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2.RetryConfig retry_config = 4;</code>
      */
     public Builder clearRetryConfig() {
-      if (retryConfigBuilder_ == null) {
-        retryConfig_ = null;
-        onChanged();
-      } else {
-        retryConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      retryConfig_ = null;
+      if (retryConfigBuilder_ != null) {
+        retryConfigBuilder_.dispose();
         retryConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2169,7 +2107,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2.RetryConfig retry_config = 4;</code>
      */
     public com.google.cloud.tasks.v2.RetryConfig.Builder getRetryConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRetryConfigFieldBuilder().getBuilder();
     }
@@ -2257,8 +2195,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2277,8 +2215,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.tasks.v2.Queue.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.tasks.v2.Queue.State result = com.google.cloud.tasks.v2.Queue.State.valueOf(state_);
+      com.google.cloud.tasks.v2.Queue.State result = com.google.cloud.tasks.v2.Queue.State.forNumber(state_);
       return result == null ? com.google.cloud.tasks.v2.Queue.State.UNRECOGNIZED : result;
     }
     /**
@@ -2299,7 +2236,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2318,7 +2255,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       state_ = 0;
       onChanged();
       return this;
@@ -2343,7 +2280,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the purgeTime field is set.
      */
     public boolean hasPurgeTime() {
-      return purgeTimeBuilder_ != null || purgeTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2387,11 +2324,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         purgeTime_ = value;
-        onChanged();
       } else {
         purgeTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2412,11 +2349,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (purgeTimeBuilder_ == null) {
         purgeTime_ = builderForValue.build();
-        onChanged();
       } else {
         purgeTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2435,17 +2372,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePurgeTime(com.google.protobuf.Timestamp value) {
       if (purgeTimeBuilder_ == null) {
-        if (purgeTime_ != null) {
-          purgeTime_ =
-            com.google.protobuf.Timestamp.newBuilder(purgeTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          purgeTime_ != null &&
+          purgeTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getPurgeTimeBuilder().mergeFrom(value);
         } else {
           purgeTime_ = value;
         }
-        onChanged();
       } else {
         purgeTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2463,14 +2401,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp purge_time = 6;</code>
      */
     public Builder clearPurgeTime() {
-      if (purgeTimeBuilder_ == null) {
-        purgeTime_ = null;
-        onChanged();
-      } else {
-        purgeTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      purgeTime_ = null;
+      if (purgeTimeBuilder_ != null) {
+        purgeTimeBuilder_.dispose();
         purgeTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2488,7 +2425,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp purge_time = 6;</code>
      */
     public com.google.protobuf.Timestamp.Builder getPurgeTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getPurgeTimeFieldBuilder().getBuilder();
     }
@@ -2556,7 +2493,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the stackdriverLoggingConfig field is set.
      */
     public boolean hasStackdriverLoggingConfig() {
-      return stackdriverLoggingConfigBuilder_ != null || stackdriverLoggingConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2590,11 +2527,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stackdriverLoggingConfig_ = value;
-        onChanged();
       } else {
         stackdriverLoggingConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2610,11 +2547,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.tasks.v2.StackdriverLoggingConfig.Builder builderForValue) {
       if (stackdriverLoggingConfigBuilder_ == null) {
         stackdriverLoggingConfig_ = builderForValue.build();
-        onChanged();
       } else {
         stackdriverLoggingConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2628,17 +2565,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStackdriverLoggingConfig(com.google.cloud.tasks.v2.StackdriverLoggingConfig value) {
       if (stackdriverLoggingConfigBuilder_ == null) {
-        if (stackdriverLoggingConfig_ != null) {
-          stackdriverLoggingConfig_ =
-            com.google.cloud.tasks.v2.StackdriverLoggingConfig.newBuilder(stackdriverLoggingConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          stackdriverLoggingConfig_ != null &&
+          stackdriverLoggingConfig_ != com.google.cloud.tasks.v2.StackdriverLoggingConfig.getDefaultInstance()) {
+          getStackdriverLoggingConfigBuilder().mergeFrom(value);
         } else {
           stackdriverLoggingConfig_ = value;
         }
-        onChanged();
       } else {
         stackdriverLoggingConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2651,14 +2589,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2.StackdriverLoggingConfig stackdriver_logging_config = 9;</code>
      */
     public Builder clearStackdriverLoggingConfig() {
-      if (stackdriverLoggingConfigBuilder_ == null) {
-        stackdriverLoggingConfig_ = null;
-        onChanged();
-      } else {
-        stackdriverLoggingConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      stackdriverLoggingConfig_ = null;
+      if (stackdriverLoggingConfigBuilder_ != null) {
+        stackdriverLoggingConfigBuilder_.dispose();
         stackdriverLoggingConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2671,7 +2608,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tasks.v2.StackdriverLoggingConfig stackdriver_logging_config = 9;</code>
      */
     public com.google.cloud.tasks.v2.StackdriverLoggingConfig.Builder getStackdriverLoggingConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getStackdriverLoggingConfigFieldBuilder().getBuilder();
     }
@@ -2747,7 +2684,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Queue(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

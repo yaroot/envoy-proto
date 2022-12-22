@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nKgoogle/cloud/aiplatform/v1/schema/predict/params/image_classification.proto\x12\x30google.cloud.aiplatform.v1.schema.predict.params\x1a\x1cgoogle/api/annotations.proto\"\\\n#ImageClassificationPredictionParams\x12\x1c\n\x14\x63onfidence_threshold\x18\x01 \x01(\x02\x12\x17\n\x0fmax_predictions\x18\x02 \x01(\x05\x42\xd9\x02\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB(ImageClassificationPredictionParamsProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;params\xaa\x02\x30Google.Cloud.AIPlatform.V1.Schema.Predict.Params\xca\x02\x30Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Params\xea\x02\x36Google::Cloud::AIPlatform::V1::Schema::Predict::Paramsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nKgoogle/cloud/aiplatform/v1/schema/predict/params/image_classification.proto\x12\x30google.cloud.aiplatform.v1.schema.predict.params\"\\\n#ImageClassificationPredictionParams\x12\x1c\n\x14\x63onfidence_threshold\x18\x01 \x01(\x02\x12\x17\n\x0fmax_predictions\x18\x02 \x01(\x05\x42\xd9\x02\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB(ImageClassificationPredictionParamsProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;params\xaa\x02\x30Google.Cloud.AIPlatform.V1.Schema.Predict.Params\xca\x02\x30Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Params\xea\x02\x36Google::Cloud::AIPlatform::V1::Schema::Predict::Paramsb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1.schema.predict.params.image_classification_pb2', globals())
@@ -22,6 +21,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n4com.google.cloud.aiplatform.v1.schema.predict.paramsB(ImageClassificationPredictionParamsProtoP\001ZVgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1/schema/predict/params;params\252\0020Google.Cloud.AIPlatform.V1.Schema.Predict.Params\312\0020Google\\Cloud\\AIPlatform\\V1\\Schema\\Predict\\Params\352\0026Google::Cloud::AIPlatform::V1::Schema::Predict::Params'
-  _IMAGECLASSIFICATIONPREDICTIONPARAMS._serialized_start=159
-  _IMAGECLASSIFICATIONPREDICTIONPARAMS._serialized_end=251
+  _IMAGECLASSIFICATIONPREDICTIONPARAMS._serialized_start=129
+  _IMAGECLASSIFICATIONPREDICTIONPARAMS._serialized_end=221
 # @@protoc_insertion_point(module_scope)

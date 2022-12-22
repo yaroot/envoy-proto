@@ -680,5 +680,84 @@ public interface JwtProviderOrBuilder extends
    */
   io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfigOrBuilder getJwtCacheConfigOrBuilder();
 
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  java.util.List<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader> 
+      getClaimToHeadersList();
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader getClaimToHeaders(int index);
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  int getClaimToHeadersCount();
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  java.util.List<? extends io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeaderOrBuilder> 
+      getClaimToHeadersOrBuilderList();
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeaderOrBuilder getClaimToHeadersOrBuilder(
+      int index);
+
   public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider.JwksSourceSpecifierCase getJwksSourceSpecifierCase();
 }

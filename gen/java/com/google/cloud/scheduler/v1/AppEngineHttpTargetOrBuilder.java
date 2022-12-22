@@ -214,7 +214,6 @@ public interface AppEngineHttpTargetOrBuilder extends
    *
    * <code>map&lt;string, string&gt; headers = 4;</code>
    */
-
   /* nullable */
 java.lang.String getHeadersOrDefault(
       java.lang.String key,
@@ -250,7 +249,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; headers = 4;</code>
    */
-
   java.lang.String getHeadersOrThrow(
       java.lang.String key);
 

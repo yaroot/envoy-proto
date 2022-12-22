@@ -35,121 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ContainerMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.storagetransfer.logging.AwsS3BucketMetadata.Builder subBuilder = null;
-            if (metadataCase_ == 3) {
-              subBuilder = ((com.google.storagetransfer.logging.AwsS3BucketMetadata) metadata_).toBuilder();
-            }
-            metadata_ =
-                input.readMessage(com.google.storagetransfer.logging.AwsS3BucketMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.storagetransfer.logging.AwsS3BucketMetadata) metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-            metadataCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.storagetransfer.logging.AzureBlobContainerMetadata.Builder subBuilder = null;
-            if (metadataCase_ == 4) {
-              subBuilder = ((com.google.storagetransfer.logging.AzureBlobContainerMetadata) metadata_).toBuilder();
-            }
-            metadata_ =
-                input.readMessage(com.google.storagetransfer.logging.AzureBlobContainerMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.storagetransfer.logging.AzureBlobContainerMetadata) metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-            metadataCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.storagetransfer.logging.GcsBucketMetadata.Builder subBuilder = null;
-            if (metadataCase_ == 5) {
-              subBuilder = ((com.google.storagetransfer.logging.GcsBucketMetadata) metadata_).toBuilder();
-            }
-            metadata_ =
-                input.readMessage(com.google.storagetransfer.logging.GcsBucketMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.storagetransfer.logging.GcsBucketMetadata) metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-            metadataCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.storagetransfer.logging.PosixFileMetadata.Builder subBuilder = null;
-            if (metadataCase_ == 6) {
-              subBuilder = ((com.google.storagetransfer.logging.PosixFileMetadata) metadata_).toBuilder();
-            }
-            metadata_ =
-                input.readMessage(com.google.storagetransfer.logging.PosixFileMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.storagetransfer.logging.PosixFileMetadata) metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-            metadataCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.storagetransfer.logging.HttpManifestMetadata.Builder subBuilder = null;
-            if (metadataCase_ == 7) {
-              subBuilder = ((com.google.storagetransfer.logging.HttpManifestMetadata) metadata_).toBuilder();
-            }
-            metadata_ =
-                input.readMessage(com.google.storagetransfer.logging.HttpManifestMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.storagetransfer.logging.HttpManifestMetadata) metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-            metadataCase_ = 7;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.storagetransfer.logging.TransferActivityLogProto.internal_static_google_storagetransfer_logging_ContainerMetadata_descriptor;
@@ -211,7 +96,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Required. Storage system type of the object.
@@ -232,8 +117,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.storagetransfer.logging.StorageSystemType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.storagetransfer.logging.StorageSystemType result = com.google.storagetransfer.logging.StorageSystemType.valueOf(type_);
+    com.google.storagetransfer.logging.StorageSystemType result = com.google.storagetransfer.logging.StorageSystemType.forNumber(type_);
     return result == null ? com.google.storagetransfer.logging.StorageSystemType.UNRECOGNIZED : result;
   }
 
@@ -484,7 +368,7 @@ private static final long serialVersionUID = 0L;
     if (metadataCase_ == 7) {
       output.writeMessage(7, (com.google.storagetransfer.logging.HttpManifestMetadata) metadata_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -517,7 +401,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, (com.google.storagetransfer.logging.HttpManifestMetadata) metadata_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -558,7 +442,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -595,7 +479,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -716,24 +600,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.storagetransfer.logging.ContainerMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = 0;
-
+      if (awsS3BucketBuilder_ != null) {
+        awsS3BucketBuilder_.clear();
+      }
+      if (azureBlobContainerBuilder_ != null) {
+        azureBlobContainerBuilder_.clear();
+      }
+      if (gcsBucketBuilder_ != null) {
+        gcsBucketBuilder_.clear();
+      }
+      if (posixDirectoryBuilder_ != null) {
+        posixDirectoryBuilder_.clear();
+      }
+      if (httpManifestBuilder_ != null) {
+        httpManifestBuilder_.clear();
+      }
       metadataCase_ = 0;
       metadata_ = null;
       return this;
@@ -762,45 +656,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storagetransfer.logging.ContainerMetadata buildPartial() {
       com.google.storagetransfer.logging.ContainerMetadata result = new com.google.storagetransfer.logging.ContainerMetadata(this);
-      result.type_ = type_;
-      if (metadataCase_ == 3) {
-        if (awsS3BucketBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = awsS3BucketBuilder_.build();
-        }
-      }
-      if (metadataCase_ == 4) {
-        if (azureBlobContainerBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = azureBlobContainerBuilder_.build();
-        }
-      }
-      if (metadataCase_ == 5) {
-        if (gcsBucketBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = gcsBucketBuilder_.build();
-        }
-      }
-      if (metadataCase_ == 6) {
-        if (posixDirectoryBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = posixDirectoryBuilder_.build();
-        }
-      }
-      if (metadataCase_ == 7) {
-        if (httpManifestBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = httpManifestBuilder_.build();
-        }
-      }
-      result.metadataCase_ = metadataCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.storagetransfer.logging.ContainerMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.storagetransfer.logging.ContainerMetadata result) {
+      result.metadataCase_ = metadataCase_;
+      result.metadata_ = this.metadata_;
+      if (metadataCase_ == 3 &&
+          awsS3BucketBuilder_ != null) {
+        result.metadata_ = awsS3BucketBuilder_.build();
+      }
+      if (metadataCase_ == 4 &&
+          azureBlobContainerBuilder_ != null) {
+        result.metadata_ = azureBlobContainerBuilder_.build();
+      }
+      if (metadataCase_ == 5 &&
+          gcsBucketBuilder_ != null) {
+        result.metadata_ = gcsBucketBuilder_.build();
+      }
+      if (metadataCase_ == 6 &&
+          posixDirectoryBuilder_ != null) {
+        result.metadata_ = posixDirectoryBuilder_.build();
+      }
+      if (metadataCase_ == 7 &&
+          httpManifestBuilder_ != null) {
+        result.metadata_ = httpManifestBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -875,7 +766,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -890,17 +781,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storagetransfer.logging.ContainerMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 26: {
+              input.readMessage(
+                  getAwsS3BucketFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metadataCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getAzureBlobContainerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metadataCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getGcsBucketFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metadataCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getPosixDirectoryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metadataCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getHttpManifestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metadataCase_ = 7;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storagetransfer.logging.ContainerMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int metadataCase_ = 0;
@@ -918,6 +862,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int type_ = 0;
     /**
@@ -941,8 +886,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -956,8 +901,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.storagetransfer.logging.StorageSystemType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.storagetransfer.logging.StorageSystemType result = com.google.storagetransfer.logging.StorageSystemType.valueOf(type_);
+      com.google.storagetransfer.logging.StorageSystemType result = com.google.storagetransfer.logging.StorageSystemType.forNumber(type_);
       return result == null ? com.google.storagetransfer.logging.StorageSystemType.UNRECOGNIZED : result;
     }
     /**
@@ -973,7 +917,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -987,7 +931,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
       onChanged();
       return this;
@@ -1167,7 +1111,7 @@ private static final long serialVersionUID = 0L;
         metadata_ = null;
       }
       metadataCase_ = 3;
-      onChanged();;
+      onChanged();
       return awsS3BucketBuilder_;
     }
 
@@ -1345,7 +1289,7 @@ private static final long serialVersionUID = 0L;
         metadata_ = null;
       }
       metadataCase_ = 4;
-      onChanged();;
+      onChanged();
       return azureBlobContainerBuilder_;
     }
 
@@ -1523,7 +1467,7 @@ private static final long serialVersionUID = 0L;
         metadata_ = null;
       }
       metadataCase_ = 5;
-      onChanged();;
+      onChanged();
       return gcsBucketBuilder_;
     }
 
@@ -1701,7 +1645,7 @@ private static final long serialVersionUID = 0L;
         metadata_ = null;
       }
       metadataCase_ = 6;
-      onChanged();;
+      onChanged();
       return posixDirectoryBuilder_;
     }
 
@@ -1879,7 +1823,7 @@ private static final long serialVersionUID = 0L;
         metadata_ = null;
       }
       metadataCase_ = 7;
-      onChanged();;
+      onChanged();
       return httpManifestBuilder_;
     }
     @java.lang.Override
@@ -1915,7 +1859,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ContainerMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

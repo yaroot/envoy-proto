@@ -37,63 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Participant(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            virtualPaymentAddress_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            persona_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            user_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.paymentgateway.issuerswitch.v1.CommonFieldsProto.internal_static_google_cloud_paymentgateway_issuerswitch_v1_Participant_descriptor;
@@ -253,7 +196,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VIRTUAL_PAYMENT_ADDRESS_FIELD_NUMBER = 1;
-  private volatile java.lang.Object virtualPaymentAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object virtualPaymentAddress_ = "";
   /**
    * <pre>
    * The virtual payment address (VPA) of the participant.
@@ -299,7 +243,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERSONA_FIELD_NUMBER = 2;
-  private int persona_;
+  private int persona_ = 0;
   /**
    * <pre>
    * The persona of the participant.
@@ -320,13 +264,13 @@ private static final long serialVersionUID = 0L;
    * @return The persona.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona getPersona() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona result = com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona.valueOf(persona_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona result = com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona.forNumber(persona_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona.UNRECOGNIZED : result;
   }
 
   public static final int USER_FIELD_NUMBER = 3;
-  private volatile java.lang.Object user_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object user_ = "";
   /**
    * <pre>
    * The name of the participant.
@@ -394,7 +338,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(user_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, user_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -413,7 +357,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(user_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, user_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -433,7 +377,7 @@ private static final long serialVersionUID = 0L;
     if (persona_ != other.persona_) return false;
     if (!getUser()
         .equals(other.getUser())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -450,7 +394,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + persona_;
     hash = (37 * hash) + USER_FIELD_NUMBER;
     hash = (53 * hash) + getUser().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -571,28 +515,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.paymentgateway.issuerswitch.v1.Participant.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       virtualPaymentAddress_ = "";
-
       persona_ = 0;
-
       user_ = "";
-
       return this;
     }
 
@@ -619,11 +556,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.Participant buildPartial() {
       com.google.cloud.paymentgateway.issuerswitch.v1.Participant result = new com.google.cloud.paymentgateway.issuerswitch.v1.Participant(this);
-      result.virtualPaymentAddress_ = virtualPaymentAddress_;
-      result.persona_ = persona_;
-      result.user_ = user_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.paymentgateway.issuerswitch.v1.Participant result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.virtualPaymentAddress_ = virtualPaymentAddress_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.persona_ = persona_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.user_ = user_;
+      }
     }
 
     @java.lang.Override
@@ -672,6 +620,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.paymentgateway.issuerswitch.v1.Participant.getDefaultInstance()) return this;
       if (!other.getVirtualPaymentAddress().isEmpty()) {
         virtualPaymentAddress_ = other.virtualPaymentAddress_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.persona_ != 0) {
@@ -679,9 +628,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUser().isEmpty()) {
         user_ = other.user_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -696,19 +646,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.paymentgateway.issuerswitch.v1.Participant parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              virtualPaymentAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              persona_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              user_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.paymentgateway.issuerswitch.v1.Participant) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object virtualPaymentAddress_ = "";
     /**
@@ -763,11 +742,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVirtualPaymentAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       virtualPaymentAddress_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -780,8 +757,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVirtualPaymentAddress() {
-      
       virtualPaymentAddress_ = getDefaultInstance().getVirtualPaymentAddress();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -796,12 +773,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVirtualPaymentAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       virtualPaymentAddress_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -828,8 +803,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPersonaValue(int value) {
-      
       persona_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -843,8 +818,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona getPersona() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona result = com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona.valueOf(persona_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona result = com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona.forNumber(persona_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Persona.UNRECOGNIZED : result;
     }
     /**
@@ -860,7 +834,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       persona_ = value.getNumber();
       onChanged();
       return this;
@@ -874,7 +848,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPersona() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       persona_ = 0;
       onChanged();
       return this;
@@ -933,11 +907,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUser(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       user_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -950,8 +922,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUser() {
-      
       user_ = getDefaultInstance().getUser();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -966,12 +938,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       user_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1008,7 +978,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Participant(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,184 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PipelineTaskDetail(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            taskId_ = input.readInt64();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            taskName_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (startTime_ != null) {
-              subBuilder = startTime_.toBuilder();
-            }
-            startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startTime_);
-              startTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (endTime_ != null) {
-              subBuilder = endTime_.toBuilder();
-            }
-            endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endTime_);
-              endTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail.Builder subBuilder = null;
-            if (executorDetail_ != null) {
-              subBuilder = executorDetail_.toBuilder();
-            }
-            executorDetail_ = input.readMessage(com.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(executorDetail_);
-              executorDetail_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 66: {
-            com.google.cloud.aiplatform.v1.Execution.Builder subBuilder = null;
-            if (execution_ != null) {
-              subBuilder = execution_.toBuilder();
-            }
-            execution_ = input.readMessage(com.google.cloud.aiplatform.v1.Execution.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(execution_);
-              execution_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (error_ != null) {
-              subBuilder = error_.toBuilder();
-            }
-            error_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(error_);
-              error_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              inputs_ = com.google.protobuf.MapField.newMapField(
-                  InputsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
-            inputs__ = input.readMessage(
-                InputsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            inputs_.getMutableMap().put(
-                inputs__.getKey(), inputs__.getValue());
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              outputs_ = com.google.protobuf.MapField.newMapField(
-                  OutputsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
-            outputs__ = input.readMessage(
-                OutputsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            outputs_.getMutableMap().put(
-                outputs__.getKey(), outputs__.getValue());
-            break;
-          }
-          case 96: {
-
-            parentTaskId_ = input.readInt64();
-            break;
-          }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              pipelineTaskStatus_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            pipelineTaskStatus_.add(
-                input.readMessage(com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        pipelineTaskStatus_ = java.util.Collections.unmodifiableList(pipelineTaskStatus_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineTaskDetail_descriptor;
@@ -634,77 +456,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PipelineTaskStatus(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (updateTime_ != null) {
-                subBuilder = updateTime_.toBuilder();
-              }
-              updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(updateTime_);
-                updateTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            case 26: {
-              com.google.rpc.Status.Builder subBuilder = null;
-              if (error_ != null) {
-                subBuilder = error_.toBuilder();
-              }
-              error_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(error_);
-                error_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineTaskDetail_PipelineTaskStatus_descriptor;
@@ -753,11 +504,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-      return getUpdateTime();
+      return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
     }
 
     public static final int STATE_FIELD_NUMBER = 2;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Output only. The state of the task.
@@ -778,8 +529,7 @@ private static final long serialVersionUID = 0L;
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.aiplatform.v1.PipelineTaskDetail.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.aiplatform.v1.PipelineTaskDetail.State result = com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.valueOf(state_);
+      com.google.cloud.aiplatform.v1.PipelineTaskDetail.State result = com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.forNumber(state_);
       return result == null ? com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.UNRECOGNIZED : result;
     }
 
@@ -833,7 +583,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.rpc.StatusOrBuilder getErrorOrBuilder() {
-      return getError();
+      return error_ == null ? com.google.rpc.Status.getDefaultInstance() : error_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -859,7 +609,7 @@ private static final long serialVersionUID = 0L;
       if (error_ != null) {
         output.writeMessage(3, getError());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -880,7 +630,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getError());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -906,7 +656,7 @@ private static final long serialVersionUID = 0L;
         if (!getError()
             .equals(other.getError())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -927,7 +677,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
         hash = (53 * hash) + getError().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1048,34 +798,27 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-        } else {
-          updateTime_ = null;
+        bitField0_ = 0;
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
         state_ = 0;
-
-        if (errorBuilder_ == null) {
-          error_ = null;
-        } else {
-          error_ = null;
+        error_ = null;
+        if (errorBuilder_ != null) {
+          errorBuilder_.dispose();
           errorBuilder_ = null;
         }
         return this;
@@ -1104,19 +847,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus buildPartial() {
         com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus result = new com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus(this);
-        if (updateTimeBuilder_ == null) {
-          result.updateTime_ = updateTime_;
-        } else {
-          result.updateTime_ = updateTimeBuilder_.build();
-        }
-        result.state_ = state_;
-        if (errorBuilder_ == null) {
-          result.error_ = error_;
-        } else {
-          result.error_ = errorBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.updateTime_ = updateTimeBuilder_ == null
+              ? updateTime_
+              : updateTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.state_ = state_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.error_ = errorBuilder_ == null
+              ? error_
+              : errorBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1172,7 +922,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasError()) {
           mergeError(other.getError());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1187,19 +937,52 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getUpdateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getErrorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Timestamp updateTime_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1213,7 +996,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the updateTime field is set.
        */
       public boolean hasUpdateTime() {
-        return updateTimeBuilder_ != null || updateTime_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1243,11 +1026,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           updateTime_ = value;
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1261,11 +1044,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (updateTimeBuilder_ == null) {
           updateTime_ = builderForValue.build();
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1277,17 +1060,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
         if (updateTimeBuilder_ == null) {
-          if (updateTime_ != null) {
-            updateTime_ =
-              com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            updateTime_ != null &&
+            updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getUpdateTimeBuilder().mergeFrom(value);
           } else {
             updateTime_ = value;
           }
-          onChanged();
         } else {
           updateTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1298,14 +1082,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp update_time = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearUpdateTime() {
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-          onChanged();
-        } else {
-          updateTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1316,7 +1099,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp update_time = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getUpdateTimeFieldBuilder().getBuilder();
       }
@@ -1378,8 +1161,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1393,8 +1176,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.aiplatform.v1.PipelineTaskDetail.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.aiplatform.v1.PipelineTaskDetail.State result = com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.valueOf(state_);
+        com.google.cloud.aiplatform.v1.PipelineTaskDetail.State result = com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.forNumber(state_);
         return result == null ? com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.UNRECOGNIZED : result;
       }
       /**
@@ -1410,7 +1192,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -1424,7 +1206,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         state_ = 0;
         onChanged();
         return this;
@@ -1447,7 +1229,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the error field is set.
        */
       public boolean hasError() {
-        return errorBuilder_ != null || error_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -1487,11 +1269,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           error_ = value;
-          onChanged();
         } else {
           errorBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1510,11 +1292,11 @@ private static final long serialVersionUID = 0L;
           com.google.rpc.Status.Builder builderForValue) {
         if (errorBuilder_ == null) {
           error_ = builderForValue.build();
-          onChanged();
         } else {
           errorBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1531,17 +1313,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeError(com.google.rpc.Status value) {
         if (errorBuilder_ == null) {
-          if (error_ != null) {
-            error_ =
-              com.google.rpc.Status.newBuilder(error_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            error_ != null &&
+            error_ != com.google.rpc.Status.getDefaultInstance()) {
+            getErrorBuilder().mergeFrom(value);
           } else {
             error_ = value;
           }
-          onChanged();
         } else {
           errorBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1557,14 +1340,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.rpc.Status error = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearError() {
-        if (errorBuilder_ == null) {
-          error_ = null;
-          onChanged();
-        } else {
-          error_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        error_ = null;
+        if (errorBuilder_ != null) {
+          errorBuilder_.dispose();
           errorBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1580,7 +1362,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.rpc.Status error = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.rpc.Status.Builder getErrorBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getErrorFieldBuilder().getBuilder();
       }
@@ -1662,7 +1444,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PipelineTaskStatus(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1762,58 +1555,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ArtifactList(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                artifacts_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1.Artifact>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              artifacts_.add(
-                  input.readMessage(com.google.cloud.aiplatform.v1.Artifact.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          artifacts_ = java.util.Collections.unmodifiableList(artifacts_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineTaskDetail_ArtifactList_descriptor;
@@ -1828,6 +1569,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ARTIFACTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.aiplatform.v1.Artifact> artifacts_;
     /**
      * <pre>
@@ -1904,7 +1646,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < artifacts_.size(); i++) {
         output.writeMessage(1, artifacts_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1917,7 +1659,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, artifacts_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1934,7 +1676,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getArtifactsList()
           .equals(other.getArtifactsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1949,7 +1691,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ARTIFACTS_FIELD_NUMBER;
         hash = (53 * hash) + getArtifactsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2070,29 +1812,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getArtifactsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (artifactsBuilder_ == null) {
           artifacts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          artifacts_ = null;
           artifactsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2119,7 +1857,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList buildPartial() {
         com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList result = new com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList result) {
         if (artifactsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             artifacts_ = java.util.Collections.unmodifiableList(artifacts_);
@@ -2129,8 +1873,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.artifacts_ = artifactsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -2203,7 +1949,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2218,17 +1964,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.aiplatform.v1.Artifact m =
+                    input.readMessage(
+                        com.google.cloud.aiplatform.v1.Artifact.parser(),
+                        extensionRegistry);
+                if (artifactsBuilder_ == null) {
+                  ensureArtifactsIsMutable();
+                  artifacts_.add(m);
+                } else {
+                  artifactsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2577,7 +2349,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ArtifactList(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2598,7 +2381,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TASK_ID_FIELD_NUMBER = 1;
-  private long taskId_;
+  private long taskId_ = 0L;
   /**
    * <pre>
    * Output only. The system generated ID of the task.
@@ -2613,7 +2396,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_TASK_ID_FIELD_NUMBER = 12;
-  private long parentTaskId_;
+  private long parentTaskId_ = 0L;
   /**
    * <pre>
    * Output only. The id of the parent task if the task is within a component scope.
@@ -2629,7 +2412,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TASK_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object taskName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object taskName_ = "";
   /**
    * <pre>
    * Output only. The user specified name of the task that is defined in
@@ -2711,7 +2495,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int START_TIME_FIELD_NUMBER = 4;
@@ -2749,7 +2533,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-    return getStartTime();
+    return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
   }
 
   public static final int END_TIME_FIELD_NUMBER = 5;
@@ -2787,7 +2571,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-    return getEndTime();
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
 
   public static final int EXECUTOR_DETAIL_FIELD_NUMBER = 6;
@@ -2825,11 +2609,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.PipelineTaskExecutorDetailOrBuilder getExecutorDetailOrBuilder() {
-    return getExecutorDetail();
+    return executorDetail_ == null ? com.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail.getDefaultInstance() : executorDetail_;
   }
 
   public static final int STATE_FIELD_NUMBER = 7;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. State of the task.
@@ -2850,8 +2634,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.aiplatform.v1.PipelineTaskDetail.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.aiplatform.v1.PipelineTaskDetail.State result = com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.valueOf(state_);
+    com.google.cloud.aiplatform.v1.PipelineTaskDetail.State result = com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.forNumber(state_);
     return result == null ? com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.UNRECOGNIZED : result;
   }
 
@@ -2890,7 +2673,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.ExecutionOrBuilder getExecutionOrBuilder() {
-    return getExecution();
+    return execution_ == null ? com.google.cloud.aiplatform.v1.Execution.getDefaultInstance() : execution_;
   }
 
   public static final int ERROR_FIELD_NUMBER = 9;
@@ -2931,10 +2714,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getErrorOrBuilder() {
-    return getError();
+    return error_ == null ? com.google.rpc.Status.getDefaultInstance() : error_;
   }
 
   public static final int PIPELINE_TASK_STATUS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus> pipelineTaskStatus_;
   /**
    * <pre>
@@ -3011,6 +2795,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> inputs_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
@@ -3021,7 +2806,6 @@ private static final long serialVersionUID = 0L;
     }
     return inputs_;
   }
-
   public int getInputsCount() {
     return internalGetInputs().getMap().size();
   }
@@ -3032,7 +2816,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   @java.lang.Override
   public boolean containsInputs(
       java.lang.String key) {
@@ -3055,7 +2838,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> getInputsMap() {
     return internalGetInputs().getMap();
   }
@@ -3067,10 +2849,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getInputsOrDefault(
+  public /* nullable */
+com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getInputsOrDefault(
       java.lang.String key,
-      com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList defaultValue) {
+      /* nullable */
+com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> map =
         internalGetInputs().getMap();
@@ -3084,7 +2867,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getInputsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -3108,6 +2890,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> outputs_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
@@ -3118,7 +2901,6 @@ private static final long serialVersionUID = 0L;
     }
     return outputs_;
   }
-
   public int getOutputsCount() {
     return internalGetOutputs().getMap().size();
   }
@@ -3129,7 +2911,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   @java.lang.Override
   public boolean containsOutputs(
       java.lang.String key) {
@@ -3152,7 +2933,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> getOutputsMap() {
     return internalGetOutputs().getMap();
   }
@@ -3164,10 +2944,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getOutputsOrDefault(
+  public /* nullable */
+com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getOutputsOrDefault(
       java.lang.String key,
-      com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList defaultValue) {
+      /* nullable */
+com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> map =
         internalGetOutputs().getMap();
@@ -3181,7 +2962,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getOutputsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -3252,7 +3032,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < pipelineTaskStatus_.size(); i++) {
       output.writeMessage(13, pipelineTaskStatus_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3324,7 +3104,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, pipelineTaskStatus_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3382,7 +3162,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetInputs())) return false;
     if (!internalGetOutputs().equals(
         other.internalGetOutputs())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3439,7 +3219,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OUTPUTS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetOutputs().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3586,73 +3366,59 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.PipelineTaskDetail.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPipelineTaskStatusFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       taskId_ = 0L;
-
       parentTaskId_ = 0L;
-
       taskName_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-      } else {
-        startTime_ = null;
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-      } else {
-        endTime_ = null;
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-      if (executorDetailBuilder_ == null) {
-        executorDetail_ = null;
-      } else {
-        executorDetail_ = null;
+      executorDetail_ = null;
+      if (executorDetailBuilder_ != null) {
+        executorDetailBuilder_.dispose();
         executorDetailBuilder_ = null;
       }
       state_ = 0;
-
-      if (executionBuilder_ == null) {
-        execution_ = null;
-      } else {
-        execution_ = null;
+      execution_ = null;
+      if (executionBuilder_ != null) {
+        executionBuilder_.dispose();
         executionBuilder_ = null;
       }
-      if (errorBuilder_ == null) {
-        error_ = null;
-      } else {
-        error_ = null;
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
       if (pipelineTaskStatusBuilder_ == null) {
         pipelineTaskStatus_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        pipelineTaskStatus_ = null;
         pipelineTaskStatusBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000400);
       internalGetMutableInputs().clear();
       internalGetMutableOutputs().clear();
       return this;
@@ -3681,56 +3447,76 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.PipelineTaskDetail buildPartial() {
       com.google.cloud.aiplatform.v1.PipelineTaskDetail result = new com.google.cloud.aiplatform.v1.PipelineTaskDetail(this);
-      int from_bitField0_ = bitField0_;
-      result.taskId_ = taskId_;
-      result.parentTaskId_ = parentTaskId_;
-      result.taskName_ = taskName_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (startTimeBuilder_ == null) {
-        result.startTime_ = startTime_;
-      } else {
-        result.startTime_ = startTimeBuilder_.build();
-      }
-      if (endTimeBuilder_ == null) {
-        result.endTime_ = endTime_;
-      } else {
-        result.endTime_ = endTimeBuilder_.build();
-      }
-      if (executorDetailBuilder_ == null) {
-        result.executorDetail_ = executorDetail_;
-      } else {
-        result.executorDetail_ = executorDetailBuilder_.build();
-      }
-      result.state_ = state_;
-      if (executionBuilder_ == null) {
-        result.execution_ = execution_;
-      } else {
-        result.execution_ = executionBuilder_.build();
-      }
-      if (errorBuilder_ == null) {
-        result.error_ = error_;
-      } else {
-        result.error_ = errorBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1.PipelineTaskDetail result) {
       if (pipelineTaskStatusBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           pipelineTaskStatus_ = java.util.Collections.unmodifiableList(pipelineTaskStatus_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.pipelineTaskStatus_ = pipelineTaskStatus_;
       } else {
         result.pipelineTaskStatus_ = pipelineTaskStatusBuilder_.build();
       }
-      result.inputs_ = internalGetInputs();
-      result.inputs_.makeImmutable();
-      result.outputs_ = internalGetOutputs();
-      result.outputs_.makeImmutable();
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.PipelineTaskDetail result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.taskId_ = taskId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parentTaskId_ = parentTaskId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.taskName_ = taskName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.startTime_ = startTimeBuilder_ == null
+            ? startTime_
+            : startTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.endTime_ = endTimeBuilder_ == null
+            ? endTime_
+            : endTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.executorDetail_ = executorDetailBuilder_ == null
+            ? executorDetail_
+            : executorDetailBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.execution_ = executionBuilder_ == null
+            ? execution_
+            : executionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.inputs_ = internalGetInputs();
+        result.inputs_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.outputs_ = internalGetOutputs();
+        result.outputs_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -3785,6 +3571,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTaskName().isEmpty()) {
         taskName_ = other.taskName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -3812,7 +3599,7 @@ private static final long serialVersionUID = 0L;
         if (!other.pipelineTaskStatus_.isEmpty()) {
           if (pipelineTaskStatus_.isEmpty()) {
             pipelineTaskStatus_ = other.pipelineTaskStatus_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensurePipelineTaskStatusIsMutable();
             pipelineTaskStatus_.addAll(other.pipelineTaskStatus_);
@@ -3825,7 +3612,7 @@ private static final long serialVersionUID = 0L;
             pipelineTaskStatusBuilder_.dispose();
             pipelineTaskStatusBuilder_ = null;
             pipelineTaskStatus_ = other.pipelineTaskStatus_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000400);
             pipelineTaskStatusBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPipelineTaskStatusFieldBuilder() : null;
@@ -3836,9 +3623,11 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableInputs().mergeFrom(
           other.internalGetInputs());
+      bitField0_ |= 0x00000800;
       internalGetMutableOutputs().mergeFrom(
           other.internalGetOutputs());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00001000;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3853,17 +3642,123 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.PipelineTaskDetail parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              taskId_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              taskName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getExecutorDetailFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 56: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getExecutionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
+              inputs__ = input.readMessage(
+                  InputsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInputs().getMutableMap().put(
+                  inputs__.getKey(), inputs__.getValue());
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
+              outputs__ = input.readMessage(
+                  OutputsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableOutputs().getMutableMap().put(
+                  outputs__.getKey(), outputs__.getValue());
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 90
+            case 96: {
+              parentTaskId_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 96
+            case 106: {
+              com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus m =
+                  input.readMessage(
+                      com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus.parser(),
+                      extensionRegistry);
+              if (pipelineTaskStatusBuilder_ == null) {
+                ensurePipelineTaskStatusIsMutable();
+                pipelineTaskStatus_.add(m);
+              } else {
+                pipelineTaskStatusBuilder_.addMessage(m);
+              }
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.PipelineTaskDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3893,6 +3788,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTaskId(long value) {
       
       taskId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3905,7 +3801,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTaskId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       taskId_ = 0L;
       onChanged();
       return this;
@@ -3938,6 +3834,7 @@ private static final long serialVersionUID = 0L;
     public Builder setParentTaskId(long value) {
       
       parentTaskId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3951,7 +3848,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParentTaskId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       parentTaskId_ = 0L;
       onChanged();
       return this;
@@ -4013,11 +3910,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTaskName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       taskName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -4031,8 +3926,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTaskName() {
-      
       taskName_ = getDefaultInstance().getTaskName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -4048,12 +3943,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTaskNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       taskName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -4070,7 +3963,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -4100,11 +3993,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4118,11 +4011,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4134,17 +4027,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4155,14 +4049,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4173,7 +4066,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -4225,7 +4118,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
-      return startTimeBuilder_ != null || startTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -4255,11 +4148,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startTime_ = value;
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4273,11 +4166,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (startTimeBuilder_ == null) {
         startTime_ = builderForValue.build();
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4289,17 +4182,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
-        if (startTime_ != null) {
-          startTime_ =
-            com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          startTime_ != null &&
+          startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStartTimeBuilder().mergeFrom(value);
         } else {
           startTime_ = value;
         }
-        onChanged();
       } else {
         startTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4310,14 +4204,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearStartTime() {
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-        onChanged();
-      } else {
-        startTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4328,7 +4221,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getStartTimeFieldBuilder().getBuilder();
     }
@@ -4380,7 +4273,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
-      return endTimeBuilder_ != null || endTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -4410,11 +4303,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endTime_ = value;
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4428,11 +4321,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (endTimeBuilder_ == null) {
         endTime_ = builderForValue.build();
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4444,17 +4337,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
-        if (endTime_ != null) {
-          endTime_ =
-            com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          endTime_ != null &&
+          endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEndTimeBuilder().mergeFrom(value);
         } else {
           endTime_ = value;
         }
-        onChanged();
       } else {
         endTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4465,14 +4359,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearEndTime() {
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-        onChanged();
-      } else {
-        endTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4483,7 +4376,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getEndTimeFieldBuilder().getBuilder();
     }
@@ -4535,7 +4428,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the executorDetail field is set.
      */
     public boolean hasExecutorDetail() {
-      return executorDetailBuilder_ != null || executorDetail_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -4565,11 +4458,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         executorDetail_ = value;
-        onChanged();
       } else {
         executorDetailBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4583,11 +4476,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail.Builder builderForValue) {
       if (executorDetailBuilder_ == null) {
         executorDetail_ = builderForValue.build();
-        onChanged();
       } else {
         executorDetailBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4599,17 +4492,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExecutorDetail(com.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail value) {
       if (executorDetailBuilder_ == null) {
-        if (executorDetail_ != null) {
-          executorDetail_ =
-            com.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail.newBuilder(executorDetail_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          executorDetail_ != null &&
+          executorDetail_ != com.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail.getDefaultInstance()) {
+          getExecutorDetailBuilder().mergeFrom(value);
         } else {
           executorDetail_ = value;
         }
-        onChanged();
       } else {
         executorDetailBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4620,14 +4514,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail executor_detail = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearExecutorDetail() {
-      if (executorDetailBuilder_ == null) {
-        executorDetail_ = null;
-        onChanged();
-      } else {
-        executorDetail_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      executorDetail_ = null;
+      if (executorDetailBuilder_ != null) {
+        executorDetailBuilder_.dispose();
         executorDetailBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4638,7 +4531,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail executor_detail = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.aiplatform.v1.PipelineTaskExecutorDetail.Builder getExecutorDetailBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getExecutorDetailFieldBuilder().getBuilder();
     }
@@ -4700,8 +4593,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -4715,8 +4608,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.PipelineTaskDetail.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.aiplatform.v1.PipelineTaskDetail.State result = com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.valueOf(state_);
+      com.google.cloud.aiplatform.v1.PipelineTaskDetail.State result = com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.forNumber(state_);
       return result == null ? com.google.cloud.aiplatform.v1.PipelineTaskDetail.State.UNRECOGNIZED : result;
     }
     /**
@@ -4732,7 +4624,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -4746,7 +4638,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       state_ = 0;
       onChanged();
       return this;
@@ -4764,7 +4656,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the execution field is set.
      */
     public boolean hasExecution() {
-      return executionBuilder_ != null || execution_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -4794,11 +4686,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         execution_ = value;
-        onChanged();
       } else {
         executionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4812,11 +4704,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1.Execution.Builder builderForValue) {
       if (executionBuilder_ == null) {
         execution_ = builderForValue.build();
-        onChanged();
       } else {
         executionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4828,17 +4720,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExecution(com.google.cloud.aiplatform.v1.Execution value) {
       if (executionBuilder_ == null) {
-        if (execution_ != null) {
-          execution_ =
-            com.google.cloud.aiplatform.v1.Execution.newBuilder(execution_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          execution_ != null &&
+          execution_ != com.google.cloud.aiplatform.v1.Execution.getDefaultInstance()) {
+          getExecutionBuilder().mergeFrom(value);
         } else {
           execution_ = value;
         }
-        onChanged();
       } else {
         executionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4849,14 +4742,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.Execution execution = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearExecution() {
-      if (executionBuilder_ == null) {
-        execution_ = null;
-        onChanged();
-      } else {
-        execution_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      execution_ = null;
+      if (executionBuilder_ != null) {
+        executionBuilder_.dispose();
         executionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4867,7 +4759,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.Execution execution = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.aiplatform.v1.Execution.Builder getExecutionBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getExecutionFieldBuilder().getBuilder();
     }
@@ -4920,7 +4812,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the error field is set.
      */
     public boolean hasError() {
-      return errorBuilder_ != null || error_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -4952,11 +4844,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         error_ = value;
-        onChanged();
       } else {
         errorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4971,11 +4863,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (errorBuilder_ == null) {
         error_ = builderForValue.build();
-        onChanged();
       } else {
         errorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4988,17 +4880,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeError(com.google.rpc.Status value) {
       if (errorBuilder_ == null) {
-        if (error_ != null) {
-          error_ =
-            com.google.rpc.Status.newBuilder(error_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          error_ != null &&
+          error_ != com.google.rpc.Status.getDefaultInstance()) {
+          getErrorBuilder().mergeFrom(value);
         } else {
           error_ = value;
         }
-        onChanged();
       } else {
         errorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -5010,14 +4903,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearError() {
-      if (errorBuilder_ == null) {
-        error_ = null;
-        onChanged();
-      } else {
-        error_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5029,7 +4921,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.rpc.Status.Builder getErrorBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getErrorFieldBuilder().getBuilder();
     }
@@ -5074,9 +4966,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus> pipelineTaskStatus_ =
       java.util.Collections.emptyList();
     private void ensurePipelineTaskStatusIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         pipelineTaskStatus_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus>(pipelineTaskStatus_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000400;
        }
     }
 
@@ -5281,7 +5173,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPipelineTaskStatus() {
       if (pipelineTaskStatusBuilder_ == null) {
         pipelineTaskStatus_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
         pipelineTaskStatusBuilder_.clear();
@@ -5393,7 +5285,7 @@ private static final long serialVersionUID = 0L;
         pipelineTaskStatusBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus, com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatus.Builder, com.google.cloud.aiplatform.v1.PipelineTaskDetail.PipelineTaskStatusOrBuilder>(
                 pipelineTaskStatus_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
         pipelineTaskStatus_ = null;
@@ -5404,7 +5296,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> inputs_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
-    internalGetInputs() {
+        internalGetInputs() {
       if (inputs_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             InputsDefaultEntryHolder.defaultEntry);
@@ -5412,8 +5304,7 @@ private static final long serialVersionUID = 0L;
       return inputs_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
-    internalGetMutableInputs() {
-      onChanged();;
+        internalGetMutableInputs() {
       if (inputs_ == null) {
         inputs_ = com.google.protobuf.MapField.newMapField(
             InputsDefaultEntryHolder.defaultEntry);
@@ -5421,9 +5312,10 @@ private static final long serialVersionUID = 0L;
       if (!inputs_.isMutable()) {
         inputs_ = inputs_.copy();
       }
+      bitField0_ |= 0x00000800;
+      onChanged();
       return inputs_;
     }
-
     public int getInputsCount() {
       return internalGetInputs().getMap().size();
     }
@@ -5434,7 +5326,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     @java.lang.Override
     public boolean containsInputs(
         java.lang.String key) {
@@ -5457,7 +5348,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> getInputsMap() {
       return internalGetInputs().getMap();
     }
@@ -5469,10 +5359,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getInputsOrDefault(
+    public /* nullable */
+com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getInputsOrDefault(
         java.lang.String key,
-        com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList defaultValue) {
+        /* nullable */
+com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> map =
           internalGetInputs().getMap();
@@ -5486,7 +5377,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getInputsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5497,8 +5387,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearInputs() {
+      bitField0_ = (bitField0_ & ~0x00000800);
       internalGetMutableInputs().getMutableMap()
           .clear();
       return this;
@@ -5510,7 +5400,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder removeInputs(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5523,7 +5412,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
-    getMutableInputs() {
+        getMutableInputs() {
+      bitField0_ |= 0x00000800;
       return internalGetMutableInputs().getMutableMap();
     }
     /**
@@ -5537,12 +5427,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableInputs().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000800;
       return this;
     }
     /**
@@ -5552,18 +5440,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; inputs = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder putAllInputs(
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> values) {
       internalGetMutableInputs().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000800;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> outputs_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
-    internalGetOutputs() {
+        internalGetOutputs() {
       if (outputs_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             OutputsDefaultEntryHolder.defaultEntry);
@@ -5571,8 +5459,7 @@ private static final long serialVersionUID = 0L;
       return outputs_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
-    internalGetMutableOutputs() {
-      onChanged();;
+        internalGetMutableOutputs() {
       if (outputs_ == null) {
         outputs_ = com.google.protobuf.MapField.newMapField(
             OutputsDefaultEntryHolder.defaultEntry);
@@ -5580,9 +5467,10 @@ private static final long serialVersionUID = 0L;
       if (!outputs_.isMutable()) {
         outputs_ = outputs_.copy();
       }
+      bitField0_ |= 0x00001000;
+      onChanged();
       return outputs_;
     }
-
     public int getOutputsCount() {
       return internalGetOutputs().getMap().size();
     }
@@ -5593,7 +5481,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     @java.lang.Override
     public boolean containsOutputs(
         java.lang.String key) {
@@ -5616,7 +5503,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> getOutputsMap() {
       return internalGetOutputs().getMap();
     }
@@ -5628,10 +5514,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getOutputsOrDefault(
+    public /* nullable */
+com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getOutputsOrDefault(
         java.lang.String key,
-        com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList defaultValue) {
+        /* nullable */
+com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> map =
           internalGetOutputs().getMap();
@@ -5645,7 +5532,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList getOutputsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5656,8 +5542,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearOutputs() {
+      bitField0_ = (bitField0_ & ~0x00001000);
       internalGetMutableOutputs().getMutableMap()
           .clear();
       return this;
@@ -5669,7 +5555,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder removeOutputs(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5682,7 +5567,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList>
-    getMutableOutputs() {
+        getMutableOutputs() {
+      bitField0_ |= 0x00001000;
       return internalGetMutableOutputs().getMutableMap();
     }
     /**
@@ -5696,12 +5582,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableOutputs().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00001000;
       return this;
     }
     /**
@@ -5711,11 +5595,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList&gt; outputs = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder putAllOutputs(
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineTaskDetail.ArtifactList> values) {
       internalGetMutableOutputs().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00001000;
       return this;
     }
     @java.lang.Override
@@ -5751,7 +5635,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PipelineTaskDetail(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

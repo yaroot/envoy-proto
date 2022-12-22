@@ -37,93 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TopologyConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              computations_ = new java.util.ArrayList<com.google.dataflow.v1beta3.ComputationTopology>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            computations_.add(
-                input.readMessage(com.google.dataflow.v1beta3.ComputationTopology.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              dataDiskAssignments_ = new java.util.ArrayList<com.google.dataflow.v1beta3.DataDiskAssignment>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            dataDiskAssignments_.add(
-                input.readMessage(com.google.dataflow.v1beta3.DataDiskAssignment.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              userStageToComputationNameMap_ = com.google.protobuf.MapField.newMapField(
-                  UserStageToComputationNameMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            userStageToComputationNameMap__ = input.readMessage(
-                UserStageToComputationNameMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            userStageToComputationNameMap_.getMutableMap().put(
-                userStageToComputationNameMap__.getKey(), userStageToComputationNameMap__.getValue());
-            break;
-          }
-          case 32: {
-
-            forwardingKeyBits_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            persistentStateVersion_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        computations_ = java.util.Collections.unmodifiableList(computations_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        dataDiskAssignments_ = java.util.Collections.unmodifiableList(dataDiskAssignments_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.StreamingProto.internal_static_google_dataflow_v1beta3_TopologyConfig_descriptor;
@@ -150,6 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMPUTATIONS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.ComputationTopology> computations_;
   /**
    * <pre>
@@ -210,6 +124,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_DISK_ASSIGNMENTS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.DataDiskAssignment> dataDiskAssignments_;
   /**
    * <pre>
@@ -281,6 +196,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> userStageToComputationNameMap_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -291,7 +207,6 @@ private static final long serialVersionUID = 0L;
     }
     return userStageToComputationNameMap_;
   }
-
   public int getUserStageToComputationNameMapCount() {
     return internalGetUserStageToComputationNameMap().getMap().size();
   }
@@ -302,7 +217,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsUserStageToComputationNameMap(
       java.lang.String key) {
@@ -325,7 +239,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getUserStageToComputationNameMapMap() {
     return internalGetUserStageToComputationNameMap().getMap();
   }
@@ -337,10 +250,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getUserStageToComputationNameMapOrDefault(
+  public /* nullable */
+java.lang.String getUserStageToComputationNameMapOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetUserStageToComputationNameMap().getMap();
@@ -354,7 +268,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getUserStageToComputationNameMapOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -367,7 +280,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORWARDING_KEY_BITS_FIELD_NUMBER = 4;
-  private int forwardingKeyBits_;
+  private int forwardingKeyBits_ = 0;
   /**
    * <pre>
    * The size (in bits) of keys that will be assigned to source messages.
@@ -382,7 +295,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERSISTENT_STATE_VERSION_FIELD_NUMBER = 5;
-  private int persistentStateVersion_;
+  private int persistentStateVersion_ = 0;
   /**
    * <pre>
    * Version number for persistent state.
@@ -428,7 +341,7 @@ private static final long serialVersionUID = 0L;
     if (persistentStateVersion_ != 0) {
       output.writeInt32(5, persistentStateVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -463,7 +376,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, persistentStateVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -488,7 +401,7 @@ private static final long serialVersionUID = 0L;
         != other.getForwardingKeyBits()) return false;
     if (getPersistentStateVersion()
         != other.getPersistentStateVersion()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -515,7 +428,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getForwardingKeyBits();
     hash = (37 * hash) + PERSISTENT_STATE_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getPersistentStateVersion();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -659,41 +572,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.TopologyConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getComputationsFieldBuilder();
-        getDataDiskAssignmentsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (computationsBuilder_ == null) {
         computations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        computations_ = null;
         computationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (dataDiskAssignmentsBuilder_ == null) {
         dataDiskAssignments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        dataDiskAssignments_ = null;
         dataDiskAssignmentsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableUserStageToComputationNameMap().clear();
       forwardingKeyBits_ = 0;
-
       persistentStateVersion_ = 0;
-
       return this;
     }
 
@@ -720,7 +627,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.TopologyConfig buildPartial() {
       com.google.dataflow.v1beta3.TopologyConfig result = new com.google.dataflow.v1beta3.TopologyConfig(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.dataflow.v1beta3.TopologyConfig result) {
       if (computationsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           computations_ = java.util.Collections.unmodifiableList(computations_);
@@ -739,12 +652,20 @@ private static final long serialVersionUID = 0L;
       } else {
         result.dataDiskAssignments_ = dataDiskAssignmentsBuilder_.build();
       }
-      result.userStageToComputationNameMap_ = internalGetUserStageToComputationNameMap();
-      result.userStageToComputationNameMap_.makeImmutable();
-      result.forwardingKeyBits_ = forwardingKeyBits_;
-      result.persistentStateVersion_ = persistentStateVersion_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.TopologyConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.userStageToComputationNameMap_ = internalGetUserStageToComputationNameMap();
+        result.userStageToComputationNameMap_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.forwardingKeyBits_ = forwardingKeyBits_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.persistentStateVersion_ = persistentStateVersion_;
+      }
     }
 
     @java.lang.Override
@@ -845,13 +766,14 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableUserStageToComputationNameMap().mergeFrom(
           other.internalGetUserStageToComputationNameMap());
+      bitField0_ |= 0x00000004;
       if (other.getForwardingKeyBits() != 0) {
         setForwardingKeyBits(other.getForwardingKeyBits());
       }
       if (other.getPersistentStateVersion() != 0) {
         setPersistentStateVersion(other.getPersistentStateVersion());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -866,17 +788,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.TopologyConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.dataflow.v1beta3.ComputationTopology m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.ComputationTopology.parser(),
+                      extensionRegistry);
+              if (computationsBuilder_ == null) {
+                ensureComputationsIsMutable();
+                computations_.add(m);
+              } else {
+                computationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.dataflow.v1beta3.DataDiskAssignment m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.DataDiskAssignment.parser(),
+                      extensionRegistry);
+              if (dataDiskAssignmentsBuilder_ == null) {
+                ensureDataDiskAssignmentsIsMutable();
+                dataDiskAssignments_.add(m);
+              } else {
+                dataDiskAssignmentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              userStageToComputationNameMap__ = input.readMessage(
+                  UserStageToComputationNameMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUserStageToComputationNameMap().getMutableMap().put(
+                  userStageToComputationNameMap__.getKey(), userStageToComputationNameMap__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              forwardingKeyBits_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              persistentStateVersion_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.TopologyConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1508,7 +1488,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> userStageToComputationNameMap_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetUserStageToComputationNameMap() {
+        internalGetUserStageToComputationNameMap() {
       if (userStageToComputationNameMap_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             UserStageToComputationNameMapDefaultEntryHolder.defaultEntry);
@@ -1516,8 +1496,7 @@ private static final long serialVersionUID = 0L;
       return userStageToComputationNameMap_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableUserStageToComputationNameMap() {
-      onChanged();;
+        internalGetMutableUserStageToComputationNameMap() {
       if (userStageToComputationNameMap_ == null) {
         userStageToComputationNameMap_ = com.google.protobuf.MapField.newMapField(
             UserStageToComputationNameMapDefaultEntryHolder.defaultEntry);
@@ -1525,9 +1504,10 @@ private static final long serialVersionUID = 0L;
       if (!userStageToComputationNameMap_.isMutable()) {
         userStageToComputationNameMap_ = userStageToComputationNameMap_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return userStageToComputationNameMap_;
     }
-
     public int getUserStageToComputationNameMapCount() {
       return internalGetUserStageToComputationNameMap().getMap().size();
     }
@@ -1538,7 +1518,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsUserStageToComputationNameMap(
         java.lang.String key) {
@@ -1561,7 +1540,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getUserStageToComputationNameMapMap() {
       return internalGetUserStageToComputationNameMap().getMap();
     }
@@ -1573,10 +1551,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getUserStageToComputationNameMapOrDefault(
+    public /* nullable */
+java.lang.String getUserStageToComputationNameMapOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetUserStageToComputationNameMap().getMap();
@@ -1590,7 +1569,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getUserStageToComputationNameMapOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1601,8 +1579,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearUserStageToComputationNameMap() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableUserStageToComputationNameMap().getMutableMap()
           .clear();
       return this;
@@ -1614,7 +1592,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
      */
-
     public Builder removeUserStageToComputationNameMap(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1627,7 +1604,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableUserStageToComputationNameMap() {
+        getMutableUserStageToComputationNameMap() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableUserStageToComputationNameMap().getMutableMap();
     }
     /**
@@ -1641,12 +1619,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableUserStageToComputationNameMap().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1656,11 +1632,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
      */
-
     public Builder putAllUserStageToComputationNameMap(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableUserStageToComputationNameMap().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -1689,6 +1665,7 @@ private static final long serialVersionUID = 0L;
     public Builder setForwardingKeyBits(int value) {
       
       forwardingKeyBits_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1701,7 +1678,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearForwardingKeyBits() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       forwardingKeyBits_ = 0;
       onChanged();
       return this;
@@ -1732,6 +1709,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPersistentStateVersion(int value) {
       
       persistentStateVersion_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1744,7 +1722,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPersistentStateVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       persistentStateVersion_ = 0;
       onChanged();
       return this;
@@ -1782,7 +1760,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TopologyConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

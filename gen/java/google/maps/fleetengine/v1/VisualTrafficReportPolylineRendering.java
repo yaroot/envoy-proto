@@ -36,58 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VisualTrafficReportPolylineRendering(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              roadStretch_ = new java.util.ArrayList<google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            roadStretch_.add(
-                input.readMessage(google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        roadStretch_ = java.util.Collections.unmodifiableList(roadStretch_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.Vehicles.internal_static_maps_fleetengine_v1_VisualTrafficReportPolylineRendering_descriptor;
@@ -176,61 +124,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private RoadStretch(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              style_ = rawValue;
-              break;
-            }
-            case 16: {
-
-              offsetMeters_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              lengthMeters_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -391,7 +284,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int STYLE_FIELD_NUMBER = 1;
-    private int style_;
+    private int style_ = 0;
     /**
      * <pre>
      * Required. The style to apply.
@@ -412,13 +305,12 @@ private static final long serialVersionUID = 0L;
      * @return The style.
      */
     @java.lang.Override public google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style getStyle() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style result = google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style.valueOf(style_);
+      google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style result = google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style.forNumber(style_);
       return result == null ? google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style.UNRECOGNIZED : result;
     }
 
     public static final int OFFSET_METERS_FIELD_NUMBER = 2;
-    private int offsetMeters_;
+    private int offsetMeters_ = 0;
     /**
      * <pre>
      * Required. The style should be applied between `[offset_meters, offset_meters +
@@ -434,7 +326,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LENGTH_METERS_FIELD_NUMBER = 3;
-    private int lengthMeters_;
+    private int lengthMeters_ = 0;
     /**
      * <pre>
      * Required. The length of the path where to apply the style.
@@ -471,7 +363,7 @@ private static final long serialVersionUID = 0L;
       if (lengthMeters_ != 0) {
         output.writeInt32(3, lengthMeters_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -492,7 +384,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, lengthMeters_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -512,7 +404,7 @@ private static final long serialVersionUID = 0L;
           != other.getOffsetMeters()) return false;
       if (getLengthMeters()
           != other.getLengthMeters()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -529,7 +421,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getOffsetMeters();
       hash = (37 * hash) + LENGTH_METERS_FIELD_NUMBER;
       hash = (53 * hash) + getLengthMeters();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -650,28 +542,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         style_ = 0;
-
         offsetMeters_ = 0;
-
         lengthMeters_ = 0;
-
         return this;
       }
 
@@ -698,11 +583,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch buildPartial() {
         google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch result = new google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch(this);
-        result.style_ = style_;
-        result.offsetMeters_ = offsetMeters_;
-        result.lengthMeters_ = lengthMeters_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.style_ = style_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.offsetMeters_ = offsetMeters_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.lengthMeters_ = lengthMeters_;
+        }
       }
 
       @java.lang.Override
@@ -758,7 +654,7 @@ private static final long serialVersionUID = 0L;
         if (other.getLengthMeters() != 0) {
           setLengthMeters(other.getLengthMeters());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -773,19 +669,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                style_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                offsetMeters_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                lengthMeters_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int style_ = 0;
       /**
@@ -809,8 +734,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setStyleValue(int value) {
-        
         style_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -824,8 +749,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style getStyle() {
-        @SuppressWarnings("deprecation")
-        google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style result = google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style.valueOf(style_);
+        google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style result = google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style.forNumber(style_);
         return result == null ? google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.Style.UNRECOGNIZED : result;
       }
       /**
@@ -841,7 +765,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         style_ = value.getNumber();
         onChanged();
         return this;
@@ -855,7 +779,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStyle() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         style_ = 0;
         onChanged();
         return this;
@@ -888,6 +812,7 @@ private static final long serialVersionUID = 0L;
       public Builder setOffsetMeters(int value) {
         
         offsetMeters_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -901,7 +826,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOffsetMeters() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         offsetMeters_ = 0;
         onChanged();
         return this;
@@ -932,6 +857,7 @@ private static final long serialVersionUID = 0L;
       public Builder setLengthMeters(int value) {
         
         lengthMeters_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -944,7 +870,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLengthMeters() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         lengthMeters_ = 0;
         onChanged();
         return this;
@@ -982,7 +908,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RoadStretch(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1003,6 +940,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROAD_STRETCH_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch> roadStretch_;
   /**
    * <pre>
@@ -1119,7 +1057,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < roadStretch_.size(); i++) {
       output.writeMessage(1, roadStretch_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1132,7 +1070,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, roadStretch_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1149,7 +1087,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getRoadStretchList()
         .equals(other.getRoadStretchList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1164,7 +1102,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ROAD_STRETCH_FIELD_NUMBER;
       hash = (53 * hash) + getRoadStretchList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1286,29 +1224,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRoadStretchFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (roadStretchBuilder_ == null) {
         roadStretch_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        roadStretch_ = null;
         roadStretchBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -1335,7 +1269,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering buildPartial() {
       google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering result = new google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering result) {
       if (roadStretchBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           roadStretch_ = java.util.Collections.unmodifiableList(roadStretch_);
@@ -1345,8 +1285,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.roadStretch_ = roadStretchBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -1419,7 +1361,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1434,17 +1376,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch m =
+                  input.readMessage(
+                      google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering.RoadStretch.parser(),
+                      extensionRegistry);
+              if (roadStretchBuilder_ == null) {
+                ensureRoadStretchIsMutable();
+                roadStretch_.add(m);
+              } else {
+                roadStretchBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.VisualTrafficReportPolylineRendering) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1937,7 +1905,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VisualTrafficReportPolylineRendering(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

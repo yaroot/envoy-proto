@@ -36,58 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RedisProtocolOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.api.v2.core.DataSource.Builder subBuilder = null;
-            if (authPassword_ != null) {
-              subBuilder = authPassword_.toBuilder();
-            }
-            authPassword_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(authPassword_);
-              authPassword_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.filter.network.redis_proxy.v2.RedisProxyProto.internal_static_envoy_config_filter_network_redis_proxy_v2_RedisProtocolOptions_descriptor;
@@ -139,7 +87,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.core.DataSourceOrBuilder getAuthPasswordOrBuilder() {
-    return getAuthPassword();
+    return authPassword_ == null ? io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance() : authPassword_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -159,7 +107,7 @@ private static final long serialVersionUID = 0L;
     if (authPassword_ != null) {
       output.writeMessage(1, getAuthPassword());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -172,7 +120,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getAuthPassword());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -192,7 +140,7 @@ private static final long serialVersionUID = 0L;
       if (!getAuthPassword()
           .equals(other.getAuthPassword())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -207,7 +155,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AUTH_PASSWORD_FIELD_NUMBER;
       hash = (53 * hash) + getAuthPassword().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -330,26 +278,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.filter.network.redis_proxy.v2.RedisProtocolOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (authPasswordBuilder_ == null) {
-        authPassword_ = null;
-      } else {
-        authPassword_ = null;
+      bitField0_ = 0;
+      authPassword_ = null;
+      if (authPasswordBuilder_ != null) {
+        authPasswordBuilder_.dispose();
         authPasswordBuilder_ = null;
       }
       return this;
@@ -378,13 +321,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.filter.network.redis_proxy.v2.RedisProtocolOptions buildPartial() {
       io.envoyproxy.envoy.config.filter.network.redis_proxy.v2.RedisProtocolOptions result = new io.envoyproxy.envoy.config.filter.network.redis_proxy.v2.RedisProtocolOptions(this);
-      if (authPasswordBuilder_ == null) {
-        result.authPassword_ = authPassword_;
-      } else {
-        result.authPassword_ = authPasswordBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.filter.network.redis_proxy.v2.RedisProtocolOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.authPassword_ = authPasswordBuilder_ == null
+            ? authPassword_
+            : authPasswordBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -434,7 +382,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAuthPassword()) {
         mergeAuthPassword(other.getAuthPassword());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -449,19 +397,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.filter.network.redis_proxy.v2.RedisProtocolOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAuthPasswordFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.filter.network.redis_proxy.v2.RedisProtocolOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.api.v2.core.DataSource authPassword_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -476,7 +445,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the authPassword field is set.
      */
     public boolean hasAuthPassword() {
-      return authPasswordBuilder_ != null || authPassword_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -508,11 +477,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         authPassword_ = value;
-        onChanged();
       } else {
         authPasswordBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -527,11 +496,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.core.DataSource.Builder builderForValue) {
       if (authPasswordBuilder_ == null) {
         authPassword_ = builderForValue.build();
-        onChanged();
       } else {
         authPasswordBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -544,17 +513,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAuthPassword(io.envoyproxy.envoy.api.v2.core.DataSource value) {
       if (authPasswordBuilder_ == null) {
-        if (authPassword_ != null) {
-          authPassword_ =
-            io.envoyproxy.envoy.api.v2.core.DataSource.newBuilder(authPassword_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          authPassword_ != null &&
+          authPassword_ != io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance()) {
+          getAuthPasswordBuilder().mergeFrom(value);
         } else {
           authPassword_ = value;
         }
-        onChanged();
       } else {
         authPasswordBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -566,14 +536,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.DataSource auth_password = 1 [(.udpa.annotations.sensitive) = true];</code>
      */
     public Builder clearAuthPassword() {
-      if (authPasswordBuilder_ == null) {
-        authPassword_ = null;
-        onChanged();
-      } else {
-        authPassword_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      authPassword_ = null;
+      if (authPasswordBuilder_ != null) {
+        authPasswordBuilder_.dispose();
         authPasswordBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -585,7 +554,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.DataSource auth_password = 1 [(.udpa.annotations.sensitive) = true];</code>
      */
     public io.envoyproxy.envoy.api.v2.core.DataSource.Builder getAuthPasswordBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAuthPasswordFieldBuilder().getBuilder();
     }
@@ -659,7 +628,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RedisProtocolOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

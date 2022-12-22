@@ -19,6 +19,11 @@ public final class CorsProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_envoy_extensions_filters_http_cors_v3_Cors_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_extensions_filters_http_cors_v3_CorsPolicy_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_extensions_filters_http_cors_v3_CorsPolicy_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -30,18 +35,34 @@ public final class CorsProto {
     java.lang.String[] descriptorData = {
       "\n0envoy/extensions/filters/http/cors/v3/" +
       "cors.proto\022%envoy.extensions.filters.htt" +
-      "p.cors.v3\032\035udpa/annotations/status.proto" +
-      "\032!udpa/annotations/versioning.proto\"4\n\004C" +
-      "ors:,\232\305\210\036\'\n%envoy.config.filter.http.cor" +
-      "s.v2.CorsB\237\001\n3io.envoyproxy.envoy.extens" +
-      "ions.filters.http.cors.v3B\tCorsProtoP\001ZS" +
-      "github.com/envoyproxy/go-control-plane/e" +
-      "nvoy/extensions/filters/http/cors/v3;cor" +
-      "sv3\272\200\310\321\006\002\020\002b\006proto3"
+      "p.cors.v3\032\037envoy/config/core/v3/base.pro" +
+      "to\032\"envoy/type/matcher/v3/string.proto\032\036" +
+      "google/protobuf/wrappers.proto\032\035udpa/ann" +
+      "otations/status.proto\032!udpa/annotations/" +
+      "versioning.proto\"4\n\004Cors:,\232\305\210\036\'\n%envoy.c" +
+      "onfig.filter.http.cors.v2.Cors\"\265\003\n\nCorsP" +
+      "olicy\022G\n\031allow_origin_string_match\030\001 \003(\013" +
+      "2$.envoy.type.matcher.v3.StringMatcher\022\025" +
+      "\n\rallow_methods\030\002 \001(\t\022\025\n\rallow_headers\030\003" +
+      " \001(\t\022\026\n\016expose_headers\030\004 \001(\t\022\017\n\007max_age\030" +
+      "\005 \001(\t\0225\n\021allow_credentials\030\006 \001(\0132\032.googl" +
+      "e.protobuf.BoolValue\022F\n\016filter_enabled\030\007" +
+      " \001(\0132..envoy.config.core.v3.RuntimeFract" +
+      "ionalPercent\022F\n\016shadow_enabled\030\010 \001(\0132..e" +
+      "nvoy.config.core.v3.RuntimeFractionalPer" +
+      "cent\022@\n\034allow_private_network_access\030\t \001" +
+      "(\0132\032.google.protobuf.BoolValueB\237\001\n3io.en" +
+      "voyproxy.envoy.extensions.filters.http.c" +
+      "ors.v3B\tCorsProtoP\001ZSgithub.com/envoypro" +
+      "xy/go-control-plane/envoy/extensions/fil" +
+      "ters/http/cors/v3;corsv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor(),
+          io.envoyproxy.envoy.type.matcher.v3.StringProto.getDescriptor(),
+          com.google.protobuf.WrappersProto.getDescriptor(),
           udpa.annotations.Status.getDescriptor(),
           udpa.annotations.Versioning.getDescriptor(),
         });
@@ -51,12 +72,21 @@ public final class CorsProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_cors_v3_Cors_descriptor,
         new java.lang.String[] { });
+    internal_static_envoy_extensions_filters_http_cors_v3_CorsPolicy_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_envoy_extensions_filters_http_cors_v3_CorsPolicy_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_extensions_filters_http_cors_v3_CorsPolicy_descriptor,
+        new java.lang.String[] { "AllowOriginStringMatch", "AllowMethods", "AllowHeaders", "ExposeHeaders", "MaxAge", "AllowCredentials", "FilterEnabled", "ShadowEnabled", "AllowPrivateNetworkAccess", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);
     registry.add(udpa.annotations.Versioning.versioning);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
+    io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor();
+    io.envoyproxy.envoy.type.matcher.v3.StringProto.getDescriptor();
+    com.google.protobuf.WrappersProto.getDescriptor();
     udpa.annotations.Status.getDescriptor();
     udpa.annotations.Versioning.getDescriptor();
   }

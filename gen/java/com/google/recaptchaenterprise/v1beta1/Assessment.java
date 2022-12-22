@@ -36,135 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Assessment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.recaptchaenterprise.v1beta1.Event.Builder subBuilder = null;
-            if (event_ != null) {
-              subBuilder = event_.toBuilder();
-            }
-            event_ = input.readMessage(com.google.recaptchaenterprise.v1beta1.Event.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(event_);
-              event_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 29: {
-
-            score_ = input.readFloat();
-            break;
-          }
-          case 34: {
-            com.google.recaptchaenterprise.v1beta1.TokenProperties.Builder subBuilder = null;
-            if (tokenProperties_ != null) {
-              subBuilder = tokenProperties_.toBuilder();
-            }
-            tokenProperties_ = input.readMessage(com.google.recaptchaenterprise.v1beta1.TokenProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tokenProperties_);
-              tokenProperties_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              reasons_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            reasons_.add(rawValue);
-            break;
-          }
-          case 42: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                reasons_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              reasons_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 58: {
-            com.google.recaptchaenterprise.v1beta1.PasswordLeakVerification.Builder subBuilder = null;
-            if (passwordLeakVerification_ != null) {
-              subBuilder = passwordLeakVerification_.toBuilder();
-            }
-            passwordLeakVerification_ = input.readMessage(com.google.recaptchaenterprise.v1beta1.PasswordLeakVerification.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(passwordLeakVerification_);
-              passwordLeakVerification_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.recaptchaenterprise.v1beta1.AccountDefenderAssessment.Builder subBuilder = null;
-            if (accountDefenderAssessment_ != null) {
-              subBuilder = accountDefenderAssessment_.toBuilder();
-            }
-            accountDefenderAssessment_ = input.readMessage(com.google.recaptchaenterprise.v1beta1.AccountDefenderAssessment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(accountDefenderAssessment_);
-              accountDefenderAssessment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        reasons_ = java.util.Collections.unmodifiableList(reasons_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.recaptchaenterprise.v1beta1.RecaptchaEnterpriseProto.internal_static_google_cloud_recaptchaenterprise_v1beta1_Assessment_descriptor;
@@ -379,7 +250,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name for the Assessment in the format
@@ -461,11 +333,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1beta1.EventOrBuilder getEventOrBuilder() {
-    return getEvent();
+    return event_ == null ? com.google.recaptchaenterprise.v1beta1.Event.getDefaultInstance() : event_;
   }
 
   public static final int SCORE_FIELD_NUMBER = 3;
-  private float score_;
+  private float score_ = 0F;
   /**
    * <pre>
    * Output only. Legitimate event score from 0.0 to 1.0.
@@ -516,18 +388,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1beta1.TokenPropertiesOrBuilder getTokenPropertiesOrBuilder() {
-    return getTokenProperties();
+    return tokenProperties_ == null ? com.google.recaptchaenterprise.v1beta1.TokenProperties.getDefaultInstance() : tokenProperties_;
   }
 
   public static final int REASONS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> reasons_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.recaptchaenterprise.v1beta1.Assessment.ClassificationReason> reasons_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.recaptchaenterprise.v1beta1.Assessment.ClassificationReason>() {
             public com.google.recaptchaenterprise.v1beta1.Assessment.ClassificationReason convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.recaptchaenterprise.v1beta1.Assessment.ClassificationReason result = com.google.recaptchaenterprise.v1beta1.Assessment.ClassificationReason.valueOf(from);
+              com.google.recaptchaenterprise.v1beta1.Assessment.ClassificationReason result = com.google.recaptchaenterprise.v1beta1.Assessment.ClassificationReason.forNumber(from);
               return result == null ? com.google.recaptchaenterprise.v1beta1.Assessment.ClassificationReason.UNRECOGNIZED : result;
             }
           };
@@ -641,7 +513,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1beta1.PasswordLeakVerificationOrBuilder getPasswordLeakVerificationOrBuilder() {
-    return getPasswordLeakVerification();
+    return passwordLeakVerification_ == null ? com.google.recaptchaenterprise.v1beta1.PasswordLeakVerification.getDefaultInstance() : passwordLeakVerification_;
   }
 
   public static final int ACCOUNT_DEFENDER_ASSESSMENT_FIELD_NUMBER = 8;
@@ -682,7 +554,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1beta1.AccountDefenderAssessmentOrBuilder getAccountDefenderAssessmentOrBuilder() {
-    return getAccountDefenderAssessment();
+    return accountDefenderAssessment_ == null ? com.google.recaptchaenterprise.v1beta1.AccountDefenderAssessment.getDefaultInstance() : accountDefenderAssessment_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -725,7 +597,7 @@ private static final long serialVersionUID = 0L;
     if (accountDefenderAssessment_ != null) {
       output.writeMessage(8, getAccountDefenderAssessment());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -769,7 +641,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getAccountDefenderAssessment());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -810,7 +682,7 @@ private static final long serialVersionUID = 0L;
       if (!getAccountDefenderAssessment()
           .equals(other.getAccountDefenderAssessment())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -846,7 +718,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ACCOUNT_DEFENDER_ASSESSMENT_FIELD_NUMBER;
       hash = (53 * hash) + getAccountDefenderAssessment().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -967,50 +839,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1beta1.Assessment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (eventBuilder_ == null) {
-        event_ = null;
-      } else {
-        event_ = null;
+      event_ = null;
+      if (eventBuilder_ != null) {
+        eventBuilder_.dispose();
         eventBuilder_ = null;
       }
       score_ = 0F;
-
-      if (tokenPropertiesBuilder_ == null) {
-        tokenProperties_ = null;
-      } else {
-        tokenProperties_ = null;
+      tokenProperties_ = null;
+      if (tokenPropertiesBuilder_ != null) {
+        tokenPropertiesBuilder_.dispose();
         tokenPropertiesBuilder_ = null;
       }
       reasons_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (passwordLeakVerificationBuilder_ == null) {
-        passwordLeakVerification_ = null;
-      } else {
-        passwordLeakVerification_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      passwordLeakVerification_ = null;
+      if (passwordLeakVerificationBuilder_ != null) {
+        passwordLeakVerificationBuilder_.dispose();
         passwordLeakVerificationBuilder_ = null;
       }
-      if (accountDefenderAssessmentBuilder_ == null) {
-        accountDefenderAssessment_ = null;
-      } else {
-        accountDefenderAssessment_ = null;
+      accountDefenderAssessment_ = null;
+      if (accountDefenderAssessmentBuilder_ != null) {
+        accountDefenderAssessmentBuilder_.dispose();
         accountDefenderAssessmentBuilder_ = null;
       }
       return this;
@@ -1039,36 +901,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1beta1.Assessment buildPartial() {
       com.google.recaptchaenterprise.v1beta1.Assessment result = new com.google.recaptchaenterprise.v1beta1.Assessment(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (eventBuilder_ == null) {
-        result.event_ = event_;
-      } else {
-        result.event_ = eventBuilder_.build();
-      }
-      result.score_ = score_;
-      if (tokenPropertiesBuilder_ == null) {
-        result.tokenProperties_ = tokenProperties_;
-      } else {
-        result.tokenProperties_ = tokenPropertiesBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        reasons_ = java.util.Collections.unmodifiableList(reasons_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.reasons_ = reasons_;
-      if (passwordLeakVerificationBuilder_ == null) {
-        result.passwordLeakVerification_ = passwordLeakVerification_;
-      } else {
-        result.passwordLeakVerification_ = passwordLeakVerificationBuilder_.build();
-      }
-      if (accountDefenderAssessmentBuilder_ == null) {
-        result.accountDefenderAssessment_ = accountDefenderAssessment_;
-      } else {
-        result.accountDefenderAssessment_ = accountDefenderAssessmentBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.recaptchaenterprise.v1beta1.Assessment result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
+        reasons_ = java.util.Collections.unmodifiableList(reasons_);
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.reasons_ = reasons_;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1beta1.Assessment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.event_ = eventBuilder_ == null
+            ? event_
+            : eventBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.score_ = score_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.tokenProperties_ = tokenPropertiesBuilder_ == null
+            ? tokenProperties_
+            : tokenPropertiesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.passwordLeakVerification_ = passwordLeakVerificationBuilder_ == null
+            ? passwordLeakVerification_
+            : passwordLeakVerificationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.accountDefenderAssessment_ = accountDefenderAssessmentBuilder_ == null
+            ? accountDefenderAssessment_
+            : accountDefenderAssessmentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1117,6 +991,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.recaptchaenterprise.v1beta1.Assessment.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasEvent()) {
@@ -1131,7 +1006,7 @@ private static final long serialVersionUID = 0L;
       if (!other.reasons_.isEmpty()) {
         if (reasons_.isEmpty()) {
           reasons_ = other.reasons_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureReasonsIsMutable();
           reasons_.addAll(other.reasons_);
@@ -1144,7 +1019,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAccountDefenderAssessment()) {
         mergeAccountDefenderAssessment(other.getAccountDefenderAssessment());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1159,17 +1034,85 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1beta1.Assessment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 29: {
+              score_ = input.readFloat();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 29
+            case 34: {
+              input.readMessage(
+                  getTokenPropertiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              int tmpRaw = input.readEnum();
+              ensureReasonsIsMutable();
+              reasons_.add(tmpRaw);
+              break;
+            } // case 40
+            case 42: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureReasonsIsMutable();
+                reasons_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 42
+            case 58: {
+              input.readMessage(
+                  getPasswordLeakVerificationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getAccountDefenderAssessmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1beta1.Assessment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1230,11 +1173,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1248,8 +1189,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1265,12 +1206,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1287,7 +1226,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the event field is set.
      */
     public boolean hasEvent() {
-      return eventBuilder_ != null || event_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1317,11 +1256,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         event_ = value;
-        onChanged();
       } else {
         eventBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1335,11 +1274,11 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1beta1.Event.Builder builderForValue) {
       if (eventBuilder_ == null) {
         event_ = builderForValue.build();
-        onChanged();
       } else {
         eventBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1351,17 +1290,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEvent(com.google.recaptchaenterprise.v1beta1.Event value) {
       if (eventBuilder_ == null) {
-        if (event_ != null) {
-          event_ =
-            com.google.recaptchaenterprise.v1beta1.Event.newBuilder(event_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          event_ != null &&
+          event_ != com.google.recaptchaenterprise.v1beta1.Event.getDefaultInstance()) {
+          getEventBuilder().mergeFrom(value);
         } else {
           event_ = value;
         }
-        onChanged();
       } else {
         eventBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1372,14 +1312,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1beta1.Event event = 2;</code>
      */
     public Builder clearEvent() {
-      if (eventBuilder_ == null) {
-        event_ = null;
-        onChanged();
-      } else {
-        event_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      event_ = null;
+      if (eventBuilder_ != null) {
+        eventBuilder_.dispose();
         eventBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1390,7 +1329,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1beta1.Event event = 2;</code>
      */
     public com.google.recaptchaenterprise.v1beta1.Event.Builder getEventBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEventFieldBuilder().getBuilder();
     }
@@ -1459,6 +1398,7 @@ private static final long serialVersionUID = 0L;
     public Builder setScore(float value) {
       
       score_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1473,7 +1413,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScore() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       score_ = 0F;
       onChanged();
       return this;
@@ -1491,7 +1431,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tokenProperties field is set.
      */
     public boolean hasTokenProperties() {
-      return tokenPropertiesBuilder_ != null || tokenProperties_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1521,11 +1461,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tokenProperties_ = value;
-        onChanged();
       } else {
         tokenPropertiesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1539,11 +1479,11 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1beta1.TokenProperties.Builder builderForValue) {
       if (tokenPropertiesBuilder_ == null) {
         tokenProperties_ = builderForValue.build();
-        onChanged();
       } else {
         tokenPropertiesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1555,17 +1495,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTokenProperties(com.google.recaptchaenterprise.v1beta1.TokenProperties value) {
       if (tokenPropertiesBuilder_ == null) {
-        if (tokenProperties_ != null) {
-          tokenProperties_ =
-            com.google.recaptchaenterprise.v1beta1.TokenProperties.newBuilder(tokenProperties_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          tokenProperties_ != null &&
+          tokenProperties_ != com.google.recaptchaenterprise.v1beta1.TokenProperties.getDefaultInstance()) {
+          getTokenPropertiesBuilder().mergeFrom(value);
         } else {
           tokenProperties_ = value;
         }
-        onChanged();
       } else {
         tokenPropertiesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1576,14 +1517,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1beta1.TokenProperties token_properties = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearTokenProperties() {
-      if (tokenPropertiesBuilder_ == null) {
-        tokenProperties_ = null;
-        onChanged();
-      } else {
-        tokenProperties_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      tokenProperties_ = null;
+      if (tokenPropertiesBuilder_ != null) {
+        tokenPropertiesBuilder_.dispose();
         tokenPropertiesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1594,7 +1534,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1beta1.TokenProperties token_properties = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.recaptchaenterprise.v1beta1.TokenProperties.Builder getTokenPropertiesBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTokenPropertiesFieldBuilder().getBuilder();
     }
@@ -1637,9 +1577,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> reasons_ =
       java.util.Collections.emptyList();
     private void ensureReasonsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         reasons_ = new java.util.ArrayList<java.lang.Integer>(reasons_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
       }
     }
     /**
@@ -1743,7 +1683,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearReasons() {
       reasons_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1837,7 +1777,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the passwordLeakVerification field is set.
      */
     public boolean hasPasswordLeakVerification() {
-      return passwordLeakVerificationBuilder_ != null || passwordLeakVerification_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1873,11 +1813,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         passwordLeakVerification_ = value;
-        onChanged();
       } else {
         passwordLeakVerificationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1894,11 +1834,11 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1beta1.PasswordLeakVerification.Builder builderForValue) {
       if (passwordLeakVerificationBuilder_ == null) {
         passwordLeakVerification_ = builderForValue.build();
-        onChanged();
       } else {
         passwordLeakVerificationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1913,17 +1853,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePasswordLeakVerification(com.google.recaptchaenterprise.v1beta1.PasswordLeakVerification value) {
       if (passwordLeakVerificationBuilder_ == null) {
-        if (passwordLeakVerification_ != null) {
-          passwordLeakVerification_ =
-            com.google.recaptchaenterprise.v1beta1.PasswordLeakVerification.newBuilder(passwordLeakVerification_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          passwordLeakVerification_ != null &&
+          passwordLeakVerification_ != com.google.recaptchaenterprise.v1beta1.PasswordLeakVerification.getDefaultInstance()) {
+          getPasswordLeakVerificationBuilder().mergeFrom(value);
         } else {
           passwordLeakVerification_ = value;
         }
-        onChanged();
       } else {
         passwordLeakVerificationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1937,14 +1878,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1beta1.PasswordLeakVerification password_leak_verification = 7;</code>
      */
     public Builder clearPasswordLeakVerification() {
-      if (passwordLeakVerificationBuilder_ == null) {
-        passwordLeakVerification_ = null;
-        onChanged();
-      } else {
-        passwordLeakVerification_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      passwordLeakVerification_ = null;
+      if (passwordLeakVerificationBuilder_ != null) {
+        passwordLeakVerificationBuilder_.dispose();
         passwordLeakVerificationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1958,7 +1898,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1beta1.PasswordLeakVerification password_leak_verification = 7;</code>
      */
     public com.google.recaptchaenterprise.v1beta1.PasswordLeakVerification.Builder getPasswordLeakVerificationBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getPasswordLeakVerificationFieldBuilder().getBuilder();
     }
@@ -2017,7 +1957,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accountDefenderAssessment field is set.
      */
     public boolean hasAccountDefenderAssessment() {
-      return accountDefenderAssessmentBuilder_ != null || accountDefenderAssessment_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2049,11 +1989,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         accountDefenderAssessment_ = value;
-        onChanged();
       } else {
         accountDefenderAssessmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2068,11 +2008,11 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1beta1.AccountDefenderAssessment.Builder builderForValue) {
       if (accountDefenderAssessmentBuilder_ == null) {
         accountDefenderAssessment_ = builderForValue.build();
-        onChanged();
       } else {
         accountDefenderAssessmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2085,17 +2025,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccountDefenderAssessment(com.google.recaptchaenterprise.v1beta1.AccountDefenderAssessment value) {
       if (accountDefenderAssessmentBuilder_ == null) {
-        if (accountDefenderAssessment_ != null) {
-          accountDefenderAssessment_ =
-            com.google.recaptchaenterprise.v1beta1.AccountDefenderAssessment.newBuilder(accountDefenderAssessment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          accountDefenderAssessment_ != null &&
+          accountDefenderAssessment_ != com.google.recaptchaenterprise.v1beta1.AccountDefenderAssessment.getDefaultInstance()) {
+          getAccountDefenderAssessmentBuilder().mergeFrom(value);
         } else {
           accountDefenderAssessment_ = value;
         }
-        onChanged();
       } else {
         accountDefenderAssessmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2107,14 +2048,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1beta1.AccountDefenderAssessment account_defender_assessment = 8;</code>
      */
     public Builder clearAccountDefenderAssessment() {
-      if (accountDefenderAssessmentBuilder_ == null) {
-        accountDefenderAssessment_ = null;
-        onChanged();
-      } else {
-        accountDefenderAssessment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      accountDefenderAssessment_ = null;
+      if (accountDefenderAssessmentBuilder_ != null) {
+        accountDefenderAssessmentBuilder_.dispose();
         accountDefenderAssessmentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2126,7 +2066,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1beta1.AccountDefenderAssessment account_defender_assessment = 8;</code>
      */
     public com.google.recaptchaenterprise.v1beta1.AccountDefenderAssessment.Builder getAccountDefenderAssessmentBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getAccountDefenderAssessmentFieldBuilder().getBuilder();
     }
@@ -2200,7 +2140,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Assessment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

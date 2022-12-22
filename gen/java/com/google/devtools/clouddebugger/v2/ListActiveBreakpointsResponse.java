@@ -36,69 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListActiveBreakpointsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              breakpoints_ = new java.util.ArrayList<com.google.devtools.clouddebugger.v2.Breakpoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            breakpoints_.add(
-                input.readMessage(com.google.devtools.clouddebugger.v2.Breakpoint.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nextWaitToken_ = s;
-            break;
-          }
-          case 24: {
-
-            waitExpired_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        breakpoints_ = java.util.Collections.unmodifiableList(breakpoints_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.clouddebugger.v2.ControllerProto.internal_static_google_devtools_clouddebugger_v2_ListActiveBreakpointsResponse_descriptor;
@@ -113,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BREAKPOINTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.clouddebugger.v2.Breakpoint> breakpoints_;
   /**
    * <pre>
@@ -178,7 +116,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_WAIT_TOKEN_FIELD_NUMBER = 2;
-  private volatile java.lang.Object nextWaitToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextWaitToken_ = "";
   /**
    * <pre>
    * A token that can be used in the next method call to block until
@@ -226,7 +165,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WAIT_EXPIRED_FIELD_NUMBER = 3;
-  private boolean waitExpired_;
+  private boolean waitExpired_ = false;
   /**
    * <pre>
    * If set to `true`, indicates that there is no change to the
@@ -265,7 +204,7 @@ private static final long serialVersionUID = 0L;
     if (waitExpired_ != false) {
       output.writeBool(3, waitExpired_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +224,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, waitExpired_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -306,7 +245,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getNextWaitToken())) return false;
     if (getWaitExpired()
         != other.getWaitExpired()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -326,7 +265,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + WAIT_EXPIRED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getWaitExpired());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -447,33 +386,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.clouddebugger.v2.ListActiveBreakpointsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getBreakpointsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (breakpointsBuilder_ == null) {
         breakpoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        breakpoints_ = null;
         breakpointsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       nextWaitToken_ = "";
-
       waitExpired_ = false;
-
       return this;
     }
 
@@ -500,7 +433,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.clouddebugger.v2.ListActiveBreakpointsResponse buildPartial() {
       com.google.devtools.clouddebugger.v2.ListActiveBreakpointsResponse result = new com.google.devtools.clouddebugger.v2.ListActiveBreakpointsResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.clouddebugger.v2.ListActiveBreakpointsResponse result) {
       if (breakpointsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           breakpoints_ = java.util.Collections.unmodifiableList(breakpoints_);
@@ -510,10 +449,16 @@ private static final long serialVersionUID = 0L;
       } else {
         result.breakpoints_ = breakpointsBuilder_.build();
       }
-      result.nextWaitToken_ = nextWaitToken_;
-      result.waitExpired_ = waitExpired_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.devtools.clouddebugger.v2.ListActiveBreakpointsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.nextWaitToken_ = nextWaitToken_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.waitExpired_ = waitExpired_;
+      }
     }
 
     @java.lang.Override
@@ -588,12 +533,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getNextWaitToken().isEmpty()) {
         nextWaitToken_ = other.nextWaitToken_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getWaitExpired() != false) {
         setWaitExpired(other.getWaitExpired());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -608,17 +554,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.clouddebugger.v2.ListActiveBreakpointsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.devtools.clouddebugger.v2.Breakpoint m =
+                  input.readMessage(
+                      com.google.devtools.clouddebugger.v2.Breakpoint.parser(),
+                      extensionRegistry);
+              if (breakpointsBuilder_ == null) {
+                ensureBreakpointsIsMutable();
+                breakpoints_.add(m);
+              } else {
+                breakpointsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              nextWaitToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              waitExpired_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.clouddebugger.v2.ListActiveBreakpointsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1009,11 +991,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextWaitToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nextWaitToken_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1027,8 +1007,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextWaitToken() {
-      
       nextWaitToken_ = getDefaultInstance().getNextWaitToken();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1044,12 +1024,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextWaitTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextWaitToken_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1083,6 +1061,7 @@ private static final long serialVersionUID = 0L;
     public Builder setWaitExpired(boolean value) {
       
       waitExpired_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1097,7 +1076,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWaitExpired() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       waitExpired_ = false;
       onChanged();
       return this;
@@ -1135,7 +1114,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListActiveBreakpointsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

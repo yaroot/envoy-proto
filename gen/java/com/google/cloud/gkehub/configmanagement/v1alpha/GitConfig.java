@@ -41,92 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GitConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            syncRepo_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            syncBranch_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            policyDir_ = s;
-            break;
-          }
-          case 32: {
-
-            syncWaitSecs_ = input.readInt64();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            syncRev_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            secretType_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            httpsProxy_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gcpServiceAccountEmail_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.configmanagement.v1alpha.ConfigManagementProto.internal_static_google_cloud_gkehub_configmanagement_v1alpha_GitConfig_descriptor;
@@ -141,7 +55,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SYNC_REPO_FIELD_NUMBER = 1;
-  private volatile java.lang.Object syncRepo_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object syncRepo_ = "";
   /**
    * <pre>
    * The URL of the Git repository to use as the source of truth.
@@ -187,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SYNC_BRANCH_FIELD_NUMBER = 2;
-  private volatile java.lang.Object syncBranch_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object syncBranch_ = "";
   /**
    * <pre>
    * The branch of the repository to sync from. Default: master.
@@ -233,7 +149,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POLICY_DIR_FIELD_NUMBER = 3;
-  private volatile java.lang.Object policyDir_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object policyDir_ = "";
   /**
    * <pre>
    * The path within the Git repository that represents the top level of the
@@ -281,7 +198,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SYNC_WAIT_SECS_FIELD_NUMBER = 4;
-  private long syncWaitSecs_;
+  private long syncWaitSecs_ = 0L;
   /**
    * <pre>
    * Period in seconds between consecutive syncs. Default: 15.
@@ -296,7 +213,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SYNC_REV_FIELD_NUMBER = 5;
-  private volatile java.lang.Object syncRev_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object syncRev_ = "";
   /**
    * <pre>
    * Git revision (tag or hash) to check out. Default HEAD.
@@ -342,7 +260,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECRET_TYPE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object secretType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object secretType_ = "";
   /**
    * <pre>
    * Type of secret configured for access to the Git repo.
@@ -388,7 +307,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HTTPS_PROXY_FIELD_NUMBER = 7;
-  private volatile java.lang.Object httpsProxy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object httpsProxy_ = "";
   /**
    * <pre>
    * URL for the HTTPS proxy to be used when communicating with the Git repo.
@@ -434,7 +354,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GCP_SERVICE_ACCOUNT_EMAIL_FIELD_NUMBER = 8;
-  private volatile java.lang.Object gcpServiceAccountEmail_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gcpServiceAccountEmail_ = "";
   /**
    * <pre>
    * The GCP Service Account Email used for auth when secret_type is
@@ -519,7 +440,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gcpServiceAccountEmail_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, gcpServiceAccountEmail_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -553,7 +474,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gcpServiceAccountEmail_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, gcpServiceAccountEmail_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -584,7 +505,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getHttpsProxy())) return false;
     if (!getGcpServiceAccountEmail()
         .equals(other.getGcpServiceAccountEmail())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -612,7 +533,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getHttpsProxy().hashCode();
     hash = (37 * hash) + GCP_SERVICE_ACCOUNT_EMAIL_FIELD_NUMBER;
     hash = (53 * hash) + getGcpServiceAccountEmail().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -733,38 +654,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.configmanagement.v1alpha.GitConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       syncRepo_ = "";
-
       syncBranch_ = "";
-
       policyDir_ = "";
-
       syncWaitSecs_ = 0L;
-
       syncRev_ = "";
-
       secretType_ = "";
-
       httpsProxy_ = "";
-
       gcpServiceAccountEmail_ = "";
-
       return this;
     }
 
@@ -791,16 +700,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1alpha.GitConfig buildPartial() {
       com.google.cloud.gkehub.configmanagement.v1alpha.GitConfig result = new com.google.cloud.gkehub.configmanagement.v1alpha.GitConfig(this);
-      result.syncRepo_ = syncRepo_;
-      result.syncBranch_ = syncBranch_;
-      result.policyDir_ = policyDir_;
-      result.syncWaitSecs_ = syncWaitSecs_;
-      result.syncRev_ = syncRev_;
-      result.secretType_ = secretType_;
-      result.httpsProxy_ = httpsProxy_;
-      result.gcpServiceAccountEmail_ = gcpServiceAccountEmail_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.configmanagement.v1alpha.GitConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.syncRepo_ = syncRepo_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.syncBranch_ = syncBranch_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.policyDir_ = policyDir_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.syncWaitSecs_ = syncWaitSecs_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.syncRev_ = syncRev_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.secretType_ = secretType_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.httpsProxy_ = httpsProxy_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.gcpServiceAccountEmail_ = gcpServiceAccountEmail_;
+      }
     }
 
     @java.lang.Override
@@ -849,14 +779,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkehub.configmanagement.v1alpha.GitConfig.getDefaultInstance()) return this;
       if (!other.getSyncRepo().isEmpty()) {
         syncRepo_ = other.syncRepo_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSyncBranch().isEmpty()) {
         syncBranch_ = other.syncBranch_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getPolicyDir().isEmpty()) {
         policyDir_ = other.policyDir_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getSyncWaitSecs() != 0L) {
@@ -864,21 +797,25 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSyncRev().isEmpty()) {
         syncRev_ = other.syncRev_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getSecretType().isEmpty()) {
         secretType_ = other.secretType_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getHttpsProxy().isEmpty()) {
         httpsProxy_ = other.httpsProxy_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getGcpServiceAccountEmail().isEmpty()) {
         gcpServiceAccountEmail_ = other.gcpServiceAccountEmail_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -893,19 +830,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.configmanagement.v1alpha.GitConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              syncRepo_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              syncBranch_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              policyDir_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              syncWaitSecs_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              syncRev_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              secretType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              httpsProxy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              gcpServiceAccountEmail_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.configmanagement.v1alpha.GitConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object syncRepo_ = "";
     /**
@@ -960,11 +951,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyncRepo(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       syncRepo_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -977,8 +966,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSyncRepo() {
-      
       syncRepo_ = getDefaultInstance().getSyncRepo();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -993,12 +982,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyncRepoBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       syncRepo_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1056,11 +1043,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyncBranch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       syncBranch_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1073,8 +1058,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSyncBranch() {
-      
       syncBranch_ = getDefaultInstance().getSyncBranch();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1089,12 +1074,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyncBranchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       syncBranch_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1155,11 +1138,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPolicyDir(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       policyDir_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1173,8 +1154,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPolicyDir() {
-      
       policyDir_ = getDefaultInstance().getPolicyDir();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1190,12 +1171,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPolicyDirBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       policyDir_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1225,6 +1204,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSyncWaitSecs(long value) {
       
       syncWaitSecs_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1237,7 +1217,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSyncWaitSecs() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       syncWaitSecs_ = 0L;
       onChanged();
       return this;
@@ -1296,11 +1276,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyncRev(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       syncRev_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1313,8 +1291,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSyncRev() {
-      
       syncRev_ = getDefaultInstance().getSyncRev();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1329,12 +1307,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyncRevBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       syncRev_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1392,11 +1368,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecretType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       secretType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1409,8 +1383,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSecretType() {
-      
       secretType_ = getDefaultInstance().getSecretType();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1425,12 +1399,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecretTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       secretType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1488,11 +1460,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHttpsProxy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       httpsProxy_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1505,8 +1475,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHttpsProxy() {
-      
       httpsProxy_ = getDefaultInstance().getHttpsProxy();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1521,12 +1491,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHttpsProxyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       httpsProxy_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1587,11 +1555,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcpServiceAccountEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gcpServiceAccountEmail_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1605,8 +1571,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGcpServiceAccountEmail() {
-      
       gcpServiceAccountEmail_ = getDefaultInstance().getGcpServiceAccountEmail();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1622,12 +1588,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcpServiceAccountEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gcpServiceAccountEmail_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1664,7 +1628,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GitConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

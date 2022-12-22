@@ -62,7 +62,6 @@ public interface ExplanationMetadataOverrideOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.InputMetadataOverride&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   /* nullable */
 com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.InputMetadataOverride getInputsOrDefault(
       java.lang.String key,
@@ -79,7 +78,6 @@ com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.InputMetadataOve
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.InputMetadataOverride&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   com.google.cloud.aiplatform.v1beta1.ExplanationMetadataOverride.InputMetadataOverride getInputsOrThrow(
       java.lang.String key);
 }

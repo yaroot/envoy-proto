@@ -34,106 +34,15 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetObjectMediaResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.storage.v1.ChecksummedData.Builder subBuilder = null;
-            if (checksummedData_ != null) {
-              subBuilder = checksummedData_.toBuilder();
-            }
-            checksummedData_ = input.readMessage(com.google.storage.v1.ChecksummedData.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(checksummedData_);
-              checksummedData_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.storage.v1.ObjectChecksums.Builder subBuilder = null;
-            if (objectChecksums_ != null) {
-              subBuilder = objectChecksums_.toBuilder();
-            }
-            objectChecksums_ = input.readMessage(com.google.storage.v1.ObjectChecksums.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(objectChecksums_);
-              objectChecksums_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.storage.v1.ContentRange.Builder subBuilder = null;
-            if (contentRange_ != null) {
-              subBuilder = contentRange_.toBuilder();
-            }
-            contentRange_ = input.readMessage(com.google.storage.v1.ContentRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(contentRange_);
-              contentRange_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.storage.v1.Object.Builder subBuilder = null;
-            if (metadata_ != null) {
-              subBuilder = metadata_.toBuilder();
-            }
-            metadata_ = input.readMessage(com.google.storage.v1.Object.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetObjectMediaResponse_descriptor;
+    return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetObjectMediaResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetObjectMediaResponse_fieldAccessorTable
+    return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetObjectMediaResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.storage.v1.GetObjectMediaResponse.class, com.google.storage.v1.GetObjectMediaResponse.Builder.class);
   }
@@ -182,7 +91,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.storage.v1.ChecksummedDataOrBuilder getChecksummedDataOrBuilder() {
-    return getChecksummedData();
+    return checksummedData_ == null ? com.google.storage.v1.ChecksummedData.getDefaultInstance() : checksummedData_;
   }
 
   public static final int OBJECT_CHECKSUMS_FIELD_NUMBER = 2;
@@ -226,7 +135,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.storage.v1.ObjectChecksumsOrBuilder getObjectChecksumsOrBuilder() {
-    return getObjectChecksums();
+    return objectChecksums_ == null ? com.google.storage.v1.ObjectChecksums.getDefaultInstance() : objectChecksums_;
   }
 
   public static final int CONTENT_RANGE_FIELD_NUMBER = 3;
@@ -270,7 +179,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.storage.v1.ContentRangeOrBuilder getContentRangeOrBuilder() {
-    return getContentRange();
+    return contentRange_ == null ? com.google.storage.v1.ContentRange.getDefaultInstance() : contentRange_;
   }
 
   public static final int METADATA_FIELD_NUMBER = 4;
@@ -311,7 +220,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.storage.v1.ObjectOrBuilder getMetadataOrBuilder() {
-    return getMetadata();
+    return metadata_ == null ? com.google.storage.v1.Object.getDefaultInstance() : metadata_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -340,7 +249,7 @@ private static final long serialVersionUID = 0L;
     if (metadata_ != null) {
       output.writeMessage(4, getMetadata());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -365,7 +274,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getMetadata());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -400,7 +309,7 @@ private static final long serialVersionUID = 0L;
       if (!getMetadata()
           .equals(other.getMetadata())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -427,7 +336,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + METADATA_FIELD_NUMBER;
       hash = (53 * hash) + getMetadata().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -535,57 +444,49 @@ private static final long serialVersionUID = 0L;
       com.google.storage.v1.GetObjectMediaResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetObjectMediaResponse_descriptor;
+      return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetObjectMediaResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetObjectMediaResponse_fieldAccessorTable
+      return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetObjectMediaResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.storage.v1.GetObjectMediaResponse.class, com.google.storage.v1.GetObjectMediaResponse.Builder.class);
     }
 
     // Construct using com.google.storage.v1.GetObjectMediaResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (checksummedDataBuilder_ == null) {
-        checksummedData_ = null;
-      } else {
-        checksummedData_ = null;
+      bitField0_ = 0;
+      checksummedData_ = null;
+      if (checksummedDataBuilder_ != null) {
+        checksummedDataBuilder_.dispose();
         checksummedDataBuilder_ = null;
       }
-      if (objectChecksumsBuilder_ == null) {
-        objectChecksums_ = null;
-      } else {
-        objectChecksums_ = null;
+      objectChecksums_ = null;
+      if (objectChecksumsBuilder_ != null) {
+        objectChecksumsBuilder_.dispose();
         objectChecksumsBuilder_ = null;
       }
-      if (contentRangeBuilder_ == null) {
-        contentRange_ = null;
-      } else {
-        contentRange_ = null;
+      contentRange_ = null;
+      if (contentRangeBuilder_ != null) {
+        contentRangeBuilder_.dispose();
         contentRangeBuilder_ = null;
       }
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-      } else {
-        metadata_ = null;
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
       return this;
@@ -594,7 +495,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.storage.v1.StorageOuterClass.internal_static_google_storage_v1_GetObjectMediaResponse_descriptor;
+      return com.google.storage.v1.Storage.internal_static_google_storage_v1_GetObjectMediaResponse_descriptor;
     }
 
     @java.lang.Override
@@ -614,28 +515,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v1.GetObjectMediaResponse buildPartial() {
       com.google.storage.v1.GetObjectMediaResponse result = new com.google.storage.v1.GetObjectMediaResponse(this);
-      if (checksummedDataBuilder_ == null) {
-        result.checksummedData_ = checksummedData_;
-      } else {
-        result.checksummedData_ = checksummedDataBuilder_.build();
-      }
-      if (objectChecksumsBuilder_ == null) {
-        result.objectChecksums_ = objectChecksums_;
-      } else {
-        result.objectChecksums_ = objectChecksumsBuilder_.build();
-      }
-      if (contentRangeBuilder_ == null) {
-        result.contentRange_ = contentRange_;
-      } else {
-        result.contentRange_ = contentRangeBuilder_.build();
-      }
-      if (metadataBuilder_ == null) {
-        result.metadata_ = metadata_;
-      } else {
-        result.metadata_ = metadataBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.storage.v1.GetObjectMediaResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.checksummedData_ = checksummedDataBuilder_ == null
+            ? checksummedData_
+            : checksummedDataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.objectChecksums_ = objectChecksumsBuilder_ == null
+            ? objectChecksums_
+            : objectChecksumsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.contentRange_ = contentRangeBuilder_ == null
+            ? contentRange_
+            : contentRangeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.metadata_ = metadataBuilder_ == null
+            ? metadata_
+            : metadataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -694,7 +600,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMetadata()) {
         mergeMetadata(other.getMetadata());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -709,19 +615,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v1.GetObjectMediaResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getChecksummedDataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getObjectChecksumsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getContentRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v1.GetObjectMediaResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.storage.v1.ChecksummedData checksummedData_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -738,7 +686,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the checksummedData field is set.
      */
     public boolean hasChecksummedData() {
-      return checksummedDataBuilder_ != null || checksummedData_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -774,11 +722,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         checksummedData_ = value;
-        onChanged();
       } else {
         checksummedDataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -795,11 +743,11 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v1.ChecksummedData.Builder builderForValue) {
       if (checksummedDataBuilder_ == null) {
         checksummedData_ = builderForValue.build();
-        onChanged();
       } else {
         checksummedDataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -814,17 +762,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeChecksummedData(com.google.storage.v1.ChecksummedData value) {
       if (checksummedDataBuilder_ == null) {
-        if (checksummedData_ != null) {
-          checksummedData_ =
-            com.google.storage.v1.ChecksummedData.newBuilder(checksummedData_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          checksummedData_ != null &&
+          checksummedData_ != com.google.storage.v1.ChecksummedData.getDefaultInstance()) {
+          getChecksummedDataBuilder().mergeFrom(value);
         } else {
           checksummedData_ = value;
         }
-        onChanged();
       } else {
         checksummedDataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -838,14 +787,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.ChecksummedData checksummed_data = 1;</code>
      */
     public Builder clearChecksummedData() {
-      if (checksummedDataBuilder_ == null) {
-        checksummedData_ = null;
-        onChanged();
-      } else {
-        checksummedData_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      checksummedData_ = null;
+      if (checksummedDataBuilder_ != null) {
+        checksummedDataBuilder_.dispose();
         checksummedDataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -859,7 +807,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.ChecksummedData checksummed_data = 1;</code>
      */
     public com.google.storage.v1.ChecksummedData.Builder getChecksummedDataBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getChecksummedDataFieldBuilder().getBuilder();
     }
@@ -919,7 +867,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the objectChecksums field is set.
      */
     public boolean hasObjectChecksums() {
-      return objectChecksumsBuilder_ != null || objectChecksums_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -953,11 +901,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         objectChecksums_ = value;
-        onChanged();
       } else {
         objectChecksumsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -973,11 +921,11 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v1.ObjectChecksums.Builder builderForValue) {
       if (objectChecksumsBuilder_ == null) {
         objectChecksums_ = builderForValue.build();
-        onChanged();
       } else {
         objectChecksumsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -991,17 +939,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeObjectChecksums(com.google.storage.v1.ObjectChecksums value) {
       if (objectChecksumsBuilder_ == null) {
-        if (objectChecksums_ != null) {
-          objectChecksums_ =
-            com.google.storage.v1.ObjectChecksums.newBuilder(objectChecksums_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          objectChecksums_ != null &&
+          objectChecksums_ != com.google.storage.v1.ObjectChecksums.getDefaultInstance()) {
+          getObjectChecksumsBuilder().mergeFrom(value);
         } else {
           objectChecksums_ = value;
         }
-        onChanged();
       } else {
         objectChecksumsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1014,14 +963,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.ObjectChecksums object_checksums = 2;</code>
      */
     public Builder clearObjectChecksums() {
-      if (objectChecksumsBuilder_ == null) {
-        objectChecksums_ = null;
-        onChanged();
-      } else {
-        objectChecksums_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      objectChecksums_ = null;
+      if (objectChecksumsBuilder_ != null) {
+        objectChecksumsBuilder_.dispose();
         objectChecksumsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1034,7 +982,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.ObjectChecksums object_checksums = 2;</code>
      */
     public com.google.storage.v1.ObjectChecksums.Builder getObjectChecksumsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getObjectChecksumsFieldBuilder().getBuilder();
     }
@@ -1092,7 +1040,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the contentRange field is set.
      */
     public boolean hasContentRange() {
-      return contentRangeBuilder_ != null || contentRange_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1126,11 +1074,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         contentRange_ = value;
-        onChanged();
       } else {
         contentRangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1146,11 +1094,11 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v1.ContentRange.Builder builderForValue) {
       if (contentRangeBuilder_ == null) {
         contentRange_ = builderForValue.build();
-        onChanged();
       } else {
         contentRangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1164,17 +1112,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeContentRange(com.google.storage.v1.ContentRange value) {
       if (contentRangeBuilder_ == null) {
-        if (contentRange_ != null) {
-          contentRange_ =
-            com.google.storage.v1.ContentRange.newBuilder(contentRange_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          contentRange_ != null &&
+          contentRange_ != com.google.storage.v1.ContentRange.getDefaultInstance()) {
+          getContentRangeBuilder().mergeFrom(value);
         } else {
           contentRange_ = value;
         }
-        onChanged();
       } else {
         contentRangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1187,14 +1136,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.ContentRange content_range = 3;</code>
      */
     public Builder clearContentRange() {
-      if (contentRangeBuilder_ == null) {
-        contentRange_ = null;
-        onChanged();
-      } else {
-        contentRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      contentRange_ = null;
+      if (contentRangeBuilder_ != null) {
+        contentRangeBuilder_.dispose();
         contentRangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1207,7 +1155,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.ContentRange content_range = 3;</code>
      */
     public com.google.storage.v1.ContentRange.Builder getContentRangeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getContentRangeFieldBuilder().getBuilder();
     }
@@ -1264,7 +1212,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metadata field is set.
      */
     public boolean hasMetadata() {
-      return metadataBuilder_ != null || metadata_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1296,11 +1244,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metadata_ = value;
-        onChanged();
       } else {
         metadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1315,11 +1263,11 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v1.Object.Builder builderForValue) {
       if (metadataBuilder_ == null) {
         metadata_ = builderForValue.build();
-        onChanged();
       } else {
         metadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1332,17 +1280,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetadata(com.google.storage.v1.Object value) {
       if (metadataBuilder_ == null) {
-        if (metadata_ != null) {
-          metadata_ =
-            com.google.storage.v1.Object.newBuilder(metadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          metadata_ != null &&
+          metadata_ != com.google.storage.v1.Object.getDefaultInstance()) {
+          getMetadataBuilder().mergeFrom(value);
         } else {
           metadata_ = value;
         }
-        onChanged();
       } else {
         metadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1354,14 +1303,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.Object metadata = 4;</code>
      */
     public Builder clearMetadata() {
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-        onChanged();
-      } else {
-        metadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1373,7 +1321,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.Object metadata = 4;</code>
      */
     public com.google.storage.v1.Object.Builder getMetadataBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getMetadataFieldBuilder().getBuilder();
     }
@@ -1447,7 +1395,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetObjectMediaResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

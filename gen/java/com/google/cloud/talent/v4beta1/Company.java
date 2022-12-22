@@ -46,135 +46,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Company(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            externalId_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            size_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            headquartersAddress_ = s;
-            break;
-          }
-          case 48: {
-
-            hiringAgency_ = input.readBool();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            eeoText_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            websiteUri_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            careerSiteUri_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageUri_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              keywordSearchableJobCustomAttributes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            keywordSearchableJobCustomAttributes_.add(s);
-            break;
-          }
-          case 98: {
-            com.google.cloud.talent.v4beta1.Company.DerivedInfo.Builder subBuilder = null;
-            if (derivedInfo_ != null) {
-              subBuilder = derivedInfo_.toBuilder();
-            }
-            derivedInfo_ = input.readMessage(com.google.cloud.talent.v4beta1.Company.DerivedInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(derivedInfo_);
-              derivedInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 104: {
-
-            suspended_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        keywordSearchableJobCustomAttributes_ = keywordSearchableJobCustomAttributes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4beta1.CompanyResourceProto.internal_static_google_cloud_talent_v4beta1_Company_descriptor;
@@ -253,58 +124,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DerivedInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.talent.v4beta1.Location.Builder subBuilder = null;
-              if (headquartersLocation_ != null) {
-                subBuilder = headquartersLocation_.toBuilder();
-              }
-              headquartersLocation_ = input.readMessage(com.google.cloud.talent.v4beta1.Location.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(headquartersLocation_);
-                headquartersLocation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.talent.v4beta1.CompanyResourceProto.internal_static_google_cloud_talent_v4beta1_Company_DerivedInfo_descriptor;
@@ -356,7 +175,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.LocationOrBuilder getHeadquartersLocationOrBuilder() {
-      return getHeadquartersLocation();
+      return headquartersLocation_ == null ? com.google.cloud.talent.v4beta1.Location.getDefaultInstance() : headquartersLocation_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -376,7 +195,7 @@ private static final long serialVersionUID = 0L;
       if (headquartersLocation_ != null) {
         output.writeMessage(1, getHeadquartersLocation());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -389,7 +208,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeadquartersLocation());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -409,7 +228,7 @@ private static final long serialVersionUID = 0L;
         if (!getHeadquartersLocation()
             .equals(other.getHeadquartersLocation())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -424,7 +243,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + HEADQUARTERS_LOCATION_FIELD_NUMBER;
         hash = (53 * hash) + getHeadquartersLocation().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -545,26 +364,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.talent.v4beta1.Company.DerivedInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (headquartersLocationBuilder_ == null) {
-          headquartersLocation_ = null;
-        } else {
-          headquartersLocation_ = null;
+        bitField0_ = 0;
+        headquartersLocation_ = null;
+        if (headquartersLocationBuilder_ != null) {
+          headquartersLocationBuilder_.dispose();
           headquartersLocationBuilder_ = null;
         }
         return this;
@@ -593,13 +407,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.talent.v4beta1.Company.DerivedInfo buildPartial() {
         com.google.cloud.talent.v4beta1.Company.DerivedInfo result = new com.google.cloud.talent.v4beta1.Company.DerivedInfo(this);
-        if (headquartersLocationBuilder_ == null) {
-          result.headquartersLocation_ = headquartersLocation_;
-        } else {
-          result.headquartersLocation_ = headquartersLocationBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.talent.v4beta1.Company.DerivedInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.headquartersLocation_ = headquartersLocationBuilder_ == null
+              ? headquartersLocation_
+              : headquartersLocationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -649,7 +468,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasHeadquartersLocation()) {
           mergeHeadquartersLocation(other.getHeadquartersLocation());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -664,19 +483,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.talent.v4beta1.Company.DerivedInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getHeadquartersLocationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.talent.v4beta1.Company.DerivedInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.talent.v4beta1.Location headquartersLocation_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -691,7 +531,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the headquartersLocation field is set.
        */
       public boolean hasHeadquartersLocation() {
-        return headquartersLocationBuilder_ != null || headquartersLocation_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -723,11 +563,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           headquartersLocation_ = value;
-          onChanged();
         } else {
           headquartersLocationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -742,11 +582,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.talent.v4beta1.Location.Builder builderForValue) {
         if (headquartersLocationBuilder_ == null) {
           headquartersLocation_ = builderForValue.build();
-          onChanged();
         } else {
           headquartersLocationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -759,17 +599,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeHeadquartersLocation(com.google.cloud.talent.v4beta1.Location value) {
         if (headquartersLocationBuilder_ == null) {
-          if (headquartersLocation_ != null) {
-            headquartersLocation_ =
-              com.google.cloud.talent.v4beta1.Location.newBuilder(headquartersLocation_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            headquartersLocation_ != null &&
+            headquartersLocation_ != com.google.cloud.talent.v4beta1.Location.getDefaultInstance()) {
+            getHeadquartersLocationBuilder().mergeFrom(value);
           } else {
             headquartersLocation_ = value;
           }
-          onChanged();
         } else {
           headquartersLocationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -781,14 +622,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.talent.v4beta1.Location headquarters_location = 1;</code>
        */
       public Builder clearHeadquartersLocation() {
-        if (headquartersLocationBuilder_ == null) {
-          headquartersLocation_ = null;
-          onChanged();
-        } else {
-          headquartersLocation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        headquartersLocation_ = null;
+        if (headquartersLocationBuilder_ != null) {
+          headquartersLocationBuilder_.dispose();
           headquartersLocationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -800,7 +640,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.talent.v4beta1.Location headquarters_location = 1;</code>
        */
       public com.google.cloud.talent.v4beta1.Location.Builder getHeadquartersLocationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getHeadquartersLocationFieldBuilder().getBuilder();
       }
@@ -874,7 +714,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DerivedInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -895,7 +746,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required during company update.
@@ -955,7 +807,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The display name of the company, for example, "Google LLC".
@@ -1001,7 +854,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXTERNAL_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object externalId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object externalId_ = "";
   /**
    * <pre>
    * Required. Client side company identifier, used to uniquely identify the
@@ -1051,7 +905,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIZE_FIELD_NUMBER = 4;
-  private int size_;
+  private int size_ = 0;
   /**
    * <pre>
    * The employer's company size.
@@ -1072,13 +926,13 @@ private static final long serialVersionUID = 0L;
    * @return The size.
    */
   @java.lang.Override public com.google.cloud.talent.v4beta1.CompanySize getSize() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4beta1.CompanySize result = com.google.cloud.talent.v4beta1.CompanySize.valueOf(size_);
+    com.google.cloud.talent.v4beta1.CompanySize result = com.google.cloud.talent.v4beta1.CompanySize.forNumber(size_);
     return result == null ? com.google.cloud.talent.v4beta1.CompanySize.UNRECOGNIZED : result;
   }
 
   public static final int HEADQUARTERS_ADDRESS_FIELD_NUMBER = 5;
-  private volatile java.lang.Object headquartersAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object headquartersAddress_ = "";
   /**
    * <pre>
    * The street address of the company's main headquarters, which may be
@@ -1130,7 +984,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HIRING_AGENCY_FIELD_NUMBER = 6;
-  private boolean hiringAgency_;
+  private boolean hiringAgency_ = false;
   /**
    * <pre>
    * Set to true if it is the hiring agency that post jobs for other
@@ -1147,7 +1001,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EEO_TEXT_FIELD_NUMBER = 7;
-  private volatile java.lang.Object eeoText_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object eeoText_ = "";
   /**
    * <pre>
    * Equal Employment Opportunity legal disclaimer text to be
@@ -1199,7 +1054,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WEBSITE_URI_FIELD_NUMBER = 8;
-  private volatile java.lang.Object websiteUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object websiteUri_ = "";
   /**
    * <pre>
    * The URI representing the company's primary web site or home page,
@@ -1249,7 +1105,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAREER_SITE_URI_FIELD_NUMBER = 9;
-  private volatile java.lang.Object careerSiteUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object careerSiteUri_ = "";
   /**
    * <pre>
    * The URI to employer's career site or careers page on the employer's web
@@ -1297,7 +1154,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_URI_FIELD_NUMBER = 10;
-  private volatile java.lang.Object imageUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageUri_ = "";
   /**
    * <pre>
    * A URI that hosts the employer's company logo.
@@ -1343,9 +1201,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEYWORD_SEARCHABLE_JOB_CUSTOM_ATTRIBUTES_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList keywordSearchableJobCustomAttributes_;
   /**
    * <pre>
+   * This field is deprecated. Please set the searchability of the custom
+   * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
    * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
    * corresponding `string_values` are used in keyword searches. Jobs with
    * `string_values` under these specified field keys are returned if any
@@ -1354,15 +1215,19 @@ private static final long serialVersionUID = 0L;
    * and those keyword queries must be surrounded by quotes.
    * </pre>
    *
-   * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+   * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+   * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+   *     See google/cloud/talent/v4beta1/company.proto;l=111
    * @return A list containing the keywordSearchableJobCustomAttributes.
    */
-  public com.google.protobuf.ProtocolStringList
+  @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
       getKeywordSearchableJobCustomAttributesList() {
     return keywordSearchableJobCustomAttributes_;
   }
   /**
    * <pre>
+   * This field is deprecated. Please set the searchability of the custom
+   * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
    * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
    * corresponding `string_values` are used in keyword searches. Jobs with
    * `string_values` under these specified field keys are returned if any
@@ -1371,14 +1236,18 @@ private static final long serialVersionUID = 0L;
    * and those keyword queries must be surrounded by quotes.
    * </pre>
    *
-   * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+   * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+   * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+   *     See google/cloud/talent/v4beta1/company.proto;l=111
    * @return The count of keywordSearchableJobCustomAttributes.
    */
-  public int getKeywordSearchableJobCustomAttributesCount() {
+  @java.lang.Deprecated public int getKeywordSearchableJobCustomAttributesCount() {
     return keywordSearchableJobCustomAttributes_.size();
   }
   /**
    * <pre>
+   * This field is deprecated. Please set the searchability of the custom
+   * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
    * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
    * corresponding `string_values` are used in keyword searches. Jobs with
    * `string_values` under these specified field keys are returned if any
@@ -1387,15 +1256,19 @@ private static final long serialVersionUID = 0L;
    * and those keyword queries must be surrounded by quotes.
    * </pre>
    *
-   * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+   * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+   * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+   *     See google/cloud/talent/v4beta1/company.proto;l=111
    * @param index The index of the element to return.
    * @return The keywordSearchableJobCustomAttributes at the given index.
    */
-  public java.lang.String getKeywordSearchableJobCustomAttributes(int index) {
+  @java.lang.Deprecated public java.lang.String getKeywordSearchableJobCustomAttributes(int index) {
     return keywordSearchableJobCustomAttributes_.get(index);
   }
   /**
    * <pre>
+   * This field is deprecated. Please set the searchability of the custom
+   * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
    * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
    * corresponding `string_values` are used in keyword searches. Jobs with
    * `string_values` under these specified field keys are returned if any
@@ -1404,11 +1277,13 @@ private static final long serialVersionUID = 0L;
    * and those keyword queries must be surrounded by quotes.
    * </pre>
    *
-   * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+   * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+   * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+   *     See google/cloud/talent/v4beta1/company.proto;l=111
    * @param index The index of the value to return.
    * @return The bytes of the keywordSearchableJobCustomAttributes at the given index.
    */
-  public com.google.protobuf.ByteString
+  @java.lang.Deprecated public com.google.protobuf.ByteString
       getKeywordSearchableJobCustomAttributesBytes(int index) {
     return keywordSearchableJobCustomAttributes_.getByteString(index);
   }
@@ -1448,11 +1323,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4beta1.Company.DerivedInfoOrBuilder getDerivedInfoOrBuilder() {
-    return getDerivedInfo();
+    return derivedInfo_ == null ? com.google.cloud.talent.v4beta1.Company.DerivedInfo.getDefaultInstance() : derivedInfo_;
   }
 
   public static final int SUSPENDED_FIELD_NUMBER = 13;
-  private boolean suspended_;
+  private boolean suspended_ = false;
   /**
    * <pre>
    * Output only. Indicates whether a company is flagged to be suspended from
@@ -1521,7 +1396,7 @@ private static final long serialVersionUID = 0L;
     if (suspended_ != false) {
       output.writeBool(13, suspended_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1578,7 +1453,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(13, suspended_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1621,7 +1496,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getSuspended()
         != other.getSuspended()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1664,7 +1539,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SUSPENDED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSuspended());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1787,52 +1662,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4beta1.Company.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       externalId_ = "";
-
       size_ = 0;
-
       headquartersAddress_ = "";
-
       hiringAgency_ = false;
-
       eeoText_ = "";
-
       websiteUri_ = "";
-
       careerSiteUri_ = "";
-
       imageUri_ = "";
-
       keywordSearchableJobCustomAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (derivedInfoBuilder_ == null) {
-        derivedInfo_ = null;
-      } else {
-        derivedInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      derivedInfo_ = null;
+      if (derivedInfoBuilder_ != null) {
+        derivedInfoBuilder_.dispose();
         derivedInfoBuilder_ = null;
       }
       suspended_ = false;
-
       return this;
     }
 
@@ -1859,30 +1718,60 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.Company buildPartial() {
       com.google.cloud.talent.v4beta1.Company result = new com.google.cloud.talent.v4beta1.Company(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.externalId_ = externalId_;
-      result.size_ = size_;
-      result.headquartersAddress_ = headquartersAddress_;
-      result.hiringAgency_ = hiringAgency_;
-      result.eeoText_ = eeoText_;
-      result.websiteUri_ = websiteUri_;
-      result.careerSiteUri_ = careerSiteUri_;
-      result.imageUri_ = imageUri_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        keywordSearchableJobCustomAttributes_ = keywordSearchableJobCustomAttributes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.keywordSearchableJobCustomAttributes_ = keywordSearchableJobCustomAttributes_;
-      if (derivedInfoBuilder_ == null) {
-        result.derivedInfo_ = derivedInfo_;
-      } else {
-        result.derivedInfo_ = derivedInfoBuilder_.build();
-      }
-      result.suspended_ = suspended_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.talent.v4beta1.Company result) {
+      if (((bitField0_ & 0x00000400) != 0)) {
+        keywordSearchableJobCustomAttributes_ = keywordSearchableJobCustomAttributes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000400);
+      }
+      result.keywordSearchableJobCustomAttributes_ = keywordSearchableJobCustomAttributes_;
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4beta1.Company result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.externalId_ = externalId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.size_ = size_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.headquartersAddress_ = headquartersAddress_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.hiringAgency_ = hiringAgency_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.eeoText_ = eeoText_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.websiteUri_ = websiteUri_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.careerSiteUri_ = careerSiteUri_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.imageUri_ = imageUri_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.derivedInfo_ = derivedInfoBuilder_ == null
+            ? derivedInfo_
+            : derivedInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.suspended_ = suspended_;
+      }
     }
 
     @java.lang.Override
@@ -1931,14 +1820,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.talent.v4beta1.Company.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getExternalId().isEmpty()) {
         externalId_ = other.externalId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.size_ != 0) {
@@ -1946,6 +1838,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getHeadquartersAddress().isEmpty()) {
         headquartersAddress_ = other.headquartersAddress_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getHiringAgency() != false) {
@@ -1953,24 +1846,28 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEeoText().isEmpty()) {
         eeoText_ = other.eeoText_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getWebsiteUri().isEmpty()) {
         websiteUri_ = other.websiteUri_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getCareerSiteUri().isEmpty()) {
         careerSiteUri_ = other.careerSiteUri_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getImageUri().isEmpty()) {
         imageUri_ = other.imageUri_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.keywordSearchableJobCustomAttributes_.isEmpty()) {
         if (keywordSearchableJobCustomAttributes_.isEmpty()) {
           keywordSearchableJobCustomAttributes_ = other.keywordSearchableJobCustomAttributes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000400);
         } else {
           ensureKeywordSearchableJobCustomAttributesIsMutable();
           keywordSearchableJobCustomAttributes_.addAll(other.keywordSearchableJobCustomAttributes_);
@@ -1983,7 +1880,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSuspended() != false) {
         setSuspended(other.getSuspended());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1998,17 +1895,98 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4beta1.Company parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              externalId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              size_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              headquartersAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              hiringAgency_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              eeoText_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              websiteUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              careerSiteUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              imageUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureKeywordSearchableJobCustomAttributesIsMutable();
+              keywordSearchableJobCustomAttributes_.add(s);
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getDerivedInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 104: {
+              suspended_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4beta1.Company) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2087,11 +2065,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2111,8 +2087,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2134,12 +2110,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2197,11 +2171,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2214,8 +2186,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2230,12 +2202,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2299,11 +2269,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExternalId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       externalId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2318,8 +2286,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExternalId() {
-      
       externalId_ = getDefaultInstance().getExternalId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2336,12 +2304,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExternalIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       externalId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2368,8 +2334,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSizeValue(int value) {
-      
       size_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2383,8 +2349,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.CompanySize getSize() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4beta1.CompanySize result = com.google.cloud.talent.v4beta1.CompanySize.valueOf(size_);
+      com.google.cloud.talent.v4beta1.CompanySize result = com.google.cloud.talent.v4beta1.CompanySize.forNumber(size_);
       return result == null ? com.google.cloud.talent.v4beta1.CompanySize.UNRECOGNIZED : result;
     }
     /**
@@ -2400,7 +2365,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       size_ = value.getNumber();
       onChanged();
       return this;
@@ -2414,7 +2379,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       size_ = 0;
       onChanged();
       return this;
@@ -2482,11 +2447,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeadquartersAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       headquartersAddress_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2502,8 +2465,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHeadquartersAddress() {
-      
       headquartersAddress_ = getDefaultInstance().getHeadquartersAddress();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2521,12 +2484,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeadquartersAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headquartersAddress_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2560,6 +2521,7 @@ private static final long serialVersionUID = 0L;
     public Builder setHiringAgency(boolean value) {
       
       hiringAgency_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2574,7 +2536,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHiringAgency() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       hiringAgency_ = false;
       onChanged();
       return this;
@@ -2642,11 +2604,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEeoText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       eeoText_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2662,8 +2622,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEeoText() {
-      
       eeoText_ = getDefaultInstance().getEeoText();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2681,12 +2641,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEeoTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       eeoText_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2750,11 +2708,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebsiteUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       websiteUri_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2769,8 +2725,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWebsiteUri() {
-      
       websiteUri_ = getDefaultInstance().getWebsiteUri();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2787,12 +2743,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebsiteUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       websiteUri_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2853,11 +2807,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCareerSiteUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       careerSiteUri_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2871,8 +2823,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCareerSiteUri() {
-      
       careerSiteUri_ = getDefaultInstance().getCareerSiteUri();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2888,12 +2840,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCareerSiteUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       careerSiteUri_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2951,11 +2901,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageUri_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2968,8 +2916,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageUri() {
-      
       imageUri_ = getDefaultInstance().getImageUri();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2984,25 +2932,25 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageUri_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList keywordSearchableJobCustomAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureKeywordSearchableJobCustomAttributesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         keywordSearchableJobCustomAttributes_ = new com.google.protobuf.LazyStringArrayList(keywordSearchableJobCustomAttributes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000400;
        }
     }
     /**
      * <pre>
+     * This field is deprecated. Please set the searchability of the custom
+     * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
      * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
      * corresponding `string_values` are used in keyword searches. Jobs with
      * `string_values` under these specified field keys are returned if any
@@ -3011,15 +2959,19 @@ private static final long serialVersionUID = 0L;
      * and those keyword queries must be surrounded by quotes.
      * </pre>
      *
-     * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+     * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+     * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+     *     See google/cloud/talent/v4beta1/company.proto;l=111
      * @return A list containing the keywordSearchableJobCustomAttributes.
      */
-    public com.google.protobuf.ProtocolStringList
+    @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
         getKeywordSearchableJobCustomAttributesList() {
       return keywordSearchableJobCustomAttributes_.getUnmodifiableView();
     }
     /**
      * <pre>
+     * This field is deprecated. Please set the searchability of the custom
+     * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
      * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
      * corresponding `string_values` are used in keyword searches. Jobs with
      * `string_values` under these specified field keys are returned if any
@@ -3028,14 +2980,18 @@ private static final long serialVersionUID = 0L;
      * and those keyword queries must be surrounded by quotes.
      * </pre>
      *
-     * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+     * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+     * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+     *     See google/cloud/talent/v4beta1/company.proto;l=111
      * @return The count of keywordSearchableJobCustomAttributes.
      */
-    public int getKeywordSearchableJobCustomAttributesCount() {
+    @java.lang.Deprecated public int getKeywordSearchableJobCustomAttributesCount() {
       return keywordSearchableJobCustomAttributes_.size();
     }
     /**
      * <pre>
+     * This field is deprecated. Please set the searchability of the custom
+     * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
      * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
      * corresponding `string_values` are used in keyword searches. Jobs with
      * `string_values` under these specified field keys are returned if any
@@ -3044,15 +3000,19 @@ private static final long serialVersionUID = 0L;
      * and those keyword queries must be surrounded by quotes.
      * </pre>
      *
-     * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+     * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+     * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+     *     See google/cloud/talent/v4beta1/company.proto;l=111
      * @param index The index of the element to return.
      * @return The keywordSearchableJobCustomAttributes at the given index.
      */
-    public java.lang.String getKeywordSearchableJobCustomAttributes(int index) {
+    @java.lang.Deprecated public java.lang.String getKeywordSearchableJobCustomAttributes(int index) {
       return keywordSearchableJobCustomAttributes_.get(index);
     }
     /**
      * <pre>
+     * This field is deprecated. Please set the searchability of the custom
+     * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
      * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
      * corresponding `string_values` are used in keyword searches. Jobs with
      * `string_values` under these specified field keys are returned if any
@@ -3061,16 +3021,20 @@ private static final long serialVersionUID = 0L;
      * and those keyword queries must be surrounded by quotes.
      * </pre>
      *
-     * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+     * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+     * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+     *     See google/cloud/talent/v4beta1/company.proto;l=111
      * @param index The index of the value to return.
      * @return The bytes of the keywordSearchableJobCustomAttributes at the given index.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getKeywordSearchableJobCustomAttributesBytes(int index) {
       return keywordSearchableJobCustomAttributes_.getByteString(index);
     }
     /**
      * <pre>
+     * This field is deprecated. Please set the searchability of the custom
+     * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
      * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
      * corresponding `string_values` are used in keyword searches. Jobs with
      * `string_values` under these specified field keys are returned if any
@@ -3079,23 +3043,25 @@ private static final long serialVersionUID = 0L;
      * and those keyword queries must be surrounded by quotes.
      * </pre>
      *
-     * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+     * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+     * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+     *     See google/cloud/talent/v4beta1/company.proto;l=111
      * @param index The index to set the value at.
      * @param value The keywordSearchableJobCustomAttributes to set.
      * @return This builder for chaining.
      */
-    public Builder setKeywordSearchableJobCustomAttributes(
+    @java.lang.Deprecated public Builder setKeywordSearchableJobCustomAttributes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureKeywordSearchableJobCustomAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureKeywordSearchableJobCustomAttributesIsMutable();
       keywordSearchableJobCustomAttributes_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
+     * This field is deprecated. Please set the searchability of the custom
+     * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
      * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
      * corresponding `string_values` are used in keyword searches. Jobs with
      * `string_values` under these specified field keys are returned if any
@@ -3104,22 +3070,24 @@ private static final long serialVersionUID = 0L;
      * and those keyword queries must be surrounded by quotes.
      * </pre>
      *
-     * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+     * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+     * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+     *     See google/cloud/talent/v4beta1/company.proto;l=111
      * @param value The keywordSearchableJobCustomAttributes to add.
      * @return This builder for chaining.
      */
-    public Builder addKeywordSearchableJobCustomAttributes(
+    @java.lang.Deprecated public Builder addKeywordSearchableJobCustomAttributes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureKeywordSearchableJobCustomAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureKeywordSearchableJobCustomAttributesIsMutable();
       keywordSearchableJobCustomAttributes_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
+     * This field is deprecated. Please set the searchability of the custom
+     * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
      * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
      * corresponding `string_values` are used in keyword searches. Jobs with
      * `string_values` under these specified field keys are returned if any
@@ -3128,11 +3096,13 @@ private static final long serialVersionUID = 0L;
      * and those keyword queries must be surrounded by quotes.
      * </pre>
      *
-     * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+     * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+     * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+     *     See google/cloud/talent/v4beta1/company.proto;l=111
      * @param values The keywordSearchableJobCustomAttributes to add.
      * @return This builder for chaining.
      */
-    public Builder addAllKeywordSearchableJobCustomAttributes(
+    @java.lang.Deprecated public Builder addAllKeywordSearchableJobCustomAttributes(
         java.lang.Iterable<java.lang.String> values) {
       ensureKeywordSearchableJobCustomAttributesIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3142,6 +3112,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * This field is deprecated. Please set the searchability of the custom
+     * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
      * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
      * corresponding `string_values` are used in keyword searches. Jobs with
      * `string_values` under these specified field keys are returned if any
@@ -3150,17 +3122,21 @@ private static final long serialVersionUID = 0L;
      * and those keyword queries must be surrounded by quotes.
      * </pre>
      *
-     * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+     * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+     * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+     *     See google/cloud/talent/v4beta1/company.proto;l=111
      * @return This builder for chaining.
      */
-    public Builder clearKeywordSearchableJobCustomAttributes() {
+    @java.lang.Deprecated public Builder clearKeywordSearchableJobCustomAttributes() {
       keywordSearchableJobCustomAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
     /**
      * <pre>
+     * This field is deprecated. Please set the searchability of the custom
+     * attribute in the [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes] going forward.
      * A list of keys of filterable [Job.custom_attributes][google.cloud.talent.v4beta1.Job.custom_attributes], whose
      * corresponding `string_values` are used in keyword searches. Jobs with
      * `string_values` under these specified field keys are returned if any
@@ -3169,16 +3145,16 @@ private static final long serialVersionUID = 0L;
      * and those keyword queries must be surrounded by quotes.
      * </pre>
      *
-     * <code>repeated string keyword_searchable_job_custom_attributes = 11;</code>
+     * <code>repeated string keyword_searchable_job_custom_attributes = 11 [deprecated = true];</code>
+     * @deprecated google.cloud.talent.v4beta1.Company.keyword_searchable_job_custom_attributes is deprecated.
+     *     See google/cloud/talent/v4beta1/company.proto;l=111
      * @param value The bytes of the keywordSearchableJobCustomAttributes to add.
      * @return This builder for chaining.
      */
-    public Builder addKeywordSearchableJobCustomAttributesBytes(
+    @java.lang.Deprecated public Builder addKeywordSearchableJobCustomAttributesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureKeywordSearchableJobCustomAttributesIsMutable();
       keywordSearchableJobCustomAttributes_.add(value);
       onChanged();
@@ -3197,7 +3173,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the derivedInfo field is set.
      */
     public boolean hasDerivedInfo() {
-      return derivedInfoBuilder_ != null || derivedInfo_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3227,11 +3203,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         derivedInfo_ = value;
-        onChanged();
       } else {
         derivedInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3245,11 +3221,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4beta1.Company.DerivedInfo.Builder builderForValue) {
       if (derivedInfoBuilder_ == null) {
         derivedInfo_ = builderForValue.build();
-        onChanged();
       } else {
         derivedInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3261,17 +3237,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDerivedInfo(com.google.cloud.talent.v4beta1.Company.DerivedInfo value) {
       if (derivedInfoBuilder_ == null) {
-        if (derivedInfo_ != null) {
-          derivedInfo_ =
-            com.google.cloud.talent.v4beta1.Company.DerivedInfo.newBuilder(derivedInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          derivedInfo_ != null &&
+          derivedInfo_ != com.google.cloud.talent.v4beta1.Company.DerivedInfo.getDefaultInstance()) {
+          getDerivedInfoBuilder().mergeFrom(value);
         } else {
           derivedInfo_ = value;
         }
-        onChanged();
       } else {
         derivedInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3282,14 +3259,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.Company.DerivedInfo derived_info = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearDerivedInfo() {
-      if (derivedInfoBuilder_ == null) {
-        derivedInfo_ = null;
-        onChanged();
-      } else {
-        derivedInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      derivedInfo_ = null;
+      if (derivedInfoBuilder_ != null) {
+        derivedInfoBuilder_.dispose();
         derivedInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3300,7 +3276,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.Company.DerivedInfo derived_info = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.talent.v4beta1.Company.DerivedInfo.Builder getDerivedInfoBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getDerivedInfoFieldBuilder().getBuilder();
     }
@@ -3369,6 +3345,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSuspended(boolean value) {
       
       suspended_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3383,7 +3360,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSuspended() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       suspended_ = false;
       onChanged();
       return this;
@@ -3421,7 +3398,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Company(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

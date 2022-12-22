@@ -131,8 +131,7 @@ public interface SavedQueryOrBuilder extends
 
   /**
    * <pre>
-   * Output only. The account's email address who has updated this saved query
-   * most recently.
+   * Output only. The account's email address who has updated this saved query most recently.
    * </pre>
    *
    * <code>string last_updater = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -141,8 +140,7 @@ public interface SavedQueryOrBuilder extends
   java.lang.String getLastUpdater();
   /**
    * <pre>
-   * Output only. The account's email address who has updated this saved query
-   * most recently.
+   * Output only. The account's email address who has updated this saved query most recently.
    * </pre>
    *
    * <code>string last_updater = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -198,7 +196,6 @@ public interface SavedQueryOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -213,7 +210,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

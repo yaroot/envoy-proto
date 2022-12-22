@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StartResumableWriteRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.storage.v2.WriteObjectSpec.Builder subBuilder = null;
-            if (writeObjectSpec_ != null) {
-              subBuilder = writeObjectSpec_.toBuilder();
-            }
-            writeObjectSpec_ = input.readMessage(com.google.storage.v2.WriteObjectSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(writeObjectSpec_);
-              writeObjectSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.storage.v2.CommonObjectRequestParams.Builder subBuilder = null;
-            if (commonObjectRequestParams_ != null) {
-              subBuilder = commonObjectRequestParams_.toBuilder();
-            }
-            commonObjectRequestParams_ = input.readMessage(com.google.storage.v2.CommonObjectRequestParams.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commonObjectRequestParams_);
-              commonObjectRequestParams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.storage.v2.StorageProto.internal_static_google_storage_v2_StartResumableWriteRequest_descriptor;
@@ -116,10 +51,11 @@ private static final long serialVersionUID = 0L;
   private com.google.storage.v2.WriteObjectSpec writeObjectSpec_;
   /**
    * <pre>
-   * The destination bucket, object, and metadata, as well as any preconditions.
+   * Required. The destination bucket, object, and metadata, as well as any
+   * preconditions.
    * </pre>
    *
-   * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+   * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return Whether the writeObjectSpec field is set.
    */
   @java.lang.Override
@@ -128,10 +64,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The destination bucket, object, and metadata, as well as any preconditions.
+   * Required. The destination bucket, object, and metadata, as well as any
+   * preconditions.
    * </pre>
    *
-   * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+   * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The writeObjectSpec.
    */
   @java.lang.Override
@@ -140,14 +77,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The destination bucket, object, and metadata, as well as any preconditions.
+   * Required. The destination bucket, object, and metadata, as well as any
+   * preconditions.
    * </pre>
    *
-   * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+   * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.storage.v2.WriteObjectSpecOrBuilder getWriteObjectSpecOrBuilder() {
-    return getWriteObjectSpec();
+    return writeObjectSpec_ == null ? com.google.storage.v2.WriteObjectSpec.getDefaultInstance() : writeObjectSpec_;
   }
 
   public static final int COMMON_OBJECT_REQUEST_PARAMS_FIELD_NUMBER = 3;
@@ -185,7 +123,54 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.storage.v2.CommonObjectRequestParamsOrBuilder getCommonObjectRequestParamsOrBuilder() {
-    return getCommonObjectRequestParams();
+    return commonObjectRequestParams_ == null ? com.google.storage.v2.CommonObjectRequestParams.getDefaultInstance() : commonObjectRequestParams_;
+  }
+
+  public static final int OBJECT_CHECKSUMS_FIELD_NUMBER = 5;
+  private com.google.storage.v2.ObjectChecksums objectChecksums_;
+  /**
+   * <pre>
+   * The checksums of the complete object. This will be used to validate the
+   * uploaded object. For each upload, object_checksums can be provided with
+   * either StartResumableWriteRequest or the WriteObjectRequest with
+   * finish_write set to `true`.
+   * </pre>
+   *
+   * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+   * @return Whether the objectChecksums field is set.
+   */
+  @java.lang.Override
+  public boolean hasObjectChecksums() {
+    return objectChecksums_ != null;
+  }
+  /**
+   * <pre>
+   * The checksums of the complete object. This will be used to validate the
+   * uploaded object. For each upload, object_checksums can be provided with
+   * either StartResumableWriteRequest or the WriteObjectRequest with
+   * finish_write set to `true`.
+   * </pre>
+   *
+   * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+   * @return The objectChecksums.
+   */
+  @java.lang.Override
+  public com.google.storage.v2.ObjectChecksums getObjectChecksums() {
+    return objectChecksums_ == null ? com.google.storage.v2.ObjectChecksums.getDefaultInstance() : objectChecksums_;
+  }
+  /**
+   * <pre>
+   * The checksums of the complete object. This will be used to validate the
+   * uploaded object. For each upload, object_checksums can be provided with
+   * either StartResumableWriteRequest or the WriteObjectRequest with
+   * finish_write set to `true`.
+   * </pre>
+   *
+   * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.storage.v2.ObjectChecksumsOrBuilder getObjectChecksumsOrBuilder() {
+    return objectChecksums_ == null ? com.google.storage.v2.ObjectChecksums.getDefaultInstance() : objectChecksums_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +193,10 @@ private static final long serialVersionUID = 0L;
     if (commonObjectRequestParams_ != null) {
       output.writeMessage(3, getCommonObjectRequestParams());
     }
-    unknownFields.writeTo(output);
+    if (objectChecksums_ != null) {
+      output.writeMessage(5, getObjectChecksums());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +213,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getCommonObjectRequestParams());
     }
-    size += unknownFields.getSerializedSize();
+    if (objectChecksums_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getObjectChecksums());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +242,12 @@ private static final long serialVersionUID = 0L;
       if (!getCommonObjectRequestParams()
           .equals(other.getCommonObjectRequestParams())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasObjectChecksums() != other.hasObjectChecksums()) return false;
+    if (hasObjectChecksums()) {
+      if (!getObjectChecksums()
+          .equals(other.getObjectChecksums())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +266,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COMMON_OBJECT_REQUEST_PARAMS_FIELD_NUMBER;
       hash = (53 * hash) + getCommonObjectRequestParams().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasObjectChecksums()) {
+      hash = (37 * hash) + OBJECT_CHECKSUMS_FIELD_NUMBER;
+      hash = (53 * hash) + getObjectChecksums().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,33 +391,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.storage.v2.StartResumableWriteRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (writeObjectSpecBuilder_ == null) {
-        writeObjectSpec_ = null;
-      } else {
-        writeObjectSpec_ = null;
+      bitField0_ = 0;
+      writeObjectSpec_ = null;
+      if (writeObjectSpecBuilder_ != null) {
+        writeObjectSpecBuilder_.dispose();
         writeObjectSpecBuilder_ = null;
       }
-      if (commonObjectRequestParamsBuilder_ == null) {
-        commonObjectRequestParams_ = null;
-      } else {
-        commonObjectRequestParams_ = null;
+      commonObjectRequestParams_ = null;
+      if (commonObjectRequestParamsBuilder_ != null) {
+        commonObjectRequestParamsBuilder_.dispose();
         commonObjectRequestParamsBuilder_ = null;
+      }
+      objectChecksums_ = null;
+      if (objectChecksumsBuilder_ != null) {
+        objectChecksumsBuilder_.dispose();
+        objectChecksumsBuilder_ = null;
       }
       return this;
     }
@@ -444,18 +444,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v2.StartResumableWriteRequest buildPartial() {
       com.google.storage.v2.StartResumableWriteRequest result = new com.google.storage.v2.StartResumableWriteRequest(this);
-      if (writeObjectSpecBuilder_ == null) {
-        result.writeObjectSpec_ = writeObjectSpec_;
-      } else {
-        result.writeObjectSpec_ = writeObjectSpecBuilder_.build();
-      }
-      if (commonObjectRequestParamsBuilder_ == null) {
-        result.commonObjectRequestParams_ = commonObjectRequestParams_;
-      } else {
-        result.commonObjectRequestParams_ = commonObjectRequestParamsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.storage.v2.StartResumableWriteRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.writeObjectSpec_ = writeObjectSpecBuilder_ == null
+            ? writeObjectSpec_
+            : writeObjectSpecBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.commonObjectRequestParams_ = commonObjectRequestParamsBuilder_ == null
+            ? commonObjectRequestParams_
+            : commonObjectRequestParamsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.objectChecksums_ = objectChecksumsBuilder_ == null
+            ? objectChecksums_
+            : objectChecksumsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +518,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasCommonObjectRequestParams()) {
         mergeCommonObjectRequestParams(other.getCommonObjectRequestParams());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasObjectChecksums()) {
+        mergeObjectChecksums(other.getObjectChecksums());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,40 +536,77 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v2.StartResumableWriteRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getWriteObjectSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getCommonObjectRequestParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getObjectChecksumsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v2.StartResumableWriteRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.storage.v2.WriteObjectSpec writeObjectSpec_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.storage.v2.WriteObjectSpec, com.google.storage.v2.WriteObjectSpec.Builder, com.google.storage.v2.WriteObjectSpecOrBuilder> writeObjectSpecBuilder_;
     /**
      * <pre>
-     * The destination bucket, object, and metadata, as well as any preconditions.
+     * Required. The destination bucket, object, and metadata, as well as any
+     * preconditions.
      * </pre>
      *
-     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the writeObjectSpec field is set.
      */
     public boolean hasWriteObjectSpec() {
-      return writeObjectSpecBuilder_ != null || writeObjectSpec_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * The destination bucket, object, and metadata, as well as any preconditions.
+     * Required. The destination bucket, object, and metadata, as well as any
+     * preconditions.
      * </pre>
      *
-     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The writeObjectSpec.
      */
     public com.google.storage.v2.WriteObjectSpec getWriteObjectSpec() {
@@ -568,10 +618,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The destination bucket, object, and metadata, as well as any preconditions.
+     * Required. The destination bucket, object, and metadata, as well as any
+     * preconditions.
      * </pre>
      *
-     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setWriteObjectSpec(com.google.storage.v2.WriteObjectSpec value) {
       if (writeObjectSpecBuilder_ == null) {
@@ -579,89 +630,94 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         writeObjectSpec_ = value;
-        onChanged();
       } else {
         writeObjectSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The destination bucket, object, and metadata, as well as any preconditions.
+     * Required. The destination bucket, object, and metadata, as well as any
+     * preconditions.
      * </pre>
      *
-     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setWriteObjectSpec(
         com.google.storage.v2.WriteObjectSpec.Builder builderForValue) {
       if (writeObjectSpecBuilder_ == null) {
         writeObjectSpec_ = builderForValue.build();
-        onChanged();
       } else {
         writeObjectSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The destination bucket, object, and metadata, as well as any preconditions.
+     * Required. The destination bucket, object, and metadata, as well as any
+     * preconditions.
      * </pre>
      *
-     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeWriteObjectSpec(com.google.storage.v2.WriteObjectSpec value) {
       if (writeObjectSpecBuilder_ == null) {
-        if (writeObjectSpec_ != null) {
-          writeObjectSpec_ =
-            com.google.storage.v2.WriteObjectSpec.newBuilder(writeObjectSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          writeObjectSpec_ != null &&
+          writeObjectSpec_ != com.google.storage.v2.WriteObjectSpec.getDefaultInstance()) {
+          getWriteObjectSpecBuilder().mergeFrom(value);
         } else {
           writeObjectSpec_ = value;
         }
-        onChanged();
       } else {
         writeObjectSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The destination bucket, object, and metadata, as well as any preconditions.
+     * Required. The destination bucket, object, and metadata, as well as any
+     * preconditions.
      * </pre>
      *
-     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearWriteObjectSpec() {
-      if (writeObjectSpecBuilder_ == null) {
-        writeObjectSpec_ = null;
-        onChanged();
-      } else {
-        writeObjectSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      writeObjectSpec_ = null;
+      if (writeObjectSpecBuilder_ != null) {
+        writeObjectSpecBuilder_.dispose();
         writeObjectSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The destination bucket, object, and metadata, as well as any preconditions.
+     * Required. The destination bucket, object, and metadata, as well as any
+     * preconditions.
      * </pre>
      *
-     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.storage.v2.WriteObjectSpec.Builder getWriteObjectSpecBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getWriteObjectSpecFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * The destination bucket, object, and metadata, as well as any preconditions.
+     * Required. The destination bucket, object, and metadata, as well as any
+     * preconditions.
      * </pre>
      *
-     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.storage.v2.WriteObjectSpecOrBuilder getWriteObjectSpecOrBuilder() {
       if (writeObjectSpecBuilder_ != null) {
@@ -673,10 +729,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The destination bucket, object, and metadata, as well as any preconditions.
+     * Required. The destination bucket, object, and metadata, as well as any
+     * preconditions.
      * </pre>
      *
-     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1;</code>
+     * <code>.google.storage.v2.WriteObjectSpec write_object_spec = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.storage.v2.WriteObjectSpec, com.google.storage.v2.WriteObjectSpec.Builder, com.google.storage.v2.WriteObjectSpecOrBuilder> 
@@ -704,7 +761,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commonObjectRequestParams field is set.
      */
     public boolean hasCommonObjectRequestParams() {
-      return commonObjectRequestParamsBuilder_ != null || commonObjectRequestParams_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +791,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commonObjectRequestParams_ = value;
-        onChanged();
       } else {
         commonObjectRequestParamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +809,11 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v2.CommonObjectRequestParams.Builder builderForValue) {
       if (commonObjectRequestParamsBuilder_ == null) {
         commonObjectRequestParams_ = builderForValue.build();
-        onChanged();
       } else {
         commonObjectRequestParamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +825,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommonObjectRequestParams(com.google.storage.v2.CommonObjectRequestParams value) {
       if (commonObjectRequestParamsBuilder_ == null) {
-        if (commonObjectRequestParams_ != null) {
-          commonObjectRequestParams_ =
-            com.google.storage.v2.CommonObjectRequestParams.newBuilder(commonObjectRequestParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          commonObjectRequestParams_ != null &&
+          commonObjectRequestParams_ != com.google.storage.v2.CommonObjectRequestParams.getDefaultInstance()) {
+          getCommonObjectRequestParamsBuilder().mergeFrom(value);
         } else {
           commonObjectRequestParams_ = value;
         }
-        onChanged();
       } else {
         commonObjectRequestParamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +847,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v2.CommonObjectRequestParams common_object_request_params = 3;</code>
      */
     public Builder clearCommonObjectRequestParams() {
-      if (commonObjectRequestParamsBuilder_ == null) {
-        commonObjectRequestParams_ = null;
-        onChanged();
-      } else {
-        commonObjectRequestParams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      commonObjectRequestParams_ = null;
+      if (commonObjectRequestParamsBuilder_ != null) {
+        commonObjectRequestParamsBuilder_.dispose();
         commonObjectRequestParamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +864,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v2.CommonObjectRequestParams common_object_request_params = 3;</code>
      */
     public com.google.storage.v2.CommonObjectRequestParams.Builder getCommonObjectRequestParamsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCommonObjectRequestParamsFieldBuilder().getBuilder();
     }
@@ -846,6 +903,188 @@ private static final long serialVersionUID = 0L;
       }
       return commonObjectRequestParamsBuilder_;
     }
+
+    private com.google.storage.v2.ObjectChecksums objectChecksums_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.storage.v2.ObjectChecksums, com.google.storage.v2.ObjectChecksums.Builder, com.google.storage.v2.ObjectChecksumsOrBuilder> objectChecksumsBuilder_;
+    /**
+     * <pre>
+     * The checksums of the complete object. This will be used to validate the
+     * uploaded object. For each upload, object_checksums can be provided with
+     * either StartResumableWriteRequest or the WriteObjectRequest with
+     * finish_write set to `true`.
+     * </pre>
+     *
+     * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+     * @return Whether the objectChecksums field is set.
+     */
+    public boolean hasObjectChecksums() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * The checksums of the complete object. This will be used to validate the
+     * uploaded object. For each upload, object_checksums can be provided with
+     * either StartResumableWriteRequest or the WriteObjectRequest with
+     * finish_write set to `true`.
+     * </pre>
+     *
+     * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+     * @return The objectChecksums.
+     */
+    public com.google.storage.v2.ObjectChecksums getObjectChecksums() {
+      if (objectChecksumsBuilder_ == null) {
+        return objectChecksums_ == null ? com.google.storage.v2.ObjectChecksums.getDefaultInstance() : objectChecksums_;
+      } else {
+        return objectChecksumsBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The checksums of the complete object. This will be used to validate the
+     * uploaded object. For each upload, object_checksums can be provided with
+     * either StartResumableWriteRequest or the WriteObjectRequest with
+     * finish_write set to `true`.
+     * </pre>
+     *
+     * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+     */
+    public Builder setObjectChecksums(com.google.storage.v2.ObjectChecksums value) {
+      if (objectChecksumsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        objectChecksums_ = value;
+      } else {
+        objectChecksumsBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The checksums of the complete object. This will be used to validate the
+     * uploaded object. For each upload, object_checksums can be provided with
+     * either StartResumableWriteRequest or the WriteObjectRequest with
+     * finish_write set to `true`.
+     * </pre>
+     *
+     * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+     */
+    public Builder setObjectChecksums(
+        com.google.storage.v2.ObjectChecksums.Builder builderForValue) {
+      if (objectChecksumsBuilder_ == null) {
+        objectChecksums_ = builderForValue.build();
+      } else {
+        objectChecksumsBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The checksums of the complete object. This will be used to validate the
+     * uploaded object. For each upload, object_checksums can be provided with
+     * either StartResumableWriteRequest or the WriteObjectRequest with
+     * finish_write set to `true`.
+     * </pre>
+     *
+     * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+     */
+    public Builder mergeObjectChecksums(com.google.storage.v2.ObjectChecksums value) {
+      if (objectChecksumsBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+          objectChecksums_ != null &&
+          objectChecksums_ != com.google.storage.v2.ObjectChecksums.getDefaultInstance()) {
+          getObjectChecksumsBuilder().mergeFrom(value);
+        } else {
+          objectChecksums_ = value;
+        }
+      } else {
+        objectChecksumsBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The checksums of the complete object. This will be used to validate the
+     * uploaded object. For each upload, object_checksums can be provided with
+     * either StartResumableWriteRequest or the WriteObjectRequest with
+     * finish_write set to `true`.
+     * </pre>
+     *
+     * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+     */
+    public Builder clearObjectChecksums() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      objectChecksums_ = null;
+      if (objectChecksumsBuilder_ != null) {
+        objectChecksumsBuilder_.dispose();
+        objectChecksumsBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The checksums of the complete object. This will be used to validate the
+     * uploaded object. For each upload, object_checksums can be provided with
+     * either StartResumableWriteRequest or the WriteObjectRequest with
+     * finish_write set to `true`.
+     * </pre>
+     *
+     * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+     */
+    public com.google.storage.v2.ObjectChecksums.Builder getObjectChecksumsBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getObjectChecksumsFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The checksums of the complete object. This will be used to validate the
+     * uploaded object. For each upload, object_checksums can be provided with
+     * either StartResumableWriteRequest or the WriteObjectRequest with
+     * finish_write set to `true`.
+     * </pre>
+     *
+     * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+     */
+    public com.google.storage.v2.ObjectChecksumsOrBuilder getObjectChecksumsOrBuilder() {
+      if (objectChecksumsBuilder_ != null) {
+        return objectChecksumsBuilder_.getMessageOrBuilder();
+      } else {
+        return objectChecksums_ == null ?
+            com.google.storage.v2.ObjectChecksums.getDefaultInstance() : objectChecksums_;
+      }
+    }
+    /**
+     * <pre>
+     * The checksums of the complete object. This will be used to validate the
+     * uploaded object. For each upload, object_checksums can be provided with
+     * either StartResumableWriteRequest or the WriteObjectRequest with
+     * finish_write set to `true`.
+     * </pre>
+     *
+     * <code>.google.storage.v2.ObjectChecksums object_checksums = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.storage.v2.ObjectChecksums, com.google.storage.v2.ObjectChecksums.Builder, com.google.storage.v2.ObjectChecksumsOrBuilder> 
+        getObjectChecksumsFieldBuilder() {
+      if (objectChecksumsBuilder_ == null) {
+        objectChecksumsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.storage.v2.ObjectChecksums, com.google.storage.v2.ObjectChecksums.Builder, com.google.storage.v2.ObjectChecksumsOrBuilder>(
+                getObjectChecksums(),
+                getParentForChildren(),
+                isClean());
+        objectChecksums_ = null;
+      }
+      return objectChecksumsBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -879,7 +1118,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StartResumableWriteRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

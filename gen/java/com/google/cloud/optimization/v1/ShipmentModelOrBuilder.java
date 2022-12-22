@@ -211,7 +211,8 @@ public interface ShipmentModelOrBuilder extends
    * earliest effective start time and the latest effective end time of
    * all vehicles. Users can assign a cost per hour to that quantity to try
    * and optimize for earliest job completion, for example. This cost must be in
-   * the same unit as [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
+   * the same unit as
+   * [Shipment.penalty_cost][google.cloud.optimization.v1.Shipment.penalty_cost].
    * </pre>
    *
    * <code>double global_duration_cost_per_hour = 7;</code>
@@ -1022,7 +1023,8 @@ public interface ShipmentModelOrBuilder extends
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -1034,7 +1036,8 @@ public interface ShipmentModelOrBuilder extends
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -1045,7 +1048,8 @@ public interface ShipmentModelOrBuilder extends
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -1056,7 +1060,8 @@ public interface ShipmentModelOrBuilder extends
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>
@@ -1068,7 +1073,8 @@ public interface ShipmentModelOrBuilder extends
    * Deprecated: No longer used.
    * Set of break rules used in the model.
    * Each vehicle specifies the `BreakRule` that applies to it via the
-   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices] field (which must be a singleton).
+   * [Vehicle.break_rule_indices][google.cloud.optimization.v1.Vehicle.break_rule_indices]
+   * field (which must be a singleton).
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.ShipmentModel.BreakRule break_rules = 15 [deprecated = true];</code>

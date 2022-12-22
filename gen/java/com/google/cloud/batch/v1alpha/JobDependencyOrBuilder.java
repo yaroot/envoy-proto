@@ -110,7 +110,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type         defaultValue);
    *
    * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
    */
-
   int getItemsValueOrDefault(
       java.lang.String key,
       int defaultValue);
@@ -125,7 +124,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type         defaultValue);
    *
    * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
    */
-
   int getItemsValueOrThrow(
       java.lang.String key);
 }

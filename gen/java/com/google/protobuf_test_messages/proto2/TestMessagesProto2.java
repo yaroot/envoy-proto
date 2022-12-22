@@ -1353,7 +1353,6 @@ public final class TestMessagesProto2 {
      *
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
-
     int getMapInt32Int32OrDefault(
         int key,
         int defaultValue);
@@ -1364,7 +1363,6 @@ public final class TestMessagesProto2 {
      *
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
-
     int getMapInt32Int32OrThrow(
         int key);
 
@@ -1391,14 +1389,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
-
     long getMapInt64Int64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
-
     long getMapInt64Int64OrThrow(
         long key);
 
@@ -1425,14 +1421,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
-
     int getMapUint32Uint32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
-
     int getMapUint32Uint32OrThrow(
         int key);
 
@@ -1459,14 +1453,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
-
     long getMapUint64Uint64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
-
     long getMapUint64Uint64OrThrow(
         long key);
 
@@ -1493,14 +1485,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
-
     int getMapSint32Sint32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
-
     int getMapSint32Sint32OrThrow(
         int key);
 
@@ -1527,14 +1517,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
-
     long getMapSint64Sint64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
-
     long getMapSint64Sint64OrThrow(
         long key);
 
@@ -1561,14 +1549,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
-
     int getMapFixed32Fixed32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
-
     int getMapFixed32Fixed32OrThrow(
         int key);
 
@@ -1595,14 +1581,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
-
     long getMapFixed64Fixed64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
-
     long getMapFixed64Fixed64OrThrow(
         long key);
 
@@ -1629,14 +1613,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
-
     int getMapSfixed32Sfixed32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
-
     int getMapSfixed32Sfixed32OrThrow(
         int key);
 
@@ -1663,14 +1645,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
-
     long getMapSfixed64Sfixed64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
-
     long getMapSfixed64Sfixed64OrThrow(
         long key);
 
@@ -1697,14 +1677,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
-
     float getMapInt32FloatOrDefault(
         int key,
         float defaultValue);
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
-
     float getMapInt32FloatOrThrow(
         int key);
 
@@ -1731,14 +1709,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
-
     double getMapInt32DoubleOrDefault(
         int key,
         double defaultValue);
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
-
     double getMapInt32DoubleOrThrow(
         int key);
 
@@ -1765,14 +1741,12 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
-
     boolean getMapBoolBoolOrDefault(
         boolean key,
         boolean defaultValue);
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
-
     boolean getMapBoolBoolOrThrow(
         boolean key);
 
@@ -1799,7 +1773,6 @@ public final class TestMessagesProto2 {
     /**
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
-
     /* nullable */
 java.lang.String getMapStringStringOrDefault(
         java.lang.String key,
@@ -1808,7 +1781,6 @@ java.lang.String defaultValue);
     /**
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
-
     java.lang.String getMapStringStringOrThrow(
         java.lang.String key);
 
@@ -1835,7 +1807,6 @@ java.lang.String defaultValue);
     /**
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
-
     /* nullable */
 com.google.protobuf.ByteString getMapStringBytesOrDefault(
         java.lang.String key,
@@ -1844,7 +1815,6 @@ com.google.protobuf.ByteString defaultValue);
     /**
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
-
     com.google.protobuf.ByteString getMapStringBytesOrThrow(
         java.lang.String key);
 
@@ -1871,7 +1841,6 @@ com.google.protobuf.ByteString defaultValue);
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
-
     /* nullable */
 com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage getMapStringNestedMessageOrDefault(
         java.lang.String key,
@@ -1880,7 +1849,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
-
     com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage getMapStringNestedMessageOrThrow(
         java.lang.String key);
 
@@ -1907,7 +1875,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
      */
-
     /* nullable */
 com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 getMapStringForeignMessageOrDefault(
         java.lang.String key,
@@ -1916,7 +1883,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
      */
-
     com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 getMapStringForeignMessageOrThrow(
         java.lang.String key);
 
@@ -2608,1857 +2574,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TestAllTypesProto2(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      int mutable_bitField1_ = 0;
-      int mutable_bitField2_ = 0;
-      int mutable_bitField3_ = 0;
-      int mutable_bitField4_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              optionalInt32_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              optionalInt64_ = input.readInt64();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              optionalUint32_ = input.readUInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000008;
-              optionalUint64_ = input.readUInt64();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000010;
-              optionalSint32_ = input.readSInt32();
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              optionalSint64_ = input.readSInt64();
-              break;
-            }
-            case 61: {
-              bitField0_ |= 0x00000040;
-              optionalFixed32_ = input.readFixed32();
-              break;
-            }
-            case 65: {
-              bitField0_ |= 0x00000080;
-              optionalFixed64_ = input.readFixed64();
-              break;
-            }
-            case 77: {
-              bitField0_ |= 0x00000100;
-              optionalSfixed32_ = input.readSFixed32();
-              break;
-            }
-            case 81: {
-              bitField0_ |= 0x00000200;
-              optionalSfixed64_ = input.readSFixed64();
-              break;
-            }
-            case 93: {
-              bitField0_ |= 0x00000400;
-              optionalFloat_ = input.readFloat();
-              break;
-            }
-            case 97: {
-              bitField0_ |= 0x00000800;
-              optionalDouble_ = input.readDouble();
-              break;
-            }
-            case 104: {
-              bitField0_ |= 0x00001000;
-              optionalBool_ = input.readBool();
-              break;
-            }
-            case 114: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00002000;
-              optionalString_ = bs;
-              break;
-            }
-            case 122: {
-              bitField0_ |= 0x00004000;
-              optionalBytes_ = input.readBytes();
-              break;
-            }
-            case 146: {
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.Builder subBuilder = null;
-              if (((bitField0_ & 0x00008000) != 0)) {
-                subBuilder = optionalNestedMessage_.toBuilder();
-              }
-              optionalNestedMessage_ = input.readMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(optionalNestedMessage_);
-                optionalNestedMessage_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00008000;
-              break;
-            }
-            case 154: {
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.Builder subBuilder = null;
-              if (((bitField0_ & 0x00010000) != 0)) {
-                subBuilder = optionalForeignMessage_.toBuilder();
-              }
-              optionalForeignMessage_ = input.readMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(optionalForeignMessage_);
-                optionalForeignMessage_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00010000;
-              break;
-            }
-            case 168: {
-              int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(21, rawValue);
-              } else {
-                bitField0_ |= 0x00020000;
-                optionalNestedEnum_ = rawValue;
-              }
-              break;
-            }
-            case 176: {
-              int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(22, rawValue);
-              } else {
-                bitField0_ |= 0x00040000;
-                optionalForeignEnum_ = rawValue;
-              }
-              break;
-            }
-            case 194: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00080000;
-              optionalStringPiece_ = bs;
-              break;
-            }
-            case 202: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00100000;
-              optionalCord_ = bs;
-              break;
-            }
-            case 218: {
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Builder subBuilder = null;
-              if (((bitField0_ & 0x00200000) != 0)) {
-                subBuilder = recursiveMessage_.toBuilder();
-              }
-              recursiveMessage_ = input.readMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(recursiveMessage_);
-                recursiveMessage_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00200000;
-              break;
-            }
-            case 248: {
-              if (!((mutable_bitField0_ & 0x00400000) != 0)) {
-                repeatedInt32_ = newIntList();
-                mutable_bitField0_ |= 0x00400000;
-              }
-              repeatedInt32_.addInt(input.readInt32());
-              break;
-            }
-            case 250: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00400000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedInt32_ = newIntList();
-                mutable_bitField0_ |= 0x00400000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedInt32_.addInt(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 256: {
-              if (!((mutable_bitField0_ & 0x00800000) != 0)) {
-                repeatedInt64_ = newLongList();
-                mutable_bitField0_ |= 0x00800000;
-              }
-              repeatedInt64_.addLong(input.readInt64());
-              break;
-            }
-            case 258: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00800000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedInt64_ = newLongList();
-                mutable_bitField0_ |= 0x00800000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedInt64_.addLong(input.readInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 264: {
-              if (!((mutable_bitField0_ & 0x01000000) != 0)) {
-                repeatedUint32_ = newIntList();
-                mutable_bitField0_ |= 0x01000000;
-              }
-              repeatedUint32_.addInt(input.readUInt32());
-              break;
-            }
-            case 266: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x01000000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedUint32_ = newIntList();
-                mutable_bitField0_ |= 0x01000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedUint32_.addInt(input.readUInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 272: {
-              if (!((mutable_bitField0_ & 0x02000000) != 0)) {
-                repeatedUint64_ = newLongList();
-                mutable_bitField0_ |= 0x02000000;
-              }
-              repeatedUint64_.addLong(input.readUInt64());
-              break;
-            }
-            case 274: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x02000000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedUint64_ = newLongList();
-                mutable_bitField0_ |= 0x02000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedUint64_.addLong(input.readUInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 280: {
-              if (!((mutable_bitField0_ & 0x04000000) != 0)) {
-                repeatedSint32_ = newIntList();
-                mutable_bitField0_ |= 0x04000000;
-              }
-              repeatedSint32_.addInt(input.readSInt32());
-              break;
-            }
-            case 282: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x04000000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedSint32_ = newIntList();
-                mutable_bitField0_ |= 0x04000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedSint32_.addInt(input.readSInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 288: {
-              if (!((mutable_bitField0_ & 0x08000000) != 0)) {
-                repeatedSint64_ = newLongList();
-                mutable_bitField0_ |= 0x08000000;
-              }
-              repeatedSint64_.addLong(input.readSInt64());
-              break;
-            }
-            case 290: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x08000000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedSint64_ = newLongList();
-                mutable_bitField0_ |= 0x08000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedSint64_.addLong(input.readSInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 301: {
-              if (!((mutable_bitField0_ & 0x10000000) != 0)) {
-                repeatedFixed32_ = newIntList();
-                mutable_bitField0_ |= 0x10000000;
-              }
-              repeatedFixed32_.addInt(input.readFixed32());
-              break;
-            }
-            case 298: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x10000000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedFixed32_ = newIntList();
-                mutable_bitField0_ |= 0x10000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedFixed32_.addInt(input.readFixed32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 305: {
-              if (!((mutable_bitField0_ & 0x20000000) != 0)) {
-                repeatedFixed64_ = newLongList();
-                mutable_bitField0_ |= 0x20000000;
-              }
-              repeatedFixed64_.addLong(input.readFixed64());
-              break;
-            }
-            case 306: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x20000000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedFixed64_ = newLongList();
-                mutable_bitField0_ |= 0x20000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedFixed64_.addLong(input.readFixed64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 317: {
-              if (!((mutable_bitField0_ & 0x40000000) != 0)) {
-                repeatedSfixed32_ = newIntList();
-                mutable_bitField0_ |= 0x40000000;
-              }
-              repeatedSfixed32_.addInt(input.readSFixed32());
-              break;
-            }
-            case 314: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x40000000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedSfixed32_ = newIntList();
-                mutable_bitField0_ |= 0x40000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedSfixed32_.addInt(input.readSFixed32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 321: {
-              if (!((mutable_bitField0_ & 0x80000000) != 0)) {
-                repeatedSfixed64_ = newLongList();
-                mutable_bitField0_ |= 0x80000000;
-              }
-              repeatedSfixed64_.addLong(input.readSFixed64());
-              break;
-            }
-            case 322: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x80000000) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedSfixed64_ = newLongList();
-                mutable_bitField0_ |= 0x80000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedSfixed64_.addLong(input.readSFixed64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 333: {
-              if (!((mutable_bitField1_ & 0x00000001) != 0)) {
-                repeatedFloat_ = newFloatList();
-                mutable_bitField1_ |= 0x00000001;
-              }
-              repeatedFloat_.addFloat(input.readFloat());
-              break;
-            }
-            case 330: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedFloat_ = newFloatList();
-                mutable_bitField1_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedFloat_.addFloat(input.readFloat());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 337: {
-              if (!((mutable_bitField1_ & 0x00000002) != 0)) {
-                repeatedDouble_ = newDoubleList();
-                mutable_bitField1_ |= 0x00000002;
-              }
-              repeatedDouble_.addDouble(input.readDouble());
-              break;
-            }
-            case 338: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedDouble_ = newDoubleList();
-                mutable_bitField1_ |= 0x00000002;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedDouble_.addDouble(input.readDouble());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 344: {
-              if (!((mutable_bitField1_ & 0x00000004) != 0)) {
-                repeatedBool_ = newBooleanList();
-                mutable_bitField1_ |= 0x00000004;
-              }
-              repeatedBool_.addBoolean(input.readBool());
-              break;
-            }
-            case 346: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00000004) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedBool_ = newBooleanList();
-                mutable_bitField1_ |= 0x00000004;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedBool_.addBoolean(input.readBool());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 354: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField1_ & 0x00000008) != 0)) {
-                repeatedString_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField1_ |= 0x00000008;
-              }
-              repeatedString_.add(bs);
-              break;
-            }
-            case 362: {
-              if (!((mutable_bitField1_ & 0x00000010) != 0)) {
-                repeatedBytes_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField1_ |= 0x00000010;
-              }
-              repeatedBytes_.add(input.readBytes());
-              break;
-            }
-            case 386: {
-              if (!((mutable_bitField1_ & 0x00000020) != 0)) {
-                repeatedNestedMessage_ = new java.util.ArrayList<com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage>();
-                mutable_bitField1_ |= 0x00000020;
-              }
-              repeatedNestedMessage_.add(
-                  input.readMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.PARSER, extensionRegistry));
-              break;
-            }
-            case 394: {
-              if (!((mutable_bitField1_ & 0x00000040) != 0)) {
-                repeatedForeignMessage_ = new java.util.ArrayList<com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2>();
-                mutable_bitField1_ |= 0x00000040;
-              }
-              repeatedForeignMessage_.add(
-                  input.readMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.PARSER, extensionRegistry));
-              break;
-            }
-            case 408: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(51, rawValue);
-              } else {
-                if (!((mutable_bitField1_ & 0x00000080) != 0)) {
-                  repeatedNestedEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField1_ |= 0x00000080;
-                }
-                repeatedNestedEnum_.add(rawValue);
-              }
-              break;
-            }
-            case 410: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(rawValue);
-                if (value == null) {
-                  unknownFields.mergeVarintField(51, rawValue);
-                } else {
-                  if (!((mutable_bitField1_ & 0x00000080) != 0)) {
-                    repeatedNestedEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                    mutable_bitField1_ |= 0x00000080;
-                  }
-                  repeatedNestedEnum_.add(rawValue);
-                }
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 416: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(52, rawValue);
-              } else {
-                if (!((mutable_bitField1_ & 0x00000100) != 0)) {
-                  repeatedForeignEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField1_ |= 0x00000100;
-                }
-                repeatedForeignEnum_.add(rawValue);
-              }
-              break;
-            }
-            case 418: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.valueOf(rawValue);
-                if (value == null) {
-                  unknownFields.mergeVarintField(52, rawValue);
-                } else {
-                  if (!((mutable_bitField1_ & 0x00000100) != 0)) {
-                    repeatedForeignEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                    mutable_bitField1_ |= 0x00000100;
-                  }
-                  repeatedForeignEnum_.add(rawValue);
-                }
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 434: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField1_ & 0x00000200) != 0)) {
-                repeatedStringPiece_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField1_ |= 0x00000200;
-              }
-              repeatedStringPiece_.add(bs);
-              break;
-            }
-            case 442: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField1_ & 0x00000400) != 0)) {
-                repeatedCord_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField1_ |= 0x00000400;
-              }
-              repeatedCord_.add(bs);
-              break;
-            }
-            case 450: {
-              if (!((mutable_bitField2_ & 0x00000080) != 0)) {
-                mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32Int32DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00000080;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapInt32Int32__ = input.readMessage(
-                  MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Int32_.getMutableMap().put(
-                  mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
-              break;
-            }
-            case 458: {
-              if (!((mutable_bitField2_ & 0x00000100) != 0)) {
-                mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
-                    MapInt64Int64DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00000100;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapInt64Int64__ = input.readMessage(
-                  MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt64Int64_.getMutableMap().put(
-                  mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
-              break;
-            }
-            case 466: {
-              if (!((mutable_bitField2_ & 0x00000200) != 0)) {
-                mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
-                    MapUint32Uint32DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00000200;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapUint32Uint32__ = input.readMessage(
-                  MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapUint32Uint32_.getMutableMap().put(
-                  mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
-              break;
-            }
-            case 474: {
-              if (!((mutable_bitField2_ & 0x00000400) != 0)) {
-                mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
-                    MapUint64Uint64DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00000400;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapUint64Uint64__ = input.readMessage(
-                  MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapUint64Uint64_.getMutableMap().put(
-                  mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
-              break;
-            }
-            case 482: {
-              if (!((mutable_bitField2_ & 0x00000800) != 0)) {
-                mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
-                    MapSint32Sint32DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00000800;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapSint32Sint32__ = input.readMessage(
-                  MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSint32Sint32_.getMutableMap().put(
-                  mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
-              break;
-            }
-            case 490: {
-              if (!((mutable_bitField2_ & 0x00001000) != 0)) {
-                mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
-                    MapSint64Sint64DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00001000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapSint64Sint64__ = input.readMessage(
-                  MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSint64Sint64_.getMutableMap().put(
-                  mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
-              break;
-            }
-            case 498: {
-              if (!((mutable_bitField2_ & 0x00002000) != 0)) {
-                mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
-                    MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00002000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapFixed32Fixed32__ = input.readMessage(
-                  MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapFixed32Fixed32_.getMutableMap().put(
-                  mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
-              break;
-            }
-            case 506: {
-              if (!((mutable_bitField2_ & 0x00004000) != 0)) {
-                mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
-                    MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00004000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapFixed64Fixed64__ = input.readMessage(
-                  MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapFixed64Fixed64_.getMutableMap().put(
-                  mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
-              break;
-            }
-            case 514: {
-              if (!((mutable_bitField2_ & 0x00008000) != 0)) {
-                mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
-                    MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00008000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapSfixed32Sfixed32__ = input.readMessage(
-                  MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSfixed32Sfixed32_.getMutableMap().put(
-                  mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
-              break;
-            }
-            case 522: {
-              if (!((mutable_bitField2_ & 0x00010000) != 0)) {
-                mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
-                    MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00010000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapSfixed64Sfixed64__ = input.readMessage(
-                  MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSfixed64Sfixed64_.getMutableMap().put(
-                  mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
-              break;
-            }
-            case 530: {
-              if (!((mutable_bitField2_ & 0x00020000) != 0)) {
-                mapInt32Float_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32FloatDefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00020000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
-              mapInt32Float__ = input.readMessage(
-                  MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Float_.getMutableMap().put(
-                  mapInt32Float__.getKey(), mapInt32Float__.getValue());
-              break;
-            }
-            case 538: {
-              if (!((mutable_bitField2_ & 0x00040000) != 0)) {
-                mapInt32Double_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32DoubleDefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00040000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
-              mapInt32Double__ = input.readMessage(
-                  MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Double_.getMutableMap().put(
-                  mapInt32Double__.getKey(), mapInt32Double__.getValue());
-              break;
-            }
-            case 546: {
-              if (!((mutable_bitField2_ & 0x00080000) != 0)) {
-                mapBoolBool_ = com.google.protobuf.MapField.newMapField(
-                    MapBoolBoolDefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00080000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
-              mapBoolBool__ = input.readMessage(
-                  MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapBoolBool_.getMutableMap().put(
-                  mapBoolBool__.getKey(), mapBoolBool__.getValue());
-              break;
-            }
-            case 554: {
-              if (!((mutable_bitField2_ & 0x00100000) != 0)) {
-                mapStringString_ = com.google.protobuf.MapField.newMapField(
-                    MapStringStringDefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00100000;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              mapStringString__ = input.readMessage(
-                  MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapStringString_.getMutableMap().put(
-                  mapStringString__.getKey(), mapStringString__.getValue());
-              break;
-            }
-            case 562: {
-              if (!((mutable_bitField2_ & 0x00200000) != 0)) {
-                mapStringBytes_ = com.google.protobuf.MapField.newMapField(
-                    MapStringBytesDefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00200000;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
-              mapStringBytes__ = input.readMessage(
-                  MapStringBytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapStringBytes_.getMutableMap().put(
-                  mapStringBytes__.getKey(), mapStringBytes__.getValue());
-              break;
-            }
-            case 570: {
-              if (!((mutable_bitField2_ & 0x00400000) != 0)) {
-                mapStringNestedMessage_ = com.google.protobuf.MapField.newMapField(
-                    MapStringNestedMessageDefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00400000;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage>
-              mapStringNestedMessage__ = input.readMessage(
-                  MapStringNestedMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapStringNestedMessage_.getMutableMap().put(
-                  mapStringNestedMessage__.getKey(), mapStringNestedMessage__.getValue());
-              break;
-            }
-            case 578: {
-              if (!((mutable_bitField2_ & 0x00800000) != 0)) {
-                mapStringForeignMessage_ = com.google.protobuf.MapField.newMapField(
-                    MapStringForeignMessageDefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x00800000;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2>
-              mapStringForeignMessage__ = input.readMessage(
-                  MapStringForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapStringForeignMessage_.getMutableMap().put(
-                  mapStringForeignMessage__.getKey(), mapStringForeignMessage__.getValue());
-              break;
-            }
-            case 586: {
-              if (!((mutable_bitField2_ & 0x01000000) != 0)) {
-                mapStringNestedEnum_ = com.google.protobuf.MapField.newMapField(
-                    MapStringNestedEnumDefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x01000000;
-              }
-              com.google.protobuf.ByteString bytes = input.readBytes();
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-              mapStringNestedEnum__ = MapStringNestedEnumDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
-              if (com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(mapStringNestedEnum__.getValue()) == null) {
-                unknownFields.mergeLengthDelimitedField(73, bytes);
-              } else {
-                mapStringNestedEnum_.getMutableMap().put(
-                    mapStringNestedEnum__.getKey(), mapStringNestedEnum__.getValue());
-              }
-              break;
-            }
-            case 594: {
-              if (!((mutable_bitField2_ & 0x02000000) != 0)) {
-                mapStringForeignEnum_ = com.google.protobuf.MapField.newMapField(
-                    MapStringForeignEnumDefaultEntryHolder.defaultEntry);
-                mutable_bitField2_ |= 0x02000000;
-              }
-              com.google.protobuf.ByteString bytes = input.readBytes();
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-              mapStringForeignEnum__ = MapStringForeignEnumDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
-              if (com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.forNumber(mapStringForeignEnum__.getValue()) == null) {
-                unknownFields.mergeLengthDelimitedField(74, bytes);
-              } else {
-                mapStringForeignEnum_.getMutableMap().put(
-                    mapStringForeignEnum__.getKey(), mapStringForeignEnum__.getValue());
-              }
-              break;
-            }
-            case 600: {
-              if (!((mutable_bitField1_ & 0x00000800) != 0)) {
-                packedInt32_ = newIntList();
-                mutable_bitField1_ |= 0x00000800;
-              }
-              packedInt32_.addInt(input.readInt32());
-              break;
-            }
-            case 602: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00000800) != 0) && input.getBytesUntilLimit() > 0) {
-                packedInt32_ = newIntList();
-                mutable_bitField1_ |= 0x00000800;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedInt32_.addInt(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 608: {
-              if (!((mutable_bitField1_ & 0x00001000) != 0)) {
-                packedInt64_ = newLongList();
-                mutable_bitField1_ |= 0x00001000;
-              }
-              packedInt64_.addLong(input.readInt64());
-              break;
-            }
-            case 610: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00001000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedInt64_ = newLongList();
-                mutable_bitField1_ |= 0x00001000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedInt64_.addLong(input.readInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 616: {
-              if (!((mutable_bitField1_ & 0x00002000) != 0)) {
-                packedUint32_ = newIntList();
-                mutable_bitField1_ |= 0x00002000;
-              }
-              packedUint32_.addInt(input.readUInt32());
-              break;
-            }
-            case 618: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00002000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedUint32_ = newIntList();
-                mutable_bitField1_ |= 0x00002000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedUint32_.addInt(input.readUInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 624: {
-              if (!((mutable_bitField1_ & 0x00004000) != 0)) {
-                packedUint64_ = newLongList();
-                mutable_bitField1_ |= 0x00004000;
-              }
-              packedUint64_.addLong(input.readUInt64());
-              break;
-            }
-            case 626: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00004000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedUint64_ = newLongList();
-                mutable_bitField1_ |= 0x00004000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedUint64_.addLong(input.readUInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 632: {
-              if (!((mutable_bitField1_ & 0x00008000) != 0)) {
-                packedSint32_ = newIntList();
-                mutable_bitField1_ |= 0x00008000;
-              }
-              packedSint32_.addInt(input.readSInt32());
-              break;
-            }
-            case 634: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00008000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedSint32_ = newIntList();
-                mutable_bitField1_ |= 0x00008000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedSint32_.addInt(input.readSInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 640: {
-              if (!((mutable_bitField1_ & 0x00010000) != 0)) {
-                packedSint64_ = newLongList();
-                mutable_bitField1_ |= 0x00010000;
-              }
-              packedSint64_.addLong(input.readSInt64());
-              break;
-            }
-            case 642: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00010000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedSint64_ = newLongList();
-                mutable_bitField1_ |= 0x00010000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedSint64_.addLong(input.readSInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 653: {
-              if (!((mutable_bitField1_ & 0x00020000) != 0)) {
-                packedFixed32_ = newIntList();
-                mutable_bitField1_ |= 0x00020000;
-              }
-              packedFixed32_.addInt(input.readFixed32());
-              break;
-            }
-            case 650: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00020000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedFixed32_ = newIntList();
-                mutable_bitField1_ |= 0x00020000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedFixed32_.addInt(input.readFixed32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 657: {
-              if (!((mutable_bitField1_ & 0x00040000) != 0)) {
-                packedFixed64_ = newLongList();
-                mutable_bitField1_ |= 0x00040000;
-              }
-              packedFixed64_.addLong(input.readFixed64());
-              break;
-            }
-            case 658: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00040000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedFixed64_ = newLongList();
-                mutable_bitField1_ |= 0x00040000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedFixed64_.addLong(input.readFixed64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 669: {
-              if (!((mutable_bitField1_ & 0x00080000) != 0)) {
-                packedSfixed32_ = newIntList();
-                mutable_bitField1_ |= 0x00080000;
-              }
-              packedSfixed32_.addInt(input.readSFixed32());
-              break;
-            }
-            case 666: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00080000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedSfixed32_ = newIntList();
-                mutable_bitField1_ |= 0x00080000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedSfixed32_.addInt(input.readSFixed32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 673: {
-              if (!((mutable_bitField1_ & 0x00100000) != 0)) {
-                packedSfixed64_ = newLongList();
-                mutable_bitField1_ |= 0x00100000;
-              }
-              packedSfixed64_.addLong(input.readSFixed64());
-              break;
-            }
-            case 674: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00100000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedSfixed64_ = newLongList();
-                mutable_bitField1_ |= 0x00100000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedSfixed64_.addLong(input.readSFixed64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 685: {
-              if (!((mutable_bitField1_ & 0x00200000) != 0)) {
-                packedFloat_ = newFloatList();
-                mutable_bitField1_ |= 0x00200000;
-              }
-              packedFloat_.addFloat(input.readFloat());
-              break;
-            }
-            case 682: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00200000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedFloat_ = newFloatList();
-                mutable_bitField1_ |= 0x00200000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedFloat_.addFloat(input.readFloat());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 689: {
-              if (!((mutable_bitField1_ & 0x00400000) != 0)) {
-                packedDouble_ = newDoubleList();
-                mutable_bitField1_ |= 0x00400000;
-              }
-              packedDouble_.addDouble(input.readDouble());
-              break;
-            }
-            case 690: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00400000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedDouble_ = newDoubleList();
-                mutable_bitField1_ |= 0x00400000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedDouble_.addDouble(input.readDouble());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 696: {
-              if (!((mutable_bitField1_ & 0x00800000) != 0)) {
-                packedBool_ = newBooleanList();
-                mutable_bitField1_ |= 0x00800000;
-              }
-              packedBool_.addBoolean(input.readBool());
-              break;
-            }
-            case 698: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x00800000) != 0) && input.getBytesUntilLimit() > 0) {
-                packedBool_ = newBooleanList();
-                mutable_bitField1_ |= 0x00800000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                packedBool_.addBoolean(input.readBool());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 704: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(88, rawValue);
-              } else {
-                if (!((mutable_bitField1_ & 0x01000000) != 0)) {
-                  packedNestedEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField1_ |= 0x01000000;
-                }
-                packedNestedEnum_.add(rawValue);
-              }
-              break;
-            }
-            case 706: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(rawValue);
-                if (value == null) {
-                  unknownFields.mergeVarintField(88, rawValue);
-                } else {
-                  if (!((mutable_bitField1_ & 0x01000000) != 0)) {
-                    packedNestedEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                    mutable_bitField1_ |= 0x01000000;
-                  }
-                  packedNestedEnum_.add(rawValue);
-                }
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 712: {
-              if (!((mutable_bitField1_ & 0x02000000) != 0)) {
-                unpackedInt32_ = newIntList();
-                mutable_bitField1_ |= 0x02000000;
-              }
-              unpackedInt32_.addInt(input.readInt32());
-              break;
-            }
-            case 714: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x02000000) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedInt32_ = newIntList();
-                mutable_bitField1_ |= 0x02000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedInt32_.addInt(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 720: {
-              if (!((mutable_bitField1_ & 0x04000000) != 0)) {
-                unpackedInt64_ = newLongList();
-                mutable_bitField1_ |= 0x04000000;
-              }
-              unpackedInt64_.addLong(input.readInt64());
-              break;
-            }
-            case 722: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x04000000) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedInt64_ = newLongList();
-                mutable_bitField1_ |= 0x04000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedInt64_.addLong(input.readInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 728: {
-              if (!((mutable_bitField1_ & 0x08000000) != 0)) {
-                unpackedUint32_ = newIntList();
-                mutable_bitField1_ |= 0x08000000;
-              }
-              unpackedUint32_.addInt(input.readUInt32());
-              break;
-            }
-            case 730: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x08000000) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedUint32_ = newIntList();
-                mutable_bitField1_ |= 0x08000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedUint32_.addInt(input.readUInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 736: {
-              if (!((mutable_bitField1_ & 0x10000000) != 0)) {
-                unpackedUint64_ = newLongList();
-                mutable_bitField1_ |= 0x10000000;
-              }
-              unpackedUint64_.addLong(input.readUInt64());
-              break;
-            }
-            case 738: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x10000000) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedUint64_ = newLongList();
-                mutable_bitField1_ |= 0x10000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedUint64_.addLong(input.readUInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 744: {
-              if (!((mutable_bitField1_ & 0x20000000) != 0)) {
-                unpackedSint32_ = newIntList();
-                mutable_bitField1_ |= 0x20000000;
-              }
-              unpackedSint32_.addInt(input.readSInt32());
-              break;
-            }
-            case 746: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x20000000) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedSint32_ = newIntList();
-                mutable_bitField1_ |= 0x20000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedSint32_.addInt(input.readSInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 752: {
-              if (!((mutable_bitField1_ & 0x40000000) != 0)) {
-                unpackedSint64_ = newLongList();
-                mutable_bitField1_ |= 0x40000000;
-              }
-              unpackedSint64_.addLong(input.readSInt64());
-              break;
-            }
-            case 754: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x40000000) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedSint64_ = newLongList();
-                mutable_bitField1_ |= 0x40000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedSint64_.addLong(input.readSInt64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 765: {
-              if (!((mutable_bitField1_ & 0x80000000) != 0)) {
-                unpackedFixed32_ = newIntList();
-                mutable_bitField1_ |= 0x80000000;
-              }
-              unpackedFixed32_.addInt(input.readFixed32());
-              break;
-            }
-            case 762: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField1_ & 0x80000000) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedFixed32_ = newIntList();
-                mutable_bitField1_ |= 0x80000000;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedFixed32_.addInt(input.readFixed32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 769: {
-              if (!((mutable_bitField2_ & 0x00000001) != 0)) {
-                unpackedFixed64_ = newLongList();
-                mutable_bitField2_ |= 0x00000001;
-              }
-              unpackedFixed64_.addLong(input.readFixed64());
-              break;
-            }
-            case 770: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField2_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedFixed64_ = newLongList();
-                mutable_bitField2_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedFixed64_.addLong(input.readFixed64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 781: {
-              if (!((mutable_bitField2_ & 0x00000002) != 0)) {
-                unpackedSfixed32_ = newIntList();
-                mutable_bitField2_ |= 0x00000002;
-              }
-              unpackedSfixed32_.addInt(input.readSFixed32());
-              break;
-            }
-            case 778: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField2_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedSfixed32_ = newIntList();
-                mutable_bitField2_ |= 0x00000002;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedSfixed32_.addInt(input.readSFixed32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 785: {
-              if (!((mutable_bitField2_ & 0x00000004) != 0)) {
-                unpackedSfixed64_ = newLongList();
-                mutable_bitField2_ |= 0x00000004;
-              }
-              unpackedSfixed64_.addLong(input.readSFixed64());
-              break;
-            }
-            case 786: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField2_ & 0x00000004) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedSfixed64_ = newLongList();
-                mutable_bitField2_ |= 0x00000004;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedSfixed64_.addLong(input.readSFixed64());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 797: {
-              if (!((mutable_bitField2_ & 0x00000008) != 0)) {
-                unpackedFloat_ = newFloatList();
-                mutable_bitField2_ |= 0x00000008;
-              }
-              unpackedFloat_.addFloat(input.readFloat());
-              break;
-            }
-            case 794: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField2_ & 0x00000008) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedFloat_ = newFloatList();
-                mutable_bitField2_ |= 0x00000008;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedFloat_.addFloat(input.readFloat());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 801: {
-              if (!((mutable_bitField2_ & 0x00000010) != 0)) {
-                unpackedDouble_ = newDoubleList();
-                mutable_bitField2_ |= 0x00000010;
-              }
-              unpackedDouble_.addDouble(input.readDouble());
-              break;
-            }
-            case 802: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField2_ & 0x00000010) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedDouble_ = newDoubleList();
-                mutable_bitField2_ |= 0x00000010;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedDouble_.addDouble(input.readDouble());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 808: {
-              if (!((mutable_bitField2_ & 0x00000020) != 0)) {
-                unpackedBool_ = newBooleanList();
-                mutable_bitField2_ |= 0x00000020;
-              }
-              unpackedBool_.addBoolean(input.readBool());
-              break;
-            }
-            case 810: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField2_ & 0x00000020) != 0) && input.getBytesUntilLimit() > 0) {
-                unpackedBool_ = newBooleanList();
-                mutable_bitField2_ |= 0x00000020;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                unpackedBool_.addBoolean(input.readBool());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 816: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(102, rawValue);
-              } else {
-                if (!((mutable_bitField2_ & 0x00000040) != 0)) {
-                  unpackedNestedEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField2_ |= 0x00000040;
-                }
-                unpackedNestedEnum_.add(rawValue);
-              }
-              break;
-            }
-            case 818: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(rawValue);
-                if (value == null) {
-                  unknownFields.mergeVarintField(102, rawValue);
-                } else {
-                  if (!((mutable_bitField2_ & 0x00000040) != 0)) {
-                    unpackedNestedEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                    mutable_bitField2_ |= 0x00000040;
-                  }
-                  unpackedNestedEnum_.add(rawValue);
-                }
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 888: {
-              oneofField_ = input.readUInt32();
-              oneofFieldCase_ = 111;
-              break;
-            }
-            case 898: {
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.Builder subBuilder = null;
-              if (oneofFieldCase_ == 112) {
-                subBuilder = ((com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage) oneofField_).toBuilder();
-              }
-              oneofField_ =
-                  input.readMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage) oneofField_);
-                oneofField_ = subBuilder.buildPartial();
-              }
-              oneofFieldCase_ = 112;
-              break;
-            }
-            case 906: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              oneofFieldCase_ = 113;
-              oneofField_ = bs;
-              break;
-            }
-            case 914: {
-              oneofField_ = input.readBytes();
-              oneofFieldCase_ = 114;
-              break;
-            }
-            case 920: {
-              oneofField_ = input.readBool();
-              oneofFieldCase_ = 115;
-              break;
-            }
-            case 928: {
-              oneofField_ = input.readUInt64();
-              oneofFieldCase_ = 116;
-              break;
-            }
-            case 941: {
-              oneofField_ = input.readFloat();
-              oneofFieldCase_ = 117;
-              break;
-            }
-            case 945: {
-              oneofField_ = input.readDouble();
-              oneofFieldCase_ = 118;
-              break;
-            }
-            case 952: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum value = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(119, rawValue);
-              } else {
-                oneofFieldCase_ = 119;
-                oneofField_ = rawValue;
-              }
-              break;
-            }
-            case 1611: {
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data.Builder subBuilder = null;
-              if (((bitField0_ & 0x80000000) != 0)) {
-                subBuilder = data_.toBuilder();
-              }
-              data_ = input.readGroup(201, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data.PARSER,
-                  extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(data_);
-                data_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x80000000;
-              break;
-            }
-            case 1928: {
-              bitField1_ |= 0x00000001;
-              defaultInt32_ = input.readInt32();
-              break;
-            }
-            case 1936: {
-              bitField1_ |= 0x00000002;
-              defaultInt64_ = input.readInt64();
-              break;
-            }
-            case 1944: {
-              bitField1_ |= 0x00000004;
-              defaultUint32_ = input.readUInt32();
-              break;
-            }
-            case 1952: {
-              bitField1_ |= 0x00000008;
-              defaultUint64_ = input.readUInt64();
-              break;
-            }
-            case 1960: {
-              bitField1_ |= 0x00000010;
-              defaultSint32_ = input.readSInt32();
-              break;
-            }
-            case 1968: {
-              bitField1_ |= 0x00000020;
-              defaultSint64_ = input.readSInt64();
-              break;
-            }
-            case 1981: {
-              bitField1_ |= 0x00000040;
-              defaultFixed32_ = input.readFixed32();
-              break;
-            }
-            case 1985: {
-              bitField1_ |= 0x00000080;
-              defaultFixed64_ = input.readFixed64();
-              break;
-            }
-            case 1997: {
-              bitField1_ |= 0x00000100;
-              defaultSfixed32_ = input.readSFixed32();
-              break;
-            }
-            case 2001: {
-              bitField1_ |= 0x00000200;
-              defaultSfixed64_ = input.readSFixed64();
-              break;
-            }
-            case 2013: {
-              bitField1_ |= 0x00000400;
-              defaultFloat_ = input.readFloat();
-              break;
-            }
-            case 2017: {
-              bitField1_ |= 0x00000800;
-              defaultDouble_ = input.readDouble();
-              break;
-            }
-            case 2024: {
-              bitField1_ |= 0x00001000;
-              defaultBool_ = input.readBool();
-              break;
-            }
-            case 2034: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField1_ |= 0x00002000;
-              defaultString_ = bs;
-              break;
-            }
-            case 2042: {
-              bitField1_ |= 0x00004000;
-              defaultBytes_ = input.readBytes();
-              break;
-            }
-            case 3208: {
-              bitField1_ |= 0x00008000;
-              fieldname1_ = input.readInt32();
-              break;
-            }
-            case 3216: {
-              bitField1_ |= 0x00010000;
-              fieldName2_ = input.readInt32();
-              break;
-            }
-            case 3224: {
-              bitField1_ |= 0x00020000;
-              FieldName3_ = input.readInt32();
-              break;
-            }
-            case 3232: {
-              bitField1_ |= 0x00040000;
-              fieldName4_ = input.readInt32();
-              break;
-            }
-            case 3240: {
-              bitField1_ |= 0x00080000;
-              field0Name5_ = input.readInt32();
-              break;
-            }
-            case 3248: {
-              bitField1_ |= 0x00100000;
-              field0Name6_ = input.readInt32();
-              break;
-            }
-            case 3256: {
-              bitField1_ |= 0x00200000;
-              fieldName7_ = input.readInt32();
-              break;
-            }
-            case 3264: {
-              bitField1_ |= 0x00400000;
-              fieldName8_ = input.readInt32();
-              break;
-            }
-            case 3272: {
-              bitField1_ |= 0x00800000;
-              fieldName9_ = input.readInt32();
-              break;
-            }
-            case 3280: {
-              bitField1_ |= 0x01000000;
-              fieldName10_ = input.readInt32();
-              break;
-            }
-            case 3288: {
-              bitField1_ |= 0x02000000;
-              fIELDNAME11_ = input.readInt32();
-              break;
-            }
-            case 3296: {
-              bitField1_ |= 0x04000000;
-              fIELDName12_ = input.readInt32();
-              break;
-            }
-            case 3304: {
-              bitField1_ |= 0x08000000;
-              FieldName13_ = input.readInt32();
-              break;
-            }
-            case 3312: {
-              bitField1_ |= 0x10000000;
-              FieldName14_ = input.readInt32();
-              break;
-            }
-            case 3320: {
-              bitField1_ |= 0x20000000;
-              fieldName15_ = input.readInt32();
-              break;
-            }
-            case 3328: {
-              bitField1_ |= 0x40000000;
-              fieldName16_ = input.readInt32();
-              break;
-            }
-            case 3336: {
-              bitField1_ |= 0x80000000;
-              fieldName17_ = input.readInt32();
-              break;
-            }
-            case 3344: {
-              bitField2_ |= 0x00000001;
-              fieldName18_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00400000) != 0)) {
-          repeatedInt32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField0_ & 0x00800000) != 0)) {
-          repeatedInt64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField0_ & 0x01000000) != 0)) {
-          repeatedUint32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField0_ & 0x02000000) != 0)) {
-          repeatedUint64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField0_ & 0x04000000) != 0)) {
-          repeatedSint32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField0_ & 0x08000000) != 0)) {
-          repeatedSint64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField0_ & 0x10000000) != 0)) {
-          repeatedFixed32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField0_ & 0x20000000) != 0)) {
-          repeatedFixed64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField0_ & 0x40000000) != 0)) {
-          repeatedSfixed32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField0_ & 0x80000000) != 0)) {
-          repeatedSfixed64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00000001) != 0)) {
-          repeatedFloat_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00000002) != 0)) {
-          repeatedDouble_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00000004) != 0)) {
-          repeatedBool_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00000008) != 0)) {
-          repeatedString_ = repeatedString_.getUnmodifiableView();
-        }
-        if (((mutable_bitField1_ & 0x00000010) != 0)) {
-          repeatedBytes_ = java.util.Collections.unmodifiableList(repeatedBytes_); // C
-        }
-        if (((mutable_bitField1_ & 0x00000020) != 0)) {
-          repeatedNestedMessage_ = java.util.Collections.unmodifiableList(repeatedNestedMessage_);
-        }
-        if (((mutable_bitField1_ & 0x00000040) != 0)) {
-          repeatedForeignMessage_ = java.util.Collections.unmodifiableList(repeatedForeignMessage_);
-        }
-        if (((mutable_bitField1_ & 0x00000080) != 0)) {
-          repeatedNestedEnum_ = java.util.Collections.unmodifiableList(repeatedNestedEnum_);
-        }
-        if (((mutable_bitField1_ & 0x00000100) != 0)) {
-          repeatedForeignEnum_ = java.util.Collections.unmodifiableList(repeatedForeignEnum_);
-        }
-        if (((mutable_bitField1_ & 0x00000200) != 0)) {
-          repeatedStringPiece_ = repeatedStringPiece_.getUnmodifiableView();
-        }
-        if (((mutable_bitField1_ & 0x00000400) != 0)) {
-          repeatedCord_ = repeatedCord_.getUnmodifiableView();
-        }
-        if (((mutable_bitField1_ & 0x00000800) != 0)) {
-          packedInt32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00001000) != 0)) {
-          packedInt64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00002000) != 0)) {
-          packedUint32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00004000) != 0)) {
-          packedUint64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00008000) != 0)) {
-          packedSint32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00010000) != 0)) {
-          packedSint64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00020000) != 0)) {
-          packedFixed32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00040000) != 0)) {
-          packedFixed64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00080000) != 0)) {
-          packedSfixed32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00100000) != 0)) {
-          packedSfixed64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00200000) != 0)) {
-          packedFloat_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00400000) != 0)) {
-          packedDouble_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x00800000) != 0)) {
-          packedBool_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x01000000) != 0)) {
-          packedNestedEnum_ = java.util.Collections.unmodifiableList(packedNestedEnum_);
-        }
-        if (((mutable_bitField1_ & 0x02000000) != 0)) {
-          unpackedInt32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x04000000) != 0)) {
-          unpackedInt64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x08000000) != 0)) {
-          unpackedUint32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x10000000) != 0)) {
-          unpackedUint64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x20000000) != 0)) {
-          unpackedSint32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x40000000) != 0)) {
-          unpackedSint64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField1_ & 0x80000000) != 0)) {
-          unpackedFixed32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField2_ & 0x00000001) != 0)) {
-          unpackedFixed64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField2_ & 0x00000002) != 0)) {
-          unpackedSfixed32_.makeImmutable(); // C
-        }
-        if (((mutable_bitField2_ & 0x00000004) != 0)) {
-          unpackedSfixed64_.makeImmutable(); // C
-        }
-        if (((mutable_bitField2_ & 0x00000008) != 0)) {
-          unpackedFloat_.makeImmutable(); // C
-        }
-        if (((mutable_bitField2_ & 0x00000010) != 0)) {
-          unpackedDouble_.makeImmutable(); // C
-        }
-        if (((mutable_bitField2_ & 0x00000020) != 0)) {
-          unpackedBool_.makeImmutable(); // C
-        }
-        if (((mutable_bitField2_ & 0x00000040) != 0)) {
-          unpackedNestedEnum_ = java.util.Collections.unmodifiableList(unpackedNestedEnum_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_TestAllTypesProto2_descriptor;
@@ -4699,64 +2814,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       getUnknownFields() {
         return this.unknownFields;
       }
-      private NestedMessage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                bitField0_ |= 0x00000001;
-                a_ = input.readInt32();
-                break;
-              }
-              case 18: {
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000002) != 0)) {
-                  subBuilder = corecursive_.toBuilder();
-                }
-                corecursive_ = input.readMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.PARSER, extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(corecursive_);
-                  corecursive_ = subBuilder.buildPartial();
-                }
-                bitField0_ |= 0x00000002;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_TestAllTypesProto2_NestedMessage_descriptor;
@@ -4772,7 +2829,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
 
       private int bitField0_;
       public static final int A_FIELD_NUMBER = 1;
-      private int a_;
+      private int a_ = 0;
       /**
        * <code>optional int32 a = 1;</code>
        * @return Whether the a field is set.
@@ -4842,7 +2899,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         if (((bitField0_ & 0x00000002) != 0)) {
           output.writeMessage(2, getCorecursive());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -4859,7 +2916,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getCorecursive());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -4884,7 +2941,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           if (!getCorecursive()
               .equals(other.getCorecursive())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -4903,7 +2960,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           hash = (37 * hash) + CORECURSIVE_FIELD_NUMBER;
           hash = (53 * hash) + getCorecursive().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -5037,14 +3094,13 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           a_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          if (corecursiveBuilder_ == null) {
-            corecursive_ = null;
-          } else {
-            corecursiveBuilder_.clear();
+          corecursive_ = null;
+          if (corecursiveBuilder_ != null) {
+            corecursiveBuilder_.dispose();
+            corecursiveBuilder_ = null;
           }
-          bitField0_ = (bitField0_ & ~0x00000002);
           return this;
         }
 
@@ -5071,6 +3127,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         @java.lang.Override
         public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage buildPartial() {
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage result) {
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -5078,16 +3140,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             to_bitField0_ |= 0x00000001;
           }
           if (((from_bitField0_ & 0x00000002) != 0)) {
-            if (corecursiveBuilder_ == null) {
-              result.corecursive_ = corecursive_;
-            } else {
-              result.corecursive_ = corecursiveBuilder_.build();
-            }
+            result.corecursive_ = corecursiveBuilder_ == null
+                ? corecursive_
+                : corecursiveBuilder_.build();
             to_bitField0_ |= 0x00000002;
           }
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
+          result.bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -5140,7 +3198,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           if (other.hasCorecursive()) {
             mergeCorecursive(other.getCorecursive());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -5160,17 +3218,42 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  a_ = input.readInt32();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 18: {
+                  input.readMessage(
+                      getCorecursiveFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -5198,8 +3281,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
          * @return This builder for chaining.
          */
         public Builder setA(int value) {
-          bitField0_ |= 0x00000001;
+          
           a_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -5244,11 +3328,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
               throw new NullPointerException();
             }
             corecursive_ = value;
-            onChanged();
           } else {
             corecursiveBuilder_.setMessage(value);
           }
           bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -5258,11 +3342,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Builder builderForValue) {
           if (corecursiveBuilder_ == null) {
             corecursive_ = builderForValue.build();
-            onChanged();
           } else {
             corecursiveBuilder_.setMessage(builderForValue.build());
           }
           bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -5271,31 +3355,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         public Builder mergeCorecursive(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 value) {
           if (corecursiveBuilder_ == null) {
             if (((bitField0_ & 0x00000002) != 0) &&
-                corecursive_ != null &&
-                corecursive_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.getDefaultInstance()) {
-              corecursive_ =
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.newBuilder(corecursive_).mergeFrom(value).buildPartial();
+              corecursive_ != null &&
+              corecursive_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.getDefaultInstance()) {
+              getCorecursiveBuilder().mergeFrom(value);
             } else {
               corecursive_ = value;
             }
-            onChanged();
           } else {
             corecursiveBuilder_.mergeFrom(value);
           }
           bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <code>optional .protobuf_test_messages.proto2.TestAllTypesProto2 corecursive = 2;</code>
          */
         public Builder clearCorecursive() {
-          if (corecursiveBuilder_ == null) {
-            corecursive_ = null;
-            onChanged();
-          } else {
-            corecursiveBuilder_.clear();
-          }
           bitField0_ = (bitField0_ & ~0x00000002);
+          corecursive_ = null;
+          if (corecursiveBuilder_ != null) {
+            corecursiveBuilder_.dispose();
+            corecursiveBuilder_ = null;
+          }
+          onChanged();
           return this;
         }
         /**
@@ -5366,7 +3449,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new NestedMessage(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -5443,56 +3537,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Data(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 1616: {
-                bitField0_ |= 0x00000001;
-                groupInt32_ = input.readInt32();
-                break;
-              }
-              case 1624: {
-                bitField0_ |= 0x00000002;
-                groupUint32_ = input.readUInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_TestAllTypesProto2_Data_descriptor;
@@ -5508,7 +3552,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
 
       private int bitField0_;
       public static final int GROUP_INT32_FIELD_NUMBER = 202;
-      private int groupInt32_;
+      private int groupInt32_ = 0;
       /**
        * <code>optional int32 group_int32 = 202;</code>
        * @return Whether the groupInt32 field is set.
@@ -5527,7 +3571,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
 
       public static final int GROUP_UINT32_FIELD_NUMBER = 203;
-      private int groupUint32_;
+      private int groupUint32_ = 0;
       /**
        * <code>optional uint32 group_uint32 = 203;</code>
        * @return Whether the groupUint32 field is set.
@@ -5565,7 +3609,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         if (((bitField0_ & 0x00000002) != 0)) {
           output.writeUInt32(203, groupUint32_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -5582,7 +3626,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           size += com.google.protobuf.CodedOutputStream
             .computeUInt32Size(203, groupUint32_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -5607,7 +3651,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           if (getGroupUint32()
               != other.getGroupUint32()) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -5626,7 +3670,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           hash = (37 * hash) + GROUP_UINT32_FIELD_NUMBER;
           hash = (53 * hash) + getGroupUint32();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -5747,26 +3791,20 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
 
         // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           groupInt32_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
           groupUint32_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000002);
           return this;
         }
 
@@ -5793,6 +3831,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         @java.lang.Override
         public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data buildPartial() {
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data result) {
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -5803,9 +3847,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             result.groupUint32_ = groupUint32_;
             to_bitField0_ |= 0x00000002;
           }
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
+          result.bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -5858,7 +3900,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           if (other.hasGroupUint32()) {
             setGroupUint32(other.getGroupUint32());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -5873,17 +3915,40 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 1616: {
+                  groupInt32_ = input.readInt32();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 1616
+                case 1624: {
+                  groupUint32_ = input.readUInt32();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 1624
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -5911,8 +3976,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
          * @return This builder for chaining.
          */
         public Builder setGroupInt32(int value) {
-          bitField0_ |= 0x00000001;
+          
           groupInt32_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -5950,8 +4016,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
          * @return This builder for chaining.
          */
         public Builder setGroupUint32(int value) {
-          bitField0_ |= 0x00000002;
+          
           groupUint32_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -5998,7 +4065,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Data(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -6055,45 +4133,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       getUnknownFields() {
         return this.unknownFields;
       }
-      private MessageSetCorrect(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_TestAllTypesProto2_MessageSetCorrect_descriptor;
@@ -6129,7 +4168,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           .ExtendableMessage<com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrect>.ExtensionWriter
             extensionWriter = newMessageSetExtensionWriter();
         extensionWriter.writeUntil(2147483647, output);
-        unknownFields.writeAsMessageSetTo(output);
+        getUnknownFields().writeAsMessageSetTo(output);
       }
 
       @java.lang.Override
@@ -6139,7 +4178,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
 
         size = 0;
         size += extensionsSerializedSizeAsMessageSet();
-        size += unknownFields.getSerializedSizeAsMessageSet();
+        size += getUnknownFields().getSerializedSizeAsMessageSet();
         memoizedSize = size;
         return size;
       }
@@ -6154,7 +4193,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         }
         com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrect other = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrect) obj;
 
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         if (!getExtensionFields().equals(other.getExtensionFields()))
           return false;
         return true;
@@ -6168,7 +4207,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = hashFields(hash, getExtensionFields());
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -6290,18 +4329,13 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
 
         // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrect.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
@@ -6408,7 +4442,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         public Builder mergeFrom(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrect other) {
           if (other == com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrect.getDefaultInstance()) return this;
           this.mergeExtensionFields(other);
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -6426,17 +4460,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrect parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrect) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         @java.lang.Override
@@ -6472,7 +4519,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MessageSetCorrect(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -6541,52 +4599,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       getUnknownFields() {
         return this.unknownFields;
       }
-      private MessageSetCorrectExtension1(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 202: {
-                com.google.protobuf.ByteString bs = input.readBytes();
-                bitField0_ |= 0x00000001;
-                str_ = bs;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_TestAllTypesProto2_MessageSetCorrectExtension1_descriptor;
@@ -6602,7 +4614,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
 
       private int bitField0_;
       public static final int STR_FIELD_NUMBER = 25;
-      private volatile java.lang.Object str_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object str_ = "";
       /**
        * <code>optional string str = 25;</code>
        * @return Whether the str field is set.
@@ -6666,7 +4679,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         if (((bitField0_ & 0x00000001) != 0)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 25, str_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -6678,7 +4691,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         if (((bitField0_ & 0x00000001) != 0)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(25, str_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -6698,7 +4711,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           if (!getStr()
               .equals(other.getStr())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -6713,7 +4726,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           hash = (37 * hash) + STR_FIELD_NUMBER;
           hash = (53 * hash) + getStr().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -6830,24 +4843,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
 
         // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension1.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           str_ = "";
-          bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
 
@@ -6874,15 +4882,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         @java.lang.Override
         public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension1 buildPartial() {
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension1 result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension1(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension1 result) {
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.str_ = str_;
             to_bitField0_ |= 0x00000001;
           }
-          result.str_ = str_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
+          result.bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -6930,11 +4942,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         public Builder mergeFrom(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension1 other) {
           if (other == com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension1.getDefaultInstance()) return this;
           if (other.hasStr()) {
-            bitField0_ |= 0x00000001;
             str_ = other.str_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -6949,17 +4961,35 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension1 parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 202: {
+                  str_ = input.readBytes();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 202
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension1) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -7014,11 +5044,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
          */
         public Builder setStr(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          if (value == null) { throw new NullPointerException(); }
           str_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -7027,8 +5055,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
          * @return This builder for chaining.
          */
         public Builder clearStr() {
-          bitField0_ = (bitField0_ & ~0x00000001);
           str_ = getDefaultInstance().getStr();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -7039,11 +5067,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
          */
         public Builder setStrBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+          if (value == null) { throw new NullPointerException(); }
           str_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -7080,7 +5106,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MessageSetCorrectExtension1(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -7155,51 +5192,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       getUnknownFields() {
         return this.unknownFields;
       }
-      private MessageSetCorrectExtension2(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 72: {
-                bitField0_ |= 0x00000001;
-                i_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_TestAllTypesProto2_MessageSetCorrectExtension2_descriptor;
@@ -7215,7 +5207,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
 
       private int bitField0_;
       public static final int I_FIELD_NUMBER = 9;
-      private int i_;
+      private int i_ = 0;
       /**
        * <code>optional int32 i = 9;</code>
        * @return Whether the i field is set.
@@ -7250,7 +5242,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         if (((bitField0_ & 0x00000001) != 0)) {
           output.writeInt32(9, i_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -7263,7 +5255,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(9, i_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -7283,7 +5275,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           if (getI()
               != other.getI()) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -7298,7 +5290,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           hash = (37 * hash) + I_FIELD_NUMBER;
           hash = (53 * hash) + getI();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -7415,24 +5407,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
 
         // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension2.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           i_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
 
@@ -7459,15 +5446,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
         @java.lang.Override
         public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension2 buildPartial() {
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension2 result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension2(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension2 result) {
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.i_ = i_;
             to_bitField0_ |= 0x00000001;
           }
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
+          result.bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -7517,7 +5508,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           if (other.hasI()) {
             setI(other.getI());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -7532,17 +5523,35 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension2 parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 72: {
+                  i_ = input.readInt32();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 72
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.MessageSetCorrectExtension2) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -7570,8 +5579,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
          * @return This builder for chaining.
          */
         public Builder setI(int value) {
-          bitField0_ |= 0x00000001;
+          
           i_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -7618,7 +5628,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MessageSetCorrectExtension2(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -7710,7 +5731,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_INT32_FIELD_NUMBER = 1;
-    private int optionalInt32_;
+    private int optionalInt32_ = 0;
     /**
      * <pre>
      * Singular
@@ -7737,7 +5758,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_INT64_FIELD_NUMBER = 2;
-    private long optionalInt64_;
+    private long optionalInt64_ = 0L;
     /**
      * <code>optional int64 optional_int64 = 2;</code>
      * @return Whether the optionalInt64 field is set.
@@ -7756,7 +5777,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_UINT32_FIELD_NUMBER = 3;
-    private int optionalUint32_;
+    private int optionalUint32_ = 0;
     /**
      * <code>optional uint32 optional_uint32 = 3;</code>
      * @return Whether the optionalUint32 field is set.
@@ -7775,7 +5796,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_UINT64_FIELD_NUMBER = 4;
-    private long optionalUint64_;
+    private long optionalUint64_ = 0L;
     /**
      * <code>optional uint64 optional_uint64 = 4;</code>
      * @return Whether the optionalUint64 field is set.
@@ -7794,7 +5815,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_SINT32_FIELD_NUMBER = 5;
-    private int optionalSint32_;
+    private int optionalSint32_ = 0;
     /**
      * <code>optional sint32 optional_sint32 = 5;</code>
      * @return Whether the optionalSint32 field is set.
@@ -7813,7 +5834,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_SINT64_FIELD_NUMBER = 6;
-    private long optionalSint64_;
+    private long optionalSint64_ = 0L;
     /**
      * <code>optional sint64 optional_sint64 = 6;</code>
      * @return Whether the optionalSint64 field is set.
@@ -7832,7 +5853,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_FIXED32_FIELD_NUMBER = 7;
-    private int optionalFixed32_;
+    private int optionalFixed32_ = 0;
     /**
      * <code>optional fixed32 optional_fixed32 = 7;</code>
      * @return Whether the optionalFixed32 field is set.
@@ -7851,7 +5872,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_FIXED64_FIELD_NUMBER = 8;
-    private long optionalFixed64_;
+    private long optionalFixed64_ = 0L;
     /**
      * <code>optional fixed64 optional_fixed64 = 8;</code>
      * @return Whether the optionalFixed64 field is set.
@@ -7870,7 +5891,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_SFIXED32_FIELD_NUMBER = 9;
-    private int optionalSfixed32_;
+    private int optionalSfixed32_ = 0;
     /**
      * <code>optional sfixed32 optional_sfixed32 = 9;</code>
      * @return Whether the optionalSfixed32 field is set.
@@ -7889,7 +5910,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_SFIXED64_FIELD_NUMBER = 10;
-    private long optionalSfixed64_;
+    private long optionalSfixed64_ = 0L;
     /**
      * <code>optional sfixed64 optional_sfixed64 = 10;</code>
      * @return Whether the optionalSfixed64 field is set.
@@ -7908,7 +5929,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_FLOAT_FIELD_NUMBER = 11;
-    private float optionalFloat_;
+    private float optionalFloat_ = 0F;
     /**
      * <code>optional float optional_float = 11;</code>
      * @return Whether the optionalFloat field is set.
@@ -7927,7 +5948,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_DOUBLE_FIELD_NUMBER = 12;
-    private double optionalDouble_;
+    private double optionalDouble_ = 0D;
     /**
      * <code>optional double optional_double = 12;</code>
      * @return Whether the optionalDouble field is set.
@@ -7946,7 +5967,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_BOOL_FIELD_NUMBER = 13;
-    private boolean optionalBool_;
+    private boolean optionalBool_ = false;
     /**
      * <code>optional bool optional_bool = 13;</code>
      * @return Whether the optionalBool field is set.
@@ -7965,7 +5986,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_STRING_FIELD_NUMBER = 14;
-    private volatile java.lang.Object optionalString_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object optionalString_ = "";
     /**
      * <code>optional string optional_string = 14;</code>
      * @return Whether the optionalString field is set.
@@ -8013,7 +6035,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_BYTES_FIELD_NUMBER = 15;
-    private com.google.protobuf.ByteString optionalBytes_;
+    private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>optional bytes optional_bytes = 15;</code>
      * @return Whether the optionalBytes field is set.
@@ -8084,7 +6106,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_NESTED_ENUM_FIELD_NUMBER = 21;
-    private int optionalNestedEnum_;
+    private int optionalNestedEnum_ = 0;
     /**
      * <code>optional .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum optional_nested_enum = 21;</code>
      * @return Whether the optionalNestedEnum field is set.
@@ -8097,13 +6119,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * @return The optionalNestedEnum.
      */
     @java.lang.Override public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum getOptionalNestedEnum() {
-      @SuppressWarnings("deprecation")
-      com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(optionalNestedEnum_);
+      com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(optionalNestedEnum_);
       return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.FOO : result;
     }
 
     public static final int OPTIONAL_FOREIGN_ENUM_FIELD_NUMBER = 22;
-    private int optionalForeignEnum_;
+    private int optionalForeignEnum_ = 0;
     /**
      * <code>optional .protobuf_test_messages.proto2.ForeignEnumProto2 optional_foreign_enum = 22;</code>
      * @return Whether the optionalForeignEnum field is set.
@@ -8116,13 +6137,13 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * @return The optionalForeignEnum.
      */
     @java.lang.Override public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 getOptionalForeignEnum() {
-      @SuppressWarnings("deprecation")
-      com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.valueOf(optionalForeignEnum_);
+      com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.forNumber(optionalForeignEnum_);
       return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.FOREIGN_FOO : result;
     }
 
     public static final int OPTIONAL_STRING_PIECE_FIELD_NUMBER = 24;
-    private volatile java.lang.Object optionalStringPiece_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object optionalStringPiece_ = "";
     /**
      * <code>optional string optional_string_piece = 24 [ctype = STRING_PIECE];</code>
      * @return Whether the optionalStringPiece field is set.
@@ -8170,7 +6191,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int OPTIONAL_CORD_FIELD_NUMBER = 25;
-    private volatile java.lang.Object optionalCord_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object optionalCord_ = "";
     /**
      * <code>optional string optional_cord = 25 [ctype = CORD];</code>
      * @return Whether the optionalCord field is set.
@@ -8244,6 +6266,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_INT32_FIELD_NUMBER = 31;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList repeatedInt32_;
     /**
      * <pre>
@@ -8283,6 +6306,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_INT64_FIELD_NUMBER = 32;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList repeatedInt64_;
     /**
      * <code>repeated int64 repeated_int64 = 32;</code>
@@ -8310,6 +6334,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_UINT32_FIELD_NUMBER = 33;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList repeatedUint32_;
     /**
      * <code>repeated uint32 repeated_uint32 = 33;</code>
@@ -8337,6 +6362,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_UINT64_FIELD_NUMBER = 34;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList repeatedUint64_;
     /**
      * <code>repeated uint64 repeated_uint64 = 34;</code>
@@ -8364,6 +6390,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_SINT32_FIELD_NUMBER = 35;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList repeatedSint32_;
     /**
      * <code>repeated sint32 repeated_sint32 = 35;</code>
@@ -8391,6 +6418,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_SINT64_FIELD_NUMBER = 36;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList repeatedSint64_;
     /**
      * <code>repeated sint64 repeated_sint64 = 36;</code>
@@ -8418,6 +6446,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_FIXED32_FIELD_NUMBER = 37;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList repeatedFixed32_;
     /**
      * <code>repeated fixed32 repeated_fixed32 = 37;</code>
@@ -8445,6 +6474,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_FIXED64_FIELD_NUMBER = 38;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList repeatedFixed64_;
     /**
      * <code>repeated fixed64 repeated_fixed64 = 38;</code>
@@ -8472,6 +6502,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_SFIXED32_FIELD_NUMBER = 39;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList repeatedSfixed32_;
     /**
      * <code>repeated sfixed32 repeated_sfixed32 = 39;</code>
@@ -8499,6 +6530,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_SFIXED64_FIELD_NUMBER = 40;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList repeatedSfixed64_;
     /**
      * <code>repeated sfixed64 repeated_sfixed64 = 40;</code>
@@ -8526,6 +6558,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_FLOAT_FIELD_NUMBER = 41;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.FloatList repeatedFloat_;
     /**
      * <code>repeated float repeated_float = 41;</code>
@@ -8553,6 +6586,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_DOUBLE_FIELD_NUMBER = 42;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.DoubleList repeatedDouble_;
     /**
      * <code>repeated double repeated_double = 42;</code>
@@ -8580,6 +6614,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_BOOL_FIELD_NUMBER = 43;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.BooleanList repeatedBool_;
     /**
      * <code>repeated bool repeated_bool = 43;</code>
@@ -8607,6 +6642,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_STRING_FIELD_NUMBER = 44;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList repeatedString_;
     /**
      * <code>repeated string repeated_string = 44;</code>
@@ -8642,6 +6678,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_BYTES_FIELD_NUMBER = 45;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf.ByteString> repeatedBytes_;
     /**
      * <code>repeated bytes repeated_bytes = 45;</code>
@@ -8669,6 +6706,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_NESTED_MESSAGE_FIELD_NUMBER = 48;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage> repeatedNestedMessage_;
     /**
      * <code>repeated .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage repeated_nested_message = 48;</code>
@@ -8709,6 +6747,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_FOREIGN_MESSAGE_FIELD_NUMBER = 49;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2> repeatedForeignMessage_;
     /**
      * <code>repeated .protobuf_test_messages.proto2.ForeignMessageProto2 repeated_foreign_message = 49;</code>
@@ -8749,14 +6788,14 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_NESTED_ENUM_FIELD_NUMBER = 51;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> repeatedNestedEnum_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum> repeatedNestedEnum_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum>() {
               public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(from);
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(from);
                 return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.FOO : result;
               }
             };
@@ -8788,14 +6827,14 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_FOREIGN_ENUM_FIELD_NUMBER = 52;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> repeatedForeignEnum_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2> repeatedForeignEnum_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2>() {
               public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.valueOf(from);
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.forNumber(from);
                 return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.FOREIGN_FOO : result;
               }
             };
@@ -8827,6 +6866,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_STRING_PIECE_FIELD_NUMBER = 54;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList repeatedStringPiece_;
     /**
      * <code>repeated string repeated_string_piece = 54 [ctype = STRING_PIECE];</code>
@@ -8862,6 +6902,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int REPEATED_CORD_FIELD_NUMBER = 55;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList repeatedCord_;
     /**
      * <code>repeated string repeated_cord = 55 [ctype = CORD];</code>
@@ -8897,6 +6938,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int PACKED_INT32_FIELD_NUMBER = 75;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList packedInt32_;
     /**
      * <pre>
@@ -8937,6 +6979,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedInt32MemoizedSerializedSize = -1;
 
     public static final int PACKED_INT64_FIELD_NUMBER = 76;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList packedInt64_;
     /**
      * <code>repeated int64 packed_int64 = 76 [packed = true];</code>
@@ -8965,6 +7008,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedInt64MemoizedSerializedSize = -1;
 
     public static final int PACKED_UINT32_FIELD_NUMBER = 77;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList packedUint32_;
     /**
      * <code>repeated uint32 packed_uint32 = 77 [packed = true];</code>
@@ -8993,6 +7037,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedUint32MemoizedSerializedSize = -1;
 
     public static final int PACKED_UINT64_FIELD_NUMBER = 78;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList packedUint64_;
     /**
      * <code>repeated uint64 packed_uint64 = 78 [packed = true];</code>
@@ -9021,6 +7066,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedUint64MemoizedSerializedSize = -1;
 
     public static final int PACKED_SINT32_FIELD_NUMBER = 79;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList packedSint32_;
     /**
      * <code>repeated sint32 packed_sint32 = 79 [packed = true];</code>
@@ -9049,6 +7095,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedSint32MemoizedSerializedSize = -1;
 
     public static final int PACKED_SINT64_FIELD_NUMBER = 80;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList packedSint64_;
     /**
      * <code>repeated sint64 packed_sint64 = 80 [packed = true];</code>
@@ -9077,6 +7124,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedSint64MemoizedSerializedSize = -1;
 
     public static final int PACKED_FIXED32_FIELD_NUMBER = 81;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList packedFixed32_;
     /**
      * <code>repeated fixed32 packed_fixed32 = 81 [packed = true];</code>
@@ -9105,6 +7153,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedFixed32MemoizedSerializedSize = -1;
 
     public static final int PACKED_FIXED64_FIELD_NUMBER = 82;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList packedFixed64_;
     /**
      * <code>repeated fixed64 packed_fixed64 = 82 [packed = true];</code>
@@ -9133,6 +7182,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedFixed64MemoizedSerializedSize = -1;
 
     public static final int PACKED_SFIXED32_FIELD_NUMBER = 83;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList packedSfixed32_;
     /**
      * <code>repeated sfixed32 packed_sfixed32 = 83 [packed = true];</code>
@@ -9161,6 +7211,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedSfixed32MemoizedSerializedSize = -1;
 
     public static final int PACKED_SFIXED64_FIELD_NUMBER = 84;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList packedSfixed64_;
     /**
      * <code>repeated sfixed64 packed_sfixed64 = 84 [packed = true];</code>
@@ -9189,6 +7240,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedSfixed64MemoizedSerializedSize = -1;
 
     public static final int PACKED_FLOAT_FIELD_NUMBER = 85;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.FloatList packedFloat_;
     /**
      * <code>repeated float packed_float = 85 [packed = true];</code>
@@ -9217,6 +7269,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedFloatMemoizedSerializedSize = -1;
 
     public static final int PACKED_DOUBLE_FIELD_NUMBER = 86;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.DoubleList packedDouble_;
     /**
      * <code>repeated double packed_double = 86 [packed = true];</code>
@@ -9245,6 +7298,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedDoubleMemoizedSerializedSize = -1;
 
     public static final int PACKED_BOOL_FIELD_NUMBER = 87;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.BooleanList packedBool_;
     /**
      * <code>repeated bool packed_bool = 87 [packed = true];</code>
@@ -9273,14 +7327,14 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedBoolMemoizedSerializedSize = -1;
 
     public static final int PACKED_NESTED_ENUM_FIELD_NUMBER = 88;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> packedNestedEnum_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum> packedNestedEnum_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum>() {
               public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(from);
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(from);
                 return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.FOO : result;
               }
             };
@@ -9313,6 +7367,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     private int packedNestedEnumMemoizedSerializedSize;
 
     public static final int UNPACKED_INT32_FIELD_NUMBER = 89;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList unpackedInt32_;
     /**
      * <pre>
@@ -9352,6 +7407,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_INT64_FIELD_NUMBER = 90;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList unpackedInt64_;
     /**
      * <code>repeated int64 unpacked_int64 = 90 [packed = false];</code>
@@ -9379,6 +7435,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_UINT32_FIELD_NUMBER = 91;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList unpackedUint32_;
     /**
      * <code>repeated uint32 unpacked_uint32 = 91 [packed = false];</code>
@@ -9406,6 +7463,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_UINT64_FIELD_NUMBER = 92;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList unpackedUint64_;
     /**
      * <code>repeated uint64 unpacked_uint64 = 92 [packed = false];</code>
@@ -9433,6 +7491,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_SINT32_FIELD_NUMBER = 93;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList unpackedSint32_;
     /**
      * <code>repeated sint32 unpacked_sint32 = 93 [packed = false];</code>
@@ -9460,6 +7519,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_SINT64_FIELD_NUMBER = 94;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList unpackedSint64_;
     /**
      * <code>repeated sint64 unpacked_sint64 = 94 [packed = false];</code>
@@ -9487,6 +7547,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_FIXED32_FIELD_NUMBER = 95;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList unpackedFixed32_;
     /**
      * <code>repeated fixed32 unpacked_fixed32 = 95 [packed = false];</code>
@@ -9514,6 +7575,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_FIXED64_FIELD_NUMBER = 96;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList unpackedFixed64_;
     /**
      * <code>repeated fixed64 unpacked_fixed64 = 96 [packed = false];</code>
@@ -9541,6 +7603,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_SFIXED32_FIELD_NUMBER = 97;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList unpackedSfixed32_;
     /**
      * <code>repeated sfixed32 unpacked_sfixed32 = 97 [packed = false];</code>
@@ -9568,6 +7631,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_SFIXED64_FIELD_NUMBER = 98;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList unpackedSfixed64_;
     /**
      * <code>repeated sfixed64 unpacked_sfixed64 = 98 [packed = false];</code>
@@ -9595,6 +7659,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_FLOAT_FIELD_NUMBER = 99;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.FloatList unpackedFloat_;
     /**
      * <code>repeated float unpacked_float = 99 [packed = false];</code>
@@ -9622,6 +7687,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_DOUBLE_FIELD_NUMBER = 100;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.DoubleList unpackedDouble_;
     /**
      * <code>repeated double unpacked_double = 100 [packed = false];</code>
@@ -9649,6 +7715,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_BOOL_FIELD_NUMBER = 101;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.BooleanList unpackedBool_;
     /**
      * <code>repeated bool unpacked_bool = 101 [packed = false];</code>
@@ -9676,14 +7743,14 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
     }
 
     public static final int UNPACKED_NESTED_ENUM_FIELD_NUMBER = 102;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> unpackedNestedEnum_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum> unpackedNestedEnum_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum>() {
               public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(from);
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(from);
                 return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.FOO : result;
               }
             };
@@ -9726,6 +7793,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.INT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapInt32Int32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -9736,7 +7804,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapInt32Int32_;
     }
-
     public int getMapInt32Int32Count() {
       return internalGetMapInt32Int32().getMap().size();
     }
@@ -9747,7 +7814,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      *
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Int32(
         int key) {
@@ -9770,7 +7836,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32Map() {
       return internalGetMapInt32Int32().getMap();
     }
@@ -9782,7 +7847,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
     @java.lang.Override
-
     public int getMapInt32Int32OrDefault(
         int key,
         int defaultValue) {
@@ -9799,7 +7863,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
      */
     @java.lang.Override
-
     public int getMapInt32Int32OrThrow(
         int key) {
       
@@ -9823,6 +7886,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.INT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapInt64Int64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -9833,14 +7897,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapInt64Int64_;
     }
-
     public int getMapInt64Int64Count() {
       return internalGetMapInt64Int64().getMap().size();
     }
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt64Int64(
         long key) {
@@ -9859,7 +7921,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64Map() {
       return internalGetMapInt64Int64().getMap();
     }
@@ -9867,7 +7928,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
     @java.lang.Override
-
     public long getMapInt64Int64OrDefault(
         long key,
         long defaultValue) {
@@ -9880,7 +7940,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
      */
     @java.lang.Override
-
     public long getMapInt64Int64OrThrow(
         long key) {
       
@@ -9904,6 +7963,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.UINT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapUint32Uint32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -9914,14 +7974,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapUint32Uint32_;
     }
-
     public int getMapUint32Uint32Count() {
       return internalGetMapUint32Uint32().getMap().size();
     }
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
-
     @java.lang.Override
     public boolean containsMapUint32Uint32(
         int key) {
@@ -9940,7 +7998,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32Map() {
       return internalGetMapUint32Uint32().getMap();
     }
@@ -9948,7 +8005,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
     @java.lang.Override
-
     public int getMapUint32Uint32OrDefault(
         int key,
         int defaultValue) {
@@ -9961,7 +8017,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
      */
     @java.lang.Override
-
     public int getMapUint32Uint32OrThrow(
         int key) {
       
@@ -9985,6 +8040,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.UINT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapUint64Uint64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -9995,14 +8051,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapUint64Uint64_;
     }
-
     public int getMapUint64Uint64Count() {
       return internalGetMapUint64Uint64().getMap().size();
     }
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
-
     @java.lang.Override
     public boolean containsMapUint64Uint64(
         long key) {
@@ -10021,7 +8075,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64Map() {
       return internalGetMapUint64Uint64().getMap();
     }
@@ -10029,7 +8082,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
     @java.lang.Override
-
     public long getMapUint64Uint64OrDefault(
         long key,
         long defaultValue) {
@@ -10042,7 +8094,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
      */
     @java.lang.Override
-
     public long getMapUint64Uint64OrThrow(
         long key) {
       
@@ -10066,6 +8117,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.SINT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapSint32Sint32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -10076,14 +8128,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapSint32Sint32_;
     }
-
     public int getMapSint32Sint32Count() {
       return internalGetMapSint32Sint32().getMap().size();
     }
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSint32Sint32(
         int key) {
@@ -10102,7 +8152,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32Map() {
       return internalGetMapSint32Sint32().getMap();
     }
@@ -10110,7 +8159,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
     @java.lang.Override
-
     public int getMapSint32Sint32OrDefault(
         int key,
         int defaultValue) {
@@ -10123,7 +8171,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
      */
     @java.lang.Override
-
     public int getMapSint32Sint32OrThrow(
         int key) {
       
@@ -10147,6 +8194,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.SINT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapSint64Sint64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -10157,14 +8205,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapSint64Sint64_;
     }
-
     public int getMapSint64Sint64Count() {
       return internalGetMapSint64Sint64().getMap().size();
     }
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSint64Sint64(
         long key) {
@@ -10183,7 +8229,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64Map() {
       return internalGetMapSint64Sint64().getMap();
     }
@@ -10191,7 +8236,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
     @java.lang.Override
-
     public long getMapSint64Sint64OrDefault(
         long key,
         long defaultValue) {
@@ -10204,7 +8248,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
      */
     @java.lang.Override
-
     public long getMapSint64Sint64OrThrow(
         long key) {
       
@@ -10228,6 +8271,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.FIXED32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapFixed32Fixed32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -10238,14 +8282,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapFixed32Fixed32_;
     }
-
     public int getMapFixed32Fixed32Count() {
       return internalGetMapFixed32Fixed32().getMap().size();
     }
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
-
     @java.lang.Override
     public boolean containsMapFixed32Fixed32(
         int key) {
@@ -10264,7 +8306,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32Map() {
       return internalGetMapFixed32Fixed32().getMap();
     }
@@ -10272,7 +8313,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
     @java.lang.Override
-
     public int getMapFixed32Fixed32OrDefault(
         int key,
         int defaultValue) {
@@ -10285,7 +8325,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
      */
     @java.lang.Override
-
     public int getMapFixed32Fixed32OrThrow(
         int key) {
       
@@ -10309,6 +8348,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.FIXED64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapFixed64Fixed64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -10319,14 +8359,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapFixed64Fixed64_;
     }
-
     public int getMapFixed64Fixed64Count() {
       return internalGetMapFixed64Fixed64().getMap().size();
     }
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
-
     @java.lang.Override
     public boolean containsMapFixed64Fixed64(
         long key) {
@@ -10345,7 +8383,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64Map() {
       return internalGetMapFixed64Fixed64().getMap();
     }
@@ -10353,7 +8390,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
     @java.lang.Override
-
     public long getMapFixed64Fixed64OrDefault(
         long key,
         long defaultValue) {
@@ -10366,7 +8402,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
      */
     @java.lang.Override
-
     public long getMapFixed64Fixed64OrThrow(
         long key) {
       
@@ -10390,6 +8425,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.SFIXED32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapSfixed32Sfixed32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -10400,14 +8436,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapSfixed32Sfixed32_;
     }
-
     public int getMapSfixed32Sfixed32Count() {
       return internalGetMapSfixed32Sfixed32().getMap().size();
     }
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSfixed32Sfixed32(
         int key) {
@@ -10426,7 +8460,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32Map() {
       return internalGetMapSfixed32Sfixed32().getMap();
     }
@@ -10434,7 +8467,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
     @java.lang.Override
-
     public int getMapSfixed32Sfixed32OrDefault(
         int key,
         int defaultValue) {
@@ -10447,7 +8479,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
      */
     @java.lang.Override
-
     public int getMapSfixed32Sfixed32OrThrow(
         int key) {
       
@@ -10471,6 +8502,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.SFIXED64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapSfixed64Sfixed64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -10481,14 +8513,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapSfixed64Sfixed64_;
     }
-
     public int getMapSfixed64Sfixed64Count() {
       return internalGetMapSfixed64Sfixed64().getMap().size();
     }
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSfixed64Sfixed64(
         long key) {
@@ -10507,7 +8537,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64Map() {
       return internalGetMapSfixed64Sfixed64().getMap();
     }
@@ -10515,7 +8544,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
     @java.lang.Override
-
     public long getMapSfixed64Sfixed64OrDefault(
         long key,
         long defaultValue) {
@@ -10528,7 +8556,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
      */
     @java.lang.Override
-
     public long getMapSfixed64Sfixed64OrThrow(
         long key) {
       
@@ -10552,6 +8579,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.FLOAT,
                   0F);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Float> mapInt32Float_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
@@ -10562,14 +8590,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapInt32Float_;
     }
-
     public int getMapInt32FloatCount() {
       return internalGetMapInt32Float().getMap().size();
     }
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Float(
         int key) {
@@ -10588,7 +8614,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32FloatMap() {
       return internalGetMapInt32Float().getMap();
     }
@@ -10596,7 +8621,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
     @java.lang.Override
-
     public float getMapInt32FloatOrDefault(
         int key,
         float defaultValue) {
@@ -10609,7 +8633,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
      */
     @java.lang.Override
-
     public float getMapInt32FloatOrThrow(
         int key) {
       
@@ -10633,6 +8656,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.DOUBLE,
                   0D);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Double> mapInt32Double_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
@@ -10643,14 +8667,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapInt32Double_;
     }
-
     public int getMapInt32DoubleCount() {
       return internalGetMapInt32Double().getMap().size();
     }
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Double(
         int key) {
@@ -10669,7 +8691,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32DoubleMap() {
       return internalGetMapInt32Double().getMap();
     }
@@ -10677,7 +8698,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
     @java.lang.Override
-
     public double getMapInt32DoubleOrDefault(
         int key,
         double defaultValue) {
@@ -10690,7 +8710,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
      */
     @java.lang.Override
-
     public double getMapInt32DoubleOrThrow(
         int key) {
       
@@ -10714,6 +8733,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.BOOL,
                   false);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Boolean, java.lang.Boolean> mapBoolBool_;
     private com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
@@ -10724,14 +8744,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapBoolBool_;
     }
-
     public int getMapBoolBoolCount() {
       return internalGetMapBoolBool().getMap().size();
     }
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
-
     @java.lang.Override
     public boolean containsMapBoolBool(
         boolean key) {
@@ -10750,7 +8768,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBoolMap() {
       return internalGetMapBoolBool().getMap();
     }
@@ -10758,7 +8775,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
     @java.lang.Override
-
     public boolean getMapBoolBoolOrDefault(
         boolean key,
         boolean defaultValue) {
@@ -10771,7 +8787,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
      */
     @java.lang.Override
-
     public boolean getMapBoolBoolOrThrow(
         boolean key) {
       
@@ -10795,6 +8810,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> mapStringString_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -10805,14 +8821,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapStringString_;
     }
-
     public int getMapStringStringCount() {
       return internalGetMapStringString().getMap().size();
     }
     /**
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
-
     @java.lang.Override
     public boolean containsMapStringString(
         java.lang.String key) {
@@ -10831,7 +8845,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getMapStringStringMap() {
       return internalGetMapStringString().getMap();
     }
@@ -10839,10 +8852,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getMapStringStringOrDefault(
+    public /* nullable */
+java.lang.String getMapStringStringOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMapStringString().getMap();
@@ -10852,7 +8866,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, string&gt; map_string_string = 69;</code>
      */
     @java.lang.Override
-
     public java.lang.String getMapStringStringOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -10876,6 +8889,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.BYTES,
                   com.google.protobuf.ByteString.EMPTY);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.ByteString> mapStringBytes_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
@@ -10886,14 +8900,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapStringBytes_;
     }
-
     public int getMapStringBytesCount() {
       return internalGetMapStringBytes().getMap().size();
     }
     /**
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
-
     @java.lang.Override
     public boolean containsMapStringBytes(
         java.lang.String key) {
@@ -10912,7 +8924,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getMapStringBytesMap() {
       return internalGetMapStringBytes().getMap();
     }
@@ -10920,10 +8931,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.ByteString getMapStringBytesOrDefault(
+    public /* nullable */
+com.google.protobuf.ByteString getMapStringBytesOrDefault(
         java.lang.String key,
-        com.google.protobuf.ByteString defaultValue) {
+        /* nullable */
+com.google.protobuf.ByteString defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
           internalGetMapStringBytes().getMap();
@@ -10933,7 +8945,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.ByteString getMapStringBytesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -10957,6 +8968,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage> mapStringNestedMessage_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage>
@@ -10967,14 +8979,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapStringNestedMessage_;
     }
-
     public int getMapStringNestedMessageCount() {
       return internalGetMapStringNestedMessage().getMap().size();
     }
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
-
     @java.lang.Override
     public boolean containsMapStringNestedMessage(
         java.lang.String key) {
@@ -10993,7 +9003,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage> getMapStringNestedMessageMap() {
       return internalGetMapStringNestedMessage().getMap();
     }
@@ -11001,10 +9010,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage getMapStringNestedMessageOrDefault(
+    public /* nullable */
+com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage getMapStringNestedMessageOrDefault(
         java.lang.String key,
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage defaultValue) {
+        /* nullable */
+com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage> map =
           internalGetMapStringNestedMessage().getMap();
@@ -11014,7 +9024,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage getMapStringNestedMessageOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -11038,6 +9047,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2> mapStringForeignMessage_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2>
@@ -11048,14 +9058,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
       }
       return mapStringForeignMessage_;
     }
-
     public int getMapStringForeignMessageCount() {
       return internalGetMapStringForeignMessage().getMap().size();
     }
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
      */
-
     @java.lang.Override
     public boolean containsMapStringForeignMessage(
         java.lang.String key) {
@@ -11074,7 +9082,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2> getMapStringForeignMessageMap() {
       return internalGetMapStringForeignMessage().getMap();
     }
@@ -11082,10 +9089,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 getMapStringForeignMessageOrDefault(
+    public /* nullable */
+com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 getMapStringForeignMessageOrDefault(
         java.lang.String key,
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 defaultValue) {
+        /* nullable */
+com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2> map =
           internalGetMapStringForeignMessage().getMap();
@@ -11095,7 +9103,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 getMapStringForeignMessageOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -11119,6 +9126,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
                   com.google.protobuf.WireFormat.FieldType.ENUM,
                   com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.FOO.getNumber());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> mapStringNestedEnum_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -11142,14 +9150,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
           java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum, java.lang.Integer>(
               map, mapStringNestedEnumValueConverter);
     }
-
     public int getMapStringNestedEnumCount() {
       return internalGetMapStringNestedEnum().getMap().size();
     }
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
-
     @java.lang.Override
     public boolean containsMapStringNestedEnum(
         java.lang.String key) {
@@ -11169,7 +9175,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum>
     getMapStringNestedEnumMap() {
       return internalGetAdaptedMapStringNestedEnumMap(
@@ -11178,7 +9183,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2   
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
     @java.lang.Override
-
     public /* nullable */
 com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum getMapStringNestedEnumOrDefault(
         java.lang.String key,
@@ -11195,7 +9199,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
      * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum&gt; map_string_nested_enum = 73;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum getMapStringNestedEnumOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -11219,6 +9222,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
                   com.google.protobuf.WireFormat.FieldType.ENUM,
                   com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.FOREIGN_FOO.getNumber());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> mapStringForeignEnum_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -11242,14 +9246,12 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
           java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2, java.lang.Integer>(
               map, mapStringForeignEnumValueConverter);
     }
-
     public int getMapStringForeignEnumCount() {
       return internalGetMapStringForeignEnum().getMap().size();
     }
     /**
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignEnumProto2&gt; map_string_foreign_enum = 74;</code>
      */
-
     @java.lang.Override
     public boolean containsMapStringForeignEnum(
         java.lang.String key) {
@@ -11269,7 +9271,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignEnumProto2&gt; map_string_foreign_enum = 74;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2>
     getMapStringForeignEnumMap() {
       return internalGetAdaptedMapStringForeignEnumMap(
@@ -11278,7 +9279,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignEnumProto2&gt; map_string_foreign_enum = 74;</code>
      */
     @java.lang.Override
-
     public /* nullable */
 com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 getMapStringForeignEnumOrDefault(
         java.lang.String key,
@@ -11295,7 +9295,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
      * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignEnumProto2&gt; map_string_foreign_enum = 74;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 getMapStringForeignEnumOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -11530,8 +9529,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
      */
     public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum getOneofEnum() {
       if (oneofFieldCase_ == 119) {
-        @SuppressWarnings("deprecation")
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(
+        com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(
             (java.lang.Integer) oneofField_);
         return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.FOO : result;
       }
@@ -11565,7 +9563,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_INT32_FIELD_NUMBER = 241;
-    private int defaultInt32_;
+    private int defaultInt32_ = -123456789;
     /**
      * <pre>
      * default values
@@ -11592,7 +9590,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_INT64_FIELD_NUMBER = 242;
-    private long defaultInt64_;
+    private long defaultInt64_ = -9123456789123456789L;
     /**
      * <code>optional int64 default_int64 = 242 [default = -9123456789123456789];</code>
      * @return Whether the defaultInt64 field is set.
@@ -11611,7 +9609,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_UINT32_FIELD_NUMBER = 243;
-    private int defaultUint32_;
+    private int defaultUint32_ = 2123456789;
     /**
      * <code>optional uint32 default_uint32 = 243 [default = 2123456789];</code>
      * @return Whether the defaultUint32 field is set.
@@ -11630,7 +9628,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_UINT64_FIELD_NUMBER = 244;
-    private long defaultUint64_;
+    private long defaultUint64_ = -8323287284586094827L;
     /**
      * <code>optional uint64 default_uint64 = 244 [default = 10123456789123456789];</code>
      * @return Whether the defaultUint64 field is set.
@@ -11649,7 +9647,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_SINT32_FIELD_NUMBER = 245;
-    private int defaultSint32_;
+    private int defaultSint32_ = -123456789;
     /**
      * <code>optional sint32 default_sint32 = 245 [default = -123456789];</code>
      * @return Whether the defaultSint32 field is set.
@@ -11668,7 +9666,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_SINT64_FIELD_NUMBER = 246;
-    private long defaultSint64_;
+    private long defaultSint64_ = -9123456789123456789L;
     /**
      * <code>optional sint64 default_sint64 = 246 [default = -9123456789123456789];</code>
      * @return Whether the defaultSint64 field is set.
@@ -11687,7 +9685,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_FIXED32_FIELD_NUMBER = 247;
-    private int defaultFixed32_;
+    private int defaultFixed32_ = 2123456789;
     /**
      * <code>optional fixed32 default_fixed32 = 247 [default = 2123456789];</code>
      * @return Whether the defaultFixed32 field is set.
@@ -11706,7 +9704,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_FIXED64_FIELD_NUMBER = 248;
-    private long defaultFixed64_;
+    private long defaultFixed64_ = -8323287284586094827L;
     /**
      * <code>optional fixed64 default_fixed64 = 248 [default = 10123456789123456789];</code>
      * @return Whether the defaultFixed64 field is set.
@@ -11725,7 +9723,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_SFIXED32_FIELD_NUMBER = 249;
-    private int defaultSfixed32_;
+    private int defaultSfixed32_ = -123456789;
     /**
      * <code>optional sfixed32 default_sfixed32 = 249 [default = -123456789];</code>
      * @return Whether the defaultSfixed32 field is set.
@@ -11744,7 +9742,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_SFIXED64_FIELD_NUMBER = 250;
-    private long defaultSfixed64_;
+    private long defaultSfixed64_ = -9123456789123456789L;
     /**
      * <code>optional sfixed64 default_sfixed64 = 250 [default = -9123456789123456789];</code>
      * @return Whether the defaultSfixed64 field is set.
@@ -11763,7 +9761,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_FLOAT_FIELD_NUMBER = 251;
-    private float defaultFloat_;
+    private float defaultFloat_ = 9e+09F;
     /**
      * <code>optional float default_float = 251 [default = 9e+09];</code>
      * @return Whether the defaultFloat field is set.
@@ -11782,7 +9780,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_DOUBLE_FIELD_NUMBER = 252;
-    private double defaultDouble_;
+    private double defaultDouble_ = 7e+22D;
     /**
      * <code>optional double default_double = 252 [default = 7e+22];</code>
      * @return Whether the defaultDouble field is set.
@@ -11801,7 +9799,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_BOOL_FIELD_NUMBER = 253;
-    private boolean defaultBool_;
+    private boolean defaultBool_ = true;
     /**
      * <code>optional bool default_bool = 253 [default = true];</code>
      * @return Whether the defaultBool field is set.
@@ -11820,7 +9818,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_STRING_FIELD_NUMBER = 254;
-    private volatile java.lang.Object defaultString_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object defaultString_ = "Rosebud";
     /**
      * <code>optional string default_string = 254 [default = "Rosebud"];</code>
      * @return Whether the defaultString field is set.
@@ -11868,7 +9867,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int DEFAULT_BYTES_FIELD_NUMBER = 255;
-    private com.google.protobuf.ByteString defaultBytes_;
+    private com.google.protobuf.ByteString defaultBytes_ = com.google.protobuf.Internal.bytesDefaultValue("joshua");
     /**
      * <code>optional bytes default_bytes = 255 [default = "joshua"];</code>
      * @return Whether the defaultBytes field is set.
@@ -11887,7 +9886,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELDNAME1_FIELD_NUMBER = 401;
-    private int fieldname1_;
+    private int fieldname1_ = 0;
     /**
      * <pre>
      * Test field-name-to-JSON-name convention.
@@ -11916,7 +9915,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD_NAME2_FIELD_NUMBER = 402;
-    private int fieldName2_;
+    private int fieldName2_ = 0;
     /**
      * <code>optional int32 field_name2 = 402;</code>
      * @return Whether the fieldName2 field is set.
@@ -11935,7 +9934,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int _FIELD_NAME3_FIELD_NUMBER = 403;
-    private int FieldName3_;
+    private int FieldName3_ = 0;
     /**
      * <code>optional int32 _field_name3 = 403;</code>
      * @return Whether the fieldName3 field is set.
@@ -11954,7 +9953,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD__NAME4__FIELD_NUMBER = 404;
-    private int fieldName4_;
+    private int fieldName4_ = 0;
     /**
      * <code>optional int32 field__name4_ = 404;</code>
      * @return Whether the fieldName4 field is set.
@@ -11973,7 +9972,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD0NAME5_FIELD_NUMBER = 405;
-    private int field0Name5_;
+    private int field0Name5_ = 0;
     /**
      * <code>optional int32 field0name5 = 405;</code>
      * @return Whether the field0name5 field is set.
@@ -11992,7 +9991,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD_0_NAME6_FIELD_NUMBER = 406;
-    private int field0Name6_;
+    private int field0Name6_ = 0;
     /**
      * <code>optional int32 field_0_name6 = 406;</code>
      * @return Whether the field0Name6 field is set.
@@ -12011,7 +10010,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELDNAME7_FIELD_NUMBER = 407;
-    private int fieldName7_;
+    private int fieldName7_ = 0;
     /**
      * <code>optional int32 fieldName7 = 407;</code>
      * @return Whether the fieldName7 field is set.
@@ -12030,7 +10029,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELDNAME8_FIELD_NUMBER = 408;
-    private int fieldName8_;
+    private int fieldName8_ = 0;
     /**
      * <code>optional int32 FieldName8 = 408;</code>
      * @return Whether the fieldName8 field is set.
@@ -12049,7 +10048,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD_NAME9_FIELD_NUMBER = 409;
-    private int fieldName9_;
+    private int fieldName9_ = 0;
     /**
      * <code>optional int32 field_Name9 = 409;</code>
      * @return Whether the fieldName9 field is set.
@@ -12068,7 +10067,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD_NAME10_FIELD_NUMBER = 410;
-    private int fieldName10_;
+    private int fieldName10_ = 0;
     /**
      * <code>optional int32 Field_Name10 = 410;</code>
      * @return Whether the fieldName10 field is set.
@@ -12087,7 +10086,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD_NAME11_FIELD_NUMBER = 411;
-    private int fIELDNAME11_;
+    private int fIELDNAME11_ = 0;
     /**
      * <code>optional int32 FIELD_NAME11 = 411;</code>
      * @return Whether the fIELDNAME11 field is set.
@@ -12106,7 +10105,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD_NAME12_FIELD_NUMBER = 412;
-    private int fIELDName12_;
+    private int fIELDName12_ = 0;
     /**
      * <code>optional int32 FIELD_name12 = 412;</code>
      * @return Whether the fIELDName12 field is set.
@@ -12125,7 +10124,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int __FIELD_NAME13_FIELD_NUMBER = 413;
-    private int FieldName13_;
+    private int FieldName13_ = 0;
     /**
      * <code>optional int32 __field_name13 = 413;</code>
      * @return Whether the fieldName13 field is set.
@@ -12144,7 +10143,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int __FIELD_NAME14_FIELD_NUMBER = 414;
-    private int FieldName14_;
+    private int FieldName14_ = 0;
     /**
      * <code>optional int32 __Field_name14 = 414;</code>
      * @return Whether the fieldName14 field is set.
@@ -12163,7 +10162,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD__NAME15_FIELD_NUMBER = 415;
-    private int fieldName15_;
+    private int fieldName15_ = 0;
     /**
      * <code>optional int32 field__name15 = 415;</code>
      * @return Whether the fieldName15 field is set.
@@ -12182,7 +10181,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD__NAME16_FIELD_NUMBER = 416;
-    private int fieldName16_;
+    private int fieldName16_ = 0;
     /**
      * <code>optional int32 field__Name16 = 416;</code>
      * @return Whether the fieldName16 field is set.
@@ -12201,7 +10200,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD_NAME17___FIELD_NUMBER = 417;
-    private int fieldName17_;
+    private int fieldName17_ = 0;
     /**
      * <code>optional int32 field_name17__ = 417;</code>
      * @return Whether the fieldName17 field is set.
@@ -12220,7 +10219,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int FIELD_NAME18___FIELD_NUMBER = 418;
-    private int fieldName18_;
+    private int fieldName18_ = 0;
     /**
      * <code>optional int32 Field_name18__ = 418;</code>
      * @return Whether the fieldName18 field is set.
@@ -12809,7 +10808,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       if (((bitField2_ & 0x00000001) != 0)) {
         output.writeInt32(418, fieldName18_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -13703,7 +11702,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           .computeInt32Size(418, fieldName18_);
       }
       size += extensionsSerializedSize();
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -14175,7 +12174,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       if (!getExtensionFields().equals(other.getExtensionFields()))
         return false;
       return true;
@@ -14745,7 +12744,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         default:
       }
       hash = hashFields(hash, getExtensionFields());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -14988,104 +12987,75 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        bitField1_ = 0;
+        bitField2_ = 0;
+        bitField3_ = 0;
+        bitField4_ = 0;
         optionalInt32_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         optionalInt64_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000002);
         optionalUint32_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
         optionalUint64_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000008);
         optionalSint32_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000010);
         optionalSint64_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000020);
         optionalFixed32_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000040);
         optionalFixed64_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000080);
         optionalSfixed32_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000100);
         optionalSfixed64_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000200);
         optionalFloat_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000400);
         optionalDouble_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000800);
         optionalBool_ = false;
-        bitField0_ = (bitField0_ & ~0x00001000);
         optionalString_ = "";
-        bitField0_ = (bitField0_ & ~0x00002000);
         optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00004000);
-        if (optionalNestedMessageBuilder_ == null) {
-          optionalNestedMessage_ = null;
-        } else {
-          optionalNestedMessageBuilder_.clear();
+        optionalNestedMessage_ = null;
+        if (optionalNestedMessageBuilder_ != null) {
+          optionalNestedMessageBuilder_.dispose();
+          optionalNestedMessageBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00008000);
-        if (optionalForeignMessageBuilder_ == null) {
-          optionalForeignMessage_ = null;
-        } else {
-          optionalForeignMessageBuilder_.clear();
+        optionalForeignMessage_ = null;
+        if (optionalForeignMessageBuilder_ != null) {
+          optionalForeignMessageBuilder_.dispose();
+          optionalForeignMessageBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00010000);
         optionalNestedEnum_ = 0;
-        bitField0_ = (bitField0_ & ~0x00020000);
         optionalForeignEnum_ = 0;
-        bitField0_ = (bitField0_ & ~0x00040000);
         optionalStringPiece_ = "";
-        bitField0_ = (bitField0_ & ~0x00080000);
         optionalCord_ = "";
-        bitField0_ = (bitField0_ & ~0x00100000);
-        if (recursiveMessageBuilder_ == null) {
-          recursiveMessage_ = null;
-        } else {
-          recursiveMessageBuilder_.clear();
+        recursiveMessage_ = null;
+        if (recursiveMessageBuilder_ != null) {
+          recursiveMessageBuilder_.dispose();
+          recursiveMessageBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00200000);
         repeatedInt32_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00400000);
         repeatedInt64_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00800000);
         repeatedUint32_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x01000000);
         repeatedUint64_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x02000000);
         repeatedSint32_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x04000000);
         repeatedSint64_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x08000000);
         repeatedFixed32_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x10000000);
         repeatedFixed64_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x20000000);
         repeatedSfixed32_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x40000000);
         repeatedSfixed64_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x80000000);
         repeatedFloat_ = emptyFloatList();
-        bitField1_ = (bitField1_ & ~0x00000001);
         repeatedDouble_ = emptyDoubleList();
-        bitField1_ = (bitField1_ & ~0x00000002);
         repeatedBool_ = emptyBooleanList();
-        bitField1_ = (bitField1_ & ~0x00000004);
         repeatedString_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField1_ = (bitField1_ & ~0x00000008);
         repeatedBytes_ = java.util.Collections.emptyList();
-        bitField1_ = (bitField1_ & ~0x00000010);
         if (repeatedNestedMessageBuilder_ == null) {
           repeatedNestedMessage_ = java.util.Collections.emptyList();
-          bitField1_ = (bitField1_ & ~0x00000020);
         } else {
+          repeatedNestedMessage_ = null;
           repeatedNestedMessageBuilder_.clear();
         }
+        bitField1_ = (bitField1_ & ~0x00000020);
         if (repeatedForeignMessageBuilder_ == null) {
           repeatedForeignMessage_ = java.util.Collections.emptyList();
-          bitField1_ = (bitField1_ & ~0x00000040);
         } else {
+          repeatedForeignMessage_ = null;
           repeatedForeignMessageBuilder_.clear();
         }
+        bitField1_ = (bitField1_ & ~0x00000040);
         repeatedNestedEnum_ = java.util.Collections.emptyList();
         bitField1_ = (bitField1_ & ~0x00000080);
         repeatedForeignEnum_ = java.util.Collections.emptyList();
@@ -15095,59 +13065,33 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         repeatedCord_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField1_ = (bitField1_ & ~0x00000400);
         packedInt32_ = emptyIntList();
-        bitField1_ = (bitField1_ & ~0x00000800);
         packedInt64_ = emptyLongList();
-        bitField1_ = (bitField1_ & ~0x00001000);
         packedUint32_ = emptyIntList();
-        bitField1_ = (bitField1_ & ~0x00002000);
         packedUint64_ = emptyLongList();
-        bitField1_ = (bitField1_ & ~0x00004000);
         packedSint32_ = emptyIntList();
-        bitField1_ = (bitField1_ & ~0x00008000);
         packedSint64_ = emptyLongList();
-        bitField1_ = (bitField1_ & ~0x00010000);
         packedFixed32_ = emptyIntList();
-        bitField1_ = (bitField1_ & ~0x00020000);
         packedFixed64_ = emptyLongList();
-        bitField1_ = (bitField1_ & ~0x00040000);
         packedSfixed32_ = emptyIntList();
-        bitField1_ = (bitField1_ & ~0x00080000);
         packedSfixed64_ = emptyLongList();
-        bitField1_ = (bitField1_ & ~0x00100000);
         packedFloat_ = emptyFloatList();
-        bitField1_ = (bitField1_ & ~0x00200000);
         packedDouble_ = emptyDoubleList();
-        bitField1_ = (bitField1_ & ~0x00400000);
         packedBool_ = emptyBooleanList();
-        bitField1_ = (bitField1_ & ~0x00800000);
         packedNestedEnum_ = java.util.Collections.emptyList();
         bitField1_ = (bitField1_ & ~0x01000000);
         unpackedInt32_ = emptyIntList();
-        bitField1_ = (bitField1_ & ~0x02000000);
         unpackedInt64_ = emptyLongList();
-        bitField1_ = (bitField1_ & ~0x04000000);
         unpackedUint32_ = emptyIntList();
-        bitField1_ = (bitField1_ & ~0x08000000);
         unpackedUint64_ = emptyLongList();
-        bitField1_ = (bitField1_ & ~0x10000000);
         unpackedSint32_ = emptyIntList();
-        bitField1_ = (bitField1_ & ~0x20000000);
         unpackedSint64_ = emptyLongList();
-        bitField1_ = (bitField1_ & ~0x40000000);
         unpackedFixed32_ = emptyIntList();
-        bitField1_ = (bitField1_ & ~0x80000000);
         unpackedFixed64_ = emptyLongList();
-        bitField2_ = (bitField2_ & ~0x00000001);
         unpackedSfixed32_ = emptyIntList();
-        bitField2_ = (bitField2_ & ~0x00000002);
         unpackedSfixed64_ = emptyLongList();
-        bitField2_ = (bitField2_ & ~0x00000004);
         unpackedFloat_ = emptyFloatList();
-        bitField2_ = (bitField2_ & ~0x00000008);
         unpackedDouble_ = emptyDoubleList();
-        bitField2_ = (bitField2_ & ~0x00000010);
         unpackedBool_ = emptyBooleanList();
-        bitField2_ = (bitField2_ & ~0x00000020);
         unpackedNestedEnum_ = java.util.Collections.emptyList();
         bitField2_ = (bitField2_ & ~0x00000040);
         internalGetMutableMapInt32Int32().clear();
@@ -15169,78 +13113,47 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         internalGetMutableMapStringForeignMessage().clear();
         internalGetMutableMapStringNestedEnum().clear();
         internalGetMutableMapStringForeignEnum().clear();
-        if (dataBuilder_ == null) {
-          data_ = null;
-        } else {
-          dataBuilder_.clear();
+        if (oneofNestedMessageBuilder_ != null) {
+          oneofNestedMessageBuilder_.clear();
         }
-        bitField3_ = (bitField3_ & ~0x00000008);
+        data_ = null;
+        if (dataBuilder_ != null) {
+          dataBuilder_.dispose();
+          dataBuilder_ = null;
+        }
         defaultInt32_ = -123456789;
-        bitField3_ = (bitField3_ & ~0x00000010);
         defaultInt64_ = -9123456789123456789L;
-        bitField3_ = (bitField3_ & ~0x00000020);
         defaultUint32_ = 2123456789;
-        bitField3_ = (bitField3_ & ~0x00000040);
         defaultUint64_ = -8323287284586094827L;
-        bitField3_ = (bitField3_ & ~0x00000080);
         defaultSint32_ = -123456789;
-        bitField3_ = (bitField3_ & ~0x00000100);
         defaultSint64_ = -9123456789123456789L;
-        bitField3_ = (bitField3_ & ~0x00000200);
         defaultFixed32_ = 2123456789;
-        bitField3_ = (bitField3_ & ~0x00000400);
         defaultFixed64_ = -8323287284586094827L;
-        bitField3_ = (bitField3_ & ~0x00000800);
         defaultSfixed32_ = -123456789;
-        bitField3_ = (bitField3_ & ~0x00001000);
         defaultSfixed64_ = -9123456789123456789L;
-        bitField3_ = (bitField3_ & ~0x00002000);
         defaultFloat_ = 9e+09F;
-        bitField3_ = (bitField3_ & ~0x00004000);
         defaultDouble_ = 7e+22D;
-        bitField3_ = (bitField3_ & ~0x00008000);
         defaultBool_ = true;
-        bitField3_ = (bitField3_ & ~0x00010000);
         defaultString_ = "Rosebud";
-        bitField3_ = (bitField3_ & ~0x00020000);
         defaultBytes_ = com.google.protobuf.Internal.bytesDefaultValue("joshua");
-        bitField3_ = (bitField3_ & ~0x00040000);
         fieldname1_ = 0;
-        bitField3_ = (bitField3_ & ~0x00080000);
         fieldName2_ = 0;
-        bitField3_ = (bitField3_ & ~0x00100000);
         FieldName3_ = 0;
-        bitField3_ = (bitField3_ & ~0x00200000);
         fieldName4_ = 0;
-        bitField3_ = (bitField3_ & ~0x00400000);
         field0Name5_ = 0;
-        bitField3_ = (bitField3_ & ~0x00800000);
         field0Name6_ = 0;
-        bitField3_ = (bitField3_ & ~0x01000000);
         fieldName7_ = 0;
-        bitField3_ = (bitField3_ & ~0x02000000);
         fieldName8_ = 0;
-        bitField3_ = (bitField3_ & ~0x04000000);
         fieldName9_ = 0;
-        bitField3_ = (bitField3_ & ~0x08000000);
         fieldName10_ = 0;
-        bitField3_ = (bitField3_ & ~0x10000000);
         fIELDNAME11_ = 0;
-        bitField3_ = (bitField3_ & ~0x20000000);
         fIELDName12_ = 0;
-        bitField3_ = (bitField3_ & ~0x40000000);
         FieldName13_ = 0;
-        bitField3_ = (bitField3_ & ~0x80000000);
         FieldName14_ = 0;
-        bitField4_ = (bitField4_ & ~0x00000001);
         fieldName15_ = 0;
-        bitField4_ = (bitField4_ & ~0x00000002);
         fieldName16_ = 0;
-        bitField4_ = (bitField4_ & ~0x00000004);
         fieldName17_ = 0;
-        bitField4_ = (bitField4_ & ~0x00000008);
         fieldName18_ = 0;
-        bitField4_ = (bitField4_ & ~0x00000010);
         oneofFieldCase_ = 0;
         oneofField_ = null;
         return this;
@@ -15269,114 +13182,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       @java.lang.Override
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 buildPartial() {
         com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2(this);
-        int from_bitField0_ = bitField0_;
-        int from_bitField1_ = bitField1_;
-        int from_bitField2_ = bitField2_;
-        int from_bitField3_ = bitField3_;
-        int from_bitField4_ = bitField4_;
-        int to_bitField0_ = 0;
-        int to_bitField1_ = 0;
-        int to_bitField2_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.optionalInt32_ = optionalInt32_;
-          to_bitField0_ |= 0x00000001;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.optionalInt64_ = optionalInt64_;
-          to_bitField0_ |= 0x00000002;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.optionalUint32_ = optionalUint32_;
-          to_bitField0_ |= 0x00000004;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.optionalUint64_ = optionalUint64_;
-          to_bitField0_ |= 0x00000008;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.optionalSint32_ = optionalSint32_;
-          to_bitField0_ |= 0x00000010;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.optionalSint64_ = optionalSint64_;
-          to_bitField0_ |= 0x00000020;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.optionalFixed32_ = optionalFixed32_;
-          to_bitField0_ |= 0x00000040;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.optionalFixed64_ = optionalFixed64_;
-          to_bitField0_ |= 0x00000080;
-        }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.optionalSfixed32_ = optionalSfixed32_;
-          to_bitField0_ |= 0x00000100;
-        }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
-          result.optionalSfixed64_ = optionalSfixed64_;
-          to_bitField0_ |= 0x00000200;
-        }
-        if (((from_bitField0_ & 0x00000400) != 0)) {
-          result.optionalFloat_ = optionalFloat_;
-          to_bitField0_ |= 0x00000400;
-        }
-        if (((from_bitField0_ & 0x00000800) != 0)) {
-          result.optionalDouble_ = optionalDouble_;
-          to_bitField0_ |= 0x00000800;
-        }
-        if (((from_bitField0_ & 0x00001000) != 0)) {
-          result.optionalBool_ = optionalBool_;
-          to_bitField0_ |= 0x00001000;
-        }
-        if (((from_bitField0_ & 0x00002000) != 0)) {
-          to_bitField0_ |= 0x00002000;
-        }
-        result.optionalString_ = optionalString_;
-        if (((from_bitField0_ & 0x00004000) != 0)) {
-          to_bitField0_ |= 0x00004000;
-        }
-        result.optionalBytes_ = optionalBytes_;
-        if (((from_bitField0_ & 0x00008000) != 0)) {
-          if (optionalNestedMessageBuilder_ == null) {
-            result.optionalNestedMessage_ = optionalNestedMessage_;
-          } else {
-            result.optionalNestedMessage_ = optionalNestedMessageBuilder_.build();
-          }
-          to_bitField0_ |= 0x00008000;
-        }
-        if (((from_bitField0_ & 0x00010000) != 0)) {
-          if (optionalForeignMessageBuilder_ == null) {
-            result.optionalForeignMessage_ = optionalForeignMessage_;
-          } else {
-            result.optionalForeignMessage_ = optionalForeignMessageBuilder_.build();
-          }
-          to_bitField0_ |= 0x00010000;
-        }
-        if (((from_bitField0_ & 0x00020000) != 0)) {
-          to_bitField0_ |= 0x00020000;
-        }
-        result.optionalNestedEnum_ = optionalNestedEnum_;
-        if (((from_bitField0_ & 0x00040000) != 0)) {
-          to_bitField0_ |= 0x00040000;
-        }
-        result.optionalForeignEnum_ = optionalForeignEnum_;
-        if (((from_bitField0_ & 0x00080000) != 0)) {
-          to_bitField0_ |= 0x00080000;
-        }
-        result.optionalStringPiece_ = optionalStringPiece_;
-        if (((from_bitField0_ & 0x00100000) != 0)) {
-          to_bitField0_ |= 0x00100000;
-        }
-        result.optionalCord_ = optionalCord_;
-        if (((from_bitField0_ & 0x00200000) != 0)) {
-          if (recursiveMessageBuilder_ == null) {
-            result.recursiveMessage_ = recursiveMessage_;
-          } else {
-            result.recursiveMessage_ = recursiveMessageBuilder_.build();
-          }
-          to_bitField0_ |= 0x00200000;
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        if (bitField1_ != 0) { buildPartial1(result); }
+        if (bitField2_ != 0) { buildPartial2(result); }
+        if (bitField3_ != 0) { buildPartial3(result); }
+        if (bitField4_ != 0) { buildPartial4(result); }
+        buildPartialOneofs(result);
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 result) {
         if (((bitField0_ & 0x00400000) != 0)) {
           repeatedInt32_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00400000);
@@ -15630,143 +13447,262 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           bitField2_ = (bitField2_ & ~0x00000040);
         }
         result.unpackedNestedEnum_ = unpackedNestedEnum_;
-        result.mapInt32Int32_ = internalGetMapInt32Int32();
-        result.mapInt32Int32_.makeImmutable();
-        result.mapInt64Int64_ = internalGetMapInt64Int64();
-        result.mapInt64Int64_.makeImmutable();
-        result.mapUint32Uint32_ = internalGetMapUint32Uint32();
-        result.mapUint32Uint32_.makeImmutable();
-        result.mapUint64Uint64_ = internalGetMapUint64Uint64();
-        result.mapUint64Uint64_.makeImmutable();
-        result.mapSint32Sint32_ = internalGetMapSint32Sint32();
-        result.mapSint32Sint32_.makeImmutable();
-        result.mapSint64Sint64_ = internalGetMapSint64Sint64();
-        result.mapSint64Sint64_.makeImmutable();
-        result.mapFixed32Fixed32_ = internalGetMapFixed32Fixed32();
-        result.mapFixed32Fixed32_.makeImmutable();
-        result.mapFixed64Fixed64_ = internalGetMapFixed64Fixed64();
-        result.mapFixed64Fixed64_.makeImmutable();
-        result.mapSfixed32Sfixed32_ = internalGetMapSfixed32Sfixed32();
-        result.mapSfixed32Sfixed32_.makeImmutable();
-        result.mapSfixed64Sfixed64_ = internalGetMapSfixed64Sfixed64();
-        result.mapSfixed64Sfixed64_.makeImmutable();
-        result.mapInt32Float_ = internalGetMapInt32Float();
-        result.mapInt32Float_.makeImmutable();
-        result.mapInt32Double_ = internalGetMapInt32Double();
-        result.mapInt32Double_.makeImmutable();
-        result.mapBoolBool_ = internalGetMapBoolBool();
-        result.mapBoolBool_.makeImmutable();
-        result.mapStringString_ = internalGetMapStringString();
-        result.mapStringString_.makeImmutable();
-        result.mapStringBytes_ = internalGetMapStringBytes();
-        result.mapStringBytes_.makeImmutable();
-        result.mapStringNestedMessage_ = internalGetMapStringNestedMessage();
-        result.mapStringNestedMessage_.makeImmutable();
-        result.mapStringForeignMessage_ = internalGetMapStringForeignMessage();
-        result.mapStringForeignMessage_.makeImmutable();
-        result.mapStringNestedEnum_ = internalGetMapStringNestedEnum();
-        result.mapStringNestedEnum_.makeImmutable();
-        result.mapStringForeignEnum_ = internalGetMapStringForeignEnum();
-        result.mapStringForeignEnum_.makeImmutable();
-        if (oneofFieldCase_ == 111) {
-          result.oneofField_ = oneofField_;
+      }
+
+      private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.optionalInt32_ = optionalInt32_;
+          to_bitField0_ |= 0x00000001;
         }
-        if (oneofFieldCase_ == 112) {
-          if (oneofNestedMessageBuilder_ == null) {
-            result.oneofField_ = oneofField_;
-          } else {
-            result.oneofField_ = oneofNestedMessageBuilder_.build();
-          }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.optionalInt64_ = optionalInt64_;
+          to_bitField0_ |= 0x00000002;
         }
-        if (oneofFieldCase_ == 113) {
-          result.oneofField_ = oneofField_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.optionalUint32_ = optionalUint32_;
+          to_bitField0_ |= 0x00000004;
         }
-        if (oneofFieldCase_ == 114) {
-          result.oneofField_ = oneofField_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.optionalUint64_ = optionalUint64_;
+          to_bitField0_ |= 0x00000008;
         }
-        if (oneofFieldCase_ == 115) {
-          result.oneofField_ = oneofField_;
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.optionalSint32_ = optionalSint32_;
+          to_bitField0_ |= 0x00000010;
         }
-        if (oneofFieldCase_ == 116) {
-          result.oneofField_ = oneofField_;
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.optionalSint64_ = optionalSint64_;
+          to_bitField0_ |= 0x00000020;
         }
-        if (oneofFieldCase_ == 117) {
-          result.oneofField_ = oneofField_;
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.optionalFixed32_ = optionalFixed32_;
+          to_bitField0_ |= 0x00000040;
         }
-        if (oneofFieldCase_ == 118) {
-          result.oneofField_ = oneofField_;
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.optionalFixed64_ = optionalFixed64_;
+          to_bitField0_ |= 0x00000080;
         }
-        if (oneofFieldCase_ == 119) {
-          result.oneofField_ = oneofField_;
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.optionalSfixed32_ = optionalSfixed32_;
+          to_bitField0_ |= 0x00000100;
         }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.optionalSfixed64_ = optionalSfixed64_;
+          to_bitField0_ |= 0x00000200;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.optionalFloat_ = optionalFloat_;
+          to_bitField0_ |= 0x00000400;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.optionalDouble_ = optionalDouble_;
+          to_bitField0_ |= 0x00000800;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.optionalBool_ = optionalBool_;
+          to_bitField0_ |= 0x00001000;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.optionalString_ = optionalString_;
+          to_bitField0_ |= 0x00002000;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.optionalBytes_ = optionalBytes_;
+          to_bitField0_ |= 0x00004000;
+        }
+        if (((from_bitField0_ & 0x00008000) != 0)) {
+          result.optionalNestedMessage_ = optionalNestedMessageBuilder_ == null
+              ? optionalNestedMessage_
+              : optionalNestedMessageBuilder_.build();
+          to_bitField0_ |= 0x00008000;
+        }
+        if (((from_bitField0_ & 0x00010000) != 0)) {
+          result.optionalForeignMessage_ = optionalForeignMessageBuilder_ == null
+              ? optionalForeignMessage_
+              : optionalForeignMessageBuilder_.build();
+          to_bitField0_ |= 0x00010000;
+        }
+        if (((from_bitField0_ & 0x00020000) != 0)) {
+          result.optionalNestedEnum_ = optionalNestedEnum_;
+          to_bitField0_ |= 0x00020000;
+        }
+        if (((from_bitField0_ & 0x00040000) != 0)) {
+          result.optionalForeignEnum_ = optionalForeignEnum_;
+          to_bitField0_ |= 0x00040000;
+        }
+        if (((from_bitField0_ & 0x00080000) != 0)) {
+          result.optionalStringPiece_ = optionalStringPiece_;
+          to_bitField0_ |= 0x00080000;
+        }
+        if (((from_bitField0_ & 0x00100000) != 0)) {
+          result.optionalCord_ = optionalCord_;
+          to_bitField0_ |= 0x00100000;
+        }
+        if (((from_bitField0_ & 0x00200000) != 0)) {
+          result.recursiveMessage_ = recursiveMessageBuilder_ == null
+              ? recursiveMessage_
+              : recursiveMessageBuilder_.build();
+          to_bitField0_ |= 0x00200000;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private void buildPartial1(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 result) {
+        int from_bitField1_ = bitField1_;
+      }
+
+      private void buildPartial2(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 result) {
+        int from_bitField2_ = bitField2_;
+        if (((from_bitField2_ & 0x00000080) != 0)) {
+          result.mapInt32Int32_ = internalGetMapInt32Int32();
+          result.mapInt32Int32_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00000100) != 0)) {
+          result.mapInt64Int64_ = internalGetMapInt64Int64();
+          result.mapInt64Int64_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00000200) != 0)) {
+          result.mapUint32Uint32_ = internalGetMapUint32Uint32();
+          result.mapUint32Uint32_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00000400) != 0)) {
+          result.mapUint64Uint64_ = internalGetMapUint64Uint64();
+          result.mapUint64Uint64_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00000800) != 0)) {
+          result.mapSint32Sint32_ = internalGetMapSint32Sint32();
+          result.mapSint32Sint32_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00001000) != 0)) {
+          result.mapSint64Sint64_ = internalGetMapSint64Sint64();
+          result.mapSint64Sint64_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00002000) != 0)) {
+          result.mapFixed32Fixed32_ = internalGetMapFixed32Fixed32();
+          result.mapFixed32Fixed32_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00004000) != 0)) {
+          result.mapFixed64Fixed64_ = internalGetMapFixed64Fixed64();
+          result.mapFixed64Fixed64_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00008000) != 0)) {
+          result.mapSfixed32Sfixed32_ = internalGetMapSfixed32Sfixed32();
+          result.mapSfixed32Sfixed32_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00010000) != 0)) {
+          result.mapSfixed64Sfixed64_ = internalGetMapSfixed64Sfixed64();
+          result.mapSfixed64Sfixed64_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00020000) != 0)) {
+          result.mapInt32Float_ = internalGetMapInt32Float();
+          result.mapInt32Float_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00040000) != 0)) {
+          result.mapInt32Double_ = internalGetMapInt32Double();
+          result.mapInt32Double_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00080000) != 0)) {
+          result.mapBoolBool_ = internalGetMapBoolBool();
+          result.mapBoolBool_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00100000) != 0)) {
+          result.mapStringString_ = internalGetMapStringString();
+          result.mapStringString_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00200000) != 0)) {
+          result.mapStringBytes_ = internalGetMapStringBytes();
+          result.mapStringBytes_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00400000) != 0)) {
+          result.mapStringNestedMessage_ = internalGetMapStringNestedMessage();
+          result.mapStringNestedMessage_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x00800000) != 0)) {
+          result.mapStringForeignMessage_ = internalGetMapStringForeignMessage();
+          result.mapStringForeignMessage_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x01000000) != 0)) {
+          result.mapStringNestedEnum_ = internalGetMapStringNestedEnum();
+          result.mapStringNestedEnum_.makeImmutable();
+        }
+        if (((from_bitField2_ & 0x02000000) != 0)) {
+          result.mapStringForeignEnum_ = internalGetMapStringForeignEnum();
+          result.mapStringForeignEnum_.makeImmutable();
+        }
+      }
+
+      private void buildPartial3(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 result) {
+        int from_bitField3_ = bitField3_;
+        int to_bitField0_ = 0;
         if (((from_bitField3_ & 0x00000008) != 0)) {
-          if (dataBuilder_ == null) {
-            result.data_ = data_;
-          } else {
-            result.data_ = dataBuilder_.build();
-          }
+          result.data_ = dataBuilder_ == null
+              ? data_
+              : dataBuilder_.build();
           to_bitField0_ |= 0x80000000;
         }
+        int to_bitField1_ = 0;
         if (((from_bitField3_ & 0x00000010) != 0)) {
+          result.defaultInt32_ = defaultInt32_;
           to_bitField1_ |= 0x00000001;
         }
-        result.defaultInt32_ = defaultInt32_;
         if (((from_bitField3_ & 0x00000020) != 0)) {
+          result.defaultInt64_ = defaultInt64_;
           to_bitField1_ |= 0x00000002;
         }
-        result.defaultInt64_ = defaultInt64_;
         if (((from_bitField3_ & 0x00000040) != 0)) {
+          result.defaultUint32_ = defaultUint32_;
           to_bitField1_ |= 0x00000004;
         }
-        result.defaultUint32_ = defaultUint32_;
         if (((from_bitField3_ & 0x00000080) != 0)) {
+          result.defaultUint64_ = defaultUint64_;
           to_bitField1_ |= 0x00000008;
         }
-        result.defaultUint64_ = defaultUint64_;
         if (((from_bitField3_ & 0x00000100) != 0)) {
+          result.defaultSint32_ = defaultSint32_;
           to_bitField1_ |= 0x00000010;
         }
-        result.defaultSint32_ = defaultSint32_;
         if (((from_bitField3_ & 0x00000200) != 0)) {
+          result.defaultSint64_ = defaultSint64_;
           to_bitField1_ |= 0x00000020;
         }
-        result.defaultSint64_ = defaultSint64_;
         if (((from_bitField3_ & 0x00000400) != 0)) {
+          result.defaultFixed32_ = defaultFixed32_;
           to_bitField1_ |= 0x00000040;
         }
-        result.defaultFixed32_ = defaultFixed32_;
         if (((from_bitField3_ & 0x00000800) != 0)) {
+          result.defaultFixed64_ = defaultFixed64_;
           to_bitField1_ |= 0x00000080;
         }
-        result.defaultFixed64_ = defaultFixed64_;
         if (((from_bitField3_ & 0x00001000) != 0)) {
+          result.defaultSfixed32_ = defaultSfixed32_;
           to_bitField1_ |= 0x00000100;
         }
-        result.defaultSfixed32_ = defaultSfixed32_;
         if (((from_bitField3_ & 0x00002000) != 0)) {
+          result.defaultSfixed64_ = defaultSfixed64_;
           to_bitField1_ |= 0x00000200;
         }
-        result.defaultSfixed64_ = defaultSfixed64_;
         if (((from_bitField3_ & 0x00004000) != 0)) {
+          result.defaultFloat_ = defaultFloat_;
           to_bitField1_ |= 0x00000400;
         }
-        result.defaultFloat_ = defaultFloat_;
         if (((from_bitField3_ & 0x00008000) != 0)) {
+          result.defaultDouble_ = defaultDouble_;
           to_bitField1_ |= 0x00000800;
         }
-        result.defaultDouble_ = defaultDouble_;
         if (((from_bitField3_ & 0x00010000) != 0)) {
+          result.defaultBool_ = defaultBool_;
           to_bitField1_ |= 0x00001000;
         }
-        result.defaultBool_ = defaultBool_;
         if (((from_bitField3_ & 0x00020000) != 0)) {
+          result.defaultString_ = defaultString_;
           to_bitField1_ |= 0x00002000;
         }
-        result.defaultString_ = defaultString_;
         if (((from_bitField3_ & 0x00040000) != 0)) {
+          result.defaultBytes_ = defaultBytes_;
           to_bitField1_ |= 0x00004000;
         }
-        result.defaultBytes_ = defaultBytes_;
         if (((from_bitField3_ & 0x00080000) != 0)) {
           result.fieldname1_ = fieldname1_;
           to_bitField1_ |= 0x00008000;
@@ -15819,6 +13755,13 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           result.FieldName13_ = FieldName13_;
           to_bitField1_ |= 0x08000000;
         }
+        result.bitField0_ |= to_bitField0_;
+        result.bitField1_ |= to_bitField1_;
+      }
+
+      private void buildPartial4(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 result) {
+        int from_bitField4_ = bitField4_;
+        int to_bitField1_ = 0;
         if (((from_bitField4_ & 0x00000001) != 0)) {
           result.FieldName14_ = FieldName14_;
           to_bitField1_ |= 0x10000000;
@@ -15835,16 +13778,22 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           result.fieldName17_ = fieldName17_;
           to_bitField1_ |= 0x80000000;
         }
+        int to_bitField2_ = 0;
         if (((from_bitField4_ & 0x00000010) != 0)) {
           result.fieldName18_ = fieldName18_;
           to_bitField2_ |= 0x00000001;
         }
-        result.bitField0_ = to_bitField0_;
-        result.bitField1_ = to_bitField1_;
-        result.bitField2_ = to_bitField2_;
+        result.bitField1_ |= to_bitField1_;
+        result.bitField2_ |= to_bitField2_;
+      }
+
+      private void buildPartialOneofs(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 result) {
         result.oneofFieldCase_ = oneofFieldCase_;
-        onBuilt();
-        return result;
+        result.oneofField_ = this.oneofField_;
+        if (oneofFieldCase_ == 112 &&
+            oneofNestedMessageBuilder_ != null) {
+          result.oneofField_ = oneofNestedMessageBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -15958,8 +13907,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           setOptionalBool(other.getOptionalBool());
         }
         if (other.hasOptionalString()) {
-          bitField0_ |= 0x00002000;
           optionalString_ = other.optionalString_;
+          bitField0_ |= 0x00002000;
           onChanged();
         }
         if (other.hasOptionalBytes()) {
@@ -15978,13 +13927,13 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           setOptionalForeignEnum(other.getOptionalForeignEnum());
         }
         if (other.hasOptionalStringPiece()) {
-          bitField0_ |= 0x00080000;
           optionalStringPiece_ = other.optionalStringPiece_;
+          bitField0_ |= 0x00080000;
           onChanged();
         }
         if (other.hasOptionalCord()) {
-          bitField0_ |= 0x00100000;
           optionalCord_ = other.optionalCord_;
+          bitField0_ |= 0x00100000;
           onChanged();
         }
         if (other.hasRecursiveMessage()) {
@@ -16514,42 +14463,61 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         internalGetMutableMapInt32Int32().mergeFrom(
             other.internalGetMapInt32Int32());
+        bitField2_ |= 0x00000080;
         internalGetMutableMapInt64Int64().mergeFrom(
             other.internalGetMapInt64Int64());
+        bitField2_ |= 0x00000100;
         internalGetMutableMapUint32Uint32().mergeFrom(
             other.internalGetMapUint32Uint32());
+        bitField2_ |= 0x00000200;
         internalGetMutableMapUint64Uint64().mergeFrom(
             other.internalGetMapUint64Uint64());
+        bitField2_ |= 0x00000400;
         internalGetMutableMapSint32Sint32().mergeFrom(
             other.internalGetMapSint32Sint32());
+        bitField2_ |= 0x00000800;
         internalGetMutableMapSint64Sint64().mergeFrom(
             other.internalGetMapSint64Sint64());
+        bitField2_ |= 0x00001000;
         internalGetMutableMapFixed32Fixed32().mergeFrom(
             other.internalGetMapFixed32Fixed32());
+        bitField2_ |= 0x00002000;
         internalGetMutableMapFixed64Fixed64().mergeFrom(
             other.internalGetMapFixed64Fixed64());
+        bitField2_ |= 0x00004000;
         internalGetMutableMapSfixed32Sfixed32().mergeFrom(
             other.internalGetMapSfixed32Sfixed32());
+        bitField2_ |= 0x00008000;
         internalGetMutableMapSfixed64Sfixed64().mergeFrom(
             other.internalGetMapSfixed64Sfixed64());
+        bitField2_ |= 0x00010000;
         internalGetMutableMapInt32Float().mergeFrom(
             other.internalGetMapInt32Float());
+        bitField2_ |= 0x00020000;
         internalGetMutableMapInt32Double().mergeFrom(
             other.internalGetMapInt32Double());
+        bitField2_ |= 0x00040000;
         internalGetMutableMapBoolBool().mergeFrom(
             other.internalGetMapBoolBool());
+        bitField2_ |= 0x00080000;
         internalGetMutableMapStringString().mergeFrom(
             other.internalGetMapStringString());
+        bitField2_ |= 0x00100000;
         internalGetMutableMapStringBytes().mergeFrom(
             other.internalGetMapStringBytes());
+        bitField2_ |= 0x00200000;
         internalGetMutableMapStringNestedMessage().mergeFrom(
             other.internalGetMapStringNestedMessage());
+        bitField2_ |= 0x00400000;
         internalGetMutableMapStringForeignMessage().mergeFrom(
             other.internalGetMapStringForeignMessage());
+        bitField2_ |= 0x00800000;
         internalGetMutableMapStringNestedEnum().mergeFrom(
             other.internalGetMapStringNestedEnum());
+        bitField2_ |= 0x01000000;
         internalGetMutableMapStringForeignEnum().mergeFrom(
             other.internalGetMapStringForeignEnum());
+        bitField2_ |= 0x02000000;
         if (other.hasData()) {
           mergeData(other.getData());
         }
@@ -16593,8 +14561,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           setDefaultBool(other.getDefaultBool());
         }
         if (other.hasDefaultString()) {
-          bitField3_ |= 0x00020000;
           defaultString_ = other.defaultString_;
+          bitField3_ |= 0x00020000;
           onChanged();
         }
         if (other.hasDefaultBytes()) {
@@ -16698,7 +14666,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           }
         }
         this.mergeExtensionFields(other);
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -16741,17 +14709,1356 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                optionalInt32_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                optionalInt64_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                optionalUint32_ = input.readUInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                optionalUint64_ = input.readUInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                optionalSint32_ = input.readSInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                optionalSint64_ = input.readSInt64();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 61: {
+                optionalFixed32_ = input.readFixed32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 61
+              case 65: {
+                optionalFixed64_ = input.readFixed64();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 65
+              case 77: {
+                optionalSfixed32_ = input.readSFixed32();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 77
+              case 81: {
+                optionalSfixed64_ = input.readSFixed64();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 81
+              case 93: {
+                optionalFloat_ = input.readFloat();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 93
+              case 97: {
+                optionalDouble_ = input.readDouble();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 97
+              case 104: {
+                optionalBool_ = input.readBool();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 104
+              case 114: {
+                optionalString_ = input.readBytes();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 114
+              case 122: {
+                optionalBytes_ = input.readBytes();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 122
+              case 146: {
+                input.readMessage(
+                    getOptionalNestedMessageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00008000;
+                break;
+              } // case 146
+              case 154: {
+                input.readMessage(
+                    getOptionalForeignMessageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00010000;
+                break;
+              } // case 154
+              case 168: {
+                int tmpRaw = input.readEnum();
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum tmpValue =
+                    com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(21, tmpRaw);
+                } else {
+                  optionalNestedEnum_ = tmpRaw;
+                  bitField0_ |= 0x00020000;
+                }
+                break;
+              } // case 168
+              case 176: {
+                int tmpRaw = input.readEnum();
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 tmpValue =
+                    com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(22, tmpRaw);
+                } else {
+                  optionalForeignEnum_ = tmpRaw;
+                  bitField0_ |= 0x00040000;
+                }
+                break;
+              } // case 176
+              case 194: {
+                optionalStringPiece_ = input.readBytes();
+                bitField0_ |= 0x00080000;
+                break;
+              } // case 194
+              case 202: {
+                optionalCord_ = input.readBytes();
+                bitField0_ |= 0x00100000;
+                break;
+              } // case 202
+              case 218: {
+                input.readMessage(
+                    getRecursiveMessageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00200000;
+                break;
+              } // case 218
+              case 248: {
+                int v = input.readInt32();
+                ensureRepeatedInt32IsMutable();
+                repeatedInt32_.addInt(v);
+                break;
+              } // case 248
+              case 250: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedInt32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 250
+              case 256: {
+                long v = input.readInt64();
+                ensureRepeatedInt64IsMutable();
+                repeatedInt64_.addLong(v);
+                break;
+              } // case 256
+              case 258: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedInt64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedInt64_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 258
+              case 264: {
+                int v = input.readUInt32();
+                ensureRepeatedUint32IsMutable();
+                repeatedUint32_.addInt(v);
+                break;
+              } // case 264
+              case 266: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedUint32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedUint32_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 266
+              case 272: {
+                long v = input.readUInt64();
+                ensureRepeatedUint64IsMutable();
+                repeatedUint64_.addLong(v);
+                break;
+              } // case 272
+              case 274: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedUint64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedUint64_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 274
+              case 280: {
+                int v = input.readSInt32();
+                ensureRepeatedSint32IsMutable();
+                repeatedSint32_.addInt(v);
+                break;
+              } // case 280
+              case 282: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedSint32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedSint32_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 282
+              case 288: {
+                long v = input.readSInt64();
+                ensureRepeatedSint64IsMutable();
+                repeatedSint64_.addLong(v);
+                break;
+              } // case 288
+              case 290: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedSint64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedSint64_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 290
+              case 301: {
+                int v = input.readFixed32();
+                ensureRepeatedFixed32IsMutable();
+                repeatedFixed32_.addInt(v);
+                break;
+              } // case 301
+              case 298: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedFixed32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedFixed32_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 298
+              case 305: {
+                long v = input.readFixed64();
+                ensureRepeatedFixed64IsMutable();
+                repeatedFixed64_.addLong(v);
+                break;
+              } // case 305
+              case 306: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedFixed64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedFixed64_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 306
+              case 317: {
+                int v = input.readSFixed32();
+                ensureRepeatedSfixed32IsMutable();
+                repeatedSfixed32_.addInt(v);
+                break;
+              } // case 317
+              case 314: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedSfixed32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedSfixed32_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 314
+              case 321: {
+                long v = input.readSFixed64();
+                ensureRepeatedSfixed64IsMutable();
+                repeatedSfixed64_.addLong(v);
+                break;
+              } // case 321
+              case 322: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedSfixed64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedSfixed64_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 322
+              case 333: {
+                float v = input.readFloat();
+                ensureRepeatedFloatIsMutable();
+                repeatedFloat_.addFloat(v);
+                break;
+              } // case 333
+              case 330: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedFloatIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedFloat_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 330
+              case 337: {
+                double v = input.readDouble();
+                ensureRepeatedDoubleIsMutable();
+                repeatedDouble_.addDouble(v);
+                break;
+              } // case 337
+              case 338: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedDoubleIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedDouble_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 338
+              case 344: {
+                boolean v = input.readBool();
+                ensureRepeatedBoolIsMutable();
+                repeatedBool_.addBoolean(v);
+                break;
+              } // case 344
+              case 346: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedBoolIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedBool_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 346
+              case 354: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureRepeatedStringIsMutable();
+                repeatedString_.add(bs);
+                break;
+              } // case 354
+              case 362: {
+                com.google.protobuf.ByteString v = input.readBytes();
+                ensureRepeatedBytesIsMutable();
+                repeatedBytes_.add(v);
+                break;
+              } // case 362
+              case 386: {
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage m =
+                    input.readMessage(
+                        com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.PARSER,
+                        extensionRegistry);
+                if (repeatedNestedMessageBuilder_ == null) {
+                  ensureRepeatedNestedMessageIsMutable();
+                  repeatedNestedMessage_.add(m);
+                } else {
+                  repeatedNestedMessageBuilder_.addMessage(m);
+                }
+                break;
+              } // case 386
+              case 394: {
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 m =
+                    input.readMessage(
+                        com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.PARSER,
+                        extensionRegistry);
+                if (repeatedForeignMessageBuilder_ == null) {
+                  ensureRepeatedForeignMessageIsMutable();
+                  repeatedForeignMessage_.add(m);
+                } else {
+                  repeatedForeignMessageBuilder_.addMessage(m);
+                }
+                break;
+              } // case 394
+              case 408: {
+                int tmpRaw = input.readEnum();
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum tmpValue =
+                    com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(51, tmpRaw);
+                } else {
+                  ensureRepeatedNestedEnumIsMutable();
+                  repeatedNestedEnum_.add(tmpRaw);
+                }
+                break;
+              } // case 408
+              case 410: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum tmpValue =
+                      com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    mergeUnknownVarintField(51, tmpRaw);
+                  } else {
+                    ensureRepeatedNestedEnumIsMutable();
+                    repeatedNestedEnum_.add(tmpRaw);
+                  }
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 410
+              case 416: {
+                int tmpRaw = input.readEnum();
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 tmpValue =
+                    com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(52, tmpRaw);
+                } else {
+                  ensureRepeatedForeignEnumIsMutable();
+                  repeatedForeignEnum_.add(tmpRaw);
+                }
+                break;
+              } // case 416
+              case 418: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 tmpValue =
+                      com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    mergeUnknownVarintField(52, tmpRaw);
+                  } else {
+                    ensureRepeatedForeignEnumIsMutable();
+                    repeatedForeignEnum_.add(tmpRaw);
+                  }
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 418
+              case 434: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureRepeatedStringPieceIsMutable();
+                repeatedStringPiece_.add(bs);
+                break;
+              } // case 434
+              case 442: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureRepeatedCordIsMutable();
+                repeatedCord_.add(bs);
+                break;
+              } // case 442
+              case 450: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapInt32Int32__ = input.readMessage(
+                    MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Int32().getMutableMap().put(
+                    mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
+                bitField2_ |= 0x00000080;
+                break;
+              } // case 450
+              case 458: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapInt64Int64__ = input.readMessage(
+                    MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt64Int64().getMutableMap().put(
+                    mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
+                bitField2_ |= 0x00000100;
+                break;
+              } // case 458
+              case 466: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapUint32Uint32__ = input.readMessage(
+                    MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint32Uint32().getMutableMap().put(
+                    mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
+                bitField2_ |= 0x00000200;
+                break;
+              } // case 466
+              case 474: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapUint64Uint64__ = input.readMessage(
+                    MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint64Uint64().getMutableMap().put(
+                    mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
+                bitField2_ |= 0x00000400;
+                break;
+              } // case 474
+              case 482: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapSint32Sint32__ = input.readMessage(
+                    MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSint32Sint32().getMutableMap().put(
+                    mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
+                bitField2_ |= 0x00000800;
+                break;
+              } // case 482
+              case 490: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapSint64Sint64__ = input.readMessage(
+                    MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSint64Sint64().getMutableMap().put(
+                    mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
+                bitField2_ |= 0x00001000;
+                break;
+              } // case 490
+              case 498: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapFixed32Fixed32__ = input.readMessage(
+                    MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapFixed32Fixed32().getMutableMap().put(
+                    mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
+                bitField2_ |= 0x00002000;
+                break;
+              } // case 498
+              case 506: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapFixed64Fixed64__ = input.readMessage(
+                    MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapFixed64Fixed64().getMutableMap().put(
+                    mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
+                bitField2_ |= 0x00004000;
+                break;
+              } // case 506
+              case 514: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapSfixed32Sfixed32__ = input.readMessage(
+                    MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSfixed32Sfixed32().getMutableMap().put(
+                    mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
+                bitField2_ |= 0x00008000;
+                break;
+              } // case 514
+              case 522: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapSfixed64Sfixed64__ = input.readMessage(
+                    MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSfixed64Sfixed64().getMutableMap().put(
+                    mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
+                bitField2_ |= 0x00010000;
+                break;
+              } // case 522
+              case 530: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
+                mapInt32Float__ = input.readMessage(
+                    MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Float().getMutableMap().put(
+                    mapInt32Float__.getKey(), mapInt32Float__.getValue());
+                bitField2_ |= 0x00020000;
+                break;
+              } // case 530
+              case 538: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
+                mapInt32Double__ = input.readMessage(
+                    MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Double().getMutableMap().put(
+                    mapInt32Double__.getKey(), mapInt32Double__.getValue());
+                bitField2_ |= 0x00040000;
+                break;
+              } // case 538
+              case 546: {
+                com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
+                mapBoolBool__ = input.readMessage(
+                    MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapBoolBool().getMutableMap().put(
+                    mapBoolBool__.getKey(), mapBoolBool__.getValue());
+                bitField2_ |= 0x00080000;
+                break;
+              } // case 546
+              case 554: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                mapStringString__ = input.readMessage(
+                    MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringString().getMutableMap().put(
+                    mapStringString__.getKey(), mapStringString__.getValue());
+                bitField2_ |= 0x00100000;
+                break;
+              } // case 554
+              case 562: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+                mapStringBytes__ = input.readMessage(
+                    MapStringBytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringBytes().getMutableMap().put(
+                    mapStringBytes__.getKey(), mapStringBytes__.getValue());
+                bitField2_ |= 0x00200000;
+                break;
+              } // case 562
+              case 570: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage>
+                mapStringNestedMessage__ = input.readMessage(
+                    MapStringNestedMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringNestedMessage().getMutableMap().put(
+                    mapStringNestedMessage__.getKey(), mapStringNestedMessage__.getValue());
+                bitField2_ |= 0x00400000;
+                break;
+              } // case 570
+              case 578: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2>
+                mapStringForeignMessage__ = input.readMessage(
+                    MapStringForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringForeignMessage().getMutableMap().put(
+                    mapStringForeignMessage__.getKey(), mapStringForeignMessage__.getValue());
+                bitField2_ |= 0x00800000;
+                break;
+              } // case 578
+              case 586: {
+                com.google.protobuf.ByteString bytes = input.readBytes();
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+                mapStringNestedEnum__ = MapStringNestedEnumDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
+                if (com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(mapStringNestedEnum__.getValue()) == null) {
+                  mergeUnknownLengthDelimitedField(73, bytes);
+                } else {
+                  internalGetMutableMapStringNestedEnum().getMutableMap().put(
+                      mapStringNestedEnum__.getKey(), mapStringNestedEnum__.getValue());
+                  bitField2_ |= 0x01000000;
+                }
+                break;
+              } // case 586
+              case 594: {
+                com.google.protobuf.ByteString bytes = input.readBytes();
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+                mapStringForeignEnum__ = MapStringForeignEnumDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
+                if (com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.forNumber(mapStringForeignEnum__.getValue()) == null) {
+                  mergeUnknownLengthDelimitedField(74, bytes);
+                } else {
+                  internalGetMutableMapStringForeignEnum().getMutableMap().put(
+                      mapStringForeignEnum__.getKey(), mapStringForeignEnum__.getValue());
+                  bitField2_ |= 0x02000000;
+                }
+                break;
+              } // case 594
+              case 600: {
+                int v = input.readInt32();
+                ensurePackedInt32IsMutable();
+                packedInt32_.addInt(v);
+                break;
+              } // case 600
+              case 602: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedInt32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 602
+              case 608: {
+                long v = input.readInt64();
+                ensurePackedInt64IsMutable();
+                packedInt64_.addLong(v);
+                break;
+              } // case 608
+              case 610: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedInt64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedInt64_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 610
+              case 616: {
+                int v = input.readUInt32();
+                ensurePackedUint32IsMutable();
+                packedUint32_.addInt(v);
+                break;
+              } // case 616
+              case 618: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedUint32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedUint32_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 618
+              case 624: {
+                long v = input.readUInt64();
+                ensurePackedUint64IsMutable();
+                packedUint64_.addLong(v);
+                break;
+              } // case 624
+              case 626: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedUint64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedUint64_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 626
+              case 632: {
+                int v = input.readSInt32();
+                ensurePackedSint32IsMutable();
+                packedSint32_.addInt(v);
+                break;
+              } // case 632
+              case 634: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedSint32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedSint32_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 634
+              case 640: {
+                long v = input.readSInt64();
+                ensurePackedSint64IsMutable();
+                packedSint64_.addLong(v);
+                break;
+              } // case 640
+              case 642: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedSint64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedSint64_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 642
+              case 653: {
+                int v = input.readFixed32();
+                ensurePackedFixed32IsMutable();
+                packedFixed32_.addInt(v);
+                break;
+              } // case 653
+              case 650: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedFixed32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedFixed32_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 650
+              case 657: {
+                long v = input.readFixed64();
+                ensurePackedFixed64IsMutable();
+                packedFixed64_.addLong(v);
+                break;
+              } // case 657
+              case 658: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedFixed64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedFixed64_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 658
+              case 669: {
+                int v = input.readSFixed32();
+                ensurePackedSfixed32IsMutable();
+                packedSfixed32_.addInt(v);
+                break;
+              } // case 669
+              case 666: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedSfixed32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedSfixed32_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 666
+              case 673: {
+                long v = input.readSFixed64();
+                ensurePackedSfixed64IsMutable();
+                packedSfixed64_.addLong(v);
+                break;
+              } // case 673
+              case 674: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedSfixed64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedSfixed64_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 674
+              case 685: {
+                float v = input.readFloat();
+                ensurePackedFloatIsMutable();
+                packedFloat_.addFloat(v);
+                break;
+              } // case 685
+              case 682: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedFloatIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedFloat_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 682
+              case 689: {
+                double v = input.readDouble();
+                ensurePackedDoubleIsMutable();
+                packedDouble_.addDouble(v);
+                break;
+              } // case 689
+              case 690: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedDoubleIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedDouble_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 690
+              case 696: {
+                boolean v = input.readBool();
+                ensurePackedBoolIsMutable();
+                packedBool_.addBoolean(v);
+                break;
+              } // case 696
+              case 698: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePackedBoolIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  packedBool_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 698
+              case 704: {
+                int tmpRaw = input.readEnum();
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum tmpValue =
+                    com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(88, tmpRaw);
+                } else {
+                  ensurePackedNestedEnumIsMutable();
+                  packedNestedEnum_.add(tmpRaw);
+                }
+                break;
+              } // case 704
+              case 706: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum tmpValue =
+                      com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    mergeUnknownVarintField(88, tmpRaw);
+                  } else {
+                    ensurePackedNestedEnumIsMutable();
+                    packedNestedEnum_.add(tmpRaw);
+                  }
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 706
+              case 712: {
+                int v = input.readInt32();
+                ensureUnpackedInt32IsMutable();
+                unpackedInt32_.addInt(v);
+                break;
+              } // case 712
+              case 714: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedInt32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 714
+              case 720: {
+                long v = input.readInt64();
+                ensureUnpackedInt64IsMutable();
+                unpackedInt64_.addLong(v);
+                break;
+              } // case 720
+              case 722: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedInt64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedInt64_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 722
+              case 728: {
+                int v = input.readUInt32();
+                ensureUnpackedUint32IsMutable();
+                unpackedUint32_.addInt(v);
+                break;
+              } // case 728
+              case 730: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedUint32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedUint32_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 730
+              case 736: {
+                long v = input.readUInt64();
+                ensureUnpackedUint64IsMutable();
+                unpackedUint64_.addLong(v);
+                break;
+              } // case 736
+              case 738: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedUint64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedUint64_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 738
+              case 744: {
+                int v = input.readSInt32();
+                ensureUnpackedSint32IsMutable();
+                unpackedSint32_.addInt(v);
+                break;
+              } // case 744
+              case 746: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedSint32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedSint32_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 746
+              case 752: {
+                long v = input.readSInt64();
+                ensureUnpackedSint64IsMutable();
+                unpackedSint64_.addLong(v);
+                break;
+              } // case 752
+              case 754: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedSint64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedSint64_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 754
+              case 765: {
+                int v = input.readFixed32();
+                ensureUnpackedFixed32IsMutable();
+                unpackedFixed32_.addInt(v);
+                break;
+              } // case 765
+              case 762: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedFixed32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedFixed32_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 762
+              case 769: {
+                long v = input.readFixed64();
+                ensureUnpackedFixed64IsMutable();
+                unpackedFixed64_.addLong(v);
+                break;
+              } // case 769
+              case 770: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedFixed64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedFixed64_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 770
+              case 781: {
+                int v = input.readSFixed32();
+                ensureUnpackedSfixed32IsMutable();
+                unpackedSfixed32_.addInt(v);
+                break;
+              } // case 781
+              case 778: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedSfixed32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedSfixed32_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 778
+              case 785: {
+                long v = input.readSFixed64();
+                ensureUnpackedSfixed64IsMutable();
+                unpackedSfixed64_.addLong(v);
+                break;
+              } // case 785
+              case 786: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedSfixed64IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedSfixed64_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 786
+              case 797: {
+                float v = input.readFloat();
+                ensureUnpackedFloatIsMutable();
+                unpackedFloat_.addFloat(v);
+                break;
+              } // case 797
+              case 794: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedFloatIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedFloat_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 794
+              case 801: {
+                double v = input.readDouble();
+                ensureUnpackedDoubleIsMutable();
+                unpackedDouble_.addDouble(v);
+                break;
+              } // case 801
+              case 802: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedDoubleIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedDouble_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 802
+              case 808: {
+                boolean v = input.readBool();
+                ensureUnpackedBoolIsMutable();
+                unpackedBool_.addBoolean(v);
+                break;
+              } // case 808
+              case 810: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureUnpackedBoolIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  unpackedBool_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 810
+              case 816: {
+                int tmpRaw = input.readEnum();
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum tmpValue =
+                    com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(102, tmpRaw);
+                } else {
+                  ensureUnpackedNestedEnumIsMutable();
+                  unpackedNestedEnum_.add(tmpRaw);
+                }
+                break;
+              } // case 816
+              case 818: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum tmpValue =
+                      com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    mergeUnknownVarintField(102, tmpRaw);
+                  } else {
+                    ensureUnpackedNestedEnumIsMutable();
+                    unpackedNestedEnum_.add(tmpRaw);
+                  }
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 818
+              case 888: {
+                oneofField_ = input.readUInt32();
+                oneofFieldCase_ = 111;
+                break;
+              } // case 888
+              case 898: {
+                input.readMessage(
+                    getOneofNestedMessageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                oneofFieldCase_ = 112;
+                break;
+              } // case 898
+              case 906: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                oneofFieldCase_ = 113;
+                oneofField_ = bs;
+                break;
+              } // case 906
+              case 914: {
+                oneofField_ = input.readBytes();
+                oneofFieldCase_ = 114;
+                break;
+              } // case 914
+              case 920: {
+                oneofField_ = input.readBool();
+                oneofFieldCase_ = 115;
+                break;
+              } // case 920
+              case 928: {
+                oneofField_ = input.readUInt64();
+                oneofFieldCase_ = 116;
+                break;
+              } // case 928
+              case 941: {
+                oneofField_ = input.readFloat();
+                oneofFieldCase_ = 117;
+                break;
+              } // case 941
+              case 945: {
+                oneofField_ = input.readDouble();
+                oneofFieldCase_ = 118;
+                break;
+              } // case 945
+              case 952: {
+                int rawValue = input.readEnum();
+                com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum value =
+                    com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(rawValue);
+                if (value == null) {
+                  mergeUnknownVarintField(119, rawValue);
+                } else {
+                  oneofFieldCase_ = 119;
+                  oneofField_ = rawValue;
+                }
+                break;
+              } // case 952
+              case 1611: {
+                input.readGroup(201,
+                    getDataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField3_ |= 0x00000008;
+                break;
+              } // case 1611
+              case 1928: {
+                defaultInt32_ = input.readInt32();
+                bitField3_ |= 0x00000010;
+                break;
+              } // case 1928
+              case 1936: {
+                defaultInt64_ = input.readInt64();
+                bitField3_ |= 0x00000020;
+                break;
+              } // case 1936
+              case 1944: {
+                defaultUint32_ = input.readUInt32();
+                bitField3_ |= 0x00000040;
+                break;
+              } // case 1944
+              case 1952: {
+                defaultUint64_ = input.readUInt64();
+                bitField3_ |= 0x00000080;
+                break;
+              } // case 1952
+              case 1960: {
+                defaultSint32_ = input.readSInt32();
+                bitField3_ |= 0x00000100;
+                break;
+              } // case 1960
+              case 1968: {
+                defaultSint64_ = input.readSInt64();
+                bitField3_ |= 0x00000200;
+                break;
+              } // case 1968
+              case 1981: {
+                defaultFixed32_ = input.readFixed32();
+                bitField3_ |= 0x00000400;
+                break;
+              } // case 1981
+              case 1985: {
+                defaultFixed64_ = input.readFixed64();
+                bitField3_ |= 0x00000800;
+                break;
+              } // case 1985
+              case 1997: {
+                defaultSfixed32_ = input.readSFixed32();
+                bitField3_ |= 0x00001000;
+                break;
+              } // case 1997
+              case 2001: {
+                defaultSfixed64_ = input.readSFixed64();
+                bitField3_ |= 0x00002000;
+                break;
+              } // case 2001
+              case 2013: {
+                defaultFloat_ = input.readFloat();
+                bitField3_ |= 0x00004000;
+                break;
+              } // case 2013
+              case 2017: {
+                defaultDouble_ = input.readDouble();
+                bitField3_ |= 0x00008000;
+                break;
+              } // case 2017
+              case 2024: {
+                defaultBool_ = input.readBool();
+                bitField3_ |= 0x00010000;
+                break;
+              } // case 2024
+              case 2034: {
+                defaultString_ = input.readBytes();
+                bitField3_ |= 0x00020000;
+                break;
+              } // case 2034
+              case 2042: {
+                defaultBytes_ = input.readBytes();
+                bitField3_ |= 0x00040000;
+                break;
+              } // case 2042
+              case 3208: {
+                fieldname1_ = input.readInt32();
+                bitField3_ |= 0x00080000;
+                break;
+              } // case 3208
+              case 3216: {
+                fieldName2_ = input.readInt32();
+                bitField3_ |= 0x00100000;
+                break;
+              } // case 3216
+              case 3224: {
+                FieldName3_ = input.readInt32();
+                bitField3_ |= 0x00200000;
+                break;
+              } // case 3224
+              case 3232: {
+                fieldName4_ = input.readInt32();
+                bitField3_ |= 0x00400000;
+                break;
+              } // case 3232
+              case 3240: {
+                field0Name5_ = input.readInt32();
+                bitField3_ |= 0x00800000;
+                break;
+              } // case 3240
+              case 3248: {
+                field0Name6_ = input.readInt32();
+                bitField3_ |= 0x01000000;
+                break;
+              } // case 3248
+              case 3256: {
+                fieldName7_ = input.readInt32();
+                bitField3_ |= 0x02000000;
+                break;
+              } // case 3256
+              case 3264: {
+                fieldName8_ = input.readInt32();
+                bitField3_ |= 0x04000000;
+                break;
+              } // case 3264
+              case 3272: {
+                fieldName9_ = input.readInt32();
+                bitField3_ |= 0x08000000;
+                break;
+              } // case 3272
+              case 3280: {
+                fieldName10_ = input.readInt32();
+                bitField3_ |= 0x10000000;
+                break;
+              } // case 3280
+              case 3288: {
+                fIELDNAME11_ = input.readInt32();
+                bitField3_ |= 0x20000000;
+                break;
+              } // case 3288
+              case 3296: {
+                fIELDName12_ = input.readInt32();
+                bitField3_ |= 0x40000000;
+                break;
+              } // case 3296
+              case 3304: {
+                FieldName13_ = input.readInt32();
+                bitField3_ |= 0x80000000;
+                break;
+              } // case 3304
+              case 3312: {
+                FieldName14_ = input.readInt32();
+                bitField4_ |= 0x00000001;
+                break;
+              } // case 3312
+              case 3320: {
+                fieldName15_ = input.readInt32();
+                bitField4_ |= 0x00000002;
+                break;
+              } // case 3320
+              case 3328: {
+                fieldName16_ = input.readInt32();
+                bitField4_ |= 0x00000004;
+                break;
+              } // case 3328
+              case 3336: {
+                fieldName17_ = input.readInt32();
+                bitField4_ |= 0x00000008;
+                break;
+              } // case 3336
+              case 3344: {
+                fieldName18_ = input.readInt32();
+                bitField4_ |= 0x00000010;
+                break;
+              } // case 3344
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int oneofFieldCase_ = 0;
@@ -16810,8 +16117,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalInt32(int value) {
-        bitField0_ |= 0x00000001;
+        
         optionalInt32_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -16853,8 +16161,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalInt64(long value) {
-        bitField0_ |= 0x00000002;
+        
         optionalInt64_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -16892,8 +16201,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalUint32(int value) {
-        bitField0_ |= 0x00000004;
+        
         optionalUint32_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -16931,8 +16241,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalUint64(long value) {
-        bitField0_ |= 0x00000008;
+        
         optionalUint64_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -16970,8 +16281,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalSint32(int value) {
-        bitField0_ |= 0x00000010;
+        
         optionalSint32_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -17009,8 +16321,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalSint64(long value) {
-        bitField0_ |= 0x00000020;
+        
         optionalSint64_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -17048,8 +16361,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalFixed32(int value) {
-        bitField0_ |= 0x00000040;
+        
         optionalFixed32_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -17087,8 +16401,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalFixed64(long value) {
-        bitField0_ |= 0x00000080;
+        
         optionalFixed64_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -17126,8 +16441,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalSfixed32(int value) {
-        bitField0_ |= 0x00000100;
+        
         optionalSfixed32_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -17165,8 +16481,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalSfixed64(long value) {
-        bitField0_ |= 0x00000200;
+        
         optionalSfixed64_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -17204,8 +16521,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalFloat(float value) {
-        bitField0_ |= 0x00000400;
+        
         optionalFloat_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -17243,8 +16561,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalDouble(double value) {
-        bitField0_ |= 0x00000800;
+        
         optionalDouble_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -17282,8 +16601,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalBool(boolean value) {
-        bitField0_ |= 0x00001000;
+        
         optionalBool_ = value;
+        bitField0_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -17348,11 +16668,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOptionalString(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00002000;
+        if (value == null) { throw new NullPointerException(); }
         optionalString_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -17361,8 +16679,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder clearOptionalString() {
-        bitField0_ = (bitField0_ & ~0x00002000);
         optionalString_ = getDefaultInstance().getOptionalString();
+        bitField0_ = (bitField0_ & ~0x00002000);
         onChanged();
         return this;
       }
@@ -17373,11 +16691,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOptionalStringBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00002000;
+        if (value == null) { throw new NullPointerException(); }
         optionalString_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -17405,11 +16721,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00004000;
+        if (value == null) { throw new NullPointerException(); }
         optionalBytes_ = value;
+        bitField0_ |= 0x00004000;
         onChanged();
         return this;
       }
@@ -17454,11 +16768,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
             throw new NullPointerException();
           }
           optionalNestedMessage_ = value;
-          onChanged();
         } else {
           optionalNestedMessageBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00008000;
+        onChanged();
         return this;
       }
       /**
@@ -17468,11 +16782,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.Builder builderForValue) {
         if (optionalNestedMessageBuilder_ == null) {
           optionalNestedMessage_ = builderForValue.build();
-          onChanged();
         } else {
           optionalNestedMessageBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00008000;
+        onChanged();
         return this;
       }
       /**
@@ -17481,31 +16795,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       public Builder mergeOptionalNestedMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage value) {
         if (optionalNestedMessageBuilder_ == null) {
           if (((bitField0_ & 0x00008000) != 0) &&
-              optionalNestedMessage_ != null &&
-              optionalNestedMessage_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.getDefaultInstance()) {
-            optionalNestedMessage_ =
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.newBuilder(optionalNestedMessage_).mergeFrom(value).buildPartial();
+            optionalNestedMessage_ != null &&
+            optionalNestedMessage_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage.getDefaultInstance()) {
+            getOptionalNestedMessageBuilder().mergeFrom(value);
           } else {
             optionalNestedMessage_ = value;
           }
-          onChanged();
         } else {
           optionalNestedMessageBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00008000;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage optional_nested_message = 18;</code>
        */
       public Builder clearOptionalNestedMessage() {
-        if (optionalNestedMessageBuilder_ == null) {
-          optionalNestedMessage_ = null;
-          onChanged();
-        } else {
-          optionalNestedMessageBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00008000);
+        optionalNestedMessage_ = null;
+        if (optionalNestedMessageBuilder_ != null) {
+          optionalNestedMessageBuilder_.dispose();
+          optionalNestedMessageBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -17574,11 +16887,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
             throw new NullPointerException();
           }
           optionalForeignMessage_ = value;
-          onChanged();
         } else {
           optionalForeignMessageBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00010000;
+        onChanged();
         return this;
       }
       /**
@@ -17588,11 +16901,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.Builder builderForValue) {
         if (optionalForeignMessageBuilder_ == null) {
           optionalForeignMessage_ = builderForValue.build();
-          onChanged();
         } else {
           optionalForeignMessageBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00010000;
+        onChanged();
         return this;
       }
       /**
@@ -17601,31 +16914,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       public Builder mergeOptionalForeignMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 value) {
         if (optionalForeignMessageBuilder_ == null) {
           if (((bitField0_ & 0x00010000) != 0) &&
-              optionalForeignMessage_ != null &&
-              optionalForeignMessage_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.getDefaultInstance()) {
-            optionalForeignMessage_ =
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.newBuilder(optionalForeignMessage_).mergeFrom(value).buildPartial();
+            optionalForeignMessage_ != null &&
+            optionalForeignMessage_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.getDefaultInstance()) {
+            getOptionalForeignMessageBuilder().mergeFrom(value);
           } else {
             optionalForeignMessage_ = value;
           }
-          onChanged();
         } else {
           optionalForeignMessageBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00010000;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .protobuf_test_messages.proto2.ForeignMessageProto2 optional_foreign_message = 19;</code>
        */
       public Builder clearOptionalForeignMessage() {
-        if (optionalForeignMessageBuilder_ == null) {
-          optionalForeignMessage_ = null;
-          onChanged();
-        } else {
-          optionalForeignMessageBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00010000);
+        optionalForeignMessage_ = null;
+        if (optionalForeignMessageBuilder_ != null) {
+          optionalForeignMessageBuilder_.dispose();
+          optionalForeignMessageBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -17678,8 +16990,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Override
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum getOptionalNestedEnum() {
-        @SuppressWarnings("deprecation")
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(optionalNestedEnum_);
+        com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(optionalNestedEnum_);
         return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.FOO : result;
       }
       /**
@@ -17721,8 +17032,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Override
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 getOptionalForeignEnum() {
-        @SuppressWarnings("deprecation")
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.valueOf(optionalForeignEnum_);
+        com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.forNumber(optionalForeignEnum_);
         return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2.FOREIGN_FOO : result;
       }
       /**
@@ -17800,11 +17110,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOptionalStringPiece(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00080000;
+        if (value == null) { throw new NullPointerException(); }
         optionalStringPiece_ = value;
+        bitField0_ |= 0x00080000;
         onChanged();
         return this;
       }
@@ -17813,8 +17121,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder clearOptionalStringPiece() {
-        bitField0_ = (bitField0_ & ~0x00080000);
         optionalStringPiece_ = getDefaultInstance().getOptionalStringPiece();
+        bitField0_ = (bitField0_ & ~0x00080000);
         onChanged();
         return this;
       }
@@ -17825,11 +17133,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOptionalStringPieceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00080000;
+        if (value == null) { throw new NullPointerException(); }
         optionalStringPiece_ = value;
+        bitField0_ |= 0x00080000;
         onChanged();
         return this;
       }
@@ -17884,11 +17190,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOptionalCord(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00100000;
+        if (value == null) { throw new NullPointerException(); }
         optionalCord_ = value;
+        bitField0_ |= 0x00100000;
         onChanged();
         return this;
       }
@@ -17897,8 +17201,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder clearOptionalCord() {
-        bitField0_ = (bitField0_ & ~0x00100000);
         optionalCord_ = getDefaultInstance().getOptionalCord();
+        bitField0_ = (bitField0_ & ~0x00100000);
         onChanged();
         return this;
       }
@@ -17909,11 +17213,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOptionalCordBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00100000;
+        if (value == null) { throw new NullPointerException(); }
         optionalCord_ = value;
+        bitField0_ |= 0x00100000;
         onChanged();
         return this;
       }
@@ -17948,11 +17250,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
             throw new NullPointerException();
           }
           recursiveMessage_ = value;
-          onChanged();
         } else {
           recursiveMessageBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00200000;
+        onChanged();
         return this;
       }
       /**
@@ -17962,11 +17264,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Builder builderForValue) {
         if (recursiveMessageBuilder_ == null) {
           recursiveMessage_ = builderForValue.build();
-          onChanged();
         } else {
           recursiveMessageBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00200000;
+        onChanged();
         return this;
       }
       /**
@@ -17975,31 +17277,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       public Builder mergeRecursiveMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2 value) {
         if (recursiveMessageBuilder_ == null) {
           if (((bitField0_ & 0x00200000) != 0) &&
-              recursiveMessage_ != null &&
-              recursiveMessage_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.getDefaultInstance()) {
-            recursiveMessage_ =
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.newBuilder(recursiveMessage_).mergeFrom(value).buildPartial();
+            recursiveMessage_ != null &&
+            recursiveMessage_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.getDefaultInstance()) {
+            getRecursiveMessageBuilder().mergeFrom(value);
           } else {
             recursiveMessage_ = value;
           }
-          onChanged();
         } else {
           recursiveMessageBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00200000;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .protobuf_test_messages.proto2.TestAllTypesProto2 recursive_message = 27;</code>
        */
       public Builder clearRecursiveMessage() {
-        if (recursiveMessageBuilder_ == null) {
-          recursiveMessage_ = null;
-          onChanged();
-        } else {
-          recursiveMessageBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00200000);
+        recursiveMessage_ = null;
+        if (recursiveMessageBuilder_ != null) {
+          recursiveMessageBuilder_.dispose();
+          recursiveMessageBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -18043,7 +17344,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x00400000) != 0)) {
           repeatedInt32_ = mutableCopy(repeatedInt32_);
           bitField0_ |= 0x00400000;
-         }
+        }
       }
       /**
        * <pre>
@@ -18093,6 +17394,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedInt32(
           int index, int value) {
+        
         ensureRepeatedInt32IsMutable();
         repeatedInt32_.setInt(index, value);
         onChanged();
@@ -18108,6 +17410,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedInt32(int value) {
+        
         ensureRepeatedInt32IsMutable();
         repeatedInt32_.addInt(value);
         onChanged();
@@ -18150,7 +17453,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x00800000) != 0)) {
           repeatedInt64_ = mutableCopy(repeatedInt64_);
           bitField0_ |= 0x00800000;
-         }
+        }
       }
       /**
        * <code>repeated int64 repeated_int64 = 32;</code>
@@ -18184,6 +17487,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedInt64(
           int index, long value) {
+        
         ensureRepeatedInt64IsMutable();
         repeatedInt64_.setLong(index, value);
         onChanged();
@@ -18195,6 +17499,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedInt64(long value) {
+        
         ensureRepeatedInt64IsMutable();
         repeatedInt64_.addLong(value);
         onChanged();
@@ -18229,7 +17534,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x01000000) != 0)) {
           repeatedUint32_ = mutableCopy(repeatedUint32_);
           bitField0_ |= 0x01000000;
-         }
+        }
       }
       /**
        * <code>repeated uint32 repeated_uint32 = 33;</code>
@@ -18263,6 +17568,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedUint32(
           int index, int value) {
+        
         ensureRepeatedUint32IsMutable();
         repeatedUint32_.setInt(index, value);
         onChanged();
@@ -18274,6 +17580,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedUint32(int value) {
+        
         ensureRepeatedUint32IsMutable();
         repeatedUint32_.addInt(value);
         onChanged();
@@ -18308,7 +17615,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x02000000) != 0)) {
           repeatedUint64_ = mutableCopy(repeatedUint64_);
           bitField0_ |= 0x02000000;
-         }
+        }
       }
       /**
        * <code>repeated uint64 repeated_uint64 = 34;</code>
@@ -18342,6 +17649,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedUint64(
           int index, long value) {
+        
         ensureRepeatedUint64IsMutable();
         repeatedUint64_.setLong(index, value);
         onChanged();
@@ -18353,6 +17661,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedUint64(long value) {
+        
         ensureRepeatedUint64IsMutable();
         repeatedUint64_.addLong(value);
         onChanged();
@@ -18387,7 +17696,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x04000000) != 0)) {
           repeatedSint32_ = mutableCopy(repeatedSint32_);
           bitField0_ |= 0x04000000;
-         }
+        }
       }
       /**
        * <code>repeated sint32 repeated_sint32 = 35;</code>
@@ -18421,6 +17730,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedSint32(
           int index, int value) {
+        
         ensureRepeatedSint32IsMutable();
         repeatedSint32_.setInt(index, value);
         onChanged();
@@ -18432,6 +17742,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedSint32(int value) {
+        
         ensureRepeatedSint32IsMutable();
         repeatedSint32_.addInt(value);
         onChanged();
@@ -18466,7 +17777,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x08000000) != 0)) {
           repeatedSint64_ = mutableCopy(repeatedSint64_);
           bitField0_ |= 0x08000000;
-         }
+        }
       }
       /**
        * <code>repeated sint64 repeated_sint64 = 36;</code>
@@ -18500,6 +17811,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedSint64(
           int index, long value) {
+        
         ensureRepeatedSint64IsMutable();
         repeatedSint64_.setLong(index, value);
         onChanged();
@@ -18511,6 +17823,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedSint64(long value) {
+        
         ensureRepeatedSint64IsMutable();
         repeatedSint64_.addLong(value);
         onChanged();
@@ -18545,7 +17858,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x10000000) != 0)) {
           repeatedFixed32_ = mutableCopy(repeatedFixed32_);
           bitField0_ |= 0x10000000;
-         }
+        }
       }
       /**
        * <code>repeated fixed32 repeated_fixed32 = 37;</code>
@@ -18579,6 +17892,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedFixed32(
           int index, int value) {
+        
         ensureRepeatedFixed32IsMutable();
         repeatedFixed32_.setInt(index, value);
         onChanged();
@@ -18590,6 +17904,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedFixed32(int value) {
+        
         ensureRepeatedFixed32IsMutable();
         repeatedFixed32_.addInt(value);
         onChanged();
@@ -18624,7 +17939,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x20000000) != 0)) {
           repeatedFixed64_ = mutableCopy(repeatedFixed64_);
           bitField0_ |= 0x20000000;
-         }
+        }
       }
       /**
        * <code>repeated fixed64 repeated_fixed64 = 38;</code>
@@ -18658,6 +17973,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedFixed64(
           int index, long value) {
+        
         ensureRepeatedFixed64IsMutable();
         repeatedFixed64_.setLong(index, value);
         onChanged();
@@ -18669,6 +17985,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedFixed64(long value) {
+        
         ensureRepeatedFixed64IsMutable();
         repeatedFixed64_.addLong(value);
         onChanged();
@@ -18703,7 +18020,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x40000000) != 0)) {
           repeatedSfixed32_ = mutableCopy(repeatedSfixed32_);
           bitField0_ |= 0x40000000;
-         }
+        }
       }
       /**
        * <code>repeated sfixed32 repeated_sfixed32 = 39;</code>
@@ -18737,6 +18054,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedSfixed32(
           int index, int value) {
+        
         ensureRepeatedSfixed32IsMutable();
         repeatedSfixed32_.setInt(index, value);
         onChanged();
@@ -18748,6 +18066,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedSfixed32(int value) {
+        
         ensureRepeatedSfixed32IsMutable();
         repeatedSfixed32_.addInt(value);
         onChanged();
@@ -18782,7 +18101,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x80000000) != 0)) {
           repeatedSfixed64_ = mutableCopy(repeatedSfixed64_);
           bitField0_ |= 0x80000000;
-         }
+        }
       }
       /**
        * <code>repeated sfixed64 repeated_sfixed64 = 40;</code>
@@ -18816,6 +18135,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedSfixed64(
           int index, long value) {
+        
         ensureRepeatedSfixed64IsMutable();
         repeatedSfixed64_.setLong(index, value);
         onChanged();
@@ -18827,6 +18147,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedSfixed64(long value) {
+        
         ensureRepeatedSfixed64IsMutable();
         repeatedSfixed64_.addLong(value);
         onChanged();
@@ -18861,7 +18182,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00000001) != 0)) {
           repeatedFloat_ = mutableCopy(repeatedFloat_);
           bitField1_ |= 0x00000001;
-         }
+        }
       }
       /**
        * <code>repeated float repeated_float = 41;</code>
@@ -18895,6 +18216,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedFloat(
           int index, float value) {
+        
         ensureRepeatedFloatIsMutable();
         repeatedFloat_.setFloat(index, value);
         onChanged();
@@ -18906,6 +18228,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedFloat(float value) {
+        
         ensureRepeatedFloatIsMutable();
         repeatedFloat_.addFloat(value);
         onChanged();
@@ -18940,7 +18263,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00000002) != 0)) {
           repeatedDouble_ = mutableCopy(repeatedDouble_);
           bitField1_ |= 0x00000002;
-         }
+        }
       }
       /**
        * <code>repeated double repeated_double = 42;</code>
@@ -18974,6 +18297,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedDouble(
           int index, double value) {
+        
         ensureRepeatedDoubleIsMutable();
         repeatedDouble_.setDouble(index, value);
         onChanged();
@@ -18985,6 +18309,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedDouble(double value) {
+        
         ensureRepeatedDoubleIsMutable();
         repeatedDouble_.addDouble(value);
         onChanged();
@@ -19019,7 +18344,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00000004) != 0)) {
           repeatedBool_ = mutableCopy(repeatedBool_);
           bitField1_ |= 0x00000004;
-         }
+        }
       }
       /**
        * <code>repeated bool repeated_bool = 43;</code>
@@ -19053,6 +18378,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedBool(
           int index, boolean value) {
+        
         ensureRepeatedBoolIsMutable();
         repeatedBool_.setBoolean(index, value);
         onChanged();
@@ -19064,6 +18390,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedBool(boolean value) {
+        
         ensureRepeatedBoolIsMutable();
         repeatedBool_.addBoolean(value);
         onChanged();
@@ -19140,10 +18467,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedString(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedStringIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedStringIsMutable();
         repeatedString_.set(index, value);
         onChanged();
         return this;
@@ -19155,10 +18480,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder addRepeatedString(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedStringIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedStringIsMutable();
         repeatedString_.add(value);
         onChanged();
         return this;
@@ -19193,10 +18516,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder addRepeatedStringBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedStringIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedStringIsMutable();
         repeatedString_.add(value);
         onChanged();
         return this;
@@ -19207,7 +18528,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00000010) != 0)) {
           repeatedBytes_ = new java.util.ArrayList<com.google.protobuf.ByteString>(repeatedBytes_);
           bitField1_ |= 0x00000010;
-         }
+        }
       }
       /**
        * <code>repeated bytes repeated_bytes = 45;</code>
@@ -19241,10 +18562,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedBytes(
           int index, com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedBytesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedBytesIsMutable();
         repeatedBytes_.set(index, value);
         onChanged();
         return this;
@@ -19255,10 +18574,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedBytesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedBytesIsMutable();
         repeatedBytes_.add(value);
         onChanged();
         return this;
@@ -19986,10 +19303,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedStringPiece(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedStringPieceIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedStringPieceIsMutable();
         repeatedStringPiece_.set(index, value);
         onChanged();
         return this;
@@ -20001,10 +19316,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder addRepeatedStringPiece(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedStringPieceIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedStringPieceIsMutable();
         repeatedStringPiece_.add(value);
         onChanged();
         return this;
@@ -20039,10 +19352,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder addRepeatedStringPieceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedStringPieceIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedStringPieceIsMutable();
         repeatedStringPiece_.add(value);
         onChanged();
         return this;
@@ -20095,10 +19406,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedCord(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedCordIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedCordIsMutable();
         repeatedCord_.set(index, value);
         onChanged();
         return this;
@@ -20110,10 +19419,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder addRepeatedCord(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedCordIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedCordIsMutable();
         repeatedCord_.add(value);
         onChanged();
         return this;
@@ -20148,10 +19455,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder addRepeatedCordBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRepeatedCordIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRepeatedCordIsMutable();
         repeatedCord_.add(value);
         onChanged();
         return this;
@@ -20162,7 +19467,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00000800) != 0)) {
           packedInt32_ = mutableCopy(packedInt32_);
           bitField1_ |= 0x00000800;
-         }
+        }
       }
       /**
        * <pre>
@@ -20212,6 +19517,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedInt32(
           int index, int value) {
+        
         ensurePackedInt32IsMutable();
         packedInt32_.setInt(index, value);
         onChanged();
@@ -20227,6 +19533,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedInt32(int value) {
+        
         ensurePackedInt32IsMutable();
         packedInt32_.addInt(value);
         onChanged();
@@ -20269,7 +19576,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00001000) != 0)) {
           packedInt64_ = mutableCopy(packedInt64_);
           bitField1_ |= 0x00001000;
-         }
+        }
       }
       /**
        * <code>repeated int64 packed_int64 = 76 [packed = true];</code>
@@ -20303,6 +19610,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedInt64(
           int index, long value) {
+        
         ensurePackedInt64IsMutable();
         packedInt64_.setLong(index, value);
         onChanged();
@@ -20314,6 +19622,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedInt64(long value) {
+        
         ensurePackedInt64IsMutable();
         packedInt64_.addLong(value);
         onChanged();
@@ -20348,7 +19657,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00002000) != 0)) {
           packedUint32_ = mutableCopy(packedUint32_);
           bitField1_ |= 0x00002000;
-         }
+        }
       }
       /**
        * <code>repeated uint32 packed_uint32 = 77 [packed = true];</code>
@@ -20382,6 +19691,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedUint32(
           int index, int value) {
+        
         ensurePackedUint32IsMutable();
         packedUint32_.setInt(index, value);
         onChanged();
@@ -20393,6 +19703,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedUint32(int value) {
+        
         ensurePackedUint32IsMutable();
         packedUint32_.addInt(value);
         onChanged();
@@ -20427,7 +19738,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00004000) != 0)) {
           packedUint64_ = mutableCopy(packedUint64_);
           bitField1_ |= 0x00004000;
-         }
+        }
       }
       /**
        * <code>repeated uint64 packed_uint64 = 78 [packed = true];</code>
@@ -20461,6 +19772,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedUint64(
           int index, long value) {
+        
         ensurePackedUint64IsMutable();
         packedUint64_.setLong(index, value);
         onChanged();
@@ -20472,6 +19784,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedUint64(long value) {
+        
         ensurePackedUint64IsMutable();
         packedUint64_.addLong(value);
         onChanged();
@@ -20506,7 +19819,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00008000) != 0)) {
           packedSint32_ = mutableCopy(packedSint32_);
           bitField1_ |= 0x00008000;
-         }
+        }
       }
       /**
        * <code>repeated sint32 packed_sint32 = 79 [packed = true];</code>
@@ -20540,6 +19853,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedSint32(
           int index, int value) {
+        
         ensurePackedSint32IsMutable();
         packedSint32_.setInt(index, value);
         onChanged();
@@ -20551,6 +19865,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedSint32(int value) {
+        
         ensurePackedSint32IsMutable();
         packedSint32_.addInt(value);
         onChanged();
@@ -20585,7 +19900,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00010000) != 0)) {
           packedSint64_ = mutableCopy(packedSint64_);
           bitField1_ |= 0x00010000;
-         }
+        }
       }
       /**
        * <code>repeated sint64 packed_sint64 = 80 [packed = true];</code>
@@ -20619,6 +19934,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedSint64(
           int index, long value) {
+        
         ensurePackedSint64IsMutable();
         packedSint64_.setLong(index, value);
         onChanged();
@@ -20630,6 +19946,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedSint64(long value) {
+        
         ensurePackedSint64IsMutable();
         packedSint64_.addLong(value);
         onChanged();
@@ -20664,7 +19981,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00020000) != 0)) {
           packedFixed32_ = mutableCopy(packedFixed32_);
           bitField1_ |= 0x00020000;
-         }
+        }
       }
       /**
        * <code>repeated fixed32 packed_fixed32 = 81 [packed = true];</code>
@@ -20698,6 +20015,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedFixed32(
           int index, int value) {
+        
         ensurePackedFixed32IsMutable();
         packedFixed32_.setInt(index, value);
         onChanged();
@@ -20709,6 +20027,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedFixed32(int value) {
+        
         ensurePackedFixed32IsMutable();
         packedFixed32_.addInt(value);
         onChanged();
@@ -20743,7 +20062,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00040000) != 0)) {
           packedFixed64_ = mutableCopy(packedFixed64_);
           bitField1_ |= 0x00040000;
-         }
+        }
       }
       /**
        * <code>repeated fixed64 packed_fixed64 = 82 [packed = true];</code>
@@ -20777,6 +20096,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedFixed64(
           int index, long value) {
+        
         ensurePackedFixed64IsMutable();
         packedFixed64_.setLong(index, value);
         onChanged();
@@ -20788,6 +20108,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedFixed64(long value) {
+        
         ensurePackedFixed64IsMutable();
         packedFixed64_.addLong(value);
         onChanged();
@@ -20822,7 +20143,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00080000) != 0)) {
           packedSfixed32_ = mutableCopy(packedSfixed32_);
           bitField1_ |= 0x00080000;
-         }
+        }
       }
       /**
        * <code>repeated sfixed32 packed_sfixed32 = 83 [packed = true];</code>
@@ -20856,6 +20177,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedSfixed32(
           int index, int value) {
+        
         ensurePackedSfixed32IsMutable();
         packedSfixed32_.setInt(index, value);
         onChanged();
@@ -20867,6 +20189,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedSfixed32(int value) {
+        
         ensurePackedSfixed32IsMutable();
         packedSfixed32_.addInt(value);
         onChanged();
@@ -20901,7 +20224,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00100000) != 0)) {
           packedSfixed64_ = mutableCopy(packedSfixed64_);
           bitField1_ |= 0x00100000;
-         }
+        }
       }
       /**
        * <code>repeated sfixed64 packed_sfixed64 = 84 [packed = true];</code>
@@ -20935,6 +20258,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedSfixed64(
           int index, long value) {
+        
         ensurePackedSfixed64IsMutable();
         packedSfixed64_.setLong(index, value);
         onChanged();
@@ -20946,6 +20270,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedSfixed64(long value) {
+        
         ensurePackedSfixed64IsMutable();
         packedSfixed64_.addLong(value);
         onChanged();
@@ -20980,7 +20305,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00200000) != 0)) {
           packedFloat_ = mutableCopy(packedFloat_);
           bitField1_ |= 0x00200000;
-         }
+        }
       }
       /**
        * <code>repeated float packed_float = 85 [packed = true];</code>
@@ -21014,6 +20339,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedFloat(
           int index, float value) {
+        
         ensurePackedFloatIsMutable();
         packedFloat_.setFloat(index, value);
         onChanged();
@@ -21025,6 +20351,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedFloat(float value) {
+        
         ensurePackedFloatIsMutable();
         packedFloat_.addFloat(value);
         onChanged();
@@ -21059,7 +20386,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00400000) != 0)) {
           packedDouble_ = mutableCopy(packedDouble_);
           bitField1_ |= 0x00400000;
-         }
+        }
       }
       /**
        * <code>repeated double packed_double = 86 [packed = true];</code>
@@ -21093,6 +20420,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedDouble(
           int index, double value) {
+        
         ensurePackedDoubleIsMutable();
         packedDouble_.setDouble(index, value);
         onChanged();
@@ -21104,6 +20432,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedDouble(double value) {
+        
         ensurePackedDoubleIsMutable();
         packedDouble_.addDouble(value);
         onChanged();
@@ -21138,7 +20467,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x00800000) != 0)) {
           packedBool_ = mutableCopy(packedBool_);
           bitField1_ |= 0x00800000;
-         }
+        }
       }
       /**
        * <code>repeated bool packed_bool = 87 [packed = true];</code>
@@ -21172,6 +20501,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setPackedBool(
           int index, boolean value) {
+        
         ensurePackedBoolIsMutable();
         packedBool_.setBoolean(index, value);
         onChanged();
@@ -21183,6 +20513,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addPackedBool(boolean value) {
+        
         ensurePackedBoolIsMutable();
         packedBool_.addBoolean(value);
         onChanged();
@@ -21303,7 +20634,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x02000000) != 0)) {
           unpackedInt32_ = mutableCopy(unpackedInt32_);
           bitField1_ |= 0x02000000;
-         }
+        }
       }
       /**
        * <pre>
@@ -21353,6 +20684,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedInt32(
           int index, int value) {
+        
         ensureUnpackedInt32IsMutable();
         unpackedInt32_.setInt(index, value);
         onChanged();
@@ -21368,6 +20700,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedInt32(int value) {
+        
         ensureUnpackedInt32IsMutable();
         unpackedInt32_.addInt(value);
         onChanged();
@@ -21410,7 +20743,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x04000000) != 0)) {
           unpackedInt64_ = mutableCopy(unpackedInt64_);
           bitField1_ |= 0x04000000;
-         }
+        }
       }
       /**
        * <code>repeated int64 unpacked_int64 = 90 [packed = false];</code>
@@ -21444,6 +20777,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedInt64(
           int index, long value) {
+        
         ensureUnpackedInt64IsMutable();
         unpackedInt64_.setLong(index, value);
         onChanged();
@@ -21455,6 +20789,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedInt64(long value) {
+        
         ensureUnpackedInt64IsMutable();
         unpackedInt64_.addLong(value);
         onChanged();
@@ -21489,7 +20824,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x08000000) != 0)) {
           unpackedUint32_ = mutableCopy(unpackedUint32_);
           bitField1_ |= 0x08000000;
-         }
+        }
       }
       /**
        * <code>repeated uint32 unpacked_uint32 = 91 [packed = false];</code>
@@ -21523,6 +20858,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedUint32(
           int index, int value) {
+        
         ensureUnpackedUint32IsMutable();
         unpackedUint32_.setInt(index, value);
         onChanged();
@@ -21534,6 +20870,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedUint32(int value) {
+        
         ensureUnpackedUint32IsMutable();
         unpackedUint32_.addInt(value);
         onChanged();
@@ -21568,7 +20905,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x10000000) != 0)) {
           unpackedUint64_ = mutableCopy(unpackedUint64_);
           bitField1_ |= 0x10000000;
-         }
+        }
       }
       /**
        * <code>repeated uint64 unpacked_uint64 = 92 [packed = false];</code>
@@ -21602,6 +20939,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedUint64(
           int index, long value) {
+        
         ensureUnpackedUint64IsMutable();
         unpackedUint64_.setLong(index, value);
         onChanged();
@@ -21613,6 +20951,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedUint64(long value) {
+        
         ensureUnpackedUint64IsMutable();
         unpackedUint64_.addLong(value);
         onChanged();
@@ -21647,7 +20986,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x20000000) != 0)) {
           unpackedSint32_ = mutableCopy(unpackedSint32_);
           bitField1_ |= 0x20000000;
-         }
+        }
       }
       /**
        * <code>repeated sint32 unpacked_sint32 = 93 [packed = false];</code>
@@ -21681,6 +21020,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedSint32(
           int index, int value) {
+        
         ensureUnpackedSint32IsMutable();
         unpackedSint32_.setInt(index, value);
         onChanged();
@@ -21692,6 +21032,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedSint32(int value) {
+        
         ensureUnpackedSint32IsMutable();
         unpackedSint32_.addInt(value);
         onChanged();
@@ -21726,7 +21067,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x40000000) != 0)) {
           unpackedSint64_ = mutableCopy(unpackedSint64_);
           bitField1_ |= 0x40000000;
-         }
+        }
       }
       /**
        * <code>repeated sint64 unpacked_sint64 = 94 [packed = false];</code>
@@ -21760,6 +21101,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedSint64(
           int index, long value) {
+        
         ensureUnpackedSint64IsMutable();
         unpackedSint64_.setLong(index, value);
         onChanged();
@@ -21771,6 +21113,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedSint64(long value) {
+        
         ensureUnpackedSint64IsMutable();
         unpackedSint64_.addLong(value);
         onChanged();
@@ -21805,7 +21148,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField1_ & 0x80000000) != 0)) {
           unpackedFixed32_ = mutableCopy(unpackedFixed32_);
           bitField1_ |= 0x80000000;
-         }
+        }
       }
       /**
        * <code>repeated fixed32 unpacked_fixed32 = 95 [packed = false];</code>
@@ -21839,6 +21182,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedFixed32(
           int index, int value) {
+        
         ensureUnpackedFixed32IsMutable();
         unpackedFixed32_.setInt(index, value);
         onChanged();
@@ -21850,6 +21194,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedFixed32(int value) {
+        
         ensureUnpackedFixed32IsMutable();
         unpackedFixed32_.addInt(value);
         onChanged();
@@ -21884,7 +21229,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField2_ & 0x00000001) != 0)) {
           unpackedFixed64_ = mutableCopy(unpackedFixed64_);
           bitField2_ |= 0x00000001;
-         }
+        }
       }
       /**
        * <code>repeated fixed64 unpacked_fixed64 = 96 [packed = false];</code>
@@ -21918,6 +21263,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedFixed64(
           int index, long value) {
+        
         ensureUnpackedFixed64IsMutable();
         unpackedFixed64_.setLong(index, value);
         onChanged();
@@ -21929,6 +21275,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedFixed64(long value) {
+        
         ensureUnpackedFixed64IsMutable();
         unpackedFixed64_.addLong(value);
         onChanged();
@@ -21963,7 +21310,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField2_ & 0x00000002) != 0)) {
           unpackedSfixed32_ = mutableCopy(unpackedSfixed32_);
           bitField2_ |= 0x00000002;
-         }
+        }
       }
       /**
        * <code>repeated sfixed32 unpacked_sfixed32 = 97 [packed = false];</code>
@@ -21997,6 +21344,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedSfixed32(
           int index, int value) {
+        
         ensureUnpackedSfixed32IsMutable();
         unpackedSfixed32_.setInt(index, value);
         onChanged();
@@ -22008,6 +21356,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedSfixed32(int value) {
+        
         ensureUnpackedSfixed32IsMutable();
         unpackedSfixed32_.addInt(value);
         onChanged();
@@ -22042,7 +21391,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField2_ & 0x00000004) != 0)) {
           unpackedSfixed64_ = mutableCopy(unpackedSfixed64_);
           bitField2_ |= 0x00000004;
-         }
+        }
       }
       /**
        * <code>repeated sfixed64 unpacked_sfixed64 = 98 [packed = false];</code>
@@ -22076,6 +21425,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedSfixed64(
           int index, long value) {
+        
         ensureUnpackedSfixed64IsMutable();
         unpackedSfixed64_.setLong(index, value);
         onChanged();
@@ -22087,6 +21437,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedSfixed64(long value) {
+        
         ensureUnpackedSfixed64IsMutable();
         unpackedSfixed64_.addLong(value);
         onChanged();
@@ -22121,7 +21472,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField2_ & 0x00000008) != 0)) {
           unpackedFloat_ = mutableCopy(unpackedFloat_);
           bitField2_ |= 0x00000008;
-         }
+        }
       }
       /**
        * <code>repeated float unpacked_float = 99 [packed = false];</code>
@@ -22155,6 +21506,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedFloat(
           int index, float value) {
+        
         ensureUnpackedFloatIsMutable();
         unpackedFloat_.setFloat(index, value);
         onChanged();
@@ -22166,6 +21518,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedFloat(float value) {
+        
         ensureUnpackedFloatIsMutable();
         unpackedFloat_.addFloat(value);
         onChanged();
@@ -22200,7 +21553,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField2_ & 0x00000010) != 0)) {
           unpackedDouble_ = mutableCopy(unpackedDouble_);
           bitField2_ |= 0x00000010;
-         }
+        }
       }
       /**
        * <code>repeated double unpacked_double = 100 [packed = false];</code>
@@ -22234,6 +21587,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedDouble(
           int index, double value) {
+        
         ensureUnpackedDoubleIsMutable();
         unpackedDouble_.setDouble(index, value);
         onChanged();
@@ -22245,6 +21599,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedDouble(double value) {
+        
         ensureUnpackedDoubleIsMutable();
         unpackedDouble_.addDouble(value);
         onChanged();
@@ -22279,7 +21634,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField2_ & 0x00000020) != 0)) {
           unpackedBool_ = mutableCopy(unpackedBool_);
           bitField2_ |= 0x00000020;
-         }
+        }
       }
       /**
        * <code>repeated bool unpacked_bool = 101 [packed = false];</code>
@@ -22313,6 +21668,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setUnpackedBool(
           int index, boolean value) {
+        
         ensureUnpackedBoolIsMutable();
         unpackedBool_.setBoolean(index, value);
         onChanged();
@@ -22324,6 +21680,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addUnpackedBool(boolean value) {
+        
         ensureUnpackedBoolIsMutable();
         unpackedBool_.addBoolean(value);
         onChanged();
@@ -22442,7 +21799,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapInt32Int32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapInt32Int32() {
+          internalGetMapInt32Int32() {
         if (mapInt32Int32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32Int32DefaultEntryHolder.defaultEntry);
@@ -22450,8 +21807,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapInt32Int32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapInt32Int32() {
-        onChanged();;
+          internalGetMutableMapInt32Int32() {
         if (mapInt32Int32_ == null) {
           mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
               MapInt32Int32DefaultEntryHolder.defaultEntry);
@@ -22459,9 +21815,10 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapInt32Int32_.isMutable()) {
           mapInt32Int32_ = mapInt32Int32_.copy();
         }
+        bitField2_ |= 0x00000080;
+        onChanged();
         return mapInt32Int32_;
       }
-
       public int getMapInt32Int32Count() {
         return internalGetMapInt32Int32().getMap().size();
       }
@@ -22472,7 +21829,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        *
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Int32(
           int key) {
@@ -22495,7 +21851,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32Map() {
         return internalGetMapInt32Int32().getMap();
       }
@@ -22507,7 +21862,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
       @java.lang.Override
-
       public int getMapInt32Int32OrDefault(
           int key,
           int defaultValue) {
@@ -22524,7 +21878,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
       @java.lang.Override
-
       public int getMapInt32Int32OrThrow(
           int key) {
         
@@ -22535,8 +21888,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Int32() {
+        bitField2_ = (bitField2_ & ~0x00000080);
         internalGetMutableMapInt32Int32().getMutableMap()
             .clear();
         return this;
@@ -22548,7 +21901,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        *
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
-
       public Builder removeMapInt32Int32(
           int key) {
         
@@ -22561,7 +21913,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapInt32Int32() {
+          getMutableMapInt32Int32() {
+        bitField2_ |= 0x00000080;
         return internalGetMutableMapInt32Int32().getMutableMap();
       }
       /**
@@ -22578,6 +21931,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapInt32Int32().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00000080;
         return this;
       }
       /**
@@ -22587,18 +21941,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        *
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 56;</code>
        */
-
       public Builder putAllMapInt32Int32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapInt32Int32().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00000080;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapInt64Int64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapInt64Int64() {
+          internalGetMapInt64Int64() {
         if (mapInt64Int64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt64Int64DefaultEntryHolder.defaultEntry);
@@ -22606,8 +21960,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapInt64Int64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapInt64Int64() {
-        onChanged();;
+          internalGetMutableMapInt64Int64() {
         if (mapInt64Int64_ == null) {
           mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
               MapInt64Int64DefaultEntryHolder.defaultEntry);
@@ -22615,16 +21968,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapInt64Int64_.isMutable()) {
           mapInt64Int64_ = mapInt64Int64_.copy();
         }
+        bitField2_ |= 0x00000100;
+        onChanged();
         return mapInt64Int64_;
       }
-
       public int getMapInt64Int64Count() {
         return internalGetMapInt64Int64().getMap().size();
       }
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt64Int64(
           long key) {
@@ -22643,7 +21996,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64Map() {
         return internalGetMapInt64Int64().getMap();
       }
@@ -22651,7 +22003,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
       @java.lang.Override
-
       public long getMapInt64Int64OrDefault(
           long key,
           long defaultValue) {
@@ -22664,7 +22015,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
       @java.lang.Override
-
       public long getMapInt64Int64OrThrow(
           long key) {
         
@@ -22675,8 +22025,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapInt64Int64() {
+        bitField2_ = (bitField2_ & ~0x00000100);
         internalGetMutableMapInt64Int64().getMutableMap()
             .clear();
         return this;
@@ -22684,7 +22034,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
-
       public Builder removeMapInt64Int64(
           long key) {
         
@@ -22697,7 +22046,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapInt64Int64() {
+          getMutableMapInt64Int64() {
+        bitField2_ |= 0x00000100;
         return internalGetMutableMapInt64Int64().getMutableMap();
       }
       /**
@@ -22710,23 +22060,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapInt64Int64().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00000100;
         return this;
       }
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 57;</code>
        */
-
       public Builder putAllMapInt64Int64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapInt64Int64().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00000100;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapUint32Uint32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapUint32Uint32() {
+          internalGetMapUint32Uint32() {
         if (mapUint32Uint32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapUint32Uint32DefaultEntryHolder.defaultEntry);
@@ -22734,8 +22085,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapUint32Uint32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapUint32Uint32() {
-        onChanged();;
+          internalGetMutableMapUint32Uint32() {
         if (mapUint32Uint32_ == null) {
           mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
               MapUint32Uint32DefaultEntryHolder.defaultEntry);
@@ -22743,16 +22093,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapUint32Uint32_.isMutable()) {
           mapUint32Uint32_ = mapUint32Uint32_.copy();
         }
+        bitField2_ |= 0x00000200;
+        onChanged();
         return mapUint32Uint32_;
       }
-
       public int getMapUint32Uint32Count() {
         return internalGetMapUint32Uint32().getMap().size();
       }
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
-
       @java.lang.Override
       public boolean containsMapUint32Uint32(
           int key) {
@@ -22771,7 +22121,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32Map() {
         return internalGetMapUint32Uint32().getMap();
       }
@@ -22779,7 +22128,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
       @java.lang.Override
-
       public int getMapUint32Uint32OrDefault(
           int key,
           int defaultValue) {
@@ -22792,7 +22140,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
       @java.lang.Override
-
       public int getMapUint32Uint32OrThrow(
           int key) {
         
@@ -22803,8 +22150,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapUint32Uint32() {
+        bitField2_ = (bitField2_ & ~0x00000200);
         internalGetMutableMapUint32Uint32().getMutableMap()
             .clear();
         return this;
@@ -22812,7 +22159,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
-
       public Builder removeMapUint32Uint32(
           int key) {
         
@@ -22825,7 +22171,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapUint32Uint32() {
+          getMutableMapUint32Uint32() {
+        bitField2_ |= 0x00000200;
         return internalGetMutableMapUint32Uint32().getMutableMap();
       }
       /**
@@ -22838,23 +22185,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapUint32Uint32().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00000200;
         return this;
       }
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 58;</code>
        */
-
       public Builder putAllMapUint32Uint32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapUint32Uint32().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00000200;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapUint64Uint64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapUint64Uint64() {
+          internalGetMapUint64Uint64() {
         if (mapUint64Uint64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapUint64Uint64DefaultEntryHolder.defaultEntry);
@@ -22862,8 +22210,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapUint64Uint64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapUint64Uint64() {
-        onChanged();;
+          internalGetMutableMapUint64Uint64() {
         if (mapUint64Uint64_ == null) {
           mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
               MapUint64Uint64DefaultEntryHolder.defaultEntry);
@@ -22871,16 +22218,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapUint64Uint64_.isMutable()) {
           mapUint64Uint64_ = mapUint64Uint64_.copy();
         }
+        bitField2_ |= 0x00000400;
+        onChanged();
         return mapUint64Uint64_;
       }
-
       public int getMapUint64Uint64Count() {
         return internalGetMapUint64Uint64().getMap().size();
       }
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
-
       @java.lang.Override
       public boolean containsMapUint64Uint64(
           long key) {
@@ -22899,7 +22246,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64Map() {
         return internalGetMapUint64Uint64().getMap();
       }
@@ -22907,7 +22253,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
       @java.lang.Override
-
       public long getMapUint64Uint64OrDefault(
           long key,
           long defaultValue) {
@@ -22920,7 +22265,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
       @java.lang.Override
-
       public long getMapUint64Uint64OrThrow(
           long key) {
         
@@ -22931,8 +22275,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapUint64Uint64() {
+        bitField2_ = (bitField2_ & ~0x00000400);
         internalGetMutableMapUint64Uint64().getMutableMap()
             .clear();
         return this;
@@ -22940,7 +22284,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
-
       public Builder removeMapUint64Uint64(
           long key) {
         
@@ -22953,7 +22296,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapUint64Uint64() {
+          getMutableMapUint64Uint64() {
+        bitField2_ |= 0x00000400;
         return internalGetMutableMapUint64Uint64().getMutableMap();
       }
       /**
@@ -22966,23 +22310,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapUint64Uint64().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00000400;
         return this;
       }
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 59;</code>
        */
-
       public Builder putAllMapUint64Uint64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapUint64Uint64().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00000400;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapSint32Sint32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapSint32Sint32() {
+          internalGetMapSint32Sint32() {
         if (mapSint32Sint32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSint32Sint32DefaultEntryHolder.defaultEntry);
@@ -22990,8 +22335,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapSint32Sint32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapSint32Sint32() {
-        onChanged();;
+          internalGetMutableMapSint32Sint32() {
         if (mapSint32Sint32_ == null) {
           mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
               MapSint32Sint32DefaultEntryHolder.defaultEntry);
@@ -22999,16 +22343,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapSint32Sint32_.isMutable()) {
           mapSint32Sint32_ = mapSint32Sint32_.copy();
         }
+        bitField2_ |= 0x00000800;
+        onChanged();
         return mapSint32Sint32_;
       }
-
       public int getMapSint32Sint32Count() {
         return internalGetMapSint32Sint32().getMap().size();
       }
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSint32Sint32(
           int key) {
@@ -23027,7 +22371,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32Map() {
         return internalGetMapSint32Sint32().getMap();
       }
@@ -23035,7 +22378,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
       @java.lang.Override
-
       public int getMapSint32Sint32OrDefault(
           int key,
           int defaultValue) {
@@ -23048,7 +22390,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
       @java.lang.Override
-
       public int getMapSint32Sint32OrThrow(
           int key) {
         
@@ -23059,8 +22400,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapSint32Sint32() {
+        bitField2_ = (bitField2_ & ~0x00000800);
         internalGetMutableMapSint32Sint32().getMutableMap()
             .clear();
         return this;
@@ -23068,7 +22409,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
-
       public Builder removeMapSint32Sint32(
           int key) {
         
@@ -23081,7 +22421,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapSint32Sint32() {
+          getMutableMapSint32Sint32() {
+        bitField2_ |= 0x00000800;
         return internalGetMutableMapSint32Sint32().getMutableMap();
       }
       /**
@@ -23094,23 +22435,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapSint32Sint32().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00000800;
         return this;
       }
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 60;</code>
        */
-
       public Builder putAllMapSint32Sint32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapSint32Sint32().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00000800;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapSint64Sint64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapSint64Sint64() {
+          internalGetMapSint64Sint64() {
         if (mapSint64Sint64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSint64Sint64DefaultEntryHolder.defaultEntry);
@@ -23118,8 +22460,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapSint64Sint64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapSint64Sint64() {
-        onChanged();;
+          internalGetMutableMapSint64Sint64() {
         if (mapSint64Sint64_ == null) {
           mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
               MapSint64Sint64DefaultEntryHolder.defaultEntry);
@@ -23127,16 +22468,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapSint64Sint64_.isMutable()) {
           mapSint64Sint64_ = mapSint64Sint64_.copy();
         }
+        bitField2_ |= 0x00001000;
+        onChanged();
         return mapSint64Sint64_;
       }
-
       public int getMapSint64Sint64Count() {
         return internalGetMapSint64Sint64().getMap().size();
       }
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSint64Sint64(
           long key) {
@@ -23155,7 +22496,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64Map() {
         return internalGetMapSint64Sint64().getMap();
       }
@@ -23163,7 +22503,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
       @java.lang.Override
-
       public long getMapSint64Sint64OrDefault(
           long key,
           long defaultValue) {
@@ -23176,7 +22515,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
       @java.lang.Override
-
       public long getMapSint64Sint64OrThrow(
           long key) {
         
@@ -23187,8 +22525,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapSint64Sint64() {
+        bitField2_ = (bitField2_ & ~0x00001000);
         internalGetMutableMapSint64Sint64().getMutableMap()
             .clear();
         return this;
@@ -23196,7 +22534,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
-
       public Builder removeMapSint64Sint64(
           long key) {
         
@@ -23209,7 +22546,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapSint64Sint64() {
+          getMutableMapSint64Sint64() {
+        bitField2_ |= 0x00001000;
         return internalGetMutableMapSint64Sint64().getMutableMap();
       }
       /**
@@ -23222,23 +22560,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapSint64Sint64().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00001000;
         return this;
       }
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 61;</code>
        */
-
       public Builder putAllMapSint64Sint64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapSint64Sint64().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00001000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapFixed32Fixed32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapFixed32Fixed32() {
+          internalGetMapFixed32Fixed32() {
         if (mapFixed32Fixed32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
@@ -23246,8 +22585,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapFixed32Fixed32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapFixed32Fixed32() {
-        onChanged();;
+          internalGetMutableMapFixed32Fixed32() {
         if (mapFixed32Fixed32_ == null) {
           mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
               MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
@@ -23255,16 +22593,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapFixed32Fixed32_.isMutable()) {
           mapFixed32Fixed32_ = mapFixed32Fixed32_.copy();
         }
+        bitField2_ |= 0x00002000;
+        onChanged();
         return mapFixed32Fixed32_;
       }
-
       public int getMapFixed32Fixed32Count() {
         return internalGetMapFixed32Fixed32().getMap().size();
       }
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
-
       @java.lang.Override
       public boolean containsMapFixed32Fixed32(
           int key) {
@@ -23283,7 +22621,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32Map() {
         return internalGetMapFixed32Fixed32().getMap();
       }
@@ -23291,7 +22628,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
       @java.lang.Override
-
       public int getMapFixed32Fixed32OrDefault(
           int key,
           int defaultValue) {
@@ -23304,7 +22640,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
       @java.lang.Override
-
       public int getMapFixed32Fixed32OrThrow(
           int key) {
         
@@ -23315,8 +22650,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapFixed32Fixed32() {
+        bitField2_ = (bitField2_ & ~0x00002000);
         internalGetMutableMapFixed32Fixed32().getMutableMap()
             .clear();
         return this;
@@ -23324,7 +22659,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
-
       public Builder removeMapFixed32Fixed32(
           int key) {
         
@@ -23337,7 +22671,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapFixed32Fixed32() {
+          getMutableMapFixed32Fixed32() {
+        bitField2_ |= 0x00002000;
         return internalGetMutableMapFixed32Fixed32().getMutableMap();
       }
       /**
@@ -23350,23 +22685,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapFixed32Fixed32().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00002000;
         return this;
       }
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 62;</code>
        */
-
       public Builder putAllMapFixed32Fixed32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapFixed32Fixed32().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00002000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapFixed64Fixed64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapFixed64Fixed64() {
+          internalGetMapFixed64Fixed64() {
         if (mapFixed64Fixed64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
@@ -23374,8 +22710,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapFixed64Fixed64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapFixed64Fixed64() {
-        onChanged();;
+          internalGetMutableMapFixed64Fixed64() {
         if (mapFixed64Fixed64_ == null) {
           mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
               MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
@@ -23383,16 +22718,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapFixed64Fixed64_.isMutable()) {
           mapFixed64Fixed64_ = mapFixed64Fixed64_.copy();
         }
+        bitField2_ |= 0x00004000;
+        onChanged();
         return mapFixed64Fixed64_;
       }
-
       public int getMapFixed64Fixed64Count() {
         return internalGetMapFixed64Fixed64().getMap().size();
       }
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
-
       @java.lang.Override
       public boolean containsMapFixed64Fixed64(
           long key) {
@@ -23411,7 +22746,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64Map() {
         return internalGetMapFixed64Fixed64().getMap();
       }
@@ -23419,7 +22753,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
       @java.lang.Override
-
       public long getMapFixed64Fixed64OrDefault(
           long key,
           long defaultValue) {
@@ -23432,7 +22765,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
       @java.lang.Override
-
       public long getMapFixed64Fixed64OrThrow(
           long key) {
         
@@ -23443,8 +22775,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapFixed64Fixed64() {
+        bitField2_ = (bitField2_ & ~0x00004000);
         internalGetMutableMapFixed64Fixed64().getMutableMap()
             .clear();
         return this;
@@ -23452,7 +22784,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
-
       public Builder removeMapFixed64Fixed64(
           long key) {
         
@@ -23465,7 +22796,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapFixed64Fixed64() {
+          getMutableMapFixed64Fixed64() {
+        bitField2_ |= 0x00004000;
         return internalGetMutableMapFixed64Fixed64().getMutableMap();
       }
       /**
@@ -23478,23 +22810,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapFixed64Fixed64().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00004000;
         return this;
       }
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 63;</code>
        */
-
       public Builder putAllMapFixed64Fixed64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapFixed64Fixed64().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00004000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapSfixed32Sfixed32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapSfixed32Sfixed32() {
+          internalGetMapSfixed32Sfixed32() {
         if (mapSfixed32Sfixed32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
@@ -23502,8 +22835,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapSfixed32Sfixed32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapSfixed32Sfixed32() {
-        onChanged();;
+          internalGetMutableMapSfixed32Sfixed32() {
         if (mapSfixed32Sfixed32_ == null) {
           mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
               MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
@@ -23511,16 +22843,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapSfixed32Sfixed32_.isMutable()) {
           mapSfixed32Sfixed32_ = mapSfixed32Sfixed32_.copy();
         }
+        bitField2_ |= 0x00008000;
+        onChanged();
         return mapSfixed32Sfixed32_;
       }
-
       public int getMapSfixed32Sfixed32Count() {
         return internalGetMapSfixed32Sfixed32().getMap().size();
       }
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSfixed32Sfixed32(
           int key) {
@@ -23539,7 +22871,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32Map() {
         return internalGetMapSfixed32Sfixed32().getMap();
       }
@@ -23547,7 +22878,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
       @java.lang.Override
-
       public int getMapSfixed32Sfixed32OrDefault(
           int key,
           int defaultValue) {
@@ -23560,7 +22890,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
       @java.lang.Override
-
       public int getMapSfixed32Sfixed32OrThrow(
           int key) {
         
@@ -23571,8 +22900,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapSfixed32Sfixed32() {
+        bitField2_ = (bitField2_ & ~0x00008000);
         internalGetMutableMapSfixed32Sfixed32().getMutableMap()
             .clear();
         return this;
@@ -23580,7 +22909,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
-
       public Builder removeMapSfixed32Sfixed32(
           int key) {
         
@@ -23593,7 +22921,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapSfixed32Sfixed32() {
+          getMutableMapSfixed32Sfixed32() {
+        bitField2_ |= 0x00008000;
         return internalGetMutableMapSfixed32Sfixed32().getMutableMap();
       }
       /**
@@ -23606,23 +22935,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapSfixed32Sfixed32().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00008000;
         return this;
       }
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 64;</code>
        */
-
       public Builder putAllMapSfixed32Sfixed32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapSfixed32Sfixed32().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00008000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapSfixed64Sfixed64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapSfixed64Sfixed64() {
+          internalGetMapSfixed64Sfixed64() {
         if (mapSfixed64Sfixed64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
@@ -23630,8 +22960,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapSfixed64Sfixed64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapSfixed64Sfixed64() {
-        onChanged();;
+          internalGetMutableMapSfixed64Sfixed64() {
         if (mapSfixed64Sfixed64_ == null) {
           mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
               MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
@@ -23639,16 +22968,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapSfixed64Sfixed64_.isMutable()) {
           mapSfixed64Sfixed64_ = mapSfixed64Sfixed64_.copy();
         }
+        bitField2_ |= 0x00010000;
+        onChanged();
         return mapSfixed64Sfixed64_;
       }
-
       public int getMapSfixed64Sfixed64Count() {
         return internalGetMapSfixed64Sfixed64().getMap().size();
       }
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSfixed64Sfixed64(
           long key) {
@@ -23667,7 +22996,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64Map() {
         return internalGetMapSfixed64Sfixed64().getMap();
       }
@@ -23675,7 +23003,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
       @java.lang.Override
-
       public long getMapSfixed64Sfixed64OrDefault(
           long key,
           long defaultValue) {
@@ -23688,7 +23015,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
       @java.lang.Override
-
       public long getMapSfixed64Sfixed64OrThrow(
           long key) {
         
@@ -23699,8 +23025,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapSfixed64Sfixed64() {
+        bitField2_ = (bitField2_ & ~0x00010000);
         internalGetMutableMapSfixed64Sfixed64().getMutableMap()
             .clear();
         return this;
@@ -23708,7 +23034,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
-
       public Builder removeMapSfixed64Sfixed64(
           long key) {
         
@@ -23721,7 +23046,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapSfixed64Sfixed64() {
+          getMutableMapSfixed64Sfixed64() {
+        bitField2_ |= 0x00010000;
         return internalGetMutableMapSfixed64Sfixed64().getMutableMap();
       }
       /**
@@ -23734,23 +23060,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapSfixed64Sfixed64().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00010000;
         return this;
       }
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 65;</code>
        */
-
       public Builder putAllMapSfixed64Sfixed64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapSfixed64Sfixed64().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00010000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Float> mapInt32Float_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
-      internalGetMapInt32Float() {
+          internalGetMapInt32Float() {
         if (mapInt32Float_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32FloatDefaultEntryHolder.defaultEntry);
@@ -23758,8 +23085,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapInt32Float_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
-      internalGetMutableMapInt32Float() {
-        onChanged();;
+          internalGetMutableMapInt32Float() {
         if (mapInt32Float_ == null) {
           mapInt32Float_ = com.google.protobuf.MapField.newMapField(
               MapInt32FloatDefaultEntryHolder.defaultEntry);
@@ -23767,16 +23093,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapInt32Float_.isMutable()) {
           mapInt32Float_ = mapInt32Float_.copy();
         }
+        bitField2_ |= 0x00020000;
+        onChanged();
         return mapInt32Float_;
       }
-
       public int getMapInt32FloatCount() {
         return internalGetMapInt32Float().getMap().size();
       }
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Float(
           int key) {
@@ -23795,7 +23121,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32FloatMap() {
         return internalGetMapInt32Float().getMap();
       }
@@ -23803,7 +23128,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
       @java.lang.Override
-
       public float getMapInt32FloatOrDefault(
           int key,
           float defaultValue) {
@@ -23816,7 +23140,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
       @java.lang.Override
-
       public float getMapInt32FloatOrThrow(
           int key) {
         
@@ -23827,8 +23150,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Float() {
+        bitField2_ = (bitField2_ & ~0x00020000);
         internalGetMutableMapInt32Float().getMutableMap()
             .clear();
         return this;
@@ -23836,7 +23159,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
-
       public Builder removeMapInt32Float(
           int key) {
         
@@ -23849,7 +23171,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Float>
-      getMutableMapInt32Float() {
+          getMutableMapInt32Float() {
+        bitField2_ |= 0x00020000;
         return internalGetMutableMapInt32Float().getMutableMap();
       }
       /**
@@ -23862,23 +23185,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapInt32Float().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00020000;
         return this;
       }
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 66;</code>
        */
-
       public Builder putAllMapInt32Float(
           java.util.Map<java.lang.Integer, java.lang.Float> values) {
         internalGetMutableMapInt32Float().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00020000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Double> mapInt32Double_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
-      internalGetMapInt32Double() {
+          internalGetMapInt32Double() {
         if (mapInt32Double_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32DoubleDefaultEntryHolder.defaultEntry);
@@ -23886,8 +23210,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapInt32Double_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
-      internalGetMutableMapInt32Double() {
-        onChanged();;
+          internalGetMutableMapInt32Double() {
         if (mapInt32Double_ == null) {
           mapInt32Double_ = com.google.protobuf.MapField.newMapField(
               MapInt32DoubleDefaultEntryHolder.defaultEntry);
@@ -23895,16 +23218,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapInt32Double_.isMutable()) {
           mapInt32Double_ = mapInt32Double_.copy();
         }
+        bitField2_ |= 0x00040000;
+        onChanged();
         return mapInt32Double_;
       }
-
       public int getMapInt32DoubleCount() {
         return internalGetMapInt32Double().getMap().size();
       }
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Double(
           int key) {
@@ -23923,7 +23246,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32DoubleMap() {
         return internalGetMapInt32Double().getMap();
       }
@@ -23931,7 +23253,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
       @java.lang.Override
-
       public double getMapInt32DoubleOrDefault(
           int key,
           double defaultValue) {
@@ -23944,7 +23265,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
       @java.lang.Override
-
       public double getMapInt32DoubleOrThrow(
           int key) {
         
@@ -23955,8 +23275,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Double() {
+        bitField2_ = (bitField2_ & ~0x00040000);
         internalGetMutableMapInt32Double().getMutableMap()
             .clear();
         return this;
@@ -23964,7 +23284,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
-
       public Builder removeMapInt32Double(
           int key) {
         
@@ -23977,7 +23296,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Double>
-      getMutableMapInt32Double() {
+          getMutableMapInt32Double() {
+        bitField2_ |= 0x00040000;
         return internalGetMutableMapInt32Double().getMutableMap();
       }
       /**
@@ -23990,23 +23310,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapInt32Double().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00040000;
         return this;
       }
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 67;</code>
        */
-
       public Builder putAllMapInt32Double(
           java.util.Map<java.lang.Integer, java.lang.Double> values) {
         internalGetMutableMapInt32Double().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00040000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Boolean, java.lang.Boolean> mapBoolBool_;
       private com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
-      internalGetMapBoolBool() {
+          internalGetMapBoolBool() {
         if (mapBoolBool_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapBoolBoolDefaultEntryHolder.defaultEntry);
@@ -24014,8 +23335,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapBoolBool_;
       }
       private com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
-      internalGetMutableMapBoolBool() {
-        onChanged();;
+          internalGetMutableMapBoolBool() {
         if (mapBoolBool_ == null) {
           mapBoolBool_ = com.google.protobuf.MapField.newMapField(
               MapBoolBoolDefaultEntryHolder.defaultEntry);
@@ -24023,16 +23343,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapBoolBool_.isMutable()) {
           mapBoolBool_ = mapBoolBool_.copy();
         }
+        bitField2_ |= 0x00080000;
+        onChanged();
         return mapBoolBool_;
       }
-
       public int getMapBoolBoolCount() {
         return internalGetMapBoolBool().getMap().size();
       }
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
-
       @java.lang.Override
       public boolean containsMapBoolBool(
           boolean key) {
@@ -24051,7 +23371,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBoolMap() {
         return internalGetMapBoolBool().getMap();
       }
@@ -24059,7 +23378,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
       @java.lang.Override
-
       public boolean getMapBoolBoolOrDefault(
           boolean key,
           boolean defaultValue) {
@@ -24072,7 +23390,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
       @java.lang.Override
-
       public boolean getMapBoolBoolOrThrow(
           boolean key) {
         
@@ -24083,8 +23400,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapBoolBool() {
+        bitField2_ = (bitField2_ & ~0x00080000);
         internalGetMutableMapBoolBool().getMutableMap()
             .clear();
         return this;
@@ -24092,7 +23409,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
-
       public Builder removeMapBoolBool(
           boolean key) {
         
@@ -24105,7 +23421,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Boolean, java.lang.Boolean>
-      getMutableMapBoolBool() {
+          getMutableMapBoolBool() {
+        bitField2_ |= 0x00080000;
         return internalGetMutableMapBoolBool().getMutableMap();
       }
       /**
@@ -24118,23 +23435,24 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapBoolBool().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00080000;
         return this;
       }
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 68;</code>
        */
-
       public Builder putAllMapBoolBool(
           java.util.Map<java.lang.Boolean, java.lang.Boolean> values) {
         internalGetMutableMapBoolBool().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00080000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> mapStringString_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMapStringString() {
+          internalGetMapStringString() {
         if (mapStringString_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapStringStringDefaultEntryHolder.defaultEntry);
@@ -24142,8 +23460,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapStringString_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableMapStringString() {
-        onChanged();;
+          internalGetMutableMapStringString() {
         if (mapStringString_ == null) {
           mapStringString_ = com.google.protobuf.MapField.newMapField(
               MapStringStringDefaultEntryHolder.defaultEntry);
@@ -24151,16 +23468,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapStringString_.isMutable()) {
           mapStringString_ = mapStringString_.copy();
         }
+        bitField2_ |= 0x00100000;
+        onChanged();
         return mapStringString_;
       }
-
       public int getMapStringStringCount() {
         return internalGetMapStringString().getMap().size();
       }
       /**
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
-
       @java.lang.Override
       public boolean containsMapStringString(
           java.lang.String key) {
@@ -24179,7 +23496,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getMapStringStringMap() {
         return internalGetMapStringString().getMap();
       }
@@ -24187,10 +23503,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getMapStringStringOrDefault(
+      public /* nullable */
+java.lang.String getMapStringStringOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetMapStringString().getMap();
@@ -24200,7 +23517,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
       @java.lang.Override
-
       public java.lang.String getMapStringStringOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24211,8 +23527,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapStringString() {
+        bitField2_ = (bitField2_ & ~0x00100000);
         internalGetMutableMapStringString().getMutableMap()
             .clear();
         return this;
@@ -24220,7 +23536,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
-
       public Builder removeMapStringString(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24233,7 +23548,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableMapStringString() {
+          getMutableMapStringString() {
+        bitField2_ |= 0x00100000;
         return internalGetMutableMapStringString().getMutableMap();
       }
       /**
@@ -24243,29 +23559,27 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapStringString().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00100000;
         return this;
       }
       /**
        * <code>map&lt;string, string&gt; map_string_string = 69;</code>
        */
-
       public Builder putAllMapStringString(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableMapStringString().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00100000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf.ByteString> mapStringBytes_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-      internalGetMapStringBytes() {
+          internalGetMapStringBytes() {
         if (mapStringBytes_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapStringBytesDefaultEntryHolder.defaultEntry);
@@ -24273,8 +23587,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapStringBytes_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-      internalGetMutableMapStringBytes() {
-        onChanged();;
+          internalGetMutableMapStringBytes() {
         if (mapStringBytes_ == null) {
           mapStringBytes_ = com.google.protobuf.MapField.newMapField(
               MapStringBytesDefaultEntryHolder.defaultEntry);
@@ -24282,16 +23595,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapStringBytes_.isMutable()) {
           mapStringBytes_ = mapStringBytes_.copy();
         }
+        bitField2_ |= 0x00200000;
+        onChanged();
         return mapStringBytes_;
       }
-
       public int getMapStringBytesCount() {
         return internalGetMapStringBytes().getMap().size();
       }
       /**
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
-
       @java.lang.Override
       public boolean containsMapStringBytes(
           java.lang.String key) {
@@ -24310,7 +23623,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getMapStringBytesMap() {
         return internalGetMapStringBytes().getMap();
       }
@@ -24318,10 +23630,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf.ByteString getMapStringBytesOrDefault(
+      public /* nullable */
+com.google.protobuf.ByteString getMapStringBytesOrDefault(
           java.lang.String key,
-          com.google.protobuf.ByteString defaultValue) {
+          /* nullable */
+com.google.protobuf.ByteString defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
             internalGetMapStringBytes().getMap();
@@ -24331,7 +23644,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf.ByteString getMapStringBytesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24342,8 +23654,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapStringBytes() {
+        bitField2_ = (bitField2_ & ~0x00200000);
         internalGetMutableMapStringBytes().getMutableMap()
             .clear();
         return this;
@@ -24351,7 +23663,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
-
       public Builder removeMapStringBytes(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24364,7 +23675,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.ByteString>
-      getMutableMapStringBytes() {
+          getMutableMapStringBytes() {
+        bitField2_ |= 0x00200000;
         return internalGetMutableMapStringBytes().getMutableMap();
       }
       /**
@@ -24374,29 +23686,27 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           java.lang.String key,
           com.google.protobuf.ByteString value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapStringBytes().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00200000;
         return this;
       }
       /**
        * <code>map&lt;string, bytes&gt; map_string_bytes = 70;</code>
        */
-
       public Builder putAllMapStringBytes(
           java.util.Map<java.lang.String, com.google.protobuf.ByteString> values) {
         internalGetMutableMapStringBytes().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00200000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage> mapStringNestedMessage_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage>
-      internalGetMapStringNestedMessage() {
+          internalGetMapStringNestedMessage() {
         if (mapStringNestedMessage_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapStringNestedMessageDefaultEntryHolder.defaultEntry);
@@ -24404,8 +23714,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapStringNestedMessage_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage>
-      internalGetMutableMapStringNestedMessage() {
-        onChanged();;
+          internalGetMutableMapStringNestedMessage() {
         if (mapStringNestedMessage_ == null) {
           mapStringNestedMessage_ = com.google.protobuf.MapField.newMapField(
               MapStringNestedMessageDefaultEntryHolder.defaultEntry);
@@ -24413,16 +23722,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapStringNestedMessage_.isMutable()) {
           mapStringNestedMessage_ = mapStringNestedMessage_.copy();
         }
+        bitField2_ |= 0x00400000;
+        onChanged();
         return mapStringNestedMessage_;
       }
-
       public int getMapStringNestedMessageCount() {
         return internalGetMapStringNestedMessage().getMap().size();
       }
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
-
       @java.lang.Override
       public boolean containsMapStringNestedMessage(
           java.lang.String key) {
@@ -24441,7 +23750,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage> getMapStringNestedMessageMap() {
         return internalGetMapStringNestedMessage().getMap();
       }
@@ -24449,10 +23757,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage getMapStringNestedMessageOrDefault(
+      public /* nullable */
+com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage getMapStringNestedMessageOrDefault(
           java.lang.String key,
-          com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage defaultValue) {
+          /* nullable */
+com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage> map =
             internalGetMapStringNestedMessage().getMap();
@@ -24462,7 +23771,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage getMapStringNestedMessageOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24473,8 +23781,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapStringNestedMessage() {
+        bitField2_ = (bitField2_ & ~0x00400000);
         internalGetMutableMapStringNestedMessage().getMutableMap()
             .clear();
         return this;
@@ -24482,7 +23790,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
-
       public Builder removeMapStringNestedMessage(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24495,7 +23802,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage>
-      getMutableMapStringNestedMessage() {
+          getMutableMapStringNestedMessage() {
+        bitField2_ |= 0x00400000;
         return internalGetMutableMapStringNestedMessage().getMutableMap();
       }
       /**
@@ -24505,29 +23813,27 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           java.lang.String key,
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapStringNestedMessage().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00400000;
         return this;
       }
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedMessage&gt; map_string_nested_message = 71;</code>
        */
-
       public Builder putAllMapStringNestedMessage(
           java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedMessage> values) {
         internalGetMutableMapStringNestedMessage().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00400000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2> mapStringForeignMessage_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2>
-      internalGetMapStringForeignMessage() {
+          internalGetMapStringForeignMessage() {
         if (mapStringForeignMessage_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapStringForeignMessageDefaultEntryHolder.defaultEntry);
@@ -24535,8 +23841,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapStringForeignMessage_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2>
-      internalGetMutableMapStringForeignMessage() {
-        onChanged();;
+          internalGetMutableMapStringForeignMessage() {
         if (mapStringForeignMessage_ == null) {
           mapStringForeignMessage_ = com.google.protobuf.MapField.newMapField(
               MapStringForeignMessageDefaultEntryHolder.defaultEntry);
@@ -24544,16 +23849,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapStringForeignMessage_.isMutable()) {
           mapStringForeignMessage_ = mapStringForeignMessage_.copy();
         }
+        bitField2_ |= 0x00800000;
+        onChanged();
         return mapStringForeignMessage_;
       }
-
       public int getMapStringForeignMessageCount() {
         return internalGetMapStringForeignMessage().getMap().size();
       }
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
        */
-
       @java.lang.Override
       public boolean containsMapStringForeignMessage(
           java.lang.String key) {
@@ -24572,7 +23877,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2> getMapStringForeignMessageMap() {
         return internalGetMapStringForeignMessage().getMap();
       }
@@ -24580,10 +23884,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 getMapStringForeignMessageOrDefault(
+      public /* nullable */
+com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 getMapStringForeignMessageOrDefault(
           java.lang.String key,
-          com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 defaultValue) {
+          /* nullable */
+com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2> map =
             internalGetMapStringForeignMessage().getMap();
@@ -24593,7 +23898,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 getMapStringForeignMessageOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24604,8 +23908,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return map.get(key);
       }
-
       public Builder clearMapStringForeignMessage() {
+        bitField2_ = (bitField2_ & ~0x00800000);
         internalGetMutableMapStringForeignMessage().getMutableMap()
             .clear();
         return this;
@@ -24613,7 +23917,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
        */
-
       public Builder removeMapStringForeignMessage(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24626,7 +23929,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2>
-      getMutableMapStringForeignMessage() {
+          getMutableMapStringForeignMessage() {
+        bitField2_ |= 0x00800000;
         return internalGetMutableMapStringForeignMessage().getMutableMap();
       }
       /**
@@ -24636,29 +23940,27 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           java.lang.String key,
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapStringForeignMessage().getMutableMap()
             .put(key, value);
+        bitField2_ |= 0x00800000;
         return this;
       }
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignMessageProto2&gt; map_string_foreign_message = 72;</code>
        */
-
       public Builder putAllMapStringForeignMessage(
           java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2> values) {
         internalGetMutableMapStringForeignMessage().getMutableMap()
             .putAll(values);
+        bitField2_ |= 0x00800000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.Integer> mapStringNestedEnum_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetMapStringNestedEnum() {
+          internalGetMapStringNestedEnum() {
         if (mapStringNestedEnum_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapStringNestedEnumDefaultEntryHolder.defaultEntry);
@@ -24666,8 +23968,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         return mapStringNestedEnum_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetMutableMapStringNestedEnum() {
-        onChanged();;
+          internalGetMutableMapStringNestedEnum() {
         if (mapStringNestedEnum_ == null) {
           mapStringNestedEnum_ = com.google.protobuf.MapField.newMapField(
               MapStringNestedEnumDefaultEntryHolder.defaultEntry);
@@ -24675,16 +23976,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!mapStringNestedEnum_.isMutable()) {
           mapStringNestedEnum_ = mapStringNestedEnum_.copy();
         }
+        bitField2_ |= 0x01000000;
+        onChanged();
         return mapStringNestedEnum_;
       }
-
       public int getMapStringNestedEnumCount() {
         return internalGetMapStringNestedEnum().getMap().size();
       }
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
-
       @java.lang.Override
       public boolean containsMapStringNestedEnum(
           java.lang.String key) {
@@ -24704,7 +24005,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum>
       getMapStringNestedEnumMap() {
         return internalGetAdaptedMapStringNestedEnumMap(
@@ -24713,7 +24013,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
       @java.lang.Override
-
       public /* nullable */
 com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum getMapStringNestedEnumOrDefault(
           java.lang.String key,
@@ -24730,7 +24029,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum getMapStringNestedEnumOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24741,8 +24039,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
         }
         return mapStringNestedEnumValueConverter.doForward(map.get(key));
       }
-
       public Builder clearMapStringNestedEnum() {
+        bitField2_ = (bitField2_ & ~0x01000000);
         internalGetMutableMapStringNestedEnum().getMutableMap()
             .clear();
         return this;
@@ -24750,7 +24048,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.TestAllTypesProto2.NestedEnum&gt; map_string_nested_enum = 73;</code>
        */
-
       public Builder removeMapStringNestedEnum(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24763,7 +24060,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum>
-      getMutableMapStringNestedEnum() {
+          getMutableMapStringNestedEnum() {
+        bitField2_ |= 0x01000000;
         return internalGetAdaptedMapStringNestedEnumMap(
              internalGetMutableMapStringNestedEnum().getMutableMap());
       }
@@ -24777,6 +24075,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
         
         internalGetMutableMapStringNestedEnum().getMutableMap()
             .put(key, mapStringNestedEnumValueConverter.doBackward(value));
+        bitField2_ |= 0x01000000;
         return this;
       }
       /**
@@ -24787,13 +24086,14 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
         internalGetAdaptedMapStringNestedEnumMap(
             internalGetMutableMapStringNestedEnum().getMutableMap())
                 .putAll(values);
+        bitField2_ |= 0x01000000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.Integer> mapStringForeignEnum_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetMapStringForeignEnum() {
+          internalGetMapStringForeignEnum() {
         if (mapStringForeignEnum_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapStringForeignEnumDefaultEntryHolder.defaultEntry);
@@ -24801,8 +24101,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
         return mapStringForeignEnum_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-      internalGetMutableMapStringForeignEnum() {
-        onChanged();;
+          internalGetMutableMapStringForeignEnum() {
         if (mapStringForeignEnum_ == null) {
           mapStringForeignEnum_ = com.google.protobuf.MapField.newMapField(
               MapStringForeignEnumDefaultEntryHolder.defaultEntry);
@@ -24810,16 +24109,16 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
         if (!mapStringForeignEnum_.isMutable()) {
           mapStringForeignEnum_ = mapStringForeignEnum_.copy();
         }
+        bitField2_ |= 0x02000000;
+        onChanged();
         return mapStringForeignEnum_;
       }
-
       public int getMapStringForeignEnumCount() {
         return internalGetMapStringForeignEnum().getMap().size();
       }
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignEnumProto2&gt; map_string_foreign_enum = 74;</code>
        */
-
       @java.lang.Override
       public boolean containsMapStringForeignEnum(
           java.lang.String key) {
@@ -24839,7 +24138,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignEnumProto2&gt; map_string_foreign_enum = 74;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2>
       getMapStringForeignEnumMap() {
         return internalGetAdaptedMapStringForeignEnumMap(
@@ -24848,7 +24146,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.N
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignEnumProto2&gt; map_string_foreign_enum = 74;</code>
        */
       @java.lang.Override
-
       public /* nullable */
 com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 getMapStringForeignEnumOrDefault(
           java.lang.String key,
@@ -24865,7 +24162,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignEnumProto2&gt; map_string_foreign_enum = 74;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 getMapStringForeignEnumOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24876,8 +24172,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         }
         return mapStringForeignEnumValueConverter.doForward(map.get(key));
       }
-
       public Builder clearMapStringForeignEnum() {
+        bitField2_ = (bitField2_ & ~0x02000000);
         internalGetMutableMapStringForeignEnum().getMutableMap()
             .clear();
         return this;
@@ -24885,7 +24181,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       /**
        * <code>map&lt;string, .protobuf_test_messages.proto2.ForeignEnumProto2&gt; map_string_foreign_enum = 74;</code>
        */
-
       public Builder removeMapStringForeignEnum(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -24898,7 +24193,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2>
-      getMutableMapStringForeignEnum() {
+          getMutableMapStringForeignEnum() {
+        bitField2_ |= 0x02000000;
         return internalGetAdaptedMapStringForeignEnumMap(
              internalGetMutableMapStringForeignEnum().getMutableMap());
       }
@@ -24912,6 +24208,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         
         internalGetMutableMapStringForeignEnum().getMutableMap()
             .put(key, mapStringForeignEnumValueConverter.doBackward(value));
+        bitField2_ |= 0x02000000;
         return this;
       }
       /**
@@ -24922,6 +24219,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         internalGetAdaptedMapStringForeignEnumMap(
             internalGetMutableMapStringForeignEnum().getMutableMap())
                 .putAll(values);
+        bitField2_ |= 0x02000000;
         return this;
       }
 
@@ -24948,6 +24246,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOneofUint32(int value) {
+        
         oneofFieldCase_ = 111;
         oneofField_ = value;
         onChanged();
@@ -25104,7 +24403,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           oneofField_ = null;
         }
         oneofFieldCase_ = 112;
-        onChanged();;
+        onChanged();
         return oneofNestedMessageBuilder_;
       }
 
@@ -25170,10 +24469,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOneofString(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  oneofFieldCase_ = 113;
+        if (value == null) { throw new NullPointerException(); }
+        oneofFieldCase_ = 113;
         oneofField_ = value;
         onChanged();
         return this;
@@ -25197,10 +24494,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOneofStringBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  oneofFieldCase_ = 113;
+        if (value == null) { throw new NullPointerException(); }
+        oneofFieldCase_ = 113;
         oneofField_ = value;
         onChanged();
         return this;
@@ -25229,10 +24524,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOneofBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  oneofFieldCase_ = 114;
+        if (value == null) { throw new NullPointerException(); }
+        oneofFieldCase_ = 114;
         oneofField_ = value;
         onChanged();
         return this;
@@ -25273,6 +24566,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOneofBool(boolean value) {
+        
         oneofFieldCase_ = 115;
         oneofField_ = value;
         onChanged();
@@ -25314,6 +24608,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOneofUint64(long value) {
+        
         oneofFieldCase_ = 116;
         oneofField_ = value;
         onChanged();
@@ -25355,6 +24650,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOneofFloat(float value) {
+        
         oneofFieldCase_ = 117;
         oneofField_ = value;
         onChanged();
@@ -25396,6 +24692,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOneofDouble(double value) {
+        
         oneofFieldCase_ = 118;
         oneofField_ = value;
         onChanged();
@@ -25429,8 +24726,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       @java.lang.Override
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum getOneofEnum() {
         if (oneofFieldCase_ == 119) {
-          @SuppressWarnings("deprecation")
-          com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.valueOf(
+          com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum result = com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.forNumber(
               (java.lang.Integer) oneofField_);
           return result == null ? com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.NestedEnum.FOO : result;
         }
@@ -25493,11 +24789,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
             throw new NullPointerException();
           }
           data_ = value;
-          onChanged();
         } else {
           dataBuilder_.setMessage(value);
         }
         bitField3_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -25507,11 +24803,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data.Builder builderForValue) {
         if (dataBuilder_ == null) {
           data_ = builderForValue.build();
-          onChanged();
         } else {
           dataBuilder_.setMessage(builderForValue.build());
         }
         bitField3_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -25520,31 +24816,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       public Builder mergeData(com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data value) {
         if (dataBuilder_ == null) {
           if (((bitField3_ & 0x00000008) != 0) &&
-              data_ != null &&
-              data_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data.getDefaultInstance()) {
-            data_ =
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data.newBuilder(data_).mergeFrom(value).buildPartial();
+            data_ != null &&
+            data_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.TestAllTypesProto2.Data.getDefaultInstance()) {
+            getDataBuilder().mergeFrom(value);
           } else {
             data_ = value;
           }
-          onChanged();
         } else {
           dataBuilder_.mergeFrom(value);
         }
         bitField3_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
        * <code>optional group Data = 201 { ... }</code>
        */
       public Builder clearData() {
-        if (dataBuilder_ == null) {
-          data_ = null;
-          onChanged();
-        } else {
-          dataBuilder_.clear();
-        }
         bitField3_ = (bitField3_ & ~0x00000008);
+        data_ = null;
+        if (dataBuilder_ != null) {
+          dataBuilder_.dispose();
+          dataBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -25618,8 +24913,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultInt32(int value) {
-        bitField3_ |= 0x00000010;
+        
         defaultInt32_ = value;
+        bitField3_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -25661,8 +24957,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultInt64(long value) {
-        bitField3_ |= 0x00000020;
+        
         defaultInt64_ = value;
+        bitField3_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -25700,8 +24997,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultUint32(int value) {
-        bitField3_ |= 0x00000040;
+        
         defaultUint32_ = value;
+        bitField3_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -25739,8 +25037,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultUint64(long value) {
-        bitField3_ |= 0x00000080;
+        
         defaultUint64_ = value;
+        bitField3_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -25778,8 +25077,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultSint32(int value) {
-        bitField3_ |= 0x00000100;
+        
         defaultSint32_ = value;
+        bitField3_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -25817,8 +25117,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultSint64(long value) {
-        bitField3_ |= 0x00000200;
+        
         defaultSint64_ = value;
+        bitField3_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -25856,8 +25157,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultFixed32(int value) {
-        bitField3_ |= 0x00000400;
+        
         defaultFixed32_ = value;
+        bitField3_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -25895,8 +25197,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultFixed64(long value) {
-        bitField3_ |= 0x00000800;
+        
         defaultFixed64_ = value;
+        bitField3_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -25934,8 +25237,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultSfixed32(int value) {
-        bitField3_ |= 0x00001000;
+        
         defaultSfixed32_ = value;
+        bitField3_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -25973,8 +25277,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultSfixed64(long value) {
-        bitField3_ |= 0x00002000;
+        
         defaultSfixed64_ = value;
+        bitField3_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -26012,8 +25317,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultFloat(float value) {
-        bitField3_ |= 0x00004000;
+        
         defaultFloat_ = value;
+        bitField3_ |= 0x00004000;
         onChanged();
         return this;
       }
@@ -26051,8 +25357,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultDouble(double value) {
-        bitField3_ |= 0x00008000;
+        
         defaultDouble_ = value;
+        bitField3_ |= 0x00008000;
         onChanged();
         return this;
       }
@@ -26090,8 +25397,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultBool(boolean value) {
-        bitField3_ |= 0x00010000;
+        
         defaultBool_ = value;
+        bitField3_ |= 0x00010000;
         onChanged();
         return this;
       }
@@ -26156,11 +25464,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setDefaultString(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField3_ |= 0x00020000;
+        if (value == null) { throw new NullPointerException(); }
         defaultString_ = value;
+        bitField3_ |= 0x00020000;
         onChanged();
         return this;
       }
@@ -26169,8 +25475,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder clearDefaultString() {
-        bitField3_ = (bitField3_ & ~0x00020000);
         defaultString_ = getDefaultInstance().getDefaultString();
+        bitField3_ = (bitField3_ & ~0x00020000);
         onChanged();
         return this;
       }
@@ -26181,11 +25487,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setDefaultStringBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField3_ |= 0x00020000;
+        if (value == null) { throw new NullPointerException(); }
         defaultString_ = value;
+        bitField3_ |= 0x00020000;
         onChanged();
         return this;
       }
@@ -26213,11 +25517,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setDefaultBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField3_ |= 0x00040000;
+        if (value == null) { throw new NullPointerException(); }
         defaultBytes_ = value;
+        bitField3_ |= 0x00040000;
         onChanged();
         return this;
       }
@@ -26270,8 +25572,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldname1(int value) {
-        bitField3_ |= 0x00080000;
+        
         fieldname1_ = value;
+        bitField3_ |= 0x00080000;
         onChanged();
         return this;
       }
@@ -26314,8 +25617,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName2(int value) {
-        bitField3_ |= 0x00100000;
+        
         fieldName2_ = value;
+        bitField3_ |= 0x00100000;
         onChanged();
         return this;
       }
@@ -26353,8 +25657,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName3(int value) {
-        bitField3_ |= 0x00200000;
+        
         FieldName3_ = value;
+        bitField3_ |= 0x00200000;
         onChanged();
         return this;
       }
@@ -26392,8 +25697,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName4(int value) {
-        bitField3_ |= 0x00400000;
+        
         fieldName4_ = value;
+        bitField3_ |= 0x00400000;
         onChanged();
         return this;
       }
@@ -26431,8 +25737,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setField0Name5(int value) {
-        bitField3_ |= 0x00800000;
+        
         field0Name5_ = value;
+        bitField3_ |= 0x00800000;
         onChanged();
         return this;
       }
@@ -26470,8 +25777,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setField0Name6(int value) {
-        bitField3_ |= 0x01000000;
+        
         field0Name6_ = value;
+        bitField3_ |= 0x01000000;
         onChanged();
         return this;
       }
@@ -26509,8 +25817,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName7(int value) {
-        bitField3_ |= 0x02000000;
+        
         fieldName7_ = value;
+        bitField3_ |= 0x02000000;
         onChanged();
         return this;
       }
@@ -26548,8 +25857,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName8(int value) {
-        bitField3_ |= 0x04000000;
+        
         fieldName8_ = value;
+        bitField3_ |= 0x04000000;
         onChanged();
         return this;
       }
@@ -26587,8 +25897,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName9(int value) {
-        bitField3_ |= 0x08000000;
+        
         fieldName9_ = value;
+        bitField3_ |= 0x08000000;
         onChanged();
         return this;
       }
@@ -26626,8 +25937,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName10(int value) {
-        bitField3_ |= 0x10000000;
+        
         fieldName10_ = value;
+        bitField3_ |= 0x10000000;
         onChanged();
         return this;
       }
@@ -26665,8 +25977,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFIELDNAME11(int value) {
-        bitField3_ |= 0x20000000;
+        
         fIELDNAME11_ = value;
+        bitField3_ |= 0x20000000;
         onChanged();
         return this;
       }
@@ -26704,8 +26017,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFIELDName12(int value) {
-        bitField3_ |= 0x40000000;
+        
         fIELDName12_ = value;
+        bitField3_ |= 0x40000000;
         onChanged();
         return this;
       }
@@ -26743,8 +26057,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName13(int value) {
-        bitField3_ |= 0x80000000;
+        
         FieldName13_ = value;
+        bitField3_ |= 0x80000000;
         onChanged();
         return this;
       }
@@ -26782,8 +26097,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName14(int value) {
-        bitField4_ |= 0x00000001;
+        
         FieldName14_ = value;
+        bitField4_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -26821,8 +26137,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName15(int value) {
-        bitField4_ |= 0x00000002;
+        
         fieldName15_ = value;
+        bitField4_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -26860,8 +26177,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName16(int value) {
-        bitField4_ |= 0x00000004;
+        
         fieldName16_ = value;
+        bitField4_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -26899,8 +26217,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName17(int value) {
-        bitField4_ |= 0x00000008;
+        
         fieldName17_ = value;
+        bitField4_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -26938,8 +26257,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setFieldName18(int value) {
-        bitField4_ |= 0x00000010;
+        
         fieldName18_ = value;
+        bitField4_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -26986,7 +26306,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestAllTypesProto2(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -27048,51 +26379,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ForeignMessageProto2(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              c_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_ForeignMessageProto2_descriptor;
@@ -27108,7 +26394,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
     private int bitField0_;
     public static final int C_FIELD_NUMBER = 1;
-    private int c_;
+    private int c_ = 0;
     /**
      * <code>optional int32 c = 1;</code>
      * @return Whether the c field is set.
@@ -27143,7 +26429,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeInt32(1, c_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -27156,7 +26442,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, c_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -27176,7 +26462,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (getC()
             != other.getC()) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -27191,7 +26477,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         hash = (37 * hash) + C_FIELD_NUMBER;
         hash = (53 * hash) + getC();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -27308,24 +26594,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
       // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         c_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -27352,15 +26633,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       @java.lang.Override
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 buildPartial() {
         com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.c_ = c_;
           to_bitField0_ |= 0x00000001;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -27410,7 +26695,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (other.hasC()) {
           setC(other.getC());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -27425,17 +26710,35 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                c_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -27463,8 +26766,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setC(int value) {
-        bitField0_ |= 0x00000001;
+        
         c_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -27511,7 +26815,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ForeignMessageProto2(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -27650,113 +26965,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UnknownToTestAllTypes(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8008: {
-              bitField0_ |= 0x00000001;
-              optionalInt32_ = input.readInt32();
-              break;
-            }
-            case 8018: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              optionalString_ = bs;
-              break;
-            }
-            case 8026: {
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) != 0)) {
-                subBuilder = nestedMessage_.toBuilder();
-              }
-              nestedMessage_ = input.readMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(nestedMessage_);
-                nestedMessage_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 8035: {
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) != 0)) {
-                subBuilder = optionalGroup_.toBuilder();
-              }
-              optionalGroup_ = input.readGroup(1004, com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup.PARSER,
-                  extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(optionalGroup_);
-                optionalGroup_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000008;
-              break;
-            }
-            case 8048: {
-              bitField0_ |= 0x00000010;
-              optionalBool_ = input.readBool();
-              break;
-            }
-            case 8088: {
-              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                repeatedInt32_ = newIntList();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              repeatedInt32_.addInt(input.readInt32());
-              break;
-            }
-            case 8090: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000020) != 0) && input.getBytesUntilLimit() > 0) {
-                repeatedInt32_ = newIntList();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                repeatedInt32_.addInt(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000020) != 0)) {
-          repeatedInt32_.makeImmutable(); // C
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_UnknownToTestAllTypes_descriptor;
@@ -27812,51 +27020,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       getUnknownFields() {
         return this.unknownFields;
       }
-      private OptionalGroup(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                bitField0_ |= 0x00000001;
-                a_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_UnknownToTestAllTypes_OptionalGroup_descriptor;
@@ -27872,7 +27035,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
       private int bitField0_;
       public static final int A_FIELD_NUMBER = 1;
-      private int a_;
+      private int a_ = 0;
       /**
        * <code>optional int32 a = 1;</code>
        * @return Whether the a field is set.
@@ -27907,7 +27070,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (((bitField0_ & 0x00000001) != 0)) {
           output.writeInt32(1, a_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -27920,7 +27083,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(1, a_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -27940,7 +27103,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           if (getA()
               != other.getA()) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -27955,7 +27118,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           hash = (37 * hash) + A_FIELD_NUMBER;
           hash = (53 * hash) + getA();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -28072,24 +27235,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
         // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           a_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
 
@@ -28116,15 +27274,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         @java.lang.Override
         public com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup buildPartial() {
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup result) {
           int from_bitField0_ = bitField0_;
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.a_ = a_;
             to_bitField0_ |= 0x00000001;
           }
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
+          result.bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -28174,7 +27336,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           if (other.hasA()) {
             setA(other.getA());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -28189,17 +27351,35 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  a_ = input.readInt32();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -28227,8 +27407,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
          * @return This builder for chaining.
          */
         public Builder setA(int value) {
-          bitField0_ |= 0x00000001;
+          
           a_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -28275,7 +27456,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new OptionalGroup(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -28297,7 +27489,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
     private int bitField0_;
     public static final int OPTIONAL_INT32_FIELD_NUMBER = 1001;
-    private int optionalInt32_;
+    private int optionalInt32_ = 0;
     /**
      * <code>optional int32 optional_int32 = 1001;</code>
      * @return Whether the optionalInt32 field is set.
@@ -28316,7 +27508,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int OPTIONAL_STRING_FIELD_NUMBER = 1002;
-    private volatile java.lang.Object optionalString_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object optionalString_ = "";
     /**
      * <code>optional string optional_string = 1002;</code>
      * @return Whether the optionalString field is set.
@@ -28416,7 +27609,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int OPTIONAL_BOOL_FIELD_NUMBER = 1006;
-    private boolean optionalBool_;
+    private boolean optionalBool_ = false;
     /**
      * <code>optional bool optional_bool = 1006;</code>
      * @return Whether the optionalBool field is set.
@@ -28435,6 +27628,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int REPEATED_INT32_FIELD_NUMBER = 1011;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList repeatedInt32_;
     /**
      * <code>repeated int32 repeated_int32 = 1011;</code>
@@ -28493,7 +27687,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       for (int i = 0; i < repeatedInt32_.size(); i++) {
         output.writeInt32(1011, repeatedInt32_.getInt(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -28530,7 +27724,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         size += dataSize;
         size += 2 * getRepeatedInt32List().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -28572,7 +27766,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       }
       if (!getRepeatedInt32List()
           .equals(other.getRepeatedInt32List())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -28608,7 +27802,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         hash = (37 * hash) + REPEATED_INT32_FIELD_NUMBER;
         hash = (53 * hash) + getRepeatedInt32List().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -28743,26 +27937,21 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         optionalInt32_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         optionalString_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (nestedMessageBuilder_ == null) {
-          nestedMessage_ = null;
-        } else {
-          nestedMessageBuilder_.clear();
+        nestedMessage_ = null;
+        if (nestedMessageBuilder_ != null) {
+          nestedMessageBuilder_.dispose();
+          nestedMessageBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        if (optionalGroupBuilder_ == null) {
-          optionalGroup_ = null;
-        } else {
-          optionalGroupBuilder_.clear();
+        optionalGroup_ = null;
+        if (optionalGroupBuilder_ != null) {
+          optionalGroupBuilder_.dispose();
+          optionalGroupBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
         optionalBool_ = false;
-        bitField0_ = (bitField0_ & ~0x00000010);
         repeatedInt32_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -28789,6 +27978,21 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       @java.lang.Override
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes buildPartial() {
         com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes result) {
+        if (((bitField0_ & 0x00000020) != 0)) {
+          repeatedInt32_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.repeatedInt32_ = repeatedInt32_;
+      }
+
+      private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -28796,37 +28000,26 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.optionalString_ = optionalString_;
           to_bitField0_ |= 0x00000002;
         }
-        result.optionalString_ = optionalString_;
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          if (nestedMessageBuilder_ == null) {
-            result.nestedMessage_ = nestedMessage_;
-          } else {
-            result.nestedMessage_ = nestedMessageBuilder_.build();
-          }
+          result.nestedMessage_ = nestedMessageBuilder_ == null
+              ? nestedMessage_
+              : nestedMessageBuilder_.build();
           to_bitField0_ |= 0x00000004;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
-          if (optionalGroupBuilder_ == null) {
-            result.optionalGroup_ = optionalGroup_;
-          } else {
-            result.optionalGroup_ = optionalGroupBuilder_.build();
-          }
+          result.optionalGroup_ = optionalGroupBuilder_ == null
+              ? optionalGroup_
+              : optionalGroupBuilder_.build();
           to_bitField0_ |= 0x00000008;
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.optionalBool_ = optionalBool_;
           to_bitField0_ |= 0x00000010;
         }
-        if (((bitField0_ & 0x00000020) != 0)) {
-          repeatedInt32_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000020);
-        }
-        result.repeatedInt32_ = repeatedInt32_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -28877,8 +28070,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           setOptionalInt32(other.getOptionalInt32());
         }
         if (other.hasOptionalString()) {
-          bitField0_ |= 0x00000002;
           optionalString_ = other.optionalString_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasNestedMessage()) {
@@ -28900,7 +28093,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -28915,17 +28108,75 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8008: {
+                optionalInt32_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8008
+              case 8018: {
+                optionalString_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 8018
+              case 8026: {
+                input.readMessage(
+                    getNestedMessageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 8026
+              case 8035: {
+                input.readGroup(1004,
+                    getOptionalGroupFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 8035
+              case 8048: {
+                optionalBool_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 8048
+              case 8088: {
+                int v = input.readInt32();
+                ensureRepeatedInt32IsMutable();
+                repeatedInt32_.addInt(v);
+                break;
+              } // case 8088
+              case 8090: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureRepeatedInt32IsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  repeatedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 8090
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -28953,8 +28204,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalInt32(int value) {
-        bitField0_ |= 0x00000001;
+        
         optionalInt32_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -29019,11 +28271,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOptionalString(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         optionalString_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -29032,8 +28282,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder clearOptionalString() {
-        bitField0_ = (bitField0_ & ~0x00000002);
         optionalString_ = getDefaultInstance().getOptionalString();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -29044,11 +28294,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setOptionalStringBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         optionalString_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -29083,11 +28331,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
             throw new NullPointerException();
           }
           nestedMessage_ = value;
-          onChanged();
         } else {
           nestedMessageBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -29097,11 +28345,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.Builder builderForValue) {
         if (nestedMessageBuilder_ == null) {
           nestedMessage_ = builderForValue.build();
-          onChanged();
         } else {
           nestedMessageBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -29110,31 +28358,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       public Builder mergeNestedMessage(com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2 value) {
         if (nestedMessageBuilder_ == null) {
           if (((bitField0_ & 0x00000004) != 0) &&
-              nestedMessage_ != null &&
-              nestedMessage_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.getDefaultInstance()) {
-            nestedMessage_ =
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.newBuilder(nestedMessage_).mergeFrom(value).buildPartial();
+            nestedMessage_ != null &&
+            nestedMessage_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignMessageProto2.getDefaultInstance()) {
+            getNestedMessageBuilder().mergeFrom(value);
           } else {
             nestedMessage_ = value;
           }
-          onChanged();
         } else {
           nestedMessageBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .protobuf_test_messages.proto2.ForeignMessageProto2 nested_message = 1003;</code>
        */
       public Builder clearNestedMessage() {
-        if (nestedMessageBuilder_ == null) {
-          nestedMessage_ = null;
-          onChanged();
-        } else {
-          nestedMessageBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000004);
+        nestedMessage_ = null;
+        if (nestedMessageBuilder_ != null) {
+          nestedMessageBuilder_.dispose();
+          nestedMessageBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -29203,11 +28450,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
             throw new NullPointerException();
           }
           optionalGroup_ = value;
-          onChanged();
         } else {
           optionalGroupBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -29217,11 +28464,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup.Builder builderForValue) {
         if (optionalGroupBuilder_ == null) {
           optionalGroup_ = builderForValue.build();
-          onChanged();
         } else {
           optionalGroupBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -29230,31 +28477,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       public Builder mergeOptionalGroup(com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup value) {
         if (optionalGroupBuilder_ == null) {
           if (((bitField0_ & 0x00000008) != 0) &&
-              optionalGroup_ != null &&
-              optionalGroup_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup.getDefaultInstance()) {
-            optionalGroup_ =
-              com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup.newBuilder(optionalGroup_).mergeFrom(value).buildPartial();
+            optionalGroup_ != null &&
+            optionalGroup_ != com.google.protobuf_test_messages.proto2.TestMessagesProto2.UnknownToTestAllTypes.OptionalGroup.getDefaultInstance()) {
+            getOptionalGroupBuilder().mergeFrom(value);
           } else {
             optionalGroup_ = value;
           }
-          onChanged();
         } else {
           optionalGroupBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
        * <code>optional group OptionalGroup = 1004 { ... }</code>
        */
       public Builder clearOptionalGroup() {
-        if (optionalGroupBuilder_ == null) {
-          optionalGroup_ = null;
-          onChanged();
-        } else {
-          optionalGroupBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000008);
+        optionalGroup_ = null;
+        if (optionalGroupBuilder_ != null) {
+          optionalGroupBuilder_.dispose();
+          optionalGroupBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -29316,8 +28562,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setOptionalBool(boolean value) {
-        bitField0_ |= 0x00000010;
+        
         optionalBool_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -29337,7 +28584,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!((bitField0_ & 0x00000020) != 0)) {
           repeatedInt32_ = mutableCopy(repeatedInt32_);
           bitField0_ |= 0x00000020;
-         }
+        }
       }
       /**
        * <code>repeated int32 repeated_int32 = 1011;</code>
@@ -29371,6 +28618,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRepeatedInt32(
           int index, int value) {
+        
         ensureRepeatedInt32IsMutable();
         repeatedInt32_.setInt(index, value);
         onChanged();
@@ -29382,6 +28630,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder addRepeatedInt32(int value) {
+        
         ensureRepeatedInt32IsMutable();
         repeatedInt32_.addInt(value);
         onChanged();
@@ -29443,7 +28692,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UnknownToTestAllTypes(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -29494,45 +28754,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     getUnknownFields() {
       return this.unknownFields;
     }
-    private NullHypothesisProto2(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_NullHypothesisProto2_descriptor;
@@ -29560,7 +28781,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -29569,7 +28790,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -29584,7 +28805,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       }
       com.google.protobuf_test_messages.proto2.TestMessagesProto2.NullHypothesisProto2 other = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.NullHypothesisProto2) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -29595,7 +28816,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -29712,18 +28933,13 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
       // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.NullHypothesisProto2.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -29802,7 +29018,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
       public Builder mergeFrom(com.google.protobuf_test_messages.proto2.TestMessagesProto2.NullHypothesisProto2 other) {
         if (other == com.google.protobuf_test_messages.proto2.TestMessagesProto2.NullHypothesisProto2.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -29817,17 +29033,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.NullHypothesisProto2 parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.NullHypothesisProto2) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -29863,7 +29092,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NullHypothesisProto2(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -29913,45 +29153,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private EnumOnlyProto2(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -30076,7 +29277,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -30085,7 +29286,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -30100,7 +29301,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       }
       com.google.protobuf_test_messages.proto2.TestMessagesProto2.EnumOnlyProto2 other = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.EnumOnlyProto2) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -30111,7 +29312,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -30228,18 +29429,13 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
       // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.EnumOnlyProto2.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -30318,7 +29514,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
       public Builder mergeFrom(com.google.protobuf_test_messages.proto2.TestMessagesProto2.EnumOnlyProto2 other) {
         if (other == com.google.protobuf_test_messages.proto2.TestMessagesProto2.EnumOnlyProto2.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -30333,17 +29529,30 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.EnumOnlyProto2 parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.EnumOnlyProto2) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -30379,7 +29588,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EnumOnlyProto2(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -30448,52 +29668,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     getUnknownFields() {
       return this.unknownFields;
     }
-    private OneStringProto2(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              data_ = bs;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_OneStringProto2_descriptor;
@@ -30509,7 +29683,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
     private int bitField0_;
     public static final int DATA_FIELD_NUMBER = 1;
-    private volatile java.lang.Object data_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object data_ = "";
     /**
      * <code>optional string data = 1;</code>
      * @return Whether the data field is set.
@@ -30573,7 +29748,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       if (((bitField0_ & 0x00000001) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, data_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -30585,7 +29760,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, data_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -30605,7 +29780,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         if (!getData()
             .equals(other.getData())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -30620,7 +29795,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         hash = (37 * hash) + DATA_FIELD_NUMBER;
         hash = (53 * hash) + getData().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -30737,24 +29912,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
       // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.OneStringProto2.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         data_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -30781,15 +29951,19 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       @java.lang.Override
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.OneStringProto2 buildPartial() {
         com.google.protobuf_test_messages.proto2.TestMessagesProto2.OneStringProto2 result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.OneStringProto2(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.OneStringProto2 result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.data_ = data_;
           to_bitField0_ |= 0x00000001;
         }
-        result.data_ = data_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -30837,11 +30011,11 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       public Builder mergeFrom(com.google.protobuf_test_messages.proto2.TestMessagesProto2.OneStringProto2 other) {
         if (other == com.google.protobuf_test_messages.proto2.TestMessagesProto2.OneStringProto2.getDefaultInstance()) return this;
         if (other.hasData()) {
-          bitField0_ |= 0x00000001;
           data_ = other.data_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -30856,17 +30030,35 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.OneStringProto2 parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                data_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.OneStringProto2) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -30921,11 +30113,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setData(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         data_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -30934,8 +30124,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         data_ = getDefaultInstance().getData();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -30946,11 +30136,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setDataBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         data_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -30987,7 +30175,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OneStringProto2(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -31093,69 +30292,6 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ProtoWithKeywords(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              inline_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              concept_ = bs;
-              break;
-            }
-            case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                requires_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              requires_.add(bs);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          requires_ = requires_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protobuf_test_messages.proto2.TestMessagesProto2.internal_static_protobuf_test_messages_proto2_ProtoWithKeywords_descriptor;
@@ -31171,7 +30307,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
     private int bitField0_;
     public static final int INLINE_FIELD_NUMBER = 1;
-    private int inline_;
+    private int inline_ = 0;
     /**
      * <code>optional int32 inline = 1;</code>
      * @return Whether the inline field is set.
@@ -31190,7 +30326,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int CONCEPT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object concept_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object concept_ = "";
     /**
      * <code>optional string concept = 2;</code>
      * @return Whether the concept field is set.
@@ -31238,6 +30375,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
     }
 
     public static final int REQUIRES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList requires_;
     /**
      * <code>repeated string requires = 3;</code>
@@ -31295,7 +30433,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       for (int i = 0; i < requires_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, requires_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -31319,7 +30457,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         size += dataSize;
         size += 1 * getRequiresList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -31346,7 +30484,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       }
       if (!getRequiresList()
           .equals(other.getRequiresList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -31369,7 +30507,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
         hash = (37 * hash) + REQUIRES_FIELD_NUMBER;
         hash = (53 * hash) + getRequiresList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -31486,26 +30624,20 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
 
       // Construct using com.google.protobuf_test_messages.proto2.TestMessagesProto2.ProtoWithKeywords.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         inline_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         concept_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         requires_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
@@ -31534,6 +30666,21 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       @java.lang.Override
       public com.google.protobuf_test_messages.proto2.TestMessagesProto2.ProtoWithKeywords buildPartial() {
         com.google.protobuf_test_messages.proto2.TestMessagesProto2.ProtoWithKeywords result = new com.google.protobuf_test_messages.proto2.TestMessagesProto2.ProtoWithKeywords(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.protobuf_test_messages.proto2.TestMessagesProto2.ProtoWithKeywords result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          requires_ = requires_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.requires_ = requires_;
+      }
+
+      private void buildPartial0(com.google.protobuf_test_messages.proto2.TestMessagesProto2.ProtoWithKeywords result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -31541,17 +30688,10 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.concept_ = concept_;
           to_bitField0_ |= 0x00000002;
         }
-        result.concept_ = concept_;
-        if (((bitField0_ & 0x00000004) != 0)) {
-          requires_ = requires_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.requires_ = requires_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -31602,8 +30742,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           setInline(other.getInline());
         }
         if (other.hasConcept()) {
-          bitField0_ |= 0x00000002;
           concept_ = other.concept_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.requires_.isEmpty()) {
@@ -31616,7 +30756,7 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -31631,17 +30771,46 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf_test_messages.proto2.TestMessagesProto2.ProtoWithKeywords parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                inline_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                concept_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureRequiresIsMutable();
+                requires_.add(bs);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protobuf_test_messages.proto2.TestMessagesProto2.ProtoWithKeywords) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -31669,8 +30838,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder setInline(int value) {
-        bitField0_ |= 0x00000001;
+        
         inline_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -31735,11 +30905,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setConcept(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         concept_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -31748,8 +30916,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        * @return This builder for chaining.
        */
       public Builder clearConcept() {
-        bitField0_ = (bitField0_ & ~0x00000002);
         concept_ = getDefaultInstance().getConcept();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -31760,11 +30928,9 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setConceptBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         concept_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -31816,10 +30982,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder setRequires(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiresIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRequiresIsMutable();
         requires_.set(index, value);
         onChanged();
         return this;
@@ -31831,10 +30995,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder addRequires(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiresIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRequiresIsMutable();
         requires_.add(value);
         onChanged();
         return this;
@@ -31869,10 +31031,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
        */
       public Builder addRequiresBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiresIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRequiresIsMutable();
         requires_.add(value);
         onChanged();
         return this;
@@ -31910,7 +31070,18 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProtoWithKeywords(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -32329,8 +31500,8 @@ com.google.protobuf_test_messages.proto2.TestMessagesProto2.ForeignEnumProto2 de
       "\022\017\n\013FOREIGN_FOO\020\000\022\017\n\013FOREIGN_BAR\020\001\022\017\n\013FO" +
       "REIGN_BAZ\020\002:J\n\017extension_int32\0221.protobu" +
       "f_test_messages.proto2.TestAllTypesProto" +
-      "2\030x \001(\005B/\n(com.google.protobuf_test_mess" +
-      "ages.proto2H\001\370\001\001"
+      "2\030x \001(\005B8\n(com.google.protobuf_test_mess" +
+      "ages.proto2H\001\370\001\001\242\002\006Proto2"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -54,7 +54,6 @@ public interface DeploymentOrBuilder extends
    *
    * <code>map&lt;string, .google.appengine.v1.FileInfo&gt; files = 1;</code>
    */
-
   /* nullable */
 com.google.appengine.v1.FileInfo getFilesOrDefault(
       java.lang.String key,
@@ -69,7 +68,6 @@ com.google.appengine.v1.FileInfo defaultValue);
    *
    * <code>map&lt;string, .google.appengine.v1.FileInfo&gt; files = 1;</code>
    */
-
   com.google.appengine.v1.FileInfo getFilesOrThrow(
       java.lang.String key);
 

@@ -9,7 +9,12 @@ public interface BatchProcessRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of
+   * [Processor][google.cloud.documentai.v1beta3.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1beta3.ProcessorVersion].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -18,7 +23,12 @@ public interface BatchProcessRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of
+   * [Processor][google.cloud.documentai.v1beta3.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1beta3.ProcessorVersion].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -78,7 +88,7 @@ public interface BatchProcessRequestOrBuilder extends
    *
    * <code>.google.cloud.documentai.v1beta3.BatchProcessRequest.BatchOutputConfig output_config = 3 [deprecated = true];</code>
    * @deprecated google.cloud.documentai.v1beta3.BatchProcessRequest.output_config is deprecated.
-   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=276
+   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=456
    * @return Whether the outputConfig field is set.
    */
   @java.lang.Deprecated boolean hasOutputConfig();
@@ -89,7 +99,7 @@ public interface BatchProcessRequestOrBuilder extends
    *
    * <code>.google.cloud.documentai.v1beta3.BatchProcessRequest.BatchOutputConfig output_config = 3 [deprecated = true];</code>
    * @deprecated google.cloud.documentai.v1beta3.BatchProcessRequest.output_config is deprecated.
-   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=276
+   *     See google/cloud/documentai/v1beta3/document_processor_service.proto;l=456
    * @return The outputConfig.
    */
   @java.lang.Deprecated com.google.cloud.documentai.v1beta3.BatchProcessRequest.BatchOutputConfig getOutputConfig();
@@ -166,4 +176,31 @@ public interface BatchProcessRequestOrBuilder extends
    * @return The skipHumanReview.
    */
   boolean getSkipHumanReview();
+
+  /**
+   * <pre>
+   * Inference-time options for the process API
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.ProcessOptions process_options = 7;</code>
+   * @return Whether the processOptions field is set.
+   */
+  boolean hasProcessOptions();
+  /**
+   * <pre>
+   * Inference-time options for the process API
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.ProcessOptions process_options = 7;</code>
+   * @return The processOptions.
+   */
+  com.google.cloud.documentai.v1beta3.ProcessOptions getProcessOptions();
+  /**
+   * <pre>
+   * Inference-time options for the process API
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1beta3.ProcessOptions process_options = 7;</code>
+   */
+  com.google.cloud.documentai.v1beta3.ProcessOptionsOrBuilder getProcessOptionsOrBuilder();
 }

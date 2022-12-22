@@ -9,9 +9,9 @@ public interface CreateEntitlementRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The resource name of the reseller's customer account in which to create the
-   * entitlement.
-   * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+   * Required. The resource name of the reseller's customer account in which to
+   * create the entitlement. Parent uses the format:
+   * accounts/{account_id}/customers/{customer_id}
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,9 +20,9 @@ public interface CreateEntitlementRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The resource name of the reseller's customer account in which to create the
-   * entitlement.
-   * Parent uses the format: accounts/{account_id}/customers/{customer_id}
+   * Required. The resource name of the reseller's customer account in which to
+   * create the entitlement. Parent uses the format:
+   * accounts/{account_id}/customers/{customer_id}
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -60,8 +60,9 @@ public interface CreateEntitlementRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. You can specify an optional unique request ID, and if you need to retry
-   * your request, the server will know to ignore the request if it's complete.
+   * Optional. You can specify an optional unique request ID, and if you need to
+   * retry your request, the server will know to ignore the request if it's
+   * complete.
    * For example, you make an initial request and the request times out. If you
    * make the request again with the same request ID, the server can check if
    * it received the original operation with the same request ID. If it did, it
@@ -77,8 +78,9 @@ public interface CreateEntitlementRequestOrBuilder extends
   java.lang.String getRequestId();
   /**
    * <pre>
-   * Optional. You can specify an optional unique request ID, and if you need to retry
-   * your request, the server will know to ignore the request if it's complete.
+   * Optional. You can specify an optional unique request ID, and if you need to
+   * retry your request, the server will know to ignore the request if it's
+   * complete.
    * For example, you make an initial request and the request times out. If you
    * make the request again with the same request ID, the server can check if
    * it received the original operation with the same request ID. If it did, it

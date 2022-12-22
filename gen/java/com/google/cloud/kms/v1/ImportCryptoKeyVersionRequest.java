@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     cryptoKeyVersion_ = "";
     algorithm_ = 0;
     importJob_ = "";
+    wrappedKey_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   @java.lang.Override
@@ -38,74 +39,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ImportCryptoKeyVersionRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            algorithm_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            importJob_ = s;
-            break;
-          }
-          case 42: {
-            wrappedKeyMaterial_ = input.readBytes();
-            wrappedKeyMaterialCase_ = 5;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cryptoKeyVersion_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -160,7 +93,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The [name][google.cloud.kms.v1.CryptoKey.name] of the
@@ -212,7 +146,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CRYPTO_KEY_VERSION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object cryptoKeyVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cryptoKeyVersion_ = "";
   /**
    * <pre>
    * Optional. The optional [name][google.cloud.kms.v1.CryptoKeyVersion.name] of
@@ -294,7 +229,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALGORITHM_FIELD_NUMBER = 2;
-  private int algorithm_;
+  private int algorithm_ = 0;
   /**
    * <pre>
    * Required. The
@@ -323,13 +258,13 @@ private static final long serialVersionUID = 0L;
    * @return The algorithm.
    */
   @java.lang.Override public com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm getAlgorithm() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.valueOf(algorithm_);
+    com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.forNumber(algorithm_);
     return result == null ? com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.UNRECOGNIZED : result;
   }
 
   public static final int IMPORT_JOB_FIELD_NUMBER = 4;
-  private volatile java.lang.Object importJob_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object importJob_ = "";
   /**
    * <pre>
    * Required. The [name][google.cloud.kms.v1.ImportJob.name] of the
@@ -378,33 +313,63 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int RSA_AES_WRAPPED_KEY_FIELD_NUMBER = 5;
+  public static final int WRAPPED_KEY_FIELD_NUMBER = 8;
+  private com.google.protobuf.ByteString wrappedKey_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
-   * Wrapped key material produced with
-   * [RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
+   * Optional. The wrapped key material to import.
+   * Before wrapping, key material must be formatted. If importing symmetric key
+   * material, the expected key material format is plain bytes. If importing
+   * asymmetric key material, the expected key material format is PKCS#8-encoded
+   * DER (the PrivateKeyInfo structure from RFC 5208).
+   * When wrapping with import methods
+   * ([RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
    * or
-   * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256].
-   * This field contains the concatenation of two wrapped keys:
+   * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256]
+   * or
+   * [RSA_OAEP_3072_SHA256_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA256_AES_256]
+   * or
+   * [RSA_OAEP_4096_SHA256_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA256_AES_256]),
+   * this field must contain the concatenation of:
    * &lt;ol&gt;
    *   &lt;li&gt;An ephemeral AES-256 wrapping key wrapped with the
    *       [public_key][google.cloud.kms.v1.ImportJob.public_key] using
-   *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an
-   *       empty label.
+   *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an empty
+   *       label.
    *   &lt;/li&gt;
-   *   &lt;li&gt;The key to be imported, wrapped with the ephemeral AES-256 key
-   *       using AES-KWP (RFC 5649).
+   *   &lt;li&gt;The formatted key to be imported, wrapped with the ephemeral AES-256
+   *       key using AES-KWP (RFC 5649).
    *   &lt;/li&gt;
    * &lt;/ol&gt;
-   * If importing symmetric key material, it is expected that the unwrapped
-   * key contains plain bytes. If importing asymmetric key material, it is
-   * expected that the unwrapped key is in PKCS#8-encoded DER format (the
-   * PrivateKeyInfo structure from RFC 5208).
    * This format is the same as the format produced by PKCS#11 mechanism
    * CKM_RSA_AES_KEY_WRAP.
+   * When wrapping with import methods
+   * ([RSA_OAEP_3072_SHA256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA256]
+   * or
+   * [RSA_OAEP_4096_SHA256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA256]),
+   * this field must contain the formatted key to be imported, wrapped with the
+   * [public_key][google.cloud.kms.v1.ImportJob.public_key] using RSAES-OAEP
+   * with SHA-256, MGF1 with SHA-256, and an empty label.
    * </pre>
    *
-   * <code>bytes rsa_aes_wrapped_key = 5;</code>
+   * <code>bytes wrapped_key = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The wrappedKey.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString getWrappedKey() {
+    return wrappedKey_;
+  }
+
+  public static final int RSA_AES_WRAPPED_KEY_FIELD_NUMBER = 5;
+  /**
+   * <pre>
+   * Optional. This field has the same meaning as
+   * [wrapped_key][google.cloud.kms.v1.ImportCryptoKeyVersionRequest.wrapped_key].
+   * Prefer to use that field in new work. Either that field or this field
+   * (but not both) must be specified.
+   * </pre>
+   *
+   * <code>bytes rsa_aes_wrapped_key = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return Whether the rsaAesWrappedKey field is set.
    */
   @java.lang.Override
@@ -413,30 +378,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Wrapped key material produced with
-   * [RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
-   * or
-   * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256].
-   * This field contains the concatenation of two wrapped keys:
-   * &lt;ol&gt;
-   *   &lt;li&gt;An ephemeral AES-256 wrapping key wrapped with the
-   *       [public_key][google.cloud.kms.v1.ImportJob.public_key] using
-   *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an
-   *       empty label.
-   *   &lt;/li&gt;
-   *   &lt;li&gt;The key to be imported, wrapped with the ephemeral AES-256 key
-   *       using AES-KWP (RFC 5649).
-   *   &lt;/li&gt;
-   * &lt;/ol&gt;
-   * If importing symmetric key material, it is expected that the unwrapped
-   * key contains plain bytes. If importing asymmetric key material, it is
-   * expected that the unwrapped key is in PKCS#8-encoded DER format (the
-   * PrivateKeyInfo structure from RFC 5208).
-   * This format is the same as the format produced by PKCS#11 mechanism
-   * CKM_RSA_AES_KEY_WRAP.
+   * Optional. This field has the same meaning as
+   * [wrapped_key][google.cloud.kms.v1.ImportCryptoKeyVersionRequest.wrapped_key].
+   * Prefer to use that field in new work. Either that field or this field
+   * (but not both) must be specified.
    * </pre>
    *
-   * <code>bytes rsa_aes_wrapped_key = 5;</code>
+   * <code>bytes rsa_aes_wrapped_key = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The rsaAesWrappedKey.
    */
   @java.lang.Override
@@ -477,7 +425,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cryptoKeyVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, cryptoKeyVersion_);
     }
-    unknownFields.writeTo(output);
+    if (!wrappedKey_.isEmpty()) {
+      output.writeBytes(8, wrappedKey_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -504,7 +455,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cryptoKeyVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, cryptoKeyVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!wrappedKey_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBytesSize(8, wrappedKey_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -526,6 +481,8 @@ private static final long serialVersionUID = 0L;
     if (algorithm_ != other.algorithm_) return false;
     if (!getImportJob()
         .equals(other.getImportJob())) return false;
+    if (!getWrappedKey()
+        .equals(other.getWrappedKey())) return false;
     if (!getWrappedKeyMaterialCase().equals(other.getWrappedKeyMaterialCase())) return false;
     switch (wrappedKeyMaterialCase_) {
       case 5:
@@ -535,7 +492,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -554,6 +511,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + algorithm_;
     hash = (37 * hash) + IMPORT_JOB_FIELD_NUMBER;
     hash = (53 * hash) + getImportJob().hashCode();
+    hash = (37 * hash) + WRAPPED_KEY_FIELD_NUMBER;
+    hash = (53 * hash) + getWrappedKey().hashCode();
     switch (wrappedKeyMaterialCase_) {
       case 5:
         hash = (37 * hash) + RSA_AES_WRAPPED_KEY_FIELD_NUMBER;
@@ -562,7 +521,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -684,30 +643,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.kms.v1.ImportCryptoKeyVersionRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       cryptoKeyVersion_ = "";
-
       algorithm_ = 0;
-
       importJob_ = "";
-
+      wrappedKey_ = com.google.protobuf.ByteString.EMPTY;
       wrappedKeyMaterialCase_ = 0;
       wrappedKeyMaterial_ = null;
       return this;
@@ -736,16 +688,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.kms.v1.ImportCryptoKeyVersionRequest buildPartial() {
       com.google.cloud.kms.v1.ImportCryptoKeyVersionRequest result = new com.google.cloud.kms.v1.ImportCryptoKeyVersionRequest(this);
-      result.parent_ = parent_;
-      result.cryptoKeyVersion_ = cryptoKeyVersion_;
-      result.algorithm_ = algorithm_;
-      result.importJob_ = importJob_;
-      if (wrappedKeyMaterialCase_ == 5) {
-        result.wrappedKeyMaterial_ = wrappedKeyMaterial_;
-      }
-      result.wrappedKeyMaterialCase_ = wrappedKeyMaterialCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.kms.v1.ImportCryptoKeyVersionRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cryptoKeyVersion_ = cryptoKeyVersion_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.algorithm_ = algorithm_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.importJob_ = importJob_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.wrappedKey_ = wrappedKey_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.kms.v1.ImportCryptoKeyVersionRequest result) {
+      result.wrappedKeyMaterialCase_ = wrappedKeyMaterialCase_;
+      result.wrappedKeyMaterial_ = this.wrappedKeyMaterial_;
     }
 
     @java.lang.Override
@@ -794,10 +764,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.kms.v1.ImportCryptoKeyVersionRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCryptoKeyVersion().isEmpty()) {
         cryptoKeyVersion_ = other.cryptoKeyVersion_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.algorithm_ != 0) {
@@ -805,7 +777,11 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getImportJob().isEmpty()) {
         importJob_ = other.importJob_;
+        bitField0_ |= 0x00000008;
         onChanged();
+      }
+      if (other.getWrappedKey() != com.google.protobuf.ByteString.EMPTY) {
+        setWrappedKey(other.getWrappedKey());
       }
       switch (other.getWrappedKeyMaterialCase()) {
         case RSA_AES_WRAPPED_KEY: {
@@ -816,7 +792,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -831,17 +807,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.kms.v1.ImportCryptoKeyVersionRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              algorithm_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 16
+            case 34: {
+              importJob_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              wrappedKeyMaterial_ = input.readBytes();
+              wrappedKeyMaterialCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              cryptoKeyVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 50
+            case 66: {
+              wrappedKey_ = input.readBytes();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.kms.v1.ImportCryptoKeyVersionRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int wrappedKeyMaterialCase_ = 0;
@@ -859,6 +878,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -922,11 +942,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -942,8 +960,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -961,12 +979,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1078,11 +1094,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCryptoKeyVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cryptoKeyVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1113,8 +1127,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCryptoKeyVersion() {
-      
       cryptoKeyVersion_ = getDefaultInstance().getCryptoKeyVersion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1147,12 +1161,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCryptoKeyVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cryptoKeyVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1187,8 +1199,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAlgorithmValue(int value) {
-      
       algorithm_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1206,8 +1218,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm getAlgorithm() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.valueOf(algorithm_);
+      com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm result = com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.forNumber(algorithm_);
       return result == null ? com.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.UNRECOGNIZED : result;
     }
     /**
@@ -1227,7 +1238,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       algorithm_ = value.getNumber();
       onChanged();
       return this;
@@ -1245,7 +1256,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAlgorithm() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       algorithm_ = 0;
       onChanged();
       return this;
@@ -1310,11 +1321,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImportJob(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       importJob_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1329,8 +1338,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImportJob() {
-      
       importJob_ = getDefaultInstance().getImportJob();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1347,42 +1356,163 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImportJobBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       importJob_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.ByteString wrappedKey_ = com.google.protobuf.ByteString.EMPTY;
+    /**
+     * <pre>
+     * Optional. The wrapped key material to import.
+     * Before wrapping, key material must be formatted. If importing symmetric key
+     * material, the expected key material format is plain bytes. If importing
+     * asymmetric key material, the expected key material format is PKCS#8-encoded
+     * DER (the PrivateKeyInfo structure from RFC 5208).
+     * When wrapping with import methods
+     * ([RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
+     * or
+     * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256]
+     * or
+     * [RSA_OAEP_3072_SHA256_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA256_AES_256]
+     * or
+     * [RSA_OAEP_4096_SHA256_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA256_AES_256]),
+     * this field must contain the concatenation of:
+     * &lt;ol&gt;
+     *   &lt;li&gt;An ephemeral AES-256 wrapping key wrapped with the
+     *       [public_key][google.cloud.kms.v1.ImportJob.public_key] using
+     *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an empty
+     *       label.
+     *   &lt;/li&gt;
+     *   &lt;li&gt;The formatted key to be imported, wrapped with the ephemeral AES-256
+     *       key using AES-KWP (RFC 5649).
+     *   &lt;/li&gt;
+     * &lt;/ol&gt;
+     * This format is the same as the format produced by PKCS#11 mechanism
+     * CKM_RSA_AES_KEY_WRAP.
+     * When wrapping with import methods
+     * ([RSA_OAEP_3072_SHA256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA256]
+     * or
+     * [RSA_OAEP_4096_SHA256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA256]),
+     * this field must contain the formatted key to be imported, wrapped with the
+     * [public_key][google.cloud.kms.v1.ImportJob.public_key] using RSAES-OAEP
+     * with SHA-256, MGF1 with SHA-256, and an empty label.
+     * </pre>
+     *
+     * <code>bytes wrapped_key = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The wrappedKey.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getWrappedKey() {
+      return wrappedKey_;
+    }
+    /**
+     * <pre>
+     * Optional. The wrapped key material to import.
+     * Before wrapping, key material must be formatted. If importing symmetric key
+     * material, the expected key material format is plain bytes. If importing
+     * asymmetric key material, the expected key material format is PKCS#8-encoded
+     * DER (the PrivateKeyInfo structure from RFC 5208).
+     * When wrapping with import methods
+     * ([RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
+     * or
+     * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256]
+     * or
+     * [RSA_OAEP_3072_SHA256_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA256_AES_256]
+     * or
+     * [RSA_OAEP_4096_SHA256_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA256_AES_256]),
+     * this field must contain the concatenation of:
+     * &lt;ol&gt;
+     *   &lt;li&gt;An ephemeral AES-256 wrapping key wrapped with the
+     *       [public_key][google.cloud.kms.v1.ImportJob.public_key] using
+     *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an empty
+     *       label.
+     *   &lt;/li&gt;
+     *   &lt;li&gt;The formatted key to be imported, wrapped with the ephemeral AES-256
+     *       key using AES-KWP (RFC 5649).
+     *   &lt;/li&gt;
+     * &lt;/ol&gt;
+     * This format is the same as the format produced by PKCS#11 mechanism
+     * CKM_RSA_AES_KEY_WRAP.
+     * When wrapping with import methods
+     * ([RSA_OAEP_3072_SHA256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA256]
+     * or
+     * [RSA_OAEP_4096_SHA256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA256]),
+     * this field must contain the formatted key to be imported, wrapped with the
+     * [public_key][google.cloud.kms.v1.ImportJob.public_key] using RSAES-OAEP
+     * with SHA-256, MGF1 with SHA-256, and an empty label.
+     * </pre>
+     *
+     * <code>bytes wrapped_key = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The wrappedKey to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWrappedKey(com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      wrappedKey_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The wrapped key material to import.
+     * Before wrapping, key material must be formatted. If importing symmetric key
+     * material, the expected key material format is plain bytes. If importing
+     * asymmetric key material, the expected key material format is PKCS#8-encoded
+     * DER (the PrivateKeyInfo structure from RFC 5208).
+     * When wrapping with import methods
+     * ([RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
+     * or
+     * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256]
+     * or
+     * [RSA_OAEP_3072_SHA256_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA256_AES_256]
+     * or
+     * [RSA_OAEP_4096_SHA256_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA256_AES_256]),
+     * this field must contain the concatenation of:
+     * &lt;ol&gt;
+     *   &lt;li&gt;An ephemeral AES-256 wrapping key wrapped with the
+     *       [public_key][google.cloud.kms.v1.ImportJob.public_key] using
+     *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an empty
+     *       label.
+     *   &lt;/li&gt;
+     *   &lt;li&gt;The formatted key to be imported, wrapped with the ephemeral AES-256
+     *       key using AES-KWP (RFC 5649).
+     *   &lt;/li&gt;
+     * &lt;/ol&gt;
+     * This format is the same as the format produced by PKCS#11 mechanism
+     * CKM_RSA_AES_KEY_WRAP.
+     * When wrapping with import methods
+     * ([RSA_OAEP_3072_SHA256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA256]
+     * or
+     * [RSA_OAEP_4096_SHA256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA256]),
+     * this field must contain the formatted key to be imported, wrapped with the
+     * [public_key][google.cloud.kms.v1.ImportJob.public_key] using RSAES-OAEP
+     * with SHA-256, MGF1 with SHA-256, and an empty label.
+     * </pre>
+     *
+     * <code>bytes wrapped_key = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWrappedKey() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      wrappedKey_ = getDefaultInstance().getWrappedKey();
       onChanged();
       return this;
     }
 
     /**
      * <pre>
-     * Wrapped key material produced with
-     * [RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
-     * or
-     * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256].
-     * This field contains the concatenation of two wrapped keys:
-     * &lt;ol&gt;
-     *   &lt;li&gt;An ephemeral AES-256 wrapping key wrapped with the
-     *       [public_key][google.cloud.kms.v1.ImportJob.public_key] using
-     *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an
-     *       empty label.
-     *   &lt;/li&gt;
-     *   &lt;li&gt;The key to be imported, wrapped with the ephemeral AES-256 key
-     *       using AES-KWP (RFC 5649).
-     *   &lt;/li&gt;
-     * &lt;/ol&gt;
-     * If importing symmetric key material, it is expected that the unwrapped
-     * key contains plain bytes. If importing asymmetric key material, it is
-     * expected that the unwrapped key is in PKCS#8-encoded DER format (the
-     * PrivateKeyInfo structure from RFC 5208).
-     * This format is the same as the format produced by PKCS#11 mechanism
-     * CKM_RSA_AES_KEY_WRAP.
+     * Optional. This field has the same meaning as
+     * [wrapped_key][google.cloud.kms.v1.ImportCryptoKeyVersionRequest.wrapped_key].
+     * Prefer to use that field in new work. Either that field or this field
+     * (but not both) must be specified.
      * </pre>
      *
-     * <code>bytes rsa_aes_wrapped_key = 5;</code>
+     * <code>bytes rsa_aes_wrapped_key = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return Whether the rsaAesWrappedKey field is set.
      */
     public boolean hasRsaAesWrappedKey() {
@@ -1390,30 +1520,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Wrapped key material produced with
-     * [RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
-     * or
-     * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256].
-     * This field contains the concatenation of two wrapped keys:
-     * &lt;ol&gt;
-     *   &lt;li&gt;An ephemeral AES-256 wrapping key wrapped with the
-     *       [public_key][google.cloud.kms.v1.ImportJob.public_key] using
-     *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an
-     *       empty label.
-     *   &lt;/li&gt;
-     *   &lt;li&gt;The key to be imported, wrapped with the ephemeral AES-256 key
-     *       using AES-KWP (RFC 5649).
-     *   &lt;/li&gt;
-     * &lt;/ol&gt;
-     * If importing symmetric key material, it is expected that the unwrapped
-     * key contains plain bytes. If importing asymmetric key material, it is
-     * expected that the unwrapped key is in PKCS#8-encoded DER format (the
-     * PrivateKeyInfo structure from RFC 5208).
-     * This format is the same as the format produced by PKCS#11 mechanism
-     * CKM_RSA_AES_KEY_WRAP.
+     * Optional. This field has the same meaning as
+     * [wrapped_key][google.cloud.kms.v1.ImportCryptoKeyVersionRequest.wrapped_key].
+     * Prefer to use that field in new work. Either that field or this field
+     * (but not both) must be specified.
      * </pre>
      *
-     * <code>bytes rsa_aes_wrapped_key = 5;</code>
+     * <code>bytes rsa_aes_wrapped_key = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The rsaAesWrappedKey.
      */
     public com.google.protobuf.ByteString getRsaAesWrappedKey() {
@@ -1424,68 +1537,32 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Wrapped key material produced with
-     * [RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
-     * or
-     * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256].
-     * This field contains the concatenation of two wrapped keys:
-     * &lt;ol&gt;
-     *   &lt;li&gt;An ephemeral AES-256 wrapping key wrapped with the
-     *       [public_key][google.cloud.kms.v1.ImportJob.public_key] using
-     *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an
-     *       empty label.
-     *   &lt;/li&gt;
-     *   &lt;li&gt;The key to be imported, wrapped with the ephemeral AES-256 key
-     *       using AES-KWP (RFC 5649).
-     *   &lt;/li&gt;
-     * &lt;/ol&gt;
-     * If importing symmetric key material, it is expected that the unwrapped
-     * key contains plain bytes. If importing asymmetric key material, it is
-     * expected that the unwrapped key is in PKCS#8-encoded DER format (the
-     * PrivateKeyInfo structure from RFC 5208).
-     * This format is the same as the format produced by PKCS#11 mechanism
-     * CKM_RSA_AES_KEY_WRAP.
+     * Optional. This field has the same meaning as
+     * [wrapped_key][google.cloud.kms.v1.ImportCryptoKeyVersionRequest.wrapped_key].
+     * Prefer to use that field in new work. Either that field or this field
+     * (but not both) must be specified.
      * </pre>
      *
-     * <code>bytes rsa_aes_wrapped_key = 5;</code>
+     * <code>bytes rsa_aes_wrapped_key = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The rsaAesWrappedKey to set.
      * @return This builder for chaining.
      */
     public Builder setRsaAesWrappedKey(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  wrappedKeyMaterialCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      wrappedKeyMaterialCase_ = 5;
       wrappedKeyMaterial_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Wrapped key material produced with
-     * [RSA_OAEP_3072_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_3072_SHA1_AES_256]
-     * or
-     * [RSA_OAEP_4096_SHA1_AES_256][google.cloud.kms.v1.ImportJob.ImportMethod.RSA_OAEP_4096_SHA1_AES_256].
-     * This field contains the concatenation of two wrapped keys:
-     * &lt;ol&gt;
-     *   &lt;li&gt;An ephemeral AES-256 wrapping key wrapped with the
-     *       [public_key][google.cloud.kms.v1.ImportJob.public_key] using
-     *       RSAES-OAEP with SHA-1/SHA-256, MGF1 with SHA-1/SHA-256, and an
-     *       empty label.
-     *   &lt;/li&gt;
-     *   &lt;li&gt;The key to be imported, wrapped with the ephemeral AES-256 key
-     *       using AES-KWP (RFC 5649).
-     *   &lt;/li&gt;
-     * &lt;/ol&gt;
-     * If importing symmetric key material, it is expected that the unwrapped
-     * key contains plain bytes. If importing asymmetric key material, it is
-     * expected that the unwrapped key is in PKCS#8-encoded DER format (the
-     * PrivateKeyInfo structure from RFC 5208).
-     * This format is the same as the format produced by PKCS#11 mechanism
-     * CKM_RSA_AES_KEY_WRAP.
+     * Optional. This field has the same meaning as
+     * [wrapped_key][google.cloud.kms.v1.ImportCryptoKeyVersionRequest.wrapped_key].
+     * Prefer to use that field in new work. Either that field or this field
+     * (but not both) must be specified.
      * </pre>
      *
-     * <code>bytes rsa_aes_wrapped_key = 5;</code>
+     * <code>bytes rsa_aes_wrapped_key = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearRsaAesWrappedKey() {
@@ -1529,7 +1606,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportCryptoKeyVersionRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

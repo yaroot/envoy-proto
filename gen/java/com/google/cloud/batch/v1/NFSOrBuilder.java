@@ -9,7 +9,7 @@ public interface NFSOrBuilder extends
 
   /**
    * <pre>
-   * URI of the NFS server, e.g. an IP address.
+   * The IP address of the NFS.
    * </pre>
    *
    * <code>string server = 1;</code>
@@ -18,7 +18,7 @@ public interface NFSOrBuilder extends
   java.lang.String getServer();
   /**
    * <pre>
-   * URI of the NFS server, e.g. an IP address.
+   * The IP address of the NFS.
    * </pre>
    *
    * <code>string server = 1;</code>
@@ -29,7 +29,7 @@ public interface NFSOrBuilder extends
 
   /**
    * <pre>
-   * Remote source path exported from NFS, e.g., "/share".
+   * Remote source path exported from the NFS, e.g., "/share".
    * </pre>
    *
    * <code>string remote_path = 2;</code>
@@ -38,7 +38,7 @@ public interface NFSOrBuilder extends
   java.lang.String getRemotePath();
   /**
    * <pre>
-   * Remote source path exported from NFS, e.g., "/share".
+   * Remote source path exported from the NFS, e.g., "/share".
    * </pre>
    *
    * <code>string remote_path = 2;</code>

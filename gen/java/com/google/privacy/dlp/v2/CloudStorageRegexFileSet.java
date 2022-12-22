@@ -62,76 +62,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CloudStorageRegexFileSet(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bucketName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              includeRegex_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            includeRegex_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              excludeRegex_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            excludeRegex_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        includeRegex_ = includeRegex_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        excludeRegex_ = excludeRegex_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpStorage.internal_static_google_privacy_dlp_v2_CloudStorageRegexFileSet_descriptor;
@@ -146,7 +76,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUCKET_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object bucketName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bucketName_ = "";
   /**
    * <pre>
    * The name of a Cloud Storage bucket. Required.
@@ -192,6 +123,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_REGEX_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList includeRegex_;
   /**
    * <pre>
@@ -271,6 +203,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXCLUDE_REGEX_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList excludeRegex_;
   /**
    * <pre>
@@ -364,7 +297,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < excludeRegex_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, excludeRegex_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -392,7 +325,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getExcludeRegexList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -413,7 +346,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getIncludeRegexList())) return false;
     if (!getExcludeRegexList()
         .equals(other.getExcludeRegexList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -434,7 +367,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXCLUDE_REGEX_FIELD_NUMBER;
       hash = (53 * hash) + getExcludeRegexList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -580,28 +513,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.CloudStorageRegexFileSet.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       bucketName_ = "";
-
       includeRegex_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      excludeRegex_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
+      excludeRegex_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -628,20 +556,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.CloudStorageRegexFileSet buildPartial() {
       com.google.privacy.dlp.v2.CloudStorageRegexFileSet result = new com.google.privacy.dlp.v2.CloudStorageRegexFileSet(this);
-      int from_bitField0_ = bitField0_;
-      result.bucketName_ = bucketName_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        includeRegex_ = includeRegex_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.includeRegex_ = includeRegex_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        excludeRegex_ = excludeRegex_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.excludeRegex_ = excludeRegex_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.privacy.dlp.v2.CloudStorageRegexFileSet result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        includeRegex_ = includeRegex_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.includeRegex_ = includeRegex_;
+      if (((bitField0_ & 0x00000004) != 0)) {
+        excludeRegex_ = excludeRegex_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.excludeRegex_ = excludeRegex_;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.CloudStorageRegexFileSet result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.bucketName_ = bucketName_;
+      }
     }
 
     @java.lang.Override
@@ -690,12 +628,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.privacy.dlp.v2.CloudStorageRegexFileSet.getDefaultInstance()) return this;
       if (!other.getBucketName().isEmpty()) {
         bucketName_ = other.bucketName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.includeRegex_.isEmpty()) {
         if (includeRegex_.isEmpty()) {
           includeRegex_ = other.includeRegex_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureIncludeRegexIsMutable();
           includeRegex_.addAll(other.includeRegex_);
@@ -705,14 +644,14 @@ private static final long serialVersionUID = 0L;
       if (!other.excludeRegex_.isEmpty()) {
         if (excludeRegex_.isEmpty()) {
           excludeRegex_ = other.excludeRegex_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureExcludeRegexIsMutable();
           excludeRegex_.addAll(other.excludeRegex_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -727,17 +666,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.CloudStorageRegexFileSet parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              bucketName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIncludeRegexIsMutable();
+              includeRegex_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureExcludeRegexIsMutable();
+              excludeRegex_.add(s);
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.CloudStorageRegexFileSet) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -795,11 +764,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucketName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bucketName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -812,8 +779,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBucketName() {
-      
       bucketName_ = getDefaultInstance().getBucketName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -828,21 +795,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucketNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bucketName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList includeRegex_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureIncludeRegexIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         includeRegex_ = new com.google.protobuf.LazyStringArrayList(includeRegex_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -940,10 +905,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIncludeRegex(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncludeRegexIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIncludeRegexIsMutable();
       includeRegex_.set(index, value);
       onChanged();
       return this;
@@ -966,10 +929,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIncludeRegex(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncludeRegexIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIncludeRegexIsMutable();
       includeRegex_.add(value);
       onChanged();
       return this;
@@ -1015,7 +976,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearIncludeRegex() {
       includeRegex_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1037,10 +998,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIncludeRegexBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIncludeRegexIsMutable();
       includeRegex_.add(value);
       onChanged();
@@ -1049,9 +1008,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList excludeRegex_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureExcludeRegexIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         excludeRegex_ = new com.google.protobuf.LazyStringArrayList(excludeRegex_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1139,10 +1098,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExcludeRegex(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludeRegexIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExcludeRegexIsMutable();
       excludeRegex_.set(index, value);
       onChanged();
       return this;
@@ -1163,10 +1120,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExcludeRegex(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludeRegexIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExcludeRegexIsMutable();
       excludeRegex_.add(value);
       onChanged();
       return this;
@@ -1208,7 +1163,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearExcludeRegex() {
       excludeRegex_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1228,10 +1183,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExcludeRegexBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureExcludeRegexIsMutable();
       excludeRegex_.add(value);
       onChanged();
@@ -1270,7 +1223,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CloudStorageRegexFileSet(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

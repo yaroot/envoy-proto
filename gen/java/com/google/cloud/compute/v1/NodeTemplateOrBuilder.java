@@ -261,7 +261,6 @@ public interface NodeTemplateOrBuilder extends
    *
    * <code>map&lt;string, string&gt; node_affinity_labels = 339007161;</code>
    */
-
   /* nullable */
 java.lang.String getNodeAffinityLabelsOrDefault(
       java.lang.String key,
@@ -274,7 +273,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; node_affinity_labels = 339007161;</code>
    */
-
   java.lang.String getNodeAffinityLabelsOrThrow(
       java.lang.String key);
 

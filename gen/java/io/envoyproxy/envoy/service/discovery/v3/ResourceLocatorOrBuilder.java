@@ -74,7 +74,6 @@ public interface ResourceLocatorOrBuilder extends
    *
    * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
    */
-
   /* nullable */
 java.lang.String getDynamicParametersOrDefault(
       java.lang.String key,
@@ -89,7 +88,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; dynamic_parameters = 2;</code>
    */
-
   java.lang.String getDynamicParametersOrThrow(
       java.lang.String key);
 }

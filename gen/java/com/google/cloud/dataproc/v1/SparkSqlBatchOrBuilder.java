@@ -70,7 +70,6 @@ public interface SparkSqlBatchOrBuilder extends
    *
    * <code>map&lt;string, string&gt; query_variables = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getQueryVariablesOrDefault(
       java.lang.String key,
@@ -84,7 +83,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; query_variables = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getQueryVariablesOrThrow(
       java.lang.String key);
 

@@ -9,7 +9,8 @@ public interface UpdateModelRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The body of the updated [Model].
+   * Required. The body of the updated
+   * [Model][google.cloud.retail.v2alpha.Model].
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.Model model = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -18,7 +19,8 @@ public interface UpdateModelRequestOrBuilder extends
   boolean hasModel();
   /**
    * <pre>
-   * Required. The body of the updated [Model].
+   * Required. The body of the updated
+   * [Model][google.cloud.retail.v2alpha.Model].
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.Model model = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -27,7 +29,8 @@ public interface UpdateModelRequestOrBuilder extends
   com.google.cloud.retail.v2alpha.Model getModel();
   /**
    * <pre>
-   * Required. The body of the updated [Model].
+   * Required. The body of the updated
+   * [Model][google.cloud.retail.v2alpha.Model].
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.Model model = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -37,7 +40,7 @@ public interface UpdateModelRequestOrBuilder extends
   /**
    * <pre>
    * Optional. Indicates which fields in the provided 'model' to
-   * update. If not set, will by default update all fields.
+   * update. If not set, by default updates all fields.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -47,7 +50,7 @@ public interface UpdateModelRequestOrBuilder extends
   /**
    * <pre>
    * Optional. Indicates which fields in the provided 'model' to
-   * update. If not set, will by default update all fields.
+   * update. If not set, by default updates all fields.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -57,7 +60,7 @@ public interface UpdateModelRequestOrBuilder extends
   /**
    * <pre>
    * Optional. Indicates which fields in the provided 'model' to
-   * update. If not set, will by default update all fields.
+   * update. If not set, by default updates all fields.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 2 [(.google.api.field_behavior) = OPTIONAL];</code>

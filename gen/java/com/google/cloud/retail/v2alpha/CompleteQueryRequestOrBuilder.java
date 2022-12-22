@@ -154,8 +154,9 @@ public interface CompleteQueryRequestOrBuilder extends
 
   /**
    * <pre>
-   * The device type context for completion suggestions.
-   * It is useful to apply different suggestions on different device types, e.g.
+   * The device type context for completion suggestions. We recommend that you
+   * leave this field empty.
+   * It can apply different suggestions on different device types, e.g.
    * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
    * types.
    * Supported formats:
@@ -171,8 +172,9 @@ public interface CompleteQueryRequestOrBuilder extends
   java.lang.String getDeviceType();
   /**
    * <pre>
-   * The device type context for completion suggestions.
-   * It is useful to apply different suggestions on different device types, e.g.
+   * The device type context for completion suggestions. We recommend that you
+   * leave this field empty.
+   * It can apply different suggestions on different device types, e.g.
    * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
    * types.
    * Supported formats:
@@ -239,4 +241,15 @@ public interface CompleteQueryRequestOrBuilder extends
    * @return The maxSuggestions.
    */
   int getMaxSuggestions();
+
+  /**
+   * <pre>
+   * If true, attribute suggestions are enabled and provided in response.
+   * This field is only available for "cloud-retail" dataset.
+   * </pre>
+   *
+   * <code>bool enable_attribute_suggestions = 9;</code>
+   * @return The enableAttributeSuggestions.
+   */
+  boolean getEnableAttributeSuggestions();
 }

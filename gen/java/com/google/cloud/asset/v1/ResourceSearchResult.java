@@ -6,6 +6,7 @@ package com.google.cloud.asset.v1;
 /**
  * <pre>
  * A result of Resource Search, containing information of a cloud resource.
+ * Next ID: 31
  * </pre>
  *
  * Protobuf type {@code google.cloud.asset.v1.ResourceSearchResult}
@@ -30,6 +31,7 @@ private static final long serialVersionUID = 0L;
     location_ = "";
     networkTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     kmsKey_ = "";
+    kmsKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     state_ = "";
     parentFullResourceName_ = "";
     versionedResources_ = java.util.Collections.emptyList();
@@ -51,261 +53,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ResourceSearchResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            assetType_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            location_ = s;
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              networkTags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            networkTags_.add(s);
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (additionalAttributes_ != null) {
-              subBuilder = additionalAttributes_.toBuilder();
-            }
-            additionalAttributes_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(additionalAttributes_);
-              additionalAttributes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kmsKey_ = s;
-            break;
-          }
-          case 90: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            state_ = s;
-            break;
-          }
-          case 130: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              versionedResources_ = new java.util.ArrayList<com.google.cloud.asset.v1.VersionedResource>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            versionedResources_.add(
-                input.readMessage(com.google.cloud.asset.v1.VersionedResource.parser(), extensionRegistry));
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              folders_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            folders_.add(s);
-            break;
-          }
-          case 146: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            organization_ = s;
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parentFullResourceName_ = s;
-            break;
-          }
-          case 162: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              attachedResources_ = new java.util.ArrayList<com.google.cloud.asset.v1.AttachedResource>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            attachedResources_.add(
-                input.readMessage(com.google.cloud.asset.v1.AttachedResource.parser(), extensionRegistry));
-            break;
-          }
-          case 170: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              relationships_ = com.google.protobuf.MapField.newMapField(
-                  RelationshipsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000020;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.asset.v1.RelatedResources>
-            relationships__ = input.readMessage(
-                RelationshipsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            relationships_.getMutableMap().put(
-                relationships__.getKey(), relationships__.getValue());
-            break;
-          }
-          case 186: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              tagKeys_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            tagKeys_.add(s);
-            break;
-          }
-          case 202: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              tagValues_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            tagValues_.add(s);
-            break;
-          }
-          case 210: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              tagValueIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000100;
-            }
-            tagValueIds_.add(s);
-            break;
-          }
-          case 826: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parentAssetType_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        networkTags_ = networkTags_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        versionedResources_ = java.util.Collections.unmodifiableList(versionedResources_);
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        folders_ = folders_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        attachedResources_ = java.util.Collections.unmodifiableList(attachedResources_);
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        tagKeys_ = tagKeys_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        tagValues_ = tagValues_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000100) != 0)) {
-        tagValueIds_ = tagValueIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -335,7 +82,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The full resource name of this resource. Example:
@@ -344,8 +92,8 @@ private static final long serialVersionUID = 0L;
    * Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
    * for more information.
    * To search against the `name`:
-   * * use a field query. Example: `name:instance1`
-   * * use a free text query. Example: `instance1`
+   * * Use a field query. Example: `name:instance1`
+   * * Use a free text query. Example: `instance1`
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -372,8 +120,8 @@ private static final long serialVersionUID = 0L;
    * Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
    * for more information.
    * To search against the `name`:
-   * * use a field query. Example: `name:instance1`
-   * * use a free text query. Example: `instance1`
+   * * Use a field query. Example: `name:instance1`
+   * * Use a free text query. Example: `instance1`
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -395,12 +143,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ASSET_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object assetType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object assetType_ = "";
   /**
    * <pre>
    * The type of this resource. Example: `compute.googleapis.com/Disk`.
    * To search against the `asset_type`:
-   * * specify the `asset_type` field in your search request.
+   * * Specify the `asset_type` field in your search request.
    * </pre>
    *
    * <code>string asset_type = 2;</code>
@@ -423,7 +172,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The type of this resource. Example: `compute.googleapis.com/Disk`.
    * To search against the `asset_type`:
-   * * specify the `asset_type` field in your search request.
+   * * Specify the `asset_type` field in your search request.
    * </pre>
    *
    * <code>string asset_type = 2;</code>
@@ -445,16 +194,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * The project that this resource belongs to, in the form of
    * projects/{PROJECT_NUMBER}. This field is available when the resource
    * belongs to a project.
    * To search against `project`:
-   * * use a field query. Example: `project:12345`
-   * * use a free text query. Example: `12345`
-   * * specify the `scope` field as this project in your search request.
+   * * Use a field query. Example: `project:12345`
+   * * Use a free text query. Example: `12345`
+   * * Specify the `scope` field as this project in your search request.
    * </pre>
    *
    * <code>string project = 3;</code>
@@ -479,9 +229,9 @@ private static final long serialVersionUID = 0L;
    * projects/{PROJECT_NUMBER}. This field is available when the resource
    * belongs to a project.
    * To search against `project`:
-   * * use a field query. Example: `project:12345`
-   * * use a free text query. Example: `12345`
-   * * specify the `scope` field as this project in your search request.
+   * * Use a field query. Example: `project:12345`
+   * * Use a free text query. Example: `12345`
+   * * Specify the `scope` field as this project in your search request.
    * </pre>
    *
    * <code>string project = 3;</code>
@@ -503,6 +253,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FOLDERS_FIELD_NUMBER = 17;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList folders_;
   /**
    * <pre>
@@ -510,9 +261,9 @@ private static final long serialVersionUID = 0L;
    * folders/{FOLDER_NUMBER}. This field is available when the resource
    * belongs to one or more folders.
    * To search against `folders`:
-   * * use a field query. Example: `folders:(123 OR 456)`
-   * * use a free text query. Example: `123`
-   * * specify the `scope` field as this folder in your search request.
+   * * Use a field query. Example: `folders:(123 OR 456)`
+   * * Use a free text query. Example: `123`
+   * * Specify the `scope` field as this folder in your search request.
    * </pre>
    *
    * <code>repeated string folders = 17;</code>
@@ -528,9 +279,9 @@ private static final long serialVersionUID = 0L;
    * folders/{FOLDER_NUMBER}. This field is available when the resource
    * belongs to one or more folders.
    * To search against `folders`:
-   * * use a field query. Example: `folders:(123 OR 456)`
-   * * use a free text query. Example: `123`
-   * * specify the `scope` field as this folder in your search request.
+   * * Use a field query. Example: `folders:(123 OR 456)`
+   * * Use a free text query. Example: `123`
+   * * Specify the `scope` field as this folder in your search request.
    * </pre>
    *
    * <code>repeated string folders = 17;</code>
@@ -545,9 +296,9 @@ private static final long serialVersionUID = 0L;
    * folders/{FOLDER_NUMBER}. This field is available when the resource
    * belongs to one or more folders.
    * To search against `folders`:
-   * * use a field query. Example: `folders:(123 OR 456)`
-   * * use a free text query. Example: `123`
-   * * specify the `scope` field as this folder in your search request.
+   * * Use a field query. Example: `folders:(123 OR 456)`
+   * * Use a free text query. Example: `123`
+   * * Specify the `scope` field as this folder in your search request.
    * </pre>
    *
    * <code>repeated string folders = 17;</code>
@@ -563,9 +314,9 @@ private static final long serialVersionUID = 0L;
    * folders/{FOLDER_NUMBER}. This field is available when the resource
    * belongs to one or more folders.
    * To search against `folders`:
-   * * use a field query. Example: `folders:(123 OR 456)`
-   * * use a free text query. Example: `123`
-   * * specify the `scope` field as this folder in your search request.
+   * * Use a field query. Example: `folders:(123 OR 456)`
+   * * Use a free text query. Example: `123`
+   * * Specify the `scope` field as this folder in your search request.
    * </pre>
    *
    * <code>repeated string folders = 17;</code>
@@ -578,16 +329,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORGANIZATION_FIELD_NUMBER = 18;
-  private volatile java.lang.Object organization_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object organization_ = "";
   /**
    * <pre>
    * The organization that this resource belongs to, in the form of
    * organizations/{ORGANIZATION_NUMBER}. This field is available when the
    * resource belongs to an organization.
    * To search against `organization`:
-   * * use a field query. Example: `organization:123`
-   * * use a free text query. Example: `123`
-   * * specify the `scope` field as this organization in your search request.
+   * * Use a field query. Example: `organization:123`
+   * * Use a free text query. Example: `123`
+   * * Specify the `scope` field as this organization in your search request.
    * </pre>
    *
    * <code>string organization = 18;</code>
@@ -612,9 +364,9 @@ private static final long serialVersionUID = 0L;
    * organizations/{ORGANIZATION_NUMBER}. This field is available when the
    * resource belongs to an organization.
    * To search against `organization`:
-   * * use a field query. Example: `organization:123`
-   * * use a free text query. Example: `123`
-   * * specify the `scope` field as this organization in your search request.
+   * * Use a field query. Example: `organization:123`
+   * * Use a free text query. Example: `123`
+   * * Specify the `scope` field as this organization in your search request.
    * </pre>
    *
    * <code>string organization = 18;</code>
@@ -636,14 +388,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The display name of this resource. This field is available only when the
    * resource's Protobuf contains it.
    * To search against the `display_name`:
-   * * use a field query. Example: `displayName:"My Instance"`
-   * * use a free text query. Example: `"My Instance"`
+   * * Use a field query. Example: `displayName:"My Instance"`
+   * * Use a free text query. Example: `"My Instance"`
    * </pre>
    *
    * <code>string display_name = 4;</code>
@@ -667,8 +420,8 @@ private static final long serialVersionUID = 0L;
    * The display name of this resource. This field is available only when the
    * resource's Protobuf contains it.
    * To search against the `display_name`:
-   * * use a field query. Example: `displayName:"My Instance"`
-   * * use a free text query. Example: `"My Instance"`
+   * * Use a field query. Example: `displayName:"My Instance"`
+   * * Use a free text query. Example: `"My Instance"`
    * </pre>
    *
    * <code>string display_name = 4;</code>
@@ -690,15 +443,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * One or more paragraphs of text description of this resource. Maximum length
    * could be up to 1M bytes. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `description`:
-   * * use a field query. Example: `description:"important instance"`
-   * * use a free text query. Example: `"important instance"`
+   * * Use a field query. Example: `description:"important instance"`
+   * * Use a free text query. Example: `"important instance"`
    * </pre>
    *
    * <code>string description = 5;</code>
@@ -723,8 +477,8 @@ private static final long serialVersionUID = 0L;
    * could be up to 1M bytes. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `description`:
-   * * use a field query. Example: `description:"important instance"`
-   * * use a free text query. Example: `"important instance"`
+   * * Use a field query. Example: `description:"important instance"`
+   * * Use a free text query. Example: `"important instance"`
    * </pre>
    *
    * <code>string description = 5;</code>
@@ -746,15 +500,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object location_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object location_ = "";
   /**
    * <pre>
    * Location can be `global`, regional like `us-east1`, or zonal like
    * `us-west1-b`. This field is available only when the resource's Protobuf
    * contains it.
    * To search against the `location`:
-   * * use a field query. Example: `location:us-west*`
-   * * use a free text query. Example: `us-west*`
+   * * Use a field query. Example: `location:us-west*`
+   * * Use a free text query. Example: `us-west*`
    * </pre>
    *
    * <code>string location = 6;</code>
@@ -779,8 +534,8 @@ private static final long serialVersionUID = 0L;
    * `us-west1-b`. This field is available only when the resource's Protobuf
    * contains it.
    * To search against the `location`:
-   * * use a field query. Example: `location:us-west*`
-   * * use a free text query. Example: `us-west*`
+   * * Use a field query. Example: `location:us-west*`
+   * * Use a free text query. Example: `us-west*`
    * </pre>
    *
    * <code>string location = 6;</code>
@@ -813,6 +568,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -823,7 +579,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -834,16 +589,15 @@ private static final long serialVersionUID = 0L;
    * for more information. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `labels`:
-   * * use a field query:
+   * * Use a field query:
    *     - query on any label's key or value. Example: `labels:prod`
    *     - query by a given label. Example: `labels.env:prod`
    *     - query by a given label's existence. Example: `labels.env:*`
-   * * use a free text query. Example: `prod`
+   * * Use a free text query. Example: `prod`
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -865,17 +619,16 @@ private static final long serialVersionUID = 0L;
    * for more information. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `labels`:
-   * * use a field query:
+   * * Use a field query:
    *     - query on any label's key or value. Example: `labels:prod`
    *     - query by a given label. Example: `labels.env:prod`
    *     - query by a given label's existence. Example: `labels.env:*`
-   * * use a free text query. Example: `prod`
+   * * Use a free text query. Example: `prod`
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -886,20 +639,21 @@ private static final long serialVersionUID = 0L;
    * for more information. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `labels`:
-   * * use a field query:
+   * * Use a field query:
    *     - query on any label's key or value. Example: `labels:prod`
    *     - query by a given label. Example: `labels.env:prod`
    *     - query by a given label's existence. Example: `labels.env:*`
-   * * use a free text query. Example: `prod`
+   * * Use a free text query. Example: `prod`
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -912,17 +666,16 @@ private static final long serialVersionUID = 0L;
    * for more information. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `labels`:
-   * * use a field query:
+   * * Use a field query:
    *     - query on any label's key or value. Example: `labels:prod`
    *     - query by a given label. Example: `labels.env:prod`
    *     - query by a given label's existence. Example: `labels.env:*`
-   * * use a free text query. Example: `prod`
+   * * Use a free text query. Example: `prod`
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -935,6 +688,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_TAGS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList networkTags_;
   /**
    * <pre>
@@ -944,8 +698,8 @@ private static final long serialVersionUID = 0L;
    * for more information. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `network_tags`:
-   * * use a field query. Example: `networkTags:internal`
-   * * use a free text query. Example: `internal`
+   * * Use a field query. Example: `networkTags:internal`
+   * * Use a free text query. Example: `internal`
    * </pre>
    *
    * <code>repeated string network_tags = 8;</code>
@@ -963,8 +717,8 @@ private static final long serialVersionUID = 0L;
    * for more information. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `network_tags`:
-   * * use a field query. Example: `networkTags:internal`
-   * * use a free text query. Example: `internal`
+   * * Use a field query. Example: `networkTags:internal`
+   * * Use a free text query. Example: `internal`
    * </pre>
    *
    * <code>repeated string network_tags = 8;</code>
@@ -981,8 +735,8 @@ private static final long serialVersionUID = 0L;
    * for more information. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `network_tags`:
-   * * use a field query. Example: `networkTags:internal`
-   * * use a free text query. Example: `internal`
+   * * Use a field query. Example: `networkTags:internal`
+   * * Use a free text query. Example: `internal`
    * </pre>
    *
    * <code>repeated string network_tags = 8;</code>
@@ -1000,8 +754,8 @@ private static final long serialVersionUID = 0L;
    * for more information. This field is available only when the resource's
    * Protobuf contains it.
    * To search against the `network_tags`:
-   * * use a field query. Example: `networkTags:internal`
-   * * use a free text query. Example: `internal`
+   * * Use a field query. Example: `networkTags:internal`
+   * * Use a free text query. Example: `internal`
    * </pre>
    *
    * <code>repeated string network_tags = 8;</code>
@@ -1014,25 +768,33 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KMS_KEY_FIELD_NUMBER = 10;
-  private volatile java.lang.Object kmsKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKey_ = "";
   /**
    * <pre>
    * The Cloud KMS
    * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
    * name or
    * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
-   * name. This field is available only when the resource's Protobuf contains
-   * it.
+   * name.
+   * This field only presents for the purpose of backward compatibility. Please
+   * use the `kms_keys` field to retrieve KMS key information. This field is
+   * available only when the resource's Protobuf contains it and will only be
+   * populated for [these resource
+   * types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
+   * for backward compatible purposes.
    * To search against the `kms_key`:
-   * * use a field query. Example: `kmsKey:key`
-   * * use a free text query. Example: `key`
+   * * Use a field query. Example: `kmsKey:key`
+   * * Use a free text query. Example: `key`
    * </pre>
    *
-   * <code>string kms_key = 10;</code>
+   * <code>string kms_key = 10 [deprecated = true];</code>
+   * @deprecated google.cloud.asset.v1.ResourceSearchResult.kms_key is deprecated.
+   *     See google/cloud/asset/v1/assets.proto;l=434
    * @return The kmsKey.
    */
   @java.lang.Override
-  public java.lang.String getKmsKey() {
+  @java.lang.Deprecated public java.lang.String getKmsKey() {
     java.lang.Object ref = kmsKey_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
@@ -1050,18 +812,25 @@ private static final long serialVersionUID = 0L;
    * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
    * name or
    * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
-   * name. This field is available only when the resource's Protobuf contains
-   * it.
+   * name.
+   * This field only presents for the purpose of backward compatibility. Please
+   * use the `kms_keys` field to retrieve KMS key information. This field is
+   * available only when the resource's Protobuf contains it and will only be
+   * populated for [these resource
+   * types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
+   * for backward compatible purposes.
    * To search against the `kms_key`:
-   * * use a field query. Example: `kmsKey:key`
-   * * use a free text query. Example: `key`
+   * * Use a field query. Example: `kmsKey:key`
+   * * Use a free text query. Example: `key`
    * </pre>
    *
-   * <code>string kms_key = 10;</code>
+   * <code>string kms_key = 10 [deprecated = true];</code>
+   * @deprecated google.cloud.asset.v1.ResourceSearchResult.kms_key is deprecated.
+   *     See google/cloud/asset/v1/assets.proto;l=434
    * @return The bytes for kmsKey.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
+  @java.lang.Deprecated public com.google.protobuf.ByteString
       getKmsKeyBytes() {
     java.lang.Object ref = kmsKey_;
     if (ref instanceof java.lang.String) {
@@ -1075,6 +844,90 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int KMS_KEYS_FIELD_NUMBER = 28;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringList kmsKeys_;
+  /**
+   * <pre>
+   * The Cloud KMS
+   * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+   * names or
+   * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+   * names. This field is available only when the resource's Protobuf contains
+   * it.
+   * To search against the `kms_keys`:
+   * * Use a field query. Example: `kmsKeys:key`
+   * * Use a free text query. Example: `key`
+   * </pre>
+   *
+   * <code>repeated string kms_keys = 28;</code>
+   * @return A list containing the kmsKeys.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getKmsKeysList() {
+    return kmsKeys_;
+  }
+  /**
+   * <pre>
+   * The Cloud KMS
+   * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+   * names or
+   * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+   * names. This field is available only when the resource's Protobuf contains
+   * it.
+   * To search against the `kms_keys`:
+   * * Use a field query. Example: `kmsKeys:key`
+   * * Use a free text query. Example: `key`
+   * </pre>
+   *
+   * <code>repeated string kms_keys = 28;</code>
+   * @return The count of kmsKeys.
+   */
+  public int getKmsKeysCount() {
+    return kmsKeys_.size();
+  }
+  /**
+   * <pre>
+   * The Cloud KMS
+   * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+   * names or
+   * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+   * names. This field is available only when the resource's Protobuf contains
+   * it.
+   * To search against the `kms_keys`:
+   * * Use a field query. Example: `kmsKeys:key`
+   * * Use a free text query. Example: `key`
+   * </pre>
+   *
+   * <code>repeated string kms_keys = 28;</code>
+   * @param index The index of the element to return.
+   * @return The kmsKeys at the given index.
+   */
+  public java.lang.String getKmsKeys(int index) {
+    return kmsKeys_.get(index);
+  }
+  /**
+   * <pre>
+   * The Cloud KMS
+   * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+   * names or
+   * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+   * names. This field is available only when the resource's Protobuf contains
+   * it.
+   * To search against the `kms_keys`:
+   * * Use a field query. Example: `kmsKeys:key`
+   * * Use a free text query. Example: `key`
+   * </pre>
+   *
+   * <code>repeated string kms_keys = 28;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the kmsKeys at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getKmsKeysBytes(int index) {
+    return kmsKeys_.getByteString(index);
+  }
+
   public static final int CREATE_TIME_FIELD_NUMBER = 11;
   private com.google.protobuf.Timestamp createTime_;
   /**
@@ -1083,7 +936,7 @@ private static final long serialVersionUID = 0L;
    * The granularity is in seconds. Timestamp.nanos will always be 0. This field
    * is available only when the resource's Protobuf contains it.
    * To search against `create_time`:
-   * * use a field query.
+   * * Use a field query.
    *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
    *     - value in date string. Example: `createTime &gt; 2021-01-01`
    *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -1103,7 +956,7 @@ private static final long serialVersionUID = 0L;
    * The granularity is in seconds. Timestamp.nanos will always be 0. This field
    * is available only when the resource's Protobuf contains it.
    * To search against `create_time`:
-   * * use a field query.
+   * * Use a field query.
    *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
    *     - value in date string. Example: `createTime &gt; 2021-01-01`
    *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -1123,7 +976,7 @@ private static final long serialVersionUID = 0L;
    * The granularity is in seconds. Timestamp.nanos will always be 0. This field
    * is available only when the resource's Protobuf contains it.
    * To search against `create_time`:
-   * * use a field query.
+   * * Use a field query.
    *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
    *     - value in date string. Example: `createTime &gt; 2021-01-01`
    *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -1134,7 +987,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 12;
@@ -1146,7 +999,7 @@ private static final long serialVersionUID = 0L;
    * always be 0. This field is available only when the resource's Protobuf
    * contains it.
    * To search against `update_time`:
-   * * use a field query.
+   * * Use a field query.
    *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
    *     - value in date string. Example: `updateTime &lt; 2021-01-01`
    *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -1167,7 +1020,7 @@ private static final long serialVersionUID = 0L;
    * always be 0. This field is available only when the resource's Protobuf
    * contains it.
    * To search against `update_time`:
-   * * use a field query.
+   * * Use a field query.
    *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
    *     - value in date string. Example: `updateTime &lt; 2021-01-01`
    *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -1188,7 +1041,7 @@ private static final long serialVersionUID = 0L;
    * always be 0. This field is available only when the resource's Protobuf
    * contains it.
    * To search against `update_time`:
-   * * use a field query.
+   * * Use a field query.
    *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
    *     - value in date string. Example: `updateTime &lt; 2021-01-01`
    *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -1199,11 +1052,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int STATE_FIELD_NUMBER = 13;
-  private volatile java.lang.Object state_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object state_ = "";
   /**
    * <pre>
    * The state of this resource. Different resources types have different state
@@ -1221,8 +1075,8 @@ private static final long serialVersionUID = 0L;
    * DELETE_IN_PROGRESS. See `lifecycleState` definition in [API
    * Reference](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
    * To search against the `state`:
-   * * use a field query. Example: `state:RUNNING`
-   * * use a free text query. Example: `RUNNING`
+   * * Use a field query. Example: `state:RUNNING`
+   * * Use a free text query. Example: `RUNNING`
    * </pre>
    *
    * <code>string state = 13;</code>
@@ -1258,8 +1112,8 @@ private static final long serialVersionUID = 0L;
    * DELETE_IN_PROGRESS. See `lifecycleState` definition in [API
    * Reference](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
    * To search against the `state`:
-   * * use a field query. Example: `state:RUNNING`
-   * * use a free text query. Example: `RUNNING`
+   * * Use a field query. Example: `state:RUNNING`
+   * * Use a free text query. Example: `RUNNING`
    * </pre>
    *
    * <code>string state = 13;</code>
@@ -1297,7 +1151,7 @@ private static final long serialVersionUID = 0L;
    * values may change as the GCP service updates to a new incompatible API
    * version.
    * To search against the `additional_attributes`:
-   * * use a free text query to match the attributes values. Example: to search
+   * * Use a free text query to match the attributes values. Example: to search
    *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
    *   `foobar`.
    * </pre>
@@ -1324,7 +1178,7 @@ private static final long serialVersionUID = 0L;
    * values may change as the GCP service updates to a new incompatible API
    * version.
    * To search against the `additional_attributes`:
-   * * use a free text query to match the attributes values. Example: to search
+   * * Use a free text query to match the attributes values. Example: to search
    *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
    *   `foobar`.
    * </pre>
@@ -1351,7 +1205,7 @@ private static final long serialVersionUID = 0L;
    * values may change as the GCP service updates to a new incompatible API
    * version.
    * To search against the `additional_attributes`:
-   * * use a free text query to match the attributes values. Example: to search
+   * * Use a free text query to match the attributes values. Example: to search
    *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
    *   `foobar`.
    * </pre>
@@ -1360,18 +1214,19 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getAdditionalAttributesOrBuilder() {
-    return getAdditionalAttributes();
+    return additionalAttributes_ == null ? com.google.protobuf.Struct.getDefaultInstance() : additionalAttributes_;
   }
 
   public static final int PARENT_FULL_RESOURCE_NAME_FIELD_NUMBER = 19;
-  private volatile java.lang.Object parentFullResourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parentFullResourceName_ = "";
   /**
    * <pre>
    * The full resource name of this resource's parent, if it has one.
    * To search against the `parent_full_resource_name`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    * `parentFullResourceName:"project-name"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    * `project-name`
    * </pre>
    *
@@ -1395,9 +1250,9 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The full resource name of this resource's parent, if it has one.
    * To search against the `parent_full_resource_name`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    * `parentFullResourceName:"project-name"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    * `project-name`
    * </pre>
    *
@@ -1420,6 +1275,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSIONED_RESOURCES_FIELD_NUMBER = 16;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.asset.v1.VersionedResource> versionedResources_;
   /**
    * <pre>
@@ -1505,6 +1361,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ATTACHED_RESOURCES_FIELD_NUMBER = 20;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.asset.v1.AttachedResource> attachedResources_;
   /**
    * <pre>
@@ -1601,6 +1458,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.asset.v1.RelatedResources.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.asset.v1.RelatedResources> relationships_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.asset.v1.RelatedResources>
@@ -1611,7 +1469,6 @@ private static final long serialVersionUID = 0L;
     }
     return relationships_;
   }
-
   public int getRelationshipsCount() {
     return internalGetRelationships().getMap().size();
   }
@@ -1627,7 +1484,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
    */
-
   @java.lang.Override
   public boolean containsRelationships(
       java.lang.String key) {
@@ -1655,7 +1511,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.asset.v1.RelatedResources> getRelationshipsMap() {
     return internalGetRelationships().getMap();
   }
@@ -1672,10 +1527,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.asset.v1.RelatedResources getRelationshipsOrDefault(
+  public /* nullable */
+com.google.cloud.asset.v1.RelatedResources getRelationshipsOrDefault(
       java.lang.String key,
-      com.google.cloud.asset.v1.RelatedResources defaultValue) {
+      /* nullable */
+com.google.cloud.asset.v1.RelatedResources defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.asset.v1.RelatedResources> map =
         internalGetRelationships().getMap();
@@ -1694,7 +1550,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.asset.v1.RelatedResources getRelationshipsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1707,16 +1562,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAG_KEYS_FIELD_NUMBER = 23;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList tagKeys_;
   /**
    * <pre>
    * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
    * To search against the `tagKeys`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagKeys:"123456789/env*"`
    *     - `tagKeys="123456789/env"`
    *     - `tagKeys:"env"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `env`
    * </pre>
    *
@@ -1731,11 +1587,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
    * To search against the `tagKeys`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagKeys:"123456789/env*"`
    *     - `tagKeys="123456789/env"`
    *     - `tagKeys:"env"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `env`
    * </pre>
    *
@@ -1749,11 +1605,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
    * To search against the `tagKeys`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagKeys:"123456789/env*"`
    *     - `tagKeys="123456789/env"`
    *     - `tagKeys:"env"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `env`
    * </pre>
    *
@@ -1768,11 +1624,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
    * To search against the `tagKeys`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagKeys:"123456789/env*"`
    *     - `tagKeys="123456789/env"`
    *     - `tagKeys:"env"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `env`
    * </pre>
    *
@@ -1786,18 +1642,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAG_VALUES_FIELD_NUMBER = 25;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList tagValues_;
   /**
    * <pre>
    * TagValue namespaced names, in the format of
    * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
    * To search against the `tagValues`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagValues:"env"`
    *     - `tagValues:"env/prod"`
    *     - `tagValues:"123456789/env/prod*"`
    *     - `tagValues="123456789/env/prod"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `prod`
    * </pre>
    *
@@ -1813,12 +1670,12 @@ private static final long serialVersionUID = 0L;
    * TagValue namespaced names, in the format of
    * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
    * To search against the `tagValues`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagValues:"env"`
    *     - `tagValues:"env/prod"`
    *     - `tagValues:"123456789/env/prod*"`
    *     - `tagValues="123456789/env/prod"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `prod`
    * </pre>
    *
@@ -1833,12 +1690,12 @@ private static final long serialVersionUID = 0L;
    * TagValue namespaced names, in the format of
    * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
    * To search against the `tagValues`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagValues:"env"`
    *     - `tagValues:"env/prod"`
    *     - `tagValues:"123456789/env/prod*"`
    *     - `tagValues="123456789/env/prod"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `prod`
    * </pre>
    *
@@ -1854,12 +1711,12 @@ private static final long serialVersionUID = 0L;
    * TagValue namespaced names, in the format of
    * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
    * To search against the `tagValues`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagValues:"env"`
    *     - `tagValues:"env/prod"`
    *     - `tagValues:"123456789/env/prod*"`
    *     - `tagValues="123456789/env/prod"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `prod`
    * </pre>
    *
@@ -1873,15 +1730,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAG_VALUE_IDS_FIELD_NUMBER = 26;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList tagValueIds_;
   /**
    * <pre>
    * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
    * To search against the `tagValueIds`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagValueIds:"456"`
    *     - `tagValueIds="tagValues/456"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `456`
    * </pre>
    *
@@ -1896,10 +1754,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
    * To search against the `tagValueIds`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagValueIds:"456"`
    *     - `tagValueIds="tagValues/456"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `456`
    * </pre>
    *
@@ -1913,10 +1771,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
    * To search against the `tagValueIds`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagValueIds:"456"`
    *     - `tagValueIds="tagValues/456"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `456`
    * </pre>
    *
@@ -1931,10 +1789,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
    * To search against the `tagValueIds`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    *     - `tagValueIds:"456"`
    *     - `tagValueIds="tagValues/456"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    *     - `456`
    * </pre>
    *
@@ -1948,14 +1806,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_ASSET_TYPE_FIELD_NUMBER = 103;
-  private volatile java.lang.Object parentAssetType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parentAssetType_ = "";
   /**
    * <pre>
    * The type of this resource's immediate parent, if there is one.
    * To search against the `parent_asset_type`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    * `parentAssetType:"cloudresourcemanager.googleapis.com/Project"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    * `cloudresourcemanager.googleapis.com/Project`
    * </pre>
    *
@@ -1979,9 +1838,9 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The type of this resource's immediate parent, if there is one.
    * To search against the `parent_asset_type`:
-   * * use a field query. Example:
+   * * Use a field query. Example:
    * `parentAssetType:"cloudresourcemanager.googleapis.com/Project"`
-   * * use a free text query. Example:
+   * * Use a free text query. Example:
    * `cloudresourcemanager.googleapis.com/Project`
    * </pre>
    *
@@ -2089,10 +1948,13 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < tagValueIds_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 26, tagValueIds_.getRaw(i));
     }
+    for (int i = 0; i < kmsKeys_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 28, kmsKeys_.getRaw(i));
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parentAssetType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 103, parentAssetType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2211,10 +2073,18 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 2 * getTagValueIdsList().size();
     }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < kmsKeys_.size(); i++) {
+        dataSize += computeStringSizeNoTag(kmsKeys_.getRaw(i));
+      }
+      size += dataSize;
+      size += 2 * getKmsKeysList().size();
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parentAssetType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(103, parentAssetType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2251,6 +2121,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getNetworkTagsList())) return false;
     if (!getKmsKey()
         .equals(other.getKmsKey())) return false;
+    if (!getKmsKeysList()
+        .equals(other.getKmsKeysList())) return false;
     if (hasCreateTime() != other.hasCreateTime()) return false;
     if (hasCreateTime()) {
       if (!getCreateTime()
@@ -2284,7 +2156,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTagValueIdsList())) return false;
     if (!getParentAssetType()
         .equals(other.getParentAssetType())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2323,6 +2195,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + KMS_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getKmsKey().hashCode();
+    if (getKmsKeysCount() > 0) {
+      hash = (37 * hash) + KMS_KEYS_FIELD_NUMBER;
+      hash = (53 * hash) + getKmsKeysList().hashCode();
+    }
     if (hasCreateTime()) {
       hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getCreateTime().hashCode();
@@ -2365,7 +2241,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PARENT_ASSET_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getParentAssetType().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2463,6 +2339,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A result of Resource Search, containing information of a cloud resource.
+   * Next ID: 31
    * </pre>
    *
    * Protobuf type {@code google.cloud.asset.v1.ResourceSearchResult}
@@ -2512,88 +2389,72 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1.ResourceSearchResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getVersionedResourcesFieldBuilder();
-        getAttachedResourcesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       assetType_ = "";
-
       project_ = "";
-
       folders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       organization_ = "";
-
       displayName_ = "";
-
       description_ = "";
-
       location_ = "";
-
       internalGetMutableLabels().clear();
       networkTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000200);
       kmsKey_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      kmsKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       state_ = "";
-
-      if (additionalAttributesBuilder_ == null) {
-        additionalAttributes_ = null;
-      } else {
-        additionalAttributes_ = null;
+      additionalAttributes_ = null;
+      if (additionalAttributesBuilder_ != null) {
+        additionalAttributesBuilder_.dispose();
         additionalAttributesBuilder_ = null;
       }
       parentFullResourceName_ = "";
-
       if (versionedResourcesBuilder_ == null) {
         versionedResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        versionedResources_ = null;
         versionedResourcesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00020000);
       if (attachedResourcesBuilder_ == null) {
         attachedResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        attachedResources_ = null;
         attachedResourcesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00040000);
       internalGetMutableRelationships().clear();
       tagKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00100000);
       tagValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00200000);
       tagValueIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00400000);
       parentAssetType_ = "";
-
       return this;
     }
 
@@ -2620,82 +2481,121 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1.ResourceSearchResult buildPartial() {
       com.google.cloud.asset.v1.ResourceSearchResult result = new com.google.cloud.asset.v1.ResourceSearchResult(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.assetType_ = assetType_;
-      result.project_ = project_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.asset.v1.ResourceSearchResult result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         folders_ = folders_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.folders_ = folders_;
-      result.organization_ = organization_;
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      result.location_ = location_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000200) != 0)) {
         networkTags_ = networkTags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000200);
       }
       result.networkTags_ = networkTags_;
-      result.kmsKey_ = kmsKey_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
+      if (((bitField0_ & 0x00000800) != 0)) {
+        kmsKeys_ = kmsKeys_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000800);
       }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.state_ = state_;
-      if (additionalAttributesBuilder_ == null) {
-        result.additionalAttributes_ = additionalAttributes_;
-      } else {
-        result.additionalAttributes_ = additionalAttributesBuilder_.build();
-      }
-      result.parentFullResourceName_ = parentFullResourceName_;
+      result.kmsKeys_ = kmsKeys_;
       if (versionedResourcesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00020000) != 0)) {
           versionedResources_ = java.util.Collections.unmodifiableList(versionedResources_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00020000);
         }
         result.versionedResources_ = versionedResources_;
       } else {
         result.versionedResources_ = versionedResourcesBuilder_.build();
       }
       if (attachedResourcesBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00040000) != 0)) {
           attachedResources_ = java.util.Collections.unmodifiableList(attachedResources_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00040000);
         }
         result.attachedResources_ = attachedResources_;
       } else {
         result.attachedResources_ = attachedResourcesBuilder_.build();
       }
-      result.relationships_ = internalGetRelationships();
-      result.relationships_.makeImmutable();
-      if (((bitField0_ & 0x00000040) != 0)) {
+      if (((bitField0_ & 0x00100000) != 0)) {
         tagKeys_ = tagKeys_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00100000);
       }
       result.tagKeys_ = tagKeys_;
-      if (((bitField0_ & 0x00000080) != 0)) {
+      if (((bitField0_ & 0x00200000) != 0)) {
         tagValues_ = tagValues_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00200000);
       }
       result.tagValues_ = tagValues_;
-      if (((bitField0_ & 0x00000100) != 0)) {
+      if (((bitField0_ & 0x00400000) != 0)) {
         tagValueIds_ = tagValueIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00400000);
       }
       result.tagValueIds_ = tagValueIds_;
-      result.parentAssetType_ = parentAssetType_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.ResourceSearchResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.assetType_ = assetType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.organization_ = organization_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.location_ = location_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.kmsKey_ = kmsKey_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.additionalAttributes_ = additionalAttributesBuilder_ == null
+            ? additionalAttributes_
+            : additionalAttributesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.parentFullResourceName_ = parentFullResourceName_;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.relationships_ = internalGetRelationships();
+        result.relationships_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.parentAssetType_ = parentAssetType_;
+      }
     }
 
     @java.lang.Override
@@ -2744,20 +2644,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.asset.v1.ResourceSearchResult.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAssetType().isEmpty()) {
         assetType_ = other.assetType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.folders_.isEmpty()) {
         if (folders_.isEmpty()) {
           folders_ = other.folders_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureFoldersIsMutable();
           folders_.addAll(other.folders_);
@@ -2766,26 +2669,31 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOrganization().isEmpty()) {
         organization_ = other.organization_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getLocation().isEmpty()) {
         location_ = other.location_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000100;
       if (!other.networkTags_.isEmpty()) {
         if (networkTags_.isEmpty()) {
           networkTags_ = other.networkTags_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           ensureNetworkTagsIsMutable();
           networkTags_.addAll(other.networkTags_);
@@ -2794,6 +2702,17 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getKmsKey().isEmpty()) {
         kmsKey_ = other.kmsKey_;
+        bitField0_ |= 0x00000400;
+        onChanged();
+      }
+      if (!other.kmsKeys_.isEmpty()) {
+        if (kmsKeys_.isEmpty()) {
+          kmsKeys_ = other.kmsKeys_;
+          bitField0_ = (bitField0_ & ~0x00000800);
+        } else {
+          ensureKmsKeysIsMutable();
+          kmsKeys_.addAll(other.kmsKeys_);
+        }
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -2804,6 +2723,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getState().isEmpty()) {
         state_ = other.state_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       if (other.hasAdditionalAttributes()) {
@@ -2811,13 +2731,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getParentFullResourceName().isEmpty()) {
         parentFullResourceName_ = other.parentFullResourceName_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       if (versionedResourcesBuilder_ == null) {
         if (!other.versionedResources_.isEmpty()) {
           if (versionedResources_.isEmpty()) {
             versionedResources_ = other.versionedResources_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00020000);
           } else {
             ensureVersionedResourcesIsMutable();
             versionedResources_.addAll(other.versionedResources_);
@@ -2830,7 +2751,7 @@ private static final long serialVersionUID = 0L;
             versionedResourcesBuilder_.dispose();
             versionedResourcesBuilder_ = null;
             versionedResources_ = other.versionedResources_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00020000);
             versionedResourcesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVersionedResourcesFieldBuilder() : null;
@@ -2843,7 +2764,7 @@ private static final long serialVersionUID = 0L;
         if (!other.attachedResources_.isEmpty()) {
           if (attachedResources_.isEmpty()) {
             attachedResources_ = other.attachedResources_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00040000);
           } else {
             ensureAttachedResourcesIsMutable();
             attachedResources_.addAll(other.attachedResources_);
@@ -2856,7 +2777,7 @@ private static final long serialVersionUID = 0L;
             attachedResourcesBuilder_.dispose();
             attachedResourcesBuilder_ = null;
             attachedResources_ = other.attachedResources_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00040000);
             attachedResourcesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAttachedResourcesFieldBuilder() : null;
@@ -2867,10 +2788,11 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableRelationships().mergeFrom(
           other.internalGetRelationships());
+      bitField0_ |= 0x00080000;
       if (!other.tagKeys_.isEmpty()) {
         if (tagKeys_.isEmpty()) {
           tagKeys_ = other.tagKeys_;
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00100000);
         } else {
           ensureTagKeysIsMutable();
           tagKeys_.addAll(other.tagKeys_);
@@ -2880,7 +2802,7 @@ private static final long serialVersionUID = 0L;
       if (!other.tagValues_.isEmpty()) {
         if (tagValues_.isEmpty()) {
           tagValues_ = other.tagValues_;
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00200000);
         } else {
           ensureTagValuesIsMutable();
           tagValues_.addAll(other.tagValues_);
@@ -2890,7 +2812,7 @@ private static final long serialVersionUID = 0L;
       if (!other.tagValueIds_.isEmpty()) {
         if (tagValueIds_.isEmpty()) {
           tagValueIds_ = other.tagValueIds_;
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00400000);
         } else {
           ensureTagValueIdsIsMutable();
           tagValueIds_.addAll(other.tagValueIds_);
@@ -2899,9 +2821,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getParentAssetType().isEmpty()) {
         parentAssetType_ = other.parentAssetType_;
+        bitField0_ |= 0x00800000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2916,17 +2839,186 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.ResourceSearchResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              assetType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 34
+            case 42: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 42
+            case 50: {
+              location_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureNetworkTagsIsMutable();
+              networkTags_.add(s);
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getAdditionalAttributesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 74
+            case 82: {
+              kmsKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 98
+            case 106: {
+              state_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 106
+            case 130: {
+              com.google.cloud.asset.v1.VersionedResource m =
+                  input.readMessage(
+                      com.google.cloud.asset.v1.VersionedResource.parser(),
+                      extensionRegistry);
+              if (versionedResourcesBuilder_ == null) {
+                ensureVersionedResourcesIsMutable();
+                versionedResources_.add(m);
+              } else {
+                versionedResourcesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 130
+            case 138: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFoldersIsMutable();
+              folders_.add(s);
+              break;
+            } // case 138
+            case 146: {
+              organization_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 146
+            case 154: {
+              parentFullResourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 154
+            case 162: {
+              com.google.cloud.asset.v1.AttachedResource m =
+                  input.readMessage(
+                      com.google.cloud.asset.v1.AttachedResource.parser(),
+                      extensionRegistry);
+              if (attachedResourcesBuilder_ == null) {
+                ensureAttachedResourcesIsMutable();
+                attachedResources_.add(m);
+              } else {
+                attachedResourcesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 162
+            case 170: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.asset.v1.RelatedResources>
+              relationships__ = input.readMessage(
+                  RelationshipsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableRelationships().getMutableMap().put(
+                  relationships__.getKey(), relationships__.getValue());
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 170
+            case 186: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTagKeysIsMutable();
+              tagKeys_.add(s);
+              break;
+            } // case 186
+            case 202: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTagValuesIsMutable();
+              tagValues_.add(s);
+              break;
+            } // case 202
+            case 210: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTagValueIdsIsMutable();
+              tagValueIds_.add(s);
+              break;
+            } // case 210
+            case 226: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureKmsKeysIsMutable();
+              kmsKeys_.add(s);
+              break;
+            } // case 226
+            case 826: {
+              parentAssetType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 826
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.ResourceSearchResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2940,8 +3032,8 @@ private static final long serialVersionUID = 0L;
      * Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
      * for more information.
      * To search against the `name`:
-     * * use a field query. Example: `name:instance1`
-     * * use a free text query. Example: `instance1`
+     * * Use a field query. Example: `name:instance1`
+     * * Use a free text query. Example: `instance1`
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -2967,8 +3059,8 @@ private static final long serialVersionUID = 0L;
      * Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
      * for more information.
      * To search against the `name`:
-     * * use a field query. Example: `name:instance1`
-     * * use a free text query. Example: `instance1`
+     * * Use a field query. Example: `name:instance1`
+     * * Use a free text query. Example: `instance1`
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -2995,8 +3087,8 @@ private static final long serialVersionUID = 0L;
      * Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
      * for more information.
      * To search against the `name`:
-     * * use a field query. Example: `name:instance1`
-     * * use a free text query. Example: `instance1`
+     * * Use a field query. Example: `name:instance1`
+     * * Use a free text query. Example: `instance1`
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -3005,11 +3097,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3021,16 +3111,16 @@ private static final long serialVersionUID = 0L;
      * Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
      * for more information.
      * To search against the `name`:
-     * * use a field query. Example: `name:instance1`
-     * * use a free text query. Example: `instance1`
+     * * Use a field query. Example: `name:instance1`
+     * * Use a free text query. Example: `instance1`
      * </pre>
      *
      * <code>string name = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3042,8 +3132,8 @@ private static final long serialVersionUID = 0L;
      * Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
      * for more information.
      * To search against the `name`:
-     * * use a field query. Example: `name:instance1`
-     * * use a free text query. Example: `instance1`
+     * * Use a field query. Example: `name:instance1`
+     * * Use a free text query. Example: `instance1`
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -3052,12 +3142,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3067,7 +3155,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource. Example: `compute.googleapis.com/Disk`.
      * To search against the `asset_type`:
-     * * specify the `asset_type` field in your search request.
+     * * Specify the `asset_type` field in your search request.
      * </pre>
      *
      * <code>string asset_type = 2;</code>
@@ -3089,7 +3177,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource. Example: `compute.googleapis.com/Disk`.
      * To search against the `asset_type`:
-     * * specify the `asset_type` field in your search request.
+     * * Specify the `asset_type` field in your search request.
      * </pre>
      *
      * <code>string asset_type = 2;</code>
@@ -3112,7 +3200,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource. Example: `compute.googleapis.com/Disk`.
      * To search against the `asset_type`:
-     * * specify the `asset_type` field in your search request.
+     * * Specify the `asset_type` field in your search request.
      * </pre>
      *
      * <code>string asset_type = 2;</code>
@@ -3121,11 +3209,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAssetType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       assetType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3133,15 +3219,15 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource. Example: `compute.googleapis.com/Disk`.
      * To search against the `asset_type`:
-     * * specify the `asset_type` field in your search request.
+     * * Specify the `asset_type` field in your search request.
      * </pre>
      *
      * <code>string asset_type = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearAssetType() {
-      
       assetType_ = getDefaultInstance().getAssetType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3149,7 +3235,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource. Example: `compute.googleapis.com/Disk`.
      * To search against the `asset_type`:
-     * * specify the `asset_type` field in your search request.
+     * * Specify the `asset_type` field in your search request.
      * </pre>
      *
      * <code>string asset_type = 2;</code>
@@ -3158,12 +3244,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAssetTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       assetType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3175,9 +3259,9 @@ private static final long serialVersionUID = 0L;
      * projects/{PROJECT_NUMBER}. This field is available when the resource
      * belongs to a project.
      * To search against `project`:
-     * * use a field query. Example: `project:12345`
-     * * use a free text query. Example: `12345`
-     * * specify the `scope` field as this project in your search request.
+     * * Use a field query. Example: `project:12345`
+     * * Use a free text query. Example: `12345`
+     * * Specify the `scope` field as this project in your search request.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -3201,9 +3285,9 @@ private static final long serialVersionUID = 0L;
      * projects/{PROJECT_NUMBER}. This field is available when the resource
      * belongs to a project.
      * To search against `project`:
-     * * use a field query. Example: `project:12345`
-     * * use a free text query. Example: `12345`
-     * * specify the `scope` field as this project in your search request.
+     * * Use a field query. Example: `project:12345`
+     * * Use a free text query. Example: `12345`
+     * * Specify the `scope` field as this project in your search request.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -3228,9 +3312,9 @@ private static final long serialVersionUID = 0L;
      * projects/{PROJECT_NUMBER}. This field is available when the resource
      * belongs to a project.
      * To search against `project`:
-     * * use a field query. Example: `project:12345`
-     * * use a free text query. Example: `12345`
-     * * specify the `scope` field as this project in your search request.
+     * * Use a field query. Example: `project:12345`
+     * * Use a free text query. Example: `12345`
+     * * Specify the `scope` field as this project in your search request.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -3239,11 +3323,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3253,17 +3335,17 @@ private static final long serialVersionUID = 0L;
      * projects/{PROJECT_NUMBER}. This field is available when the resource
      * belongs to a project.
      * To search against `project`:
-     * * use a field query. Example: `project:12345`
-     * * use a free text query. Example: `12345`
-     * * specify the `scope` field as this project in your search request.
+     * * Use a field query. Example: `project:12345`
+     * * Use a free text query. Example: `12345`
+     * * Specify the `scope` field as this project in your search request.
      * </pre>
      *
      * <code>string project = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3273,9 +3355,9 @@ private static final long serialVersionUID = 0L;
      * projects/{PROJECT_NUMBER}. This field is available when the resource
      * belongs to a project.
      * To search against `project`:
-     * * use a field query. Example: `project:12345`
-     * * use a free text query. Example: `12345`
-     * * specify the `scope` field as this project in your search request.
+     * * Use a field query. Example: `project:12345`
+     * * Use a free text query. Example: `12345`
+     * * Specify the `scope` field as this project in your search request.
      * </pre>
      *
      * <code>string project = 3;</code>
@@ -3284,21 +3366,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList folders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFoldersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         folders_ = new com.google.protobuf.LazyStringArrayList(folders_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -3307,9 +3387,9 @@ private static final long serialVersionUID = 0L;
      * folders/{FOLDER_NUMBER}. This field is available when the resource
      * belongs to one or more folders.
      * To search against `folders`:
-     * * use a field query. Example: `folders:(123 OR 456)`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this folder in your search request.
+     * * Use a field query. Example: `folders:(123 OR 456)`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this folder in your search request.
      * </pre>
      *
      * <code>repeated string folders = 17;</code>
@@ -3325,9 +3405,9 @@ private static final long serialVersionUID = 0L;
      * folders/{FOLDER_NUMBER}. This field is available when the resource
      * belongs to one or more folders.
      * To search against `folders`:
-     * * use a field query. Example: `folders:(123 OR 456)`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this folder in your search request.
+     * * Use a field query. Example: `folders:(123 OR 456)`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this folder in your search request.
      * </pre>
      *
      * <code>repeated string folders = 17;</code>
@@ -3342,9 +3422,9 @@ private static final long serialVersionUID = 0L;
      * folders/{FOLDER_NUMBER}. This field is available when the resource
      * belongs to one or more folders.
      * To search against `folders`:
-     * * use a field query. Example: `folders:(123 OR 456)`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this folder in your search request.
+     * * Use a field query. Example: `folders:(123 OR 456)`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this folder in your search request.
      * </pre>
      *
      * <code>repeated string folders = 17;</code>
@@ -3360,9 +3440,9 @@ private static final long serialVersionUID = 0L;
      * folders/{FOLDER_NUMBER}. This field is available when the resource
      * belongs to one or more folders.
      * To search against `folders`:
-     * * use a field query. Example: `folders:(123 OR 456)`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this folder in your search request.
+     * * Use a field query. Example: `folders:(123 OR 456)`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this folder in your search request.
      * </pre>
      *
      * <code>repeated string folders = 17;</code>
@@ -3379,9 +3459,9 @@ private static final long serialVersionUID = 0L;
      * folders/{FOLDER_NUMBER}. This field is available when the resource
      * belongs to one or more folders.
      * To search against `folders`:
-     * * use a field query. Example: `folders:(123 OR 456)`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this folder in your search request.
+     * * Use a field query. Example: `folders:(123 OR 456)`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this folder in your search request.
      * </pre>
      *
      * <code>repeated string folders = 17;</code>
@@ -3391,10 +3471,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFolders(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFoldersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFoldersIsMutable();
       folders_.set(index, value);
       onChanged();
       return this;
@@ -3405,9 +3483,9 @@ private static final long serialVersionUID = 0L;
      * folders/{FOLDER_NUMBER}. This field is available when the resource
      * belongs to one or more folders.
      * To search against `folders`:
-     * * use a field query. Example: `folders:(123 OR 456)`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this folder in your search request.
+     * * Use a field query. Example: `folders:(123 OR 456)`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this folder in your search request.
      * </pre>
      *
      * <code>repeated string folders = 17;</code>
@@ -3416,10 +3494,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFolders(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFoldersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFoldersIsMutable();
       folders_.add(value);
       onChanged();
       return this;
@@ -3430,9 +3506,9 @@ private static final long serialVersionUID = 0L;
      * folders/{FOLDER_NUMBER}. This field is available when the resource
      * belongs to one or more folders.
      * To search against `folders`:
-     * * use a field query. Example: `folders:(123 OR 456)`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this folder in your search request.
+     * * Use a field query. Example: `folders:(123 OR 456)`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this folder in your search request.
      * </pre>
      *
      * <code>repeated string folders = 17;</code>
@@ -3453,9 +3529,9 @@ private static final long serialVersionUID = 0L;
      * folders/{FOLDER_NUMBER}. This field is available when the resource
      * belongs to one or more folders.
      * To search against `folders`:
-     * * use a field query. Example: `folders:(123 OR 456)`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this folder in your search request.
+     * * Use a field query. Example: `folders:(123 OR 456)`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this folder in your search request.
      * </pre>
      *
      * <code>repeated string folders = 17;</code>
@@ -3463,7 +3539,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFolders() {
       folders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3473,9 +3549,9 @@ private static final long serialVersionUID = 0L;
      * folders/{FOLDER_NUMBER}. This field is available when the resource
      * belongs to one or more folders.
      * To search against `folders`:
-     * * use a field query. Example: `folders:(123 OR 456)`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this folder in your search request.
+     * * Use a field query. Example: `folders:(123 OR 456)`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this folder in your search request.
      * </pre>
      *
      * <code>repeated string folders = 17;</code>
@@ -3484,10 +3560,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFoldersBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFoldersIsMutable();
       folders_.add(value);
       onChanged();
@@ -3501,9 +3575,9 @@ private static final long serialVersionUID = 0L;
      * organizations/{ORGANIZATION_NUMBER}. This field is available when the
      * resource belongs to an organization.
      * To search against `organization`:
-     * * use a field query. Example: `organization:123`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this organization in your search request.
+     * * Use a field query. Example: `organization:123`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this organization in your search request.
      * </pre>
      *
      * <code>string organization = 18;</code>
@@ -3527,9 +3601,9 @@ private static final long serialVersionUID = 0L;
      * organizations/{ORGANIZATION_NUMBER}. This field is available when the
      * resource belongs to an organization.
      * To search against `organization`:
-     * * use a field query. Example: `organization:123`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this organization in your search request.
+     * * Use a field query. Example: `organization:123`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this organization in your search request.
      * </pre>
      *
      * <code>string organization = 18;</code>
@@ -3554,9 +3628,9 @@ private static final long serialVersionUID = 0L;
      * organizations/{ORGANIZATION_NUMBER}. This field is available when the
      * resource belongs to an organization.
      * To search against `organization`:
-     * * use a field query. Example: `organization:123`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this organization in your search request.
+     * * Use a field query. Example: `organization:123`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this organization in your search request.
      * </pre>
      *
      * <code>string organization = 18;</code>
@@ -3565,11 +3639,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrganization(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       organization_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3579,17 +3651,17 @@ private static final long serialVersionUID = 0L;
      * organizations/{ORGANIZATION_NUMBER}. This field is available when the
      * resource belongs to an organization.
      * To search against `organization`:
-     * * use a field query. Example: `organization:123`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this organization in your search request.
+     * * Use a field query. Example: `organization:123`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this organization in your search request.
      * </pre>
      *
      * <code>string organization = 18;</code>
      * @return This builder for chaining.
      */
     public Builder clearOrganization() {
-      
       organization_ = getDefaultInstance().getOrganization();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3599,9 +3671,9 @@ private static final long serialVersionUID = 0L;
      * organizations/{ORGANIZATION_NUMBER}. This field is available when the
      * resource belongs to an organization.
      * To search against `organization`:
-     * * use a field query. Example: `organization:123`
-     * * use a free text query. Example: `123`
-     * * specify the `scope` field as this organization in your search request.
+     * * Use a field query. Example: `organization:123`
+     * * Use a free text query. Example: `123`
+     * * Specify the `scope` field as this organization in your search request.
      * </pre>
      *
      * <code>string organization = 18;</code>
@@ -3610,12 +3682,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrganizationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       organization_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3626,8 +3696,8 @@ private static final long serialVersionUID = 0L;
      * The display name of this resource. This field is available only when the
      * resource's Protobuf contains it.
      * To search against the `display_name`:
-     * * use a field query. Example: `displayName:"My Instance"`
-     * * use a free text query. Example: `"My Instance"`
+     * * Use a field query. Example: `displayName:"My Instance"`
+     * * Use a free text query. Example: `"My Instance"`
      * </pre>
      *
      * <code>string display_name = 4;</code>
@@ -3650,8 +3720,8 @@ private static final long serialVersionUID = 0L;
      * The display name of this resource. This field is available only when the
      * resource's Protobuf contains it.
      * To search against the `display_name`:
-     * * use a field query. Example: `displayName:"My Instance"`
-     * * use a free text query. Example: `"My Instance"`
+     * * Use a field query. Example: `displayName:"My Instance"`
+     * * Use a free text query. Example: `"My Instance"`
      * </pre>
      *
      * <code>string display_name = 4;</code>
@@ -3675,8 +3745,8 @@ private static final long serialVersionUID = 0L;
      * The display name of this resource. This field is available only when the
      * resource's Protobuf contains it.
      * To search against the `display_name`:
-     * * use a field query. Example: `displayName:"My Instance"`
-     * * use a free text query. Example: `"My Instance"`
+     * * Use a field query. Example: `displayName:"My Instance"`
+     * * Use a free text query. Example: `"My Instance"`
      * </pre>
      *
      * <code>string display_name = 4;</code>
@@ -3685,11 +3755,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3698,16 +3766,16 @@ private static final long serialVersionUID = 0L;
      * The display name of this resource. This field is available only when the
      * resource's Protobuf contains it.
      * To search against the `display_name`:
-     * * use a field query. Example: `displayName:"My Instance"`
-     * * use a free text query. Example: `"My Instance"`
+     * * Use a field query. Example: `displayName:"My Instance"`
+     * * Use a free text query. Example: `"My Instance"`
      * </pre>
      *
      * <code>string display_name = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3716,8 +3784,8 @@ private static final long serialVersionUID = 0L;
      * The display name of this resource. This field is available only when the
      * resource's Protobuf contains it.
      * To search against the `display_name`:
-     * * use a field query. Example: `displayName:"My Instance"`
-     * * use a free text query. Example: `"My Instance"`
+     * * Use a field query. Example: `displayName:"My Instance"`
+     * * Use a free text query. Example: `"My Instance"`
      * </pre>
      *
      * <code>string display_name = 4;</code>
@@ -3726,12 +3794,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3743,8 +3809,8 @@ private static final long serialVersionUID = 0L;
      * could be up to 1M bytes. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `description`:
-     * * use a field query. Example: `description:"important instance"`
-     * * use a free text query. Example: `"important instance"`
+     * * Use a field query. Example: `description:"important instance"`
+     * * Use a free text query. Example: `"important instance"`
      * </pre>
      *
      * <code>string description = 5;</code>
@@ -3768,8 +3834,8 @@ private static final long serialVersionUID = 0L;
      * could be up to 1M bytes. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `description`:
-     * * use a field query. Example: `description:"important instance"`
-     * * use a free text query. Example: `"important instance"`
+     * * Use a field query. Example: `description:"important instance"`
+     * * Use a free text query. Example: `"important instance"`
      * </pre>
      *
      * <code>string description = 5;</code>
@@ -3794,8 +3860,8 @@ private static final long serialVersionUID = 0L;
      * could be up to 1M bytes. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `description`:
-     * * use a field query. Example: `description:"important instance"`
-     * * use a free text query. Example: `"important instance"`
+     * * Use a field query. Example: `description:"important instance"`
+     * * Use a free text query. Example: `"important instance"`
      * </pre>
      *
      * <code>string description = 5;</code>
@@ -3804,11 +3870,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3818,16 +3882,16 @@ private static final long serialVersionUID = 0L;
      * could be up to 1M bytes. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `description`:
-     * * use a field query. Example: `description:"important instance"`
-     * * use a free text query. Example: `"important instance"`
+     * * Use a field query. Example: `description:"important instance"`
+     * * Use a free text query. Example: `"important instance"`
      * </pre>
      *
      * <code>string description = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3837,8 +3901,8 @@ private static final long serialVersionUID = 0L;
      * could be up to 1M bytes. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `description`:
-     * * use a field query. Example: `description:"important instance"`
-     * * use a free text query. Example: `"important instance"`
+     * * Use a field query. Example: `description:"important instance"`
+     * * Use a free text query. Example: `"important instance"`
      * </pre>
      *
      * <code>string description = 5;</code>
@@ -3847,12 +3911,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3864,8 +3926,8 @@ private static final long serialVersionUID = 0L;
      * `us-west1-b`. This field is available only when the resource's Protobuf
      * contains it.
      * To search against the `location`:
-     * * use a field query. Example: `location:us-west*`
-     * * use a free text query. Example: `us-west*`
+     * * Use a field query. Example: `location:us-west*`
+     * * Use a free text query. Example: `us-west*`
      * </pre>
      *
      * <code>string location = 6;</code>
@@ -3889,8 +3951,8 @@ private static final long serialVersionUID = 0L;
      * `us-west1-b`. This field is available only when the resource's Protobuf
      * contains it.
      * To search against the `location`:
-     * * use a field query. Example: `location:us-west*`
-     * * use a free text query. Example: `us-west*`
+     * * Use a field query. Example: `location:us-west*`
+     * * Use a free text query. Example: `us-west*`
      * </pre>
      *
      * <code>string location = 6;</code>
@@ -3915,8 +3977,8 @@ private static final long serialVersionUID = 0L;
      * `us-west1-b`. This field is available only when the resource's Protobuf
      * contains it.
      * To search against the `location`:
-     * * use a field query. Example: `location:us-west*`
-     * * use a free text query. Example: `us-west*`
+     * * Use a field query. Example: `location:us-west*`
+     * * Use a free text query. Example: `us-west*`
      * </pre>
      *
      * <code>string location = 6;</code>
@@ -3925,11 +3987,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       location_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3939,16 +3999,16 @@ private static final long serialVersionUID = 0L;
      * `us-west1-b`. This field is available only when the resource's Protobuf
      * contains it.
      * To search against the `location`:
-     * * use a field query. Example: `location:us-west*`
-     * * use a free text query. Example: `us-west*`
+     * * Use a field query. Example: `location:us-west*`
+     * * Use a free text query. Example: `us-west*`
      * </pre>
      *
      * <code>string location = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearLocation() {
-      
       location_ = getDefaultInstance().getLocation();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3958,8 +4018,8 @@ private static final long serialVersionUID = 0L;
      * `us-west1-b`. This field is available only when the resource's Protobuf
      * contains it.
      * To search against the `location`:
-     * * use a field query. Example: `location:us-west*`
-     * * use a free text query. Example: `us-west*`
+     * * Use a field query. Example: `location:us-west*`
+     * * Use a free text query. Example: `us-west*`
      * </pre>
      *
      * <code>string location = 6;</code>
@@ -3968,12 +4028,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       location_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3981,7 +4039,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3989,8 +4047,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3998,9 +4055,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -4011,16 +4069,15 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `labels`:
-     * * use a field query:
+     * * Use a field query:
      *     - query on any label's key or value. Example: `labels:prod`
      *     - query by a given label. Example: `labels.env:prod`
      *     - query by a given label's existence. Example: `labels.env:*`
-     * * use a free text query. Example: `prod`
+     * * Use a free text query. Example: `prod`
      * </pre>
      *
      * <code>map&lt;string, string&gt; labels = 7;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -4042,17 +4099,16 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `labels`:
-     * * use a field query:
+     * * Use a field query:
      *     - query on any label's key or value. Example: `labels:prod`
      *     - query by a given label. Example: `labels.env:prod`
      *     - query by a given label's existence. Example: `labels.env:*`
-     * * use a free text query. Example: `prod`
+     * * Use a free text query. Example: `prod`
      * </pre>
      *
      * <code>map&lt;string, string&gt; labels = 7;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -4063,20 +4119,21 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `labels`:
-     * * use a field query:
+     * * Use a field query:
      *     - query on any label's key or value. Example: `labels:prod`
      *     - query by a given label. Example: `labels.env:prod`
      *     - query by a given label's existence. Example: `labels.env:*`
-     * * use a free text query. Example: `prod`
+     * * Use a free text query. Example: `prod`
      * </pre>
      *
      * <code>map&lt;string, string&gt; labels = 7;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -4089,17 +4146,16 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `labels`:
-     * * use a field query:
+     * * Use a field query:
      *     - query on any label's key or value. Example: `labels:prod`
      *     - query by a given label. Example: `labels.env:prod`
      *     - query by a given label's existence. Example: `labels.env:*`
-     * * use a free text query. Example: `prod`
+     * * Use a free text query. Example: `prod`
      * </pre>
      *
      * <code>map&lt;string, string&gt; labels = 7;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4110,8 +4166,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -4123,16 +4179,15 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `labels`:
-     * * use a field query:
+     * * Use a field query:
      *     - query on any label's key or value. Example: `labels:prod`
      *     - query by a given label. Example: `labels.env:prod`
      *     - query by a given label's existence. Example: `labels.env:*`
-     * * use a free text query. Example: `prod`
+     * * Use a free text query. Example: `prod`
      * </pre>
      *
      * <code>map&lt;string, string&gt; labels = 7;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4145,7 +4200,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000100;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -4155,11 +4211,11 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `labels`:
-     * * use a field query:
+     * * Use a field query:
      *     - query on any label's key or value. Example: `labels:prod`
      *     - query by a given label. Example: `labels.env:prod`
      *     - query by a given label's existence. Example: `labels.env:*`
-     * * use a free text query. Example: `prod`
+     * * Use a free text query. Example: `prod`
      * </pre>
      *
      * <code>map&lt;string, string&gt; labels = 7;</code>
@@ -4168,12 +4224,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -4183,28 +4237,28 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `labels`:
-     * * use a field query:
+     * * Use a field query:
      *     - query on any label's key or value. Example: `labels:prod`
      *     - query by a given label. Example: `labels.env:prod`
      *     - query by a given label's existence. Example: `labels.env:*`
-     * * use a free text query. Example: `prod`
+     * * Use a free text query. Example: `prod`
      * </pre>
      *
      * <code>map&lt;string, string&gt; labels = 7;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
 
     private com.google.protobuf.LazyStringList networkTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureNetworkTagsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         networkTags_ = new com.google.protobuf.LazyStringArrayList(networkTags_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000200;
        }
     }
     /**
@@ -4215,8 +4269,8 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `network_tags`:
-     * * use a field query. Example: `networkTags:internal`
-     * * use a free text query. Example: `internal`
+     * * Use a field query. Example: `networkTags:internal`
+     * * Use a free text query. Example: `internal`
      * </pre>
      *
      * <code>repeated string network_tags = 8;</code>
@@ -4234,8 +4288,8 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `network_tags`:
-     * * use a field query. Example: `networkTags:internal`
-     * * use a free text query. Example: `internal`
+     * * Use a field query. Example: `networkTags:internal`
+     * * Use a free text query. Example: `internal`
      * </pre>
      *
      * <code>repeated string network_tags = 8;</code>
@@ -4252,8 +4306,8 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `network_tags`:
-     * * use a field query. Example: `networkTags:internal`
-     * * use a free text query. Example: `internal`
+     * * Use a field query. Example: `networkTags:internal`
+     * * Use a free text query. Example: `internal`
      * </pre>
      *
      * <code>repeated string network_tags = 8;</code>
@@ -4271,8 +4325,8 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `network_tags`:
-     * * use a field query. Example: `networkTags:internal`
-     * * use a free text query. Example: `internal`
+     * * Use a field query. Example: `networkTags:internal`
+     * * Use a free text query. Example: `internal`
      * </pre>
      *
      * <code>repeated string network_tags = 8;</code>
@@ -4291,8 +4345,8 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `network_tags`:
-     * * use a field query. Example: `networkTags:internal`
-     * * use a free text query. Example: `internal`
+     * * Use a field query. Example: `networkTags:internal`
+     * * Use a free text query. Example: `internal`
      * </pre>
      *
      * <code>repeated string network_tags = 8;</code>
@@ -4302,10 +4356,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNetworkTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNetworkTagsIsMutable();
       networkTags_.set(index, value);
       onChanged();
       return this;
@@ -4318,8 +4370,8 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `network_tags`:
-     * * use a field query. Example: `networkTags:internal`
-     * * use a free text query. Example: `internal`
+     * * Use a field query. Example: `networkTags:internal`
+     * * Use a free text query. Example: `internal`
      * </pre>
      *
      * <code>repeated string network_tags = 8;</code>
@@ -4328,10 +4380,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNetworkTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNetworkTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNetworkTagsIsMutable();
       networkTags_.add(value);
       onChanged();
       return this;
@@ -4344,8 +4394,8 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `network_tags`:
-     * * use a field query. Example: `networkTags:internal`
-     * * use a free text query. Example: `internal`
+     * * Use a field query. Example: `networkTags:internal`
+     * * Use a free text query. Example: `internal`
      * </pre>
      *
      * <code>repeated string network_tags = 8;</code>
@@ -4368,8 +4418,8 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `network_tags`:
-     * * use a field query. Example: `networkTags:internal`
-     * * use a free text query. Example: `internal`
+     * * Use a field query. Example: `networkTags:internal`
+     * * Use a free text query. Example: `internal`
      * </pre>
      *
      * <code>repeated string network_tags = 8;</code>
@@ -4377,7 +4427,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearNetworkTags() {
       networkTags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -4389,8 +4439,8 @@ private static final long serialVersionUID = 0L;
      * for more information. This field is available only when the resource's
      * Protobuf contains it.
      * To search against the `network_tags`:
-     * * use a field query. Example: `networkTags:internal`
-     * * use a free text query. Example: `internal`
+     * * Use a field query. Example: `networkTags:internal`
+     * * Use a free text query. Example: `internal`
      * </pre>
      *
      * <code>repeated string network_tags = 8;</code>
@@ -4399,10 +4449,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNetworkTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureNetworkTagsIsMutable();
       networkTags_.add(value);
       onChanged();
@@ -4416,17 +4464,24 @@ private static final long serialVersionUID = 0L;
      * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
      * name or
      * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
-     * name. This field is available only when the resource's Protobuf contains
-     * it.
+     * name.
+     * This field only presents for the purpose of backward compatibility. Please
+     * use the `kms_keys` field to retrieve KMS key information. This field is
+     * available only when the resource's Protobuf contains it and will only be
+     * populated for [these resource
+     * types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
+     * for backward compatible purposes.
      * To search against the `kms_key`:
-     * * use a field query. Example: `kmsKey:key`
-     * * use a free text query. Example: `key`
+     * * Use a field query. Example: `kmsKey:key`
+     * * Use a free text query. Example: `key`
      * </pre>
      *
-     * <code>string kms_key = 10;</code>
+     * <code>string kms_key = 10 [deprecated = true];</code>
+     * @deprecated google.cloud.asset.v1.ResourceSearchResult.kms_key is deprecated.
+     *     See google/cloud/asset/v1/assets.proto;l=434
      * @return The kmsKey.
      */
-    public java.lang.String getKmsKey() {
+    @java.lang.Deprecated public java.lang.String getKmsKey() {
       java.lang.Object ref = kmsKey_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
@@ -4444,17 +4499,24 @@ private static final long serialVersionUID = 0L;
      * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
      * name or
      * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
-     * name. This field is available only when the resource's Protobuf contains
-     * it.
+     * name.
+     * This field only presents for the purpose of backward compatibility. Please
+     * use the `kms_keys` field to retrieve KMS key information. This field is
+     * available only when the resource's Protobuf contains it and will only be
+     * populated for [these resource
+     * types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
+     * for backward compatible purposes.
      * To search against the `kms_key`:
-     * * use a field query. Example: `kmsKey:key`
-     * * use a free text query. Example: `key`
+     * * Use a field query. Example: `kmsKey:key`
+     * * Use a free text query. Example: `key`
      * </pre>
      *
-     * <code>string kms_key = 10;</code>
+     * <code>string kms_key = 10 [deprecated = true];</code>
+     * @deprecated google.cloud.asset.v1.ResourceSearchResult.kms_key is deprecated.
+     *     See google/cloud/asset/v1/assets.proto;l=434
      * @return The bytes for kmsKey.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getKmsKeyBytes() {
       java.lang.Object ref = kmsKey_;
       if (ref instanceof String) {
@@ -4473,24 +4535,29 @@ private static final long serialVersionUID = 0L;
      * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
      * name or
      * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
-     * name. This field is available only when the resource's Protobuf contains
-     * it.
+     * name.
+     * This field only presents for the purpose of backward compatibility. Please
+     * use the `kms_keys` field to retrieve KMS key information. This field is
+     * available only when the resource's Protobuf contains it and will only be
+     * populated for [these resource
+     * types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
+     * for backward compatible purposes.
      * To search against the `kms_key`:
-     * * use a field query. Example: `kmsKey:key`
-     * * use a free text query. Example: `key`
+     * * Use a field query. Example: `kmsKey:key`
+     * * Use a free text query. Example: `key`
      * </pre>
      *
-     * <code>string kms_key = 10;</code>
+     * <code>string kms_key = 10 [deprecated = true];</code>
+     * @deprecated google.cloud.asset.v1.ResourceSearchResult.kms_key is deprecated.
+     *     See google/cloud/asset/v1/assets.proto;l=434
      * @param value The kmsKey to set.
      * @return This builder for chaining.
      */
-    public Builder setKmsKey(
+    @java.lang.Deprecated public Builder setKmsKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kmsKey_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4500,19 +4567,26 @@ private static final long serialVersionUID = 0L;
      * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
      * name or
      * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
-     * name. This field is available only when the resource's Protobuf contains
-     * it.
+     * name.
+     * This field only presents for the purpose of backward compatibility. Please
+     * use the `kms_keys` field to retrieve KMS key information. This field is
+     * available only when the resource's Protobuf contains it and will only be
+     * populated for [these resource
+     * types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
+     * for backward compatible purposes.
      * To search against the `kms_key`:
-     * * use a field query. Example: `kmsKey:key`
-     * * use a free text query. Example: `key`
+     * * Use a field query. Example: `kmsKey:key`
+     * * Use a free text query. Example: `key`
      * </pre>
      *
-     * <code>string kms_key = 10;</code>
+     * <code>string kms_key = 10 [deprecated = true];</code>
+     * @deprecated google.cloud.asset.v1.ResourceSearchResult.kms_key is deprecated.
+     *     See google/cloud/asset/v1/assets.proto;l=434
      * @return This builder for chaining.
      */
-    public Builder clearKmsKey() {
-      
+    @java.lang.Deprecated public Builder clearKmsKey() {
       kmsKey_ = getDefaultInstance().getKmsKey();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -4522,25 +4596,242 @@ private static final long serialVersionUID = 0L;
      * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
      * name or
      * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
-     * name. This field is available only when the resource's Protobuf contains
-     * it.
+     * name.
+     * This field only presents for the purpose of backward compatibility. Please
+     * use the `kms_keys` field to retrieve KMS key information. This field is
+     * available only when the resource's Protobuf contains it and will only be
+     * populated for [these resource
+     * types](https://cloud.google.com/asset-inventory/docs/legacy-field-names#resource_types_with_the_to_be_deprecated_kmskey_field)
+     * for backward compatible purposes.
      * To search against the `kms_key`:
-     * * use a field query. Example: `kmsKey:key`
-     * * use a free text query. Example: `key`
+     * * Use a field query. Example: `kmsKey:key`
+     * * Use a free text query. Example: `key`
      * </pre>
      *
-     * <code>string kms_key = 10;</code>
+     * <code>string kms_key = 10 [deprecated = true];</code>
+     * @deprecated google.cloud.asset.v1.ResourceSearchResult.kms_key is deprecated.
+     *     See google/cloud/asset/v1/assets.proto;l=434
      * @param value The bytes for kmsKey to set.
      * @return This builder for chaining.
      */
-    public Builder setKmsKeyBytes(
+    @java.lang.Deprecated public Builder setKmsKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKey_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList kmsKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureKmsKeysIsMutable() {
+      if (!((bitField0_ & 0x00000800) != 0)) {
+        kmsKeys_ = new com.google.protobuf.LazyStringArrayList(kmsKeys_);
+        bitField0_ |= 0x00000800;
+       }
+    }
+    /**
+     * <pre>
+     * The Cloud KMS
+     * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+     * names or
+     * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+     * names. This field is available only when the resource's Protobuf contains
+     * it.
+     * To search against the `kms_keys`:
+     * * Use a field query. Example: `kmsKeys:key`
+     * * Use a free text query. Example: `key`
+     * </pre>
+     *
+     * <code>repeated string kms_keys = 28;</code>
+     * @return A list containing the kmsKeys.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getKmsKeysList() {
+      return kmsKeys_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * The Cloud KMS
+     * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+     * names or
+     * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+     * names. This field is available only when the resource's Protobuf contains
+     * it.
+     * To search against the `kms_keys`:
+     * * Use a field query. Example: `kmsKeys:key`
+     * * Use a free text query. Example: `key`
+     * </pre>
+     *
+     * <code>repeated string kms_keys = 28;</code>
+     * @return The count of kmsKeys.
+     */
+    public int getKmsKeysCount() {
+      return kmsKeys_.size();
+    }
+    /**
+     * <pre>
+     * The Cloud KMS
+     * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+     * names or
+     * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+     * names. This field is available only when the resource's Protobuf contains
+     * it.
+     * To search against the `kms_keys`:
+     * * Use a field query. Example: `kmsKeys:key`
+     * * Use a free text query. Example: `key`
+     * </pre>
+     *
+     * <code>repeated string kms_keys = 28;</code>
+     * @param index The index of the element to return.
+     * @return The kmsKeys at the given index.
+     */
+    public java.lang.String getKmsKeys(int index) {
+      return kmsKeys_.get(index);
+    }
+    /**
+     * <pre>
+     * The Cloud KMS
+     * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+     * names or
+     * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+     * names. This field is available only when the resource's Protobuf contains
+     * it.
+     * To search against the `kms_keys`:
+     * * Use a field query. Example: `kmsKeys:key`
+     * * Use a free text query. Example: `key`
+     * </pre>
+     *
+     * <code>repeated string kms_keys = 28;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the kmsKeys at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getKmsKeysBytes(int index) {
+      return kmsKeys_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * The Cloud KMS
+     * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+     * names or
+     * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+     * names. This field is available only when the resource's Protobuf contains
+     * it.
+     * To search against the `kms_keys`:
+     * * Use a field query. Example: `kmsKeys:key`
+     * * Use a free text query. Example: `key`
+     * </pre>
+     *
+     * <code>repeated string kms_keys = 28;</code>
+     * @param index The index to set the value at.
+     * @param value The kmsKeys to set.
+     * @return This builder for chaining.
+     */
+    public Builder setKmsKeys(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureKmsKeysIsMutable();
+      kmsKeys_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The Cloud KMS
+     * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+     * names or
+     * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+     * names. This field is available only when the resource's Protobuf contains
+     * it.
+     * To search against the `kms_keys`:
+     * * Use a field query. Example: `kmsKeys:key`
+     * * Use a free text query. Example: `key`
+     * </pre>
+     *
+     * <code>repeated string kms_keys = 28;</code>
+     * @param value The kmsKeys to add.
+     * @return This builder for chaining.
+     */
+    public Builder addKmsKeys(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureKmsKeysIsMutable();
+      kmsKeys_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The Cloud KMS
+     * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+     * names or
+     * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+     * names. This field is available only when the resource's Protobuf contains
+     * it.
+     * To search against the `kms_keys`:
+     * * Use a field query. Example: `kmsKeys:key`
+     * * Use a free text query. Example: `key`
+     * </pre>
+     *
+     * <code>repeated string kms_keys = 28;</code>
+     * @param values The kmsKeys to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllKmsKeys(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureKmsKeysIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, kmsKeys_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The Cloud KMS
+     * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+     * names or
+     * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+     * names. This field is available only when the resource's Protobuf contains
+     * it.
+     * To search against the `kms_keys`:
+     * * Use a field query. Example: `kmsKeys:key`
+     * * Use a free text query. Example: `key`
+     * </pre>
+     *
+     * <code>repeated string kms_keys = 28;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearKmsKeys() {
+      kmsKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The Cloud KMS
+     * [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
+     * names or
+     * [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+     * names. This field is available only when the resource's Protobuf contains
+     * it.
+     * To search against the `kms_keys`:
+     * * Use a field query. Example: `kmsKeys:key`
+     * * Use a free text query. Example: `key`
+     * </pre>
+     *
+     * <code>repeated string kms_keys = 28;</code>
+     * @param value The bytes of the kmsKeys to add.
+     * @return This builder for chaining.
+     */
+    public Builder addKmsKeysBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureKmsKeysIsMutable();
+      kmsKeys_.add(value);
       onChanged();
       return this;
     }
@@ -4554,7 +4845,7 @@ private static final long serialVersionUID = 0L;
      * The granularity is in seconds. Timestamp.nanos will always be 0. This field
      * is available only when the resource's Protobuf contains it.
      * To search against `create_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
      *     - value in date string. Example: `createTime &gt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -4565,7 +4856,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -4573,7 +4864,7 @@ private static final long serialVersionUID = 0L;
      * The granularity is in seconds. Timestamp.nanos will always be 0. This field
      * is available only when the resource's Protobuf contains it.
      * To search against `create_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
      *     - value in date string. Example: `createTime &gt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -4596,7 +4887,7 @@ private static final long serialVersionUID = 0L;
      * The granularity is in seconds. Timestamp.nanos will always be 0. This field
      * is available only when the resource's Protobuf contains it.
      * To search against `create_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
      *     - value in date string. Example: `createTime &gt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -4611,11 +4902,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4624,7 +4915,7 @@ private static final long serialVersionUID = 0L;
      * The granularity is in seconds. Timestamp.nanos will always be 0. This field
      * is available only when the resource's Protobuf contains it.
      * To search against `create_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
      *     - value in date string. Example: `createTime &gt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -4637,11 +4928,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4650,7 +4941,7 @@ private static final long serialVersionUID = 0L;
      * The granularity is in seconds. Timestamp.nanos will always be 0. This field
      * is available only when the resource's Protobuf contains it.
      * To search against `create_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
      *     - value in date string. Example: `createTime &gt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -4661,17 +4952,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4680,7 +4972,7 @@ private static final long serialVersionUID = 0L;
      * The granularity is in seconds. Timestamp.nanos will always be 0. This field
      * is available only when the resource's Protobuf contains it.
      * To search against `create_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
      *     - value in date string. Example: `createTime &gt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -4690,14 +4982,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 11;</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4706,7 +4997,7 @@ private static final long serialVersionUID = 0L;
      * The granularity is in seconds. Timestamp.nanos will always be 0. This field
      * is available only when the resource's Protobuf contains it.
      * To search against `create_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
      *     - value in date string. Example: `createTime &gt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -4716,7 +5007,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 11;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -4726,7 +5017,7 @@ private static final long serialVersionUID = 0L;
      * The granularity is in seconds. Timestamp.nanos will always be 0. This field
      * is available only when the resource's Protobuf contains it.
      * To search against `create_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
      *     - value in date string. Example: `createTime &gt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -4749,7 +5040,7 @@ private static final long serialVersionUID = 0L;
      * The granularity is in seconds. Timestamp.nanos will always be 0. This field
      * is available only when the resource's Protobuf contains it.
      * To search against `create_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `createTime &gt; 1609459200`
      *     - value in date string. Example: `createTime &gt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `createTime &gt;
@@ -4782,7 +5073,7 @@ private static final long serialVersionUID = 0L;
      * always be 0. This field is available only when the resource's Protobuf
      * contains it.
      * To search against `update_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
      *     - value in date string. Example: `updateTime &lt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -4793,7 +5084,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -4802,7 +5093,7 @@ private static final long serialVersionUID = 0L;
      * always be 0. This field is available only when the resource's Protobuf
      * contains it.
      * To search against `update_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
      *     - value in date string. Example: `updateTime &lt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -4826,7 +5117,7 @@ private static final long serialVersionUID = 0L;
      * always be 0. This field is available only when the resource's Protobuf
      * contains it.
      * To search against `update_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
      *     - value in date string. Example: `updateTime &lt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -4841,11 +5132,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4855,7 +5146,7 @@ private static final long serialVersionUID = 0L;
      * always be 0. This field is available only when the resource's Protobuf
      * contains it.
      * To search against `update_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
      *     - value in date string. Example: `updateTime &lt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -4868,11 +5159,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4882,7 +5173,7 @@ private static final long serialVersionUID = 0L;
      * always be 0. This field is available only when the resource's Protobuf
      * contains it.
      * To search against `update_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
      *     - value in date string. Example: `updateTime &lt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -4893,17 +5184,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4913,7 +5205,7 @@ private static final long serialVersionUID = 0L;
      * always be 0. This field is available only when the resource's Protobuf
      * contains it.
      * To search against `update_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
      *     - value in date string. Example: `updateTime &lt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -4923,14 +5215,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 12;</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4940,7 +5231,7 @@ private static final long serialVersionUID = 0L;
      * always be 0. This field is available only when the resource's Protobuf
      * contains it.
      * To search against `update_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
      *     - value in date string. Example: `updateTime &lt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -4950,7 +5241,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 12;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -4961,7 +5252,7 @@ private static final long serialVersionUID = 0L;
      * always be 0. This field is available only when the resource's Protobuf
      * contains it.
      * To search against `update_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
      *     - value in date string. Example: `updateTime &lt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -4985,7 +5276,7 @@ private static final long serialVersionUID = 0L;
      * always be 0. This field is available only when the resource's Protobuf
      * contains it.
      * To search against `update_time`:
-     * * use a field query.
+     * * Use a field query.
      *     - value in seconds since unix epoch. Example: `updateTime &lt; 1609459200`
      *     - value in date string. Example: `updateTime &lt; 2021-01-01`
      *     - value in date-time string (must be quoted). Example: `updateTime &lt;
@@ -5026,8 +5317,8 @@ private static final long serialVersionUID = 0L;
      * DELETE_IN_PROGRESS. See `lifecycleState` definition in [API
      * Reference](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
      * To search against the `state`:
-     * * use a field query. Example: `state:RUNNING`
-     * * use a free text query. Example: `RUNNING`
+     * * Use a field query. Example: `state:RUNNING`
+     * * Use a free text query. Example: `RUNNING`
      * </pre>
      *
      * <code>string state = 13;</code>
@@ -5062,8 +5353,8 @@ private static final long serialVersionUID = 0L;
      * DELETE_IN_PROGRESS. See `lifecycleState` definition in [API
      * Reference](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
      * To search against the `state`:
-     * * use a field query. Example: `state:RUNNING`
-     * * use a free text query. Example: `RUNNING`
+     * * Use a field query. Example: `state:RUNNING`
+     * * Use a free text query. Example: `RUNNING`
      * </pre>
      *
      * <code>string state = 13;</code>
@@ -5099,8 +5390,8 @@ private static final long serialVersionUID = 0L;
      * DELETE_IN_PROGRESS. See `lifecycleState` definition in [API
      * Reference](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
      * To search against the `state`:
-     * * use a field query. Example: `state:RUNNING`
-     * * use a free text query. Example: `RUNNING`
+     * * Use a field query. Example: `state:RUNNING`
+     * * Use a free text query. Example: `RUNNING`
      * </pre>
      *
      * <code>string state = 13;</code>
@@ -5109,11 +5400,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setState(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       state_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -5134,16 +5423,16 @@ private static final long serialVersionUID = 0L;
      * DELETE_IN_PROGRESS. See `lifecycleState` definition in [API
      * Reference](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
      * To search against the `state`:
-     * * use a field query. Example: `state:RUNNING`
-     * * use a free text query. Example: `RUNNING`
+     * * Use a field query. Example: `state:RUNNING`
+     * * Use a free text query. Example: `RUNNING`
      * </pre>
      *
      * <code>string state = 13;</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
       state_ = getDefaultInstance().getState();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -5164,8 +5453,8 @@ private static final long serialVersionUID = 0L;
      * DELETE_IN_PROGRESS. See `lifecycleState` definition in [API
      * Reference](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
      * To search against the `state`:
-     * * use a field query. Example: `state:RUNNING`
-     * * use a free text query. Example: `RUNNING`
+     * * Use a field query. Example: `state:RUNNING`
+     * * Use a free text query. Example: `RUNNING`
      * </pre>
      *
      * <code>string state = 13;</code>
@@ -5174,12 +5463,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       state_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -5202,7 +5489,7 @@ private static final long serialVersionUID = 0L;
      * values may change as the GCP service updates to a new incompatible API
      * version.
      * To search against the `additional_attributes`:
-     * * use a free text query to match the attributes values. Example: to search
+     * * Use a free text query to match the attributes values. Example: to search
      *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
      *   `foobar`.
      * </pre>
@@ -5211,7 +5498,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the additionalAttributes field is set.
      */
     public boolean hasAdditionalAttributes() {
-      return additionalAttributesBuilder_ != null || additionalAttributes_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -5228,7 +5515,7 @@ private static final long serialVersionUID = 0L;
      * values may change as the GCP service updates to a new incompatible API
      * version.
      * To search against the `additional_attributes`:
-     * * use a free text query to match the attributes values. Example: to search
+     * * Use a free text query to match the attributes values. Example: to search
      *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
      *   `foobar`.
      * </pre>
@@ -5258,7 +5545,7 @@ private static final long serialVersionUID = 0L;
      * values may change as the GCP service updates to a new incompatible API
      * version.
      * To search against the `additional_attributes`:
-     * * use a free text query to match the attributes values. Example: to search
+     * * Use a free text query to match the attributes values. Example: to search
      *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
      *   `foobar`.
      * </pre>
@@ -5271,11 +5558,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         additionalAttributes_ = value;
-        onChanged();
       } else {
         additionalAttributesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5293,7 +5580,7 @@ private static final long serialVersionUID = 0L;
      * values may change as the GCP service updates to a new incompatible API
      * version.
      * To search against the `additional_attributes`:
-     * * use a free text query to match the attributes values. Example: to search
+     * * Use a free text query to match the attributes values. Example: to search
      *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
      *   `foobar`.
      * </pre>
@@ -5304,11 +5591,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (additionalAttributesBuilder_ == null) {
         additionalAttributes_ = builderForValue.build();
-        onChanged();
       } else {
         additionalAttributesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5326,7 +5613,7 @@ private static final long serialVersionUID = 0L;
      * values may change as the GCP service updates to a new incompatible API
      * version.
      * To search against the `additional_attributes`:
-     * * use a free text query to match the attributes values. Example: to search
+     * * Use a free text query to match the attributes values. Example: to search
      *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
      *   `foobar`.
      * </pre>
@@ -5335,17 +5622,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdditionalAttributes(com.google.protobuf.Struct value) {
       if (additionalAttributesBuilder_ == null) {
-        if (additionalAttributes_ != null) {
-          additionalAttributes_ =
-            com.google.protobuf.Struct.newBuilder(additionalAttributes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          additionalAttributes_ != null &&
+          additionalAttributes_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getAdditionalAttributesBuilder().mergeFrom(value);
         } else {
           additionalAttributes_ = value;
         }
-        onChanged();
       } else {
         additionalAttributesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5363,7 +5651,7 @@ private static final long serialVersionUID = 0L;
      * values may change as the GCP service updates to a new incompatible API
      * version.
      * To search against the `additional_attributes`:
-     * * use a free text query to match the attributes values. Example: to search
+     * * Use a free text query to match the attributes values. Example: to search
      *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
      *   `foobar`.
      * </pre>
@@ -5371,14 +5659,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct additional_attributes = 9;</code>
      */
     public Builder clearAdditionalAttributes() {
-      if (additionalAttributesBuilder_ == null) {
-        additionalAttributes_ = null;
-        onChanged();
-      } else {
-        additionalAttributes_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      additionalAttributes_ = null;
+      if (additionalAttributesBuilder_ != null) {
+        additionalAttributesBuilder_.dispose();
         additionalAttributesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5396,7 +5683,7 @@ private static final long serialVersionUID = 0L;
      * values may change as the GCP service updates to a new incompatible API
      * version.
      * To search against the `additional_attributes`:
-     * * use a free text query to match the attributes values. Example: to search
+     * * Use a free text query to match the attributes values. Example: to search
      *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
      *   `foobar`.
      * </pre>
@@ -5404,7 +5691,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct additional_attributes = 9;</code>
      */
     public com.google.protobuf.Struct.Builder getAdditionalAttributesBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getAdditionalAttributesFieldBuilder().getBuilder();
     }
@@ -5423,7 +5710,7 @@ private static final long serialVersionUID = 0L;
      * values may change as the GCP service updates to a new incompatible API
      * version.
      * To search against the `additional_attributes`:
-     * * use a free text query to match the attributes values. Example: to search
+     * * Use a free text query to match the attributes values. Example: to search
      *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
      *   `foobar`.
      * </pre>
@@ -5453,7 +5740,7 @@ private static final long serialVersionUID = 0L;
      * values may change as the GCP service updates to a new incompatible API
      * version.
      * To search against the `additional_attributes`:
-     * * use a free text query to match the attributes values. Example: to search
+     * * Use a free text query to match the attributes values. Example: to search
      *   `additional_attributes = { dnsName: "foobar" }`, you can issue a query
      *   `foobar`.
      * </pre>
@@ -5479,9 +5766,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The full resource name of this resource's parent, if it has one.
      * To search against the `parent_full_resource_name`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentFullResourceName:"project-name"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `project-name`
      * </pre>
      *
@@ -5504,9 +5791,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The full resource name of this resource's parent, if it has one.
      * To search against the `parent_full_resource_name`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentFullResourceName:"project-name"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `project-name`
      * </pre>
      *
@@ -5530,9 +5817,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The full resource name of this resource's parent, if it has one.
      * To search against the `parent_full_resource_name`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentFullResourceName:"project-name"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `project-name`
      * </pre>
      *
@@ -5542,11 +5829,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentFullResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parentFullResourceName_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -5554,9 +5839,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The full resource name of this resource's parent, if it has one.
      * To search against the `parent_full_resource_name`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentFullResourceName:"project-name"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `project-name`
      * </pre>
      *
@@ -5564,8 +5849,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParentFullResourceName() {
-      
       parentFullResourceName_ = getDefaultInstance().getParentFullResourceName();
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -5573,9 +5858,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The full resource name of this resource's parent, if it has one.
      * To search against the `parent_full_resource_name`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentFullResourceName:"project-name"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `project-name`
      * </pre>
      *
@@ -5585,12 +5870,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentFullResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parentFullResourceName_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -5598,9 +5881,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.asset.v1.VersionedResource> versionedResources_ =
       java.util.Collections.emptyList();
     private void ensureVersionedResourcesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00020000) != 0)) {
         versionedResources_ = new java.util.ArrayList<com.google.cloud.asset.v1.VersionedResource>(versionedResources_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00020000;
        }
     }
 
@@ -5849,7 +6132,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearVersionedResources() {
       if (versionedResourcesBuilder_ == null) {
         versionedResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00020000);
         onChanged();
       } else {
         versionedResourcesBuilder_.clear();
@@ -5989,7 +6272,7 @@ private static final long serialVersionUID = 0L;
         versionedResourcesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.asset.v1.VersionedResource, com.google.cloud.asset.v1.VersionedResource.Builder, com.google.cloud.asset.v1.VersionedResourceOrBuilder>(
                 versionedResources_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00020000) != 0),
                 getParentForChildren(),
                 isClean());
         versionedResources_ = null;
@@ -6000,9 +6283,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.asset.v1.AttachedResource> attachedResources_ =
       java.util.Collections.emptyList();
     private void ensureAttachedResourcesIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00040000) != 0)) {
         attachedResources_ = new java.util.ArrayList<com.google.cloud.asset.v1.AttachedResource>(attachedResources_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00040000;
        }
     }
 
@@ -6251,7 +6534,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAttachedResources() {
       if (attachedResourcesBuilder_ == null) {
         attachedResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00040000);
         onChanged();
       } else {
         attachedResourcesBuilder_.clear();
@@ -6391,7 +6674,7 @@ private static final long serialVersionUID = 0L;
         attachedResourcesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.asset.v1.AttachedResource, com.google.cloud.asset.v1.AttachedResource.Builder, com.google.cloud.asset.v1.AttachedResourceOrBuilder>(
                 attachedResources_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00040000) != 0),
                 getParentForChildren(),
                 isClean());
         attachedResources_ = null;
@@ -6402,7 +6685,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.asset.v1.RelatedResources> relationships_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.asset.v1.RelatedResources>
-    internalGetRelationships() {
+        internalGetRelationships() {
       if (relationships_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             RelationshipsDefaultEntryHolder.defaultEntry);
@@ -6410,8 +6693,7 @@ private static final long serialVersionUID = 0L;
       return relationships_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.asset.v1.RelatedResources>
-    internalGetMutableRelationships() {
-      onChanged();;
+        internalGetMutableRelationships() {
       if (relationships_ == null) {
         relationships_ = com.google.protobuf.MapField.newMapField(
             RelationshipsDefaultEntryHolder.defaultEntry);
@@ -6419,9 +6701,10 @@ private static final long serialVersionUID = 0L;
       if (!relationships_.isMutable()) {
         relationships_ = relationships_.copy();
       }
+      bitField0_ |= 0x00080000;
+      onChanged();
       return relationships_;
     }
-
     public int getRelationshipsCount() {
       return internalGetRelationships().getMap().size();
     }
@@ -6437,7 +6720,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
      */
-
     @java.lang.Override
     public boolean containsRelationships(
         java.lang.String key) {
@@ -6465,7 +6747,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.asset.v1.RelatedResources> getRelationshipsMap() {
       return internalGetRelationships().getMap();
     }
@@ -6482,10 +6763,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.asset.v1.RelatedResources getRelationshipsOrDefault(
+    public /* nullable */
+com.google.cloud.asset.v1.RelatedResources getRelationshipsOrDefault(
         java.lang.String key,
-        com.google.cloud.asset.v1.RelatedResources defaultValue) {
+        /* nullable */
+com.google.cloud.asset.v1.RelatedResources defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.asset.v1.RelatedResources> map =
           internalGetRelationships().getMap();
@@ -6504,7 +6786,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.asset.v1.RelatedResources getRelationshipsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6515,8 +6796,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearRelationships() {
+      bitField0_ = (bitField0_ & ~0x00080000);
       internalGetMutableRelationships().getMutableMap()
           .clear();
       return this;
@@ -6533,7 +6814,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
      */
-
     public Builder removeRelationships(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6546,7 +6826,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.asset.v1.RelatedResources>
-    getMutableRelationships() {
+        getMutableRelationships() {
+      bitField0_ |= 0x00080000;
       return internalGetMutableRelationships().getMutableMap();
     }
     /**
@@ -6565,12 +6846,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.asset.v1.RelatedResources value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableRelationships().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00080000;
       return this;
     }
     /**
@@ -6585,30 +6864,30 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.asset.v1.RelatedResources&gt; relationships = 21;</code>
      */
-
     public Builder putAllRelationships(
         java.util.Map<java.lang.String, com.google.cloud.asset.v1.RelatedResources> values) {
       internalGetMutableRelationships().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00080000;
       return this;
     }
 
     private com.google.protobuf.LazyStringList tagKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTagKeysIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00100000) != 0)) {
         tagKeys_ = new com.google.protobuf.LazyStringArrayList(tagKeys_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00100000;
        }
     }
     /**
      * <pre>
      * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
      * To search against the `tagKeys`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagKeys:"123456789/env*"`
      *     - `tagKeys="123456789/env"`
      *     - `tagKeys:"env"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `env`
      * </pre>
      *
@@ -6623,11 +6902,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
      * To search against the `tagKeys`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagKeys:"123456789/env*"`
      *     - `tagKeys="123456789/env"`
      *     - `tagKeys:"env"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `env`
      * </pre>
      *
@@ -6641,11 +6920,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
      * To search against the `tagKeys`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagKeys:"123456789/env*"`
      *     - `tagKeys="123456789/env"`
      *     - `tagKeys:"env"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `env`
      * </pre>
      *
@@ -6660,11 +6939,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
      * To search against the `tagKeys`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagKeys:"123456789/env*"`
      *     - `tagKeys="123456789/env"`
      *     - `tagKeys:"env"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `env`
      * </pre>
      *
@@ -6680,11 +6959,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
      * To search against the `tagKeys`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagKeys:"123456789/env*"`
      *     - `tagKeys="123456789/env"`
      *     - `tagKeys:"env"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `env`
      * </pre>
      *
@@ -6695,10 +6974,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTagKeys(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagKeysIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagKeysIsMutable();
       tagKeys_.set(index, value);
       onChanged();
       return this;
@@ -6707,11 +6984,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
      * To search against the `tagKeys`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagKeys:"123456789/env*"`
      *     - `tagKeys="123456789/env"`
      *     - `tagKeys:"env"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `env`
      * </pre>
      *
@@ -6721,10 +6998,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagKeys(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagKeysIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagKeysIsMutable();
       tagKeys_.add(value);
       onChanged();
       return this;
@@ -6733,11 +7008,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
      * To search against the `tagKeys`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagKeys:"123456789/env*"`
      *     - `tagKeys="123456789/env"`
      *     - `tagKeys:"env"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `env`
      * </pre>
      *
@@ -6757,11 +7032,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
      * To search against the `tagKeys`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagKeys:"123456789/env*"`
      *     - `tagKeys="123456789/env"`
      *     - `tagKeys:"env"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `env`
      * </pre>
      *
@@ -6770,7 +7045,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTagKeys() {
       tagKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00100000);
       onChanged();
       return this;
     }
@@ -6778,11 +7053,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagKey namespaced names, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}.
      * To search against the `tagKeys`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagKeys:"123456789/env*"`
      *     - `tagKeys="123456789/env"`
      *     - `tagKeys:"env"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `env`
      * </pre>
      *
@@ -6792,10 +7067,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagKeysBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTagKeysIsMutable();
       tagKeys_.add(value);
       onChanged();
@@ -6804,9 +7077,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList tagValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTagValuesIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
+      if (!((bitField0_ & 0x00200000) != 0)) {
         tagValues_ = new com.google.protobuf.LazyStringArrayList(tagValues_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00200000;
        }
     }
     /**
@@ -6814,12 +7087,12 @@ private static final long serialVersionUID = 0L;
      * TagValue namespaced names, in the format of
      * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
      * To search against the `tagValues`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValues:"env"`
      *     - `tagValues:"env/prod"`
      *     - `tagValues:"123456789/env/prod*"`
      *     - `tagValues="123456789/env/prod"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `prod`
      * </pre>
      *
@@ -6835,12 +7108,12 @@ private static final long serialVersionUID = 0L;
      * TagValue namespaced names, in the format of
      * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
      * To search against the `tagValues`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValues:"env"`
      *     - `tagValues:"env/prod"`
      *     - `tagValues:"123456789/env/prod*"`
      *     - `tagValues="123456789/env/prod"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `prod`
      * </pre>
      *
@@ -6855,12 +7128,12 @@ private static final long serialVersionUID = 0L;
      * TagValue namespaced names, in the format of
      * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
      * To search against the `tagValues`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValues:"env"`
      *     - `tagValues:"env/prod"`
      *     - `tagValues:"123456789/env/prod*"`
      *     - `tagValues="123456789/env/prod"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `prod`
      * </pre>
      *
@@ -6876,12 +7149,12 @@ private static final long serialVersionUID = 0L;
      * TagValue namespaced names, in the format of
      * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
      * To search against the `tagValues`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValues:"env"`
      *     - `tagValues:"env/prod"`
      *     - `tagValues:"123456789/env/prod*"`
      *     - `tagValues="123456789/env/prod"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `prod`
      * </pre>
      *
@@ -6898,12 +7171,12 @@ private static final long serialVersionUID = 0L;
      * TagValue namespaced names, in the format of
      * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
      * To search against the `tagValues`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValues:"env"`
      *     - `tagValues:"env/prod"`
      *     - `tagValues:"123456789/env/prod*"`
      *     - `tagValues="123456789/env/prod"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `prod`
      * </pre>
      *
@@ -6914,10 +7187,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTagValues(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagValuesIsMutable();
       tagValues_.set(index, value);
       onChanged();
       return this;
@@ -6927,12 +7198,12 @@ private static final long serialVersionUID = 0L;
      * TagValue namespaced names, in the format of
      * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
      * To search against the `tagValues`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValues:"env"`
      *     - `tagValues:"env/prod"`
      *     - `tagValues:"123456789/env/prod*"`
      *     - `tagValues="123456789/env/prod"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `prod`
      * </pre>
      *
@@ -6942,10 +7213,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagValues(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagValuesIsMutable();
       tagValues_.add(value);
       onChanged();
       return this;
@@ -6955,12 +7224,12 @@ private static final long serialVersionUID = 0L;
      * TagValue namespaced names, in the format of
      * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
      * To search against the `tagValues`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValues:"env"`
      *     - `tagValues:"env/prod"`
      *     - `tagValues:"123456789/env/prod*"`
      *     - `tagValues="123456789/env/prod"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `prod`
      * </pre>
      *
@@ -6981,12 +7250,12 @@ private static final long serialVersionUID = 0L;
      * TagValue namespaced names, in the format of
      * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
      * To search against the `tagValues`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValues:"env"`
      *     - `tagValues:"env/prod"`
      *     - `tagValues:"123456789/env/prod*"`
      *     - `tagValues="123456789/env/prod"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `prod`
      * </pre>
      *
@@ -6995,7 +7264,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTagValues() {
       tagValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00200000);
       onChanged();
       return this;
     }
@@ -7004,12 +7273,12 @@ private static final long serialVersionUID = 0L;
      * TagValue namespaced names, in the format of
      * {ORG_ID}/{TAG_KEY_SHORT_NAME}/{TAG_VALUE_SHORT_NAME}.
      * To search against the `tagValues`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValues:"env"`
      *     - `tagValues:"env/prod"`
      *     - `tagValues:"123456789/env/prod*"`
      *     - `tagValues="123456789/env/prod"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `prod`
      * </pre>
      *
@@ -7019,10 +7288,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagValuesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTagValuesIsMutable();
       tagValues_.add(value);
       onChanged();
@@ -7031,19 +7298,19 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList tagValueIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTagValueIdsIsMutable() {
-      if (!((bitField0_ & 0x00000100) != 0)) {
+      if (!((bitField0_ & 0x00400000) != 0)) {
         tagValueIds_ = new com.google.protobuf.LazyStringArrayList(tagValueIds_);
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00400000;
        }
     }
     /**
      * <pre>
      * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
      * To search against the `tagValueIds`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValueIds:"456"`
      *     - `tagValueIds="tagValues/456"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `456`
      * </pre>
      *
@@ -7058,10 +7325,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
      * To search against the `tagValueIds`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValueIds:"456"`
      *     - `tagValueIds="tagValues/456"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `456`
      * </pre>
      *
@@ -7075,10 +7342,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
      * To search against the `tagValueIds`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValueIds:"456"`
      *     - `tagValueIds="tagValues/456"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `456`
      * </pre>
      *
@@ -7093,10 +7360,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
      * To search against the `tagValueIds`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValueIds:"456"`
      *     - `tagValueIds="tagValues/456"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `456`
      * </pre>
      *
@@ -7112,10 +7379,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
      * To search against the `tagValueIds`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValueIds:"456"`
      *     - `tagValueIds="tagValues/456"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `456`
      * </pre>
      *
@@ -7126,10 +7393,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTagValueIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagValueIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagValueIdsIsMutable();
       tagValueIds_.set(index, value);
       onChanged();
       return this;
@@ -7138,10 +7403,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
      * To search against the `tagValueIds`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValueIds:"456"`
      *     - `tagValueIds="tagValues/456"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `456`
      * </pre>
      *
@@ -7151,10 +7416,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagValueIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagValueIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagValueIdsIsMutable();
       tagValueIds_.add(value);
       onChanged();
       return this;
@@ -7163,10 +7426,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
      * To search against the `tagValueIds`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValueIds:"456"`
      *     - `tagValueIds="tagValues/456"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `456`
      * </pre>
      *
@@ -7186,10 +7449,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
      * To search against the `tagValueIds`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValueIds:"456"`
      *     - `tagValueIds="tagValues/456"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `456`
      * </pre>
      *
@@ -7198,7 +7461,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTagValueIds() {
       tagValueIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00400000);
       onChanged();
       return this;
     }
@@ -7206,10 +7469,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * TagValue IDs, in the format of tagValues/{TAG_VALUE_ID}.
      * To search against the `tagValueIds`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      *     - `tagValueIds:"456"`
      *     - `tagValueIds="tagValues/456"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      *     - `456`
      * </pre>
      *
@@ -7219,10 +7482,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagValueIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTagValueIdsIsMutable();
       tagValueIds_.add(value);
       onChanged();
@@ -7234,9 +7495,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource's immediate parent, if there is one.
      * To search against the `parent_asset_type`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentAssetType:"cloudresourcemanager.googleapis.com/Project"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `cloudresourcemanager.googleapis.com/Project`
      * </pre>
      *
@@ -7259,9 +7520,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource's immediate parent, if there is one.
      * To search against the `parent_asset_type`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentAssetType:"cloudresourcemanager.googleapis.com/Project"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `cloudresourcemanager.googleapis.com/Project`
      * </pre>
      *
@@ -7285,9 +7546,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource's immediate parent, if there is one.
      * To search against the `parent_asset_type`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentAssetType:"cloudresourcemanager.googleapis.com/Project"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `cloudresourcemanager.googleapis.com/Project`
      * </pre>
      *
@@ -7297,11 +7558,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentAssetType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parentAssetType_ = value;
+      bitField0_ |= 0x00800000;
       onChanged();
       return this;
     }
@@ -7309,9 +7568,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource's immediate parent, if there is one.
      * To search against the `parent_asset_type`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentAssetType:"cloudresourcemanager.googleapis.com/Project"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `cloudresourcemanager.googleapis.com/Project`
      * </pre>
      *
@@ -7319,8 +7578,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParentAssetType() {
-      
       parentAssetType_ = getDefaultInstance().getParentAssetType();
+      bitField0_ = (bitField0_ & ~0x00800000);
       onChanged();
       return this;
     }
@@ -7328,9 +7587,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The type of this resource's immediate parent, if there is one.
      * To search against the `parent_asset_type`:
-     * * use a field query. Example:
+     * * Use a field query. Example:
      * `parentAssetType:"cloudresourcemanager.googleapis.com/Project"`
-     * * use a free text query. Example:
+     * * Use a free text query. Example:
      * `cloudresourcemanager.googleapis.com/Project`
      * </pre>
      *
@@ -7340,12 +7599,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentAssetTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parentAssetType_ = value;
+      bitField0_ |= 0x00800000;
       onChanged();
       return this;
     }
@@ -7382,7 +7639,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResourceSearchResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

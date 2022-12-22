@@ -558,30 +558,52 @@ public interface VirtualHostOrBuilder extends
 
   /**
    * <pre>
-   * Indicates that the virtual host has a CORS policy.
+   * Indicates that the virtual host has a CORS policy. This field is ignored if related cors policy is
+   * found in the
+   * :ref:`VirtualHost.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.VirtualHost.typed_per_filter_config&gt;`.
+   * .. attention::
+   *   This option has been deprecated. Please use
+   *   :ref:`VirtualHost.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.VirtualHost.typed_per_filter_config&gt;`
+   *   to configure the CORS HTTP filter.
    * </pre>
    *
-   * <code>.envoy.config.route.v3.CorsPolicy cors = 8;</code>
+   * <code>.envoy.config.route.v3.CorsPolicy cors = 8 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.route.v3.VirtualHost.cors is deprecated.
+   *     See envoy/config/route/v3/route_components.proto;l=153
    * @return Whether the cors field is set.
    */
-  boolean hasCors();
+  @java.lang.Deprecated boolean hasCors();
   /**
    * <pre>
-   * Indicates that the virtual host has a CORS policy.
+   * Indicates that the virtual host has a CORS policy. This field is ignored if related cors policy is
+   * found in the
+   * :ref:`VirtualHost.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.VirtualHost.typed_per_filter_config&gt;`.
+   * .. attention::
+   *   This option has been deprecated. Please use
+   *   :ref:`VirtualHost.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.VirtualHost.typed_per_filter_config&gt;`
+   *   to configure the CORS HTTP filter.
    * </pre>
    *
-   * <code>.envoy.config.route.v3.CorsPolicy cors = 8;</code>
+   * <code>.envoy.config.route.v3.CorsPolicy cors = 8 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.route.v3.VirtualHost.cors is deprecated.
+   *     See envoy/config/route/v3/route_components.proto;l=153
    * @return The cors.
    */
-  io.envoyproxy.envoy.config.route.v3.CorsPolicy getCors();
+  @java.lang.Deprecated io.envoyproxy.envoy.config.route.v3.CorsPolicy getCors();
   /**
    * <pre>
-   * Indicates that the virtual host has a CORS policy.
+   * Indicates that the virtual host has a CORS policy. This field is ignored if related cors policy is
+   * found in the
+   * :ref:`VirtualHost.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.VirtualHost.typed_per_filter_config&gt;`.
+   * .. attention::
+   *   This option has been deprecated. Please use
+   *   :ref:`VirtualHost.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.VirtualHost.typed_per_filter_config&gt;`
+   *   to configure the CORS HTTP filter.
    * </pre>
    *
-   * <code>.envoy.config.route.v3.CorsPolicy cors = 8;</code>
+   * <code>.envoy.config.route.v3.CorsPolicy cors = 8 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    */
-  io.envoyproxy.envoy.config.route.v3.CorsPolicyOrBuilder getCorsOrBuilder();
+  @java.lang.Deprecated io.envoyproxy.envoy.config.route.v3.CorsPolicyOrBuilder getCorsOrBuilder();
 
   /**
    * <pre>
@@ -662,7 +684,6 @@ public interface VirtualHostOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 15;</code>
    */
-
   /* nullable */
 com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
       java.lang.String key,
@@ -685,7 +706,6 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 15;</code>
    */
-
   com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
       java.lang.String key);
 

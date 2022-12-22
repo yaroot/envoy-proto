@@ -36,77 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImageBoundingBoxAnnotation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            annotationSpecId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 25: {
-
-            xMin_ = input.readDouble();
-            break;
-          }
-          case 33: {
-
-            xMax_ = input.readDouble();
-            break;
-          }
-          case 41: {
-
-            yMin_ = input.readDouble();
-            break;
-          }
-          case 49: {
-
-            yMax_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.schema.AnnotationPayloadProto.internal_static_google_cloud_aiplatform_v1beta1_schema_ImageBoundingBoxAnnotation_descriptor;
@@ -121,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANNOTATION_SPEC_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object annotationSpecId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object annotationSpecId_ = "";
   /**
    * <pre>
    * The resource Id of the AnnotationSpec that this Annotation pertains to.
@@ -167,7 +97,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The display name of the AnnotationSpec that this Annotation pertains to.
@@ -213,7 +144,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int X_MIN_FIELD_NUMBER = 3;
-  private double xMin_;
+  private double xMin_ = 0D;
   /**
    * <pre>
    * The leftmost coordinate of the bounding box.
@@ -228,7 +159,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int X_MAX_FIELD_NUMBER = 4;
-  private double xMax_;
+  private double xMax_ = 0D;
   /**
    * <pre>
    * The rightmost coordinate of the bounding box.
@@ -243,7 +174,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int Y_MIN_FIELD_NUMBER = 5;
-  private double yMin_;
+  private double yMin_ = 0D;
   /**
    * <pre>
    * The topmost coordinate of the bounding box.
@@ -258,7 +189,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int Y_MAX_FIELD_NUMBER = 6;
-  private double yMax_;
+  private double yMax_ = 0D;
   /**
    * <pre>
    * The bottommost coordinate of the bounding box.
@@ -304,7 +235,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(yMax_) != 0) {
       output.writeDouble(6, yMax_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -335,7 +266,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(6, yMax_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -366,7 +297,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getYMax())
         != java.lang.Double.doubleToLongBits(
             other.getYMax())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -393,7 +324,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + Y_MAX_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getYMax()));
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -514,34 +445,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.schema.ImageBoundingBoxAnnotation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       annotationSpecId_ = "";
-
       displayName_ = "";
-
       xMin_ = 0D;
-
       xMax_ = 0D;
-
       yMin_ = 0D;
-
       yMax_ = 0D;
-
       return this;
     }
 
@@ -568,14 +489,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.schema.ImageBoundingBoxAnnotation buildPartial() {
       com.google.cloud.aiplatform.v1beta1.schema.ImageBoundingBoxAnnotation result = new com.google.cloud.aiplatform.v1beta1.schema.ImageBoundingBoxAnnotation(this);
-      result.annotationSpecId_ = annotationSpecId_;
-      result.displayName_ = displayName_;
-      result.xMin_ = xMin_;
-      result.xMax_ = xMax_;
-      result.yMin_ = yMin_;
-      result.yMax_ = yMax_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.schema.ImageBoundingBoxAnnotation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.annotationSpecId_ = annotationSpecId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.xMin_ = xMin_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.xMax_ = xMax_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.yMin_ = yMin_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.yMax_ = yMax_;
+      }
     }
 
     @java.lang.Override
@@ -624,10 +562,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1beta1.schema.ImageBoundingBoxAnnotation.getDefaultInstance()) return this;
       if (!other.getAnnotationSpecId().isEmpty()) {
         annotationSpecId_ = other.annotationSpecId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getXMin() != 0D) {
@@ -642,7 +582,7 @@ private static final long serialVersionUID = 0L;
       if (other.getYMax() != 0D) {
         setYMax(other.getYMax());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -657,19 +597,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.schema.ImageBoundingBoxAnnotation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              annotationSpecId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 25: {
+              xMin_ = input.readDouble();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 25
+            case 33: {
+              xMax_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
+            case 41: {
+              yMin_ = input.readDouble();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 41
+            case 49: {
+              yMax_ = input.readDouble();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 49
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.schema.ImageBoundingBoxAnnotation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object annotationSpecId_ = "";
     /**
@@ -724,11 +708,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationSpecId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       annotationSpecId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -741,8 +723,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnnotationSpecId() {
-      
       annotationSpecId_ = getDefaultInstance().getAnnotationSpecId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -757,12 +739,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationSpecIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       annotationSpecId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -820,11 +800,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -837,8 +815,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -853,12 +831,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -888,6 +864,7 @@ private static final long serialVersionUID = 0L;
     public Builder setXMin(double value) {
       
       xMin_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -900,7 +877,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearXMin() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       xMin_ = 0D;
       onChanged();
       return this;
@@ -931,6 +908,7 @@ private static final long serialVersionUID = 0L;
     public Builder setXMax(double value) {
       
       xMax_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -943,7 +921,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearXMax() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       xMax_ = 0D;
       onChanged();
       return this;
@@ -974,6 +952,7 @@ private static final long serialVersionUID = 0L;
     public Builder setYMin(double value) {
       
       yMin_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -986,7 +965,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearYMin() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       yMin_ = 0D;
       onChanged();
       return this;
@@ -1017,6 +996,7 @@ private static final long serialVersionUID = 0L;
     public Builder setYMax(double value) {
       
       yMax_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1029,7 +1009,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearYMax() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       yMax_ = 0D;
       onChanged();
       return this;
@@ -1067,7 +1047,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImageBoundingBoxAnnotation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

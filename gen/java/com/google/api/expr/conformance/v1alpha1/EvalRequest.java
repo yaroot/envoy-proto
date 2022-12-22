@@ -35,93 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EvalRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.api.expr.v1alpha1.ParsedExpr.Builder subBuilder = null;
-            if (exprKindCase_ == 1) {
-              subBuilder = ((com.google.api.expr.v1alpha1.ParsedExpr) exprKind_).toBuilder();
-            }
-            exprKind_ =
-                input.readMessage(com.google.api.expr.v1alpha1.ParsedExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.api.expr.v1alpha1.ParsedExpr) exprKind_);
-              exprKind_ = subBuilder.buildPartial();
-            }
-            exprKindCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.api.expr.v1alpha1.CheckedExpr.Builder subBuilder = null;
-            if (exprKindCase_ == 2) {
-              subBuilder = ((com.google.api.expr.v1alpha1.CheckedExpr) exprKind_).toBuilder();
-            }
-            exprKind_ =
-                input.readMessage(com.google.api.expr.v1alpha1.CheckedExpr.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.api.expr.v1alpha1.CheckedExpr) exprKind_);
-              exprKind_ = subBuilder.buildPartial();
-            }
-            exprKindCase_ = 2;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              bindings_ = com.google.protobuf.MapField.newMapField(
-                  BindingsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.api.expr.v1alpha1.ExprValue>
-            bindings__ = input.readMessage(
-                BindingsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            bindings_.getMutableMap().put(
-                bindings__.getKey(), bindings__.getValue());
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            container_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.expr.conformance.v1alpha1.ConformanceServiceProto.internal_static_google_api_expr_conformance_v1alpha1_EvalRequest_descriptor;
@@ -286,6 +199,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.api.expr.v1alpha1.ExprValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.api.expr.v1alpha1.ExprValue> bindings_;
   private com.google.protobuf.MapField<java.lang.String, com.google.api.expr.v1alpha1.ExprValue>
@@ -296,7 +210,6 @@ private static final long serialVersionUID = 0L;
     }
     return bindings_;
   }
-
   public int getBindingsCount() {
     return internalGetBindings().getMap().size();
   }
@@ -308,7 +221,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsBindings(
       java.lang.String key) {
@@ -332,7 +244,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.api.expr.v1alpha1.ExprValue> getBindingsMap() {
     return internalGetBindings().getMap();
   }
@@ -345,10 +256,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
    */
   @java.lang.Override
-
-  public com.google.api.expr.v1alpha1.ExprValue getBindingsOrDefault(
+  public /* nullable */
+com.google.api.expr.v1alpha1.ExprValue getBindingsOrDefault(
       java.lang.String key,
-      com.google.api.expr.v1alpha1.ExprValue defaultValue) {
+      /* nullable */
+com.google.api.expr.v1alpha1.ExprValue defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.api.expr.v1alpha1.ExprValue> map =
         internalGetBindings().getMap();
@@ -363,7 +275,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
    */
   @java.lang.Override
-
   public com.google.api.expr.v1alpha1.ExprValue getBindingsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -376,7 +287,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTAINER_FIELD_NUMBER = 4;
-  private volatile java.lang.Object container_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object container_ = "";
   /**
    * <pre>
    * SHOULD be the same container as used in [CheckRequest][google.api.expr.conformance.v1alpha1.CheckRequest], if checked.
@@ -450,7 +362,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(container_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, container_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -480,7 +392,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(container_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, container_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -512,7 +424,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -541,7 +453,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -684,25 +596,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.expr.conformance.v1alpha1.EvalRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (parsedExprBuilder_ != null) {
+        parsedExprBuilder_.clear();
+      }
+      if (checkedExprBuilder_ != null) {
+        checkedExprBuilder_.clear();
+      }
       internalGetMutableBindings().clear();
       container_ = "";
-
       exprKindCase_ = 0;
       exprKind_ = null;
       return this;
@@ -731,27 +644,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.expr.conformance.v1alpha1.EvalRequest buildPartial() {
       com.google.api.expr.conformance.v1alpha1.EvalRequest result = new com.google.api.expr.conformance.v1alpha1.EvalRequest(this);
-      int from_bitField0_ = bitField0_;
-      if (exprKindCase_ == 1) {
-        if (parsedExprBuilder_ == null) {
-          result.exprKind_ = exprKind_;
-        } else {
-          result.exprKind_ = parsedExprBuilder_.build();
-        }
-      }
-      if (exprKindCase_ == 2) {
-        if (checkedExprBuilder_ == null) {
-          result.exprKind_ = exprKind_;
-        } else {
-          result.exprKind_ = checkedExprBuilder_.build();
-        }
-      }
-      result.bindings_ = internalGetBindings();
-      result.bindings_.makeImmutable();
-      result.container_ = container_;
-      result.exprKindCase_ = exprKindCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.expr.conformance.v1alpha1.EvalRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.bindings_ = internalGetBindings();
+        result.bindings_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.container_ = container_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.api.expr.conformance.v1alpha1.EvalRequest result) {
+      result.exprKindCase_ = exprKindCase_;
+      result.exprKind_ = this.exprKind_;
+      if (exprKindCase_ == 1 &&
+          parsedExprBuilder_ != null) {
+        result.exprKind_ = parsedExprBuilder_.build();
+      }
+      if (exprKindCase_ == 2 &&
+          checkedExprBuilder_ != null) {
+        result.exprKind_ = checkedExprBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -800,8 +720,10 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.expr.conformance.v1alpha1.EvalRequest.getDefaultInstance()) return this;
       internalGetMutableBindings().mergeFrom(
           other.internalGetBindings());
+      bitField0_ |= 0x00000004;
       if (!other.getContainer().isEmpty()) {
         container_ = other.container_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       switch (other.getExprKindCase()) {
@@ -817,7 +739,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -832,17 +754,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.expr.conformance.v1alpha1.EvalRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getParsedExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              exprKindCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCheckedExprFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              exprKindCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.api.expr.v1alpha1.ExprValue>
+              bindings__ = input.readMessage(
+                  BindingsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBindings().getMutableMap().put(
+                  bindings__.getKey(), bindings__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              container_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.expr.conformance.v1alpha1.EvalRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int exprKindCase_ = 0;
@@ -1036,7 +999,7 @@ private static final long serialVersionUID = 0L;
         exprKind_ = null;
       }
       exprKindCase_ = 1;
-      onChanged();;
+      onChanged();
       return parsedExprBuilder_;
     }
 
@@ -1214,14 +1177,14 @@ private static final long serialVersionUID = 0L;
         exprKind_ = null;
       }
       exprKindCase_ = 2;
-      onChanged();;
+      onChanged();
       return checkedExprBuilder_;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.api.expr.v1alpha1.ExprValue> bindings_;
     private com.google.protobuf.MapField<java.lang.String, com.google.api.expr.v1alpha1.ExprValue>
-    internalGetBindings() {
+        internalGetBindings() {
       if (bindings_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             BindingsDefaultEntryHolder.defaultEntry);
@@ -1229,8 +1192,7 @@ private static final long serialVersionUID = 0L;
       return bindings_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.api.expr.v1alpha1.ExprValue>
-    internalGetMutableBindings() {
-      onChanged();;
+        internalGetMutableBindings() {
       if (bindings_ == null) {
         bindings_ = com.google.protobuf.MapField.newMapField(
             BindingsDefaultEntryHolder.defaultEntry);
@@ -1238,9 +1200,10 @@ private static final long serialVersionUID = 0L;
       if (!bindings_.isMutable()) {
         bindings_ = bindings_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return bindings_;
     }
-
     public int getBindingsCount() {
       return internalGetBindings().getMap().size();
     }
@@ -1252,7 +1215,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsBindings(
         java.lang.String key) {
@@ -1276,7 +1238,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.api.expr.v1alpha1.ExprValue> getBindingsMap() {
       return internalGetBindings().getMap();
     }
@@ -1289,10 +1250,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
      */
     @java.lang.Override
-
-    public com.google.api.expr.v1alpha1.ExprValue getBindingsOrDefault(
+    public /* nullable */
+com.google.api.expr.v1alpha1.ExprValue getBindingsOrDefault(
         java.lang.String key,
-        com.google.api.expr.v1alpha1.ExprValue defaultValue) {
+        /* nullable */
+com.google.api.expr.v1alpha1.ExprValue defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.api.expr.v1alpha1.ExprValue> map =
           internalGetBindings().getMap();
@@ -1307,7 +1269,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
      */
     @java.lang.Override
-
     public com.google.api.expr.v1alpha1.ExprValue getBindingsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1318,8 +1279,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearBindings() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableBindings().getMutableMap()
           .clear();
       return this;
@@ -1332,7 +1293,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
      */
-
     public Builder removeBindings(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1345,7 +1305,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.api.expr.v1alpha1.ExprValue>
-    getMutableBindings() {
+        getMutableBindings() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableBindings().getMutableMap();
     }
     /**
@@ -1360,12 +1321,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.api.expr.v1alpha1.ExprValue value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableBindings().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1376,11 +1335,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
      */
-
     public Builder putAllBindings(
         java.util.Map<java.lang.String, com.google.api.expr.v1alpha1.ExprValue> values) {
       internalGetMutableBindings().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -1437,11 +1396,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       container_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1454,8 +1411,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearContainer() {
-      
       container_ = getDefaultInstance().getContainer();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1470,12 +1427,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       container_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1512,7 +1467,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EvalRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

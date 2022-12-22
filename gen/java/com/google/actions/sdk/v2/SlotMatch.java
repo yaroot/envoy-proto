@@ -35,59 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SlotMatch(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              nluParameters_ = com.google.protobuf.MapField.newMapField(
-                  NluParametersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
-            nluParameters__ = input.readMessage(
-                NluParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            nluParameters_.getMutableMap().put(
-                nluParameters__.getKey(), nluParameters__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.EventLogsProto.internal_static_google_actions_sdk_v2_SlotMatch_descriptor;
@@ -125,6 +72,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.actions.sdk.v2.conversation.IntentParameterValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> nluParameters_;
   private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
@@ -135,7 +83,6 @@ private static final long serialVersionUID = 0L;
     }
     return nluParameters_;
   }
-
   public int getNluParametersCount() {
     return internalGetNluParameters().getMap().size();
   }
@@ -146,7 +93,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsNluParameters(
       java.lang.String key) {
@@ -169,7 +115,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> getNluParametersMap() {
     return internalGetNluParameters().getMap();
   }
@@ -181,10 +126,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
    */
   @java.lang.Override
-
-  public com.google.actions.sdk.v2.conversation.IntentParameterValue getNluParametersOrDefault(
+  public /* nullable */
+com.google.actions.sdk.v2.conversation.IntentParameterValue getNluParametersOrDefault(
       java.lang.String key,
-      com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue) {
+      /* nullable */
+com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> map =
         internalGetNluParameters().getMap();
@@ -198,7 +144,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
    */
   @java.lang.Override
-
   public com.google.actions.sdk.v2.conversation.IntentParameterValue getNluParametersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -230,7 +175,7 @@ private static final long serialVersionUID = 0L;
         internalGetNluParameters(),
         NluParametersDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +194,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, nluParameters__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -266,7 +211,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetNluParameters().equals(
         other.internalGetNluParameters())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -281,7 +226,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NLU_PARAMETERS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetNluParameters().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -425,22 +370,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.SlotMatch.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableNluParameters().clear();
       return this;
     }
@@ -468,11 +409,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.SlotMatch buildPartial() {
       com.google.actions.sdk.v2.SlotMatch result = new com.google.actions.sdk.v2.SlotMatch(this);
-      int from_bitField0_ = bitField0_;
-      result.nluParameters_ = internalGetNluParameters();
-      result.nluParameters_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.SlotMatch result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.nluParameters_ = internalGetNluParameters();
+        result.nluParameters_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -521,7 +468,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.actions.sdk.v2.SlotMatch.getDefaultInstance()) return this;
       internalGetMutableNluParameters().mergeFrom(
           other.internalGetNluParameters());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -536,17 +484,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.SlotMatch parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
+              nluParameters__ = input.readMessage(
+                  NluParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableNluParameters().getMutableMap().put(
+                  nluParameters__.getKey(), nluParameters__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.SlotMatch) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -554,7 +524,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> nluParameters_;
     private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
-    internalGetNluParameters() {
+        internalGetNluParameters() {
       if (nluParameters_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             NluParametersDefaultEntryHolder.defaultEntry);
@@ -562,8 +532,7 @@ private static final long serialVersionUID = 0L;
       return nluParameters_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
-    internalGetMutableNluParameters() {
-      onChanged();;
+        internalGetMutableNluParameters() {
       if (nluParameters_ == null) {
         nluParameters_ = com.google.protobuf.MapField.newMapField(
             NluParametersDefaultEntryHolder.defaultEntry);
@@ -571,9 +540,10 @@ private static final long serialVersionUID = 0L;
       if (!nluParameters_.isMutable()) {
         nluParameters_ = nluParameters_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return nluParameters_;
     }
-
     public int getNluParametersCount() {
       return internalGetNluParameters().getMap().size();
     }
@@ -584,7 +554,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsNluParameters(
         java.lang.String key) {
@@ -607,7 +576,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> getNluParametersMap() {
       return internalGetNluParameters().getMap();
     }
@@ -619,10 +587,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.actions.sdk.v2.conversation.IntentParameterValue getNluParametersOrDefault(
+    public /* nullable */
+com.google.actions.sdk.v2.conversation.IntentParameterValue getNluParametersOrDefault(
         java.lang.String key,
-        com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue) {
+        /* nullable */
+com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> map =
           internalGetNluParameters().getMap();
@@ -636,7 +605,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
      */
     @java.lang.Override
-
     public com.google.actions.sdk.v2.conversation.IntentParameterValue getNluParametersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -647,8 +615,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearNluParameters() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableNluParameters().getMutableMap()
           .clear();
       return this;
@@ -660,7 +628,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
      */
-
     public Builder removeNluParameters(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -673,7 +640,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue>
-    getMutableNluParameters() {
+        getMutableNluParameters() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableNluParameters().getMutableMap();
     }
     /**
@@ -687,12 +655,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.actions.sdk.v2.conversation.IntentParameterValue value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableNluParameters().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -702,11 +668,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
      */
-
     public Builder putAllNluParameters(
         java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.IntentParameterValue> values) {
       internalGetMutableNluParameters().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -742,7 +708,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SlotMatch(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

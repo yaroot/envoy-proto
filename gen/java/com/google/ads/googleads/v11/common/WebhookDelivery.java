@@ -38,63 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WebhookDelivery(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            advertiserWebhookUrl_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            googleSecret_ = s;
-            break;
-          }
-          case 48: {
-            bitField0_ |= 0x00000004;
-            payloadSchemaVersion_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.AssetTypesProto.internal_static_google_ads_googleads_v11_common_WebhookDelivery_descriptor;
@@ -110,7 +53,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ADVERTISER_WEBHOOK_URL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object advertiserWebhookUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object advertiserWebhookUrl_ = "";
   /**
    * <pre>
    * Webhook url specified by advertiser to send the lead.
@@ -168,7 +112,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GOOGLE_SECRET_FIELD_NUMBER = 5;
-  private volatile java.lang.Object googleSecret_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object googleSecret_ = "";
   /**
    * <pre>
    * Anti-spoofing secret set by the advertiser as part of the webhook payload.
@@ -226,7 +171,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYLOAD_SCHEMA_VERSION_FIELD_NUMBER = 6;
-  private long payloadSchemaVersion_;
+  private long payloadSchemaVersion_ = 0L;
   /**
    * <pre>
    * The schema version that this delivery instance will use.
@@ -275,7 +220,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeInt64(6, payloadSchemaVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -294,7 +239,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(6, payloadSchemaVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -324,7 +269,7 @@ private static final long serialVersionUID = 0L;
       if (getPayloadSchemaVersion()
           != other.getPayloadSchemaVersion()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -348,7 +293,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPayloadSchemaVersion());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -471,28 +416,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.WebhookDelivery.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       advertiserWebhookUrl_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       googleSecret_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       payloadSchemaVersion_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -519,23 +457,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.WebhookDelivery buildPartial() {
       com.google.ads.googleads.v11.common.WebhookDelivery result = new com.google.ads.googleads.v11.common.WebhookDelivery(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.WebhookDelivery result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.advertiserWebhookUrl_ = advertiserWebhookUrl_;
         to_bitField0_ |= 0x00000001;
       }
-      result.advertiserWebhookUrl_ = advertiserWebhookUrl_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.googleSecret_ = googleSecret_;
         to_bitField0_ |= 0x00000002;
       }
-      result.googleSecret_ = googleSecret_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.payloadSchemaVersion_ = payloadSchemaVersion_;
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -583,19 +525,19 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.ads.googleads.v11.common.WebhookDelivery other) {
       if (other == com.google.ads.googleads.v11.common.WebhookDelivery.getDefaultInstance()) return this;
       if (other.hasAdvertiserWebhookUrl()) {
-        bitField0_ |= 0x00000001;
         advertiserWebhookUrl_ = other.advertiserWebhookUrl_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasGoogleSecret()) {
-        bitField0_ |= 0x00000002;
         googleSecret_ = other.googleSecret_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasPayloadSchemaVersion()) {
         setPayloadSchemaVersion(other.getPayloadSchemaVersion());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -610,17 +552,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.WebhookDelivery parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              advertiserWebhookUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 34
+            case 42: {
+              googleSecret_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 48: {
+              payloadSchemaVersion_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.WebhookDelivery) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -689,11 +659,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdvertiserWebhookUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       advertiserWebhookUrl_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -706,8 +674,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdvertiserWebhookUrl() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       advertiserWebhookUrl_ = getDefaultInstance().getAdvertiserWebhookUrl();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -722,12 +690,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdvertiserWebhookUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       advertiserWebhookUrl_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -796,11 +762,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleSecret(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       googleSecret_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -813,8 +777,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGoogleSecret() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       googleSecret_ = getDefaultInstance().getGoogleSecret();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -829,12 +793,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleSecretBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       googleSecret_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -874,8 +836,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPayloadSchemaVersion(long value) {
-      bitField0_ |= 0x00000004;
+      
       payloadSchemaVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -926,7 +889,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WebhookDelivery(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

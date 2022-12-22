@@ -38,103 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SubstitutionFormatString(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            formatCase_ = 1;
-            format_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (formatCase_ == 2) {
-              subBuilder = ((com.google.protobuf.Struct) format_).toBuilder();
-            }
-            format_ =
-                input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Struct) format_);
-              format_ = subBuilder.buildPartial();
-            }
-            formatCase_ = 2;
-            break;
-          }
-          case 24: {
-
-            omitEmptyValues_ = input.readBool();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            contentType_ = s;
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (formatCase_ == 5) {
-              subBuilder = ((io.envoyproxy.envoy.config.core.v3.DataSource) format_).toBuilder();
-            }
-            format_ =
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.DataSource) format_);
-              format_ = subBuilder.buildPartial();
-            }
-            formatCase_ = 5;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              formatters_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            formatters_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        formatters_ = java.util.Collections.unmodifiableList(formatters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.core.v3.SubstitutionFormatStringProto.internal_static_envoy_config_core_v3_SubstitutionFormatString_descriptor;
@@ -447,7 +350,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OMIT_EMPTY_VALUES_FIELD_NUMBER = 3;
-  private boolean omitEmptyValues_;
+  private boolean omitEmptyValues_ = false;
   /**
    * <pre>
    * If set to true, when command operators are evaluated to null,
@@ -465,7 +368,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTENT_TYPE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object contentType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object contentType_ = "";
   /**
    * <pre>
    * Specify a ``content_type`` field.
@@ -521,6 +425,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMATTERS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig> formatters_;
   /**
    * <pre>
@@ -622,7 +527,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < formatters_.size(); i++) {
       output.writeMessage(6, formatters_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -653,7 +558,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, formatters_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -691,7 +596,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -727,7 +632,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -850,33 +755,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.SubstitutionFormatString.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFormattersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (jsonFormatBuilder_ != null) {
+        jsonFormatBuilder_.clear();
+      }
+      if (textFormatSourceBuilder_ != null) {
+        textFormatSourceBuilder_.clear();
+      }
       omitEmptyValues_ = false;
-
       contentType_ = "";
-
       if (formattersBuilder_ == null) {
         formatters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        formatters_ = null;
         formattersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       formatCase_ = 0;
       format_ = null;
       return this;
@@ -905,38 +810,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.SubstitutionFormatString buildPartial() {
       io.envoyproxy.envoy.config.core.v3.SubstitutionFormatString result = new io.envoyproxy.envoy.config.core.v3.SubstitutionFormatString(this);
-      int from_bitField0_ = bitField0_;
-      if (formatCase_ == 1) {
-        result.format_ = format_;
-      }
-      if (formatCase_ == 2) {
-        if (jsonFormatBuilder_ == null) {
-          result.format_ = format_;
-        } else {
-          result.format_ = jsonFormatBuilder_.build();
-        }
-      }
-      if (formatCase_ == 5) {
-        if (textFormatSourceBuilder_ == null) {
-          result.format_ = format_;
-        } else {
-          result.format_ = textFormatSourceBuilder_.build();
-        }
-      }
-      result.omitEmptyValues_ = omitEmptyValues_;
-      result.contentType_ = contentType_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.core.v3.SubstitutionFormatString result) {
       if (formattersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           formatters_ = java.util.Collections.unmodifiableList(formatters_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.formatters_ = formatters_;
       } else {
         result.formatters_ = formattersBuilder_.build();
       }
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.SubstitutionFormatString result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.omitEmptyValues_ = omitEmptyValues_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.contentType_ = contentType_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.config.core.v3.SubstitutionFormatString result) {
       result.formatCase_ = formatCase_;
-      onBuilt();
-      return result;
+      result.format_ = this.format_;
+      if (formatCase_ == 2 &&
+          jsonFormatBuilder_ != null) {
+        result.format_ = jsonFormatBuilder_.build();
+      }
+      if (formatCase_ == 5 &&
+          textFormatSourceBuilder_ != null) {
+        result.format_ = textFormatSourceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -988,13 +901,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getContentType().isEmpty()) {
         contentType_ = other.contentType_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (formattersBuilder_ == null) {
         if (!other.formatters_.isEmpty()) {
           if (formatters_.isEmpty()) {
             formatters_ = other.formatters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureFormattersIsMutable();
             formatters_.addAll(other.formatters_);
@@ -1007,7 +921,7 @@ private static final long serialVersionUID = 0L;
             formattersBuilder_.dispose();
             formattersBuilder_ = null;
             formatters_ = other.formatters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             formattersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFormattersFieldBuilder() : null;
@@ -1035,7 +949,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1050,17 +964,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.SubstitutionFormatString parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              formatCase_ = 1;
+              format_ = s;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getJsonFormatFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              formatCase_ = 2;
+              break;
+            } // case 18
+            case 24: {
+              omitEmptyValues_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 24
+            case 34: {
+              contentType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getTextFormatSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              formatCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.parser(),
+                      extensionRegistry);
+              if (formattersBuilder_ == null) {
+                ensureFormattersIsMutable();
+                formatters_.add(m);
+              } else {
+                formattersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.SubstitutionFormatString) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int formatCase_ = 0;
@@ -1200,10 +1170,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setTextFormat(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  formatCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      formatCase_ = 1;
       format_ = value;
       onChanged();
       return this;
@@ -1257,10 +1225,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setTextFormatBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       formatCase_ = 1;
       format_ = value;
       onChanged();
@@ -1576,7 +1542,7 @@ private static final long serialVersionUID = 0L;
         format_ = null;
       }
       formatCase_ = 2;
-      onChanged();;
+      onChanged();
       return jsonFormatBuilder_;
     }
 
@@ -1835,7 +1801,7 @@ private static final long serialVersionUID = 0L;
         format_ = null;
       }
       formatCase_ = 5;
-      onChanged();;
+      onChanged();
       return textFormatSourceBuilder_;
     }
 
@@ -1870,6 +1836,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOmitEmptyValues(boolean value) {
       
       omitEmptyValues_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1885,7 +1852,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOmitEmptyValues() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       omitEmptyValues_ = false;
       onChanged();
       return this;
@@ -1959,11 +1926,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContentType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       contentType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1981,8 +1946,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearContentType() {
-      
       contentType_ = getDefaultInstance().getContentType();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2002,12 +1967,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContentTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       contentType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2015,9 +1978,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig> formatters_ =
       java.util.Collections.emptyList();
     private void ensureFormattersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         formatters_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig>(formatters_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2233,7 +2196,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFormatters() {
       if (formattersBuilder_ == null) {
         formatters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         formattersBuilder_.clear();
@@ -2352,7 +2315,7 @@ private static final long serialVersionUID = 0L;
         formattersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder>(
                 formatters_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         formatters_ = null;
@@ -2392,7 +2355,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SubstitutionFormatString(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

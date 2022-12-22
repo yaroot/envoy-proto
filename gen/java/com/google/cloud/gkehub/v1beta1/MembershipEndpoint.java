@@ -35,141 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MembershipEndpoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 34: {
-            com.google.cloud.gkehub.v1beta1.GkeCluster.Builder subBuilder = null;
-            if (typeCase_ == 4) {
-              subBuilder = ((com.google.cloud.gkehub.v1beta1.GkeCluster) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.cloud.gkehub.v1beta1.GkeCluster.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.gkehub.v1beta1.GkeCluster) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.gkehub.v1beta1.KubernetesMetadata.Builder subBuilder = null;
-            if (kubernetesMetadata_ != null) {
-              subBuilder = kubernetesMetadata_.toBuilder();
-            }
-            kubernetesMetadata_ = input.readMessage(com.google.cloud.gkehub.v1beta1.KubernetesMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kubernetesMetadata_);
-              kubernetesMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.gkehub.v1beta1.KubernetesResource.Builder subBuilder = null;
-            if (kubernetesResource_ != null) {
-              subBuilder = kubernetesResource_.toBuilder();
-            }
-            kubernetesResource_ = input.readMessage(com.google.cloud.gkehub.v1beta1.KubernetesResource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kubernetesResource_);
-              kubernetesResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.cloud.gkehub.v1beta1.OnPremCluster.Builder subBuilder = null;
-            if (typeCase_ == 7) {
-              subBuilder = ((com.google.cloud.gkehub.v1beta1.OnPremCluster) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.cloud.gkehub.v1beta1.OnPremCluster.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.gkehub.v1beta1.OnPremCluster) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.cloud.gkehub.v1beta1.MultiCloudCluster.Builder subBuilder = null;
-            if (typeCase_ == 8) {
-              subBuilder = ((com.google.cloud.gkehub.v1beta1.MultiCloudCluster) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.cloud.gkehub.v1beta1.MultiCloudCluster.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.gkehub.v1beta1.MultiCloudCluster) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.cloud.gkehub.v1beta1.EdgeCluster.Builder subBuilder = null;
-            if (typeCase_ == 9) {
-              subBuilder = ((com.google.cloud.gkehub.v1beta1.EdgeCluster) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.cloud.gkehub.v1beta1.EdgeCluster.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.gkehub.v1beta1.EdgeCluster) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.cloud.gkehub.v1beta1.ApplianceCluster.Builder subBuilder = null;
-            if (typeCase_ == 10) {
-              subBuilder = ((com.google.cloud.gkehub.v1beta1.ApplianceCluster) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.cloud.gkehub.v1beta1.ApplianceCluster.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.gkehub.v1beta1.ApplianceCluster) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 10;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.v1beta1.MembershipOuterClass.internal_static_google_cloud_gkehub_v1beta1_MembershipEndpoint_descriptor;
@@ -486,7 +351,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.v1beta1.KubernetesMetadataOrBuilder getKubernetesMetadataOrBuilder() {
-    return getKubernetesMetadata();
+    return kubernetesMetadata_ == null ? com.google.cloud.gkehub.v1beta1.KubernetesMetadata.getDefaultInstance() : kubernetesMetadata_;
   }
 
   public static final int KUBERNETES_RESOURCE_FIELD_NUMBER = 6;
@@ -542,7 +407,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.v1beta1.KubernetesResourceOrBuilder getKubernetesResourceOrBuilder() {
-    return getKubernetesResource();
+    return kubernetesResource_ == null ? com.google.cloud.gkehub.v1beta1.KubernetesResource.getDefaultInstance() : kubernetesResource_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -580,7 +445,7 @@ private static final long serialVersionUID = 0L;
     if (typeCase_ == 10) {
       output.writeMessage(10, (com.google.cloud.gkehub.v1beta1.ApplianceCluster) type_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -617,7 +482,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, (com.google.cloud.gkehub.v1beta1.ApplianceCluster) type_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -667,7 +532,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -710,7 +575,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -832,32 +697,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.v1beta1.MembershipEndpoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (kubernetesMetadataBuilder_ == null) {
-        kubernetesMetadata_ = null;
-      } else {
-        kubernetesMetadata_ = null;
+      bitField0_ = 0;
+      if (gkeClusterBuilder_ != null) {
+        gkeClusterBuilder_.clear();
+      }
+      if (onPremClusterBuilder_ != null) {
+        onPremClusterBuilder_.clear();
+      }
+      if (multiCloudClusterBuilder_ != null) {
+        multiCloudClusterBuilder_.clear();
+      }
+      if (edgeClusterBuilder_ != null) {
+        edgeClusterBuilder_.clear();
+      }
+      if (applianceClusterBuilder_ != null) {
+        applianceClusterBuilder_.clear();
+      }
+      kubernetesMetadata_ = null;
+      if (kubernetesMetadataBuilder_ != null) {
+        kubernetesMetadataBuilder_.dispose();
         kubernetesMetadataBuilder_ = null;
       }
-      if (kubernetesResourceBuilder_ == null) {
-        kubernetesResource_ = null;
-      } else {
-        kubernetesResource_ = null;
+      kubernetesResource_ = null;
+      if (kubernetesResourceBuilder_ != null) {
+        kubernetesResourceBuilder_.dispose();
         kubernetesResourceBuilder_ = null;
       }
       typeCase_ = 0;
@@ -888,54 +762,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.v1beta1.MembershipEndpoint buildPartial() {
       com.google.cloud.gkehub.v1beta1.MembershipEndpoint result = new com.google.cloud.gkehub.v1beta1.MembershipEndpoint(this);
-      if (typeCase_ == 4) {
-        if (gkeClusterBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = gkeClusterBuilder_.build();
-        }
-      }
-      if (typeCase_ == 7) {
-        if (onPremClusterBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = onPremClusterBuilder_.build();
-        }
-      }
-      if (typeCase_ == 8) {
-        if (multiCloudClusterBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = multiCloudClusterBuilder_.build();
-        }
-      }
-      if (typeCase_ == 9) {
-        if (edgeClusterBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = edgeClusterBuilder_.build();
-        }
-      }
-      if (typeCase_ == 10) {
-        if (applianceClusterBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = applianceClusterBuilder_.build();
-        }
-      }
-      if (kubernetesMetadataBuilder_ == null) {
-        result.kubernetesMetadata_ = kubernetesMetadata_;
-      } else {
-        result.kubernetesMetadata_ = kubernetesMetadataBuilder_.build();
-      }
-      if (kubernetesResourceBuilder_ == null) {
-        result.kubernetesResource_ = kubernetesResource_;
-      } else {
-        result.kubernetesResource_ = kubernetesResourceBuilder_.build();
-      }
-      result.typeCase_ = typeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.v1beta1.MembershipEndpoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.kubernetesMetadata_ = kubernetesMetadataBuilder_ == null
+            ? kubernetesMetadata_
+            : kubernetesMetadataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.kubernetesResource_ = kubernetesResourceBuilder_ == null
+            ? kubernetesResource_
+            : kubernetesResourceBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.gkehub.v1beta1.MembershipEndpoint result) {
+      result.typeCase_ = typeCase_;
+      result.type_ = this.type_;
+      if (typeCase_ == 4 &&
+          gkeClusterBuilder_ != null) {
+        result.type_ = gkeClusterBuilder_.build();
+      }
+      if (typeCase_ == 7 &&
+          onPremClusterBuilder_ != null) {
+        result.type_ = onPremClusterBuilder_.build();
+      }
+      if (typeCase_ == 8 &&
+          multiCloudClusterBuilder_ != null) {
+        result.type_ = multiCloudClusterBuilder_.build();
+      }
+      if (typeCase_ == 9 &&
+          edgeClusterBuilder_ != null) {
+        result.type_ = edgeClusterBuilder_.build();
+      }
+      if (typeCase_ == 10 &&
+          applianceClusterBuilder_ != null) {
+        result.type_ = applianceClusterBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1013,7 +882,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1028,17 +897,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.v1beta1.MembershipEndpoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              input.readMessage(
+                  getGkeClusterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getKubernetesMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getKubernetesResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getOnPremClusterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getMultiCloudClusterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getEdgeClusterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getApplianceClusterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 10;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.v1beta1.MembershipEndpoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeCase_ = 0;
@@ -1056,6 +987,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.gkehub.v1beta1.GkeCluster, com.google.cloud.gkehub.v1beta1.GkeCluster.Builder, com.google.cloud.gkehub.v1beta1.GkeClusterOrBuilder> gkeClusterBuilder_;
@@ -1231,7 +1163,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 4;
-      onChanged();;
+      onChanged();
       return gkeClusterBuilder_;
     }
 
@@ -1427,7 +1359,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 7;
-      onChanged();;
+      onChanged();
       return onPremClusterBuilder_;
     }
 
@@ -1605,7 +1537,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 8;
-      onChanged();;
+      onChanged();
       return multiCloudClusterBuilder_;
     }
 
@@ -1783,7 +1715,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 9;
-      onChanged();;
+      onChanged();
       return edgeClusterBuilder_;
     }
 
@@ -1961,7 +1893,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 10;
-      onChanged();;
+      onChanged();
       return applianceClusterBuilder_;
     }
 
@@ -1977,7 +1909,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kubernetesMetadata field is set.
      */
     public boolean hasKubernetesMetadata() {
-      return kubernetesMetadataBuilder_ != null || kubernetesMetadata_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2007,11 +1939,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kubernetesMetadata_ = value;
-        onChanged();
       } else {
         kubernetesMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2025,11 +1957,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.v1beta1.KubernetesMetadata.Builder builderForValue) {
       if (kubernetesMetadataBuilder_ == null) {
         kubernetesMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         kubernetesMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2041,17 +1973,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKubernetesMetadata(com.google.cloud.gkehub.v1beta1.KubernetesMetadata value) {
       if (kubernetesMetadataBuilder_ == null) {
-        if (kubernetesMetadata_ != null) {
-          kubernetesMetadata_ =
-            com.google.cloud.gkehub.v1beta1.KubernetesMetadata.newBuilder(kubernetesMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          kubernetesMetadata_ != null &&
+          kubernetesMetadata_ != com.google.cloud.gkehub.v1beta1.KubernetesMetadata.getDefaultInstance()) {
+          getKubernetesMetadataBuilder().mergeFrom(value);
         } else {
           kubernetesMetadata_ = value;
         }
-        onChanged();
       } else {
         kubernetesMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2062,14 +1995,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.v1beta1.KubernetesMetadata kubernetes_metadata = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearKubernetesMetadata() {
-      if (kubernetesMetadataBuilder_ == null) {
-        kubernetesMetadata_ = null;
-        onChanged();
-      } else {
-        kubernetesMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      kubernetesMetadata_ = null;
+      if (kubernetesMetadataBuilder_ != null) {
+        kubernetesMetadataBuilder_.dispose();
         kubernetesMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2080,7 +2012,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.v1beta1.KubernetesMetadata kubernetes_metadata = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.gkehub.v1beta1.KubernetesMetadata.Builder getKubernetesMetadataBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getKubernetesMetadataFieldBuilder().getBuilder();
     }
@@ -2138,7 +2070,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kubernetesResource field is set.
      */
     public boolean hasKubernetesResource() {
-      return kubernetesResourceBuilder_ != null || kubernetesResource_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2180,11 +2112,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kubernetesResource_ = value;
-        onChanged();
       } else {
         kubernetesResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2204,11 +2136,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.v1beta1.KubernetesResource.Builder builderForValue) {
       if (kubernetesResourceBuilder_ == null) {
         kubernetesResource_ = builderForValue.build();
-        onChanged();
       } else {
         kubernetesResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2226,17 +2158,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKubernetesResource(com.google.cloud.gkehub.v1beta1.KubernetesResource value) {
       if (kubernetesResourceBuilder_ == null) {
-        if (kubernetesResource_ != null) {
-          kubernetesResource_ =
-            com.google.cloud.gkehub.v1beta1.KubernetesResource.newBuilder(kubernetesResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          kubernetesResource_ != null &&
+          kubernetesResource_ != com.google.cloud.gkehub.v1beta1.KubernetesResource.getDefaultInstance()) {
+          getKubernetesResourceBuilder().mergeFrom(value);
         } else {
           kubernetesResource_ = value;
         }
-        onChanged();
       } else {
         kubernetesResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2253,14 +2186,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.v1beta1.KubernetesResource kubernetes_resource = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearKubernetesResource() {
-      if (kubernetesResourceBuilder_ == null) {
-        kubernetesResource_ = null;
-        onChanged();
-      } else {
-        kubernetesResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      kubernetesResource_ = null;
+      if (kubernetesResourceBuilder_ != null) {
+        kubernetesResourceBuilder_.dispose();
         kubernetesResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2277,7 +2209,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.v1beta1.KubernetesResource kubernetes_resource = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkehub.v1beta1.KubernetesResource.Builder getKubernetesResourceBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getKubernetesResourceFieldBuilder().getBuilder();
     }
@@ -2361,7 +2293,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MembershipEndpoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -50,7 +50,6 @@ public interface SamplePlayableLocationsResponseOrBuilder extends
    *
    * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
    */
-
   /* nullable */
 com.google.maps.playablelocations.v3.sample.PlayableLocationList getLocationsPerGameObjectTypeOrDefault(
       int key,
@@ -64,7 +63,6 @@ com.google.maps.playablelocations.v3.sample.PlayableLocationList defaultValue);
    *
    * <code>map&lt;int32, .google.maps.playablelocations.v3.sample.PlayableLocationList&gt; locations_per_game_object_type = 1;</code>
    */
-
   com.google.maps.playablelocations.v3.sample.PlayableLocationList getLocationsPerGameObjectTypeOrThrow(
       int key);
 

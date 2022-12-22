@@ -34,87 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImageSegmentationAnnotation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26: {
-            com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation.Builder subBuilder = null;
-            if (annotationCase_ == 3) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation) annotation_).toBuilder();
-            }
-            annotation_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation) annotation_);
-              annotation_ = subBuilder.buildPartial();
-            }
-            annotationCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation.Builder subBuilder = null;
-            if (annotationCase_ == 4) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation) annotation_).toBuilder();
-            }
-            annotation_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation) annotation_);
-              annotation_ = subBuilder.buildPartial();
-            }
-            annotationCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation.Builder subBuilder = null;
-            if (annotationCase_ == 5) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation) annotation_).toBuilder();
-            }
-            annotation_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation) annotation_);
-              annotation_ = subBuilder.buildPartial();
-            }
-            annotationCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.schema.AnnotationPayloadProto.internal_static_google_cloud_aiplatform_v1beta1_schema_ImageSegmentationAnnotation_descriptor;
@@ -237,64 +156,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MaskAnnotation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              maskGcsUri_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                annotationSpecColors_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColor>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              annotationSpecColors_.add(
-                  input.readMessage(com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColor.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          annotationSpecColors_ = java.util.Collections.unmodifiableList(annotationSpecColors_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1beta1.schema.AnnotationPayloadProto.internal_static_google_cloud_aiplatform_v1beta1_schema_ImageSegmentationAnnotation_MaskAnnotation_descriptor;
@@ -309,7 +170,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MASK_GCS_URI_FIELD_NUMBER = 1;
-    private volatile java.lang.Object maskGcsUri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object maskGcsUri_ = "";
     /**
      * <pre>
      * Google Cloud Storage URI that points to the mask image. The image must be
@@ -363,6 +225,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ANNOTATION_SPEC_COLORS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColor> annotationSpecColors_;
     /**
      * <pre>
@@ -442,7 +305,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < annotationSpecColors_.size(); i++) {
         output.writeMessage(2, annotationSpecColors_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -458,7 +321,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, annotationSpecColors_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -477,7 +340,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getMaskGcsUri())) return false;
       if (!getAnnotationSpecColorsList()
           .equals(other.getAnnotationSpecColorsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -494,7 +357,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ANNOTATION_SPEC_COLORS_FIELD_NUMBER;
         hash = (53 * hash) + getAnnotationSpecColorsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -615,31 +478,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAnnotationSpecColorsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         maskGcsUri_ = "";
-
         if (annotationSpecColorsBuilder_ == null) {
           annotationSpecColors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          annotationSpecColors_ = null;
           annotationSpecColorsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -666,19 +524,29 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation buildPartial() {
         com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation result = new com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation(this);
-        int from_bitField0_ = bitField0_;
-        result.maskGcsUri_ = maskGcsUri_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation result) {
         if (annotationSpecColorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             annotationSpecColors_ = java.util.Collections.unmodifiableList(annotationSpecColors_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.annotationSpecColors_ = annotationSpecColors_;
         } else {
           result.annotationSpecColors_ = annotationSpecColorsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.maskGcsUri_ = maskGcsUri_;
+        }
       }
 
       @java.lang.Override
@@ -727,13 +595,14 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation.getDefaultInstance()) return this;
         if (!other.getMaskGcsUri().isEmpty()) {
           maskGcsUri_ = other.maskGcsUri_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (annotationSpecColorsBuilder_ == null) {
           if (!other.annotationSpecColors_.isEmpty()) {
             if (annotationSpecColors_.isEmpty()) {
               annotationSpecColors_ = other.annotationSpecColors_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureAnnotationSpecColorsIsMutable();
               annotationSpecColors_.addAll(other.annotationSpecColors_);
@@ -746,7 +615,7 @@ private static final long serialVersionUID = 0L;
               annotationSpecColorsBuilder_.dispose();
               annotationSpecColorsBuilder_ = null;
               annotationSpecColors_ = other.annotationSpecColors_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               annotationSpecColorsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAnnotationSpecColorsFieldBuilder() : null;
@@ -755,7 +624,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -770,17 +639,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                maskGcsUri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColor m =
+                    input.readMessage(
+                        com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColor.parser(),
+                        extensionRegistry);
+                if (annotationSpecColorsBuilder_ == null) {
+                  ensureAnnotationSpecColorsIsMutable();
+                  annotationSpecColors_.add(m);
+                } else {
+                  annotationSpecColorsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -850,11 +750,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMaskGcsUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         maskGcsUri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -871,8 +769,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMaskGcsUri() {
-        
         maskGcsUri_ = getDefaultInstance().getMaskGcsUri();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -891,12 +789,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMaskGcsUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         maskGcsUri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -904,9 +800,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColor> annotationSpecColors_ =
         java.util.Collections.emptyList();
       private void ensureAnnotationSpecColorsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           annotationSpecColors_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColor>(annotationSpecColors_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1100,7 +996,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearAnnotationSpecColors() {
         if (annotationSpecColorsBuilder_ == null) {
           annotationSpecColors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           annotationSpecColorsBuilder_.clear();
@@ -1205,7 +1101,7 @@ private static final long serialVersionUID = 0L;
           annotationSpecColorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColor, com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColor.Builder, com.google.cloud.aiplatform.v1beta1.schema.AnnotationSpecColorOrBuilder>(
                   annotationSpecColors_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           annotationSpecColors_ = null;
@@ -1245,7 +1141,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MaskAnnotation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1392,70 +1299,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PolygonAnnotation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                vertexes_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.schema.Vertex>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              vertexes_.add(
-                  input.readMessage(com.google.cloud.aiplatform.v1beta1.schema.Vertex.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              annotationSpecId_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          vertexes_ = java.util.Collections.unmodifiableList(vertexes_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1beta1.schema.AnnotationPayloadProto.internal_static_google_cloud_aiplatform_v1beta1_schema_ImageSegmentationAnnotation_PolygonAnnotation_descriptor;
@@ -1470,6 +1313,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VERTEXES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.aiplatform.v1beta1.schema.Vertex> vertexes_;
     /**
      * <pre>
@@ -1535,7 +1379,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ANNOTATION_SPEC_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object annotationSpecId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object annotationSpecId_ = "";
     /**
      * <pre>
      * The resource Id of the AnnotationSpec that this Annotation pertains to.
@@ -1581,7 +1426,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * The display name of the AnnotationSpec that this Annotation pertains to.
@@ -1649,7 +1495,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, displayName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1668,7 +1514,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, displayName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1689,7 +1535,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getAnnotationSpecId())) return false;
       if (!getDisplayName()
           .equals(other.getDisplayName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1708,7 +1554,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getAnnotationSpecId().hashCode();
       hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDisplayName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1829,33 +1675,27 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getVertexesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (vertexesBuilder_ == null) {
           vertexes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          vertexes_ = null;
           vertexesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         annotationSpecId_ = "";
-
         displayName_ = "";
-
         return this;
       }
 
@@ -1882,7 +1722,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation buildPartial() {
         com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation result = new com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation result) {
         if (vertexesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             vertexes_ = java.util.Collections.unmodifiableList(vertexes_);
@@ -1892,10 +1738,16 @@ private static final long serialVersionUID = 0L;
         } else {
           result.vertexes_ = vertexesBuilder_.build();
         }
-        result.annotationSpecId_ = annotationSpecId_;
-        result.displayName_ = displayName_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.annotationSpecId_ = annotationSpecId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.displayName_ = displayName_;
+        }
       }
 
       @java.lang.Override
@@ -1970,13 +1822,15 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getAnnotationSpecId().isEmpty()) {
           annotationSpecId_ = other.annotationSpecId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1991,17 +1845,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.aiplatform.v1beta1.schema.Vertex m =
+                    input.readMessage(
+                        com.google.cloud.aiplatform.v1beta1.schema.Vertex.parser(),
+                        extensionRegistry);
+                if (vertexesBuilder_ == null) {
+                  ensureVertexesIsMutable();
+                  vertexes_.add(m);
+                } else {
+                  vertexesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                annotationSpecId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolygonAnnotation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2389,11 +2279,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAnnotationSpecId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         annotationSpecId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2406,8 +2294,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAnnotationSpecId() {
-        
         annotationSpecId_ = getDefaultInstance().getAnnotationSpecId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2422,12 +2310,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAnnotationSpecIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         annotationSpecId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2485,11 +2371,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2502,8 +2386,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -2518,12 +2402,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2560,7 +2442,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PolygonAnnotation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2707,70 +2600,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PolylineAnnotation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                vertexes_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.schema.Vertex>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              vertexes_.add(
-                  input.readMessage(com.google.cloud.aiplatform.v1beta1.schema.Vertex.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              annotationSpecId_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          vertexes_ = java.util.Collections.unmodifiableList(vertexes_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1beta1.schema.AnnotationPayloadProto.internal_static_google_cloud_aiplatform_v1beta1_schema_ImageSegmentationAnnotation_PolylineAnnotation_descriptor;
@@ -2785,6 +2614,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VERTEXES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.aiplatform.v1beta1.schema.Vertex> vertexes_;
     /**
      * <pre>
@@ -2850,7 +2680,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ANNOTATION_SPEC_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object annotationSpecId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object annotationSpecId_ = "";
     /**
      * <pre>
      * The resource Id of the AnnotationSpec that this Annotation pertains to.
@@ -2896,7 +2727,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * The display name of the AnnotationSpec that this Annotation pertains to.
@@ -2964,7 +2796,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, displayName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2983,7 +2815,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, displayName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3004,7 +2836,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getAnnotationSpecId())) return false;
       if (!getDisplayName()
           .equals(other.getDisplayName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3023,7 +2855,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getAnnotationSpecId().hashCode();
       hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDisplayName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3144,33 +2976,27 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getVertexesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (vertexesBuilder_ == null) {
           vertexes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          vertexes_ = null;
           vertexesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         annotationSpecId_ = "";
-
         displayName_ = "";
-
         return this;
       }
 
@@ -3197,7 +3023,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation buildPartial() {
         com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation result = new com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation result) {
         if (vertexesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             vertexes_ = java.util.Collections.unmodifiableList(vertexes_);
@@ -3207,10 +3039,16 @@ private static final long serialVersionUID = 0L;
         } else {
           result.vertexes_ = vertexesBuilder_.build();
         }
-        result.annotationSpecId_ = annotationSpecId_;
-        result.displayName_ = displayName_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.annotationSpecId_ = annotationSpecId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.displayName_ = displayName_;
+        }
       }
 
       @java.lang.Override
@@ -3285,13 +3123,15 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getAnnotationSpecId().isEmpty()) {
           annotationSpecId_ = other.annotationSpecId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3306,17 +3146,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.aiplatform.v1beta1.schema.Vertex m =
+                    input.readMessage(
+                        com.google.cloud.aiplatform.v1beta1.schema.Vertex.parser(),
+                        extensionRegistry);
+                if (vertexesBuilder_ == null) {
+                  ensureVertexesIsMutable();
+                  vertexes_.add(m);
+                } else {
+                  vertexesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                annotationSpecId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3704,11 +3580,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAnnotationSpecId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         annotationSpecId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3721,8 +3595,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAnnotationSpecId() {
-        
         annotationSpecId_ = getDefaultInstance().getAnnotationSpecId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -3737,12 +3611,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAnnotationSpecIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         annotationSpecId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3800,11 +3672,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3817,8 +3687,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -3833,12 +3703,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3875,7 +3743,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PolylineAnnotation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4093,7 +3972,7 @@ private static final long serialVersionUID = 0L;
     if (annotationCase_ == 5) {
       output.writeMessage(5, (com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation) annotation_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4114,7 +3993,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.PolylineAnnotation) annotation_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4146,7 +4025,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4173,7 +4052,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4294,22 +4173,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (maskAnnotationBuilder_ != null) {
+        maskAnnotationBuilder_.clear();
+      }
+      if (polygonAnnotationBuilder_ != null) {
+        polygonAnnotationBuilder_.clear();
+      }
+      if (polylineAnnotationBuilder_ != null) {
+        polylineAnnotationBuilder_.clear();
+      }
       annotationCase_ = 0;
       annotation_ = null;
       return this;
@@ -4338,30 +4222,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation buildPartial() {
       com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation result = new com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation(this);
-      if (annotationCase_ == 3) {
-        if (maskAnnotationBuilder_ == null) {
-          result.annotation_ = annotation_;
-        } else {
-          result.annotation_ = maskAnnotationBuilder_.build();
-        }
-      }
-      if (annotationCase_ == 4) {
-        if (polygonAnnotationBuilder_ == null) {
-          result.annotation_ = annotation_;
-        } else {
-          result.annotation_ = polygonAnnotationBuilder_.build();
-        }
-      }
-      if (annotationCase_ == 5) {
-        if (polylineAnnotationBuilder_ == null) {
-          result.annotation_ = annotation_;
-        } else {
-          result.annotation_ = polylineAnnotationBuilder_.build();
-        }
-      }
-      result.annotationCase_ = annotationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation result) {
+      result.annotationCase_ = annotationCase_;
+      result.annotation_ = this.annotation_;
+      if (annotationCase_ == 3 &&
+          maskAnnotationBuilder_ != null) {
+        result.annotation_ = maskAnnotationBuilder_.build();
+      }
+      if (annotationCase_ == 4 &&
+          polygonAnnotationBuilder_ != null) {
+        result.annotation_ = polygonAnnotationBuilder_.build();
+      }
+      if (annotationCase_ == 5 &&
+          polylineAnnotationBuilder_ != null) {
+        result.annotation_ = polylineAnnotationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -4425,7 +4310,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4440,17 +4325,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              input.readMessage(
+                  getMaskAnnotationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPolygonAnnotationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getPolylineAnnotationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationCase_ = 5;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int annotationCase_ = 0;
@@ -4468,6 +4387,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation, com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotation.Builder, com.google.cloud.aiplatform.v1beta1.schema.ImageSegmentationAnnotation.MaskAnnotationOrBuilder> maskAnnotationBuilder_;
@@ -4652,7 +4572,7 @@ private static final long serialVersionUID = 0L;
         annotation_ = null;
       }
       annotationCase_ = 3;
-      onChanged();;
+      onChanged();
       return maskAnnotationBuilder_;
     }
 
@@ -4830,7 +4750,7 @@ private static final long serialVersionUID = 0L;
         annotation_ = null;
       }
       annotationCase_ = 4;
-      onChanged();;
+      onChanged();
       return polygonAnnotationBuilder_;
     }
 
@@ -5008,7 +4928,7 @@ private static final long serialVersionUID = 0L;
         annotation_ = null;
       }
       annotationCase_ = 5;
-      onChanged();;
+      onChanged();
       return polylineAnnotationBuilder_;
     }
     @java.lang.Override
@@ -5044,7 +4964,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImageSegmentationAnnotation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

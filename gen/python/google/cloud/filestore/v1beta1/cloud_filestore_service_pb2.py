@@ -15,13 +15,14 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.common import operation_metadata_pb2 as google_dot_cloud_dot_common_dot_operation__metadata__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<google/cloud/filestore/v1beta1/cloud_filestore_service.proto\x12\x1egoogle.cloud.filestore.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xdc\x01\n\rNetworkConfig\x12\x0f\n\x07network\x18\x01 \x01(\t\x12H\n\x05modes\x18\x03 \x03(\x0e\x32\x39.google.cloud.filestore.v1beta1.NetworkConfig.AddressMode\x12\x19\n\x11reserved_ip_range\x18\x04 \x01(\t\x12\x19\n\x0cip_addresses\x18\x05 \x03(\tB\x03\xe0\x41\x03\":\n\x0b\x41\x64\x64ressMode\x12\x1c\n\x18\x41\x44\x44RESS_MODE_UNSPECIFIED\x10\x00\x12\r\n\tMODE_IPV4\x10\x01\"\xc6\x01\n\x0f\x46ileShareConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x63\x61pacity_gb\x18\x02 \x01(\x03\x12\x38\n\rsource_backup\x18\t \x01(\tB\x1f\xfa\x41\x1c\n\x1a\x66ile.googleapis.com/BackupH\x00\x12L\n\x12nfs_export_options\x18\x08 \x03(\x0b\x32\x30.google.cloud.filestore.v1beta1.NfsExportOptionsB\x08\n\x06source\"\x87\x03\n\x10NfsExportOptions\x12\x11\n\tip_ranges\x18\x01 \x03(\t\x12P\n\x0b\x61\x63\x63\x65ss_mode\x18\x02 \x01(\x0e\x32;.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode\x12P\n\x0bsquash_mode\x18\x03 \x01(\x0e\x32;.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode\x12\x10\n\x08\x61non_uid\x18\x04 \x01(\x03\x12\x10\n\x08\x61non_gid\x18\x05 \x01(\x03\"H\n\nAccessMode\x12\x1b\n\x17\x41\x43\x43\x45SS_MODE_UNSPECIFIED\x10\x00\x12\r\n\tREAD_ONLY\x10\x01\x12\x0e\n\nREAD_WRITE\x10\x02\"N\n\nSquashMode\x12\x1b\n\x17SQUASH_MODE_UNSPECIFIED\x10\x00\x12\x12\n\x0eNO_ROOT_SQUASH\x10\x01\x12\x0f\n\x0bROOT_SQUASH\x10\x02\"\x84\x07\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x42\n\x05state\x18\x05 \x01(\x0e\x32..google.cloud.filestore.v1beta1.Instance.StateB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12;\n\x04tier\x18\x08 \x01(\x0e\x32-.google.cloud.filestore.v1beta1.Instance.Tier\x12\x44\n\x06labels\x18\t \x03(\x0b\x32\x34.google.cloud.filestore.v1beta1.Instance.LabelsEntry\x12\x44\n\x0b\x66ile_shares\x18\n \x03(\x0b\x32/.google.cloud.filestore.v1beta1.FileShareConfig\x12?\n\x08networks\x18\x0b \x03(\x0b\x32-.google.cloud.filestore.v1beta1.NetworkConfig\x12\x0c\n\x04\x65tag\x18\x0c \x01(\t\x12\x36\n\rsatisfies_pzs\x18\r \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"n\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\r\n\tREPAIRING\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04\x12\t\n\x05\x45RROR\x10\x06\x12\r\n\tRESTORING\x10\x07\"i\n\x04Tier\x12\x14\n\x10TIER_UNSPECIFIED\x10\x00\x12\x0c\n\x08STANDARD\x10\x01\x12\x0b\n\x07PREMIUM\x10\x02\x12\r\n\tBASIC_HDD\x10\x03\x12\r\n\tBASIC_SSD\x10\x04\x12\x12\n\x0eHIGH_SCALE_SSD\x10\x06:_\xea\x41\\\n\x1c\x66ile.googleapis.com/Instance\x12<projects/{project}/locations/{location}/instances/{instance}\"\xad\x01\n\x15\x43reateInstanceRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x18\n\x0binstance_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12?\n\x08instance\x18\x03 \x01(\x0b\x32(.google.cloud.filestore.v1beta1.InstanceB\x03\xe0\x41\x02\"H\n\x12GetInstanceRequest\x12\x32\n\x04name\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\"\x8e\x01\n\x15UpdateInstanceRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12?\n\x08instance\x18\x02 \x01(\x0b\x32(.google.cloud.filestore.v1beta1.InstanceB\x03\xe0\x41\x02\"\xe7\x01\n\x16RestoreInstanceRequest\x12\x32\n\x04name\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\x17\n\nfile_share\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12<\n\x0fsource_snapshot\x18\x03 \x01(\tB!\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/SnapshotH\x00\x12\x38\n\rsource_backup\x18\x04 \x01(\tB\x1f\xfa\x41\x1c\n\x1a\x66ile.googleapis.com/BackupH\x00\x42\x08\n\x06source\"K\n\x15\x44\x65leteInstanceRequest\x12\x32\n\x04name\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\"\x9a\x01\n\x14ListInstancesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"\x82\x01\n\x15ListInstancesResponse\x12;\n\tinstances\x18\x01 \x03(\x0b\x32(.google.cloud.filestore.v1beta1.Instance\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\x82\x04\n\x08Snapshot\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x42\n\x05state\x18\x03 \x01(\x0e\x32..google.cloud.filestore.v1beta1.Snapshot.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x44\n\x06labels\x18\x05 \x03(\x0b\x32\x34.google.cloud.filestore.v1beta1.Snapshot.LabelsEntry\x12\"\n\x15\x66ilesystem_used_bytes\x18\x0c \x01(\x03\x42\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04:t\xea\x41q\n\x1c\x66ile.googleapis.com/Snapshot\x12Qprojects/{project}/locations/{location}/instances/{instance}/snapshots/{snapshot}\"\x81\x06\n\x06\x42\x61\x63kup\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12@\n\x05state\x18\x03 \x01(\x0e\x32,.google.cloud.filestore.v1beta1.Backup.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x42\n\x06labels\x18\x05 \x03(\x0b\x32\x32.google.cloud.filestore.v1beta1.Backup.LabelsEntry\x12\x18\n\x0b\x63\x61pacity_gb\x18\x06 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1a\n\rstorage_bytes\x18\x07 \x01(\x03\x42\x03\xe0\x41\x03\x12:\n\x0fsource_instance\x18\x08 \x01(\tB!\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\x19\n\x11source_file_share\x18\t \x01(\t\x12P\n\x14source_instance_tier\x18\n \x01(\x0e\x32-.google.cloud.filestore.v1beta1.Instance.TierB\x03\xe0\x41\x03\x12\x1b\n\x0e\x64ownload_bytes\x18\x0b \x01(\x03\x42\x03\xe0\x41\x03\x12\x36\n\rsatisfies_pzs\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"U\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\x0e\n\nFINALIZING\x10\x02\x12\t\n\x05READY\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04:Y\xea\x41V\n\x1a\x66ile.googleapis.com/Backup\x12\x38projects/{project}/locations/{location}/backups/{backup}\"\xa5\x01\n\x13\x43reateBackupRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12;\n\x06\x62\x61\x63kup\x18\x02 \x01(\x0b\x32&.google.cloud.filestore.v1beta1.BackupB\x03\xe0\x41\x02\x12\x16\n\tbackup_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"G\n\x13\x44\x65leteBackupRequest\x12\x30\n\x04name\x18\x01 \x01(\tB\"\xe0\x41\x02\xfa\x41\x1c\n\x1a\x66ile.googleapis.com/Backup\"\x88\x01\n\x13UpdateBackupRequest\x12;\n\x06\x62\x61\x63kup\x18\x01 \x01(\x0b\x32&.google.cloud.filestore.v1beta1.BackupB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"D\n\x10GetBackupRequest\x12\x30\n\x04name\x18\x01 \x01(\tB\"\xe0\x41\x02\xfa\x41\x1c\n\x1a\x66ile.googleapis.com/Backup\"\x98\x01\n\x12ListBackupsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"|\n\x13ListBackupsResponse\x12\x37\n\x07\x62\x61\x63kups\x18\x01 \x03(\x0b\x32&.google.cloud.filestore.v1beta1.Backup\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t2\xe6\x13\n\x15\x43loudFilestoreManager\x12\xc1\x01\n\rListInstances\x12\x34.google.cloud.filestore.v1beta1.ListInstancesRequest\x1a\x35.google.cloud.filestore.v1beta1.ListInstancesResponse\"C\x82\xd3\xe4\x93\x02\x34\x12\x32/v1beta1/{parent=projects/*/locations/*}/instances\xda\x41\x06parent\x12\xae\x01\n\x0bGetInstance\x12\x32.google.cloud.filestore.v1beta1.GetInstanceRequest\x1a(.google.cloud.filestore.v1beta1.Instance\"A\x82\xd3\xe4\x93\x02\x34\x12\x32/v1beta1/{name=projects/*/locations/*/instances/*}\xda\x41\x04name\x12\xff\x01\n\x0e\x43reateInstance\x12\x35.google.cloud.filestore.v1beta1.CreateInstanceRequest\x1a\x1d.google.longrunning.Operation\"\x96\x01\x82\xd3\xe4\x93\x02>\"2/v1beta1/{parent=projects/*/locations/*}/instances:\x08instance\xda\x41\x1bparent,instance,instance_id\xca\x41\x31\n\x08Instance\x12%google.cloud.common.OperationMetadata\x12\x81\x02\n\x0eUpdateInstance\x12\x35.google.cloud.filestore.v1beta1.UpdateInstanceRequest\x1a\x1d.google.longrunning.Operation\"\x98\x01\x82\xd3\xe4\x93\x02G2;/v1beta1/{instance.name=projects/*/locations/*/instances/*}:\x08instance\xda\x41\x14instance,update_mask\xca\x41\x31\n\x08Instance\x12%google.cloud.common.OperationMetadata\x12\xe3\x01\n\x0fRestoreInstance\x12\x36.google.cloud.filestore.v1beta1.RestoreInstanceRequest\x1a\x1d.google.longrunning.Operation\"y\x82\xd3\xe4\x93\x02?\":/v1beta1/{name=projects/*/locations/*/instances/*}:restore:\x01*\xca\x41\x31\n\x08Instance\x12%google.cloud.common.OperationMetadata\x12\xeb\x01\n\x0e\x44\x65leteInstance\x12\x35.google.cloud.filestore.v1beta1.DeleteInstanceRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02\x34*2/v1beta1/{name=projects/*/locations/*/instances/*}\xda\x41\x04name\xca\x41>\n\x15google.protobuf.Empty\x12%google.cloud.common.OperationMetadata\x12\xb9\x01\n\x0bListBackups\x12\x32.google.cloud.filestore.v1beta1.ListBackupsRequest\x1a\x33.google.cloud.filestore.v1beta1.ListBackupsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{parent=projects/*/locations/*}/backups\xda\x41\x06parent\x12\xa6\x01\n\tGetBackup\x12\x30.google.cloud.filestore.v1beta1.GetBackupRequest\x1a&.google.cloud.filestore.v1beta1.Backup\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{name=projects/*/locations/*/backups/*}\xda\x41\x04name\x12\xf1\x01\n\x0c\x43reateBackup\x12\x33.google.cloud.filestore.v1beta1.CreateBackupRequest\x1a\x1d.google.longrunning.Operation\"\x8c\x01\x82\xd3\xe4\x93\x02:\"0/v1beta1/{parent=projects/*/locations/*}/backups:\x06\x62\x61\x63kup\xda\x41\x17parent,backup,backup_id\xca\x41/\n\x06\x42\x61\x63kup\x12%google.cloud.common.OperationMetadata\x12\xe5\x01\n\x0c\x44\x65leteBackup\x12\x33.google.cloud.filestore.v1beta1.DeleteBackupRequest\x1a\x1d.google.longrunning.Operation\"\x80\x01\x82\xd3\xe4\x93\x02\x32*0/v1beta1/{name=projects/*/locations/*/backups/*}\xda\x41\x04name\xca\x41>\n\x15google.protobuf.Empty\x12%google.cloud.common.OperationMetadata\x12\xf3\x01\n\x0cUpdateBackup\x12\x33.google.cloud.filestore.v1beta1.UpdateBackupRequest\x1a\x1d.google.longrunning.Operation\"\x8e\x01\x82\xd3\xe4\x93\x02\x41\x32\x37/v1beta1/{backup.name=projects/*/locations/*/backups/*}:\x06\x62\x61\x63kup\xda\x41\x12\x62\x61\x63kup,update_mask\xca\x41/\n\x06\x42\x61\x63kup\x12%google.cloud.common.OperationMetadata\x1aG\xca\x41\x13\x66ile.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xcd\x01\n\"com.google.cloud.filestore.v1beta1B\x1a\x43loudFilestoreServiceProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/filestore/v1beta1;filestore\xaa\x02\x1eGoogle.Cloud.Filestore.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Filestore\\V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<google/cloud/filestore/v1beta1/cloud_filestore_service.proto\x12\x1egoogle.cloud.filestore.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a,google/cloud/common/operation_metadata.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x8a\x03\n\rNetworkConfig\x12\x0f\n\x07network\x18\x01 \x01(\t\x12H\n\x05modes\x18\x03 \x03(\x0e\x32\x39.google.cloud.filestore.v1beta1.NetworkConfig.AddressMode\x12\x19\n\x11reserved_ip_range\x18\x04 \x01(\t\x12\x19\n\x0cip_addresses\x18\x05 \x03(\tB\x03\xe0\x41\x03\x12O\n\x0c\x63onnect_mode\x18\x06 \x01(\x0e\x32\x39.google.cloud.filestore.v1beta1.NetworkConfig.ConnectMode\":\n\x0b\x41\x64\x64ressMode\x12\x1c\n\x18\x41\x44\x44RESS_MODE_UNSPECIFIED\x10\x00\x12\r\n\tMODE_IPV4\x10\x01\"[\n\x0b\x43onnectMode\x12\x1c\n\x18\x43ONNECT_MODE_UNSPECIFIED\x10\x00\x12\x12\n\x0e\x44IRECT_PEERING\x10\x01\x12\x1a\n\x16PRIVATE_SERVICE_ACCESS\x10\x02\"\xc6\x01\n\x0f\x46ileShareConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x63\x61pacity_gb\x18\x02 \x01(\x03\x12\x38\n\rsource_backup\x18\t \x01(\tB\x1f\xfa\x41\x1c\n\x1a\x66ile.googleapis.com/BackupH\x00\x12L\n\x12nfs_export_options\x18\x08 \x03(\x0b\x32\x30.google.cloud.filestore.v1beta1.NfsExportOptionsB\x08\n\x06source\"\x87\x03\n\x10NfsExportOptions\x12\x11\n\tip_ranges\x18\x01 \x03(\t\x12P\n\x0b\x61\x63\x63\x65ss_mode\x18\x02 \x01(\x0e\x32;.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode\x12P\n\x0bsquash_mode\x18\x03 \x01(\x0e\x32;.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode\x12\x10\n\x08\x61non_uid\x18\x04 \x01(\x03\x12\x10\n\x08\x61non_gid\x18\x05 \x01(\x03\"H\n\nAccessMode\x12\x1b\n\x17\x41\x43\x43\x45SS_MODE_UNSPECIFIED\x10\x00\x12\r\n\tREAD_ONLY\x10\x01\x12\x0e\n\nREAD_WRITE\x10\x02\"N\n\nSquashMode\x12\x1b\n\x17SQUASH_MODE_UNSPECIFIED\x10\x00\x12\x12\n\x0eNO_ROOT_SQUASH\x10\x01\x12\x0f\n\x0bROOT_SQUASH\x10\x02\"\x9f\n\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x42\n\x05state\x18\x05 \x01(\x0e\x32..google.cloud.filestore.v1beta1.Instance.StateB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12;\n\x04tier\x18\x08 \x01(\x0e\x32-.google.cloud.filestore.v1beta1.Instance.Tier\x12\x44\n\x06labels\x18\t \x03(\x0b\x32\x34.google.cloud.filestore.v1beta1.Instance.LabelsEntry\x12\x44\n\x0b\x66ile_shares\x18\n \x03(\x0b\x32/.google.cloud.filestore.v1beta1.FileShareConfig\x12?\n\x08networks\x18\x0b \x03(\x0b\x32-.google.cloud.filestore.v1beta1.NetworkConfig\x12\x0c\n\x04\x65tag\x18\x0c \x01(\t\x12\x36\n\rsatisfies_pzs\x18\r \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x03\xe0\x41\x03\x12\x14\n\x0ckms_key_name\x18\x0e \x01(\t\x12Z\n\x12suspension_reasons\x18\x0f \x03(\x0e\x32\x39.google.cloud.filestore.v1beta1.Instance.SuspensionReasonB\x03\xe0\x41\x03\x12\x1c\n\x0fmax_capacity_gb\x18\x10 \x01(\x03\x42\x03\xe0\x41\x03\x12\"\n\x15\x63\x61pacity_step_size_gb\x18\x11 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1c\n\x0fmax_share_count\x18\x12 \x01(\x03\x42\x03\xe0\x41\x03\x12\x13\n\x0b\x63\x61pacity_gb\x18\x13 \x01(\x03\x12\x1b\n\x13multi_share_enabled\x18\x14 \x01(\x08\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xaa\x01\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x02\x12\r\n\tREPAIRING\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04\x12\t\n\x05\x45RROR\x10\x06\x12\r\n\tRESTORING\x10\x07\x12\r\n\tSUSPENDED\x10\x08\x12\r\n\tREVERTING\x10\t\x12\x0e\n\nSUSPENDING\x10\n\x12\x0c\n\x08RESUMING\x10\x0b\"y\n\x04Tier\x12\x14\n\x10TIER_UNSPECIFIED\x10\x00\x12\x0c\n\x08STANDARD\x10\x01\x12\x0b\n\x07PREMIUM\x10\x02\x12\r\n\tBASIC_HDD\x10\x03\x12\r\n\tBASIC_SSD\x10\x04\x12\x12\n\x0eHIGH_SCALE_SSD\x10\x06\x12\x0e\n\nENTERPRISE\x10\x07\"H\n\x10SuspensionReason\x12!\n\x1dSUSPENSION_REASON_UNSPECIFIED\x10\x00\x12\x11\n\rKMS_KEY_ISSUE\x10\x01:_\xea\x41\\\n\x1c\x66ile.googleapis.com/Instance\x12<projects/{project}/locations/{location}/instances/{instance}\"\xad\x01\n\x15\x43reateInstanceRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x18\n\x0binstance_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12?\n\x08instance\x18\x03 \x01(\x0b\x32(.google.cloud.filestore.v1beta1.InstanceB\x03\xe0\x41\x02\"H\n\x12GetInstanceRequest\x12\x32\n\x04name\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\"\x8e\x01\n\x15UpdateInstanceRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12?\n\x08instance\x18\x02 \x01(\x0b\x32(.google.cloud.filestore.v1beta1.InstanceB\x03\xe0\x41\x02\"\xe7\x01\n\x16RestoreInstanceRequest\x12\x32\n\x04name\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\x17\n\nfile_share\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12<\n\x0fsource_snapshot\x18\x03 \x01(\tB!\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/SnapshotH\x00\x12\x38\n\rsource_backup\x18\x04 \x01(\tB\x1f\xfa\x41\x1c\n\x1a\x66ile.googleapis.com/BackupH\x00\x42\x08\n\x06source\"l\n\x15RevertInstanceRequest\x12\x32\n\x04name\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\x1f\n\x12target_snapshot_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\"Z\n\x15\x44\x65leteInstanceRequest\x12\x32\n\x04name\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\"\x9a\x01\n\x14ListInstancesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"\x82\x01\n\x15ListInstancesResponse\x12;\n\tinstances\x18\x01 \x03(\x0b\x32(.google.cloud.filestore.v1beta1.Instance\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\x82\x04\n\x08Snapshot\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x42\n\x05state\x18\x03 \x01(\x0e\x32..google.cloud.filestore.v1beta1.Snapshot.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x44\n\x06labels\x18\x05 \x03(\x0b\x32\x34.google.cloud.filestore.v1beta1.Snapshot.LabelsEntry\x12\"\n\x15\x66ilesystem_used_bytes\x18\x0c \x01(\x03\x42\x03\xe0\x41\x03\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04:t\xea\x41q\n\x1c\x66ile.googleapis.com/Snapshot\x12Qprojects/{project}/locations/{location}/instances/{instance}/snapshots/{snapshot}\"\xa8\x01\n\x15\x43reateSnapshotRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\x18\n\x0bsnapshot_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12?\n\x08snapshot\x18\x03 \x01(\x0b\x32(.google.cloud.filestore.v1beta1.SnapshotB\x03\xe0\x41\x02\"H\n\x12GetSnapshotRequest\x12\x32\n\x04name\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Snapshot\"K\n\x15\x44\x65leteSnapshotRequest\x12\x32\n\x04name\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Snapshot\"\x8e\x01\n\x15UpdateSnapshotRequest\x12\x34\n\x0bupdate_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12?\n\x08snapshot\x18\x02 \x01(\x0b\x32(.google.cloud.filestore.v1beta1.SnapshotB\x03\xe0\x41\x02\"\x95\x01\n\x14ListSnapshotsRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"m\n\x15ListSnapshotsResponse\x12;\n\tsnapshots\x18\x01 \x03(\x0b\x32(.google.cloud.filestore.v1beta1.Snapshot\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"\x9c\x06\n\x06\x42\x61\x63kup\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12@\n\x05state\x18\x03 \x01(\x0e\x32,.google.cloud.filestore.v1beta1.Backup.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x42\n\x06labels\x18\x05 \x03(\x0b\x32\x32.google.cloud.filestore.v1beta1.Backup.LabelsEntry\x12\x18\n\x0b\x63\x61pacity_gb\x18\x06 \x01(\x03\x42\x03\xe0\x41\x03\x12\x1a\n\rstorage_bytes\x18\x07 \x01(\x03\x42\x03\xe0\x41\x03\x12:\n\x0fsource_instance\x18\x08 \x01(\tB!\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\x19\n\x11source_file_share\x18\t \x01(\t\x12P\n\x14source_instance_tier\x18\n \x01(\x0e\x32-.google.cloud.filestore.v1beta1.Instance.TierB\x03\xe0\x41\x03\x12\x1b\n\x0e\x64ownload_bytes\x18\x0b \x01(\x03\x42\x03\xe0\x41\x03\x12\x36\n\rsatisfies_pzs\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x03\xe0\x41\x03\x12\x19\n\x0ckms_key_name\x18\r \x01(\tB\x03\xe0\x41\x05\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"U\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\x0e\n\nFINALIZING\x10\x02\x12\t\n\x05READY\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04:Y\xea\x41V\n\x1a\x66ile.googleapis.com/Backup\x12\x38projects/{project}/locations/{location}/backups/{backup}\"\xa5\x01\n\x13\x43reateBackupRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12;\n\x06\x62\x61\x63kup\x18\x02 \x01(\x0b\x32&.google.cloud.filestore.v1beta1.BackupB\x03\xe0\x41\x02\x12\x16\n\tbackup_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\"G\n\x13\x44\x65leteBackupRequest\x12\x30\n\x04name\x18\x01 \x01(\tB\"\xe0\x41\x02\xfa\x41\x1c\n\x1a\x66ile.googleapis.com/Backup\"\x88\x01\n\x13UpdateBackupRequest\x12;\n\x06\x62\x61\x63kup\x18\x01 \x01(\x0b\x32&.google.cloud.filestore.v1beta1.BackupB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"D\n\x10GetBackupRequest\x12\x30\n\x04name\x18\x01 \x01(\tB\"\xe0\x41\x02\xfa\x41\x1c\n\x1a\x66ile.googleapis.com/Backup\"\x98\x01\n\x12ListBackupsRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!locations.googleapis.com/Location\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"|\n\x13ListBackupsResponse\x12\x37\n\x07\x62\x61\x63kups\x18\x01 \x03(\x0b\x32&.google.cloud.filestore.v1beta1.Backup\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\xc3\x04\n\x05Share\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x12\n\nmount_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x13\n\x0b\x63\x61pacity_gb\x18\x04 \x01(\x03\x12L\n\x12nfs_export_options\x18\x05 \x03(\x0b\x32\x30.google.cloud.filestore.v1beta1.NfsExportOptions\x12?\n\x05state\x18\x06 \x01(\x0e\x32+.google.cloud.filestore.v1beta1.Share.StateB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x41\n\x06labels\x18\x08 \x03(\x0b\x32\x31.google.cloud.filestore.v1beta1.Share.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x43REATING\x10\x01\x12\t\n\x05READY\x10\x03\x12\x0c\n\x08\x44\x45LETING\x10\x04:k\xea\x41h\n\x19\x66ile.googleapis.com/Share\x12Kprojects/{project}/locations/{location}/instances/{instance}/shares/{share}\"\x9c\x01\n\x12\x43reateShareRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\x15\n\x08share_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x39\n\x05share\x18\x03 \x01(\x0b\x32%.google.cloud.filestore.v1beta1.ShareB\x03\xe0\x41\x02\"B\n\x0fGetShareRequest\x12/\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x66ile.googleapis.com/Share\"E\n\x12\x44\x65leteShareRequest\x12/\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x66ile.googleapis.com/Share\"\x92\x01\n\x11ListSharesRequest\x12\x34\n\x06parent\x18\x01 \x01(\tB$\xe0\x41\x02\xfa\x41\x1e\n\x1c\x66ile.googleapis.com/Instance\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"y\n\x12ListSharesResponse\x12\x35\n\x06shares\x18\x01 \x03(\x0b\x32%.google.cloud.filestore.v1beta1.Share\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x03 \x03(\t\"\x85\x01\n\x12UpdateShareRequest\x12\x39\n\x05share\x18\x01 \x01(\x0b\x32%.google.cloud.filestore.v1beta1.ShareB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x32\xc8\'\n\x15\x43loudFilestoreManager\x12\xc1\x01\n\rListInstances\x12\x34.google.cloud.filestore.v1beta1.ListInstancesRequest\x1a\x35.google.cloud.filestore.v1beta1.ListInstancesResponse\"C\x82\xd3\xe4\x93\x02\x34\x12\x32/v1beta1/{parent=projects/*/locations/*}/instances\xda\x41\x06parent\x12\xae\x01\n\x0bGetInstance\x12\x32.google.cloud.filestore.v1beta1.GetInstanceRequest\x1a(.google.cloud.filestore.v1beta1.Instance\"A\x82\xd3\xe4\x93\x02\x34\x12\x32/v1beta1/{name=projects/*/locations/*/instances/*}\xda\x41\x04name\x12\xff\x01\n\x0e\x43reateInstance\x12\x35.google.cloud.filestore.v1beta1.CreateInstanceRequest\x1a\x1d.google.longrunning.Operation\"\x96\x01\x82\xd3\xe4\x93\x02>\"2/v1beta1/{parent=projects/*/locations/*}/instances:\x08instance\xda\x41\x1bparent,instance,instance_id\xca\x41\x31\n\x08Instance\x12%google.cloud.common.OperationMetadata\x12\x81\x02\n\x0eUpdateInstance\x12\x35.google.cloud.filestore.v1beta1.UpdateInstanceRequest\x1a\x1d.google.longrunning.Operation\"\x98\x01\x82\xd3\xe4\x93\x02G2;/v1beta1/{instance.name=projects/*/locations/*/instances/*}:\x08instance\xda\x41\x14instance,update_mask\xca\x41\x31\n\x08Instance\x12%google.cloud.common.OperationMetadata\x12\xe3\x01\n\x0fRestoreInstance\x12\x36.google.cloud.filestore.v1beta1.RestoreInstanceRequest\x1a\x1d.google.longrunning.Operation\"y\x82\xd3\xe4\x93\x02?\":/v1beta1/{name=projects/*/locations/*/instances/*}:restore:\x01*\xca\x41\x31\n\x08Instance\x12%google.cloud.common.OperationMetadata\x12\xe0\x01\n\x0eRevertInstance\x12\x35.google.cloud.filestore.v1beta1.RevertInstanceRequest\x1a\x1d.google.longrunning.Operation\"x\x82\xd3\xe4\x93\x02>\"9/v1beta1/{name=projects/*/locations/*/instances/*}:revert:\x01*\xca\x41\x31\n\x08Instance\x12%google.cloud.common.OperationMetadata\x12\xeb\x01\n\x0e\x44\x65leteInstance\x12\x35.google.cloud.filestore.v1beta1.DeleteInstanceRequest\x1a\x1d.google.longrunning.Operation\"\x82\x01\x82\xd3\xe4\x93\x02\x34*2/v1beta1/{name=projects/*/locations/*/instances/*}\xda\x41\x04name\xca\x41>\n\x15google.protobuf.Empty\x12%google.cloud.common.OperationMetadata\x12\xcd\x01\n\rListSnapshots\x12\x34.google.cloud.filestore.v1beta1.ListSnapshotsRequest\x1a\x35.google.cloud.filestore.v1beta1.ListSnapshotsResponse\"O\x82\xd3\xe4\x93\x02@\x12>/v1beta1/{parent=projects/*/locations/*/instances/*}/snapshots\xda\x41\x06parent\x12\xba\x01\n\x0bGetSnapshot\x12\x32.google.cloud.filestore.v1beta1.GetSnapshotRequest\x1a(.google.cloud.filestore.v1beta1.Snapshot\"M\x82\xd3\xe4\x93\x02@\x12>/v1beta1/{name=projects/*/locations/*/instances/*/snapshots/*}\xda\x41\x04name\x12\x8b\x02\n\x0e\x43reateSnapshot\x12\x35.google.cloud.filestore.v1beta1.CreateSnapshotRequest\x1a\x1d.google.longrunning.Operation\"\xa2\x01\x82\xd3\xe4\x93\x02J\">/v1beta1/{parent=projects/*/locations/*/instances/*}/snapshots:\x08snapshot\xda\x41\x1bparent,snapshot,snapshot_id\xca\x41\x31\n\x08Snapshot\x12%google.cloud.common.OperationMetadata\x12\xf7\x01\n\x0e\x44\x65leteSnapshot\x12\x35.google.cloud.filestore.v1beta1.DeleteSnapshotRequest\x1a\x1d.google.longrunning.Operation\"\x8e\x01\x82\xd3\xe4\x93\x02@*>/v1beta1/{name=projects/*/locations/*/instances/*/snapshots/*}\xda\x41\x04name\xca\x41>\n\x15google.protobuf.Empty\x12%google.cloud.common.OperationMetadata\x12\x8d\x02\n\x0eUpdateSnapshot\x12\x35.google.cloud.filestore.v1beta1.UpdateSnapshotRequest\x1a\x1d.google.longrunning.Operation\"\xa4\x01\x82\xd3\xe4\x93\x02S2G/v1beta1/{snapshot.name=projects/*/locations/*/instances/*/snapshots/*}:\x08snapshot\xda\x41\x14snapshot,update_mask\xca\x41\x31\n\x08Snapshot\x12%google.cloud.common.OperationMetadata\x12\xb9\x01\n\x0bListBackups\x12\x32.google.cloud.filestore.v1beta1.ListBackupsRequest\x1a\x33.google.cloud.filestore.v1beta1.ListBackupsResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{parent=projects/*/locations/*}/backups\xda\x41\x06parent\x12\xa6\x01\n\tGetBackup\x12\x30.google.cloud.filestore.v1beta1.GetBackupRequest\x1a&.google.cloud.filestore.v1beta1.Backup\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta1/{name=projects/*/locations/*/backups/*}\xda\x41\x04name\x12\xf1\x01\n\x0c\x43reateBackup\x12\x33.google.cloud.filestore.v1beta1.CreateBackupRequest\x1a\x1d.google.longrunning.Operation\"\x8c\x01\x82\xd3\xe4\x93\x02:\"0/v1beta1/{parent=projects/*/locations/*}/backups:\x06\x62\x61\x63kup\xda\x41\x17parent,backup,backup_id\xca\x41/\n\x06\x42\x61\x63kup\x12%google.cloud.common.OperationMetadata\x12\xe5\x01\n\x0c\x44\x65leteBackup\x12\x33.google.cloud.filestore.v1beta1.DeleteBackupRequest\x1a\x1d.google.longrunning.Operation\"\x80\x01\x82\xd3\xe4\x93\x02\x32*0/v1beta1/{name=projects/*/locations/*/backups/*}\xda\x41\x04name\xca\x41>\n\x15google.protobuf.Empty\x12%google.cloud.common.OperationMetadata\x12\xf3\x01\n\x0cUpdateBackup\x12\x33.google.cloud.filestore.v1beta1.UpdateBackupRequest\x1a\x1d.google.longrunning.Operation\"\x8e\x01\x82\xd3\xe4\x93\x02\x41\x32\x37/v1beta1/{backup.name=projects/*/locations/*/backups/*}:\x06\x62\x61\x63kup\xda\x41\x12\x62\x61\x63kup,update_mask\xca\x41/\n\x06\x42\x61\x63kup\x12%google.cloud.common.OperationMetadata\x12\xc1\x01\n\nListShares\x12\x31.google.cloud.filestore.v1beta1.ListSharesRequest\x1a\x32.google.cloud.filestore.v1beta1.ListSharesResponse\"L\x82\xd3\xe4\x93\x02=\x12;/v1beta1/{parent=projects/*/locations/*/instances/*}/shares\xda\x41\x06parent\x12\xae\x01\n\x08GetShare\x12/.google.cloud.filestore.v1beta1.GetShareRequest\x1a%.google.cloud.filestore.v1beta1.Share\"J\x82\xd3\xe4\x93\x02=\x12;/v1beta1/{name=projects/*/locations/*/instances/*/shares/*}\xda\x41\x04name\x12\xf6\x01\n\x0b\x43reateShare\x12\x32.google.cloud.filestore.v1beta1.CreateShareRequest\x1a\x1d.google.longrunning.Operation\"\x93\x01\x82\xd3\xe4\x93\x02\x44\";/v1beta1/{parent=projects/*/locations/*/instances/*}/shares:\x05share\xda\x41\x15parent,share,share_id\xca\x41.\n\x05Share\x12%google.cloud.common.OperationMetadata\x12\xee\x01\n\x0b\x44\x65leteShare\x12\x32.google.cloud.filestore.v1beta1.DeleteShareRequest\x1a\x1d.google.longrunning.Operation\"\x8b\x01\x82\xd3\xe4\x93\x02=*;/v1beta1/{name=projects/*/locations/*/instances/*/shares/*}\xda\x41\x04name\xca\x41>\n\x15google.protobuf.Empty\x12%google.cloud.common.OperationMetadata\x12\xf8\x01\n\x0bUpdateShare\x12\x32.google.cloud.filestore.v1beta1.UpdateShareRequest\x1a\x1d.google.longrunning.Operation\"\x95\x01\x82\xd3\xe4\x93\x02J2A/v1beta1/{share.name=projects/*/locations/*/instances/*/shares/*}:\x05share\xda\x41\x11share,update_mask\xca\x41.\n\x05Share\x12%google.cloud.common.OperationMetadata\x1aG\xca\x41\x13\x66ile.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xcd\x01\n\"com.google.cloud.filestore.v1beta1B\x1a\x43loudFilestoreServiceProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/filestore/v1beta1;filestore\xaa\x02\x1eGoogle.Cloud.Filestore.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Filestore\\V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.filestore.v1beta1.cloud_filestore_service_pb2', globals())
@@ -45,6 +46,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _INSTANCE.fields_by_name['create_time']._serialized_options = b'\340A\003'
   _INSTANCE.fields_by_name['satisfies_pzs']._options = None
   _INSTANCE.fields_by_name['satisfies_pzs']._serialized_options = b'\340A\003'
+  _INSTANCE.fields_by_name['suspension_reasons']._options = None
+  _INSTANCE.fields_by_name['suspension_reasons']._serialized_options = b'\340A\003'
+  _INSTANCE.fields_by_name['max_capacity_gb']._options = None
+  _INSTANCE.fields_by_name['max_capacity_gb']._serialized_options = b'\340A\003'
+  _INSTANCE.fields_by_name['capacity_step_size_gb']._options = None
+  _INSTANCE.fields_by_name['capacity_step_size_gb']._serialized_options = b'\340A\003'
+  _INSTANCE.fields_by_name['max_share_count']._options = None
+  _INSTANCE.fields_by_name['max_share_count']._serialized_options = b'\340A\003'
   _INSTANCE._options = None
   _INSTANCE._serialized_options = b'\352A\\\n\034file.googleapis.com/Instance\022<projects/{project}/locations/{location}/instances/{instance}'
   _CREATEINSTANCEREQUEST.fields_by_name['parent']._options = None
@@ -67,6 +76,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _RESTOREINSTANCEREQUEST.fields_by_name['source_snapshot']._serialized_options = b'\372A\036\n\034file.googleapis.com/Snapshot'
   _RESTOREINSTANCEREQUEST.fields_by_name['source_backup']._options = None
   _RESTOREINSTANCEREQUEST.fields_by_name['source_backup']._serialized_options = b'\372A\034\n\032file.googleapis.com/Backup'
+  _REVERTINSTANCEREQUEST.fields_by_name['name']._options = None
+  _REVERTINSTANCEREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\036\n\034file.googleapis.com/Instance'
+  _REVERTINSTANCEREQUEST.fields_by_name['target_snapshot_id']._options = None
+  _REVERTINSTANCEREQUEST.fields_by_name['target_snapshot_id']._serialized_options = b'\340A\002'
   _DELETEINSTANCEREQUEST.fields_by_name['name']._options = None
   _DELETEINSTANCEREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\036\n\034file.googleapis.com/Instance'
   _LISTINSTANCESREQUEST.fields_by_name['parent']._options = None
@@ -83,6 +96,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SNAPSHOT.fields_by_name['filesystem_used_bytes']._serialized_options = b'\340A\003'
   _SNAPSHOT._options = None
   _SNAPSHOT._serialized_options = b'\352Aq\n\034file.googleapis.com/Snapshot\022Qprojects/{project}/locations/{location}/instances/{instance}/snapshots/{snapshot}'
+  _CREATESNAPSHOTREQUEST.fields_by_name['parent']._options = None
+  _CREATESNAPSHOTREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\036\n\034file.googleapis.com/Instance'
+  _CREATESNAPSHOTREQUEST.fields_by_name['snapshot_id']._options = None
+  _CREATESNAPSHOTREQUEST.fields_by_name['snapshot_id']._serialized_options = b'\340A\002'
+  _CREATESNAPSHOTREQUEST.fields_by_name['snapshot']._options = None
+  _CREATESNAPSHOTREQUEST.fields_by_name['snapshot']._serialized_options = b'\340A\002'
+  _GETSNAPSHOTREQUEST.fields_by_name['name']._options = None
+  _GETSNAPSHOTREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\036\n\034file.googleapis.com/Snapshot'
+  _DELETESNAPSHOTREQUEST.fields_by_name['name']._options = None
+  _DELETESNAPSHOTREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\036\n\034file.googleapis.com/Snapshot'
+  _UPDATESNAPSHOTREQUEST.fields_by_name['update_mask']._options = None
+  _UPDATESNAPSHOTREQUEST.fields_by_name['update_mask']._serialized_options = b'\340A\002'
+  _UPDATESNAPSHOTREQUEST.fields_by_name['snapshot']._options = None
+  _UPDATESNAPSHOTREQUEST.fields_by_name['snapshot']._serialized_options = b'\340A\002'
+  _LISTSNAPSHOTSREQUEST.fields_by_name['parent']._options = None
+  _LISTSNAPSHOTSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\036\n\034file.googleapis.com/Instance'
   _BACKUP_LABELSENTRY._options = None
   _BACKUP_LABELSENTRY._serialized_options = b'8\001'
   _BACKUP.fields_by_name['name']._options = None
@@ -103,6 +132,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _BACKUP.fields_by_name['download_bytes']._serialized_options = b'\340A\003'
   _BACKUP.fields_by_name['satisfies_pzs']._options = None
   _BACKUP.fields_by_name['satisfies_pzs']._serialized_options = b'\340A\003'
+  _BACKUP.fields_by_name['kms_key_name']._options = None
+  _BACKUP.fields_by_name['kms_key_name']._serialized_options = b'\340A\005'
   _BACKUP._options = None
   _BACKUP._serialized_options = b'\352AV\n\032file.googleapis.com/Backup\0228projects/{project}/locations/{location}/backups/{backup}'
   _CREATEBACKUPREQUEST.fields_by_name['parent']._options = None
@@ -121,6 +152,32 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETBACKUPREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\034\n\032file.googleapis.com/Backup'
   _LISTBACKUPSREQUEST.fields_by_name['parent']._options = None
   _LISTBACKUPSREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A#\n!locations.googleapis.com/Location'
+  _SHARE_LABELSENTRY._options = None
+  _SHARE_LABELSENTRY._serialized_options = b'8\001'
+  _SHARE.fields_by_name['name']._options = None
+  _SHARE.fields_by_name['name']._serialized_options = b'\340A\003'
+  _SHARE.fields_by_name['state']._options = None
+  _SHARE.fields_by_name['state']._serialized_options = b'\340A\003'
+  _SHARE.fields_by_name['create_time']._options = None
+  _SHARE.fields_by_name['create_time']._serialized_options = b'\340A\003'
+  _SHARE._options = None
+  _SHARE._serialized_options = b'\352Ah\n\031file.googleapis.com/Share\022Kprojects/{project}/locations/{location}/instances/{instance}/shares/{share}'
+  _CREATESHAREREQUEST.fields_by_name['parent']._options = None
+  _CREATESHAREREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\036\n\034file.googleapis.com/Instance'
+  _CREATESHAREREQUEST.fields_by_name['share_id']._options = None
+  _CREATESHAREREQUEST.fields_by_name['share_id']._serialized_options = b'\340A\002'
+  _CREATESHAREREQUEST.fields_by_name['share']._options = None
+  _CREATESHAREREQUEST.fields_by_name['share']._serialized_options = b'\340A\002'
+  _GETSHAREREQUEST.fields_by_name['name']._options = None
+  _GETSHAREREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\033\n\031file.googleapis.com/Share'
+  _DELETESHAREREQUEST.fields_by_name['name']._options = None
+  _DELETESHAREREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A\033\n\031file.googleapis.com/Share'
+  _LISTSHARESREQUEST.fields_by_name['parent']._options = None
+  _LISTSHARESREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A\036\n\034file.googleapis.com/Instance'
+  _UPDATESHAREREQUEST.fields_by_name['share']._options = None
+  _UPDATESHAREREQUEST.fields_by_name['share']._serialized_options = b'\340A\002'
+  _UPDATESHAREREQUEST.fields_by_name['update_mask']._options = None
+  _UPDATESHAREREQUEST.fields_by_name['update_mask']._serialized_options = b'\340A\002'
   _CLOUDFILESTOREMANAGER._options = None
   _CLOUDFILESTOREMANAGER._serialized_options = b'\312A\023file.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform'
   _CLOUDFILESTOREMANAGER.methods_by_name['ListInstances']._options = None
@@ -133,8 +190,20 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CLOUDFILESTOREMANAGER.methods_by_name['UpdateInstance']._serialized_options = b'\202\323\344\223\002G2;/v1beta1/{instance.name=projects/*/locations/*/instances/*}:\010instance\332A\024instance,update_mask\312A1\n\010Instance\022%google.cloud.common.OperationMetadata'
   _CLOUDFILESTOREMANAGER.methods_by_name['RestoreInstance']._options = None
   _CLOUDFILESTOREMANAGER.methods_by_name['RestoreInstance']._serialized_options = b'\202\323\344\223\002?\":/v1beta1/{name=projects/*/locations/*/instances/*}:restore:\001*\312A1\n\010Instance\022%google.cloud.common.OperationMetadata'
+  _CLOUDFILESTOREMANAGER.methods_by_name['RevertInstance']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['RevertInstance']._serialized_options = b'\202\323\344\223\002>\"9/v1beta1/{name=projects/*/locations/*/instances/*}:revert:\001*\312A1\n\010Instance\022%google.cloud.common.OperationMetadata'
   _CLOUDFILESTOREMANAGER.methods_by_name['DeleteInstance']._options = None
   _CLOUDFILESTOREMANAGER.methods_by_name['DeleteInstance']._serialized_options = b'\202\323\344\223\0024*2/v1beta1/{name=projects/*/locations/*/instances/*}\332A\004name\312A>\n\025google.protobuf.Empty\022%google.cloud.common.OperationMetadata'
+  _CLOUDFILESTOREMANAGER.methods_by_name['ListSnapshots']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['ListSnapshots']._serialized_options = b'\202\323\344\223\002@\022>/v1beta1/{parent=projects/*/locations/*/instances/*}/snapshots\332A\006parent'
+  _CLOUDFILESTOREMANAGER.methods_by_name['GetSnapshot']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['GetSnapshot']._serialized_options = b'\202\323\344\223\002@\022>/v1beta1/{name=projects/*/locations/*/instances/*/snapshots/*}\332A\004name'
+  _CLOUDFILESTOREMANAGER.methods_by_name['CreateSnapshot']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['CreateSnapshot']._serialized_options = b'\202\323\344\223\002J\">/v1beta1/{parent=projects/*/locations/*/instances/*}/snapshots:\010snapshot\332A\033parent,snapshot,snapshot_id\312A1\n\010Snapshot\022%google.cloud.common.OperationMetadata'
+  _CLOUDFILESTOREMANAGER.methods_by_name['DeleteSnapshot']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['DeleteSnapshot']._serialized_options = b'\202\323\344\223\002@*>/v1beta1/{name=projects/*/locations/*/instances/*/snapshots/*}\332A\004name\312A>\n\025google.protobuf.Empty\022%google.cloud.common.OperationMetadata'
+  _CLOUDFILESTOREMANAGER.methods_by_name['UpdateSnapshot']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['UpdateSnapshot']._serialized_options = b'\202\323\344\223\002S2G/v1beta1/{snapshot.name=projects/*/locations/*/instances/*/snapshots/*}:\010snapshot\332A\024snapshot,update_mask\312A1\n\010Snapshot\022%google.cloud.common.OperationMetadata'
   _CLOUDFILESTOREMANAGER.methods_by_name['ListBackups']._options = None
   _CLOUDFILESTOREMANAGER.methods_by_name['ListBackups']._serialized_options = b'\202\323\344\223\0022\0220/v1beta1/{parent=projects/*/locations/*}/backups\332A\006parent'
   _CLOUDFILESTOREMANAGER.methods_by_name['GetBackup']._options = None
@@ -145,64 +214,110 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CLOUDFILESTOREMANAGER.methods_by_name['DeleteBackup']._serialized_options = b'\202\323\344\223\0022*0/v1beta1/{name=projects/*/locations/*/backups/*}\332A\004name\312A>\n\025google.protobuf.Empty\022%google.cloud.common.OperationMetadata'
   _CLOUDFILESTOREMANAGER.methods_by_name['UpdateBackup']._options = None
   _CLOUDFILESTOREMANAGER.methods_by_name['UpdateBackup']._serialized_options = b'\202\323\344\223\002A27/v1beta1/{backup.name=projects/*/locations/*/backups/*}:\006backup\332A\022backup,update_mask\312A/\n\006Backup\022%google.cloud.common.OperationMetadata'
-  _NETWORKCONFIG._serialized_start=348
-  _NETWORKCONFIG._serialized_end=568
-  _NETWORKCONFIG_ADDRESSMODE._serialized_start=510
-  _NETWORKCONFIG_ADDRESSMODE._serialized_end=568
-  _FILESHARECONFIG._serialized_start=571
-  _FILESHARECONFIG._serialized_end=769
-  _NFSEXPORTOPTIONS._serialized_start=772
-  _NFSEXPORTOPTIONS._serialized_end=1163
-  _NFSEXPORTOPTIONS_ACCESSMODE._serialized_start=1011
-  _NFSEXPORTOPTIONS_ACCESSMODE._serialized_end=1083
-  _NFSEXPORTOPTIONS_SQUASHMODE._serialized_start=1085
-  _NFSEXPORTOPTIONS_SQUASHMODE._serialized_end=1163
-  _INSTANCE._serialized_start=1166
-  _INSTANCE._serialized_end=2066
-  _INSTANCE_LABELSENTRY._serialized_start=1705
-  _INSTANCE_LABELSENTRY._serialized_end=1750
-  _INSTANCE_STATE._serialized_start=1752
-  _INSTANCE_STATE._serialized_end=1862
-  _INSTANCE_TIER._serialized_start=1864
-  _INSTANCE_TIER._serialized_end=1969
-  _CREATEINSTANCEREQUEST._serialized_start=2069
-  _CREATEINSTANCEREQUEST._serialized_end=2242
-  _GETINSTANCEREQUEST._serialized_start=2244
-  _GETINSTANCEREQUEST._serialized_end=2316
-  _UPDATEINSTANCEREQUEST._serialized_start=2319
-  _UPDATEINSTANCEREQUEST._serialized_end=2461
-  _RESTOREINSTANCEREQUEST._serialized_start=2464
-  _RESTOREINSTANCEREQUEST._serialized_end=2695
-  _DELETEINSTANCEREQUEST._serialized_start=2697
-  _DELETEINSTANCEREQUEST._serialized_end=2772
-  _LISTINSTANCESREQUEST._serialized_start=2775
-  _LISTINSTANCESREQUEST._serialized_end=2929
-  _LISTINSTANCESRESPONSE._serialized_start=2932
-  _LISTINSTANCESRESPONSE._serialized_end=3062
-  _SNAPSHOT._serialized_start=3065
-  _SNAPSHOT._serialized_end=3579
-  _SNAPSHOT_LABELSENTRY._serialized_start=1705
-  _SNAPSHOT_LABELSENTRY._serialized_end=1750
-  _SNAPSHOT_STATE._serialized_start=3392
-  _SNAPSHOT_STATE._serialized_end=3461
-  _BACKUP._serialized_start=3582
-  _BACKUP._serialized_end=4351
-  _BACKUP_LABELSENTRY._serialized_start=1705
-  _BACKUP_LABELSENTRY._serialized_end=1750
-  _BACKUP_STATE._serialized_start=4175
-  _BACKUP_STATE._serialized_end=4260
-  _CREATEBACKUPREQUEST._serialized_start=4354
-  _CREATEBACKUPREQUEST._serialized_end=4519
-  _DELETEBACKUPREQUEST._serialized_start=4521
-  _DELETEBACKUPREQUEST._serialized_end=4592
-  _UPDATEBACKUPREQUEST._serialized_start=4595
-  _UPDATEBACKUPREQUEST._serialized_end=4731
-  _GETBACKUPREQUEST._serialized_start=4733
-  _GETBACKUPREQUEST._serialized_end=4801
-  _LISTBACKUPSREQUEST._serialized_start=4804
-  _LISTBACKUPSREQUEST._serialized_end=4956
-  _LISTBACKUPSRESPONSE._serialized_start=4958
-  _LISTBACKUPSRESPONSE._serialized_end=5082
-  _CLOUDFILESTOREMANAGER._serialized_start=5085
-  _CLOUDFILESTOREMANAGER._serialized_end=7619
+  _CLOUDFILESTOREMANAGER.methods_by_name['ListShares']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['ListShares']._serialized_options = b'\202\323\344\223\002=\022;/v1beta1/{parent=projects/*/locations/*/instances/*}/shares\332A\006parent'
+  _CLOUDFILESTOREMANAGER.methods_by_name['GetShare']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['GetShare']._serialized_options = b'\202\323\344\223\002=\022;/v1beta1/{name=projects/*/locations/*/instances/*/shares/*}\332A\004name'
+  _CLOUDFILESTOREMANAGER.methods_by_name['CreateShare']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['CreateShare']._serialized_options = b'\202\323\344\223\002D\";/v1beta1/{parent=projects/*/locations/*/instances/*}/shares:\005share\332A\025parent,share,share_id\312A.\n\005Share\022%google.cloud.common.OperationMetadata'
+  _CLOUDFILESTOREMANAGER.methods_by_name['DeleteShare']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['DeleteShare']._serialized_options = b'\202\323\344\223\002=*;/v1beta1/{name=projects/*/locations/*/instances/*/shares/*}\332A\004name\312A>\n\025google.protobuf.Empty\022%google.cloud.common.OperationMetadata'
+  _CLOUDFILESTOREMANAGER.methods_by_name['UpdateShare']._options = None
+  _CLOUDFILESTOREMANAGER.methods_by_name['UpdateShare']._serialized_options = b'\202\323\344\223\002J2A/v1beta1/{share.name=projects/*/locations/*/instances/*/shares/*}:\005share\332A\021share,update_mask\312A.\n\005Share\022%google.cloud.common.OperationMetadata'
+  _NETWORKCONFIG._serialized_start=394
+  _NETWORKCONFIG._serialized_end=788
+  _NETWORKCONFIG_ADDRESSMODE._serialized_start=637
+  _NETWORKCONFIG_ADDRESSMODE._serialized_end=695
+  _NETWORKCONFIG_CONNECTMODE._serialized_start=697
+  _NETWORKCONFIG_CONNECTMODE._serialized_end=788
+  _FILESHARECONFIG._serialized_start=791
+  _FILESHARECONFIG._serialized_end=989
+  _NFSEXPORTOPTIONS._serialized_start=992
+  _NFSEXPORTOPTIONS._serialized_end=1383
+  _NFSEXPORTOPTIONS_ACCESSMODE._serialized_start=1231
+  _NFSEXPORTOPTIONS_ACCESSMODE._serialized_end=1303
+  _NFSEXPORTOPTIONS_SQUASHMODE._serialized_start=1305
+  _NFSEXPORTOPTIONS_SQUASHMODE._serialized_end=1383
+  _INSTANCE._serialized_start=1386
+  _INSTANCE._serialized_end=2697
+  _INSTANCE_LABELSENTRY._serialized_start=2185
+  _INSTANCE_LABELSENTRY._serialized_end=2230
+  _INSTANCE_STATE._serialized_start=2233
+  _INSTANCE_STATE._serialized_end=2403
+  _INSTANCE_TIER._serialized_start=2405
+  _INSTANCE_TIER._serialized_end=2526
+  _INSTANCE_SUSPENSIONREASON._serialized_start=2528
+  _INSTANCE_SUSPENSIONREASON._serialized_end=2600
+  _CREATEINSTANCEREQUEST._serialized_start=2700
+  _CREATEINSTANCEREQUEST._serialized_end=2873
+  _GETINSTANCEREQUEST._serialized_start=2875
+  _GETINSTANCEREQUEST._serialized_end=2947
+  _UPDATEINSTANCEREQUEST._serialized_start=2950
+  _UPDATEINSTANCEREQUEST._serialized_end=3092
+  _RESTOREINSTANCEREQUEST._serialized_start=3095
+  _RESTOREINSTANCEREQUEST._serialized_end=3326
+  _REVERTINSTANCEREQUEST._serialized_start=3328
+  _REVERTINSTANCEREQUEST._serialized_end=3436
+  _DELETEINSTANCEREQUEST._serialized_start=3438
+  _DELETEINSTANCEREQUEST._serialized_end=3528
+  _LISTINSTANCESREQUEST._serialized_start=3531
+  _LISTINSTANCESREQUEST._serialized_end=3685
+  _LISTINSTANCESRESPONSE._serialized_start=3688
+  _LISTINSTANCESRESPONSE._serialized_end=3818
+  _SNAPSHOT._serialized_start=3821
+  _SNAPSHOT._serialized_end=4335
+  _SNAPSHOT_LABELSENTRY._serialized_start=2185
+  _SNAPSHOT_LABELSENTRY._serialized_end=2230
+  _SNAPSHOT_STATE._serialized_start=4148
+  _SNAPSHOT_STATE._serialized_end=4217
+  _CREATESNAPSHOTREQUEST._serialized_start=4338
+  _CREATESNAPSHOTREQUEST._serialized_end=4506
+  _GETSNAPSHOTREQUEST._serialized_start=4508
+  _GETSNAPSHOTREQUEST._serialized_end=4580
+  _DELETESNAPSHOTREQUEST._serialized_start=4582
+  _DELETESNAPSHOTREQUEST._serialized_end=4657
+  _UPDATESNAPSHOTREQUEST._serialized_start=4660
+  _UPDATESNAPSHOTREQUEST._serialized_end=4802
+  _LISTSNAPSHOTSREQUEST._serialized_start=4805
+  _LISTSNAPSHOTSREQUEST._serialized_end=4954
+  _LISTSNAPSHOTSRESPONSE._serialized_start=4956
+  _LISTSNAPSHOTSRESPONSE._serialized_end=5065
+  _BACKUP._serialized_start=5068
+  _BACKUP._serialized_end=5864
+  _BACKUP_LABELSENTRY._serialized_start=2185
+  _BACKUP_LABELSENTRY._serialized_end=2230
+  _BACKUP_STATE._serialized_start=5688
+  _BACKUP_STATE._serialized_end=5773
+  _CREATEBACKUPREQUEST._serialized_start=5867
+  _CREATEBACKUPREQUEST._serialized_end=6032
+  _DELETEBACKUPREQUEST._serialized_start=6034
+  _DELETEBACKUPREQUEST._serialized_end=6105
+  _UPDATEBACKUPREQUEST._serialized_start=6108
+  _UPDATEBACKUPREQUEST._serialized_end=6244
+  _GETBACKUPREQUEST._serialized_start=6246
+  _GETBACKUPREQUEST._serialized_end=6314
+  _LISTBACKUPSREQUEST._serialized_start=6317
+  _LISTBACKUPSREQUEST._serialized_end=6469
+  _LISTBACKUPSRESPONSE._serialized_start=6471
+  _LISTBACKUPSRESPONSE._serialized_end=6595
+  _SHARE._serialized_start=6598
+  _SHARE._serialized_end=7177
+  _SHARE_LABELSENTRY._serialized_start=2185
+  _SHARE_LABELSENTRY._serialized_end=2230
+  _SHARE_STATE._serialized_start=4148
+  _SHARE_STATE._serialized_end=4217
+  _CREATESHAREREQUEST._serialized_start=7180
+  _CREATESHAREREQUEST._serialized_end=7336
+  _GETSHAREREQUEST._serialized_start=7338
+  _GETSHAREREQUEST._serialized_end=7404
+  _DELETESHAREREQUEST._serialized_start=7406
+  _DELETESHAREREQUEST._serialized_end=7475
+  _LISTSHARESREQUEST._serialized_start=7478
+  _LISTSHARESREQUEST._serialized_end=7624
+  _LISTSHARESRESPONSE._serialized_start=7626
+  _LISTSHARESRESPONSE._serialized_end=7747
+  _UPDATESHAREREQUEST._serialized_start=7750
+  _UPDATESHAREREQUEST._serialized_end=7883
+  _CLOUDFILESTOREMANAGER._serialized_start=7886
+  _CLOUDFILESTOREMANAGER._serialized_end=12950
 # @@protoc_insertion_point(module_scope)

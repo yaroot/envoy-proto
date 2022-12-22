@@ -38,73 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConverseResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            spokenRequestText_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            spokenResponseText_ = s;
-            break;
-          }
-          case 26: {
-
-            conversationState_ = input.readBytes();
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            microphoneMode_ = rawValue;
-            break;
-          }
-          case 40: {
-
-            volumePercentage_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.assistant.embedded.v1alpha1.AssistantProto.internal_static_google_assistant_embedded_v1alpha1_ConverseResult_descriptor;
@@ -270,7 +203,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPOKEN_REQUEST_TEXT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object spokenRequestText_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object spokenRequestText_ = "";
   /**
    * <pre>
    * *Output-only* The recognized transcript of what the user said.
@@ -316,7 +250,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPOKEN_RESPONSE_TEXT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object spokenResponseText_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object spokenResponseText_ = "";
   /**
    * <pre>
    * *Output-only* The text of the assistant's spoken response. This is only
@@ -364,7 +299,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONVERSATION_STATE_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString conversationState_;
+  private com.google.protobuf.ByteString conversationState_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * *Output-only* State information for subsequent `ConverseRequest`. This
@@ -383,7 +318,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MICROPHONE_MODE_FIELD_NUMBER = 4;
-  private int microphoneMode_;
+  private int microphoneMode_ = 0;
   /**
    * <pre>
    * *Output-only* Specifies the mode of the microphone after this `Converse`
@@ -406,13 +341,12 @@ private static final long serialVersionUID = 0L;
    * @return The microphoneMode.
    */
   @java.lang.Override public com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode getMicrophoneMode() {
-    @SuppressWarnings("deprecation")
-    com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode result = com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode.valueOf(microphoneMode_);
+    com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode result = com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode.forNumber(microphoneMode_);
     return result == null ? com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode.UNRECOGNIZED : result;
   }
 
   public static final int VOLUME_PERCENTAGE_FIELD_NUMBER = 5;
-  private int volumePercentage_;
+  private int volumePercentage_ = 0;
   /**
    * <pre>
    * *Output-only* Updated volume level. The value will be 0 or omitted
@@ -463,7 +397,7 @@ private static final long serialVersionUID = 0L;
     if (volumePercentage_ != 0) {
       output.writeInt32(5, volumePercentage_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -490,7 +424,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, volumePercentage_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -514,7 +448,7 @@ private static final long serialVersionUID = 0L;
     if (microphoneMode_ != other.microphoneMode_) return false;
     if (getVolumePercentage()
         != other.getVolumePercentage()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -535,7 +469,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + microphoneMode_;
     hash = (37 * hash) + VOLUME_PERCENTAGE_FIELD_NUMBER;
     hash = (53 * hash) + getVolumePercentage();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -656,32 +590,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.assistant.embedded.v1alpha1.ConverseResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       spokenRequestText_ = "";
-
       spokenResponseText_ = "";
-
       conversationState_ = com.google.protobuf.ByteString.EMPTY;
-
       microphoneMode_ = 0;
-
       volumePercentage_ = 0;
-
       return this;
     }
 
@@ -708,13 +633,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha1.ConverseResult buildPartial() {
       com.google.assistant.embedded.v1alpha1.ConverseResult result = new com.google.assistant.embedded.v1alpha1.ConverseResult(this);
-      result.spokenRequestText_ = spokenRequestText_;
-      result.spokenResponseText_ = spokenResponseText_;
-      result.conversationState_ = conversationState_;
-      result.microphoneMode_ = microphoneMode_;
-      result.volumePercentage_ = volumePercentage_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.assistant.embedded.v1alpha1.ConverseResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.spokenRequestText_ = spokenRequestText_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.spokenResponseText_ = spokenResponseText_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.conversationState_ = conversationState_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.microphoneMode_ = microphoneMode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.volumePercentage_ = volumePercentage_;
+      }
     }
 
     @java.lang.Override
@@ -763,10 +703,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.assistant.embedded.v1alpha1.ConverseResult.getDefaultInstance()) return this;
       if (!other.getSpokenRequestText().isEmpty()) {
         spokenRequestText_ = other.spokenRequestText_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSpokenResponseText().isEmpty()) {
         spokenResponseText_ = other.spokenResponseText_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getConversationState() != com.google.protobuf.ByteString.EMPTY) {
@@ -778,7 +720,7 @@ private static final long serialVersionUID = 0L;
       if (other.getVolumePercentage() != 0) {
         setVolumePercentage(other.getVolumePercentage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -793,19 +735,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.assistant.embedded.v1alpha1.ConverseResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              spokenRequestText_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              spokenResponseText_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              conversationState_ = input.readBytes();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              microphoneMode_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              volumePercentage_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.assistant.embedded.v1alpha1.ConverseResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object spokenRequestText_ = "";
     /**
@@ -860,11 +841,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSpokenRequestText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       spokenRequestText_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -877,8 +856,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpokenRequestText() {
-      
       spokenRequestText_ = getDefaultInstance().getSpokenRequestText();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -893,12 +872,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSpokenRequestTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       spokenRequestText_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -959,11 +936,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSpokenResponseText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       spokenResponseText_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -977,8 +952,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpokenResponseText() {
-      
       spokenResponseText_ = getDefaultInstance().getSpokenResponseText();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -994,12 +969,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSpokenResponseTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       spokenResponseText_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1035,11 +1008,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConversationState(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       conversationState_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1056,7 +1027,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConversationState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       conversationState_ = getDefaultInstance().getConversationState();
       onChanged();
       return this;
@@ -1086,8 +1057,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMicrophoneModeValue(int value) {
-      
       microphoneMode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1102,8 +1073,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode getMicrophoneMode() {
-      @SuppressWarnings("deprecation")
-      com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode result = com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode.valueOf(microphoneMode_);
+      com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode result = com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode.forNumber(microphoneMode_);
       return result == null ? com.google.assistant.embedded.v1alpha1.ConverseResult.MicrophoneMode.UNRECOGNIZED : result;
     }
     /**
@@ -1120,7 +1090,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       microphoneMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1135,7 +1105,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMicrophoneMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       microphoneMode_ = 0;
       onChanged();
       return this;
@@ -1182,6 +1152,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVolumePercentage(int value) {
       
       volumePercentage_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1202,7 +1173,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVolumePercentage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       volumePercentage_ = 0;
       onChanged();
       return this;
@@ -1240,7 +1211,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConverseResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

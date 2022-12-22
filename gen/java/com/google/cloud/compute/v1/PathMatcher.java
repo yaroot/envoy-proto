@@ -39,127 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PathMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            name_ = s;
-            break;
-          }
-          case 835519210: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              pathRules_ = new java.util.ArrayList<com.google.cloud.compute.v1.PathRule>();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            pathRules_.add(
-                input.readMessage(com.google.cloud.compute.v1.PathRule.parser(), extensionRegistry));
-            break;
-          }
-          case -1670348478: {
-            com.google.cloud.compute.v1.HttpHeaderAction.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000010) != 0)) {
-              subBuilder = headerAction_.toBuilder();
-            }
-            headerAction_ = input.readMessage(com.google.cloud.compute.v1.HttpHeaderAction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(headerAction_);
-              headerAction_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000010;
-            break;
-          }
-          case -1418940590: {
-            com.google.cloud.compute.v1.HttpRedirectAction.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = defaultUrlRedirect_.toBuilder();
-            }
-            defaultUrlRedirect_ = input.readMessage(com.google.cloud.compute.v1.HttpRedirectAction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(defaultUrlRedirect_);
-              defaultUrlRedirect_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case -1333029446: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            defaultService_ = s;
-            break;
-          }
-          case -1284629494: {
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              routeRules_ = new java.util.ArrayList<com.google.cloud.compute.v1.HttpRouteRule>();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            routeRules_.add(
-                input.readMessage(com.google.cloud.compute.v1.HttpRouteRule.parser(), extensionRegistry));
-            break;
-          }
-          case -1263611566: {
-            com.google.cloud.compute.v1.HttpRouteAction.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = defaultRouteAction_.toBuilder();
-            }
-            defaultRouteAction_ = input.readMessage(com.google.cloud.compute.v1.HttpRouteAction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(defaultRouteAction_);
-              defaultRouteAction_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            description_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        pathRules_ = java.util.Collections.unmodifiableList(pathRules_);
-      }
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        routeRules_ = java.util.Collections.unmodifiableList(routeRules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_PathMatcher_descriptor;
@@ -178,7 +57,7 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.compute.v1.HttpRouteAction defaultRouteAction_;
   /**
    * <pre>
-   * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+   * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -190,7 +69,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+   * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -202,7 +81,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+   * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -213,7 +92,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_SERVICE_FIELD_NUMBER = 370242231;
-  private volatile java.lang.Object defaultService_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object defaultService_ = "";
   /**
    * <pre>
    * The full or partial URL to the BackendService resource. This URL is used if none of the pathRules or routeRules defined by this PathMatcher are matched. For example, the following are all valid URLs to a BackendService resource: - https://www.googleapis.com/compute/v1/projects/project /global/backendServices/backendService - compute/v1/projects/project/global/backendServices/backendService - global/backendServices/backendService If defaultRouteAction is also specified, advanced routing actions, such as URL rewrites, take effect before sending the request to the backend. However, if defaultService is specified, defaultRouteAction cannot contain any weightedBackendServices. Conversely, if defaultRouteAction specifies any weightedBackendServices, defaultService must not be specified. Only one of defaultService, defaultUrlRedirect , or defaultRouteAction.weightedBackendService must be set. Authorization requires one or more of the following Google IAM permissions on the specified resource default_service: - compute.backendBuckets.use - compute.backendServices.use 
@@ -309,7 +189,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of this resource. Provide this property when you create the resource.
@@ -405,7 +286,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name to which this PathMatcher is referred by the HostRule.
@@ -463,6 +345,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_RULES_FIELD_NUMBER = 104439901;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.PathRule> pathRules_;
   /**
    * <pre>
@@ -523,6 +406,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROUTE_RULES_FIELD_NUMBER = 376292225;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.HttpRouteRule> routeRules_;
   /**
    * <pre>
@@ -620,7 +504,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 422937596, description_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -658,7 +542,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(422937596, description_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -707,7 +591,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPathRulesList())) return false;
     if (!getRouteRulesList()
         .equals(other.getRouteRulesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -750,7 +634,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ROUTE_RULES_FIELD_NUMBER;
       hash = (53 * hash) + getRouteRulesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -892,42 +776,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (defaultRouteActionBuilder_ == null) {
-        defaultRouteAction_ = null;
-      } else {
-        defaultRouteActionBuilder_.clear();
+      bitField0_ = 0;
+      defaultRouteAction_ = null;
+      if (defaultRouteActionBuilder_ != null) {
+        defaultRouteActionBuilder_.dispose();
+        defaultRouteActionBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       defaultService_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (defaultUrlRedirectBuilder_ == null) {
-        defaultUrlRedirect_ = null;
-      } else {
-        defaultUrlRedirectBuilder_.clear();
+      defaultUrlRedirect_ = null;
+      if (defaultUrlRedirectBuilder_ != null) {
+        defaultUrlRedirectBuilder_.dispose();
+        defaultUrlRedirectBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
-      if (headerActionBuilder_ == null) {
-        headerAction_ = null;
-      } else {
-        headerActionBuilder_.clear();
+      headerAction_ = null;
+      if (headerActionBuilder_ != null) {
+        headerActionBuilder_.dispose();
+        headerActionBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000010);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       if (pathRulesBuilder_ == null) {
         pathRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
       } else {
+        pathRules_ = null;
         pathRulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000040);
       if (routeRulesBuilder_ == null) {
         routeRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
       } else {
+        routeRules_ = null;
         routeRulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -954,44 +835,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.PathMatcher buildPartial() {
       com.google.cloud.compute.v1.PathMatcher result = new com.google.cloud.compute.v1.PathMatcher(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (defaultRouteActionBuilder_ == null) {
-          result.defaultRouteAction_ = defaultRouteAction_;
-        } else {
-          result.defaultRouteAction_ = defaultRouteActionBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.defaultService_ = defaultService_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (defaultUrlRedirectBuilder_ == null) {
-          result.defaultUrlRedirect_ = defaultUrlRedirect_;
-        } else {
-          result.defaultUrlRedirect_ = defaultUrlRedirectBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000004;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        to_bitField0_ |= 0x00000008;
-      }
-      result.description_ = description_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        if (headerActionBuilder_ == null) {
-          result.headerAction_ = headerAction_;
-        } else {
-          result.headerAction_ = headerActionBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000010;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        to_bitField0_ |= 0x00000020;
-      }
-      result.name_ = name_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.PathMatcher result) {
       if (pathRulesBuilder_ == null) {
         if (((bitField0_ & 0x00000040) != 0)) {
           pathRules_ = java.util.Collections.unmodifiableList(pathRules_);
@@ -1010,9 +860,42 @@ private static final long serialVersionUID = 0L;
       } else {
         result.routeRules_ = routeRulesBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.PathMatcher result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.defaultRouteAction_ = defaultRouteActionBuilder_ == null
+            ? defaultRouteAction_
+            : defaultRouteActionBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.defaultService_ = defaultService_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.defaultUrlRedirect_ = defaultUrlRedirectBuilder_ == null
+            ? defaultUrlRedirect_
+            : defaultUrlRedirectBuilder_.build();
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.headerAction_ = headerActionBuilder_ == null
+            ? headerAction_
+            : headerActionBuilder_.build();
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.name_ = name_;
+        to_bitField0_ |= 0x00000020;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1063,24 +946,24 @@ private static final long serialVersionUID = 0L;
         mergeDefaultRouteAction(other.getDefaultRouteAction());
       }
       if (other.hasDefaultService()) {
-        bitField0_ |= 0x00000002;
         defaultService_ = other.defaultService_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDefaultUrlRedirect()) {
         mergeDefaultUrlRedirect(other.getDefaultUrlRedirect());
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000008;
         description_ = other.description_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasHeaderAction()) {
         mergeHeaderAction(other.getHeaderAction());
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000020;
         name_ = other.name_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (pathRulesBuilder_ == null) {
@@ -1135,7 +1018,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1150,17 +1033,92 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.PathMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 26989658
+            case 835519210: {
+              com.google.cloud.compute.v1.PathRule m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.PathRule.parser(),
+                      extensionRegistry);
+              if (pathRulesBuilder_ == null) {
+                ensurePathRulesIsMutable();
+                pathRules_.add(m);
+              } else {
+                pathRulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 835519210
+            case -1670348478: {
+              input.readMessage(
+                  getHeaderActionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -1670348478
+            case -1418940590: {
+              input.readMessage(
+                  getDefaultUrlRedirectFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1418940590
+            case -1333029446: {
+              defaultService_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1333029446
+            case -1284629494: {
+              com.google.cloud.compute.v1.HttpRouteRule m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.HttpRouteRule.parser(),
+                      extensionRegistry);
+              if (routeRulesBuilder_ == null) {
+                ensureRouteRulesIsMutable();
+                routeRules_.add(m);
+              } else {
+                routeRulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case -1284629494
+            case -1263611566: {
+              input.readMessage(
+                  getDefaultRouteActionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1263611566
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -911466526
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.PathMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1170,7 +1128,7 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpRouteAction, com.google.cloud.compute.v1.HttpRouteAction.Builder, com.google.cloud.compute.v1.HttpRouteActionOrBuilder> defaultRouteActionBuilder_;
     /**
      * <pre>
-     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -1181,7 +1139,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -1196,7 +1154,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -1207,16 +1165,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         defaultRouteAction_ = value;
-        onChanged();
       } else {
         defaultRouteActionBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -1225,16 +1183,16 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpRouteAction.Builder builderForValue) {
       if (defaultRouteActionBuilder_ == null) {
         defaultRouteAction_ = builderForValue.build();
-        onChanged();
       } else {
         defaultRouteActionBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -1242,40 +1200,39 @@ private static final long serialVersionUID = 0L;
     public Builder mergeDefaultRouteAction(com.google.cloud.compute.v1.HttpRouteAction value) {
       if (defaultRouteActionBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            defaultRouteAction_ != null &&
-            defaultRouteAction_ != com.google.cloud.compute.v1.HttpRouteAction.getDefaultInstance()) {
-          defaultRouteAction_ =
-            com.google.cloud.compute.v1.HttpRouteAction.newBuilder(defaultRouteAction_).mergeFrom(value).buildPartial();
+          defaultRouteAction_ != null &&
+          defaultRouteAction_ != com.google.cloud.compute.v1.HttpRouteAction.getDefaultInstance()) {
+          getDefaultRouteActionBuilder().mergeFrom(value);
         } else {
           defaultRouteAction_ = value;
         }
-        onChanged();
       } else {
         defaultRouteActionBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
      */
     public Builder clearDefaultRouteAction() {
-      if (defaultRouteActionBuilder_ == null) {
-        defaultRouteAction_ = null;
-        onChanged();
-      } else {
-        defaultRouteActionBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      defaultRouteAction_ = null;
+      if (defaultRouteActionBuilder_ != null) {
+        defaultRouteActionBuilder_.dispose();
+        defaultRouteActionBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -1287,7 +1244,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -1302,7 +1259,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. UrlMaps for external HTTP(S) load balancers support only the urlRewrite action within a path matcher's defaultRouteAction.
+     * defaultRouteAction takes effect when none of the pathRules or routeRules match. The load balancer performs advanced routing actions, such as URL rewrites and header transformations, before forwarding the request to the selected backend. If defaultRouteAction specifies any weightedBackendServices, defaultService must not be set. Conversely if defaultService is set, defaultRouteAction cannot contain any weightedBackendServices. Only one of defaultRouteAction or defaultUrlRedirect must be set. URL maps for Classic external HTTP(S) load balancers only support the urlRewrite action within a path matcher's defaultRouteAction.
      * </pre>
      *
      * <code>optional .google.cloud.compute.v1.HttpRouteAction default_route_action = 378919466;</code>
@@ -1385,11 +1342,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultService(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       defaultService_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1402,8 +1357,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultService() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       defaultService_ = getDefaultInstance().getDefaultService();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1418,12 +1373,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultServiceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       defaultService_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1470,11 +1423,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         defaultUrlRedirect_ = value;
-        onChanged();
       } else {
         defaultUrlRedirectBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1488,11 +1441,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpRedirectAction.Builder builderForValue) {
       if (defaultUrlRedirectBuilder_ == null) {
         defaultUrlRedirect_ = builderForValue.build();
-        onChanged();
       } else {
         defaultUrlRedirectBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1505,18 +1458,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeDefaultUrlRedirect(com.google.cloud.compute.v1.HttpRedirectAction value) {
       if (defaultUrlRedirectBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
-            defaultUrlRedirect_ != null &&
-            defaultUrlRedirect_ != com.google.cloud.compute.v1.HttpRedirectAction.getDefaultInstance()) {
-          defaultUrlRedirect_ =
-            com.google.cloud.compute.v1.HttpRedirectAction.newBuilder(defaultUrlRedirect_).mergeFrom(value).buildPartial();
+          defaultUrlRedirect_ != null &&
+          defaultUrlRedirect_ != com.google.cloud.compute.v1.HttpRedirectAction.getDefaultInstance()) {
+          getDefaultUrlRedirectBuilder().mergeFrom(value);
         } else {
           defaultUrlRedirect_ = value;
         }
-        onChanged();
       } else {
         defaultUrlRedirectBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1527,13 +1479,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.HttpRedirectAction default_url_redirect = 359503338;</code>
      */
     public Builder clearDefaultUrlRedirect() {
-      if (defaultUrlRedirectBuilder_ == null) {
-        defaultUrlRedirect_ = null;
-        onChanged();
-      } else {
-        defaultUrlRedirectBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000004);
+      defaultUrlRedirect_ = null;
+      if (defaultUrlRedirectBuilder_ != null) {
+        defaultUrlRedirectBuilder_.dispose();
+        defaultUrlRedirectBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1648,11 +1600,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1665,8 +1615,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1681,12 +1631,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1733,11 +1681,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         headerAction_ = value;
-        onChanged();
       } else {
         headerActionBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1751,11 +1699,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.HttpHeaderAction.Builder builderForValue) {
       if (headerActionBuilder_ == null) {
         headerAction_ = builderForValue.build();
-        onChanged();
       } else {
         headerActionBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1768,18 +1716,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeHeaderAction(com.google.cloud.compute.v1.HttpHeaderAction value) {
       if (headerActionBuilder_ == null) {
         if (((bitField0_ & 0x00000010) != 0) &&
-            headerAction_ != null &&
-            headerAction_ != com.google.cloud.compute.v1.HttpHeaderAction.getDefaultInstance()) {
-          headerAction_ =
-            com.google.cloud.compute.v1.HttpHeaderAction.newBuilder(headerAction_).mergeFrom(value).buildPartial();
+          headerAction_ != null &&
+          headerAction_ != com.google.cloud.compute.v1.HttpHeaderAction.getDefaultInstance()) {
+          getHeaderActionBuilder().mergeFrom(value);
         } else {
           headerAction_ = value;
         }
-        onChanged();
       } else {
         headerActionBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1790,13 +1737,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.HttpHeaderAction header_action = 328077352;</code>
      */
     public Builder clearHeaderAction() {
-      if (headerActionBuilder_ == null) {
-        headerAction_ = null;
-        onChanged();
-      } else {
-        headerActionBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000010);
+      headerAction_ = null;
+      if (headerActionBuilder_ != null) {
+        headerActionBuilder_.dispose();
+        headerActionBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1911,11 +1858,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1928,8 +1873,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1944,12 +1889,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2610,7 +2553,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PathMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

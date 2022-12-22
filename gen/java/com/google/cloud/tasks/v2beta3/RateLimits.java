@@ -38,60 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RateLimits(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 9: {
-
-            maxDispatchesPerSecond_ = input.readDouble();
-            break;
-          }
-          case 16: {
-
-            maxBurstSize_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            maxConcurrentDispatches_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.tasks.v2beta3.QueueProto.internal_static_google_cloud_tasks_v2beta3_RateLimits_descriptor;
@@ -106,7 +52,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_DISPATCHES_PER_SECOND_FIELD_NUMBER = 1;
-  private double maxDispatchesPerSecond_;
+  private double maxDispatchesPerSecond_ = 0D;
   /**
    * <pre>
    * The maximum rate at which tasks are dispatched from this queue.
@@ -128,7 +74,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_BURST_SIZE_FIELD_NUMBER = 2;
-  private int maxBurstSize_;
+  private int maxBurstSize_ = 0;
   /**
    * <pre>
    * The max burst size.
@@ -169,7 +115,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_CONCURRENT_DISPATCHES_FIELD_NUMBER = 3;
-  private int maxConcurrentDispatches_;
+  private int maxConcurrentDispatches_ = 0;
   /**
    * <pre>
    * The maximum number of concurrent tasks that Cloud Tasks allows
@@ -215,7 +161,7 @@ private static final long serialVersionUID = 0L;
     if (maxConcurrentDispatches_ != 0) {
       output.writeInt32(3, maxConcurrentDispatches_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -236,7 +182,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, maxConcurrentDispatches_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -258,7 +204,7 @@ private static final long serialVersionUID = 0L;
         != other.getMaxBurstSize()) return false;
     if (getMaxConcurrentDispatches()
         != other.getMaxConcurrentDispatches()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -276,7 +222,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMaxBurstSize();
     hash = (37 * hash) + MAX_CONCURRENT_DISPATCHES_FIELD_NUMBER;
     hash = (53 * hash) + getMaxConcurrentDispatches();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -401,28 +347,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.tasks.v2beta3.RateLimits.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       maxDispatchesPerSecond_ = 0D;
-
       maxBurstSize_ = 0;
-
       maxConcurrentDispatches_ = 0;
-
       return this;
     }
 
@@ -449,11 +388,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.tasks.v2beta3.RateLimits buildPartial() {
       com.google.cloud.tasks.v2beta3.RateLimits result = new com.google.cloud.tasks.v2beta3.RateLimits(this);
-      result.maxDispatchesPerSecond_ = maxDispatchesPerSecond_;
-      result.maxBurstSize_ = maxBurstSize_;
-      result.maxConcurrentDispatches_ = maxConcurrentDispatches_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.tasks.v2beta3.RateLimits result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maxDispatchesPerSecond_ = maxDispatchesPerSecond_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxBurstSize_ = maxBurstSize_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxConcurrentDispatches_ = maxConcurrentDispatches_;
+      }
     }
 
     @java.lang.Override
@@ -509,7 +459,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMaxConcurrentDispatches() != 0) {
         setMaxConcurrentDispatches(other.getMaxConcurrentDispatches());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -524,19 +474,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.tasks.v2beta3.RateLimits parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 9: {
+              maxDispatchesPerSecond_ = input.readDouble();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 9
+            case 16: {
+              maxBurstSize_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              maxConcurrentDispatches_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.tasks.v2beta3.RateLimits) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private double maxDispatchesPerSecond_ ;
     /**
@@ -577,6 +556,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxDispatchesPerSecond(double value) {
       
       maxDispatchesPerSecond_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -596,7 +576,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxDispatchesPerSecond() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       maxDispatchesPerSecond_ = 0D;
       onChanged();
       return this;
@@ -679,6 +659,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxBurstSize(int value) {
       
       maxBurstSize_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -717,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxBurstSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxBurstSize_ = 0;
       onChanged();
       return this;
@@ -766,6 +747,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxConcurrentDispatches(int value) {
       
       maxConcurrentDispatches_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -787,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxConcurrentDispatches() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       maxConcurrentDispatches_ = 0;
       onChanged();
       return this;
@@ -825,7 +807,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RateLimits(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

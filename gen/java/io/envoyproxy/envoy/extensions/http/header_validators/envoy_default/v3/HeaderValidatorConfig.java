@@ -30,6 +30,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private HeaderValidatorConfig() {
+    headersWithUnderscoresAction_ = 0;
   }
 
   @java.lang.Override
@@ -44,76 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HeaderValidatorConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions.Builder subBuilder = null;
-            if (http1ProtocolOptions_ != null) {
-              subBuilder = http1ProtocolOptions_.toBuilder();
-            }
-            http1ProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(http1ProtocolOptions_);
-              http1ProtocolOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.Builder subBuilder = null;
-            if (uriPathNormalizationOptions_ != null) {
-              subBuilder = uriPathNormalizationOptions_.toBuilder();
-            }
-            uriPathNormalizationOptions_ = input.readMessage(io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(uriPathNormalizationOptions_);
-              uriPathNormalizationOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            restrictHttpMethods_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorProto.internal_static_envoy_extensions_http_header_validators_envoy_default_v3_HeaderValidatorConfig_descriptor;
@@ -125,6 +56,167 @@ private static final long serialVersionUID = 0L;
     return io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorProto.internal_static_envoy_extensions_http_header_validators_envoy_default_v3_HeaderValidatorConfig_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.class, io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Builder.class);
+  }
+
+  /**
+   * <pre>
+   * Action to take when Envoy receives client request with header names containing underscore
+   * characters.
+   * Underscore character is allowed in header names by the RFC-7230 and this behavior is implemented
+   * as a security measure due to systems that treat '_' and '-' as interchangeable. Envoy by default allows client request headers with underscore
+   * characters.
+   * </pre>
+   *
+   * Protobuf enum {@code envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction}
+   */
+  public enum HeadersWithUnderscoresAction
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * Allow headers with underscores. This is the default behavior.
+     * </pre>
+     *
+     * <code>ALLOW = 0;</code>
+     */
+    ALLOW(0),
+    /**
+     * <pre>
+     * Reject client request. HTTP/1 requests are rejected with the 400 status. HTTP/2 requests
+     * end with the stream reset. The
+     * :ref:`httpN.requests_rejected_with_underscores_in_headers &lt;config_http_conn_man_stats_per_codec&gt;` counter
+     * is incremented for each rejected request.
+     * </pre>
+     *
+     * <code>REJECT_REQUEST = 1;</code>
+     */
+    REJECT_REQUEST(1),
+    /**
+     * <pre>
+     * Drop the client header with name containing underscores. The header is dropped before the filter chain is
+     * invoked and as such filters will not see dropped headers. The
+     * :ref:`httpN.dropped_headers_with_underscores &lt;config_http_conn_man_stats_per_codec&gt;` is incremented for
+     * each dropped header.
+     * </pre>
+     *
+     * <code>DROP_HEADER = 2;</code>
+     */
+    DROP_HEADER(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * Allow headers with underscores. This is the default behavior.
+     * </pre>
+     *
+     * <code>ALLOW = 0;</code>
+     */
+    public static final int ALLOW_VALUE = 0;
+    /**
+     * <pre>
+     * Reject client request. HTTP/1 requests are rejected with the 400 status. HTTP/2 requests
+     * end with the stream reset. The
+     * :ref:`httpN.requests_rejected_with_underscores_in_headers &lt;config_http_conn_man_stats_per_codec&gt;` counter
+     * is incremented for each rejected request.
+     * </pre>
+     *
+     * <code>REJECT_REQUEST = 1;</code>
+     */
+    public static final int REJECT_REQUEST_VALUE = 1;
+    /**
+     * <pre>
+     * Drop the client header with name containing underscores. The header is dropped before the filter chain is
+     * invoked and as such filters will not see dropped headers. The
+     * :ref:`httpN.dropped_headers_with_underscores &lt;config_http_conn_man_stats_per_codec&gt;` is incremented for
+     * each dropped header.
+     * </pre>
+     *
+     * <code>DROP_HEADER = 2;</code>
+     */
+    public static final int DROP_HEADER_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static HeadersWithUnderscoresAction valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static HeadersWithUnderscoresAction forNumber(int value) {
+      switch (value) {
+        case 0: return ALLOW;
+        case 1: return REJECT_REQUEST;
+        case 2: return DROP_HEADER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<HeadersWithUnderscoresAction>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        HeadersWithUnderscoresAction> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<HeadersWithUnderscoresAction>() {
+            public HeadersWithUnderscoresAction findValueByNumber(int number) {
+              return HeadersWithUnderscoresAction.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final HeadersWithUnderscoresAction[] VALUES = values();
+
+    public static HeadersWithUnderscoresAction valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private HeadersWithUnderscoresAction(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction)
   }
 
   public interface UriPathNormalizationOptionsOrBuilder extends
@@ -220,61 +312,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private UriPathNormalizationOptions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              skipPathNormalization_ = input.readBool();
-              break;
-            }
-            case 16: {
-
-              skipMergingSlashes_ = input.readBool();
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              pathWithEscapedSlashesAction_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -492,7 +529,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SKIP_PATH_NORMALIZATION_FIELD_NUMBER = 1;
-    private boolean skipPathNormalization_;
+    private boolean skipPathNormalization_ = false;
     /**
      * <pre>
      * Should paths be normalized according to RFC 3986?
@@ -519,7 +556,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SKIP_MERGING_SLASHES_FIELD_NUMBER = 2;
-    private boolean skipMergingSlashes_;
+    private boolean skipMergingSlashes_ = false;
     /**
      * <pre>
      * Determines if adjacent slashes in the path are merged into one.
@@ -541,7 +578,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PATH_WITH_ESCAPED_SLASHES_ACTION_FIELD_NUMBER = 3;
-    private int pathWithEscapedSlashesAction_;
+    private int pathWithEscapedSlashesAction_ = 0;
     /**
      * <pre>
      * The action to take when request URL path contains escaped slash sequences (``%2F``, ``%2f``, ``%5C`` and ``%5c``).
@@ -566,8 +603,7 @@ private static final long serialVersionUID = 0L;
      * @return The pathWithEscapedSlashesAction.
      */
     @java.lang.Override public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction getPathWithEscapedSlashesAction() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction result = io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction.valueOf(pathWithEscapedSlashesAction_);
+      io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction result = io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction.forNumber(pathWithEscapedSlashesAction_);
       return result == null ? io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction.UNRECOGNIZED : result;
     }
 
@@ -594,7 +630,7 @@ private static final long serialVersionUID = 0L;
       if (pathWithEscapedSlashesAction_ != io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction.IMPLEMENTATION_SPECIFIC_DEFAULT.getNumber()) {
         output.writeEnum(3, pathWithEscapedSlashesAction_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -615,7 +651,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, pathWithEscapedSlashesAction_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -635,7 +671,7 @@ private static final long serialVersionUID = 0L;
       if (getSkipMergingSlashes()
           != other.getSkipMergingSlashes()) return false;
       if (pathWithEscapedSlashesAction_ != other.pathWithEscapedSlashesAction_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -654,7 +690,7 @@ private static final long serialVersionUID = 0L;
           getSkipMergingSlashes());
       hash = (37 * hash) + PATH_WITH_ESCAPED_SLASHES_ACTION_FIELD_NUMBER;
       hash = (53 * hash) + pathWithEscapedSlashesAction_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -771,28 +807,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         skipPathNormalization_ = false;
-
         skipMergingSlashes_ = false;
-
         pathWithEscapedSlashesAction_ = 0;
-
         return this;
       }
 
@@ -819,11 +848,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions buildPartial() {
         io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions result = new io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions(this);
-        result.skipPathNormalization_ = skipPathNormalization_;
-        result.skipMergingSlashes_ = skipMergingSlashes_;
-        result.pathWithEscapedSlashesAction_ = pathWithEscapedSlashesAction_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.skipPathNormalization_ = skipPathNormalization_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.skipMergingSlashes_ = skipMergingSlashes_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.pathWithEscapedSlashesAction_ = pathWithEscapedSlashesAction_;
+        }
       }
 
       @java.lang.Override
@@ -879,7 +919,7 @@ private static final long serialVersionUID = 0L;
         if (other.pathWithEscapedSlashesAction_ != 0) {
           setPathWithEscapedSlashesActionValue(other.getPathWithEscapedSlashesActionValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -894,19 +934,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                skipPathNormalization_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                skipMergingSlashes_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                pathWithEscapedSlashesAction_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean skipPathNormalization_ ;
       /**
@@ -957,6 +1026,7 @@ private static final long serialVersionUID = 0L;
       public Builder setSkipPathNormalization(boolean value) {
         
         skipPathNormalization_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -981,7 +1051,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSkipPathNormalization() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         skipPathNormalization_ = false;
         onChanged();
         return this;
@@ -1026,6 +1096,7 @@ private static final long serialVersionUID = 0L;
       public Builder setSkipMergingSlashes(boolean value) {
         
         skipMergingSlashes_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1045,7 +1116,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSkipMergingSlashes() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         skipMergingSlashes_ = false;
         onChanged();
         return this;
@@ -1077,8 +1148,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setPathWithEscapedSlashesActionValue(int value) {
-        
         pathWithEscapedSlashesAction_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1094,8 +1165,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction getPathWithEscapedSlashesAction() {
-        @SuppressWarnings("deprecation")
-        io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction result = io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction.valueOf(pathWithEscapedSlashesAction_);
+        io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction result = io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction.forNumber(pathWithEscapedSlashesAction_);
         return result == null ? io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.PathWithEscapedSlashesAction.UNRECOGNIZED : result;
       }
       /**
@@ -1113,7 +1183,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         pathWithEscapedSlashesAction_ = value.getNumber();
         onChanged();
         return this;
@@ -1129,7 +1199,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPathWithEscapedSlashesAction() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         pathWithEscapedSlashesAction_ = 0;
         onChanged();
         return this;
@@ -1167,7 +1237,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UriPathNormalizationOptions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1234,50 +1315,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Http1ProtocolOptions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              allowChunkedLength_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorProto.internal_static_envoy_extensions_http_header_validators_envoy_default_v3_HeaderValidatorConfig_Http1ProtocolOptions_descriptor;
@@ -1292,7 +1329,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOW_CHUNKED_LENGTH_FIELD_NUMBER = 1;
-    private boolean allowChunkedLength_;
+    private boolean allowChunkedLength_ = false;
     /**
      * <pre>
      * Allows Envoy to process HTTP/1 requests/responses with both ``Content-Length`` and ``Transfer-Encoding``
@@ -1329,7 +1366,7 @@ private static final long serialVersionUID = 0L;
       if (allowChunkedLength_ != false) {
         output.writeBool(1, allowChunkedLength_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1342,7 +1379,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, allowChunkedLength_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1359,7 +1396,7 @@ private static final long serialVersionUID = 0L;
 
       if (getAllowChunkedLength()
           != other.getAllowChunkedLength()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1373,7 +1410,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ALLOW_CHUNKED_LENGTH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAllowChunkedLength());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1490,24 +1527,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         allowChunkedLength_ = false;
-
         return this;
       }
 
@@ -1534,9 +1566,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions buildPartial() {
         io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions result = new io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions(this);
-        result.allowChunkedLength_ = allowChunkedLength_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.allowChunkedLength_ = allowChunkedLength_;
+        }
       }
 
       @java.lang.Override
@@ -1586,7 +1625,7 @@ private static final long serialVersionUID = 0L;
         if (other.getAllowChunkedLength() != false) {
           setAllowChunkedLength(other.getAllowChunkedLength());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1601,19 +1640,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                allowChunkedLength_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean allowChunkedLength_ ;
       /**
@@ -1652,6 +1710,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAllowChunkedLength(boolean value) {
         
         allowChunkedLength_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1670,7 +1729,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllowChunkedLength() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         allowChunkedLength_ = false;
         onChanged();
         return this;
@@ -1708,7 +1767,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Http1ProtocolOptions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1751,7 +1821,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptionsOrBuilder getHttp1ProtocolOptionsOrBuilder() {
-    return getHttp1ProtocolOptions();
+    return http1ProtocolOptions_ == null ? io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions.getDefaultInstance() : http1ProtocolOptions_;
   }
 
   public static final int URI_PATH_NORMALIZATION_OPTIONS_FIELD_NUMBER = 2;
@@ -1807,11 +1877,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptionsOrBuilder getUriPathNormalizationOptionsOrBuilder() {
-    return getUriPathNormalizationOptions();
+    return uriPathNormalizationOptions_ == null ? io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.getDefaultInstance() : uriPathNormalizationOptions_;
   }
 
   public static final int RESTRICT_HTTP_METHODS_FIELD_NUMBER = 3;
-  private boolean restrictHttpMethods_;
+  private boolean restrictHttpMethods_ = false;
   /**
    * <pre>
    * Restrict HTTP methods to these defined in the `RFC 7231 section 4.1 &lt;https://datatracker.ietf.org/doc/html/rfc7231#section-4.1&gt;`_
@@ -1825,6 +1895,34 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean getRestrictHttpMethods() {
     return restrictHttpMethods_;
+  }
+
+  public static final int HEADERS_WITH_UNDERSCORES_ACTION_FIELD_NUMBER = 4;
+  private int headersWithUnderscoresAction_ = 0;
+  /**
+   * <pre>
+   * Action to take when a client request with a header name containing underscore characters is received.
+   * If this setting is not specified, the value defaults to ALLOW.
+   * </pre>
+   *
+   * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction headers_with_underscores_action = 4;</code>
+   * @return The enum numeric value on the wire for headersWithUnderscoresAction.
+   */
+  @java.lang.Override public int getHeadersWithUnderscoresActionValue() {
+    return headersWithUnderscoresAction_;
+  }
+  /**
+   * <pre>
+   * Action to take when a client request with a header name containing underscore characters is received.
+   * If this setting is not specified, the value defaults to ALLOW.
+   * </pre>
+   *
+   * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction headers_with_underscores_action = 4;</code>
+   * @return The headersWithUnderscoresAction.
+   */
+  @java.lang.Override public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction getHeadersWithUnderscoresAction() {
+    io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction result = io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction.forNumber(headersWithUnderscoresAction_);
+    return result == null ? io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1850,7 +1948,10 @@ private static final long serialVersionUID = 0L;
     if (restrictHttpMethods_ != false) {
       output.writeBool(3, restrictHttpMethods_);
     }
-    unknownFields.writeTo(output);
+    if (headersWithUnderscoresAction_ != io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction.ALLOW.getNumber()) {
+      output.writeEnum(4, headersWithUnderscoresAction_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1871,7 +1972,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, restrictHttpMethods_);
     }
-    size += unknownFields.getSerializedSize();
+    if (headersWithUnderscoresAction_ != io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction.ALLOW.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(4, headersWithUnderscoresAction_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1898,7 +2003,8 @@ private static final long serialVersionUID = 0L;
     }
     if (getRestrictHttpMethods()
         != other.getRestrictHttpMethods()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (headersWithUnderscoresAction_ != other.headersWithUnderscoresAction_) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1920,7 +2026,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + RESTRICT_HTTP_METHODS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getRestrictHttpMethods());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + HEADERS_WITH_UNDERSCORES_ACTION_FIELD_NUMBER;
+    hash = (53 * hash) + headersWithUnderscoresAction_;
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2051,36 +2159,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (http1ProtocolOptionsBuilder_ == null) {
-        http1ProtocolOptions_ = null;
-      } else {
-        http1ProtocolOptions_ = null;
+      bitField0_ = 0;
+      http1ProtocolOptions_ = null;
+      if (http1ProtocolOptionsBuilder_ != null) {
+        http1ProtocolOptionsBuilder_.dispose();
         http1ProtocolOptionsBuilder_ = null;
       }
-      if (uriPathNormalizationOptionsBuilder_ == null) {
-        uriPathNormalizationOptions_ = null;
-      } else {
-        uriPathNormalizationOptions_ = null;
+      uriPathNormalizationOptions_ = null;
+      if (uriPathNormalizationOptionsBuilder_ != null) {
+        uriPathNormalizationOptionsBuilder_.dispose();
         uriPathNormalizationOptionsBuilder_ = null;
       }
       restrictHttpMethods_ = false;
-
+      headersWithUnderscoresAction_ = 0;
       return this;
     }
 
@@ -2107,19 +2209,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig buildPartial() {
       io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig result = new io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig(this);
-      if (http1ProtocolOptionsBuilder_ == null) {
-        result.http1ProtocolOptions_ = http1ProtocolOptions_;
-      } else {
-        result.http1ProtocolOptions_ = http1ProtocolOptionsBuilder_.build();
-      }
-      if (uriPathNormalizationOptionsBuilder_ == null) {
-        result.uriPathNormalizationOptions_ = uriPathNormalizationOptions_;
-      } else {
-        result.uriPathNormalizationOptions_ = uriPathNormalizationOptionsBuilder_.build();
-      }
-      result.restrictHttpMethods_ = restrictHttpMethods_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.http1ProtocolOptions_ = http1ProtocolOptionsBuilder_ == null
+            ? http1ProtocolOptions_
+            : http1ProtocolOptionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.uriPathNormalizationOptions_ = uriPathNormalizationOptionsBuilder_ == null
+            ? uriPathNormalizationOptions_
+            : uriPathNormalizationOptionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.restrictHttpMethods_ = restrictHttpMethods_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.headersWithUnderscoresAction_ = headersWithUnderscoresAction_;
+      }
     }
 
     @java.lang.Override
@@ -2175,7 +2287,10 @@ private static final long serialVersionUID = 0L;
       if (other.getRestrictHttpMethods() != false) {
         setRestrictHttpMethods(other.getRestrictHttpMethods());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.headersWithUnderscoresAction_ != 0) {
+        setHeadersWithUnderscoresActionValue(other.getHeadersWithUnderscoresActionValue());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2190,19 +2305,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHttp1ProtocolOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUriPathNormalizationOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              restrictHttpMethods_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              headersWithUnderscoresAction_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions http1ProtocolOptions_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -2212,7 +2365,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the http1ProtocolOptions field is set.
      */
     public boolean hasHttp1ProtocolOptions() {
-      return http1ProtocolOptionsBuilder_ != null || http1ProtocolOptions_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions http1_protocol_options = 1;</code>
@@ -2234,11 +2387,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         http1ProtocolOptions_ = value;
-        onChanged();
       } else {
         http1ProtocolOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2248,11 +2401,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions.Builder builderForValue) {
       if (http1ProtocolOptionsBuilder_ == null) {
         http1ProtocolOptions_ = builderForValue.build();
-        onChanged();
       } else {
         http1ProtocolOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2260,38 +2413,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHttp1ProtocolOptions(io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions value) {
       if (http1ProtocolOptionsBuilder_ == null) {
-        if (http1ProtocolOptions_ != null) {
-          http1ProtocolOptions_ =
-            io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions.newBuilder(http1ProtocolOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          http1ProtocolOptions_ != null &&
+          http1ProtocolOptions_ != io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions.getDefaultInstance()) {
+          getHttp1ProtocolOptionsBuilder().mergeFrom(value);
         } else {
           http1ProtocolOptions_ = value;
         }
-        onChanged();
       } else {
         http1ProtocolOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions http1_protocol_options = 1;</code>
      */
     public Builder clearHttp1ProtocolOptions() {
-      if (http1ProtocolOptionsBuilder_ == null) {
-        http1ProtocolOptions_ = null;
-        onChanged();
-      } else {
-        http1ProtocolOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      http1ProtocolOptions_ = null;
+      if (http1ProtocolOptionsBuilder_ != null) {
+        http1ProtocolOptionsBuilder_.dispose();
         http1ProtocolOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions http1_protocol_options = 1;</code>
      */
     public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.Http1ProtocolOptions.Builder getHttp1ProtocolOptionsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHttp1ProtocolOptionsFieldBuilder().getBuilder();
     }
@@ -2341,7 +2494,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the uriPathNormalizationOptions field is set.
      */
     public boolean hasUriPathNormalizationOptions() {
-      return uriPathNormalizationOptionsBuilder_ != null || uriPathNormalizationOptions_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2383,11 +2536,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         uriPathNormalizationOptions_ = value;
-        onChanged();
       } else {
         uriPathNormalizationOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2407,11 +2560,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.Builder builderForValue) {
       if (uriPathNormalizationOptionsBuilder_ == null) {
         uriPathNormalizationOptions_ = builderForValue.build();
-        onChanged();
       } else {
         uriPathNormalizationOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2429,17 +2582,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUriPathNormalizationOptions(io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions value) {
       if (uriPathNormalizationOptionsBuilder_ == null) {
-        if (uriPathNormalizationOptions_ != null) {
-          uriPathNormalizationOptions_ =
-            io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.newBuilder(uriPathNormalizationOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          uriPathNormalizationOptions_ != null &&
+          uriPathNormalizationOptions_ != io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.getDefaultInstance()) {
+          getUriPathNormalizationOptionsBuilder().mergeFrom(value);
         } else {
           uriPathNormalizationOptions_ = value;
         }
-        onChanged();
       } else {
         uriPathNormalizationOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2456,14 +2610,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions uri_path_normalization_options = 2;</code>
      */
     public Builder clearUriPathNormalizationOptions() {
-      if (uriPathNormalizationOptionsBuilder_ == null) {
-        uriPathNormalizationOptions_ = null;
-        onChanged();
-      } else {
-        uriPathNormalizationOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      uriPathNormalizationOptions_ = null;
+      if (uriPathNormalizationOptionsBuilder_ != null) {
+        uriPathNormalizationOptionsBuilder_.dispose();
         uriPathNormalizationOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2480,7 +2633,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions uri_path_normalization_options = 2;</code>
      */
     public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.UriPathNormalizationOptions.Builder getUriPathNormalizationOptionsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUriPathNormalizationOptionsFieldBuilder().getBuilder();
     }
@@ -2561,6 +2714,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRestrictHttpMethods(boolean value) {
       
       restrictHttpMethods_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2575,8 +2729,86 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRestrictHttpMethods() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       restrictHttpMethods_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int headersWithUnderscoresAction_ = 0;
+    /**
+     * <pre>
+     * Action to take when a client request with a header name containing underscore characters is received.
+     * If this setting is not specified, the value defaults to ALLOW.
+     * </pre>
+     *
+     * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction headers_with_underscores_action = 4;</code>
+     * @return The enum numeric value on the wire for headersWithUnderscoresAction.
+     */
+    @java.lang.Override public int getHeadersWithUnderscoresActionValue() {
+      return headersWithUnderscoresAction_;
+    }
+    /**
+     * <pre>
+     * Action to take when a client request with a header name containing underscore characters is received.
+     * If this setting is not specified, the value defaults to ALLOW.
+     * </pre>
+     *
+     * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction headers_with_underscores_action = 4;</code>
+     * @param value The enum numeric value on the wire for headersWithUnderscoresAction to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHeadersWithUnderscoresActionValue(int value) {
+      headersWithUnderscoresAction_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Action to take when a client request with a header name containing underscore characters is received.
+     * If this setting is not specified, the value defaults to ALLOW.
+     * </pre>
+     *
+     * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction headers_with_underscores_action = 4;</code>
+     * @return The headersWithUnderscoresAction.
+     */
+    @java.lang.Override
+    public io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction getHeadersWithUnderscoresAction() {
+      io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction result = io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction.forNumber(headersWithUnderscoresAction_);
+      return result == null ? io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Action to take when a client request with a header name containing underscore characters is received.
+     * If this setting is not specified, the value defaults to ALLOW.
+     * </pre>
+     *
+     * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction headers_with_underscores_action = 4;</code>
+     * @param value The headersWithUnderscoresAction to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHeadersWithUnderscoresAction(io.envoyproxy.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000008;
+      headersWithUnderscoresAction_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Action to take when a client request with a header name containing underscore characters is received.
+     * If this setting is not specified, the value defaults to ALLOW.
+     * </pre>
+     *
+     * <code>.envoy.extensions.http.header_validators.envoy_default.v3.HeaderValidatorConfig.HeadersWithUnderscoresAction headers_with_underscores_action = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHeadersWithUnderscoresAction() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      headersWithUnderscoresAction_ = 0;
       onChanged();
       return this;
     }
@@ -2613,7 +2845,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HeaderValidatorConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

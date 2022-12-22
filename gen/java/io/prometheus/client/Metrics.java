@@ -20,47 +20,103 @@ public final class Metrics {
   public enum MetricType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
+     * <pre>
+     * COUNTER must use the Metric field "counter".
+     * </pre>
+     *
      * <code>COUNTER = 0;</code>
      */
     COUNTER(0),
     /**
+     * <pre>
+     * GAUGE must use the Metric field "gauge".
+     * </pre>
+     *
      * <code>GAUGE = 1;</code>
      */
     GAUGE(1),
     /**
+     * <pre>
+     * SUMMARY must use the Metric field "summary".
+     * </pre>
+     *
      * <code>SUMMARY = 2;</code>
      */
     SUMMARY(2),
     /**
+     * <pre>
+     * UNTYPED must use the Metric field "untyped".
+     * </pre>
+     *
      * <code>UNTYPED = 3;</code>
      */
     UNTYPED(3),
     /**
+     * <pre>
+     * HISTOGRAM must use the Metric field "histogram".
+     * </pre>
+     *
      * <code>HISTOGRAM = 4;</code>
      */
     HISTOGRAM(4),
+    /**
+     * <pre>
+     * GAUGE_HISTOGRAM must use the Metric field "histogram".
+     * </pre>
+     *
+     * <code>GAUGE_HISTOGRAM = 5;</code>
+     */
+    GAUGE_HISTOGRAM(5),
     ;
 
     /**
+     * <pre>
+     * COUNTER must use the Metric field "counter".
+     * </pre>
+     *
      * <code>COUNTER = 0;</code>
      */
     public static final int COUNTER_VALUE = 0;
     /**
+     * <pre>
+     * GAUGE must use the Metric field "gauge".
+     * </pre>
+     *
      * <code>GAUGE = 1;</code>
      */
     public static final int GAUGE_VALUE = 1;
     /**
+     * <pre>
+     * SUMMARY must use the Metric field "summary".
+     * </pre>
+     *
      * <code>SUMMARY = 2;</code>
      */
     public static final int SUMMARY_VALUE = 2;
     /**
+     * <pre>
+     * UNTYPED must use the Metric field "untyped".
+     * </pre>
+     *
      * <code>UNTYPED = 3;</code>
      */
     public static final int UNTYPED_VALUE = 3;
     /**
+     * <pre>
+     * HISTOGRAM must use the Metric field "histogram".
+     * </pre>
+     *
      * <code>HISTOGRAM = 4;</code>
      */
     public static final int HISTOGRAM_VALUE = 4;
+    /**
+     * <pre>
+     * GAUGE_HISTOGRAM must use the Metric field "histogram".
+     * </pre>
+     *
+     * <code>GAUGE_HISTOGRAM = 5;</code>
+     */
+    public static final int GAUGE_HISTOGRAM_VALUE = 5;
 
 
     public final int getNumber() {
@@ -88,6 +144,7 @@ public final class Metrics {
         case 2: return SUMMARY;
         case 3: return UNTYPED;
         case 4: return HISTOGRAM;
+        case 5: return GAUGE_HISTOGRAM;
         default: return null;
       }
     }
@@ -204,58 +261,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LabelPair(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              name_ = bs;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              value_ = bs;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_LabelPair_descriptor;
@@ -271,7 +276,8 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <code>optional string name = 1;</code>
      * @return Whether the name field is set.
@@ -319,7 +325,8 @@ public final class Metrics {
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object value_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object value_ = "";
     /**
      * <code>optional string value = 2;</code>
      * @return Whether the value field is set.
@@ -386,7 +393,7 @@ public final class Metrics {
       if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -401,7 +408,7 @@ public final class Metrics {
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -426,7 +433,7 @@ public final class Metrics {
         if (!getValue()
             .equals(other.getValue())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -445,7 +452,7 @@ public final class Metrics {
         hash = (37 * hash) + VALUE_FIELD_NUMBER;
         hash = (53 * hash) + getValue().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -562,26 +569,20 @@ public final class Metrics {
 
       // Construct using io.prometheus.client.Metrics.LabelPair.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
         value_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -608,19 +609,23 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.LabelPair buildPartial() {
         io.prometheus.client.Metrics.LabelPair result = new io.prometheus.client.Metrics.LabelPair(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.LabelPair result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
           to_bitField0_ |= 0x00000001;
         }
-        result.name_ = name_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.value_ = value_;
           to_bitField0_ |= 0x00000002;
         }
-        result.value_ = value_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -668,16 +673,16 @@ public final class Metrics {
       public Builder mergeFrom(io.prometheus.client.Metrics.LabelPair other) {
         if (other == io.prometheus.client.Metrics.LabelPair.getDefaultInstance()) return this;
         if (other.hasName()) {
-          bitField0_ |= 0x00000001;
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasValue()) {
-          bitField0_ |= 0x00000002;
           value_ = other.value_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -692,17 +697,40 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.LabelPair parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                value_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.LabelPair) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -757,11 +785,9 @@ public final class Metrics {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -770,8 +796,8 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -782,11 +808,9 @@ public final class Metrics {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -841,11 +865,9 @@ public final class Metrics {
        */
       public Builder setValue(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         value_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -854,8 +876,8 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000002);
         value_ = getDefaultInstance().getValue();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -866,11 +888,9 @@ public final class Metrics {
        */
       public Builder setValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         value_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -907,7 +927,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LabelPair(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -969,51 +1000,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Gauge(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-              bitField0_ |= 0x00000001;
-              value_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Gauge_descriptor;
@@ -1029,7 +1015,7 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int VALUE_FIELD_NUMBER = 1;
-    private double value_;
+    private double value_ = 0D;
     /**
      * <code>optional double value = 1;</code>
      * @return Whether the value field is set.
@@ -1064,7 +1050,7 @@ public final class Metrics {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeDouble(1, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1077,7 +1063,7 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(1, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1098,7 +1084,7 @@ public final class Metrics {
             != java.lang.Double.doubleToLongBits(
                 other.getValue())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1114,7 +1100,7 @@ public final class Metrics {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getValue()));
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1231,24 +1217,19 @@ public final class Metrics {
 
       // Construct using io.prometheus.client.Metrics.Gauge.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         value_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1275,15 +1256,19 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.Gauge buildPartial() {
         io.prometheus.client.Metrics.Gauge result = new io.prometheus.client.Metrics.Gauge(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.Gauge result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = value_;
           to_bitField0_ |= 0x00000001;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1333,7 +1318,7 @@ public final class Metrics {
         if (other.hasValue()) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1348,17 +1333,35 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.Gauge parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                value_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.Gauge) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1386,8 +1389,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setValue(double value) {
-        bitField0_ |= 0x00000001;
+        
         value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1434,7 +1438,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Gauge(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1511,64 +1526,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Counter(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-              bitField0_ |= 0x00000001;
-              value_ = input.readDouble();
-              break;
-            }
-            case 18: {
-              io.prometheus.client.Metrics.Exemplar.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) != 0)) {
-                subBuilder = exemplar_.toBuilder();
-              }
-              exemplar_ = input.readMessage(io.prometheus.client.Metrics.Exemplar.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(exemplar_);
-                exemplar_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Counter_descriptor;
@@ -1584,7 +1541,7 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int VALUE_FIELD_NUMBER = 1;
-    private double value_;
+    private double value_ = 0D;
     /**
      * <code>optional double value = 1;</code>
      * @return Whether the value field is set.
@@ -1648,7 +1605,7 @@ public final class Metrics {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(2, getExemplar());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1665,7 +1622,7 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getExemplar());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1691,7 +1648,7 @@ public final class Metrics {
         if (!getExemplar()
             .equals(other.getExemplar())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1711,7 +1668,7 @@ public final class Metrics {
         hash = (37 * hash) + EXEMPLAR_FIELD_NUMBER;
         hash = (53 * hash) + getExemplar().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1845,14 +1802,13 @@ public final class Metrics {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         value_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        if (exemplarBuilder_ == null) {
-          exemplar_ = null;
-        } else {
-          exemplarBuilder_.clear();
+        exemplar_ = null;
+        if (exemplarBuilder_ != null) {
+          exemplarBuilder_.dispose();
+          exemplarBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1879,6 +1835,12 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.Counter buildPartial() {
         io.prometheus.client.Metrics.Counter result = new io.prometheus.client.Metrics.Counter(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.Counter result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1886,16 +1848,12 @@ public final class Metrics {
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          if (exemplarBuilder_ == null) {
-            result.exemplar_ = exemplar_;
-          } else {
-            result.exemplar_ = exemplarBuilder_.build();
-          }
+          result.exemplar_ = exemplarBuilder_ == null
+              ? exemplar_
+              : exemplarBuilder_.build();
           to_bitField0_ |= 0x00000002;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1948,7 +1906,7 @@ public final class Metrics {
         if (other.hasExemplar()) {
           mergeExemplar(other.getExemplar());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1963,17 +1921,42 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.Counter parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                value_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 18: {
+                input.readMessage(
+                    getExemplarFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.Counter) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2001,8 +1984,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setValue(double value) {
-        bitField0_ |= 0x00000001;
+        
         value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2047,11 +2031,11 @@ public final class Metrics {
             throw new NullPointerException();
           }
           exemplar_ = value;
-          onChanged();
         } else {
           exemplarBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2061,11 +2045,11 @@ public final class Metrics {
           io.prometheus.client.Metrics.Exemplar.Builder builderForValue) {
         if (exemplarBuilder_ == null) {
           exemplar_ = builderForValue.build();
-          onChanged();
         } else {
           exemplarBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2074,31 +2058,30 @@ public final class Metrics {
       public Builder mergeExemplar(io.prometheus.client.Metrics.Exemplar value) {
         if (exemplarBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0) &&
-              exemplar_ != null &&
-              exemplar_ != io.prometheus.client.Metrics.Exemplar.getDefaultInstance()) {
-            exemplar_ =
-              io.prometheus.client.Metrics.Exemplar.newBuilder(exemplar_).mergeFrom(value).buildPartial();
+            exemplar_ != null &&
+            exemplar_ != io.prometheus.client.Metrics.Exemplar.getDefaultInstance()) {
+            getExemplarBuilder().mergeFrom(value);
           } else {
             exemplar_ = value;
           }
-          onChanged();
         } else {
           exemplarBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .io.prometheus.client.Exemplar exemplar = 2;</code>
        */
       public Builder clearExemplar() {
-        if (exemplarBuilder_ == null) {
-          exemplar_ = null;
-          onChanged();
-        } else {
-          exemplarBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000002);
+        exemplar_ = null;
+        if (exemplarBuilder_ != null) {
+          exemplarBuilder_.dispose();
+          exemplarBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -2169,7 +2152,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Counter(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2242,56 +2236,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Quantile(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-              bitField0_ |= 0x00000001;
-              quantile_ = input.readDouble();
-              break;
-            }
-            case 17: {
-              bitField0_ |= 0x00000002;
-              value_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Quantile_descriptor;
@@ -2307,7 +2251,7 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int QUANTILE_FIELD_NUMBER = 1;
-    private double quantile_;
+    private double quantile_ = 0D;
     /**
      * <code>optional double quantile = 1;</code>
      * @return Whether the quantile field is set.
@@ -2326,7 +2270,7 @@ public final class Metrics {
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    private double value_;
+    private double value_ = 0D;
     /**
      * <code>optional double value = 2;</code>
      * @return Whether the value field is set.
@@ -2364,7 +2308,7 @@ public final class Metrics {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeDouble(2, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2381,7 +2325,7 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2408,7 +2352,7 @@ public final class Metrics {
             != java.lang.Double.doubleToLongBits(
                 other.getValue())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2429,7 +2373,7 @@ public final class Metrics {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getValue()));
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2546,26 +2490,20 @@ public final class Metrics {
 
       // Construct using io.prometheus.client.Metrics.Quantile.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         quantile_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000001);
         value_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -2592,6 +2530,12 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.Quantile buildPartial() {
         io.prometheus.client.Metrics.Quantile result = new io.prometheus.client.Metrics.Quantile(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.Quantile result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -2602,9 +2546,7 @@ public final class Metrics {
           result.value_ = value_;
           to_bitField0_ |= 0x00000002;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2657,7 +2599,7 @@ public final class Metrics {
         if (other.hasValue()) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2672,17 +2614,40 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.Quantile parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                quantile_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                value_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.Quantile) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2710,8 +2675,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setQuantile(double value) {
-        bitField0_ |= 0x00000001;
+        
         quantile_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2749,8 +2715,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setValue(double value) {
-        bitField0_ |= 0x00000002;
+        
         value_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2797,7 +2764,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Quantile(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2895,68 +2873,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Summary(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              sampleCount_ = input.readUInt64();
-              break;
-            }
-            case 17: {
-              bitField0_ |= 0x00000002;
-              sampleSum_ = input.readDouble();
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                quantile_ = new java.util.ArrayList<io.prometheus.client.Metrics.Quantile>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              quantile_.add(
-                  input.readMessage(io.prometheus.client.Metrics.Quantile.PARSER, extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          quantile_ = java.util.Collections.unmodifiableList(quantile_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Summary_descriptor;
@@ -2972,7 +2888,7 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int SAMPLE_COUNT_FIELD_NUMBER = 1;
-    private long sampleCount_;
+    private long sampleCount_ = 0L;
     /**
      * <code>optional uint64 sample_count = 1;</code>
      * @return Whether the sampleCount field is set.
@@ -2991,7 +2907,7 @@ public final class Metrics {
     }
 
     public static final int SAMPLE_SUM_FIELD_NUMBER = 2;
-    private double sampleSum_;
+    private double sampleSum_ = 0D;
     /**
      * <code>optional double sample_sum = 2;</code>
      * @return Whether the sampleSum field is set.
@@ -3010,6 +2926,7 @@ public final class Metrics {
     }
 
     public static final int QUANTILE_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<io.prometheus.client.Metrics.Quantile> quantile_;
     /**
      * <code>repeated .io.prometheus.client.Quantile quantile = 3;</code>
@@ -3072,7 +2989,7 @@ public final class Metrics {
       for (int i = 0; i < quantile_.size(); i++) {
         output.writeMessage(3, quantile_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3093,7 +3010,7 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, quantile_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3121,7 +3038,7 @@ public final class Metrics {
       }
       if (!getQuantileList()
           .equals(other.getQuantileList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3146,7 +3063,7 @@ public final class Metrics {
         hash = (37 * hash) + QUANTILE_FIELD_NUMBER;
         hash = (53 * hash) + getQuantileList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3263,33 +3180,27 @@ public final class Metrics {
 
       // Construct using io.prometheus.client.Metrics.Summary.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getQuantileFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         sampleCount_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
         sampleSum_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000002);
         if (quantileBuilder_ == null) {
           quantile_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          quantile_ = null;
           quantileBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3316,6 +3227,25 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.Summary buildPartial() {
         io.prometheus.client.Metrics.Summary result = new io.prometheus.client.Metrics.Summary(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.prometheus.client.Metrics.Summary result) {
+        if (quantileBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            quantile_ = java.util.Collections.unmodifiableList(quantile_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.quantile_ = quantile_;
+        } else {
+          result.quantile_ = quantileBuilder_.build();
+        }
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.Summary result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -3326,18 +3256,7 @@ public final class Metrics {
           result.sampleSum_ = sampleSum_;
           to_bitField0_ |= 0x00000002;
         }
-        if (quantileBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
-            quantile_ = java.util.Collections.unmodifiableList(quantile_);
-            bitField0_ = (bitField0_ & ~0x00000004);
-          }
-          result.quantile_ = quantile_;
-        } else {
-          result.quantile_ = quantileBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -3416,7 +3335,7 @@ public final class Metrics {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3431,17 +3350,53 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.Summary parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                sampleCount_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 17: {
+                sampleSum_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 26: {
+                io.prometheus.client.Metrics.Quantile m =
+                    input.readMessage(
+                        io.prometheus.client.Metrics.Quantile.PARSER,
+                        extensionRegistry);
+                if (quantileBuilder_ == null) {
+                  ensureQuantileIsMutable();
+                  quantile_.add(m);
+                } else {
+                  quantileBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.Summary) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3469,8 +3424,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setSampleCount(long value) {
-        bitField0_ |= 0x00000001;
+        
         sampleCount_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3508,8 +3464,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setSampleSum(double value) {
-        bitField0_ |= 0x00000002;
+        
         sampleSum_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3796,7 +3753,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Summary(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3858,51 +3826,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Untyped(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-              bitField0_ |= 0x00000001;
-              value_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Untyped_descriptor;
@@ -3918,7 +3841,7 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int VALUE_FIELD_NUMBER = 1;
-    private double value_;
+    private double value_ = 0D;
     /**
      * <code>optional double value = 1;</code>
      * @return Whether the value field is set.
@@ -3953,7 +3876,7 @@ public final class Metrics {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeDouble(1, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3966,7 +3889,7 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(1, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3987,7 +3910,7 @@ public final class Metrics {
             != java.lang.Double.doubleToLongBits(
                 other.getValue())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4003,7 +3926,7 @@ public final class Metrics {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getValue()));
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4120,24 +4043,19 @@ public final class Metrics {
 
       // Construct using io.prometheus.client.Metrics.Untyped.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         value_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -4164,15 +4082,19 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.Untyped buildPartial() {
         io.prometheus.client.Metrics.Untyped result = new io.prometheus.client.Metrics.Untyped(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.Untyped result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = value_;
           to_bitField0_ |= 0x00000001;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -4222,7 +4144,7 @@ public final class Metrics {
         if (other.hasValue()) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4237,17 +4159,35 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.Untyped parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                value_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.Untyped) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4275,8 +4215,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setValue(double value) {
-        bitField0_ |= 0x00000001;
+        
         value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4323,7 +4264,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Untyped(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4359,6 +4311,25 @@ public final class Metrics {
     long getSampleCount();
 
     /**
+     * <pre>
+     * Overrides sample_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double sample_count_float = 4;</code>
+     * @return Whether the sampleCountFloat field is set.
+     */
+    boolean hasSampleCountFloat();
+    /**
+     * <pre>
+     * Overrides sample_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double sample_count_float = 4;</code>
+     * @return The sampleCountFloat.
+     */
+    double getSampleCountFloat();
+
+    /**
      * <code>optional double sample_sum = 2;</code>
      * @return Whether the sampleSum field is set.
      */
@@ -4371,7 +4342,7 @@ public final class Metrics {
 
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -4380,7 +4351,7 @@ public final class Metrics {
         getBucketList();
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -4388,7 +4359,7 @@ public final class Metrics {
     io.prometheus.client.Metrics.Bucket getBucket(int index);
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -4396,7 +4367,7 @@ public final class Metrics {
     int getBucketCount();
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -4405,13 +4376,313 @@ public final class Metrics {
         getBucketOrBuilderList();
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
      */
     io.prometheus.client.Metrics.BucketOrBuilder getBucketOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * schema defines the bucket schema. Currently, valid numbers are -4 &lt;= n &lt;= 8.
+     * They are all for base-2 bucket schemas, where 1 is a bucket boundary in each case, and
+     * then each power of two is divided into 2^n logarithmic buckets.
+     * Or in other words, each bucket boundary is the previous boundary times 2^(2^-n).
+     * In the future, more bucket schemas may be added using numbers &lt; -4 or &gt; 8.
+     * </pre>
+     *
+     * <code>optional sint32 schema = 5;</code>
+     * @return Whether the schema field is set.
+     */
+    boolean hasSchema();
+    /**
+     * <pre>
+     * schema defines the bucket schema. Currently, valid numbers are -4 &lt;= n &lt;= 8.
+     * They are all for base-2 bucket schemas, where 1 is a bucket boundary in each case, and
+     * then each power of two is divided into 2^n logarithmic buckets.
+     * Or in other words, each bucket boundary is the previous boundary times 2^(2^-n).
+     * In the future, more bucket schemas may be added using numbers &lt; -4 or &gt; 8.
+     * </pre>
+     *
+     * <code>optional sint32 schema = 5;</code>
+     * @return The schema.
+     */
+    int getSchema();
+
+    /**
+     * <pre>
+     * Breadth of the zero bucket.
+     * </pre>
+     *
+     * <code>optional double zero_threshold = 6;</code>
+     * @return Whether the zeroThreshold field is set.
+     */
+    boolean hasZeroThreshold();
+    /**
+     * <pre>
+     * Breadth of the zero bucket.
+     * </pre>
+     *
+     * <code>optional double zero_threshold = 6;</code>
+     * @return The zeroThreshold.
+     */
+    double getZeroThreshold();
+
+    /**
+     * <pre>
+     * Count in zero bucket.
+     * </pre>
+     *
+     * <code>optional uint64 zero_count = 7;</code>
+     * @return Whether the zeroCount field is set.
+     */
+    boolean hasZeroCount();
+    /**
+     * <pre>
+     * Count in zero bucket.
+     * </pre>
+     *
+     * <code>optional uint64 zero_count = 7;</code>
+     * @return The zeroCount.
+     */
+    long getZeroCount();
+
+    /**
+     * <pre>
+     * Overrides sb_zero_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double zero_count_float = 8;</code>
+     * @return Whether the zeroCountFloat field is set.
+     */
+    boolean hasZeroCountFloat();
+    /**
+     * <pre>
+     * Overrides sb_zero_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double zero_count_float = 8;</code>
+     * @return The zeroCountFloat.
+     */
+    double getZeroCountFloat();
+
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    java.util.List<io.prometheus.client.Metrics.BucketSpan> 
+        getNegativeSpanList();
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    io.prometheus.client.Metrics.BucketSpan getNegativeSpan(int index);
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    int getNegativeSpanCount();
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    java.util.List<? extends io.prometheus.client.Metrics.BucketSpanOrBuilder> 
+        getNegativeSpanOrBuilderList();
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    io.prometheus.client.Metrics.BucketSpanOrBuilder getNegativeSpanOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Use either "negative_delta" or "negative_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_delta = 10;</code>
+     * @return A list containing the negativeDelta.
+     */
+    java.util.List<java.lang.Long> getNegativeDeltaList();
+    /**
+     * <pre>
+     * Use either "negative_delta" or "negative_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_delta = 10;</code>
+     * @return The count of negativeDelta.
+     */
+    int getNegativeDeltaCount();
+    /**
+     * <pre>
+     * Use either "negative_delta" or "negative_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_delta = 10;</code>
+     * @param index The index of the element to return.
+     * @return The negativeDelta at the given index.
+     */
+    long getNegativeDelta(int index);
+
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_count = 11;</code>
+     * @return A list containing the negativeCount.
+     */
+    java.util.List<java.lang.Double> getNegativeCountList();
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_count = 11;</code>
+     * @return The count of negativeCount.
+     */
+    int getNegativeCountCount();
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_count = 11;</code>
+     * @param index The index of the element to return.
+     * @return The negativeCount at the given index.
+     */
+    double getNegativeCount(int index);
+
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    java.util.List<io.prometheus.client.Metrics.BucketSpan> 
+        getPositiveSpanList();
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    io.prometheus.client.Metrics.BucketSpan getPositiveSpan(int index);
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    int getPositiveSpanCount();
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    java.util.List<? extends io.prometheus.client.Metrics.BucketSpanOrBuilder> 
+        getPositiveSpanOrBuilderList();
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    io.prometheus.client.Metrics.BucketSpanOrBuilder getPositiveSpanOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Use either "positive_delta" or "positive_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_delta = 13;</code>
+     * @return A list containing the positiveDelta.
+     */
+    java.util.List<java.lang.Long> getPositiveDeltaList();
+    /**
+     * <pre>
+     * Use either "positive_delta" or "positive_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_delta = 13;</code>
+     * @return The count of positiveDelta.
+     */
+    int getPositiveDeltaCount();
+    /**
+     * <pre>
+     * Use either "positive_delta" or "positive_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_delta = 13;</code>
+     * @param index The index of the element to return.
+     * @return The positiveDelta at the given index.
+     */
+    long getPositiveDelta(int index);
+
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_count = 14;</code>
+     * @return A list containing the positiveCount.
+     */
+    java.util.List<java.lang.Double> getPositiveCountList();
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_count = 14;</code>
+     * @return The count of positiveCount.
+     */
+    int getPositiveCountCount();
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_count = 14;</code>
+     * @param index The index of the element to return.
+     * @return The positiveCount at the given index.
+     */
+    double getPositiveCount(int index);
   }
   /**
    * Protobuf type {@code io.prometheus.client.Histogram}
@@ -4427,6 +4698,12 @@ public final class Metrics {
     }
     private Histogram() {
       bucket_ = java.util.Collections.emptyList();
+      negativeSpan_ = java.util.Collections.emptyList();
+      negativeDelta_ = emptyLongList();
+      negativeCount_ = emptyDoubleList();
+      positiveSpan_ = java.util.Collections.emptyList();
+      positiveDelta_ = emptyLongList();
+      positiveCount_ = emptyDoubleList();
     }
 
     @java.lang.Override
@@ -4440,68 +4717,6 @@ public final class Metrics {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Histogram(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              sampleCount_ = input.readUInt64();
-              break;
-            }
-            case 17: {
-              bitField0_ |= 0x00000002;
-              sampleSum_ = input.readDouble();
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                bucket_ = new java.util.ArrayList<io.prometheus.client.Metrics.Bucket>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              bucket_.add(
-                  input.readMessage(io.prometheus.client.Metrics.Bucket.PARSER, extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          bucket_ = java.util.Collections.unmodifiableList(bucket_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -4518,7 +4733,7 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int SAMPLE_COUNT_FIELD_NUMBER = 1;
-    private long sampleCount_;
+    private long sampleCount_ = 0L;
     /**
      * <code>optional uint64 sample_count = 1;</code>
      * @return Whether the sampleCount field is set.
@@ -4536,15 +4751,42 @@ public final class Metrics {
       return sampleCount_;
     }
 
+    public static final int SAMPLE_COUNT_FLOAT_FIELD_NUMBER = 4;
+    private double sampleCountFloat_ = 0D;
+    /**
+     * <pre>
+     * Overrides sample_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double sample_count_float = 4;</code>
+     * @return Whether the sampleCountFloat field is set.
+     */
+    @java.lang.Override
+    public boolean hasSampleCountFloat() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Overrides sample_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double sample_count_float = 4;</code>
+     * @return The sampleCountFloat.
+     */
+    @java.lang.Override
+    public double getSampleCountFloat() {
+      return sampleCountFloat_;
+    }
+
     public static final int SAMPLE_SUM_FIELD_NUMBER = 2;
-    private double sampleSum_;
+    private double sampleSum_ = 0D;
     /**
      * <code>optional double sample_sum = 2;</code>
      * @return Whether the sampleSum field is set.
      */
     @java.lang.Override
     public boolean hasSampleSum() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>optional double sample_sum = 2;</code>
@@ -4556,10 +4798,11 @@ public final class Metrics {
     }
 
     public static final int BUCKET_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<io.prometheus.client.Metrics.Bucket> bucket_;
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -4570,7 +4813,7 @@ public final class Metrics {
     }
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -4582,7 +4825,7 @@ public final class Metrics {
     }
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -4593,7 +4836,7 @@ public final class Metrics {
     }
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -4604,7 +4847,7 @@ public final class Metrics {
     }
     /**
      * <pre>
-     * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+     * Buckets for the conventional histogram.
      * </pre>
      *
      * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -4613,6 +4856,416 @@ public final class Metrics {
     public io.prometheus.client.Metrics.BucketOrBuilder getBucketOrBuilder(
         int index) {
       return bucket_.get(index);
+    }
+
+    public static final int SCHEMA_FIELD_NUMBER = 5;
+    private int schema_ = 0;
+    /**
+     * <pre>
+     * schema defines the bucket schema. Currently, valid numbers are -4 &lt;= n &lt;= 8.
+     * They are all for base-2 bucket schemas, where 1 is a bucket boundary in each case, and
+     * then each power of two is divided into 2^n logarithmic buckets.
+     * Or in other words, each bucket boundary is the previous boundary times 2^(2^-n).
+     * In the future, more bucket schemas may be added using numbers &lt; -4 or &gt; 8.
+     * </pre>
+     *
+     * <code>optional sint32 schema = 5;</code>
+     * @return Whether the schema field is set.
+     */
+    @java.lang.Override
+    public boolean hasSchema() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * schema defines the bucket schema. Currently, valid numbers are -4 &lt;= n &lt;= 8.
+     * They are all for base-2 bucket schemas, where 1 is a bucket boundary in each case, and
+     * then each power of two is divided into 2^n logarithmic buckets.
+     * Or in other words, each bucket boundary is the previous boundary times 2^(2^-n).
+     * In the future, more bucket schemas may be added using numbers &lt; -4 or &gt; 8.
+     * </pre>
+     *
+     * <code>optional sint32 schema = 5;</code>
+     * @return The schema.
+     */
+    @java.lang.Override
+    public int getSchema() {
+      return schema_;
+    }
+
+    public static final int ZERO_THRESHOLD_FIELD_NUMBER = 6;
+    private double zeroThreshold_ = 0D;
+    /**
+     * <pre>
+     * Breadth of the zero bucket.
+     * </pre>
+     *
+     * <code>optional double zero_threshold = 6;</code>
+     * @return Whether the zeroThreshold field is set.
+     */
+    @java.lang.Override
+    public boolean hasZeroThreshold() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * Breadth of the zero bucket.
+     * </pre>
+     *
+     * <code>optional double zero_threshold = 6;</code>
+     * @return The zeroThreshold.
+     */
+    @java.lang.Override
+    public double getZeroThreshold() {
+      return zeroThreshold_;
+    }
+
+    public static final int ZERO_COUNT_FIELD_NUMBER = 7;
+    private long zeroCount_ = 0L;
+    /**
+     * <pre>
+     * Count in zero bucket.
+     * </pre>
+     *
+     * <code>optional uint64 zero_count = 7;</code>
+     * @return Whether the zeroCount field is set.
+     */
+    @java.lang.Override
+    public boolean hasZeroCount() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * Count in zero bucket.
+     * </pre>
+     *
+     * <code>optional uint64 zero_count = 7;</code>
+     * @return The zeroCount.
+     */
+    @java.lang.Override
+    public long getZeroCount() {
+      return zeroCount_;
+    }
+
+    public static final int ZERO_COUNT_FLOAT_FIELD_NUMBER = 8;
+    private double zeroCountFloat_ = 0D;
+    /**
+     * <pre>
+     * Overrides sb_zero_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double zero_count_float = 8;</code>
+     * @return Whether the zeroCountFloat field is set.
+     */
+    @java.lang.Override
+    public boolean hasZeroCountFloat() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * Overrides sb_zero_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double zero_count_float = 8;</code>
+     * @return The zeroCountFloat.
+     */
+    @java.lang.Override
+    public double getZeroCountFloat() {
+      return zeroCountFloat_;
+    }
+
+    public static final int NEGATIVE_SPAN_FIELD_NUMBER = 9;
+    @SuppressWarnings("serial")
+    private java.util.List<io.prometheus.client.Metrics.BucketSpan> negativeSpan_;
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.prometheus.client.Metrics.BucketSpan> getNegativeSpanList() {
+      return negativeSpan_;
+    }
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.prometheus.client.Metrics.BucketSpanOrBuilder> 
+        getNegativeSpanOrBuilderList() {
+      return negativeSpan_;
+    }
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    @java.lang.Override
+    public int getNegativeSpanCount() {
+      return negativeSpan_.size();
+    }
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    @java.lang.Override
+    public io.prometheus.client.Metrics.BucketSpan getNegativeSpan(int index) {
+      return negativeSpan_.get(index);
+    }
+    /**
+     * <pre>
+     * Negative buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+     */
+    @java.lang.Override
+    public io.prometheus.client.Metrics.BucketSpanOrBuilder getNegativeSpanOrBuilder(
+        int index) {
+      return negativeSpan_.get(index);
+    }
+
+    public static final int NEGATIVE_DELTA_FIELD_NUMBER = 10;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.LongList negativeDelta_;
+    /**
+     * <pre>
+     * Use either "negative_delta" or "negative_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_delta = 10;</code>
+     * @return A list containing the negativeDelta.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getNegativeDeltaList() {
+      return negativeDelta_;
+    }
+    /**
+     * <pre>
+     * Use either "negative_delta" or "negative_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_delta = 10;</code>
+     * @return The count of negativeDelta.
+     */
+    public int getNegativeDeltaCount() {
+      return negativeDelta_.size();
+    }
+    /**
+     * <pre>
+     * Use either "negative_delta" or "negative_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_delta = 10;</code>
+     * @param index The index of the element to return.
+     * @return The negativeDelta at the given index.
+     */
+    public long getNegativeDelta(int index) {
+      return negativeDelta_.getLong(index);
+    }
+
+    public static final int NEGATIVE_COUNT_FIELD_NUMBER = 11;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.DoubleList negativeCount_;
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_count = 11;</code>
+     * @return A list containing the negativeCount.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Double>
+        getNegativeCountList() {
+      return negativeCount_;
+    }
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_count = 11;</code>
+     * @return The count of negativeCount.
+     */
+    public int getNegativeCountCount() {
+      return negativeCount_.size();
+    }
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_count = 11;</code>
+     * @param index The index of the element to return.
+     * @return The negativeCount at the given index.
+     */
+    public double getNegativeCount(int index) {
+      return negativeCount_.getDouble(index);
+    }
+
+    public static final int POSITIVE_SPAN_FIELD_NUMBER = 12;
+    @SuppressWarnings("serial")
+    private java.util.List<io.prometheus.client.Metrics.BucketSpan> positiveSpan_;
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.prometheus.client.Metrics.BucketSpan> getPositiveSpanList() {
+      return positiveSpan_;
+    }
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.prometheus.client.Metrics.BucketSpanOrBuilder> 
+        getPositiveSpanOrBuilderList() {
+      return positiveSpan_;
+    }
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    @java.lang.Override
+    public int getPositiveSpanCount() {
+      return positiveSpan_.size();
+    }
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    @java.lang.Override
+    public io.prometheus.client.Metrics.BucketSpan getPositiveSpan(int index) {
+      return positiveSpan_.get(index);
+    }
+    /**
+     * <pre>
+     * Positive buckets for the native histogram.
+     * </pre>
+     *
+     * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+     */
+    @java.lang.Override
+    public io.prometheus.client.Metrics.BucketSpanOrBuilder getPositiveSpanOrBuilder(
+        int index) {
+      return positiveSpan_.get(index);
+    }
+
+    public static final int POSITIVE_DELTA_FIELD_NUMBER = 13;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.LongList positiveDelta_;
+    /**
+     * <pre>
+     * Use either "positive_delta" or "positive_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_delta = 13;</code>
+     * @return A list containing the positiveDelta.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getPositiveDeltaList() {
+      return positiveDelta_;
+    }
+    /**
+     * <pre>
+     * Use either "positive_delta" or "positive_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_delta = 13;</code>
+     * @return The count of positiveDelta.
+     */
+    public int getPositiveDeltaCount() {
+      return positiveDelta_.size();
+    }
+    /**
+     * <pre>
+     * Use either "positive_delta" or "positive_count", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_delta = 13;</code>
+     * @param index The index of the element to return.
+     * @return The positiveDelta at the given index.
+     */
+    public long getPositiveDelta(int index) {
+      return positiveDelta_.getLong(index);
+    }
+
+    public static final int POSITIVE_COUNT_FIELD_NUMBER = 14;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.Internal.DoubleList positiveCount_;
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_count = 14;</code>
+     * @return A list containing the positiveCount.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Double>
+        getPositiveCountList() {
+      return positiveCount_;
+    }
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_count = 14;</code>
+     * @return The count of positiveCount.
+     */
+    public int getPositiveCountCount() {
+      return positiveCount_.size();
+    }
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_count = 14;</code>
+     * @param index The index of the element to return.
+     * @return The positiveCount at the given index.
+     */
+    public double getPositiveCount(int index) {
+      return positiveCount_.getDouble(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4632,13 +5285,46 @@ public final class Metrics {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeUInt64(1, sampleCount_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeDouble(2, sampleSum_);
       }
       for (int i = 0; i < bucket_.size(); i++) {
         output.writeMessage(3, bucket_.get(i));
       }
-      unknownFields.writeTo(output);
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeDouble(4, sampleCountFloat_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeSInt32(5, schema_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeDouble(6, zeroThreshold_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeUInt64(7, zeroCount_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeDouble(8, zeroCountFloat_);
+      }
+      for (int i = 0; i < negativeSpan_.size(); i++) {
+        output.writeMessage(9, negativeSpan_.get(i));
+      }
+      for (int i = 0; i < negativeDelta_.size(); i++) {
+        output.writeSInt64(10, negativeDelta_.getLong(i));
+      }
+      for (int i = 0; i < negativeCount_.size(); i++) {
+        output.writeDouble(11, negativeCount_.getDouble(i));
+      }
+      for (int i = 0; i < positiveSpan_.size(); i++) {
+        output.writeMessage(12, positiveSpan_.get(i));
+      }
+      for (int i = 0; i < positiveDelta_.size(); i++) {
+        output.writeSInt64(13, positiveDelta_.getLong(i));
+      }
+      for (int i = 0; i < positiveCount_.size(); i++) {
+        output.writeDouble(14, positiveCount_.getDouble(i));
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4651,7 +5337,7 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, sampleCount_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, sampleSum_);
       }
@@ -4659,7 +5345,65 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, bucket_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, sampleCountFloat_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(5, schema_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(6, zeroThreshold_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(7, zeroCount_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(8, zeroCountFloat_);
+      }
+      for (int i = 0; i < negativeSpan_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, negativeSpan_.get(i));
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < negativeDelta_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeSInt64SizeNoTag(negativeDelta_.getLong(i));
+        }
+        size += dataSize;
+        size += 1 * getNegativeDeltaList().size();
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getNegativeCountList().size();
+        size += dataSize;
+        size += 1 * getNegativeCountList().size();
+      }
+      for (int i = 0; i < positiveSpan_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, positiveSpan_.get(i));
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < positiveDelta_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeSInt64SizeNoTag(positiveDelta_.getLong(i));
+        }
+        size += dataSize;
+        size += 1 * getPositiveDeltaList().size();
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getPositiveCountList().size();
+        size += dataSize;
+        size += 1 * getPositiveCountList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4679,6 +5423,12 @@ public final class Metrics {
         if (getSampleCount()
             != other.getSampleCount()) return false;
       }
+      if (hasSampleCountFloat() != other.hasSampleCountFloat()) return false;
+      if (hasSampleCountFloat()) {
+        if (java.lang.Double.doubleToLongBits(getSampleCountFloat())
+            != java.lang.Double.doubleToLongBits(
+                other.getSampleCountFloat())) return false;
+      }
       if (hasSampleSum() != other.hasSampleSum()) return false;
       if (hasSampleSum()) {
         if (java.lang.Double.doubleToLongBits(getSampleSum())
@@ -4687,7 +5437,41 @@ public final class Metrics {
       }
       if (!getBucketList()
           .equals(other.getBucketList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (hasSchema() != other.hasSchema()) return false;
+      if (hasSchema()) {
+        if (getSchema()
+            != other.getSchema()) return false;
+      }
+      if (hasZeroThreshold() != other.hasZeroThreshold()) return false;
+      if (hasZeroThreshold()) {
+        if (java.lang.Double.doubleToLongBits(getZeroThreshold())
+            != java.lang.Double.doubleToLongBits(
+                other.getZeroThreshold())) return false;
+      }
+      if (hasZeroCount() != other.hasZeroCount()) return false;
+      if (hasZeroCount()) {
+        if (getZeroCount()
+            != other.getZeroCount()) return false;
+      }
+      if (hasZeroCountFloat() != other.hasZeroCountFloat()) return false;
+      if (hasZeroCountFloat()) {
+        if (java.lang.Double.doubleToLongBits(getZeroCountFloat())
+            != java.lang.Double.doubleToLongBits(
+                other.getZeroCountFloat())) return false;
+      }
+      if (!getNegativeSpanList()
+          .equals(other.getNegativeSpanList())) return false;
+      if (!getNegativeDeltaList()
+          .equals(other.getNegativeDeltaList())) return false;
+      if (!getNegativeCountList()
+          .equals(other.getNegativeCountList())) return false;
+      if (!getPositiveSpanList()
+          .equals(other.getPositiveSpanList())) return false;
+      if (!getPositiveDeltaList()
+          .equals(other.getPositiveDeltaList())) return false;
+      if (!getPositiveCountList()
+          .equals(other.getPositiveCountList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4703,6 +5487,11 @@ public final class Metrics {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getSampleCount());
       }
+      if (hasSampleCountFloat()) {
+        hash = (37 * hash) + SAMPLE_COUNT_FLOAT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getSampleCountFloat()));
+      }
       if (hasSampleSum()) {
         hash = (37 * hash) + SAMPLE_SUM_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -4712,7 +5501,50 @@ public final class Metrics {
         hash = (37 * hash) + BUCKET_FIELD_NUMBER;
         hash = (53 * hash) + getBucketList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (hasSchema()) {
+        hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
+        hash = (53 * hash) + getSchema();
+      }
+      if (hasZeroThreshold()) {
+        hash = (37 * hash) + ZERO_THRESHOLD_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getZeroThreshold()));
+      }
+      if (hasZeroCount()) {
+        hash = (37 * hash) + ZERO_COUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getZeroCount());
+      }
+      if (hasZeroCountFloat()) {
+        hash = (37 * hash) + ZERO_COUNT_FLOAT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getZeroCountFloat()));
+      }
+      if (getNegativeSpanCount() > 0) {
+        hash = (37 * hash) + NEGATIVE_SPAN_FIELD_NUMBER;
+        hash = (53 * hash) + getNegativeSpanList().hashCode();
+      }
+      if (getNegativeDeltaCount() > 0) {
+        hash = (37 * hash) + NEGATIVE_DELTA_FIELD_NUMBER;
+        hash = (53 * hash) + getNegativeDeltaList().hashCode();
+      }
+      if (getNegativeCountCount() > 0) {
+        hash = (37 * hash) + NEGATIVE_COUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getNegativeCountList().hashCode();
+      }
+      if (getPositiveSpanCount() > 0) {
+        hash = (37 * hash) + POSITIVE_SPAN_FIELD_NUMBER;
+        hash = (53 * hash) + getPositiveSpanList().hashCode();
+      }
+      if (getPositiveDeltaCount() > 0) {
+        hash = (37 * hash) + POSITIVE_DELTA_FIELD_NUMBER;
+        hash = (53 * hash) + getPositiveDeltaList().hashCode();
+      }
+      if (getPositiveCountCount() > 0) {
+        hash = (37 * hash) + POSITIVE_COUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getPositiveCountList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4829,33 +5661,50 @@ public final class Metrics {
 
       // Construct using io.prometheus.client.Metrics.Histogram.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getBucketFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         sampleCount_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        sampleCountFloat_ = 0D;
         sampleSum_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000002);
         if (bucketBuilder_ == null) {
           bucket_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          bucket_ = null;
           bucketBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        schema_ = 0;
+        zeroThreshold_ = 0D;
+        zeroCount_ = 0L;
+        zeroCountFloat_ = 0D;
+        if (negativeSpanBuilder_ == null) {
+          negativeSpan_ = java.util.Collections.emptyList();
+        } else {
+          negativeSpan_ = null;
+          negativeSpanBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000100);
+        negativeDelta_ = emptyLongList();
+        negativeCount_ = emptyDoubleList();
+        if (positiveSpanBuilder_ == null) {
+          positiveSpan_ = java.util.Collections.emptyList();
+        } else {
+          positiveSpan_ = null;
+          positiveSpanBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000800);
+        positiveDelta_ = emptyLongList();
+        positiveCount_ = emptyDoubleList();
         return this;
       }
 
@@ -4882,6 +5731,63 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.Histogram buildPartial() {
         io.prometheus.client.Metrics.Histogram result = new io.prometheus.client.Metrics.Histogram(this);
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.prometheus.client.Metrics.Histogram result) {
+        if (bucketBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0)) {
+            bucket_ = java.util.Collections.unmodifiableList(bucket_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.bucket_ = bucket_;
+        } else {
+          result.bucket_ = bucketBuilder_.build();
+        }
+        if (negativeSpanBuilder_ == null) {
+          if (((bitField0_ & 0x00000100) != 0)) {
+            negativeSpan_ = java.util.Collections.unmodifiableList(negativeSpan_);
+            bitField0_ = (bitField0_ & ~0x00000100);
+          }
+          result.negativeSpan_ = negativeSpan_;
+        } else {
+          result.negativeSpan_ = negativeSpanBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000200) != 0)) {
+          negativeDelta_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000200);
+        }
+        result.negativeDelta_ = negativeDelta_;
+        if (((bitField0_ & 0x00000400) != 0)) {
+          negativeCount_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000400);
+        }
+        result.negativeCount_ = negativeCount_;
+        if (positiveSpanBuilder_ == null) {
+          if (((bitField0_ & 0x00000800) != 0)) {
+            positiveSpan_ = java.util.Collections.unmodifiableList(positiveSpan_);
+            bitField0_ = (bitField0_ & ~0x00000800);
+          }
+          result.positiveSpan_ = positiveSpan_;
+        } else {
+          result.positiveSpan_ = positiveSpanBuilder_.build();
+        }
+        if (((bitField0_ & 0x00001000) != 0)) {
+          positiveDelta_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00001000);
+        }
+        result.positiveDelta_ = positiveDelta_;
+        if (((bitField0_ & 0x00002000) != 0)) {
+          positiveCount_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00002000);
+        }
+        result.positiveCount_ = positiveCount_;
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.Histogram result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -4889,21 +5795,30 @@ public final class Metrics {
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.sampleSum_ = sampleSum_;
+          result.sampleCountFloat_ = sampleCountFloat_;
           to_bitField0_ |= 0x00000002;
         }
-        if (bucketBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
-            bucket_ = java.util.Collections.unmodifiableList(bucket_);
-            bitField0_ = (bitField0_ & ~0x00000004);
-          }
-          result.bucket_ = bucket_;
-        } else {
-          result.bucket_ = bucketBuilder_.build();
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.sampleSum_ = sampleSum_;
+          to_bitField0_ |= 0x00000004;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.schema_ = schema_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.zeroThreshold_ = zeroThreshold_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.zeroCount_ = zeroCount_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.zeroCountFloat_ = zeroCountFloat_;
+          to_bitField0_ |= 0x00000040;
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -4953,6 +5868,9 @@ public final class Metrics {
         if (other.hasSampleCount()) {
           setSampleCount(other.getSampleCount());
         }
+        if (other.hasSampleCountFloat()) {
+          setSampleCountFloat(other.getSampleCountFloat());
+        }
         if (other.hasSampleSum()) {
           setSampleSum(other.getSampleSum());
         }
@@ -4960,7 +5878,7 @@ public final class Metrics {
           if (!other.bucket_.isEmpty()) {
             if (bucket_.isEmpty()) {
               bucket_ = other.bucket_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureBucketIsMutable();
               bucket_.addAll(other.bucket_);
@@ -4973,7 +5891,7 @@ public final class Metrics {
               bucketBuilder_.dispose();
               bucketBuilder_ = null;
               bucket_ = other.bucket_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
               bucketBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getBucketFieldBuilder() : null;
@@ -4982,7 +5900,111 @@ public final class Metrics {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (other.hasSchema()) {
+          setSchema(other.getSchema());
+        }
+        if (other.hasZeroThreshold()) {
+          setZeroThreshold(other.getZeroThreshold());
+        }
+        if (other.hasZeroCount()) {
+          setZeroCount(other.getZeroCount());
+        }
+        if (other.hasZeroCountFloat()) {
+          setZeroCountFloat(other.getZeroCountFloat());
+        }
+        if (negativeSpanBuilder_ == null) {
+          if (!other.negativeSpan_.isEmpty()) {
+            if (negativeSpan_.isEmpty()) {
+              negativeSpan_ = other.negativeSpan_;
+              bitField0_ = (bitField0_ & ~0x00000100);
+            } else {
+              ensureNegativeSpanIsMutable();
+              negativeSpan_.addAll(other.negativeSpan_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.negativeSpan_.isEmpty()) {
+            if (negativeSpanBuilder_.isEmpty()) {
+              negativeSpanBuilder_.dispose();
+              negativeSpanBuilder_ = null;
+              negativeSpan_ = other.negativeSpan_;
+              bitField0_ = (bitField0_ & ~0x00000100);
+              negativeSpanBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNegativeSpanFieldBuilder() : null;
+            } else {
+              negativeSpanBuilder_.addAllMessages(other.negativeSpan_);
+            }
+          }
+        }
+        if (!other.negativeDelta_.isEmpty()) {
+          if (negativeDelta_.isEmpty()) {
+            negativeDelta_ = other.negativeDelta_;
+            bitField0_ = (bitField0_ & ~0x00000200);
+          } else {
+            ensureNegativeDeltaIsMutable();
+            negativeDelta_.addAll(other.negativeDelta_);
+          }
+          onChanged();
+        }
+        if (!other.negativeCount_.isEmpty()) {
+          if (negativeCount_.isEmpty()) {
+            negativeCount_ = other.negativeCount_;
+            bitField0_ = (bitField0_ & ~0x00000400);
+          } else {
+            ensureNegativeCountIsMutable();
+            negativeCount_.addAll(other.negativeCount_);
+          }
+          onChanged();
+        }
+        if (positiveSpanBuilder_ == null) {
+          if (!other.positiveSpan_.isEmpty()) {
+            if (positiveSpan_.isEmpty()) {
+              positiveSpan_ = other.positiveSpan_;
+              bitField0_ = (bitField0_ & ~0x00000800);
+            } else {
+              ensurePositiveSpanIsMutable();
+              positiveSpan_.addAll(other.positiveSpan_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.positiveSpan_.isEmpty()) {
+            if (positiveSpanBuilder_.isEmpty()) {
+              positiveSpanBuilder_.dispose();
+              positiveSpanBuilder_ = null;
+              positiveSpan_ = other.positiveSpan_;
+              bitField0_ = (bitField0_ & ~0x00000800);
+              positiveSpanBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPositiveSpanFieldBuilder() : null;
+            } else {
+              positiveSpanBuilder_.addAllMessages(other.positiveSpan_);
+            }
+          }
+        }
+        if (!other.positiveDelta_.isEmpty()) {
+          if (positiveDelta_.isEmpty()) {
+            positiveDelta_ = other.positiveDelta_;
+            bitField0_ = (bitField0_ & ~0x00001000);
+          } else {
+            ensurePositiveDeltaIsMutable();
+            positiveDelta_.addAll(other.positiveDelta_);
+          }
+          onChanged();
+        }
+        if (!other.positiveCount_.isEmpty()) {
+          if (positiveCount_.isEmpty()) {
+            positiveCount_ = other.positiveCount_;
+            bitField0_ = (bitField0_ & ~0x00002000);
+          } else {
+            ensurePositiveCountIsMutable();
+            positiveCount_.addAll(other.positiveCount_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4997,17 +6019,168 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.Histogram parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                sampleCount_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 17: {
+                sampleSum_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 17
+              case 26: {
+                io.prometheus.client.Metrics.Bucket m =
+                    input.readMessage(
+                        io.prometheus.client.Metrics.Bucket.PARSER,
+                        extensionRegistry);
+                if (bucketBuilder_ == null) {
+                  ensureBucketIsMutable();
+                  bucket_.add(m);
+                } else {
+                  bucketBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 33: {
+                sampleCountFloat_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 33
+              case 40: {
+                schema_ = input.readSInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 49: {
+                zeroThreshold_ = input.readDouble();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 49
+              case 56: {
+                zeroCount_ = input.readUInt64();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 65: {
+                zeroCountFloat_ = input.readDouble();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 65
+              case 74: {
+                io.prometheus.client.Metrics.BucketSpan m =
+                    input.readMessage(
+                        io.prometheus.client.Metrics.BucketSpan.PARSER,
+                        extensionRegistry);
+                if (negativeSpanBuilder_ == null) {
+                  ensureNegativeSpanIsMutable();
+                  negativeSpan_.add(m);
+                } else {
+                  negativeSpanBuilder_.addMessage(m);
+                }
+                break;
+              } // case 74
+              case 80: {
+                long v = input.readSInt64();
+                ensureNegativeDeltaIsMutable();
+                negativeDelta_.addLong(v);
+                break;
+              } // case 80
+              case 82: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureNegativeDeltaIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  negativeDelta_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 82
+              case 89: {
+                double v = input.readDouble();
+                ensureNegativeCountIsMutable();
+                negativeCount_.addDouble(v);
+                break;
+              } // case 89
+              case 90: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureNegativeCountIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  negativeCount_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 90
+              case 98: {
+                io.prometheus.client.Metrics.BucketSpan m =
+                    input.readMessage(
+                        io.prometheus.client.Metrics.BucketSpan.PARSER,
+                        extensionRegistry);
+                if (positiveSpanBuilder_ == null) {
+                  ensurePositiveSpanIsMutable();
+                  positiveSpan_.add(m);
+                } else {
+                  positiveSpanBuilder_.addMessage(m);
+                }
+                break;
+              } // case 98
+              case 104: {
+                long v = input.readSInt64();
+                ensurePositiveDeltaIsMutable();
+                positiveDelta_.addLong(v);
+                break;
+              } // case 104
+              case 106: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePositiveDeltaIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  positiveDelta_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 106
+              case 113: {
+                double v = input.readDouble();
+                ensurePositiveCountIsMutable();
+                positiveCount_.addDouble(v);
+                break;
+              } // case 113
+              case 114: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensurePositiveCountIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  positiveCount_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 114
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.Histogram) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5035,8 +6208,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setSampleCount(long value) {
-        bitField0_ |= 0x00000001;
+        
         sampleCount_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5051,6 +6225,62 @@ public final class Metrics {
         return this;
       }
 
+      private double sampleCountFloat_ ;
+      /**
+       * <pre>
+       * Overrides sample_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double sample_count_float = 4;</code>
+       * @return Whether the sampleCountFloat field is set.
+       */
+      @java.lang.Override
+      public boolean hasSampleCountFloat() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * Overrides sample_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double sample_count_float = 4;</code>
+       * @return The sampleCountFloat.
+       */
+      @java.lang.Override
+      public double getSampleCountFloat() {
+        return sampleCountFloat_;
+      }
+      /**
+       * <pre>
+       * Overrides sample_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double sample_count_float = 4;</code>
+       * @param value The sampleCountFloat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSampleCountFloat(double value) {
+        
+        sampleCountFloat_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Overrides sample_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double sample_count_float = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSampleCountFloat() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        sampleCountFloat_ = 0D;
+        onChanged();
+        return this;
+      }
+
       private double sampleSum_ ;
       /**
        * <code>optional double sample_sum = 2;</code>
@@ -5058,7 +6288,7 @@ public final class Metrics {
        */
       @java.lang.Override
       public boolean hasSampleSum() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>optional double sample_sum = 2;</code>
@@ -5074,8 +6304,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setSampleSum(double value) {
-        bitField0_ |= 0x00000002;
+        
         sampleSum_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5084,7 +6315,7 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder clearSampleSum() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         sampleSum_ = 0D;
         onChanged();
         return this;
@@ -5093,9 +6324,9 @@ public final class Metrics {
       private java.util.List<io.prometheus.client.Metrics.Bucket> bucket_ =
         java.util.Collections.emptyList();
       private void ensureBucketIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           bucket_ = new java.util.ArrayList<io.prometheus.client.Metrics.Bucket>(bucket_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -5104,7 +6335,7 @@ public final class Metrics {
 
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5118,7 +6349,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5132,7 +6363,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5146,7 +6377,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5167,7 +6398,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5185,7 +6416,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5205,7 +6436,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5226,7 +6457,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5244,7 +6475,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5262,7 +6493,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5281,7 +6512,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5289,7 +6520,7 @@ public final class Metrics {
       public Builder clearBucket() {
         if (bucketBuilder_ == null) {
           bucket_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           bucketBuilder_.clear();
@@ -5298,7 +6529,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5315,7 +6546,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5326,7 +6557,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5340,7 +6571,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5355,7 +6586,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5366,7 +6597,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5378,7 +6609,7 @@ public final class Metrics {
       }
       /**
        * <pre>
-       * Ordered in increasing order of upper_bound, +Inf bucket is optional.
+       * Buckets for the conventional histogram.
        * </pre>
        *
        * <code>repeated .io.prometheus.client.Bucket bucket = 3;</code>
@@ -5394,12 +6625,1340 @@ public final class Metrics {
           bucketBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.prometheus.client.Metrics.Bucket, io.prometheus.client.Metrics.Bucket.Builder, io.prometheus.client.Metrics.BucketOrBuilder>(
                   bucket_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           bucket_ = null;
         }
         return bucketBuilder_;
+      }
+
+      private int schema_ ;
+      /**
+       * <pre>
+       * schema defines the bucket schema. Currently, valid numbers are -4 &lt;= n &lt;= 8.
+       * They are all for base-2 bucket schemas, where 1 is a bucket boundary in each case, and
+       * then each power of two is divided into 2^n logarithmic buckets.
+       * Or in other words, each bucket boundary is the previous boundary times 2^(2^-n).
+       * In the future, more bucket schemas may be added using numbers &lt; -4 or &gt; 8.
+       * </pre>
+       *
+       * <code>optional sint32 schema = 5;</code>
+       * @return Whether the schema field is set.
+       */
+      @java.lang.Override
+      public boolean hasSchema() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <pre>
+       * schema defines the bucket schema. Currently, valid numbers are -4 &lt;= n &lt;= 8.
+       * They are all for base-2 bucket schemas, where 1 is a bucket boundary in each case, and
+       * then each power of two is divided into 2^n logarithmic buckets.
+       * Or in other words, each bucket boundary is the previous boundary times 2^(2^-n).
+       * In the future, more bucket schemas may be added using numbers &lt; -4 or &gt; 8.
+       * </pre>
+       *
+       * <code>optional sint32 schema = 5;</code>
+       * @return The schema.
+       */
+      @java.lang.Override
+      public int getSchema() {
+        return schema_;
+      }
+      /**
+       * <pre>
+       * schema defines the bucket schema. Currently, valid numbers are -4 &lt;= n &lt;= 8.
+       * They are all for base-2 bucket schemas, where 1 is a bucket boundary in each case, and
+       * then each power of two is divided into 2^n logarithmic buckets.
+       * Or in other words, each bucket boundary is the previous boundary times 2^(2^-n).
+       * In the future, more bucket schemas may be added using numbers &lt; -4 or &gt; 8.
+       * </pre>
+       *
+       * <code>optional sint32 schema = 5;</code>
+       * @param value The schema to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchema(int value) {
+        
+        schema_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * schema defines the bucket schema. Currently, valid numbers are -4 &lt;= n &lt;= 8.
+       * They are all for base-2 bucket schemas, where 1 is a bucket boundary in each case, and
+       * then each power of two is divided into 2^n logarithmic buckets.
+       * Or in other words, each bucket boundary is the previous boundary times 2^(2^-n).
+       * In the future, more bucket schemas may be added using numbers &lt; -4 or &gt; 8.
+       * </pre>
+       *
+       * <code>optional sint32 schema = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSchema() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        schema_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private double zeroThreshold_ ;
+      /**
+       * <pre>
+       * Breadth of the zero bucket.
+       * </pre>
+       *
+       * <code>optional double zero_threshold = 6;</code>
+       * @return Whether the zeroThreshold field is set.
+       */
+      @java.lang.Override
+      public boolean hasZeroThreshold() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <pre>
+       * Breadth of the zero bucket.
+       * </pre>
+       *
+       * <code>optional double zero_threshold = 6;</code>
+       * @return The zeroThreshold.
+       */
+      @java.lang.Override
+      public double getZeroThreshold() {
+        return zeroThreshold_;
+      }
+      /**
+       * <pre>
+       * Breadth of the zero bucket.
+       * </pre>
+       *
+       * <code>optional double zero_threshold = 6;</code>
+       * @param value The zeroThreshold to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZeroThreshold(double value) {
+        
+        zeroThreshold_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Breadth of the zero bucket.
+       * </pre>
+       *
+       * <code>optional double zero_threshold = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZeroThreshold() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        zeroThreshold_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private long zeroCount_ ;
+      /**
+       * <pre>
+       * Count in zero bucket.
+       * </pre>
+       *
+       * <code>optional uint64 zero_count = 7;</code>
+       * @return Whether the zeroCount field is set.
+       */
+      @java.lang.Override
+      public boolean hasZeroCount() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <pre>
+       * Count in zero bucket.
+       * </pre>
+       *
+       * <code>optional uint64 zero_count = 7;</code>
+       * @return The zeroCount.
+       */
+      @java.lang.Override
+      public long getZeroCount() {
+        return zeroCount_;
+      }
+      /**
+       * <pre>
+       * Count in zero bucket.
+       * </pre>
+       *
+       * <code>optional uint64 zero_count = 7;</code>
+       * @param value The zeroCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZeroCount(long value) {
+        
+        zeroCount_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Count in zero bucket.
+       * </pre>
+       *
+       * <code>optional uint64 zero_count = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZeroCount() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        zeroCount_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double zeroCountFloat_ ;
+      /**
+       * <pre>
+       * Overrides sb_zero_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double zero_count_float = 8;</code>
+       * @return Whether the zeroCountFloat field is set.
+       */
+      @java.lang.Override
+      public boolean hasZeroCountFloat() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <pre>
+       * Overrides sb_zero_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double zero_count_float = 8;</code>
+       * @return The zeroCountFloat.
+       */
+      @java.lang.Override
+      public double getZeroCountFloat() {
+        return zeroCountFloat_;
+      }
+      /**
+       * <pre>
+       * Overrides sb_zero_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double zero_count_float = 8;</code>
+       * @param value The zeroCountFloat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZeroCountFloat(double value) {
+        
+        zeroCountFloat_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Overrides sb_zero_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double zero_count_float = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZeroCountFloat() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        zeroCountFloat_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.prometheus.client.Metrics.BucketSpan> negativeSpan_ =
+        java.util.Collections.emptyList();
+      private void ensureNegativeSpanIsMutable() {
+        if (!((bitField0_ & 0x00000100) != 0)) {
+          negativeSpan_ = new java.util.ArrayList<io.prometheus.client.Metrics.BucketSpan>(negativeSpan_);
+          bitField0_ |= 0x00000100;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.prometheus.client.Metrics.BucketSpan, io.prometheus.client.Metrics.BucketSpan.Builder, io.prometheus.client.Metrics.BucketSpanOrBuilder> negativeSpanBuilder_;
+
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public java.util.List<io.prometheus.client.Metrics.BucketSpan> getNegativeSpanList() {
+        if (negativeSpanBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(negativeSpan_);
+        } else {
+          return negativeSpanBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public int getNegativeSpanCount() {
+        if (negativeSpanBuilder_ == null) {
+          return negativeSpan_.size();
+        } else {
+          return negativeSpanBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpan getNegativeSpan(int index) {
+        if (negativeSpanBuilder_ == null) {
+          return negativeSpan_.get(index);
+        } else {
+          return negativeSpanBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public Builder setNegativeSpan(
+          int index, io.prometheus.client.Metrics.BucketSpan value) {
+        if (negativeSpanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNegativeSpanIsMutable();
+          negativeSpan_.set(index, value);
+          onChanged();
+        } else {
+          negativeSpanBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public Builder setNegativeSpan(
+          int index, io.prometheus.client.Metrics.BucketSpan.Builder builderForValue) {
+        if (negativeSpanBuilder_ == null) {
+          ensureNegativeSpanIsMutable();
+          negativeSpan_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          negativeSpanBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public Builder addNegativeSpan(io.prometheus.client.Metrics.BucketSpan value) {
+        if (negativeSpanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNegativeSpanIsMutable();
+          negativeSpan_.add(value);
+          onChanged();
+        } else {
+          negativeSpanBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public Builder addNegativeSpan(
+          int index, io.prometheus.client.Metrics.BucketSpan value) {
+        if (negativeSpanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNegativeSpanIsMutable();
+          negativeSpan_.add(index, value);
+          onChanged();
+        } else {
+          negativeSpanBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public Builder addNegativeSpan(
+          io.prometheus.client.Metrics.BucketSpan.Builder builderForValue) {
+        if (negativeSpanBuilder_ == null) {
+          ensureNegativeSpanIsMutable();
+          negativeSpan_.add(builderForValue.build());
+          onChanged();
+        } else {
+          negativeSpanBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public Builder addNegativeSpan(
+          int index, io.prometheus.client.Metrics.BucketSpan.Builder builderForValue) {
+        if (negativeSpanBuilder_ == null) {
+          ensureNegativeSpanIsMutable();
+          negativeSpan_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          negativeSpanBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public Builder addAllNegativeSpan(
+          java.lang.Iterable<? extends io.prometheus.client.Metrics.BucketSpan> values) {
+        if (negativeSpanBuilder_ == null) {
+          ensureNegativeSpanIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, negativeSpan_);
+          onChanged();
+        } else {
+          negativeSpanBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public Builder clearNegativeSpan() {
+        if (negativeSpanBuilder_ == null) {
+          negativeSpan_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000100);
+          onChanged();
+        } else {
+          negativeSpanBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public Builder removeNegativeSpan(int index) {
+        if (negativeSpanBuilder_ == null) {
+          ensureNegativeSpanIsMutable();
+          negativeSpan_.remove(index);
+          onChanged();
+        } else {
+          negativeSpanBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpan.Builder getNegativeSpanBuilder(
+          int index) {
+        return getNegativeSpanFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpanOrBuilder getNegativeSpanOrBuilder(
+          int index) {
+        if (negativeSpanBuilder_ == null) {
+          return negativeSpan_.get(index);  } else {
+          return negativeSpanBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public java.util.List<? extends io.prometheus.client.Metrics.BucketSpanOrBuilder> 
+           getNegativeSpanOrBuilderList() {
+        if (negativeSpanBuilder_ != null) {
+          return negativeSpanBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(negativeSpan_);
+        }
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpan.Builder addNegativeSpanBuilder() {
+        return getNegativeSpanFieldBuilder().addBuilder(
+            io.prometheus.client.Metrics.BucketSpan.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpan.Builder addNegativeSpanBuilder(
+          int index) {
+        return getNegativeSpanFieldBuilder().addBuilder(
+            index, io.prometheus.client.Metrics.BucketSpan.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Negative buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan negative_span = 9;</code>
+       */
+      public java.util.List<io.prometheus.client.Metrics.BucketSpan.Builder> 
+           getNegativeSpanBuilderList() {
+        return getNegativeSpanFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.prometheus.client.Metrics.BucketSpan, io.prometheus.client.Metrics.BucketSpan.Builder, io.prometheus.client.Metrics.BucketSpanOrBuilder> 
+          getNegativeSpanFieldBuilder() {
+        if (negativeSpanBuilder_ == null) {
+          negativeSpanBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.prometheus.client.Metrics.BucketSpan, io.prometheus.client.Metrics.BucketSpan.Builder, io.prometheus.client.Metrics.BucketSpanOrBuilder>(
+                  negativeSpan_,
+                  ((bitField0_ & 0x00000100) != 0),
+                  getParentForChildren(),
+                  isClean());
+          negativeSpan_ = null;
+        }
+        return negativeSpanBuilder_;
+      }
+
+      private com.google.protobuf.Internal.LongList negativeDelta_ = emptyLongList();
+      private void ensureNegativeDeltaIsMutable() {
+        if (!((bitField0_ & 0x00000200) != 0)) {
+          negativeDelta_ = mutableCopy(negativeDelta_);
+          bitField0_ |= 0x00000200;
+        }
+      }
+      /**
+       * <pre>
+       * Use either "negative_delta" or "negative_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_delta = 10;</code>
+       * @return A list containing the negativeDelta.
+       */
+      public java.util.List<java.lang.Long>
+          getNegativeDeltaList() {
+        return ((bitField0_ & 0x00000200) != 0) ?
+                 java.util.Collections.unmodifiableList(negativeDelta_) : negativeDelta_;
+      }
+      /**
+       * <pre>
+       * Use either "negative_delta" or "negative_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_delta = 10;</code>
+       * @return The count of negativeDelta.
+       */
+      public int getNegativeDeltaCount() {
+        return negativeDelta_.size();
+      }
+      /**
+       * <pre>
+       * Use either "negative_delta" or "negative_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_delta = 10;</code>
+       * @param index The index of the element to return.
+       * @return The negativeDelta at the given index.
+       */
+      public long getNegativeDelta(int index) {
+        return negativeDelta_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Use either "negative_delta" or "negative_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_delta = 10;</code>
+       * @param index The index to set the value at.
+       * @param value The negativeDelta to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNegativeDelta(
+          int index, long value) {
+        
+        ensureNegativeDeltaIsMutable();
+        negativeDelta_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "negative_delta" or "negative_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_delta = 10;</code>
+       * @param value The negativeDelta to add.
+       * @return This builder for chaining.
+       */
+      public Builder addNegativeDelta(long value) {
+        
+        ensureNegativeDeltaIsMutable();
+        negativeDelta_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "negative_delta" or "negative_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_delta = 10;</code>
+       * @param values The negativeDelta to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllNegativeDelta(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureNegativeDeltaIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, negativeDelta_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "negative_delta" or "negative_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_delta = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNegativeDelta() {
+        negativeDelta_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000200);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.DoubleList negativeCount_ = emptyDoubleList();
+      private void ensureNegativeCountIsMutable() {
+        if (!((bitField0_ & 0x00000400) != 0)) {
+          negativeCount_ = mutableCopy(negativeCount_);
+          bitField0_ |= 0x00000400;
+        }
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_count = 11;</code>
+       * @return A list containing the negativeCount.
+       */
+      public java.util.List<java.lang.Double>
+          getNegativeCountList() {
+        return ((bitField0_ & 0x00000400) != 0) ?
+                 java.util.Collections.unmodifiableList(negativeCount_) : negativeCount_;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_count = 11;</code>
+       * @return The count of negativeCount.
+       */
+      public int getNegativeCountCount() {
+        return negativeCount_.size();
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_count = 11;</code>
+       * @param index The index of the element to return.
+       * @return The negativeCount at the given index.
+       */
+      public double getNegativeCount(int index) {
+        return negativeCount_.getDouble(index);
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_count = 11;</code>
+       * @param index The index to set the value at.
+       * @param value The negativeCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNegativeCount(
+          int index, double value) {
+        
+        ensureNegativeCountIsMutable();
+        negativeCount_.setDouble(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_count = 11;</code>
+       * @param value The negativeCount to add.
+       * @return This builder for chaining.
+       */
+      public Builder addNegativeCount(double value) {
+        
+        ensureNegativeCountIsMutable();
+        negativeCount_.addDouble(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_count = 11;</code>
+       * @param values The negativeCount to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllNegativeCount(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensureNegativeCountIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, negativeCount_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_count = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNegativeCount() {
+        negativeCount_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000400);
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.prometheus.client.Metrics.BucketSpan> positiveSpan_ =
+        java.util.Collections.emptyList();
+      private void ensurePositiveSpanIsMutable() {
+        if (!((bitField0_ & 0x00000800) != 0)) {
+          positiveSpan_ = new java.util.ArrayList<io.prometheus.client.Metrics.BucketSpan>(positiveSpan_);
+          bitField0_ |= 0x00000800;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.prometheus.client.Metrics.BucketSpan, io.prometheus.client.Metrics.BucketSpan.Builder, io.prometheus.client.Metrics.BucketSpanOrBuilder> positiveSpanBuilder_;
+
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public java.util.List<io.prometheus.client.Metrics.BucketSpan> getPositiveSpanList() {
+        if (positiveSpanBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(positiveSpan_);
+        } else {
+          return positiveSpanBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public int getPositiveSpanCount() {
+        if (positiveSpanBuilder_ == null) {
+          return positiveSpan_.size();
+        } else {
+          return positiveSpanBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpan getPositiveSpan(int index) {
+        if (positiveSpanBuilder_ == null) {
+          return positiveSpan_.get(index);
+        } else {
+          return positiveSpanBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public Builder setPositiveSpan(
+          int index, io.prometheus.client.Metrics.BucketSpan value) {
+        if (positiveSpanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePositiveSpanIsMutable();
+          positiveSpan_.set(index, value);
+          onChanged();
+        } else {
+          positiveSpanBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public Builder setPositiveSpan(
+          int index, io.prometheus.client.Metrics.BucketSpan.Builder builderForValue) {
+        if (positiveSpanBuilder_ == null) {
+          ensurePositiveSpanIsMutable();
+          positiveSpan_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          positiveSpanBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public Builder addPositiveSpan(io.prometheus.client.Metrics.BucketSpan value) {
+        if (positiveSpanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePositiveSpanIsMutable();
+          positiveSpan_.add(value);
+          onChanged();
+        } else {
+          positiveSpanBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public Builder addPositiveSpan(
+          int index, io.prometheus.client.Metrics.BucketSpan value) {
+        if (positiveSpanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePositiveSpanIsMutable();
+          positiveSpan_.add(index, value);
+          onChanged();
+        } else {
+          positiveSpanBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public Builder addPositiveSpan(
+          io.prometheus.client.Metrics.BucketSpan.Builder builderForValue) {
+        if (positiveSpanBuilder_ == null) {
+          ensurePositiveSpanIsMutable();
+          positiveSpan_.add(builderForValue.build());
+          onChanged();
+        } else {
+          positiveSpanBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public Builder addPositiveSpan(
+          int index, io.prometheus.client.Metrics.BucketSpan.Builder builderForValue) {
+        if (positiveSpanBuilder_ == null) {
+          ensurePositiveSpanIsMutable();
+          positiveSpan_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          positiveSpanBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public Builder addAllPositiveSpan(
+          java.lang.Iterable<? extends io.prometheus.client.Metrics.BucketSpan> values) {
+        if (positiveSpanBuilder_ == null) {
+          ensurePositiveSpanIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, positiveSpan_);
+          onChanged();
+        } else {
+          positiveSpanBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public Builder clearPositiveSpan() {
+        if (positiveSpanBuilder_ == null) {
+          positiveSpan_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000800);
+          onChanged();
+        } else {
+          positiveSpanBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public Builder removePositiveSpan(int index) {
+        if (positiveSpanBuilder_ == null) {
+          ensurePositiveSpanIsMutable();
+          positiveSpan_.remove(index);
+          onChanged();
+        } else {
+          positiveSpanBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpan.Builder getPositiveSpanBuilder(
+          int index) {
+        return getPositiveSpanFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpanOrBuilder getPositiveSpanOrBuilder(
+          int index) {
+        if (positiveSpanBuilder_ == null) {
+          return positiveSpan_.get(index);  } else {
+          return positiveSpanBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public java.util.List<? extends io.prometheus.client.Metrics.BucketSpanOrBuilder> 
+           getPositiveSpanOrBuilderList() {
+        if (positiveSpanBuilder_ != null) {
+          return positiveSpanBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(positiveSpan_);
+        }
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpan.Builder addPositiveSpanBuilder() {
+        return getPositiveSpanFieldBuilder().addBuilder(
+            io.prometheus.client.Metrics.BucketSpan.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public io.prometheus.client.Metrics.BucketSpan.Builder addPositiveSpanBuilder(
+          int index) {
+        return getPositiveSpanFieldBuilder().addBuilder(
+            index, io.prometheus.client.Metrics.BucketSpan.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Positive buckets for the native histogram.
+       * </pre>
+       *
+       * <code>repeated .io.prometheus.client.BucketSpan positive_span = 12;</code>
+       */
+      public java.util.List<io.prometheus.client.Metrics.BucketSpan.Builder> 
+           getPositiveSpanBuilderList() {
+        return getPositiveSpanFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.prometheus.client.Metrics.BucketSpan, io.prometheus.client.Metrics.BucketSpan.Builder, io.prometheus.client.Metrics.BucketSpanOrBuilder> 
+          getPositiveSpanFieldBuilder() {
+        if (positiveSpanBuilder_ == null) {
+          positiveSpanBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.prometheus.client.Metrics.BucketSpan, io.prometheus.client.Metrics.BucketSpan.Builder, io.prometheus.client.Metrics.BucketSpanOrBuilder>(
+                  positiveSpan_,
+                  ((bitField0_ & 0x00000800) != 0),
+                  getParentForChildren(),
+                  isClean());
+          positiveSpan_ = null;
+        }
+        return positiveSpanBuilder_;
+      }
+
+      private com.google.protobuf.Internal.LongList positiveDelta_ = emptyLongList();
+      private void ensurePositiveDeltaIsMutable() {
+        if (!((bitField0_ & 0x00001000) != 0)) {
+          positiveDelta_ = mutableCopy(positiveDelta_);
+          bitField0_ |= 0x00001000;
+        }
+      }
+      /**
+       * <pre>
+       * Use either "positive_delta" or "positive_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_delta = 13;</code>
+       * @return A list containing the positiveDelta.
+       */
+      public java.util.List<java.lang.Long>
+          getPositiveDeltaList() {
+        return ((bitField0_ & 0x00001000) != 0) ?
+                 java.util.Collections.unmodifiableList(positiveDelta_) : positiveDelta_;
+      }
+      /**
+       * <pre>
+       * Use either "positive_delta" or "positive_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_delta = 13;</code>
+       * @return The count of positiveDelta.
+       */
+      public int getPositiveDeltaCount() {
+        return positiveDelta_.size();
+      }
+      /**
+       * <pre>
+       * Use either "positive_delta" or "positive_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_delta = 13;</code>
+       * @param index The index of the element to return.
+       * @return The positiveDelta at the given index.
+       */
+      public long getPositiveDelta(int index) {
+        return positiveDelta_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Use either "positive_delta" or "positive_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_delta = 13;</code>
+       * @param index The index to set the value at.
+       * @param value The positiveDelta to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPositiveDelta(
+          int index, long value) {
+        
+        ensurePositiveDeltaIsMutable();
+        positiveDelta_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "positive_delta" or "positive_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_delta = 13;</code>
+       * @param value The positiveDelta to add.
+       * @return This builder for chaining.
+       */
+      public Builder addPositiveDelta(long value) {
+        
+        ensurePositiveDeltaIsMutable();
+        positiveDelta_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "positive_delta" or "positive_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_delta = 13;</code>
+       * @param values The positiveDelta to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllPositiveDelta(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensurePositiveDeltaIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, positiveDelta_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "positive_delta" or "positive_count", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_delta = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPositiveDelta() {
+        positiveDelta_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00001000);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.DoubleList positiveCount_ = emptyDoubleList();
+      private void ensurePositiveCountIsMutable() {
+        if (!((bitField0_ & 0x00002000) != 0)) {
+          positiveCount_ = mutableCopy(positiveCount_);
+          bitField0_ |= 0x00002000;
+        }
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_count = 14;</code>
+       * @return A list containing the positiveCount.
+       */
+      public java.util.List<java.lang.Double>
+          getPositiveCountList() {
+        return ((bitField0_ & 0x00002000) != 0) ?
+                 java.util.Collections.unmodifiableList(positiveCount_) : positiveCount_;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_count = 14;</code>
+       * @return The count of positiveCount.
+       */
+      public int getPositiveCountCount() {
+        return positiveCount_.size();
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_count = 14;</code>
+       * @param index The index of the element to return.
+       * @return The positiveCount at the given index.
+       */
+      public double getPositiveCount(int index) {
+        return positiveCount_.getDouble(index);
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_count = 14;</code>
+       * @param index The index to set the value at.
+       * @param value The positiveCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPositiveCount(
+          int index, double value) {
+        
+        ensurePositiveCountIsMutable();
+        positiveCount_.setDouble(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_count = 14;</code>
+       * @param value The positiveCount to add.
+       * @return This builder for chaining.
+       */
+      public Builder addPositiveCount(double value) {
+        
+        ensurePositiveCountIsMutable();
+        positiveCount_.addDouble(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_count = 14;</code>
+       * @param values The positiveCount to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllPositiveCount(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensurePositiveCountIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, positiveCount_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_count = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPositiveCount() {
+        positiveCount_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00002000);
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5434,7 +7993,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Histogram(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5479,6 +8049,25 @@ public final class Metrics {
 
     /**
      * <pre>
+     * Overrides cumulative_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double cumulative_count_float = 4;</code>
+     * @return Whether the cumulativeCountFloat field is set.
+     */
+    boolean hasCumulativeCountFloat();
+    /**
+     * <pre>
+     * Overrides cumulative_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double cumulative_count_float = 4;</code>
+     * @return The cumulativeCountFloat.
+     */
+    double getCumulativeCountFloat();
+
+    /**
+     * <pre>
      * Inclusive.
      * </pre>
      *
@@ -5512,6 +8101,11 @@ public final class Metrics {
     io.prometheus.client.Metrics.ExemplarOrBuilder getExemplarOrBuilder();
   }
   /**
+   * <pre>
+   * A Bucket of a conventional histogram, each of which is treated as
+   * an individual counter-like time series by Prometheus.
+   * </pre>
+   *
    * Protobuf type {@code io.prometheus.client.Bucket}
    */
   public static final class Bucket extends
@@ -5538,69 +8132,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Bucket(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              bitField0_ |= 0x00000001;
-              cumulativeCount_ = input.readUInt64();
-              break;
-            }
-            case 17: {
-              bitField0_ |= 0x00000002;
-              upperBound_ = input.readDouble();
-              break;
-            }
-            case 26: {
-              io.prometheus.client.Metrics.Exemplar.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) != 0)) {
-                subBuilder = exemplar_.toBuilder();
-              }
-              exemplar_ = input.readMessage(io.prometheus.client.Metrics.Exemplar.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(exemplar_);
-                exemplar_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Bucket_descriptor;
@@ -5616,7 +8147,7 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int CUMULATIVE_COUNT_FIELD_NUMBER = 1;
-    private long cumulativeCount_;
+    private long cumulativeCount_ = 0L;
     /**
      * <pre>
      * Cumulative in increasing order.
@@ -5642,8 +8173,35 @@ public final class Metrics {
       return cumulativeCount_;
     }
 
+    public static final int CUMULATIVE_COUNT_FLOAT_FIELD_NUMBER = 4;
+    private double cumulativeCountFloat_ = 0D;
+    /**
+     * <pre>
+     * Overrides cumulative_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double cumulative_count_float = 4;</code>
+     * @return Whether the cumulativeCountFloat field is set.
+     */
+    @java.lang.Override
+    public boolean hasCumulativeCountFloat() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Overrides cumulative_count if &gt; 0.
+     * </pre>
+     *
+     * <code>optional double cumulative_count_float = 4;</code>
+     * @return The cumulativeCountFloat.
+     */
+    @java.lang.Override
+    public double getCumulativeCountFloat() {
+      return cumulativeCountFloat_;
+    }
+
     public static final int UPPER_BOUND_FIELD_NUMBER = 2;
-    private double upperBound_;
+    private double upperBound_ = 0D;
     /**
      * <pre>
      * Inclusive.
@@ -5654,7 +8212,7 @@ public final class Metrics {
      */
     @java.lang.Override
     public boolean hasUpperBound() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -5677,7 +8235,7 @@ public final class Metrics {
      */
     @java.lang.Override
     public boolean hasExemplar() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <code>optional .io.prometheus.client.Exemplar exemplar = 3;</code>
@@ -5712,13 +8270,16 @@ public final class Metrics {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeUInt64(1, cumulativeCount_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         output.writeDouble(2, upperBound_);
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         output.writeMessage(3, getExemplar());
       }
-      unknownFields.writeTo(output);
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeDouble(4, cumulativeCountFloat_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5731,15 +8292,19 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, cumulativeCount_);
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, upperBound_);
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getExemplar());
       }
-      size += unknownFields.getSerializedSize();
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, cumulativeCountFloat_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5759,6 +8324,12 @@ public final class Metrics {
         if (getCumulativeCount()
             != other.getCumulativeCount()) return false;
       }
+      if (hasCumulativeCountFloat() != other.hasCumulativeCountFloat()) return false;
+      if (hasCumulativeCountFloat()) {
+        if (java.lang.Double.doubleToLongBits(getCumulativeCountFloat())
+            != java.lang.Double.doubleToLongBits(
+                other.getCumulativeCountFloat())) return false;
+      }
       if (hasUpperBound() != other.hasUpperBound()) return false;
       if (hasUpperBound()) {
         if (java.lang.Double.doubleToLongBits(getUpperBound())
@@ -5770,7 +8341,7 @@ public final class Metrics {
         if (!getExemplar()
             .equals(other.getExemplar())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5786,6 +8357,11 @@ public final class Metrics {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getCumulativeCount());
       }
+      if (hasCumulativeCountFloat()) {
+        hash = (37 * hash) + CUMULATIVE_COUNT_FLOAT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getCumulativeCountFloat()));
+      }
       if (hasUpperBound()) {
         hash = (37 * hash) + UPPER_BOUND_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -5795,7 +8371,7 @@ public final class Metrics {
         hash = (37 * hash) + EXEMPLAR_FIELD_NUMBER;
         hash = (53 * hash) + getExemplar().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5891,6 +8467,11 @@ public final class Metrics {
       return builder;
     }
     /**
+     * <pre>
+     * A Bucket of a conventional histogram, each of which is treated as
+     * an individual counter-like time series by Prometheus.
+     * </pre>
+     *
      * Protobuf type {@code io.prometheus.client.Bucket}
      */
     public static final class Builder extends
@@ -5929,16 +8510,15 @@ public final class Metrics {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         cumulativeCount_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        cumulativeCountFloat_ = 0D;
         upperBound_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (exemplarBuilder_ == null) {
-          exemplar_ = null;
-        } else {
-          exemplarBuilder_.clear();
+        exemplar_ = null;
+        if (exemplarBuilder_ != null) {
+          exemplarBuilder_.dispose();
+          exemplarBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -5965,6 +8545,12 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.Bucket buildPartial() {
         io.prometheus.client.Metrics.Bucket result = new io.prometheus.client.Metrics.Bucket(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.Bucket result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -5972,20 +8558,20 @@ public final class Metrics {
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.upperBound_ = upperBound_;
+          result.cumulativeCountFloat_ = cumulativeCountFloat_;
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          if (exemplarBuilder_ == null) {
-            result.exemplar_ = exemplar_;
-          } else {
-            result.exemplar_ = exemplarBuilder_.build();
-          }
+          result.upperBound_ = upperBound_;
           to_bitField0_ |= 0x00000004;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.exemplar_ = exemplarBuilder_ == null
+              ? exemplar_
+              : exemplarBuilder_.build();
+          to_bitField0_ |= 0x00000008;
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -6035,13 +8621,16 @@ public final class Metrics {
         if (other.hasCumulativeCount()) {
           setCumulativeCount(other.getCumulativeCount());
         }
+        if (other.hasCumulativeCountFloat()) {
+          setCumulativeCountFloat(other.getCumulativeCountFloat());
+        }
         if (other.hasUpperBound()) {
           setUpperBound(other.getUpperBound());
         }
         if (other.hasExemplar()) {
           mergeExemplar(other.getExemplar());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6056,17 +8645,52 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.Bucket parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                cumulativeCount_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 17: {
+                upperBound_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 17
+              case 26: {
+                input.readMessage(
+                    getExemplarFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 26
+              case 33: {
+                cumulativeCountFloat_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 33
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.Bucket) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -6106,8 +8730,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setCumulativeCount(long value) {
-        bitField0_ |= 0x00000001;
+        
         cumulativeCount_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6126,6 +8751,62 @@ public final class Metrics {
         return this;
       }
 
+      private double cumulativeCountFloat_ ;
+      /**
+       * <pre>
+       * Overrides cumulative_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double cumulative_count_float = 4;</code>
+       * @return Whether the cumulativeCountFloat field is set.
+       */
+      @java.lang.Override
+      public boolean hasCumulativeCountFloat() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * Overrides cumulative_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double cumulative_count_float = 4;</code>
+       * @return The cumulativeCountFloat.
+       */
+      @java.lang.Override
+      public double getCumulativeCountFloat() {
+        return cumulativeCountFloat_;
+      }
+      /**
+       * <pre>
+       * Overrides cumulative_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double cumulative_count_float = 4;</code>
+       * @param value The cumulativeCountFloat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCumulativeCountFloat(double value) {
+        
+        cumulativeCountFloat_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Overrides cumulative_count if &gt; 0.
+       * </pre>
+       *
+       * <code>optional double cumulative_count_float = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCumulativeCountFloat() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        cumulativeCountFloat_ = 0D;
+        onChanged();
+        return this;
+      }
+
       private double upperBound_ ;
       /**
        * <pre>
@@ -6137,7 +8818,7 @@ public final class Metrics {
        */
       @java.lang.Override
       public boolean hasUpperBound() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -6161,8 +8842,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setUpperBound(double value) {
-        bitField0_ |= 0x00000002;
+        
         upperBound_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6175,7 +8857,7 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder clearUpperBound() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         upperBound_ = 0D;
         onChanged();
         return this;
@@ -6189,7 +8871,7 @@ public final class Metrics {
        * @return Whether the exemplar field is set.
        */
       public boolean hasExemplar() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <code>optional .io.prometheus.client.Exemplar exemplar = 3;</code>
@@ -6211,11 +8893,11 @@ public final class Metrics {
             throw new NullPointerException();
           }
           exemplar_ = value;
-          onChanged();
         } else {
           exemplarBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -6225,11 +8907,11 @@ public final class Metrics {
           io.prometheus.client.Metrics.Exemplar.Builder builderForValue) {
         if (exemplarBuilder_ == null) {
           exemplar_ = builderForValue.build();
-          onChanged();
         } else {
           exemplarBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -6237,39 +8919,38 @@ public final class Metrics {
        */
       public Builder mergeExemplar(io.prometheus.client.Metrics.Exemplar value) {
         if (exemplarBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-              exemplar_ != null &&
-              exemplar_ != io.prometheus.client.Metrics.Exemplar.getDefaultInstance()) {
-            exemplar_ =
-              io.prometheus.client.Metrics.Exemplar.newBuilder(exemplar_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            exemplar_ != null &&
+            exemplar_ != io.prometheus.client.Metrics.Exemplar.getDefaultInstance()) {
+            getExemplarBuilder().mergeFrom(value);
           } else {
             exemplar_ = value;
           }
-          onChanged();
         } else {
           exemplarBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .io.prometheus.client.Exemplar exemplar = 3;</code>
        */
       public Builder clearExemplar() {
-        if (exemplarBuilder_ == null) {
-          exemplar_ = null;
-          onChanged();
-        } else {
-          exemplarBuilder_.clear();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        exemplar_ = null;
+        if (exemplarBuilder_ != null) {
+          exemplarBuilder_.dispose();
+          exemplarBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
         return this;
       }
       /**
        * <code>optional .io.prometheus.client.Exemplar exemplar = 3;</code>
        */
       public io.prometheus.client.Metrics.Exemplar.Builder getExemplarBuilder() {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return getExemplarFieldBuilder().getBuilder();
       }
@@ -6333,7 +9014,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Bucket(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6348,6 +9040,696 @@ public final class Metrics {
 
     @java.lang.Override
     public io.prometheus.client.Metrics.Bucket getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BucketSpanOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:io.prometheus.client.BucketSpan)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Gap to previous span, or starting point for 1st span (which can be negative).
+     * </pre>
+     *
+     * <code>optional sint32 offset = 1;</code>
+     * @return Whether the offset field is set.
+     */
+    boolean hasOffset();
+    /**
+     * <pre>
+     * Gap to previous span, or starting point for 1st span (which can be negative).
+     * </pre>
+     *
+     * <code>optional sint32 offset = 1;</code>
+     * @return The offset.
+     */
+    int getOffset();
+
+    /**
+     * <pre>
+     * Length of consecutive buckets.
+     * </pre>
+     *
+     * <code>optional uint32 length = 2;</code>
+     * @return Whether the length field is set.
+     */
+    boolean hasLength();
+    /**
+     * <pre>
+     * Length of consecutive buckets.
+     * </pre>
+     *
+     * <code>optional uint32 length = 2;</code>
+     * @return The length.
+     */
+    int getLength();
+  }
+  /**
+   * <pre>
+   * A BucketSpan defines a number of consecutive buckets in a native
+   * histogram with their offset. Logically, it would be more
+   * straightforward to include the bucket counts in the Span. However,
+   * the protobuf representation is more compact in the way the data is
+   * structured here (with all the buckets in a single array separate
+   * from the Spans).
+   * </pre>
+   *
+   * Protobuf type {@code io.prometheus.client.BucketSpan}
+   */
+  public static final class BucketSpan extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:io.prometheus.client.BucketSpan)
+      BucketSpanOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BucketSpan.newBuilder() to construct.
+    private BucketSpan(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BucketSpan() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new BucketSpan();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.prometheus.client.Metrics.internal_static_io_prometheus_client_BucketSpan_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.prometheus.client.Metrics.internal_static_io_prometheus_client_BucketSpan_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.prometheus.client.Metrics.BucketSpan.class, io.prometheus.client.Metrics.BucketSpan.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int OFFSET_FIELD_NUMBER = 1;
+    private int offset_ = 0;
+    /**
+     * <pre>
+     * Gap to previous span, or starting point for 1st span (which can be negative).
+     * </pre>
+     *
+     * <code>optional sint32 offset = 1;</code>
+     * @return Whether the offset field is set.
+     */
+    @java.lang.Override
+    public boolean hasOffset() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Gap to previous span, or starting point for 1st span (which can be negative).
+     * </pre>
+     *
+     * <code>optional sint32 offset = 1;</code>
+     * @return The offset.
+     */
+    @java.lang.Override
+    public int getOffset() {
+      return offset_;
+    }
+
+    public static final int LENGTH_FIELD_NUMBER = 2;
+    private int length_ = 0;
+    /**
+     * <pre>
+     * Length of consecutive buckets.
+     * </pre>
+     *
+     * <code>optional uint32 length = 2;</code>
+     * @return Whether the length field is set.
+     */
+    @java.lang.Override
+    public boolean hasLength() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Length of consecutive buckets.
+     * </pre>
+     *
+     * <code>optional uint32 length = 2;</code>
+     * @return The length.
+     */
+    @java.lang.Override
+    public int getLength() {
+      return length_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeSInt32(1, offset_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeUInt32(2, length_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(1, offset_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, length_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.prometheus.client.Metrics.BucketSpan)) {
+        return super.equals(obj);
+      }
+      io.prometheus.client.Metrics.BucketSpan other = (io.prometheus.client.Metrics.BucketSpan) obj;
+
+      if (hasOffset() != other.hasOffset()) return false;
+      if (hasOffset()) {
+        if (getOffset()
+            != other.getOffset()) return false;
+      }
+      if (hasLength() != other.hasLength()) return false;
+      if (hasLength()) {
+        if (getLength()
+            != other.getLength()) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasOffset()) {
+        hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+        hash = (53 * hash) + getOffset();
+      }
+      if (hasLength()) {
+        hash = (37 * hash) + LENGTH_FIELD_NUMBER;
+        hash = (53 * hash) + getLength();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.prometheus.client.Metrics.BucketSpan parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.prometheus.client.Metrics.BucketSpan prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * A BucketSpan defines a number of consecutive buckets in a native
+     * histogram with their offset. Logically, it would be more
+     * straightforward to include the bucket counts in the Span. However,
+     * the protobuf representation is more compact in the way the data is
+     * structured here (with all the buckets in a single array separate
+     * from the Spans).
+     * </pre>
+     *
+     * Protobuf type {@code io.prometheus.client.BucketSpan}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:io.prometheus.client.BucketSpan)
+        io.prometheus.client.Metrics.BucketSpanOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.prometheus.client.Metrics.internal_static_io_prometheus_client_BucketSpan_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.prometheus.client.Metrics.internal_static_io_prometheus_client_BucketSpan_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.prometheus.client.Metrics.BucketSpan.class, io.prometheus.client.Metrics.BucketSpan.Builder.class);
+      }
+
+      // Construct using io.prometheus.client.Metrics.BucketSpan.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        offset_ = 0;
+        length_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.prometheus.client.Metrics.internal_static_io_prometheus_client_BucketSpan_descriptor;
+      }
+
+      @java.lang.Override
+      public io.prometheus.client.Metrics.BucketSpan getDefaultInstanceForType() {
+        return io.prometheus.client.Metrics.BucketSpan.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.prometheus.client.Metrics.BucketSpan build() {
+        io.prometheus.client.Metrics.BucketSpan result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.prometheus.client.Metrics.BucketSpan buildPartial() {
+        io.prometheus.client.Metrics.BucketSpan result = new io.prometheus.client.Metrics.BucketSpan(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.BucketSpan result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.offset_ = offset_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.length_ = length_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.prometheus.client.Metrics.BucketSpan) {
+          return mergeFrom((io.prometheus.client.Metrics.BucketSpan)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.prometheus.client.Metrics.BucketSpan other) {
+        if (other == io.prometheus.client.Metrics.BucketSpan.getDefaultInstance()) return this;
+        if (other.hasOffset()) {
+          setOffset(other.getOffset());
+        }
+        if (other.hasLength()) {
+          setLength(other.getLength());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                offset_ = input.readSInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                length_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private int offset_ ;
+      /**
+       * <pre>
+       * Gap to previous span, or starting point for 1st span (which can be negative).
+       * </pre>
+       *
+       * <code>optional sint32 offset = 1;</code>
+       * @return Whether the offset field is set.
+       */
+      @java.lang.Override
+      public boolean hasOffset() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * Gap to previous span, or starting point for 1st span (which can be negative).
+       * </pre>
+       *
+       * <code>optional sint32 offset = 1;</code>
+       * @return The offset.
+       */
+      @java.lang.Override
+      public int getOffset() {
+        return offset_;
+      }
+      /**
+       * <pre>
+       * Gap to previous span, or starting point for 1st span (which can be negative).
+       * </pre>
+       *
+       * <code>optional sint32 offset = 1;</code>
+       * @param value The offset to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOffset(int value) {
+        
+        offset_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Gap to previous span, or starting point for 1st span (which can be negative).
+       * </pre>
+       *
+       * <code>optional sint32 offset = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOffset() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        offset_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int length_ ;
+      /**
+       * <pre>
+       * Length of consecutive buckets.
+       * </pre>
+       *
+       * <code>optional uint32 length = 2;</code>
+       * @return Whether the length field is set.
+       */
+      @java.lang.Override
+      public boolean hasLength() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * Length of consecutive buckets.
+       * </pre>
+       *
+       * <code>optional uint32 length = 2;</code>
+       * @return The length.
+       */
+      @java.lang.Override
+      public int getLength() {
+        return length_;
+      }
+      /**
+       * <pre>
+       * Length of consecutive buckets.
+       * </pre>
+       *
+       * <code>optional uint32 length = 2;</code>
+       * @param value The length to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLength(int value) {
+        
+        length_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Length of consecutive buckets.
+       * </pre>
+       *
+       * <code>optional uint32 length = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLength() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        length_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:io.prometheus.client.BucketSpan)
+    }
+
+    // @@protoc_insertion_point(class_scope:io.prometheus.client.BucketSpan)
+    private static final io.prometheus.client.Metrics.BucketSpan DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.prometheus.client.Metrics.BucketSpan();
+    }
+
+    public static io.prometheus.client.Metrics.BucketSpan getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BucketSpan>
+        PARSER = new com.google.protobuf.AbstractParser<BucketSpan>() {
+      @java.lang.Override
+      public BucketSpan parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<BucketSpan> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BucketSpan> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.prometheus.client.Metrics.BucketSpan getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6447,76 +9829,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Exemplar(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                label_ = new java.util.ArrayList<io.prometheus.client.Metrics.LabelPair>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              label_.add(
-                  input.readMessage(io.prometheus.client.Metrics.LabelPair.PARSER, extensionRegistry));
-              break;
-            }
-            case 17: {
-              bitField0_ |= 0x00000001;
-              value_ = input.readDouble();
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) != 0)) {
-                subBuilder = timestamp_.toBuilder();
-              }
-              timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timestamp_);
-                timestamp_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          label_ = java.util.Collections.unmodifiableList(label_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Exemplar_descriptor;
@@ -6532,6 +9844,7 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int LABEL_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<io.prometheus.client.Metrics.LabelPair> label_;
     /**
      * <code>repeated .io.prometheus.client.LabelPair label = 1;</code>
@@ -6572,7 +9885,7 @@ public final class Metrics {
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    private double value_;
+    private double value_ = 0D;
     /**
      * <code>optional double value = 2;</code>
      * @return Whether the value field is set.
@@ -6651,7 +9964,7 @@ public final class Metrics {
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeMessage(3, getTimestamp());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6672,7 +9985,7 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getTimestamp());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6700,7 +10013,7 @@ public final class Metrics {
         if (!getTimestamp()
             .equals(other.getTimestamp())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6724,7 +10037,7 @@ public final class Metrics {
         hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
         hash = (53 * hash) + getTimestamp().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6859,20 +10172,20 @@ public final class Metrics {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (labelBuilder_ == null) {
           label_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          label_ = null;
           labelBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         value_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (timestampBuilder_ == null) {
-          timestamp_ = null;
-        } else {
-          timestampBuilder_.clear();
+        timestamp_ = null;
+        if (timestampBuilder_ != null) {
+          timestampBuilder_.dispose();
+          timestampBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -6899,8 +10212,13 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.Exemplar buildPartial() {
         io.prometheus.client.Metrics.Exemplar result = new io.prometheus.client.Metrics.Exemplar(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.prometheus.client.Metrics.Exemplar result) {
         if (labelBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             label_ = java.util.Collections.unmodifiableList(label_);
@@ -6910,21 +10228,22 @@ public final class Metrics {
         } else {
           result.label_ = labelBuilder_.build();
         }
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.Exemplar result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.value_ = value_;
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          if (timestampBuilder_ == null) {
-            result.timestamp_ = timestamp_;
-          } else {
-            result.timestamp_ = timestampBuilder_.build();
-          }
+          result.timestamp_ = timestampBuilder_ == null
+              ? timestamp_
+              : timestampBuilder_.build();
           to_bitField0_ |= 0x00000002;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -7003,7 +10322,7 @@ public final class Metrics {
         if (other.hasTimestamp()) {
           mergeTimestamp(other.getTimestamp());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7018,17 +10337,55 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.Exemplar parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                io.prometheus.client.Metrics.LabelPair m =
+                    input.readMessage(
+                        io.prometheus.client.Metrics.LabelPair.PARSER,
+                        extensionRegistry);
+                if (labelBuilder_ == null) {
+                  ensureLabelIsMutable();
+                  label_.add(m);
+                } else {
+                  labelBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 17: {
+                value_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 26: {
+                input.readMessage(
+                    getTimestampFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.Exemplar) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7296,8 +10653,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setValue(double value) {
-        bitField0_ |= 0x00000002;
+        
         value_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7354,11 +10712,11 @@ public final class Metrics {
             throw new NullPointerException();
           }
           timestamp_ = value;
-          onChanged();
         } else {
           timestampBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -7372,11 +10730,11 @@ public final class Metrics {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timestampBuilder_ == null) {
           timestamp_ = builderForValue.build();
-          onChanged();
         } else {
           timestampBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -7389,18 +10747,17 @@ public final class Metrics {
       public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
         if (timestampBuilder_ == null) {
           if (((bitField0_ & 0x00000004) != 0) &&
-              timestamp_ != null &&
-              timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-            timestamp_ =
-              com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
+            timestamp_ != null &&
+            timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getTimestampBuilder().mergeFrom(value);
           } else {
             timestamp_ = value;
           }
-          onChanged();
         } else {
           timestampBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -7411,13 +10768,13 @@ public final class Metrics {
        * <code>optional .google.protobuf.Timestamp timestamp = 3;</code>
        */
       public Builder clearTimestamp() {
-        if (timestampBuilder_ == null) {
-          timestamp_ = null;
-          onChanged();
-        } else {
-          timestampBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000004);
+        timestamp_ = null;
+        if (timestampBuilder_ != null) {
+          timestampBuilder_.dispose();
+          timestampBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -7500,7 +10857,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Exemplar(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7662,128 +11030,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Metric(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                label_ = new java.util.ArrayList<io.prometheus.client.Metrics.LabelPair>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              label_.add(
-                  input.readMessage(io.prometheus.client.Metrics.LabelPair.PARSER, extensionRegistry));
-              break;
-            }
-            case 18: {
-              io.prometheus.client.Metrics.Gauge.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = gauge_.toBuilder();
-              }
-              gauge_ = input.readMessage(io.prometheus.client.Metrics.Gauge.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(gauge_);
-                gauge_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 26: {
-              io.prometheus.client.Metrics.Counter.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) != 0)) {
-                subBuilder = counter_.toBuilder();
-              }
-              counter_ = input.readMessage(io.prometheus.client.Metrics.Counter.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(counter_);
-                counter_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            case 34: {
-              io.prometheus.client.Metrics.Summary.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) != 0)) {
-                subBuilder = summary_.toBuilder();
-              }
-              summary_ = input.readMessage(io.prometheus.client.Metrics.Summary.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(summary_);
-                summary_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 42: {
-              io.prometheus.client.Metrics.Untyped.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) != 0)) {
-                subBuilder = untyped_.toBuilder();
-              }
-              untyped_ = input.readMessage(io.prometheus.client.Metrics.Untyped.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(untyped_);
-                untyped_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000008;
-              break;
-            }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              timestampMs_ = input.readInt64();
-              break;
-            }
-            case 58: {
-              io.prometheus.client.Metrics.Histogram.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000010) != 0)) {
-                subBuilder = histogram_.toBuilder();
-              }
-              histogram_ = input.readMessage(io.prometheus.client.Metrics.Histogram.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(histogram_);
-                histogram_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000010;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          label_ = java.util.Collections.unmodifiableList(label_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_Metric_descriptor;
@@ -7799,6 +11045,7 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int LABEL_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<io.prometheus.client.Metrics.LabelPair> label_;
     /**
      * <code>repeated .io.prometheus.client.LabelPair label = 1;</code>
@@ -7969,7 +11216,7 @@ public final class Metrics {
     }
 
     public static final int TIMESTAMP_MS_FIELD_NUMBER = 6;
-    private long timestampMs_;
+    private long timestampMs_ = 0L;
     /**
      * <code>optional int64 timestamp_ms = 6;</code>
      * @return Whether the timestampMs field is set.
@@ -8022,7 +11269,7 @@ public final class Metrics {
       if (((bitField0_ & 0x00000010) != 0)) {
         output.writeMessage(7, getHistogram());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8059,7 +11306,7 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, getHistogram());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8106,7 +11353,7 @@ public final class Metrics {
         if (getTimestampMs()
             != other.getTimestampMs()) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8146,7 +11393,7 @@ public final class Metrics {
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getTimestampMs());
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8285,44 +11532,40 @@ public final class Metrics {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (labelBuilder_ == null) {
           label_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          label_ = null;
           labelBuilder_.clear();
         }
-        if (gaugeBuilder_ == null) {
-          gauge_ = null;
-        } else {
-          gaugeBuilder_.clear();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        gauge_ = null;
+        if (gaugeBuilder_ != null) {
+          gaugeBuilder_.dispose();
+          gaugeBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (counterBuilder_ == null) {
-          counter_ = null;
-        } else {
-          counterBuilder_.clear();
+        counter_ = null;
+        if (counterBuilder_ != null) {
+          counterBuilder_.dispose();
+          counterBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        if (summaryBuilder_ == null) {
-          summary_ = null;
-        } else {
-          summaryBuilder_.clear();
+        summary_ = null;
+        if (summaryBuilder_ != null) {
+          summaryBuilder_.dispose();
+          summaryBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
-        if (untypedBuilder_ == null) {
-          untyped_ = null;
-        } else {
-          untypedBuilder_.clear();
+        untyped_ = null;
+        if (untypedBuilder_ != null) {
+          untypedBuilder_.dispose();
+          untypedBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
-        if (histogramBuilder_ == null) {
-          histogram_ = null;
-        } else {
-          histogramBuilder_.clear();
+        histogram_ = null;
+        if (histogramBuilder_ != null) {
+          histogramBuilder_.dispose();
+          histogramBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
         timestampMs_ = 0L;
-        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -8349,8 +11592,13 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.Metric buildPartial() {
         io.prometheus.client.Metrics.Metric result = new io.prometheus.client.Metrics.Metric(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.prometheus.client.Metrics.Metric result) {
         if (labelBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             label_ = java.util.Collections.unmodifiableList(label_);
@@ -8360,53 +11608,46 @@ public final class Metrics {
         } else {
           result.label_ = labelBuilder_.build();
         }
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.Metric result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000002) != 0)) {
-          if (gaugeBuilder_ == null) {
-            result.gauge_ = gauge_;
-          } else {
-            result.gauge_ = gaugeBuilder_.build();
-          }
+          result.gauge_ = gaugeBuilder_ == null
+              ? gauge_
+              : gaugeBuilder_.build();
           to_bitField0_ |= 0x00000001;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          if (counterBuilder_ == null) {
-            result.counter_ = counter_;
-          } else {
-            result.counter_ = counterBuilder_.build();
-          }
+          result.counter_ = counterBuilder_ == null
+              ? counter_
+              : counterBuilder_.build();
           to_bitField0_ |= 0x00000002;
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
-          if (summaryBuilder_ == null) {
-            result.summary_ = summary_;
-          } else {
-            result.summary_ = summaryBuilder_.build();
-          }
+          result.summary_ = summaryBuilder_ == null
+              ? summary_
+              : summaryBuilder_.build();
           to_bitField0_ |= 0x00000004;
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
-          if (untypedBuilder_ == null) {
-            result.untyped_ = untyped_;
-          } else {
-            result.untyped_ = untypedBuilder_.build();
-          }
+          result.untyped_ = untypedBuilder_ == null
+              ? untyped_
+              : untypedBuilder_.build();
           to_bitField0_ |= 0x00000008;
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
-          if (histogramBuilder_ == null) {
-            result.histogram_ = histogram_;
-          } else {
-            result.histogram_ = histogramBuilder_.build();
-          }
+          result.histogram_ = histogramBuilder_ == null
+              ? histogram_
+              : histogramBuilder_.build();
           to_bitField0_ |= 0x00000010;
         }
         if (((from_bitField0_ & 0x00000040) != 0)) {
           result.timestampMs_ = timestampMs_;
           to_bitField0_ |= 0x00000020;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -8497,7 +11738,7 @@ public final class Metrics {
         if (other.hasTimestampMs()) {
           setTimestampMs(other.getTimestampMs());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8512,17 +11753,83 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.Metric parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                io.prometheus.client.Metrics.LabelPair m =
+                    input.readMessage(
+                        io.prometheus.client.Metrics.LabelPair.PARSER,
+                        extensionRegistry);
+                if (labelBuilder_ == null) {
+                  ensureLabelIsMutable();
+                  label_.add(m);
+                } else {
+                  labelBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getGaugeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getCounterFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getSummaryFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getUntypedFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 48: {
+                timestampMs_ = input.readInt64();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 48
+              case 58: {
+                input.readMessage(
+                    getHistogramFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 58
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.Metric) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -8797,11 +12104,11 @@ public final class Metrics {
             throw new NullPointerException();
           }
           gauge_ = value;
-          onChanged();
         } else {
           gaugeBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8811,11 +12118,11 @@ public final class Metrics {
           io.prometheus.client.Metrics.Gauge.Builder builderForValue) {
         if (gaugeBuilder_ == null) {
           gauge_ = builderForValue.build();
-          onChanged();
         } else {
           gaugeBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8824,31 +12131,30 @@ public final class Metrics {
       public Builder mergeGauge(io.prometheus.client.Metrics.Gauge value) {
         if (gaugeBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0) &&
-              gauge_ != null &&
-              gauge_ != io.prometheus.client.Metrics.Gauge.getDefaultInstance()) {
-            gauge_ =
-              io.prometheus.client.Metrics.Gauge.newBuilder(gauge_).mergeFrom(value).buildPartial();
+            gauge_ != null &&
+            gauge_ != io.prometheus.client.Metrics.Gauge.getDefaultInstance()) {
+            getGaugeBuilder().mergeFrom(value);
           } else {
             gauge_ = value;
           }
-          onChanged();
         } else {
           gaugeBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .io.prometheus.client.Gauge gauge = 2;</code>
        */
       public Builder clearGauge() {
-        if (gaugeBuilder_ == null) {
-          gauge_ = null;
-          onChanged();
-        } else {
-          gaugeBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000002);
+        gauge_ = null;
+        if (gaugeBuilder_ != null) {
+          gaugeBuilder_.dispose();
+          gaugeBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -8917,11 +12223,11 @@ public final class Metrics {
             throw new NullPointerException();
           }
           counter_ = value;
-          onChanged();
         } else {
           counterBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -8931,11 +12237,11 @@ public final class Metrics {
           io.prometheus.client.Metrics.Counter.Builder builderForValue) {
         if (counterBuilder_ == null) {
           counter_ = builderForValue.build();
-          onChanged();
         } else {
           counterBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -8944,31 +12250,30 @@ public final class Metrics {
       public Builder mergeCounter(io.prometheus.client.Metrics.Counter value) {
         if (counterBuilder_ == null) {
           if (((bitField0_ & 0x00000004) != 0) &&
-              counter_ != null &&
-              counter_ != io.prometheus.client.Metrics.Counter.getDefaultInstance()) {
-            counter_ =
-              io.prometheus.client.Metrics.Counter.newBuilder(counter_).mergeFrom(value).buildPartial();
+            counter_ != null &&
+            counter_ != io.prometheus.client.Metrics.Counter.getDefaultInstance()) {
+            getCounterBuilder().mergeFrom(value);
           } else {
             counter_ = value;
           }
-          onChanged();
         } else {
           counterBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .io.prometheus.client.Counter counter = 3;</code>
        */
       public Builder clearCounter() {
-        if (counterBuilder_ == null) {
-          counter_ = null;
-          onChanged();
-        } else {
-          counterBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000004);
+        counter_ = null;
+        if (counterBuilder_ != null) {
+          counterBuilder_.dispose();
+          counterBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -9037,11 +12342,11 @@ public final class Metrics {
             throw new NullPointerException();
           }
           summary_ = value;
-          onChanged();
         } else {
           summaryBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -9051,11 +12356,11 @@ public final class Metrics {
           io.prometheus.client.Metrics.Summary.Builder builderForValue) {
         if (summaryBuilder_ == null) {
           summary_ = builderForValue.build();
-          onChanged();
         } else {
           summaryBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -9064,31 +12369,30 @@ public final class Metrics {
       public Builder mergeSummary(io.prometheus.client.Metrics.Summary value) {
         if (summaryBuilder_ == null) {
           if (((bitField0_ & 0x00000008) != 0) &&
-              summary_ != null &&
-              summary_ != io.prometheus.client.Metrics.Summary.getDefaultInstance()) {
-            summary_ =
-              io.prometheus.client.Metrics.Summary.newBuilder(summary_).mergeFrom(value).buildPartial();
+            summary_ != null &&
+            summary_ != io.prometheus.client.Metrics.Summary.getDefaultInstance()) {
+            getSummaryBuilder().mergeFrom(value);
           } else {
             summary_ = value;
           }
-          onChanged();
         } else {
           summaryBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .io.prometheus.client.Summary summary = 4;</code>
        */
       public Builder clearSummary() {
-        if (summaryBuilder_ == null) {
-          summary_ = null;
-          onChanged();
-        } else {
-          summaryBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000008);
+        summary_ = null;
+        if (summaryBuilder_ != null) {
+          summaryBuilder_.dispose();
+          summaryBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -9157,11 +12461,11 @@ public final class Metrics {
             throw new NullPointerException();
           }
           untyped_ = value;
-          onChanged();
         } else {
           untypedBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -9171,11 +12475,11 @@ public final class Metrics {
           io.prometheus.client.Metrics.Untyped.Builder builderForValue) {
         if (untypedBuilder_ == null) {
           untyped_ = builderForValue.build();
-          onChanged();
         } else {
           untypedBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -9184,31 +12488,30 @@ public final class Metrics {
       public Builder mergeUntyped(io.prometheus.client.Metrics.Untyped value) {
         if (untypedBuilder_ == null) {
           if (((bitField0_ & 0x00000010) != 0) &&
-              untyped_ != null &&
-              untyped_ != io.prometheus.client.Metrics.Untyped.getDefaultInstance()) {
-            untyped_ =
-              io.prometheus.client.Metrics.Untyped.newBuilder(untyped_).mergeFrom(value).buildPartial();
+            untyped_ != null &&
+            untyped_ != io.prometheus.client.Metrics.Untyped.getDefaultInstance()) {
+            getUntypedBuilder().mergeFrom(value);
           } else {
             untyped_ = value;
           }
-          onChanged();
         } else {
           untypedBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .io.prometheus.client.Untyped untyped = 5;</code>
        */
       public Builder clearUntyped() {
-        if (untypedBuilder_ == null) {
-          untyped_ = null;
-          onChanged();
-        } else {
-          untypedBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000010);
+        untyped_ = null;
+        if (untypedBuilder_ != null) {
+          untypedBuilder_.dispose();
+          untypedBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -9277,11 +12580,11 @@ public final class Metrics {
             throw new NullPointerException();
           }
           histogram_ = value;
-          onChanged();
         } else {
           histogramBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -9291,11 +12594,11 @@ public final class Metrics {
           io.prometheus.client.Metrics.Histogram.Builder builderForValue) {
         if (histogramBuilder_ == null) {
           histogram_ = builderForValue.build();
-          onChanged();
         } else {
           histogramBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -9304,31 +12607,30 @@ public final class Metrics {
       public Builder mergeHistogram(io.prometheus.client.Metrics.Histogram value) {
         if (histogramBuilder_ == null) {
           if (((bitField0_ & 0x00000020) != 0) &&
-              histogram_ != null &&
-              histogram_ != io.prometheus.client.Metrics.Histogram.getDefaultInstance()) {
-            histogram_ =
-              io.prometheus.client.Metrics.Histogram.newBuilder(histogram_).mergeFrom(value).buildPartial();
+            histogram_ != null &&
+            histogram_ != io.prometheus.client.Metrics.Histogram.getDefaultInstance()) {
+            getHistogramBuilder().mergeFrom(value);
           } else {
             histogram_ = value;
           }
-          onChanged();
         } else {
           histogramBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .io.prometheus.client.Histogram histogram = 7;</code>
        */
       public Builder clearHistogram() {
-        if (histogramBuilder_ == null) {
-          histogram_ = null;
-          onChanged();
-        } else {
-          histogramBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000020);
+        histogram_ = null;
+        if (histogramBuilder_ != null) {
+          histogramBuilder_.dispose();
+          histogramBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -9390,8 +12692,9 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder setTimestampMs(long value) {
-        bitField0_ |= 0x00000040;
+        
         timestampMs_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -9438,7 +12741,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Metric(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9562,82 +12876,6 @@ public final class Metrics {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MetricFamily(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              name_ = bs;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              help_ = bs;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-              io.prometheus.client.Metrics.MetricType value = io.prometheus.client.Metrics.MetricType.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(3, rawValue);
-              } else {
-                bitField0_ |= 0x00000004;
-                type_ = rawValue;
-              }
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                metric_ = new java.util.ArrayList<io.prometheus.client.Metrics.Metric>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              metric_.add(
-                  input.readMessage(io.prometheus.client.Metrics.Metric.PARSER, extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          metric_ = java.util.Collections.unmodifiableList(metric_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.prometheus.client.Metrics.internal_static_io_prometheus_client_MetricFamily_descriptor;
@@ -9653,7 +12891,8 @@ public final class Metrics {
 
     private int bitField0_;
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <code>optional string name = 1;</code>
      * @return Whether the name field is set.
@@ -9701,7 +12940,8 @@ public final class Metrics {
     }
 
     public static final int HELP_FIELD_NUMBER = 2;
-    private volatile java.lang.Object help_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object help_ = "";
     /**
      * <code>optional string help = 2;</code>
      * @return Whether the help field is set.
@@ -9749,7 +12989,7 @@ public final class Metrics {
     }
 
     public static final int TYPE_FIELD_NUMBER = 3;
-    private int type_;
+    private int type_ = 0;
     /**
      * <code>optional .io.prometheus.client.MetricType type = 3;</code>
      * @return Whether the type field is set.
@@ -9762,12 +13002,12 @@ public final class Metrics {
      * @return The type.
      */
     @java.lang.Override public io.prometheus.client.Metrics.MetricType getType() {
-      @SuppressWarnings("deprecation")
-      io.prometheus.client.Metrics.MetricType result = io.prometheus.client.Metrics.MetricType.valueOf(type_);
+      io.prometheus.client.Metrics.MetricType result = io.prometheus.client.Metrics.MetricType.forNumber(type_);
       return result == null ? io.prometheus.client.Metrics.MetricType.COUNTER : result;
     }
 
     public static final int METRIC_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<io.prometheus.client.Metrics.Metric> metric_;
     /**
      * <code>repeated .io.prometheus.client.Metric metric = 4;</code>
@@ -9833,7 +13073,7 @@ public final class Metrics {
       for (int i = 0; i < metric_.size(); i++) {
         output.writeMessage(4, metric_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9856,7 +13096,7 @@ public final class Metrics {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, metric_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9887,7 +13127,7 @@ public final class Metrics {
       }
       if (!getMetricList()
           .equals(other.getMetricList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9914,7 +13154,7 @@ public final class Metrics {
         hash = (37 * hash) + METRIC_FIELD_NUMBER;
         hash = (53 * hash) + getMetricList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10031,35 +13271,28 @@ public final class Metrics {
 
       // Construct using io.prometheus.client.Metrics.MetricFamily.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getMetricFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
         help_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
         type_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
         if (metricBuilder_ == null) {
           metric_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
+          metric_ = null;
           metricBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -10086,20 +13319,13 @@ public final class Metrics {
       @java.lang.Override
       public io.prometheus.client.Metrics.MetricFamily buildPartial() {
         io.prometheus.client.Metrics.MetricFamily result = new io.prometheus.client.Metrics.MetricFamily(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.name_ = name_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.help_ = help_;
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.type_ = type_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.prometheus.client.Metrics.MetricFamily result) {
         if (metricBuilder_ == null) {
           if (((bitField0_ & 0x00000008) != 0)) {
             metric_ = java.util.Collections.unmodifiableList(metric_);
@@ -10109,9 +13335,24 @@ public final class Metrics {
         } else {
           result.metric_ = metricBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(io.prometheus.client.Metrics.MetricFamily result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.help_ = help_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.type_ = type_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -10159,13 +13400,13 @@ public final class Metrics {
       public Builder mergeFrom(io.prometheus.client.Metrics.MetricFamily other) {
         if (other == io.prometheus.client.Metrics.MetricFamily.getDefaultInstance()) return this;
         if (other.hasName()) {
-          bitField0_ |= 0x00000001;
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasHelp()) {
-          bitField0_ |= 0x00000002;
           help_ = other.help_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasType()) {
@@ -10197,7 +13438,7 @@ public final class Metrics {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10212,17 +13453,65 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.prometheus.client.Metrics.MetricFamily parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                help_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                int tmpRaw = input.readEnum();
+                io.prometheus.client.Metrics.MetricType tmpValue =
+                    io.prometheus.client.Metrics.MetricType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(3, tmpRaw);
+                } else {
+                  type_ = tmpRaw;
+                  bitField0_ |= 0x00000004;
+                }
+                break;
+              } // case 24
+              case 34: {
+                io.prometheus.client.Metrics.Metric m =
+                    input.readMessage(
+                        io.prometheus.client.Metrics.Metric.PARSER,
+                        extensionRegistry);
+                if (metricBuilder_ == null) {
+                  ensureMetricIsMutable();
+                  metric_.add(m);
+                } else {
+                  metricBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.prometheus.client.Metrics.MetricFamily) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -10277,11 +13566,9 @@ public final class Metrics {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10290,8 +13577,8 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -10302,11 +13589,9 @@ public final class Metrics {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10361,11 +13646,9 @@ public final class Metrics {
        */
       public Builder setHelp(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         help_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10374,8 +13657,8 @@ public final class Metrics {
        * @return This builder for chaining.
        */
       public Builder clearHelp() {
-        bitField0_ = (bitField0_ & ~0x00000002);
         help_ = getDefaultInstance().getHelp();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -10386,11 +13669,9 @@ public final class Metrics {
        */
       public Builder setHelpBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+        if (value == null) { throw new NullPointerException(); }
         help_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10409,8 +13690,7 @@ public final class Metrics {
        */
       @java.lang.Override
       public io.prometheus.client.Metrics.MetricType getType() {
-        @SuppressWarnings("deprecation")
-        io.prometheus.client.Metrics.MetricType result = io.prometheus.client.Metrics.MetricType.valueOf(type_);
+        io.prometheus.client.Metrics.MetricType result = io.prometheus.client.Metrics.MetricType.forNumber(type_);
         return result == null ? io.prometheus.client.Metrics.MetricType.COUNTER : result;
       }
       /**
@@ -10710,7 +13990,18 @@ public final class Metrics {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MetricFamily(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10771,6 +14062,11 @@ public final class Metrics {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_io_prometheus_client_Bucket_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_io_prometheus_client_BucketSpan_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_io_prometheus_client_BucketSpan_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_io_prometheus_client_Exemplar_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10804,30 +14100,41 @@ public final class Metrics {
       "\n\007Summary\022\024\n\014sample_count\030\001 \001(\004\022\022\n\nsampl" +
       "e_sum\030\002 \001(\001\0220\n\010quantile\030\003 \003(\0132\036.io.prome" +
       "theus.client.Quantile\"\030\n\007Untyped\022\r\n\005valu" +
-      "e\030\001 \001(\001\"c\n\tHistogram\022\024\n\014sample_count\030\001 \001" +
-      "(\004\022\022\n\nsample_sum\030\002 \001(\001\022,\n\006bucket\030\003 \003(\0132\034" +
-      ".io.prometheus.client.Bucket\"i\n\006Bucket\022\030" +
-      "\n\020cumulative_count\030\001 \001(\004\022\023\n\013upper_bound\030" +
-      "\002 \001(\001\0220\n\010exemplar\030\003 \001(\0132\036.io.prometheus." +
-      "client.Exemplar\"x\n\010Exemplar\022.\n\005label\030\001 \003" +
-      "(\0132\037.io.prometheus.client.LabelPair\022\r\n\005v" +
-      "alue\030\002 \001(\001\022-\n\ttimestamp\030\003 \001(\0132\032.google.p" +
-      "rotobuf.Timestamp\"\276\002\n\006Metric\022.\n\005label\030\001 " +
-      "\003(\0132\037.io.prometheus.client.LabelPair\022*\n\005" +
-      "gauge\030\002 \001(\0132\033.io.prometheus.client.Gauge" +
-      "\022.\n\007counter\030\003 \001(\0132\035.io.prometheus.client" +
-      ".Counter\022.\n\007summary\030\004 \001(\0132\035.io.prometheu" +
-      "s.client.Summary\022.\n\007untyped\030\005 \001(\0132\035.io.p" +
-      "rometheus.client.Untyped\0222\n\thistogram\030\007 " +
-      "\001(\0132\037.io.prometheus.client.Histogram\022\024\n\014" +
-      "timestamp_ms\030\006 \001(\003\"\210\001\n\014MetricFamily\022\014\n\004n" +
-      "ame\030\001 \001(\t\022\014\n\004help\030\002 \001(\t\022.\n\004type\030\003 \001(\0162 ." +
-      "io.prometheus.client.MetricType\022,\n\006metri" +
-      "c\030\004 \003(\0132\034.io.prometheus.client.Metric*M\n" +
-      "\nMetricType\022\013\n\007COUNTER\020\000\022\t\n\005GAUGE\020\001\022\013\n\007S" +
-      "UMMARY\020\002\022\013\n\007UNTYPED\020\003\022\r\n\tHISTOGRAM\020\004BR\n\024" +
-      "io.prometheus.clientZ:github.com/prometh" +
-      "eus/client_model/go;io_prometheus_client"
+      "e\030\001 \001(\001\"\247\003\n\tHistogram\022\024\n\014sample_count\030\001 " +
+      "\001(\004\022\032\n\022sample_count_float\030\004 \001(\001\022\022\n\nsampl" +
+      "e_sum\030\002 \001(\001\022,\n\006bucket\030\003 \003(\0132\034.io.prometh" +
+      "eus.client.Bucket\022\016\n\006schema\030\005 \001(\021\022\026\n\016zer" +
+      "o_threshold\030\006 \001(\001\022\022\n\nzero_count\030\007 \001(\004\022\030\n" +
+      "\020zero_count_float\030\010 \001(\001\0227\n\rnegative_span" +
+      "\030\t \003(\0132 .io.prometheus.client.BucketSpan" +
+      "\022\026\n\016negative_delta\030\n \003(\022\022\026\n\016negative_cou" +
+      "nt\030\013 \003(\001\0227\n\rpositive_span\030\014 \003(\0132 .io.pro" +
+      "metheus.client.BucketSpan\022\026\n\016positive_de" +
+      "lta\030\r \003(\022\022\026\n\016positive_count\030\016 \003(\001\"\211\001\n\006Bu" +
+      "cket\022\030\n\020cumulative_count\030\001 \001(\004\022\036\n\026cumula" +
+      "tive_count_float\030\004 \001(\001\022\023\n\013upper_bound\030\002 " +
+      "\001(\001\0220\n\010exemplar\030\003 \001(\0132\036.io.prometheus.cl" +
+      "ient.Exemplar\",\n\nBucketSpan\022\016\n\006offset\030\001 " +
+      "\001(\021\022\016\n\006length\030\002 \001(\r\"x\n\010Exemplar\022.\n\005label" +
+      "\030\001 \003(\0132\037.io.prometheus.client.LabelPair\022" +
+      "\r\n\005value\030\002 \001(\001\022-\n\ttimestamp\030\003 \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\"\276\002\n\006Metric\022.\n\005labe" +
+      "l\030\001 \003(\0132\037.io.prometheus.client.LabelPair" +
+      "\022*\n\005gauge\030\002 \001(\0132\033.io.prometheus.client.G" +
+      "auge\022.\n\007counter\030\003 \001(\0132\035.io.prometheus.cl" +
+      "ient.Counter\022.\n\007summary\030\004 \001(\0132\035.io.prome" +
+      "theus.client.Summary\022.\n\007untyped\030\005 \001(\0132\035." +
+      "io.prometheus.client.Untyped\0222\n\thistogra" +
+      "m\030\007 \001(\0132\037.io.prometheus.client.Histogram" +
+      "\022\024\n\014timestamp_ms\030\006 \001(\003\"\210\001\n\014MetricFamily\022" +
+      "\014\n\004name\030\001 \001(\t\022\014\n\004help\030\002 \001(\t\022.\n\004type\030\003 \001(" +
+      "\0162 .io.prometheus.client.MetricType\022,\n\006m" +
+      "etric\030\004 \003(\0132\034.io.prometheus.client.Metri" +
+      "c*b\n\nMetricType\022\013\n\007COUNTER\020\000\022\t\n\005GAUGE\020\001\022" +
+      "\013\n\007SUMMARY\020\002\022\013\n\007UNTYPED\020\003\022\r\n\tHISTOGRAM\020\004" +
+      "\022\023\n\017GAUGE_HISTOGRAM\020\005BR\n\024io.prometheus.c" +
+      "lientZ:github.com/prometheus/client_mode" +
+      "l/go;io_prometheus_client"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10875,27 +14182,33 @@ public final class Metrics {
     internal_static_io_prometheus_client_Histogram_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_io_prometheus_client_Histogram_descriptor,
-        new java.lang.String[] { "SampleCount", "SampleSum", "Bucket", });
+        new java.lang.String[] { "SampleCount", "SampleCountFloat", "SampleSum", "Bucket", "Schema", "ZeroThreshold", "ZeroCount", "ZeroCountFloat", "NegativeSpan", "NegativeDelta", "NegativeCount", "PositiveSpan", "PositiveDelta", "PositiveCount", });
     internal_static_io_prometheus_client_Bucket_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_io_prometheus_client_Bucket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_io_prometheus_client_Bucket_descriptor,
-        new java.lang.String[] { "CumulativeCount", "UpperBound", "Exemplar", });
-    internal_static_io_prometheus_client_Exemplar_descriptor =
+        new java.lang.String[] { "CumulativeCount", "CumulativeCountFloat", "UpperBound", "Exemplar", });
+    internal_static_io_prometheus_client_BucketSpan_descriptor =
       getDescriptor().getMessageTypes().get(8);
+    internal_static_io_prometheus_client_BucketSpan_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_io_prometheus_client_BucketSpan_descriptor,
+        new java.lang.String[] { "Offset", "Length", });
+    internal_static_io_prometheus_client_Exemplar_descriptor =
+      getDescriptor().getMessageTypes().get(9);
     internal_static_io_prometheus_client_Exemplar_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_io_prometheus_client_Exemplar_descriptor,
         new java.lang.String[] { "Label", "Value", "Timestamp", });
     internal_static_io_prometheus_client_Metric_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_io_prometheus_client_Metric_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_io_prometheus_client_Metric_descriptor,
         new java.lang.String[] { "Label", "Gauge", "Counter", "Summary", "Untyped", "Histogram", "TimestampMs", });
     internal_static_io_prometheus_client_MetricFamily_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_io_prometheus_client_MetricFamily_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_io_prometheus_client_MetricFamily_descriptor,

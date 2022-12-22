@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MysqlSourceConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.datastream.v1alpha1.MysqlRdbms.Builder subBuilder = null;
-            if (allowlist_ != null) {
-              subBuilder = allowlist_.toBuilder();
-            }
-            allowlist_ = input.readMessage(com.google.cloud.datastream.v1alpha1.MysqlRdbms.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowlist_);
-              allowlist_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.datastream.v1alpha1.MysqlRdbms.Builder subBuilder = null;
-            if (rejectlist_ != null) {
-              subBuilder = rejectlist_.toBuilder();
-            }
-            rejectlist_ = input.readMessage(com.google.cloud.datastream.v1alpha1.MysqlRdbms.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rejectlist_);
-              rejectlist_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1alpha1.CloudDatastreamResourcesProto.internal_static_google_cloud_datastream_v1alpha1_MysqlSourceConfig_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datastream.v1alpha1.MysqlRdbmsOrBuilder getAllowlistOrBuilder() {
-    return getAllowlist();
+    return allowlist_ == null ? com.google.cloud.datastream.v1alpha1.MysqlRdbms.getDefaultInstance() : allowlist_;
   }
 
   public static final int REJECTLIST_FIELD_NUMBER = 2;
@@ -185,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datastream.v1alpha1.MysqlRdbmsOrBuilder getRejectlistOrBuilder() {
-    return getRejectlist();
+    return rejectlist_ == null ? com.google.cloud.datastream.v1alpha1.MysqlRdbms.getDefaultInstance() : rejectlist_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +143,7 @@ private static final long serialVersionUID = 0L;
     if (rejectlist_ != null) {
       output.writeMessage(2, getRejectlist());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +160,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getRejectlist());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +185,7 @@ private static final long serialVersionUID = 0L;
       if (!getRejectlist()
           .equals(other.getRejectlist())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +204,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REJECTLIST_FIELD_NUMBER;
       hash = (53 * hash) + getRejectlist().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,32 +325,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1alpha1.MysqlSourceConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (allowlistBuilder_ == null) {
-        allowlist_ = null;
-      } else {
-        allowlist_ = null;
+      bitField0_ = 0;
+      allowlist_ = null;
+      if (allowlistBuilder_ != null) {
+        allowlistBuilder_.dispose();
         allowlistBuilder_ = null;
       }
-      if (rejectlistBuilder_ == null) {
-        rejectlist_ = null;
-      } else {
-        rejectlist_ = null;
+      rejectlist_ = null;
+      if (rejectlistBuilder_ != null) {
+        rejectlistBuilder_.dispose();
         rejectlistBuilder_ = null;
       }
       return this;
@@ -444,18 +373,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1alpha1.MysqlSourceConfig buildPartial() {
       com.google.cloud.datastream.v1alpha1.MysqlSourceConfig result = new com.google.cloud.datastream.v1alpha1.MysqlSourceConfig(this);
-      if (allowlistBuilder_ == null) {
-        result.allowlist_ = allowlist_;
-      } else {
-        result.allowlist_ = allowlistBuilder_.build();
-      }
-      if (rejectlistBuilder_ == null) {
-        result.rejectlist_ = rejectlist_;
-      } else {
-        result.rejectlist_ = rejectlistBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1alpha1.MysqlSourceConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.allowlist_ = allowlistBuilder_ == null
+            ? allowlist_
+            : allowlistBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.rejectlist_ = rejectlistBuilder_ == null
+            ? rejectlist_
+            : rejectlistBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRejectlist()) {
         mergeRejectlist(other.getRejectlist());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +457,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1alpha1.MysqlSourceConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAllowlistFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRejectlistFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1alpha1.MysqlSourceConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.datastream.v1alpha1.MysqlRdbms allowlist_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allowlist field is set.
      */
     public boolean hasAllowlist() {
-      return allowlistBuilder_ != null || allowlist_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allowlist_ = value;
-        onChanged();
       } else {
         allowlistBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datastream.v1alpha1.MysqlRdbms.Builder builderForValue) {
       if (allowlistBuilder_ == null) {
         allowlist_ = builderForValue.build();
-        onChanged();
       } else {
         allowlistBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllowlist(com.google.cloud.datastream.v1alpha1.MysqlRdbms value) {
       if (allowlistBuilder_ == null) {
-        if (allowlist_ != null) {
-          allowlist_ =
-            com.google.cloud.datastream.v1alpha1.MysqlRdbms.newBuilder(allowlist_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          allowlist_ != null &&
+          allowlist_ != com.google.cloud.datastream.v1alpha1.MysqlRdbms.getDefaultInstance()) {
+          getAllowlistBuilder().mergeFrom(value);
         } else {
           allowlist_ = value;
         }
-        onChanged();
       } else {
         allowlistBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1alpha1.MysqlRdbms allowlist = 1;</code>
      */
     public Builder clearAllowlist() {
-      if (allowlistBuilder_ == null) {
-        allowlist_ = null;
-        onChanged();
-      } else {
-        allowlist_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      allowlist_ = null;
+      if (allowlistBuilder_ != null) {
+        allowlistBuilder_.dispose();
         allowlistBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1alpha1.MysqlRdbms allowlist = 1;</code>
      */
     public com.google.cloud.datastream.v1alpha1.MysqlRdbms.Builder getAllowlistBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAllowlistFieldBuilder().getBuilder();
     }
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rejectlist field is set.
      */
     public boolean hasRejectlist() {
-      return rejectlistBuilder_ != null || rejectlist_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rejectlist_ = value;
-        onChanged();
       } else {
         rejectlistBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +714,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datastream.v1alpha1.MysqlRdbms.Builder builderForValue) {
       if (rejectlistBuilder_ == null) {
         rejectlist_ = builderForValue.build();
-        onChanged();
       } else {
         rejectlistBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +730,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRejectlist(com.google.cloud.datastream.v1alpha1.MysqlRdbms value) {
       if (rejectlistBuilder_ == null) {
-        if (rejectlist_ != null) {
-          rejectlist_ =
-            com.google.cloud.datastream.v1alpha1.MysqlRdbms.newBuilder(rejectlist_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          rejectlist_ != null &&
+          rejectlist_ != com.google.cloud.datastream.v1alpha1.MysqlRdbms.getDefaultInstance()) {
+          getRejectlistBuilder().mergeFrom(value);
         } else {
           rejectlist_ = value;
         }
-        onChanged();
       } else {
         rejectlistBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +752,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1alpha1.MysqlRdbms rejectlist = 2;</code>
      */
     public Builder clearRejectlist() {
-      if (rejectlistBuilder_ == null) {
-        rejectlist_ = null;
-        onChanged();
-      } else {
-        rejectlist_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      rejectlist_ = null;
+      if (rejectlistBuilder_ != null) {
+        rejectlistBuilder_.dispose();
         rejectlistBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1alpha1.MysqlRdbms rejectlist = 2;</code>
      */
     public com.google.cloud.datastream.v1alpha1.MysqlRdbms.Builder getRejectlistBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRejectlistFieldBuilder().getBuilder();
     }
@@ -879,7 +841,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MysqlSourceConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

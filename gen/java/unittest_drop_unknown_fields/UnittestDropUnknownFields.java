@@ -63,56 +63,6 @@ public final class UnittestDropUnknownFields {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Foo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              int32Value_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              enumValue_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return unittest_drop_unknown_fields.UnittestDropUnknownFields.internal_static_unittest_drop_unknown_fields_Foo_descriptor;
@@ -244,7 +194,7 @@ public final class UnittestDropUnknownFields {
     }
 
     public static final int INT32_VALUE_FIELD_NUMBER = 1;
-    private int int32Value_;
+    private int int32Value_ = 0;
     /**
      * <code>int32 int32_value = 1;</code>
      * @return The int32Value.
@@ -255,7 +205,7 @@ public final class UnittestDropUnknownFields {
     }
 
     public static final int ENUM_VALUE_FIELD_NUMBER = 2;
-    private int enumValue_;
+    private int enumValue_ = 0;
     /**
      * <code>.unittest_drop_unknown_fields.Foo.NestedEnum enum_value = 2;</code>
      * @return The enum numeric value on the wire for enumValue.
@@ -268,8 +218,7 @@ public final class UnittestDropUnknownFields {
      * @return The enumValue.
      */
     @java.lang.Override public unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum getEnumValue() {
-      @SuppressWarnings("deprecation")
-      unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum result = unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum.valueOf(enumValue_);
+      unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum result = unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum.forNumber(enumValue_);
       return result == null ? unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum.UNRECOGNIZED : result;
     }
 
@@ -293,7 +242,7 @@ public final class UnittestDropUnknownFields {
       if (enumValue_ != unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum.FOO.getNumber()) {
         output.writeEnum(2, enumValue_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -310,7 +259,7 @@ public final class UnittestDropUnknownFields {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, enumValue_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -328,7 +277,7 @@ public final class UnittestDropUnknownFields {
       if (getInt32Value()
           != other.getInt32Value()) return false;
       if (enumValue_ != other.enumValue_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -343,7 +292,7 @@ public final class UnittestDropUnknownFields {
       hash = (53 * hash) + getInt32Value();
       hash = (37 * hash) + ENUM_VALUE_FIELD_NUMBER;
       hash = (53 * hash) + enumValue_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -460,26 +409,20 @@ public final class UnittestDropUnknownFields {
 
       // Construct using unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         int32Value_ = 0;
-
         enumValue_ = 0;
-
         return this;
       }
 
@@ -506,10 +449,19 @@ public final class UnittestDropUnknownFields {
       @java.lang.Override
       public unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo buildPartial() {
         unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo result = new unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo(this);
-        result.int32Value_ = int32Value_;
-        result.enumValue_ = enumValue_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.int32Value_ = int32Value_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.enumValue_ = enumValue_;
+        }
       }
 
       @java.lang.Override
@@ -562,7 +514,7 @@ public final class UnittestDropUnknownFields {
         if (other.enumValue_ != 0) {
           setEnumValueValue(other.getEnumValueValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -577,19 +529,43 @@ public final class UnittestDropUnknownFields {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int32Value_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                enumValue_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int int32Value_ ;
       /**
@@ -608,6 +584,7 @@ public final class UnittestDropUnknownFields {
       public Builder setInt32Value(int value) {
         
         int32Value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -616,7 +593,7 @@ public final class UnittestDropUnknownFields {
        * @return This builder for chaining.
        */
       public Builder clearInt32Value() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         int32Value_ = 0;
         onChanged();
         return this;
@@ -636,8 +613,8 @@ public final class UnittestDropUnknownFields {
        * @return This builder for chaining.
        */
       public Builder setEnumValueValue(int value) {
-        
         enumValue_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -647,8 +624,7 @@ public final class UnittestDropUnknownFields {
        */
       @java.lang.Override
       public unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum getEnumValue() {
-        @SuppressWarnings("deprecation")
-        unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum result = unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum.valueOf(enumValue_);
+        unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum result = unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum.forNumber(enumValue_);
         return result == null ? unittest_drop_unknown_fields.UnittestDropUnknownFields.Foo.NestedEnum.UNRECOGNIZED : result;
       }
       /**
@@ -660,7 +636,7 @@ public final class UnittestDropUnknownFields {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         enumValue_ = value.getNumber();
         onChanged();
         return this;
@@ -670,7 +646,7 @@ public final class UnittestDropUnknownFields {
        * @return This builder for chaining.
        */
       public Builder clearEnumValue() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         enumValue_ = 0;
         onChanged();
         return this;
@@ -708,7 +684,18 @@ public final class UnittestDropUnknownFields {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Foo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -782,61 +769,6 @@ public final class UnittestDropUnknownFields {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private FooWithExtraFields(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              int32Value_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              enumValue_ = rawValue;
-              break;
-            }
-            case 24: {
-
-              extraInt32Value_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -978,7 +910,7 @@ public final class UnittestDropUnknownFields {
     }
 
     public static final int INT32_VALUE_FIELD_NUMBER = 1;
-    private int int32Value_;
+    private int int32Value_ = 0;
     /**
      * <code>int32 int32_value = 1;</code>
      * @return The int32Value.
@@ -989,7 +921,7 @@ public final class UnittestDropUnknownFields {
     }
 
     public static final int ENUM_VALUE_FIELD_NUMBER = 2;
-    private int enumValue_;
+    private int enumValue_ = 0;
     /**
      * <code>.unittest_drop_unknown_fields.FooWithExtraFields.NestedEnum enum_value = 2;</code>
      * @return The enum numeric value on the wire for enumValue.
@@ -1002,13 +934,12 @@ public final class UnittestDropUnknownFields {
      * @return The enumValue.
      */
     @java.lang.Override public unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum getEnumValue() {
-      @SuppressWarnings("deprecation")
-      unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum result = unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.valueOf(enumValue_);
+      unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum result = unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.forNumber(enumValue_);
       return result == null ? unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.UNRECOGNIZED : result;
     }
 
     public static final int EXTRA_INT32_VALUE_FIELD_NUMBER = 3;
-    private int extraInt32Value_;
+    private int extraInt32Value_ = 0;
     /**
      * <code>int32 extra_int32_value = 3;</code>
      * @return The extraInt32Value.
@@ -1041,7 +972,7 @@ public final class UnittestDropUnknownFields {
       if (extraInt32Value_ != 0) {
         output.writeInt32(3, extraInt32Value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1062,7 +993,7 @@ public final class UnittestDropUnknownFields {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, extraInt32Value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1082,7 +1013,7 @@ public final class UnittestDropUnknownFields {
       if (enumValue_ != other.enumValue_) return false;
       if (getExtraInt32Value()
           != other.getExtraInt32Value()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1099,7 +1030,7 @@ public final class UnittestDropUnknownFields {
       hash = (53 * hash) + enumValue_;
       hash = (37 * hash) + EXTRA_INT32_VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getExtraInt32Value();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1216,28 +1147,21 @@ public final class UnittestDropUnknownFields {
 
       // Construct using unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         int32Value_ = 0;
-
         enumValue_ = 0;
-
         extraInt32Value_ = 0;
-
         return this;
       }
 
@@ -1264,11 +1188,22 @@ public final class UnittestDropUnknownFields {
       @java.lang.Override
       public unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields buildPartial() {
         unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields result = new unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields(this);
-        result.int32Value_ = int32Value_;
-        result.enumValue_ = enumValue_;
-        result.extraInt32Value_ = extraInt32Value_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.int32Value_ = int32Value_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.enumValue_ = enumValue_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.extraInt32Value_ = extraInt32Value_;
+        }
       }
 
       @java.lang.Override
@@ -1324,7 +1259,7 @@ public final class UnittestDropUnknownFields {
         if (other.getExtraInt32Value() != 0) {
           setExtraInt32Value(other.getExtraInt32Value());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1339,19 +1274,48 @@ public final class UnittestDropUnknownFields {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int32Value_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                enumValue_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                extraInt32Value_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int int32Value_ ;
       /**
@@ -1370,6 +1334,7 @@ public final class UnittestDropUnknownFields {
       public Builder setInt32Value(int value) {
         
         int32Value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1378,7 +1343,7 @@ public final class UnittestDropUnknownFields {
        * @return This builder for chaining.
        */
       public Builder clearInt32Value() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         int32Value_ = 0;
         onChanged();
         return this;
@@ -1398,8 +1363,8 @@ public final class UnittestDropUnknownFields {
        * @return This builder for chaining.
        */
       public Builder setEnumValueValue(int value) {
-        
         enumValue_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1409,8 +1374,7 @@ public final class UnittestDropUnknownFields {
        */
       @java.lang.Override
       public unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum getEnumValue() {
-        @SuppressWarnings("deprecation")
-        unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum result = unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.valueOf(enumValue_);
+        unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum result = unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.forNumber(enumValue_);
         return result == null ? unittest_drop_unknown_fields.UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.UNRECOGNIZED : result;
       }
       /**
@@ -1422,7 +1386,7 @@ public final class UnittestDropUnknownFields {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         enumValue_ = value.getNumber();
         onChanged();
         return this;
@@ -1432,7 +1396,7 @@ public final class UnittestDropUnknownFields {
        * @return This builder for chaining.
        */
       public Builder clearEnumValue() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         enumValue_ = 0;
         onChanged();
         return this;
@@ -1455,6 +1419,7 @@ public final class UnittestDropUnknownFields {
       public Builder setExtraInt32Value(int value) {
         
         extraInt32Value_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1463,7 +1428,7 @@ public final class UnittestDropUnknownFields {
        * @return This builder for chaining.
        */
       public Builder clearExtraInt32Value() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         extraInt32Value_ = 0;
         onChanged();
         return this;
@@ -1501,7 +1466,18 @@ public final class UnittestDropUnknownFields {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FooWithExtraFields(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

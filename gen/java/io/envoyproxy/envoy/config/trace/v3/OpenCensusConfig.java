@@ -42,181 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OpenCensusConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.opencensus.proto.trace.v1.TraceConfig.Builder subBuilder = null;
-            if (traceConfig_ != null) {
-              subBuilder = traceConfig_.toBuilder();
-            }
-            traceConfig_ = input.readMessage(io.opencensus.proto.trace.v1.TraceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(traceConfig_);
-              traceConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            stdoutExporterEnabled_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            stackdriverExporterEnabled_ = input.readBool();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            stackdriverProjectId_ = s;
-            break;
-          }
-          case 40: {
-
-            zipkinExporterEnabled_ = input.readBool();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            zipkinUrl_ = s;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              incomingTraceContext_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            incomingTraceContext_.add(rawValue);
-            break;
-          }
-          case 66: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                incomingTraceContext_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              incomingTraceContext_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              outgoingTraceContext_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            outgoingTraceContext_.add(rawValue);
-            break;
-          }
-          case 74: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                outgoingTraceContext_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              outgoingTraceContext_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            stackdriverAddress_ = s;
-            break;
-          }
-          case 88: {
-
-            ocagentExporterEnabled_ = input.readBool();
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            ocagentAddress_ = s;
-            break;
-          }
-          case 106: {
-            io.envoyproxy.envoy.config.core.v3.GrpcService.Builder subBuilder = null;
-            if (stackdriverGrpcService_ != null) {
-              subBuilder = stackdriverGrpcService_.toBuilder();
-            }
-            stackdriverGrpcService_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.GrpcService.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stackdriverGrpcService_);
-              stackdriverGrpcService_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            io.envoyproxy.envoy.config.core.v3.GrpcService.Builder subBuilder = null;
-            if (ocagentGrpcService_ != null) {
-              subBuilder = ocagentGrpcService_.toBuilder();
-            }
-            ocagentGrpcService_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.GrpcService.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ocagentGrpcService_);
-              ocagentGrpcService_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        incomingTraceContext_ = java.util.Collections.unmodifiableList(incomingTraceContext_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        outgoingTraceContext_ = java.util.Collections.unmodifiableList(outgoingTraceContext_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.trace.v3.OpencensusProto.internal_static_envoy_config_trace_v3_OpenCensusConfig_descriptor;
@@ -440,11 +265,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opencensus.proto.trace.v1.TraceConfigOrBuilder getTraceConfigOrBuilder() {
-    return getTraceConfig();
+    return traceConfig_ == null ? io.opencensus.proto.trace.v1.TraceConfig.getDefaultInstance() : traceConfig_;
   }
 
   public static final int STDOUT_EXPORTER_ENABLED_FIELD_NUMBER = 2;
-  private boolean stdoutExporterEnabled_;
+  private boolean stdoutExporterEnabled_ = false;
   /**
    * <pre>
    * Enables the stdout exporter if set to true. This is intended for debugging
@@ -460,7 +285,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STACKDRIVER_EXPORTER_ENABLED_FIELD_NUMBER = 3;
-  private boolean stackdriverExporterEnabled_;
+  private boolean stackdriverExporterEnabled_ = false;
   /**
    * <pre>
    * Enables the Stackdriver exporter if set to true. The project_id must also
@@ -476,7 +301,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STACKDRIVER_PROJECT_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object stackdriverProjectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stackdriverProjectId_ = "";
   /**
    * <pre>
    * The Cloud project_id to use for Stackdriver tracing.
@@ -522,7 +348,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STACKDRIVER_ADDRESS_FIELD_NUMBER = 10;
-  private volatile java.lang.Object stackdriverAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stackdriverAddress_ = "";
   /**
    * <pre>
    * (optional) By default, the Stackdriver exporter will connect to production
@@ -614,11 +441,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.GrpcServiceOrBuilder getStackdriverGrpcServiceOrBuilder() {
-    return getStackdriverGrpcService();
+    return stackdriverGrpcService_ == null ? io.envoyproxy.envoy.config.core.v3.GrpcService.getDefaultInstance() : stackdriverGrpcService_;
   }
 
   public static final int ZIPKIN_EXPORTER_ENABLED_FIELD_NUMBER = 5;
-  private boolean zipkinExporterEnabled_;
+  private boolean zipkinExporterEnabled_ = false;
   /**
    * <pre>
    * Enables the Zipkin exporter if set to true. The url and service name must
@@ -637,7 +464,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ZIPKIN_URL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object zipkinUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object zipkinUrl_ = "";
   /**
    * <pre>
    * The URL to Zipkin, e.g. "http://127.0.0.1:9411/api/v2/spans". This is
@@ -691,7 +519,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OCAGENT_EXPORTER_ENABLED_FIELD_NUMBER = 11;
-  private boolean ocagentExporterEnabled_;
+  private boolean ocagentExporterEnabled_ = false;
   /**
    * <pre>
    * Enables the OpenCensus Agent exporter if set to true. The ocagent_address or
@@ -707,7 +535,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OCAGENT_ADDRESS_FIELD_NUMBER = 12;
-  private volatile java.lang.Object ocagentAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object ocagentAddress_ = "";
   /**
    * <pre>
    * The address of the OpenCensus Agent, if its exporter is enabled, in gRPC
@@ -794,18 +623,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.GrpcServiceOrBuilder getOcagentGrpcServiceOrBuilder() {
-    return getOcagentGrpcService();
+    return ocagentGrpcService_ == null ? io.envoyproxy.envoy.config.core.v3.GrpcService.getDefaultInstance() : ocagentGrpcService_;
   }
 
   public static final int INCOMING_TRACE_CONTEXT_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> incomingTraceContext_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext> incomingTraceContext_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext>() {
             public io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext result = io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext.valueOf(from);
+              io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext result = io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext.forNumber(from);
               return result == null ? io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext.UNRECOGNIZED : result;
             }
           };
@@ -881,14 +710,14 @@ private static final long serialVersionUID = 0L;
   private int incomingTraceContextMemoizedSerializedSize;
 
   public static final int OUTGOING_TRACE_CONTEXT_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> outgoingTraceContext_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext> outgoingTraceContext_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext>() {
             public io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext result = io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext.valueOf(from);
+              io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext result = io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext.forNumber(from);
               return result == null ? io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.TraceContext.UNRECOGNIZED : result;
             }
           };
@@ -1020,7 +849,7 @@ private static final long serialVersionUID = 0L;
     if (ocagentGrpcService_ != null) {
       output.writeMessage(14, getOcagentGrpcService());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1093,7 +922,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, getOcagentGrpcService());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1141,7 +970,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!incomingTraceContext_.equals(other.incomingTraceContext_)) return false;
     if (!outgoingTraceContext_.equals(other.outgoingTraceContext_)) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1192,7 +1021,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OUTGOING_TRACE_CONTEXT_FIELD_NUMBER;
       hash = (53 * hash) + outgoingTraceContext_.hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1315,60 +1144,45 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (traceConfigBuilder_ == null) {
-        traceConfig_ = null;
-      } else {
-        traceConfig_ = null;
+      bitField0_ = 0;
+      traceConfig_ = null;
+      if (traceConfigBuilder_ != null) {
+        traceConfigBuilder_.dispose();
         traceConfigBuilder_ = null;
       }
       stdoutExporterEnabled_ = false;
-
       stackdriverExporterEnabled_ = false;
-
       stackdriverProjectId_ = "";
-
       stackdriverAddress_ = "";
-
-      if (stackdriverGrpcServiceBuilder_ == null) {
-        stackdriverGrpcService_ = null;
-      } else {
-        stackdriverGrpcService_ = null;
+      stackdriverGrpcService_ = null;
+      if (stackdriverGrpcServiceBuilder_ != null) {
+        stackdriverGrpcServiceBuilder_.dispose();
         stackdriverGrpcServiceBuilder_ = null;
       }
       zipkinExporterEnabled_ = false;
-
       zipkinUrl_ = "";
-
       ocagentExporterEnabled_ = false;
-
       ocagentAddress_ = "";
-
-      if (ocagentGrpcServiceBuilder_ == null) {
-        ocagentGrpcService_ = null;
-      } else {
-        ocagentGrpcService_ = null;
+      ocagentGrpcService_ = null;
+      if (ocagentGrpcServiceBuilder_ != null) {
+        ocagentGrpcServiceBuilder_.dispose();
         ocagentGrpcServiceBuilder_ = null;
       }
       incomingTraceContext_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000800);
       outgoingTraceContext_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00001000);
       return this;
     }
 
@@ -1395,42 +1209,66 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig buildPartial() {
       io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig result = new io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig(this);
-      int from_bitField0_ = bitField0_;
-      if (traceConfigBuilder_ == null) {
-        result.traceConfig_ = traceConfig_;
-      } else {
-        result.traceConfig_ = traceConfigBuilder_.build();
-      }
-      result.stdoutExporterEnabled_ = stdoutExporterEnabled_;
-      result.stackdriverExporterEnabled_ = stackdriverExporterEnabled_;
-      result.stackdriverProjectId_ = stackdriverProjectId_;
-      result.stackdriverAddress_ = stackdriverAddress_;
-      if (stackdriverGrpcServiceBuilder_ == null) {
-        result.stackdriverGrpcService_ = stackdriverGrpcService_;
-      } else {
-        result.stackdriverGrpcService_ = stackdriverGrpcServiceBuilder_.build();
-      }
-      result.zipkinExporterEnabled_ = zipkinExporterEnabled_;
-      result.zipkinUrl_ = zipkinUrl_;
-      result.ocagentExporterEnabled_ = ocagentExporterEnabled_;
-      result.ocagentAddress_ = ocagentAddress_;
-      if (ocagentGrpcServiceBuilder_ == null) {
-        result.ocagentGrpcService_ = ocagentGrpcService_;
-      } else {
-        result.ocagentGrpcService_ = ocagentGrpcServiceBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        incomingTraceContext_ = java.util.Collections.unmodifiableList(incomingTraceContext_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.incomingTraceContext_ = incomingTraceContext_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        outgoingTraceContext_ = java.util.Collections.unmodifiableList(outgoingTraceContext_);
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.outgoingTraceContext_ = outgoingTraceContext_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig result) {
+      if (((bitField0_ & 0x00000800) != 0)) {
+        incomingTraceContext_ = java.util.Collections.unmodifiableList(incomingTraceContext_);
+        bitField0_ = (bitField0_ & ~0x00000800);
+      }
+      result.incomingTraceContext_ = incomingTraceContext_;
+      if (((bitField0_ & 0x00001000) != 0)) {
+        outgoingTraceContext_ = java.util.Collections.unmodifiableList(outgoingTraceContext_);
+        bitField0_ = (bitField0_ & ~0x00001000);
+      }
+      result.outgoingTraceContext_ = outgoingTraceContext_;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.traceConfig_ = traceConfigBuilder_ == null
+            ? traceConfig_
+            : traceConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.stdoutExporterEnabled_ = stdoutExporterEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.stackdriverExporterEnabled_ = stackdriverExporterEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.stackdriverProjectId_ = stackdriverProjectId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.stackdriverAddress_ = stackdriverAddress_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.stackdriverGrpcService_ = stackdriverGrpcServiceBuilder_ == null
+            ? stackdriverGrpcService_
+            : stackdriverGrpcServiceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.zipkinExporterEnabled_ = zipkinExporterEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.zipkinUrl_ = zipkinUrl_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.ocagentExporterEnabled_ = ocagentExporterEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.ocagentAddress_ = ocagentAddress_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.ocagentGrpcService_ = ocagentGrpcServiceBuilder_ == null
+            ? ocagentGrpcService_
+            : ocagentGrpcServiceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1488,10 +1326,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStackdriverProjectId().isEmpty()) {
         stackdriverProjectId_ = other.stackdriverProjectId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getStackdriverAddress().isEmpty()) {
         stackdriverAddress_ = other.stackdriverAddress_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasStackdriverGrpcService()) {
@@ -1502,6 +1342,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getZipkinUrl().isEmpty()) {
         zipkinUrl_ = other.zipkinUrl_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.getOcagentExporterEnabled() != false) {
@@ -1509,6 +1350,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOcagentAddress().isEmpty()) {
         ocagentAddress_ = other.ocagentAddress_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasOcagentGrpcService()) {
@@ -1517,7 +1359,7 @@ private static final long serialVersionUID = 0L;
       if (!other.incomingTraceContext_.isEmpty()) {
         if (incomingTraceContext_.isEmpty()) {
           incomingTraceContext_ = other.incomingTraceContext_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000800);
         } else {
           ensureIncomingTraceContextIsMutable();
           incomingTraceContext_.addAll(other.incomingTraceContext_);
@@ -1527,14 +1369,14 @@ private static final long serialVersionUID = 0L;
       if (!other.outgoingTraceContext_.isEmpty()) {
         if (outgoingTraceContext_.isEmpty()) {
           outgoingTraceContext_ = other.outgoingTraceContext_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00001000);
         } else {
           ensureOutgoingTraceContextIsMutable();
           outgoingTraceContext_.addAll(other.outgoingTraceContext_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1549,17 +1391,125 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTraceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              stdoutExporterEnabled_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              stackdriverExporterEnabled_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              stackdriverProjectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              zipkinExporterEnabled_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 40
+            case 50: {
+              zipkinUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 50
+            case 64: {
+              int tmpRaw = input.readEnum();
+              ensureIncomingTraceContextIsMutable();
+              incomingTraceContext_.add(tmpRaw);
+              break;
+            } // case 64
+            case 66: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureIncomingTraceContextIsMutable();
+                incomingTraceContext_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 66
+            case 72: {
+              int tmpRaw = input.readEnum();
+              ensureOutgoingTraceContextIsMutable();
+              outgoingTraceContext_.add(tmpRaw);
+              break;
+            } // case 72
+            case 74: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureOutgoingTraceContextIsMutable();
+                outgoingTraceContext_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 74
+            case 82: {
+              stackdriverAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 82
+            case 88: {
+              ocagentExporterEnabled_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 88
+            case 98: {
+              ocagentAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getStackdriverGrpcServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getOcagentGrpcServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 114
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.trace.v3.OpenCensusConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1576,7 +1526,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the traceConfig field is set.
      */
     public boolean hasTraceConfig() {
-      return traceConfigBuilder_ != null || traceConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1606,11 +1556,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         traceConfig_ = value;
-        onChanged();
       } else {
         traceConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1624,11 +1574,11 @@ private static final long serialVersionUID = 0L;
         io.opencensus.proto.trace.v1.TraceConfig.Builder builderForValue) {
       if (traceConfigBuilder_ == null) {
         traceConfig_ = builderForValue.build();
-        onChanged();
       } else {
         traceConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1640,17 +1590,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTraceConfig(io.opencensus.proto.trace.v1.TraceConfig value) {
       if (traceConfigBuilder_ == null) {
-        if (traceConfig_ != null) {
-          traceConfig_ =
-            io.opencensus.proto.trace.v1.TraceConfig.newBuilder(traceConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          traceConfig_ != null &&
+          traceConfig_ != io.opencensus.proto.trace.v1.TraceConfig.getDefaultInstance()) {
+          getTraceConfigBuilder().mergeFrom(value);
         } else {
           traceConfig_ = value;
         }
-        onChanged();
       } else {
         traceConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1661,14 +1612,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.trace.v1.TraceConfig trace_config = 1;</code>
      */
     public Builder clearTraceConfig() {
-      if (traceConfigBuilder_ == null) {
-        traceConfig_ = null;
-        onChanged();
-      } else {
-        traceConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      traceConfig_ = null;
+      if (traceConfigBuilder_ != null) {
+        traceConfigBuilder_.dispose();
         traceConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1679,7 +1629,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opencensus.proto.trace.v1.TraceConfig trace_config = 1;</code>
      */
     public io.opencensus.proto.trace.v1.TraceConfig.Builder getTraceConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTraceConfigFieldBuilder().getBuilder();
     }
@@ -1746,6 +1696,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStdoutExporterEnabled(boolean value) {
       
       stdoutExporterEnabled_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1759,7 +1710,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStdoutExporterEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       stdoutExporterEnabled_ = false;
       onChanged();
       return this;
@@ -1792,6 +1743,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStackdriverExporterEnabled(boolean value) {
       
       stackdriverExporterEnabled_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1805,7 +1757,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStackdriverExporterEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       stackdriverExporterEnabled_ = false;
       onChanged();
       return this;
@@ -1864,11 +1816,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStackdriverProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       stackdriverProjectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1881,8 +1831,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStackdriverProjectId() {
-      
       stackdriverProjectId_ = getDefaultInstance().getStackdriverProjectId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1897,12 +1847,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStackdriverProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stackdriverProjectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1969,11 +1917,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStackdriverAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       stackdriverAddress_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1989,8 +1935,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStackdriverAddress() {
-      
       stackdriverAddress_ = getDefaultInstance().getStackdriverAddress();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2008,12 +1954,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStackdriverAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stackdriverAddress_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2032,7 +1976,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the stackdriverGrpcService field is set.
      */
     public boolean hasStackdriverGrpcService() {
-      return stackdriverGrpcServiceBuilder_ != null || stackdriverGrpcService_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2066,11 +2010,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stackdriverGrpcService_ = value;
-        onChanged();
       } else {
         stackdriverGrpcServiceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2086,11 +2030,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.GrpcService.Builder builderForValue) {
       if (stackdriverGrpcServiceBuilder_ == null) {
         stackdriverGrpcService_ = builderForValue.build();
-        onChanged();
       } else {
         stackdriverGrpcServiceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2104,17 +2048,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStackdriverGrpcService(io.envoyproxy.envoy.config.core.v3.GrpcService value) {
       if (stackdriverGrpcServiceBuilder_ == null) {
-        if (stackdriverGrpcService_ != null) {
-          stackdriverGrpcService_ =
-            io.envoyproxy.envoy.config.core.v3.GrpcService.newBuilder(stackdriverGrpcService_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          stackdriverGrpcService_ != null &&
+          stackdriverGrpcService_ != io.envoyproxy.envoy.config.core.v3.GrpcService.getDefaultInstance()) {
+          getStackdriverGrpcServiceBuilder().mergeFrom(value);
         } else {
           stackdriverGrpcService_ = value;
         }
-        onChanged();
       } else {
         stackdriverGrpcServiceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2127,14 +2072,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.GrpcService stackdriver_grpc_service = 13;</code>
      */
     public Builder clearStackdriverGrpcService() {
-      if (stackdriverGrpcServiceBuilder_ == null) {
-        stackdriverGrpcService_ = null;
-        onChanged();
-      } else {
-        stackdriverGrpcService_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      stackdriverGrpcService_ = null;
+      if (stackdriverGrpcServiceBuilder_ != null) {
+        stackdriverGrpcServiceBuilder_.dispose();
         stackdriverGrpcServiceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2147,7 +2091,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.GrpcService stackdriver_grpc_service = 13;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.GrpcService.Builder getStackdriverGrpcServiceBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getStackdriverGrpcServiceFieldBuilder().getBuilder();
     }
@@ -2224,6 +2168,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder setZipkinExporterEnabled(boolean value) {
       
       zipkinExporterEnabled_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2240,7 +2185,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearZipkinExporterEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       zipkinExporterEnabled_ = false;
       onChanged();
       return this;
@@ -2311,11 +2256,9 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setZipkinUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       zipkinUrl_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2332,8 +2275,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearZipkinUrl() {
-      
       zipkinUrl_ = getDefaultInstance().getZipkinUrl();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2352,12 +2295,10 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setZipkinUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       zipkinUrl_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2389,6 +2330,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOcagentExporterEnabled(boolean value) {
       
       ocagentExporterEnabled_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2402,7 +2344,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOcagentExporterEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       ocagentExporterEnabled_ = false;
       onChanged();
       return this;
@@ -2467,11 +2409,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOcagentAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       ocagentAddress_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2486,8 +2426,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOcagentAddress() {
-      
       ocagentAddress_ = getDefaultInstance().getOcagentAddress();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2504,12 +2444,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOcagentAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ocagentAddress_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2527,7 +2465,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the ocagentGrpcService field is set.
      */
     public boolean hasOcagentGrpcService() {
-      return ocagentGrpcServiceBuilder_ != null || ocagentGrpcService_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -2559,11 +2497,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ocagentGrpcService_ = value;
-        onChanged();
       } else {
         ocagentGrpcServiceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2578,11 +2516,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.GrpcService.Builder builderForValue) {
       if (ocagentGrpcServiceBuilder_ == null) {
         ocagentGrpcService_ = builderForValue.build();
-        onChanged();
       } else {
         ocagentGrpcServiceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2595,17 +2533,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOcagentGrpcService(io.envoyproxy.envoy.config.core.v3.GrpcService value) {
       if (ocagentGrpcServiceBuilder_ == null) {
-        if (ocagentGrpcService_ != null) {
-          ocagentGrpcService_ =
-            io.envoyproxy.envoy.config.core.v3.GrpcService.newBuilder(ocagentGrpcService_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          ocagentGrpcService_ != null &&
+          ocagentGrpcService_ != io.envoyproxy.envoy.config.core.v3.GrpcService.getDefaultInstance()) {
+          getOcagentGrpcServiceBuilder().mergeFrom(value);
         } else {
           ocagentGrpcService_ = value;
         }
-        onChanged();
       } else {
         ocagentGrpcServiceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2617,14 +2556,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.GrpcService ocagent_grpc_service = 14;</code>
      */
     public Builder clearOcagentGrpcService() {
-      if (ocagentGrpcServiceBuilder_ == null) {
-        ocagentGrpcService_ = null;
-        onChanged();
-      } else {
-        ocagentGrpcService_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      ocagentGrpcService_ = null;
+      if (ocagentGrpcServiceBuilder_ != null) {
+        ocagentGrpcServiceBuilder_.dispose();
         ocagentGrpcServiceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2636,7 +2574,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.GrpcService ocagent_grpc_service = 14;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.GrpcService.Builder getOcagentGrpcServiceBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getOcagentGrpcServiceFieldBuilder().getBuilder();
     }
@@ -2681,9 +2619,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> incomingTraceContext_ =
       java.util.Collections.emptyList();
     private void ensureIncomingTraceContextIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000800) != 0)) {
         incomingTraceContext_ = new java.util.ArrayList<java.lang.Integer>(incomingTraceContext_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000800;
       }
     }
     /**
@@ -2794,7 +2732,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearIncomingTraceContext() {
       incomingTraceContext_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -2881,9 +2819,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> outgoingTraceContext_ =
       java.util.Collections.emptyList();
     private void ensureOutgoingTraceContextIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         outgoingTraceContext_ = new java.util.ArrayList<java.lang.Integer>(outgoingTraceContext_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00001000;
       }
     }
     /**
@@ -2987,7 +2925,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearOutgoingTraceContext() {
       outgoingTraceContext_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -3098,7 +3036,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OpenCensusConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

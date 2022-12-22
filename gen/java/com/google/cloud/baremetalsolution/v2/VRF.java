@@ -37,83 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VRF(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 50: {
-            com.google.cloud.baremetalsolution.v2.VRF.QosPolicy.Builder subBuilder = null;
-            if (qosPolicy_ != null) {
-              subBuilder = qosPolicy_.toBuilder();
-            }
-            qosPolicy_ = input.readMessage(com.google.cloud.baremetalsolution.v2.VRF.QosPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(qosPolicy_);
-              qosPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              vlanAttachments_ = new java.util.ArrayList<com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            vlanAttachments_.add(
-                input.readMessage(com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        vlanAttachments_ = java.util.Collections.unmodifiableList(vlanAttachments_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.baremetalsolution.v2.NetworkProto.internal_static_google_cloud_baremetalsolution_v2_VRF_descriptor;
@@ -317,50 +240,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private QosPolicy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              bandwidthGbps_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.baremetalsolution.v2.NetworkProto.internal_static_google_cloud_baremetalsolution_v2_VRF_QosPolicy_descriptor;
@@ -375,7 +254,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BANDWIDTH_GBPS_FIELD_NUMBER = 1;
-    private double bandwidthGbps_;
+    private double bandwidthGbps_ = 0D;
     /**
      * <pre>
      * The bandwidth permitted by the QOS policy, in gbps.
@@ -406,7 +285,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToRawLongBits(bandwidthGbps_) != 0) {
         output.writeDouble(1, bandwidthGbps_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -419,7 +298,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(1, bandwidthGbps_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -437,7 +316,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToLongBits(getBandwidthGbps())
           != java.lang.Double.doubleToLongBits(
               other.getBandwidthGbps())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -451,7 +330,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BANDWIDTH_GBPS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getBandwidthGbps()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -572,24 +451,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.baremetalsolution.v2.VRF.QosPolicy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         bandwidthGbps_ = 0D;
-
         return this;
       }
 
@@ -616,9 +490,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.baremetalsolution.v2.VRF.QosPolicy buildPartial() {
         com.google.cloud.baremetalsolution.v2.VRF.QosPolicy result = new com.google.cloud.baremetalsolution.v2.VRF.QosPolicy(this);
-        result.bandwidthGbps_ = bandwidthGbps_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.baremetalsolution.v2.VRF.QosPolicy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.bandwidthGbps_ = bandwidthGbps_;
+        }
       }
 
       @java.lang.Override
@@ -668,7 +549,7 @@ private static final long serialVersionUID = 0L;
         if (other.getBandwidthGbps() != 0D) {
           setBandwidthGbps(other.getBandwidthGbps());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -683,19 +564,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.baremetalsolution.v2.VRF.QosPolicy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                bandwidthGbps_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.baremetalsolution.v2.VRF.QosPolicy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double bandwidthGbps_ ;
       /**
@@ -722,6 +622,7 @@ private static final long serialVersionUID = 0L;
       public Builder setBandwidthGbps(double value) {
         
         bandwidthGbps_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -734,7 +635,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearBandwidthGbps() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         bandwidthGbps_ = 0D;
         onChanged();
         return this;
@@ -772,7 +673,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QosPolicy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -879,62 +791,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private VlanAttachment(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              peerVlanId_ = input.readInt64();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              peerIp_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              routerIp_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.baremetalsolution.v2.NetworkProto.internal_static_google_cloud_baremetalsolution_v2_VRF_VlanAttachment_descriptor;
@@ -949,7 +805,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PEER_VLAN_ID_FIELD_NUMBER = 1;
-    private long peerVlanId_;
+    private long peerVlanId_ = 0L;
     /**
      * <pre>
      * The peer vlan ID of the attachment.
@@ -964,7 +820,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PEER_IP_FIELD_NUMBER = 2;
-    private volatile java.lang.Object peerIp_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object peerIp_ = "";
     /**
      * <pre>
      * The peer IP of the attachment.
@@ -1010,7 +867,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ROUTER_IP_FIELD_NUMBER = 3;
-    private volatile java.lang.Object routerIp_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object routerIp_ = "";
     /**
      * <pre>
      * The router IP of the attachment.
@@ -1078,7 +936,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(routerIp_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, routerIp_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1097,7 +955,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(routerIp_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, routerIp_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1118,7 +976,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getPeerIp())) return false;
       if (!getRouterIp()
           .equals(other.getRouterIp())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1136,7 +994,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getPeerIp().hashCode();
       hash = (37 * hash) + ROUTER_IP_FIELD_NUMBER;
       hash = (53 * hash) + getRouterIp().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1257,28 +1115,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         peerVlanId_ = 0L;
-
         peerIp_ = "";
-
         routerIp_ = "";
-
         return this;
       }
 
@@ -1305,11 +1156,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment buildPartial() {
         com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment result = new com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment(this);
-        result.peerVlanId_ = peerVlanId_;
-        result.peerIp_ = peerIp_;
-        result.routerIp_ = routerIp_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.peerVlanId_ = peerVlanId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.peerIp_ = peerIp_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.routerIp_ = routerIp_;
+        }
       }
 
       @java.lang.Override
@@ -1361,13 +1223,15 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getPeerIp().isEmpty()) {
           peerIp_ = other.peerIp_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getRouterIp().isEmpty()) {
           routerIp_ = other.routerIp_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1382,19 +1246,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                peerVlanId_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                peerIp_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                routerIp_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long peerVlanId_ ;
       /**
@@ -1421,6 +1314,7 @@ private static final long serialVersionUID = 0L;
       public Builder setPeerVlanId(long value) {
         
         peerVlanId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1433,7 +1327,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPeerVlanId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         peerVlanId_ = 0L;
         onChanged();
         return this;
@@ -1492,11 +1386,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPeerIp(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         peerIp_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1509,8 +1401,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPeerIp() {
-        
         peerIp_ = getDefaultInstance().getPeerIp();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1525,12 +1417,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPeerIpBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         peerIp_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1588,11 +1478,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setRouterIp(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         routerIp_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1605,8 +1493,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearRouterIp() {
-        
         routerIp_ = getDefaultInstance().getRouterIp();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1621,12 +1509,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setRouterIpBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         routerIp_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1663,7 +1549,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new VlanAttachment(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1684,7 +1581,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the VRF.
@@ -1730,7 +1628,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 5;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * The possible state of VRF.
@@ -1751,8 +1649,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.baremetalsolution.v2.VRF.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.baremetalsolution.v2.VRF.State result = com.google.cloud.baremetalsolution.v2.VRF.State.valueOf(state_);
+    com.google.cloud.baremetalsolution.v2.VRF.State result = com.google.cloud.baremetalsolution.v2.VRF.State.forNumber(state_);
     return result == null ? com.google.cloud.baremetalsolution.v2.VRF.State.UNRECOGNIZED : result;
   }
 
@@ -1791,10 +1688,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.baremetalsolution.v2.VRF.QosPolicyOrBuilder getQosPolicyOrBuilder() {
-    return getQosPolicy();
+    return qosPolicy_ == null ? com.google.cloud.baremetalsolution.v2.VRF.QosPolicy.getDefaultInstance() : qosPolicy_;
   }
 
   public static final int VLAN_ATTACHMENTS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment> vlanAttachments_;
   /**
    * <pre>
@@ -1880,7 +1778,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < vlanAttachments_.size(); i++) {
       output.writeMessage(7, vlanAttachments_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1904,7 +1802,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, vlanAttachments_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1929,7 +1827,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getVlanAttachmentsList()
         .equals(other.getVlanAttachmentsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1952,7 +1850,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VLAN_ATTACHMENTS_FIELD_NUMBER;
       hash = (53 * hash) + getVlanAttachmentsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2073,39 +1971,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.baremetalsolution.v2.VRF.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getVlanAttachmentsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       state_ = 0;
-
-      if (qosPolicyBuilder_ == null) {
-        qosPolicy_ = null;
-      } else {
-        qosPolicy_ = null;
+      qosPolicy_ = null;
+      if (qosPolicyBuilder_ != null) {
+        qosPolicyBuilder_.dispose();
         qosPolicyBuilder_ = null;
       }
       if (vlanAttachmentsBuilder_ == null) {
         vlanAttachments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        vlanAttachments_ = null;
         vlanAttachmentsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -2132,25 +2023,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.baremetalsolution.v2.VRF buildPartial() {
       com.google.cloud.baremetalsolution.v2.VRF result = new com.google.cloud.baremetalsolution.v2.VRF(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.state_ = state_;
-      if (qosPolicyBuilder_ == null) {
-        result.qosPolicy_ = qosPolicy_;
-      } else {
-        result.qosPolicy_ = qosPolicyBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.baremetalsolution.v2.VRF result) {
       if (vlanAttachmentsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           vlanAttachments_ = java.util.Collections.unmodifiableList(vlanAttachments_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.vlanAttachments_ = vlanAttachments_;
       } else {
         result.vlanAttachments_ = vlanAttachmentsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.baremetalsolution.v2.VRF result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.qosPolicy_ = qosPolicyBuilder_ == null
+            ? qosPolicy_
+            : qosPolicyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2199,6 +2102,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.baremetalsolution.v2.VRF.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -2211,7 +2115,7 @@ private static final long serialVersionUID = 0L;
         if (!other.vlanAttachments_.isEmpty()) {
           if (vlanAttachments_.isEmpty()) {
             vlanAttachments_ = other.vlanAttachments_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureVlanAttachmentsIsMutable();
             vlanAttachments_.addAll(other.vlanAttachments_);
@@ -2224,7 +2128,7 @@ private static final long serialVersionUID = 0L;
             vlanAttachmentsBuilder_.dispose();
             vlanAttachmentsBuilder_ = null;
             vlanAttachments_ = other.vlanAttachments_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             vlanAttachmentsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVlanAttachmentsFieldBuilder() : null;
@@ -2233,7 +2137,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2248,17 +2152,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.baremetalsolution.v2.VRF parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 40: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getQosPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            case 58: {
+              com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment m =
+                  input.readMessage(
+                      com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment.parser(),
+                      extensionRegistry);
+              if (vlanAttachmentsBuilder_ == null) {
+                ensureVlanAttachmentsIsMutable();
+                vlanAttachments_.add(m);
+              } else {
+                vlanAttachmentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.baremetalsolution.v2.VRF) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2316,11 +2263,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2333,8 +2278,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2349,12 +2294,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2381,8 +2324,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2396,8 +2339,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.baremetalsolution.v2.VRF.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.baremetalsolution.v2.VRF.State result = com.google.cloud.baremetalsolution.v2.VRF.State.valueOf(state_);
+      com.google.cloud.baremetalsolution.v2.VRF.State result = com.google.cloud.baremetalsolution.v2.VRF.State.forNumber(state_);
       return result == null ? com.google.cloud.baremetalsolution.v2.VRF.State.UNRECOGNIZED : result;
     }
     /**
@@ -2413,7 +2355,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2427,7 +2369,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       state_ = 0;
       onChanged();
       return this;
@@ -2445,7 +2387,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the qosPolicy field is set.
      */
     public boolean hasQosPolicy() {
-      return qosPolicyBuilder_ != null || qosPolicy_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2475,11 +2417,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         qosPolicy_ = value;
-        onChanged();
       } else {
         qosPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2493,11 +2435,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.baremetalsolution.v2.VRF.QosPolicy.Builder builderForValue) {
       if (qosPolicyBuilder_ == null) {
         qosPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         qosPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2509,17 +2451,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQosPolicy(com.google.cloud.baremetalsolution.v2.VRF.QosPolicy value) {
       if (qosPolicyBuilder_ == null) {
-        if (qosPolicy_ != null) {
-          qosPolicy_ =
-            com.google.cloud.baremetalsolution.v2.VRF.QosPolicy.newBuilder(qosPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          qosPolicy_ != null &&
+          qosPolicy_ != com.google.cloud.baremetalsolution.v2.VRF.QosPolicy.getDefaultInstance()) {
+          getQosPolicyBuilder().mergeFrom(value);
         } else {
           qosPolicy_ = value;
         }
-        onChanged();
       } else {
         qosPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2530,14 +2473,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.baremetalsolution.v2.VRF.QosPolicy qos_policy = 6;</code>
      */
     public Builder clearQosPolicy() {
-      if (qosPolicyBuilder_ == null) {
-        qosPolicy_ = null;
-        onChanged();
-      } else {
-        qosPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      qosPolicy_ = null;
+      if (qosPolicyBuilder_ != null) {
+        qosPolicyBuilder_.dispose();
         qosPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2548,7 +2490,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.baremetalsolution.v2.VRF.QosPolicy qos_policy = 6;</code>
      */
     public com.google.cloud.baremetalsolution.v2.VRF.QosPolicy.Builder getQosPolicyBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getQosPolicyFieldBuilder().getBuilder();
     }
@@ -2591,9 +2533,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment> vlanAttachments_ =
       java.util.Collections.emptyList();
     private void ensureVlanAttachmentsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         vlanAttachments_ = new java.util.ArrayList<com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment>(vlanAttachments_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2787,7 +2729,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearVlanAttachments() {
       if (vlanAttachmentsBuilder_ == null) {
         vlanAttachments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         vlanAttachmentsBuilder_.clear();
@@ -2892,7 +2834,7 @@ private static final long serialVersionUID = 0L;
         vlanAttachmentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment, com.google.cloud.baremetalsolution.v2.VRF.VlanAttachment.Builder, com.google.cloud.baremetalsolution.v2.VRF.VlanAttachmentOrBuilder>(
                 vlanAttachments_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         vlanAttachments_ = null;
@@ -2932,7 +2874,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VRF(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

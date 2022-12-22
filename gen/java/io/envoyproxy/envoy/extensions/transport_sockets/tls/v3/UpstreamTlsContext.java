@@ -31,82 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpstreamTlsContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.Builder subBuilder = null;
-            if (commonTlsContext_ != null) {
-              subBuilder = commonTlsContext_.toBuilder();
-            }
-            commonTlsContext_ = input.readMessage(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commonTlsContext_);
-              commonTlsContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sni_ = s;
-            break;
-          }
-          case 24: {
-
-            allowRenegotiation_ = input.readBool();
-            break;
-          }
-          case 34: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (maxSessionKeys_ != null) {
-              subBuilder = maxSessionKeys_.toBuilder();
-            }
-            maxSessionKeys_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxSessionKeys_);
-              maxSessionKeys_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsProto.internal_static_envoy_extensions_transport_sockets_tls_v3_UpstreamTlsContext_descriptor;
@@ -167,11 +91,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContextOrBuilder getCommonTlsContextOrBuilder() {
-    return getCommonTlsContext();
+    return commonTlsContext_ == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.getDefaultInstance() : commonTlsContext_;
   }
 
   public static final int SNI_FIELD_NUMBER = 2;
-  private volatile java.lang.Object sni_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sni_ = "";
   /**
    * <pre>
    * SNI string to use when creating TLS backend connections.
@@ -217,7 +142,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_RENEGOTIATION_FIELD_NUMBER = 3;
-  private boolean allowRenegotiation_;
+  private boolean allowRenegotiation_ = false;
   /**
    * <pre>
    * If true, server-initiated TLS renegotiation will be allowed.
@@ -274,7 +199,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMaxSessionKeysOrBuilder() {
-    return getMaxSessionKeys();
+    return maxSessionKeys_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : maxSessionKeys_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -303,7 +228,7 @@ private static final long serialVersionUID = 0L;
     if (maxSessionKeys_ != null) {
       output.writeMessage(4, getMaxSessionKeys());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -327,7 +252,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getMaxSessionKeys());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -356,7 +281,7 @@ private static final long serialVersionUID = 0L;
       if (!getMaxSessionKeys()
           .equals(other.getMaxSessionKeys())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -380,7 +305,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAX_SESSION_KEYS_FIELD_NUMBER;
       hash = (53 * hash) + getMaxSessionKeys().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -497,36 +422,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (commonTlsContextBuilder_ == null) {
-        commonTlsContext_ = null;
-      } else {
-        commonTlsContext_ = null;
+      bitField0_ = 0;
+      commonTlsContext_ = null;
+      if (commonTlsContextBuilder_ != null) {
+        commonTlsContextBuilder_.dispose();
         commonTlsContextBuilder_ = null;
       }
       sni_ = "";
-
       allowRenegotiation_ = false;
-
-      if (maxSessionKeysBuilder_ == null) {
-        maxSessionKeys_ = null;
-      } else {
-        maxSessionKeys_ = null;
+      maxSessionKeys_ = null;
+      if (maxSessionKeysBuilder_ != null) {
+        maxSessionKeysBuilder_.dispose();
         maxSessionKeysBuilder_ = null;
       }
       return this;
@@ -555,20 +472,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext buildPartial() {
       io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext result = new io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext(this);
-      if (commonTlsContextBuilder_ == null) {
-        result.commonTlsContext_ = commonTlsContext_;
-      } else {
-        result.commonTlsContext_ = commonTlsContextBuilder_.build();
-      }
-      result.sni_ = sni_;
-      result.allowRenegotiation_ = allowRenegotiation_;
-      if (maxSessionKeysBuilder_ == null) {
-        result.maxSessionKeys_ = maxSessionKeys_;
-      } else {
-        result.maxSessionKeys_ = maxSessionKeysBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.commonTlsContext_ = commonTlsContextBuilder_ == null
+            ? commonTlsContext_
+            : commonTlsContextBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sni_ = sni_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.allowRenegotiation_ = allowRenegotiation_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.maxSessionKeys_ = maxSessionKeysBuilder_ == null
+            ? maxSessionKeys_
+            : maxSessionKeysBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -620,6 +546,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSni().isEmpty()) {
         sni_ = other.sni_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getAllowRenegotiation() != false) {
@@ -628,7 +555,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMaxSessionKeys()) {
         mergeMaxSessionKeys(other.getMaxSessionKeys());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -643,19 +570,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCommonTlsContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              sni_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              allowRenegotiation_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getMaxSessionKeysFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext commonTlsContext_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -673,7 +638,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commonTlsContext field is set.
      */
     public boolean hasCommonTlsContext() {
-      return commonTlsContextBuilder_ != null || commonTlsContext_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -711,11 +676,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commonTlsContext_ = value;
-        onChanged();
       } else {
         commonTlsContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -733,11 +698,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.Builder builderForValue) {
       if (commonTlsContextBuilder_ == null) {
         commonTlsContext_ = builderForValue.build();
-        onChanged();
       } else {
         commonTlsContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -753,17 +718,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommonTlsContext(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext value) {
       if (commonTlsContextBuilder_ == null) {
-        if (commonTlsContext_ != null) {
-          commonTlsContext_ =
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.newBuilder(commonTlsContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          commonTlsContext_ != null &&
+          commonTlsContext_ != io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.getDefaultInstance()) {
+          getCommonTlsContextBuilder().mergeFrom(value);
         } else {
           commonTlsContext_ = value;
         }
-        onChanged();
       } else {
         commonTlsContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -778,14 +744,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext common_tls_context = 1;</code>
      */
     public Builder clearCommonTlsContext() {
-      if (commonTlsContextBuilder_ == null) {
-        commonTlsContext_ = null;
-        onChanged();
-      } else {
-        commonTlsContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      commonTlsContext_ = null;
+      if (commonTlsContextBuilder_ != null) {
+        commonTlsContextBuilder_.dispose();
         commonTlsContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -800,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext common_tls_context = 1;</code>
      */
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonTlsContext.Builder getCommonTlsContextBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCommonTlsContextFieldBuilder().getBuilder();
     }
@@ -901,11 +866,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSni(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sni_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -918,8 +881,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSni() {
-      
       sni_ = getDefaultInstance().getSni();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -934,12 +897,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSniBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sni_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -973,6 +934,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowRenegotiation(boolean value) {
       
       allowRenegotiation_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -987,7 +949,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowRenegotiation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       allowRenegotiation_ = false;
       onChanged();
       return this;
@@ -1007,7 +969,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxSessionKeys field is set.
      */
     public boolean hasMaxSessionKeys() {
-      return maxSessionKeysBuilder_ != null || maxSessionKeys_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1041,11 +1003,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxSessionKeys_ = value;
-        onChanged();
       } else {
         maxSessionKeysBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1061,11 +1023,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (maxSessionKeysBuilder_ == null) {
         maxSessionKeys_ = builderForValue.build();
-        onChanged();
       } else {
         maxSessionKeysBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1079,17 +1041,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxSessionKeys(com.google.protobuf.UInt32Value value) {
       if (maxSessionKeysBuilder_ == null) {
-        if (maxSessionKeys_ != null) {
-          maxSessionKeys_ =
-            com.google.protobuf.UInt32Value.newBuilder(maxSessionKeys_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          maxSessionKeys_ != null &&
+          maxSessionKeys_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMaxSessionKeysBuilder().mergeFrom(value);
         } else {
           maxSessionKeys_ = value;
         }
-        onChanged();
       } else {
         maxSessionKeysBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1102,14 +1065,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_session_keys = 4;</code>
      */
     public Builder clearMaxSessionKeys() {
-      if (maxSessionKeysBuilder_ == null) {
-        maxSessionKeys_ = null;
-        onChanged();
-      } else {
-        maxSessionKeys_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      maxSessionKeys_ = null;
+      if (maxSessionKeysBuilder_ != null) {
+        maxSessionKeysBuilder_.dispose();
         maxSessionKeysBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1122,7 +1084,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_session_keys = 4;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMaxSessionKeysBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getMaxSessionKeysFieldBuilder().getBuilder();
     }
@@ -1198,7 +1160,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpstreamTlsContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

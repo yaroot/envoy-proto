@@ -154,6 +154,25 @@ public interface AttachedDiskOrBuilder extends
 
   /**
    * <pre>
+   * [Input Only] Whether to force attach the regional disk even if it's currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error.
+   * </pre>
+   *
+   * <code>optional bool force_attach = 142758425;</code>
+   * @return Whether the forceAttach field is set.
+   */
+  boolean hasForceAttach();
+  /**
+   * <pre>
+   * [Input Only] Whether to force attach the regional disk even if it's currently attached to another instance. If you try to force attach a zonal disk to an instance, you will receive an error.
+   * </pre>
+   *
+   * <code>optional bool force_attach = 142758425;</code>
+   * @return The forceAttach.
+   */
+  boolean getForceAttach();
+
+  /**
+   * <pre>
    * A list of features to enable on the guest operating system. Applicable only for bootable images. Read Enabling guest operating system features to see a list of available options.
    * </pre>
    *
@@ -244,7 +263,7 @@ public interface AttachedDiskOrBuilder extends
 
   /**
    * <pre>
-   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
    * Check the Interface enum for the list of possible values.
    * </pre>
    *
@@ -254,7 +273,7 @@ public interface AttachedDiskOrBuilder extends
   boolean hasInterface();
   /**
    * <pre>
-   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
    * Check the Interface enum for the list of possible values.
    * </pre>
    *
@@ -264,7 +283,7 @@ public interface AttachedDiskOrBuilder extends
   java.lang.String getInterface();
   /**
    * <pre>
-   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and the request will fail if you attempt to attach a persistent disk in any other format than SCSI. Local SSDs can use either NVME or SCSI. For performance characteristics of SCSI over NVMe, see Local SSD performance.
+   * Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. For most machine types, the default is SCSI. Local SSDs can use either NVME or SCSI. In certain configurations, persistent disks can use NVMe. For more information, see About persistent disks.
    * Check the Interface enum for the list of possible values.
    * </pre>
    *

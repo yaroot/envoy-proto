@@ -39,64 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DistributionCut(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            distributionFilter_ = s;
-            break;
-          }
-          case 42: {
-            com.google.monitoring.v3.Range.Builder subBuilder = null;
-            if (range_ != null) {
-              subBuilder = range_.toBuilder();
-            }
-            range_ = input.readMessage(com.google.monitoring.v3.Range.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(range_);
-              range_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.v3.ServiceMonitoringProto.internal_static_google_monitoring_v3_DistributionCut_descriptor;
@@ -111,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISTRIBUTION_FILTER_FIELD_NUMBER = 4;
-  private volatile java.lang.Object distributionFilter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object distributionFilter_ = "";
   /**
    * <pre>
    * A [monitoring filter](https://cloud.google.com/monitoring/api/v3/filters)
@@ -198,7 +141,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.v3.RangeOrBuilder getRangeOrBuilder() {
-    return getRange();
+    return range_ == null ? com.google.monitoring.v3.Range.getDefaultInstance() : range_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -221,7 +164,7 @@ private static final long serialVersionUID = 0L;
     if (range_ != null) {
       output.writeMessage(5, getRange());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -237,7 +180,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getRange());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -259,7 +202,7 @@ private static final long serialVersionUID = 0L;
       if (!getRange()
           .equals(other.getRange())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -276,7 +219,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RANGE_FIELD_NUMBER;
       hash = (53 * hash) + getRange().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -401,28 +344,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.v3.DistributionCut.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       distributionFilter_ = "";
-
-      if (rangeBuilder_ == null) {
-        range_ = null;
-      } else {
-        range_ = null;
+      range_ = null;
+      if (rangeBuilder_ != null) {
+        rangeBuilder_.dispose();
         rangeBuilder_ = null;
       }
       return this;
@@ -451,14 +388,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.v3.DistributionCut buildPartial() {
       com.google.monitoring.v3.DistributionCut result = new com.google.monitoring.v3.DistributionCut(this);
-      result.distributionFilter_ = distributionFilter_;
-      if (rangeBuilder_ == null) {
-        result.range_ = range_;
-      } else {
-        result.range_ = rangeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.v3.DistributionCut result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.distributionFilter_ = distributionFilter_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.range_ = rangeBuilder_ == null
+            ? range_
+            : rangeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -507,12 +451,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.v3.DistributionCut.getDefaultInstance()) return this;
       if (!other.getDistributionFilter().isEmpty()) {
         distributionFilter_ = other.distributionFilter_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasRange()) {
         mergeRange(other.getRange());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -527,19 +472,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.v3.DistributionCut parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              distributionFilter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.v3.DistributionCut) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object distributionFilter_ = "";
     /**
@@ -600,11 +571,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDistributionFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       distributionFilter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -619,8 +588,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDistributionFilter() {
-      
       distributionFilter_ = getDefaultInstance().getDistributionFilter();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -637,12 +606,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDistributionFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       distributionFilter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -660,7 +627,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the range field is set.
      */
     public boolean hasRange() {
-      return rangeBuilder_ != null || range_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -692,11 +659,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         range_ = value;
-        onChanged();
       } else {
         rangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -711,11 +678,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.v3.Range.Builder builderForValue) {
       if (rangeBuilder_ == null) {
         range_ = builderForValue.build();
-        onChanged();
       } else {
         rangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -728,17 +695,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRange(com.google.monitoring.v3.Range value) {
       if (rangeBuilder_ == null) {
-        if (range_ != null) {
-          range_ =
-            com.google.monitoring.v3.Range.newBuilder(range_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          range_ != null &&
+          range_ != com.google.monitoring.v3.Range.getDefaultInstance()) {
+          getRangeBuilder().mergeFrom(value);
         } else {
           range_ = value;
         }
-        onChanged();
       } else {
         rangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -750,14 +718,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.Range range = 5;</code>
      */
     public Builder clearRange() {
-      if (rangeBuilder_ == null) {
-        range_ = null;
-        onChanged();
-      } else {
-        range_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      range_ = null;
+      if (rangeBuilder_ != null) {
+        rangeBuilder_.dispose();
         rangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -769,7 +736,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.Range range = 5;</code>
      */
     public com.google.monitoring.v3.Range.Builder getRangeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRangeFieldBuilder().getBuilder();
     }
@@ -843,7 +810,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DistributionCut(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

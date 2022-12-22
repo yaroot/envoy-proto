@@ -40,225 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PipelineJob(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (startTime_ != null) {
-              subBuilder = startTime_.toBuilder();
-            }
-            startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startTime_);
-              startTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (endTime_ != null) {
-              subBuilder = endTime_.toBuilder();
-            }
-            endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endTime_);
-              endTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (pipelineSpec_ != null) {
-              subBuilder = pipelineSpec_.toBuilder();
-            }
-            pipelineSpec_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pipelineSpec_);
-              pipelineSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 74: {
-            com.google.cloud.aiplatform.v1.PipelineJobDetail.Builder subBuilder = null;
-            if (jobDetail_ != null) {
-              subBuilder = jobDetail_.toBuilder();
-            }
-            jobDetail_ = input.readMessage(com.google.cloud.aiplatform.v1.PipelineJobDetail.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobDetail_);
-              jobDetail_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (error_ != null) {
-              subBuilder = error_.toBuilder();
-            }
-            error_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(error_);
-              error_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 98: {
-            com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.Builder subBuilder = null;
-            if (runtimeConfig_ != null) {
-              subBuilder = runtimeConfig_.toBuilder();
-            }
-            runtimeConfig_ = input.readMessage(com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(runtimeConfig_);
-              runtimeConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.cloud.aiplatform.v1.EncryptionSpec.Builder subBuilder = null;
-            if (encryptionSpec_ != null) {
-              subBuilder = encryptionSpec_.toBuilder();
-            }
-            encryptionSpec_ = input.readMessage(com.google.cloud.aiplatform.v1.EncryptionSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(encryptionSpec_);
-              encryptionSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccount_ = s;
-            break;
-          }
-          case 146: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            network_ = s;
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            templateUri_ = s;
-            break;
-          }
-          case 162: {
-            com.google.cloud.aiplatform.v1.PipelineTemplateMetadata.Builder subBuilder = null;
-            if (templateMetadata_ != null) {
-              subBuilder = templateMetadata_.toBuilder();
-            }
-            templateMetadata_ = input.readMessage(com.google.cloud.aiplatform.v1.PipelineTemplateMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(templateMetadata_);
-              templateMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineJob_descriptor;
@@ -347,8 +128,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    /* nullable */
+    @java.lang.Deprecated /* nullable */
 com.google.cloud.aiplatform.v1.Value getParametersOrDefault(
         java.lang.String key,
         /* nullable */
@@ -365,8 +145,7 @@ com.google.cloud.aiplatform.v1.Value defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    com.google.cloud.aiplatform.v1.Value getParametersOrThrow(
+    @java.lang.Deprecated com.google.cloud.aiplatform.v1.Value getParametersOrThrow(
         java.lang.String key);
 
     /**
@@ -456,7 +235,6 @@ com.google.cloud.aiplatform.v1.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
      */
-
     /* nullable */
 com.google.protobuf.Value getParameterValuesOrDefault(
         java.lang.String key,
@@ -473,7 +251,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
      */
-
     com.google.protobuf.Value getParameterValuesOrThrow(
         java.lang.String key);
 
@@ -505,6 +282,65 @@ com.google.protobuf.Value defaultValue);
      * @return The failurePolicy.
      */
     com.google.cloud.aiplatform.v1.PipelineFailurePolicy getFailurePolicy();
+
+    /**
+     * <pre>
+     * The runtime artifacts of the PipelineJob. The key will be the input
+     * artifact name and the value would be one of the InputArtifact.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+     */
+    int getInputArtifactsCount();
+    /**
+     * <pre>
+     * The runtime artifacts of the PipelineJob. The key will be the input
+     * artifact name and the value would be one of the InputArtifact.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+     */
+    boolean containsInputArtifacts(
+        java.lang.String key);
+    /**
+     * Use {@link #getInputArtifactsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact>
+    getInputArtifacts();
+    /**
+     * <pre>
+     * The runtime artifacts of the PipelineJob. The key will be the input
+     * artifact name and the value would be one of the InputArtifact.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+     */
+    java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact>
+    getInputArtifactsMap();
+    /**
+     * <pre>
+     * The runtime artifacts of the PipelineJob. The key will be the input
+     * artifact name and the value would be one of the InputArtifact.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+     */
+    /* nullable */
+com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact getInputArtifactsOrDefault(
+        java.lang.String key,
+        /* nullable */
+com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact defaultValue);
+    /**
+     * <pre>
+     * The runtime artifacts of the PipelineJob. The key will be the input
+     * artifact name and the value would be one of the InputArtifact.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+     */
+    com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact getInputArtifactsOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -539,84 +375,6 @@ com.google.protobuf.Value defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RuntimeConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                parameters_ = com.google.protobuf.MapField.newMapField(
-                    ParametersDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.Value>
-              parameters__ = input.readMessage(
-                  ParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              parameters_.getMutableMap().put(
-                  parameters__.getKey(), parameters__.getValue());
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              gcsOutputDirectory_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                parameterValues_ = com.google.protobuf.MapField.newMapField(
-                    ParameterValuesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
-              parameterValues__ = input.readMessage(
-                  ParameterValuesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              parameterValues_.getMutableMap().put(
-                  parameterValues__.getKey(), parameterValues__.getValue());
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              failurePolicy_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineJob_RuntimeConfig_descriptor;
@@ -631,6 +389,8 @@ com.google.protobuf.Value defaultValue);
           return internalGetParameters();
         case 3:
           return internalGetParameterValues();
+        case 5:
+          return internalGetInputArtifacts();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -642,6 +402,783 @@ com.google.protobuf.Value defaultValue);
       return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineJob_RuntimeConfig_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.class, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.Builder.class);
+    }
+
+    public interface InputArtifactOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <pre>
+       * Artifact resource id from MLMD. Which is the last portion of an
+       * artifact resource name:
+       * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+       * The artifact must stay within the same project, location and default
+       * metadatastore as the pipeline.
+       * </pre>
+       *
+       * <code>string artifact_id = 1;</code>
+       * @return Whether the artifactId field is set.
+       */
+      boolean hasArtifactId();
+      /**
+       * <pre>
+       * Artifact resource id from MLMD. Which is the last portion of an
+       * artifact resource name:
+       * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+       * The artifact must stay within the same project, location and default
+       * metadatastore as the pipeline.
+       * </pre>
+       *
+       * <code>string artifact_id = 1;</code>
+       * @return The artifactId.
+       */
+      java.lang.String getArtifactId();
+      /**
+       * <pre>
+       * Artifact resource id from MLMD. Which is the last portion of an
+       * artifact resource name:
+       * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+       * The artifact must stay within the same project, location and default
+       * metadatastore as the pipeline.
+       * </pre>
+       *
+       * <code>string artifact_id = 1;</code>
+       * @return The bytes for artifactId.
+       */
+      com.google.protobuf.ByteString
+          getArtifactIdBytes();
+
+      public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact.KindCase getKindCase();
+    }
+    /**
+     * <pre>
+     * The type of an input artifact.
+     * </pre>
+     *
+     * Protobuf type {@code google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact}
+     */
+    public static final class InputArtifact extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact)
+        InputArtifactOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use InputArtifact.newBuilder() to construct.
+      private InputArtifact(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private InputArtifact() {
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new InputArtifact();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineJob_RuntimeConfig_InputArtifact_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineJob_RuntimeConfig_InputArtifact_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact.class, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact.Builder.class);
+      }
+
+      private int kindCase_ = 0;
+      private java.lang.Object kind_;
+      public enum KindCase
+          implements com.google.protobuf.Internal.EnumLite,
+              com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+        ARTIFACT_ID(1),
+        KIND_NOT_SET(0);
+        private final int value;
+        private KindCase(int value) {
+          this.value = value;
+        }
+        /**
+         * @param value The number of the enum to look for.
+         * @return The enum associated with the given number.
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
+        public static KindCase valueOf(int value) {
+          return forNumber(value);
+        }
+
+        public static KindCase forNumber(int value) {
+          switch (value) {
+            case 1: return ARTIFACT_ID;
+            case 0: return KIND_NOT_SET;
+            default: return null;
+          }
+        }
+        public int getNumber() {
+          return this.value;
+        }
+      };
+
+      public KindCase
+      getKindCase() {
+        return KindCase.forNumber(
+            kindCase_);
+      }
+
+      public static final int ARTIFACT_ID_FIELD_NUMBER = 1;
+      /**
+       * <pre>
+       * Artifact resource id from MLMD. Which is the last portion of an
+       * artifact resource name:
+       * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+       * The artifact must stay within the same project, location and default
+       * metadatastore as the pipeline.
+       * </pre>
+       *
+       * <code>string artifact_id = 1;</code>
+       * @return Whether the artifactId field is set.
+       */
+      public boolean hasArtifactId() {
+        return kindCase_ == 1;
+      }
+      /**
+       * <pre>
+       * Artifact resource id from MLMD. Which is the last portion of an
+       * artifact resource name:
+       * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+       * The artifact must stay within the same project, location and default
+       * metadatastore as the pipeline.
+       * </pre>
+       *
+       * <code>string artifact_id = 1;</code>
+       * @return The artifactId.
+       */
+      public java.lang.String getArtifactId() {
+        java.lang.Object ref = "";
+        if (kindCase_ == 1) {
+          ref = kind_;
+        }
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (kindCase_ == 1) {
+            kind_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       * Artifact resource id from MLMD. Which is the last portion of an
+       * artifact resource name:
+       * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+       * The artifact must stay within the same project, location and default
+       * metadatastore as the pipeline.
+       * </pre>
+       *
+       * <code>string artifact_id = 1;</code>
+       * @return The bytes for artifactId.
+       */
+      public com.google.protobuf.ByteString
+          getArtifactIdBytes() {
+        java.lang.Object ref = "";
+        if (kindCase_ == 1) {
+          ref = kind_;
+        }
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          if (kindCase_ == 1) {
+            kind_ = b;
+          }
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (kindCase_ == 1) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, kind_);
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (kindCase_ == 1) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, kind_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact)) {
+          return super.equals(obj);
+        }
+        com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact other = (com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact) obj;
+
+        if (!getKindCase().equals(other.getKindCase())) return false;
+        switch (kindCase_) {
+          case 1:
+            if (!getArtifactId()
+                .equals(other.getArtifactId())) return false;
+            break;
+          case 0:
+          default:
+        }
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        switch (kindCase_) {
+          case 1:
+            hash = (37 * hash) + ARTIFACT_ID_FIELD_NUMBER;
+            hash = (53 * hash) + getArtifactId().hashCode();
+            break;
+          case 0:
+          default:
+        }
+        hash = (29 * hash) + getUnknownFields().hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * <pre>
+       * The type of an input artifact.
+       * </pre>
+       *
+       * Protobuf type {@code google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact)
+          com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifactOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineJob_RuntimeConfig_InputArtifact_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineJob_RuntimeConfig_InputArtifact_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact.class, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact.Builder.class);
+        }
+
+        // Construct using com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact.newBuilder()
+        private Builder() {
+
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          bitField0_ = 0;
+          kindCase_ = 0;
+          kind_ = null;
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineJob_RuntimeConfig_InputArtifact_descriptor;
+        }
+
+        @java.lang.Override
+        public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact getDefaultInstanceForType() {
+          return com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact build() {
+          com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact buildPartial() {
+          com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact result = new com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact result) {
+          int from_bitField0_ = bitField0_;
+        }
+
+        private void buildPartialOneofs(com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact result) {
+          result.kindCase_ = kindCase_;
+          result.kind_ = this.kind_;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact) {
+            return mergeFrom((com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact other) {
+          if (other == com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact.getDefaultInstance()) return this;
+          switch (other.getKindCase()) {
+            case ARTIFACT_ID: {
+              kindCase_ = 1;
+              kind_ = other.kind_;
+              onChanged();
+              break;
+            }
+            case KIND_NOT_SET: {
+              break;
+            }
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  kindCase_ = 1;
+                  kind_ = s;
+                  break;
+                } // case 10
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.unwrapIOException();
+          } finally {
+            onChanged();
+          } // finally
+          return this;
+        }
+        private int kindCase_ = 0;
+        private java.lang.Object kind_;
+        public KindCase
+            getKindCase() {
+          return KindCase.forNumber(
+              kindCase_);
+        }
+
+        public Builder clearKind() {
+          kindCase_ = 0;
+          kind_ = null;
+          onChanged();
+          return this;
+        }
+
+        private int bitField0_;
+
+        /**
+         * <pre>
+         * Artifact resource id from MLMD. Which is the last portion of an
+         * artifact resource name:
+         * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+         * The artifact must stay within the same project, location and default
+         * metadatastore as the pipeline.
+         * </pre>
+         *
+         * <code>string artifact_id = 1;</code>
+         * @return Whether the artifactId field is set.
+         */
+        @java.lang.Override
+        public boolean hasArtifactId() {
+          return kindCase_ == 1;
+        }
+        /**
+         * <pre>
+         * Artifact resource id from MLMD. Which is the last portion of an
+         * artifact resource name:
+         * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+         * The artifact must stay within the same project, location and default
+         * metadatastore as the pipeline.
+         * </pre>
+         *
+         * <code>string artifact_id = 1;</code>
+         * @return The artifactId.
+         */
+        @java.lang.Override
+        public java.lang.String getArtifactId() {
+          java.lang.Object ref = "";
+          if (kindCase_ == 1) {
+            ref = kind_;
+          }
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (kindCase_ == 1) {
+              kind_ = s;
+            }
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         * Artifact resource id from MLMD. Which is the last portion of an
+         * artifact resource name:
+         * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+         * The artifact must stay within the same project, location and default
+         * metadatastore as the pipeline.
+         * </pre>
+         *
+         * <code>string artifact_id = 1;</code>
+         * @return The bytes for artifactId.
+         */
+        @java.lang.Override
+        public com.google.protobuf.ByteString
+            getArtifactIdBytes() {
+          java.lang.Object ref = "";
+          if (kindCase_ == 1) {
+            ref = kind_;
+          }
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            if (kindCase_ == 1) {
+              kind_ = b;
+            }
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         * Artifact resource id from MLMD. Which is the last portion of an
+         * artifact resource name:
+         * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+         * The artifact must stay within the same project, location and default
+         * metadatastore as the pipeline.
+         * </pre>
+         *
+         * <code>string artifact_id = 1;</code>
+         * @param value The artifactId to set.
+         * @return This builder for chaining.
+         */
+        public Builder setArtifactId(
+            java.lang.String value) {
+          if (value == null) { throw new NullPointerException(); }
+          kindCase_ = 1;
+          kind_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * Artifact resource id from MLMD. Which is the last portion of an
+         * artifact resource name:
+         * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+         * The artifact must stay within the same project, location and default
+         * metadatastore as the pipeline.
+         * </pre>
+         *
+         * <code>string artifact_id = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearArtifactId() {
+          if (kindCase_ == 1) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         * Artifact resource id from MLMD. Which is the last portion of an
+         * artifact resource name:
+         * `projects/{project}/locations/{location}/metadataStores/default/artifacts/{artifact_id}`.
+         * The artifact must stay within the same project, location and default
+         * metadatastore as the pipeline.
+         * </pre>
+         *
+         * <code>string artifact_id = 1;</code>
+         * @param value The bytes for artifactId to set.
+         * @return This builder for chaining.
+         */
+        public Builder setArtifactIdBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
+          kindCase_ = 1;
+          kind_ = value;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact)
+      }
+
+      // @@protoc_insertion_point(class_scope:google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact)
+      private static final com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact();
+      }
+
+      public static com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<InputArtifact>
+          PARSER = new com.google.protobuf.AbstractParser<InputArtifact>() {
+        @java.lang.Override
+        public InputArtifact parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
+        }
+      };
+
+      public static com.google.protobuf.Parser<InputArtifact> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<InputArtifact> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     public static final int PARAMETERS_FIELD_NUMBER = 1;
@@ -656,6 +1193,7 @@ com.google.protobuf.Value defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.aiplatform.v1.Value.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.aiplatform.v1.Value> parameters_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.Value>
@@ -666,8 +1204,7 @@ com.google.protobuf.Value defaultValue);
       }
       return parameters_;
     }
-    @java.lang.Deprecated 
-    public int getParametersCount() {
+    @java.lang.Deprecated public int getParametersCount() {
       return internalGetParameters().getMap().size();
     }
     /**
@@ -682,9 +1219,8 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
     @java.lang.Override
-    public boolean containsParameters(
+    @java.lang.Deprecated public boolean containsParameters(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       return internalGetParameters().getMap().containsKey(key);
@@ -710,8 +1246,7 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value> getParametersMap() {
+    @java.lang.Deprecated public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value> getParametersMap() {
       return internalGetParameters().getMap();
     }
     /**
@@ -727,10 +1262,11 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public com.google.cloud.aiplatform.v1.Value getParametersOrDefault(
+    @java.lang.Deprecated public /* nullable */
+com.google.cloud.aiplatform.v1.Value getParametersOrDefault(
         java.lang.String key,
-        com.google.cloud.aiplatform.v1.Value defaultValue) {
+        /* nullable */
+com.google.cloud.aiplatform.v1.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value> map =
           internalGetParameters().getMap();
@@ -749,8 +1285,7 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public com.google.cloud.aiplatform.v1.Value getParametersOrThrow(
+    @java.lang.Deprecated public com.google.cloud.aiplatform.v1.Value getParametersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value> map =
@@ -762,7 +1297,8 @@ com.google.protobuf.Value defaultValue);
     }
 
     public static final int GCS_OUTPUT_DIRECTORY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object gcsOutputDirectory_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object gcsOutputDirectory_ = "";
     /**
      * <pre>
      * Required. A path in a Cloud Storage bucket, which will be treated as the root
@@ -831,6 +1367,7 @@ com.google.protobuf.Value defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protobuf.Value.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Value> parameterValues_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
@@ -841,7 +1378,6 @@ com.google.protobuf.Value defaultValue);
       }
       return parameterValues_;
     }
-
     public int getParameterValuesCount() {
       return internalGetParameterValues().getMap().size();
     }
@@ -856,7 +1392,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsParameterValues(
         java.lang.String key) {
@@ -883,7 +1418,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Value> getParameterValuesMap() {
       return internalGetParameterValues().getMap();
     }
@@ -899,10 +1433,11 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Value getParameterValuesOrDefault(
+    public /* nullable */
+com.google.protobuf.Value getParameterValuesOrDefault(
         java.lang.String key,
-        com.google.protobuf.Value defaultValue) {
+        /* nullable */
+com.google.protobuf.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Value> map =
           internalGetParameterValues().getMap();
@@ -920,7 +1455,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Value getParameterValuesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -933,7 +1467,7 @@ com.google.protobuf.Value defaultValue);
     }
 
     public static final int FAILURE_POLICY_FIELD_NUMBER = 4;
-    private int failurePolicy_;
+    private int failurePolicy_ = 0;
     /**
      * <pre>
      * Represents the failure policy of a pipeline. Currently, the default of a
@@ -964,9 +1498,107 @@ com.google.protobuf.Value defaultValue);
      * @return The failurePolicy.
      */
     @java.lang.Override public com.google.cloud.aiplatform.v1.PipelineFailurePolicy getFailurePolicy() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.aiplatform.v1.PipelineFailurePolicy result = com.google.cloud.aiplatform.v1.PipelineFailurePolicy.valueOf(failurePolicy_);
+      com.google.cloud.aiplatform.v1.PipelineFailurePolicy result = com.google.cloud.aiplatform.v1.PipelineFailurePolicy.forNumber(failurePolicy_);
       return result == null ? com.google.cloud.aiplatform.v1.PipelineFailurePolicy.UNRECOGNIZED : result;
+    }
+
+    public static final int INPUT_ARTIFACTS_FIELD_NUMBER = 5;
+    private static final class InputArtifactsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact>newDefaultInstance(
+                  com.google.cloud.aiplatform.v1.Pipeline.internal_static_google_cloud_aiplatform_v1_PipelineJob_RuntimeConfig_InputArtifactsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact.getDefaultInstance());
+    }
+    @SuppressWarnings("serial")
+    private com.google.protobuf.MapField<
+        java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> inputArtifacts_;
+    private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact>
+    internalGetInputArtifacts() {
+      if (inputArtifacts_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            InputArtifactsDefaultEntryHolder.defaultEntry);
+      }
+      return inputArtifacts_;
+    }
+    public int getInputArtifactsCount() {
+      return internalGetInputArtifacts().getMap().size();
+    }
+    /**
+     * <pre>
+     * The runtime artifacts of the PipelineJob. The key will be the input
+     * artifact name and the value would be one of the InputArtifact.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+     */
+    @java.lang.Override
+    public boolean containsInputArtifacts(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetInputArtifacts().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getInputArtifactsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> getInputArtifacts() {
+      return getInputArtifactsMap();
+    }
+    /**
+     * <pre>
+     * The runtime artifacts of the PipelineJob. The key will be the input
+     * artifact name and the value would be one of the InputArtifact.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> getInputArtifactsMap() {
+      return internalGetInputArtifacts().getMap();
+    }
+    /**
+     * <pre>
+     * The runtime artifacts of the PipelineJob. The key will be the input
+     * artifact name and the value would be one of the InputArtifact.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact getInputArtifactsOrDefault(
+        java.lang.String key,
+        /* nullable */
+com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> map =
+          internalGetInputArtifacts().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * The runtime artifacts of the PipelineJob. The key will be the input
+     * artifact name and the value would be one of the InputArtifact.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact getInputArtifactsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> map =
+          internalGetInputArtifacts().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1001,7 +1633,13 @@ com.google.protobuf.Value defaultValue);
       if (failurePolicy_ != com.google.cloud.aiplatform.v1.PipelineFailurePolicy.PIPELINE_FAILURE_POLICY_UNSPECIFIED.getNumber()) {
         output.writeEnum(4, failurePolicy_);
       }
-      unknownFields.writeTo(output);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetInputArtifacts(),
+          InputArtifactsDefaultEntryHolder.defaultEntry,
+          5);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1037,7 +1675,17 @@ com.google.protobuf.Value defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, failurePolicy_);
       }
-      size += unknownFields.getSerializedSize();
+      for (java.util.Map.Entry<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> entry
+           : internalGetInputArtifacts().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact>
+        inputArtifacts__ = InputArtifactsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, inputArtifacts__);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1059,7 +1707,9 @@ com.google.protobuf.Value defaultValue);
       if (!internalGetParameterValues().equals(
           other.internalGetParameterValues())) return false;
       if (failurePolicy_ != other.failurePolicy_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!internalGetInputArtifacts().equals(
+          other.internalGetInputArtifacts())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1082,7 +1732,11 @@ com.google.protobuf.Value defaultValue);
       }
       hash = (37 * hash) + FAILURE_POLICY_FIELD_NUMBER;
       hash = (53 * hash) + failurePolicy_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (!internalGetInputArtifacts().getMap().isEmpty()) {
+        hash = (37 * hash) + INPUT_ARTIFACTS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetInputArtifacts().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1201,6 +1855,8 @@ com.google.protobuf.Value defaultValue);
             return internalGetParameters();
           case 3:
             return internalGetParameterValues();
+          case 5:
+            return internalGetInputArtifacts();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -1214,6 +1870,8 @@ com.google.protobuf.Value defaultValue);
             return internalGetMutableParameters();
           case 3:
             return internalGetMutableParameterValues();
+          case 5:
+            return internalGetMutableInputArtifacts();
           default:
             throw new RuntimeException(
                 "Invalid map field number: " + number);
@@ -1229,28 +1887,23 @@ com.google.protobuf.Value defaultValue);
 
       // Construct using com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableParameters().clear();
         gcsOutputDirectory_ = "";
-
         internalGetMutableParameterValues().clear();
         failurePolicy_ = 0;
-
+        internalGetMutableInputArtifacts().clear();
         return this;
       }
 
@@ -1277,15 +1930,31 @@ com.google.protobuf.Value defaultValue);
       @java.lang.Override
       public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig buildPartial() {
         com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig result = new com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig(this);
-        int from_bitField0_ = bitField0_;
-        result.parameters_ = internalGetParameters();
-        result.parameters_.makeImmutable();
-        result.gcsOutputDirectory_ = gcsOutputDirectory_;
-        result.parameterValues_ = internalGetParameterValues();
-        result.parameterValues_.makeImmutable();
-        result.failurePolicy_ = failurePolicy_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.parameters_ = internalGetParameters();
+          result.parameters_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.gcsOutputDirectory_ = gcsOutputDirectory_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.parameterValues_ = internalGetParameterValues();
+          result.parameterValues_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.failurePolicy_ = failurePolicy_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.inputArtifacts_ = internalGetInputArtifacts();
+          result.inputArtifacts_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -1334,16 +2003,22 @@ com.google.protobuf.Value defaultValue);
         if (other == com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.getDefaultInstance()) return this;
         internalGetMutableParameters().mergeFrom(
             other.internalGetParameters());
+        bitField0_ |= 0x00000001;
         if (!other.getGcsOutputDirectory().isEmpty()) {
           gcsOutputDirectory_ = other.gcsOutputDirectory_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         internalGetMutableParameterValues().mergeFrom(
             other.internalGetParameterValues());
+        bitField0_ |= 0x00000004;
         if (other.failurePolicy_ != 0) {
           setFailurePolicyValue(other.getFailurePolicyValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        internalGetMutableInputArtifacts().mergeFrom(
+            other.internalGetInputArtifacts());
+        bitField0_ |= 0x00000010;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1358,34 +2033,83 @@ com.google.protobuf.Value defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.Value>
+                parameters__ = input.readMessage(
+                    ParametersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableParameters().getMutableMap().put(
+                    parameters__.getKey(), parameters__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                gcsOutputDirectory_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
+                parameterValues__ = input.readMessage(
+                    ParameterValuesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableParameterValues().getMutableMap().put(
+                    parameterValues__.getKey(), parameterValues__.getValue());
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                failurePolicy_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact>
+                inputArtifacts__ = input.readMessage(
+                    InputArtifactsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableInputArtifacts().getMutableMap().put(
+                    inputArtifacts__.getKey(), inputArtifacts__.getValue());
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.aiplatform.v1.Value> parameters_;
-      private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.Value>
-      internalGetParameters() {
+      @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.Value>
+          internalGetParameters() {
         if (parameters_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ParametersDefaultEntryHolder.defaultEntry);
         }
         return parameters_;
       }
-      private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.Value>
-      internalGetMutableParameters() {
-        onChanged();;
+      @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.Value>
+          internalGetMutableParameters() {
         if (parameters_ == null) {
           parameters_ = com.google.protobuf.MapField.newMapField(
               ParametersDefaultEntryHolder.defaultEntry);
@@ -1393,10 +2117,11 @@ com.google.protobuf.Value defaultValue);
         if (!parameters_.isMutable()) {
           parameters_ = parameters_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return parameters_;
       }
-      @java.lang.Deprecated 
-      public int getParametersCount() {
+      @java.lang.Deprecated public int getParametersCount() {
         return internalGetParameters().getMap().size();
       }
       /**
@@ -1411,9 +2136,8 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
        */
-      @java.lang.Deprecated 
       @java.lang.Override
-      public boolean containsParameters(
+      @java.lang.Deprecated public boolean containsParameters(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
         return internalGetParameters().getMap().containsKey(key);
@@ -1439,8 +2163,7 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
        */
       @java.lang.Override
-      @java.lang.Deprecated 
-      public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value> getParametersMap() {
+      @java.lang.Deprecated public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value> getParametersMap() {
         return internalGetParameters().getMap();
       }
       /**
@@ -1456,10 +2179,11 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
        */
       @java.lang.Override
-      @java.lang.Deprecated 
-      public com.google.cloud.aiplatform.v1.Value getParametersOrDefault(
+      @java.lang.Deprecated public /* nullable */
+com.google.cloud.aiplatform.v1.Value getParametersOrDefault(
           java.lang.String key,
-          com.google.cloud.aiplatform.v1.Value defaultValue) {
+          /* nullable */
+com.google.cloud.aiplatform.v1.Value defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value> map =
             internalGetParameters().getMap();
@@ -1478,8 +2202,7 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
        */
       @java.lang.Override
-      @java.lang.Deprecated 
-      public com.google.cloud.aiplatform.v1.Value getParametersOrThrow(
+      @java.lang.Deprecated public com.google.cloud.aiplatform.v1.Value getParametersOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value> map =
@@ -1489,8 +2212,8 @@ com.google.protobuf.Value defaultValue);
         }
         return map.get(key);
       }
-      @java.lang.Deprecated 
-      public Builder clearParameters() {
+      @java.lang.Deprecated public Builder clearParameters() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableParameters().getMutableMap()
             .clear();
         return this;
@@ -1507,8 +2230,7 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
        */
-      @java.lang.Deprecated 
-      public Builder removeParameters(
+      @java.lang.Deprecated public Builder removeParameters(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableParameters().getMutableMap()
@@ -1520,7 +2242,8 @@ com.google.protobuf.Value defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value>
-      getMutableParameters() {
+          getMutableParameters() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableParameters().getMutableMap();
       }
       /**
@@ -1539,12 +2262,10 @@ com.google.protobuf.Value defaultValue);
           java.lang.String key,
           com.google.cloud.aiplatform.v1.Value value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableParameters().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -1559,11 +2280,11 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.cloud.aiplatform.v1.Value&gt; parameters = 1 [deprecated = true];</code>
        */
-      @java.lang.Deprecated 
-      public Builder putAllParameters(
+      @java.lang.Deprecated public Builder putAllParameters(
           java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.Value> values) {
         internalGetMutableParameters().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
 
@@ -1638,11 +2359,9 @@ com.google.protobuf.Value defaultValue);
        */
       public Builder setGcsOutputDirectory(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         gcsOutputDirectory_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1661,8 +2380,8 @@ com.google.protobuf.Value defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearGcsOutputDirectory() {
-        
         gcsOutputDirectory_ = getDefaultInstance().getGcsOutputDirectory();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1683,12 +2402,10 @@ com.google.protobuf.Value defaultValue);
        */
       public Builder setGcsOutputDirectoryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         gcsOutputDirectory_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1696,7 +2413,7 @@ com.google.protobuf.Value defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf.Value> parameterValues_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-      internalGetParameterValues() {
+          internalGetParameterValues() {
         if (parameterValues_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ParameterValuesDefaultEntryHolder.defaultEntry);
@@ -1704,8 +2421,7 @@ com.google.protobuf.Value defaultValue);
         return parameterValues_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-      internalGetMutableParameterValues() {
-        onChanged();;
+          internalGetMutableParameterValues() {
         if (parameterValues_ == null) {
           parameterValues_ = com.google.protobuf.MapField.newMapField(
               ParameterValuesDefaultEntryHolder.defaultEntry);
@@ -1713,9 +2429,10 @@ com.google.protobuf.Value defaultValue);
         if (!parameterValues_.isMutable()) {
           parameterValues_ = parameterValues_.copy();
         }
+        bitField0_ |= 0x00000004;
+        onChanged();
         return parameterValues_;
       }
-
       public int getParameterValuesCount() {
         return internalGetParameterValues().getMap().size();
       }
@@ -1730,7 +2447,6 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
        */
-
       @java.lang.Override
       public boolean containsParameterValues(
           java.lang.String key) {
@@ -1757,7 +2473,6 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf.Value> getParameterValuesMap() {
         return internalGetParameterValues().getMap();
       }
@@ -1773,10 +2488,11 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf.Value getParameterValuesOrDefault(
+      public /* nullable */
+com.google.protobuf.Value getParameterValuesOrDefault(
           java.lang.String key,
-          com.google.protobuf.Value defaultValue) {
+          /* nullable */
+com.google.protobuf.Value defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.Value> map =
             internalGetParameterValues().getMap();
@@ -1794,7 +2510,6 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf.Value getParameterValuesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1805,8 +2520,8 @@ com.google.protobuf.Value defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearParameterValues() {
+        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableParameterValues().getMutableMap()
             .clear();
         return this;
@@ -1822,7 +2537,6 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
        */
-
       public Builder removeParameterValues(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1835,7 +2549,8 @@ com.google.protobuf.Value defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.Value>
-      getMutableParameterValues() {
+          getMutableParameterValues() {
+        bitField0_ |= 0x00000004;
         return internalGetMutableParameterValues().getMutableMap();
       }
       /**
@@ -1853,12 +2568,10 @@ com.google.protobuf.Value defaultValue);
           java.lang.String key,
           com.google.protobuf.Value value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableParameterValues().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -1872,11 +2585,11 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Value&gt; parameter_values = 3;</code>
        */
-
       public Builder putAllParameterValues(
           java.util.Map<java.lang.String, com.google.protobuf.Value> values) {
         internalGetMutableParameterValues().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000004;
         return this;
       }
 
@@ -1912,8 +2625,8 @@ com.google.protobuf.Value defaultValue);
        * @return This builder for chaining.
        */
       public Builder setFailurePolicyValue(int value) {
-        
         failurePolicy_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1932,8 +2645,7 @@ com.google.protobuf.Value defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.aiplatform.v1.PipelineFailurePolicy getFailurePolicy() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.aiplatform.v1.PipelineFailurePolicy result = com.google.cloud.aiplatform.v1.PipelineFailurePolicy.valueOf(failurePolicy_);
+        com.google.cloud.aiplatform.v1.PipelineFailurePolicy result = com.google.cloud.aiplatform.v1.PipelineFailurePolicy.forNumber(failurePolicy_);
         return result == null ? com.google.cloud.aiplatform.v1.PipelineFailurePolicy.UNRECOGNIZED : result;
       }
       /**
@@ -1954,7 +2666,7 @@ com.google.protobuf.Value defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         failurePolicy_ = value.getNumber();
         onChanged();
         return this;
@@ -1973,9 +2685,171 @@ com.google.protobuf.Value defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearFailurePolicy() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         failurePolicy_ = 0;
         onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> inputArtifacts_;
+      private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact>
+          internalGetInputArtifacts() {
+        if (inputArtifacts_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              InputArtifactsDefaultEntryHolder.defaultEntry);
+        }
+        return inputArtifacts_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact>
+          internalGetMutableInputArtifacts() {
+        if (inputArtifacts_ == null) {
+          inputArtifacts_ = com.google.protobuf.MapField.newMapField(
+              InputArtifactsDefaultEntryHolder.defaultEntry);
+        }
+        if (!inputArtifacts_.isMutable()) {
+          inputArtifacts_ = inputArtifacts_.copy();
+        }
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return inputArtifacts_;
+      }
+      public int getInputArtifactsCount() {
+        return internalGetInputArtifacts().getMap().size();
+      }
+      /**
+       * <pre>
+       * The runtime artifacts of the PipelineJob. The key will be the input
+       * artifact name and the value would be one of the InputArtifact.
+       * </pre>
+       *
+       * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+       */
+      @java.lang.Override
+      public boolean containsInputArtifacts(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetInputArtifacts().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getInputArtifactsMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> getInputArtifacts() {
+        return getInputArtifactsMap();
+      }
+      /**
+       * <pre>
+       * The runtime artifacts of the PipelineJob. The key will be the input
+       * artifact name and the value would be one of the InputArtifact.
+       * </pre>
+       *
+       * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+       */
+      @java.lang.Override
+      public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> getInputArtifactsMap() {
+        return internalGetInputArtifacts().getMap();
+      }
+      /**
+       * <pre>
+       * The runtime artifacts of the PipelineJob. The key will be the input
+       * artifact name and the value would be one of the InputArtifact.
+       * </pre>
+       *
+       * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+       */
+      @java.lang.Override
+      public /* nullable */
+com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact getInputArtifactsOrDefault(
+          java.lang.String key,
+          /* nullable */
+com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> map =
+            internalGetInputArtifacts().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * The runtime artifacts of the PipelineJob. The key will be the input
+       * artifact name and the value would be one of the InputArtifact.
+       * </pre>
+       *
+       * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+       */
+      @java.lang.Override
+      public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact getInputArtifactsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> map =
+            internalGetInputArtifacts().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+      public Builder clearInputArtifacts() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        internalGetMutableInputArtifacts().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * The runtime artifacts of the PipelineJob. The key will be the input
+       * artifact name and the value would be one of the InputArtifact.
+       * </pre>
+       *
+       * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+       */
+      public Builder removeInputArtifacts(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableInputArtifacts().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact>
+          getMutableInputArtifacts() {
+        bitField0_ |= 0x00000010;
+        return internalGetMutableInputArtifacts().getMutableMap();
+      }
+      /**
+       * <pre>
+       * The runtime artifacts of the PipelineJob. The key will be the input
+       * artifact name and the value would be one of the InputArtifact.
+       * </pre>
+       *
+       * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+       */
+      public Builder putInputArtifacts(
+          java.lang.String key,
+          com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) { throw new NullPointerException("map value"); }
+        internalGetMutableInputArtifacts().getMutableMap()
+            .put(key, value);
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       * The runtime artifacts of the PipelineJob. The key will be the input
+       * artifact name and the value would be one of the InputArtifact.
+       * </pre>
+       *
+       * <code>map&lt;string, .google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact&gt; input_artifacts = 5;</code>
+       */
+      public Builder putAllInputArtifacts(
+          java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.InputArtifact> values) {
+        internalGetMutableInputArtifacts().getMutableMap()
+            .putAll(values);
+        bitField0_ |= 0x00000010;
         return this;
       }
       @java.lang.Override
@@ -2011,7 +2885,18 @@ com.google.protobuf.Value defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RuntimeConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2032,7 +2917,8 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of the PipelineJob.
@@ -2078,11 +2964,12 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The display name of the Pipeline.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -2105,7 +2992,7 @@ com.google.protobuf.Value defaultValue);
   /**
    * <pre>
    * The display name of the Pipeline.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -2162,7 +3049,7 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int START_TIME_FIELD_NUMBER = 4;
@@ -2200,7 +3087,7 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-    return getStartTime();
+    return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
   }
 
   public static final int END_TIME_FIELD_NUMBER = 5;
@@ -2238,7 +3125,7 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-    return getEndTime();
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 6;
@@ -2276,7 +3163,7 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int PIPELINE_SPEC_FIELD_NUMBER = 7;
@@ -2314,11 +3201,11 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getPipelineSpecOrBuilder() {
-    return getPipelineSpec();
+    return pipelineSpec_ == null ? com.google.protobuf.Struct.getDefaultInstance() : pipelineSpec_;
   }
 
   public static final int STATE_FIELD_NUMBER = 8;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The detailed state of the job.
@@ -2339,8 +3226,7 @@ com.google.protobuf.Value defaultValue);
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.aiplatform.v1.PipelineState getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.aiplatform.v1.PipelineState result = com.google.cloud.aiplatform.v1.PipelineState.valueOf(state_);
+    com.google.cloud.aiplatform.v1.PipelineState result = com.google.cloud.aiplatform.v1.PipelineState.forNumber(state_);
     return result == null ? com.google.cloud.aiplatform.v1.PipelineState.UNRECOGNIZED : result;
   }
 
@@ -2379,7 +3265,7 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.PipelineJobDetailOrBuilder getJobDetailOrBuilder() {
-    return getJobDetail();
+    return jobDetail_ == null ? com.google.cloud.aiplatform.v1.PipelineJobDetail.getDefaultInstance() : jobDetail_;
   }
 
   public static final int ERROR_FIELD_NUMBER = 10;
@@ -2420,7 +3306,7 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getErrorOrBuilder() {
-    return getError();
+    return error_ == null ? com.google.rpc.Status.getDefaultInstance() : error_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 11;
@@ -2435,6 +3321,7 @@ com.google.protobuf.Value defaultValue);
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2445,7 +3332,6 @@ com.google.protobuf.Value defaultValue);
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -2460,7 +3346,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 11;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -2487,7 +3372,6 @@ com.google.protobuf.Value defaultValue);
    * <code>map&lt;string, string&gt; labels = 11;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -2503,10 +3387,11 @@ com.google.protobuf.Value defaultValue);
    * <code>map&lt;string, string&gt; labels = 11;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -2524,7 +3409,6 @@ com.google.protobuf.Value defaultValue);
    * <code>map&lt;string, string&gt; labels = 11;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2571,7 +3455,7 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfigOrBuilder getRuntimeConfigOrBuilder() {
-    return getRuntimeConfig();
+    return runtimeConfig_ == null ? com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.getDefaultInstance() : runtimeConfig_;
   }
 
   public static final int ENCRYPTION_SPEC_FIELD_NUMBER = 16;
@@ -2612,11 +3496,12 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.EncryptionSpecOrBuilder getEncryptionSpecOrBuilder() {
-    return getEncryptionSpec();
+    return encryptionSpec_ == null ? com.google.cloud.aiplatform.v1.EncryptionSpec.getDefaultInstance() : encryptionSpec_;
   }
 
   public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 17;
-  private volatile java.lang.Object serviceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccount_ = "";
   /**
    * <pre>
    * The service account that the pipeline workload runs as.
@@ -2674,7 +3559,8 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int NETWORK_FIELD_NUMBER = 18;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * The full name of the Compute Engine
@@ -2686,8 +3572,8 @@ com.google.protobuf.Value defaultValue);
    * Where {project} is a project number, as in `12345`, and {network} is a
    * network name.
    * Private services access must already be configured for the network.
-   * Pipeline job will apply the network configuration to the GCP resources
-   * being launched, if applied, such as Vertex AI
+   * Pipeline job will apply the network configuration to the Google Cloud
+   * resources being launched, if applied, such as Vertex AI
    * Training or Dataflow job. If left unspecified, the workload is not peered
    * with any network.
    * </pre>
@@ -2719,8 +3605,8 @@ com.google.protobuf.Value defaultValue);
    * Where {project} is a project number, as in `12345`, and {network} is a
    * network name.
    * Private services access must already be configured for the network.
-   * Pipeline job will apply the network configuration to the GCP resources
-   * being launched, if applied, such as Vertex AI
+   * Pipeline job will apply the network configuration to the Google Cloud
+   * resources being launched, if applied, such as Vertex AI
    * Training or Dataflow job. If left unspecified, the workload is not peered
    * with any network.
    * </pre>
@@ -2744,7 +3630,8 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int TEMPLATE_URI_FIELD_NUMBER = 19;
-  private volatile java.lang.Object templateUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object templateUri_ = "";
   /**
    * <pre>
    * A template uri from where the [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1.PipelineJob.pipeline_spec], if empty, will
@@ -2829,7 +3716,7 @@ com.google.protobuf.Value defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.PipelineTemplateMetadataOrBuilder getTemplateMetadataOrBuilder() {
-    return getTemplateMetadata();
+    return templateMetadata_ == null ? com.google.cloud.aiplatform.v1.PipelineTemplateMetadata.getDefaultInstance() : templateMetadata_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2900,7 +3787,7 @@ com.google.protobuf.Value defaultValue);
     if (templateMetadata_ != null) {
       output.writeMessage(20, getTemplateMetadata());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2978,7 +3865,7 @@ com.google.protobuf.Value defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getTemplateMetadata());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3056,7 +3943,7 @@ com.google.protobuf.Value defaultValue);
       if (!getTemplateMetadata()
           .equals(other.getTemplateMetadata())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3123,7 +4010,7 @@ com.google.protobuf.Value defaultValue);
       hash = (37 * hash) + TEMPLATE_METADATA_FIELD_NUMBER;
       hash = (53 * hash) + getTemplateMetadata().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3266,93 +4153,73 @@ com.google.protobuf.Value defaultValue);
 
     // Construct using com.google.cloud.aiplatform.v1.PipelineJob.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-      } else {
-        startTime_ = null;
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-      } else {
-        endTime_ = null;
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-      if (pipelineSpecBuilder_ == null) {
-        pipelineSpec_ = null;
-      } else {
-        pipelineSpec_ = null;
+      pipelineSpec_ = null;
+      if (pipelineSpecBuilder_ != null) {
+        pipelineSpecBuilder_.dispose();
         pipelineSpecBuilder_ = null;
       }
       state_ = 0;
-
-      if (jobDetailBuilder_ == null) {
-        jobDetail_ = null;
-      } else {
-        jobDetail_ = null;
+      jobDetail_ = null;
+      if (jobDetailBuilder_ != null) {
+        jobDetailBuilder_.dispose();
         jobDetailBuilder_ = null;
       }
-      if (errorBuilder_ == null) {
-        error_ = null;
-      } else {
-        error_ = null;
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
       internalGetMutableLabels().clear();
-      if (runtimeConfigBuilder_ == null) {
-        runtimeConfig_ = null;
-      } else {
-        runtimeConfig_ = null;
+      runtimeConfig_ = null;
+      if (runtimeConfigBuilder_ != null) {
+        runtimeConfigBuilder_.dispose();
         runtimeConfigBuilder_ = null;
       }
-      if (encryptionSpecBuilder_ == null) {
-        encryptionSpec_ = null;
-      } else {
-        encryptionSpec_ = null;
+      encryptionSpec_ = null;
+      if (encryptionSpecBuilder_ != null) {
+        encryptionSpecBuilder_.dispose();
         encryptionSpecBuilder_ = null;
       }
       serviceAccount_ = "";
-
       network_ = "";
-
       templateUri_ = "";
-
-      if (templateMetadataBuilder_ == null) {
-        templateMetadata_ = null;
-      } else {
-        templateMetadata_ = null;
+      templateMetadata_ = null;
+      if (templateMetadataBuilder_ != null) {
+        templateMetadataBuilder_.dispose();
         templateMetadataBuilder_ = null;
       }
       return this;
@@ -3381,67 +4248,85 @@ com.google.protobuf.Value defaultValue);
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.PipelineJob buildPartial() {
       com.google.cloud.aiplatform.v1.PipelineJob result = new com.google.cloud.aiplatform.v1.PipelineJob(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (startTimeBuilder_ == null) {
-        result.startTime_ = startTime_;
-      } else {
-        result.startTime_ = startTimeBuilder_.build();
-      }
-      if (endTimeBuilder_ == null) {
-        result.endTime_ = endTime_;
-      } else {
-        result.endTime_ = endTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      if (pipelineSpecBuilder_ == null) {
-        result.pipelineSpec_ = pipelineSpec_;
-      } else {
-        result.pipelineSpec_ = pipelineSpecBuilder_.build();
-      }
-      result.state_ = state_;
-      if (jobDetailBuilder_ == null) {
-        result.jobDetail_ = jobDetail_;
-      } else {
-        result.jobDetail_ = jobDetailBuilder_.build();
-      }
-      if (errorBuilder_ == null) {
-        result.error_ = error_;
-      } else {
-        result.error_ = errorBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (runtimeConfigBuilder_ == null) {
-        result.runtimeConfig_ = runtimeConfig_;
-      } else {
-        result.runtimeConfig_ = runtimeConfigBuilder_.build();
-      }
-      if (encryptionSpecBuilder_ == null) {
-        result.encryptionSpec_ = encryptionSpec_;
-      } else {
-        result.encryptionSpec_ = encryptionSpecBuilder_.build();
-      }
-      result.serviceAccount_ = serviceAccount_;
-      result.network_ = network_;
-      result.templateUri_ = templateUri_;
-      if (templateMetadataBuilder_ == null) {
-        result.templateMetadata_ = templateMetadata_;
-      } else {
-        result.templateMetadata_ = templateMetadataBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.PipelineJob result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.startTime_ = startTimeBuilder_ == null
+            ? startTime_
+            : startTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.endTime_ = endTimeBuilder_ == null
+            ? endTime_
+            : endTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.pipelineSpec_ = pipelineSpecBuilder_ == null
+            ? pipelineSpec_
+            : pipelineSpecBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.jobDetail_ = jobDetailBuilder_ == null
+            ? jobDetail_
+            : jobDetailBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.error_ = errorBuilder_ == null
+            ? error_
+            : errorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.runtimeConfig_ = runtimeConfigBuilder_ == null
+            ? runtimeConfig_
+            : runtimeConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.encryptionSpec_ = encryptionSpecBuilder_ == null
+            ? encryptionSpec_
+            : encryptionSpecBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.serviceAccount_ = serviceAccount_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.templateUri_ = templateUri_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.templateMetadata_ = templateMetadataBuilder_ == null
+            ? templateMetadata_
+            : templateMetadataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3490,10 +4375,12 @@ com.google.protobuf.Value defaultValue);
       if (other == com.google.cloud.aiplatform.v1.PipelineJob.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -3522,6 +4409,7 @@ com.google.protobuf.Value defaultValue);
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000400;
       if (other.hasRuntimeConfig()) {
         mergeRuntimeConfig(other.getRuntimeConfig());
       }
@@ -3530,20 +4418,23 @@ com.google.protobuf.Value defaultValue);
       }
       if (!other.getServiceAccount().isEmpty()) {
         serviceAccount_ = other.serviceAccount_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (!other.getNetwork().isEmpty()) {
         network_ = other.network_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       if (!other.getTemplateUri().isEmpty()) {
         templateUri_ = other.templateUri_;
+        bitField0_ |= 0x00008000;
         onChanged();
       }
       if (other.hasTemplateMetadata()) {
         mergeTemplateMetadata(other.getTemplateMetadata());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3558,17 +4449,139 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.PipelineJob parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getPipelineSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 64: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getJobDetailFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getRuntimeConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 130: {
+              input.readMessage(
+                  getEncryptionSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 130
+            case 138: {
+              serviceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 138
+            case 146: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 146
+            case 154: {
+              templateUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getTemplateMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 162
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.PipelineJob) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3626,11 +4639,9 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3643,8 +4654,8 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3659,12 +4670,10 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3673,7 +4682,7 @@ com.google.protobuf.Value defaultValue);
     /**
      * <pre>
      * The display name of the Pipeline.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * </pre>
      *
@@ -3695,7 +4704,7 @@ com.google.protobuf.Value defaultValue);
     /**
      * <pre>
      * The display name of the Pipeline.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * </pre>
      *
@@ -3718,7 +4727,7 @@ com.google.protobuf.Value defaultValue);
     /**
      * <pre>
      * The display name of the Pipeline.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * </pre>
      *
@@ -3728,18 +4737,16 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The display name of the Pipeline.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * </pre>
      *
@@ -3747,15 +4754,15 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The display name of the Pipeline.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * </pre>
      *
@@ -3765,12 +4772,10 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3787,7 +4792,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -3817,11 +4822,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3835,11 +4840,11 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3851,17 +4856,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3872,14 +4878,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3890,7 +4895,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -3942,7 +4947,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
-      return startTimeBuilder_ != null || startTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -3972,11 +4977,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         startTime_ = value;
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3990,11 +4995,11 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (startTimeBuilder_ == null) {
         startTime_ = builderForValue.build();
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4006,17 +5011,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
-        if (startTime_ != null) {
-          startTime_ =
-            com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          startTime_ != null &&
+          startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStartTimeBuilder().mergeFrom(value);
         } else {
           startTime_ = value;
         }
-        onChanged();
       } else {
         startTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4027,14 +5033,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Timestamp start_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearStartTime() {
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-        onChanged();
-      } else {
-        startTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4045,7 +5050,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Timestamp start_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getStartTimeFieldBuilder().getBuilder();
     }
@@ -4097,7 +5102,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
-      return endTimeBuilder_ != null || endTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -4127,11 +5132,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         endTime_ = value;
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4145,11 +5150,11 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (endTimeBuilder_ == null) {
         endTime_ = builderForValue.build();
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4161,17 +5166,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
-        if (endTime_ != null) {
-          endTime_ =
-            com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          endTime_ != null &&
+          endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEndTimeBuilder().mergeFrom(value);
         } else {
           endTime_ = value;
         }
-        onChanged();
       } else {
         endTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4182,14 +5188,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Timestamp end_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearEndTime() {
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-        onChanged();
-      } else {
-        endTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4200,7 +5205,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Timestamp end_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getEndTimeFieldBuilder().getBuilder();
     }
@@ -4252,7 +5257,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -4282,11 +5287,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4300,11 +5305,11 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4316,17 +5321,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4337,14 +5343,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4355,7 +5360,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Timestamp update_time = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -4407,7 +5412,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the pipelineSpec field is set.
      */
     public boolean hasPipelineSpec() {
-      return pipelineSpecBuilder_ != null || pipelineSpec_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -4437,11 +5442,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         pipelineSpec_ = value;
-        onChanged();
       } else {
         pipelineSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4455,11 +5460,11 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.Struct.Builder builderForValue) {
       if (pipelineSpecBuilder_ == null) {
         pipelineSpec_ = builderForValue.build();
-        onChanged();
       } else {
         pipelineSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4471,17 +5476,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergePipelineSpec(com.google.protobuf.Struct value) {
       if (pipelineSpecBuilder_ == null) {
-        if (pipelineSpec_ != null) {
-          pipelineSpec_ =
-            com.google.protobuf.Struct.newBuilder(pipelineSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          pipelineSpec_ != null &&
+          pipelineSpec_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getPipelineSpecBuilder().mergeFrom(value);
         } else {
           pipelineSpec_ = value;
         }
-        onChanged();
       } else {
         pipelineSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4492,14 +5498,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Struct pipeline_spec = 7;</code>
      */
     public Builder clearPipelineSpec() {
-      if (pipelineSpecBuilder_ == null) {
-        pipelineSpec_ = null;
-        onChanged();
-      } else {
-        pipelineSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      pipelineSpec_ = null;
+      if (pipelineSpecBuilder_ != null) {
+        pipelineSpecBuilder_.dispose();
         pipelineSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4510,7 +5515,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.protobuf.Struct pipeline_spec = 7;</code>
      */
     public com.google.protobuf.Struct.Builder getPipelineSpecBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getPipelineSpecFieldBuilder().getBuilder();
     }
@@ -4572,8 +5577,8 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -4587,8 +5592,7 @@ com.google.protobuf.Value defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.PipelineState getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.aiplatform.v1.PipelineState result = com.google.cloud.aiplatform.v1.PipelineState.valueOf(state_);
+      com.google.cloud.aiplatform.v1.PipelineState result = com.google.cloud.aiplatform.v1.PipelineState.forNumber(state_);
       return result == null ? com.google.cloud.aiplatform.v1.PipelineState.UNRECOGNIZED : result;
     }
     /**
@@ -4604,7 +5608,7 @@ com.google.protobuf.Value defaultValue);
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -4618,7 +5622,7 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       state_ = 0;
       onChanged();
       return this;
@@ -4636,7 +5640,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the jobDetail field is set.
      */
     public boolean hasJobDetail() {
-      return jobDetailBuilder_ != null || jobDetail_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -4666,11 +5670,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         jobDetail_ = value;
-        onChanged();
       } else {
         jobDetailBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4684,11 +5688,11 @@ com.google.protobuf.Value defaultValue);
         com.google.cloud.aiplatform.v1.PipelineJobDetail.Builder builderForValue) {
       if (jobDetailBuilder_ == null) {
         jobDetail_ = builderForValue.build();
-        onChanged();
       } else {
         jobDetailBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4700,17 +5704,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergeJobDetail(com.google.cloud.aiplatform.v1.PipelineJobDetail value) {
       if (jobDetailBuilder_ == null) {
-        if (jobDetail_ != null) {
-          jobDetail_ =
-            com.google.cloud.aiplatform.v1.PipelineJobDetail.newBuilder(jobDetail_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          jobDetail_ != null &&
+          jobDetail_ != com.google.cloud.aiplatform.v1.PipelineJobDetail.getDefaultInstance()) {
+          getJobDetailBuilder().mergeFrom(value);
         } else {
           jobDetail_ = value;
         }
-        onChanged();
       } else {
         jobDetailBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4721,14 +5726,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.cloud.aiplatform.v1.PipelineJobDetail job_detail = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearJobDetail() {
-      if (jobDetailBuilder_ == null) {
-        jobDetail_ = null;
-        onChanged();
-      } else {
-        jobDetail_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      jobDetail_ = null;
+      if (jobDetailBuilder_ != null) {
+        jobDetailBuilder_.dispose();
         jobDetailBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4739,7 +5743,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.cloud.aiplatform.v1.PipelineJobDetail job_detail = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.aiplatform.v1.PipelineJobDetail.Builder getJobDetailBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getJobDetailFieldBuilder().getBuilder();
     }
@@ -4792,7 +5796,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the error field is set.
      */
     public boolean hasError() {
-      return errorBuilder_ != null || error_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -4824,11 +5828,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         error_ = value;
-        onChanged();
       } else {
         errorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4843,11 +5847,11 @@ com.google.protobuf.Value defaultValue);
         com.google.rpc.Status.Builder builderForValue) {
       if (errorBuilder_ == null) {
         error_ = builderForValue.build();
-        onChanged();
       } else {
         errorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4860,17 +5864,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergeError(com.google.rpc.Status value) {
       if (errorBuilder_ == null) {
-        if (error_ != null) {
-          error_ =
-            com.google.rpc.Status.newBuilder(error_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          error_ != null &&
+          error_ != com.google.rpc.Status.getDefaultInstance()) {
+          getErrorBuilder().mergeFrom(value);
         } else {
           error_ = value;
         }
-        onChanged();
       } else {
         errorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4882,14 +5887,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.rpc.Status error = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearError() {
-      if (errorBuilder_ == null) {
-        error_ = null;
-        onChanged();
-      } else {
-        error_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      error_ = null;
+      if (errorBuilder_ != null) {
+        errorBuilder_.dispose();
         errorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4901,7 +5905,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.rpc.Status error = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.rpc.Status.Builder getErrorBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getErrorFieldBuilder().getBuilder();
     }
@@ -4946,7 +5950,7 @@ com.google.protobuf.Value defaultValue);
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -4954,8 +5958,7 @@ com.google.protobuf.Value defaultValue);
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -4963,9 +5966,10 @@ com.google.protobuf.Value defaultValue);
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000400;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -4980,7 +5984,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 11;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -5007,7 +6010,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, string&gt; labels = 11;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -5023,10 +6025,11 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, string&gt; labels = 11;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -5044,7 +6047,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, string&gt; labels = 11;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5055,8 +6057,8 @@ com.google.protobuf.Value defaultValue);
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000400);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -5072,7 +6074,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 11;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5085,7 +6086,8 @@ com.google.protobuf.Value defaultValue);
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000400;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -5103,12 +6105,10 @@ com.google.protobuf.Value defaultValue);
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000400;
       return this;
     }
     /**
@@ -5122,11 +6122,11 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 11;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000400;
       return this;
     }
 
@@ -5142,7 +6142,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the runtimeConfig field is set.
      */
     public boolean hasRuntimeConfig() {
-      return runtimeConfigBuilder_ != null || runtimeConfig_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -5172,11 +6172,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         runtimeConfig_ = value;
-        onChanged();
       } else {
         runtimeConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -5190,11 +6190,11 @@ com.google.protobuf.Value defaultValue);
         com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.Builder builderForValue) {
       if (runtimeConfigBuilder_ == null) {
         runtimeConfig_ = builderForValue.build();
-        onChanged();
       } else {
         runtimeConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -5206,17 +6206,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergeRuntimeConfig(com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig value) {
       if (runtimeConfigBuilder_ == null) {
-        if (runtimeConfig_ != null) {
-          runtimeConfig_ =
-            com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.newBuilder(runtimeConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          runtimeConfig_ != null &&
+          runtimeConfig_ != com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.getDefaultInstance()) {
+          getRuntimeConfigBuilder().mergeFrom(value);
         } else {
           runtimeConfig_ = value;
         }
-        onChanged();
       } else {
         runtimeConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -5227,14 +6228,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig runtime_config = 12;</code>
      */
     public Builder clearRuntimeConfig() {
-      if (runtimeConfigBuilder_ == null) {
-        runtimeConfig_ = null;
-        onChanged();
-      } else {
-        runtimeConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      runtimeConfig_ = null;
+      if (runtimeConfigBuilder_ != null) {
+        runtimeConfigBuilder_.dispose();
         runtimeConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5245,7 +6245,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig runtime_config = 12;</code>
      */
     public com.google.cloud.aiplatform.v1.PipelineJob.RuntimeConfig.Builder getRuntimeConfigBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getRuntimeConfigFieldBuilder().getBuilder();
     }
@@ -5298,7 +6298,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the encryptionSpec field is set.
      */
     public boolean hasEncryptionSpec() {
-      return encryptionSpecBuilder_ != null || encryptionSpec_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -5330,11 +6330,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         encryptionSpec_ = value;
-        onChanged();
       } else {
         encryptionSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -5349,11 +6349,11 @@ com.google.protobuf.Value defaultValue);
         com.google.cloud.aiplatform.v1.EncryptionSpec.Builder builderForValue) {
       if (encryptionSpecBuilder_ == null) {
         encryptionSpec_ = builderForValue.build();
-        onChanged();
       } else {
         encryptionSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -5366,17 +6366,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergeEncryptionSpec(com.google.cloud.aiplatform.v1.EncryptionSpec value) {
       if (encryptionSpecBuilder_ == null) {
-        if (encryptionSpec_ != null) {
-          encryptionSpec_ =
-            com.google.cloud.aiplatform.v1.EncryptionSpec.newBuilder(encryptionSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          encryptionSpec_ != null &&
+          encryptionSpec_ != com.google.cloud.aiplatform.v1.EncryptionSpec.getDefaultInstance()) {
+          getEncryptionSpecBuilder().mergeFrom(value);
         } else {
           encryptionSpec_ = value;
         }
-        onChanged();
       } else {
         encryptionSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -5388,14 +6389,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.cloud.aiplatform.v1.EncryptionSpec encryption_spec = 16;</code>
      */
     public Builder clearEncryptionSpec() {
-      if (encryptionSpecBuilder_ == null) {
-        encryptionSpec_ = null;
-        onChanged();
-      } else {
-        encryptionSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      encryptionSpec_ = null;
+      if (encryptionSpecBuilder_ != null) {
+        encryptionSpecBuilder_.dispose();
         encryptionSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5407,7 +6407,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.cloud.aiplatform.v1.EncryptionSpec encryption_spec = 16;</code>
      */
     public com.google.cloud.aiplatform.v1.EncryptionSpec.Builder getEncryptionSpecBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getEncryptionSpecFieldBuilder().getBuilder();
     }
@@ -5520,11 +6520,9 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccount_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -5543,8 +6541,8 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearServiceAccount() {
-      
       serviceAccount_ = getDefaultInstance().getServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -5565,12 +6563,10 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccount_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -5587,8 +6583,8 @@ com.google.protobuf.Value defaultValue);
      * Where {project} is a project number, as in `12345`, and {network} is a
      * network name.
      * Private services access must already be configured for the network.
-     * Pipeline job will apply the network configuration to the GCP resources
-     * being launched, if applied, such as Vertex AI
+     * Pipeline job will apply the network configuration to the Google Cloud
+     * resources being launched, if applied, such as Vertex AI
      * Training or Dataflow job. If left unspecified, the workload is not peered
      * with any network.
      * </pre>
@@ -5619,8 +6615,8 @@ com.google.protobuf.Value defaultValue);
      * Where {project} is a project number, as in `12345`, and {network} is a
      * network name.
      * Private services access must already be configured for the network.
-     * Pipeline job will apply the network configuration to the GCP resources
-     * being launched, if applied, such as Vertex AI
+     * Pipeline job will apply the network configuration to the Google Cloud
+     * resources being launched, if applied, such as Vertex AI
      * Training or Dataflow job. If left unspecified, the workload is not peered
      * with any network.
      * </pre>
@@ -5652,8 +6648,8 @@ com.google.protobuf.Value defaultValue);
      * Where {project} is a project number, as in `12345`, and {network} is a
      * network name.
      * Private services access must already be configured for the network.
-     * Pipeline job will apply the network configuration to the GCP resources
-     * being launched, if applied, such as Vertex AI
+     * Pipeline job will apply the network configuration to the Google Cloud
+     * resources being launched, if applied, such as Vertex AI
      * Training or Dataflow job. If left unspecified, the workload is not peered
      * with any network.
      * </pre>
@@ -5664,11 +6660,9 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -5683,8 +6677,8 @@ com.google.protobuf.Value defaultValue);
      * Where {project} is a project number, as in `12345`, and {network} is a
      * network name.
      * Private services access must already be configured for the network.
-     * Pipeline job will apply the network configuration to the GCP resources
-     * being launched, if applied, such as Vertex AI
+     * Pipeline job will apply the network configuration to the Google Cloud
+     * resources being launched, if applied, such as Vertex AI
      * Training or Dataflow job. If left unspecified, the workload is not peered
      * with any network.
      * </pre>
@@ -5693,8 +6687,8 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -5709,8 +6703,8 @@ com.google.protobuf.Value defaultValue);
      * Where {project} is a project number, as in `12345`, and {network} is a
      * network name.
      * Private services access must already be configured for the network.
-     * Pipeline job will apply the network configuration to the GCP resources
-     * being launched, if applied, such as Vertex AI
+     * Pipeline job will apply the network configuration to the Google Cloud
+     * resources being launched, if applied, such as Vertex AI
      * Training or Dataflow job. If left unspecified, the workload is not peered
      * with any network.
      * </pre>
@@ -5721,12 +6715,10 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -5787,11 +6779,9 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setTemplateUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       templateUri_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -5805,8 +6795,8 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearTemplateUri() {
-      
       templateUri_ = getDefaultInstance().getTemplateUri();
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -5822,12 +6812,10 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setTemplateUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       templateUri_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -5845,7 +6833,7 @@ com.google.protobuf.Value defaultValue);
      * @return Whether the templateMetadata field is set.
      */
     public boolean hasTemplateMetadata() {
-      return templateMetadataBuilder_ != null || templateMetadata_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -5877,11 +6865,11 @@ com.google.protobuf.Value defaultValue);
           throw new NullPointerException();
         }
         templateMetadata_ = value;
-        onChanged();
       } else {
         templateMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5896,11 +6884,11 @@ com.google.protobuf.Value defaultValue);
         com.google.cloud.aiplatform.v1.PipelineTemplateMetadata.Builder builderForValue) {
       if (templateMetadataBuilder_ == null) {
         templateMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         templateMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5913,17 +6901,18 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder mergeTemplateMetadata(com.google.cloud.aiplatform.v1.PipelineTemplateMetadata value) {
       if (templateMetadataBuilder_ == null) {
-        if (templateMetadata_ != null) {
-          templateMetadata_ =
-            com.google.cloud.aiplatform.v1.PipelineTemplateMetadata.newBuilder(templateMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          templateMetadata_ != null &&
+          templateMetadata_ != com.google.cloud.aiplatform.v1.PipelineTemplateMetadata.getDefaultInstance()) {
+          getTemplateMetadataBuilder().mergeFrom(value);
         } else {
           templateMetadata_ = value;
         }
-        onChanged();
       } else {
         templateMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5935,14 +6924,13 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.cloud.aiplatform.v1.PipelineTemplateMetadata template_metadata = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearTemplateMetadata() {
-      if (templateMetadataBuilder_ == null) {
-        templateMetadata_ = null;
-        onChanged();
-      } else {
-        templateMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      templateMetadata_ = null;
+      if (templateMetadataBuilder_ != null) {
+        templateMetadataBuilder_.dispose();
         templateMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5954,7 +6942,7 @@ com.google.protobuf.Value defaultValue);
      * <code>.google.cloud.aiplatform.v1.PipelineTemplateMetadata template_metadata = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.aiplatform.v1.PipelineTemplateMetadata.Builder getTemplateMetadataBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getTemplateMetadataFieldBuilder().getBuilder();
     }
@@ -6028,7 +7016,18 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PipelineJob(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

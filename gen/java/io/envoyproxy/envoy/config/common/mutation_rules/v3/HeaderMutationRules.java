@@ -54,136 +54,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HeaderMutationRules(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (allowAllRouting_ != null) {
-              subBuilder = allowAllRouting_.toBuilder();
-            }
-            allowAllRouting_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowAllRouting_);
-              allowAllRouting_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (allowEnvoy_ != null) {
-              subBuilder = allowEnvoy_.toBuilder();
-            }
-            allowEnvoy_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowEnvoy_);
-              allowEnvoy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (disallowSystem_ != null) {
-              subBuilder = disallowSystem_.toBuilder();
-            }
-            disallowSystem_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(disallowSystem_);
-              disallowSystem_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (disallowAll_ != null) {
-              subBuilder = disallowAll_.toBuilder();
-            }
-            disallowAll_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(disallowAll_);
-              disallowAll_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.Builder subBuilder = null;
-            if (allowExpression_ != null) {
-              subBuilder = allowExpression_.toBuilder();
-            }
-            allowExpression_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowExpression_);
-              allowExpression_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.Builder subBuilder = null;
-            if (disallowExpression_ != null) {
-              subBuilder = disallowExpression_.toBuilder();
-            }
-            disallowExpression_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(disallowExpression_);
-              disallowExpression_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (disallowIsError_ != null) {
-              subBuilder = disallowIsError_.toBuilder();
-            }
-            disallowIsError_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(disallowIsError_);
-              disallowIsError_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.common.mutation_rules.v3.MutationRulesProto.internal_static_envoy_config_common_mutation_rules_v3_HeaderMutationRules_descriptor;
@@ -241,7 +111,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getAllowAllRoutingOrBuilder() {
-    return getAllowAllRouting();
+    return allowAllRouting_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : allowAllRouting_;
   }
 
   public static final int ALLOW_ENVOY_FIELD_NUMBER = 2;
@@ -291,7 +161,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getAllowEnvoyOrBuilder() {
-    return getAllowEnvoy();
+    return allowEnvoy_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : allowEnvoy_;
   }
 
   public static final int DISALLOW_SYSTEM_FIELD_NUMBER = 3;
@@ -338,7 +208,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getDisallowSystemOrBuilder() {
-    return getDisallowSystem();
+    return disallowSystem_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : disallowSystem_;
   }
 
   public static final int DISALLOW_ALL_FIELD_NUMBER = 4;
@@ -382,7 +252,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getDisallowAllOrBuilder() {
-    return getDisallowAll();
+    return disallowAll_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : disallowAll_;
   }
 
   public static final int ALLOW_EXPRESSION_FIELD_NUMBER = 5;
@@ -426,7 +296,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.RegexMatcherOrBuilder getAllowExpressionOrBuilder() {
-    return getAllowExpression();
+    return allowExpression_ == null ? io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.getDefaultInstance() : allowExpression_;
   }
 
   public static final int DISALLOW_EXPRESSION_FIELD_NUMBER = 6;
@@ -467,7 +337,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.RegexMatcherOrBuilder getDisallowExpressionOrBuilder() {
-    return getDisallowExpression();
+    return disallowExpression_ == null ? io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.getDefaultInstance() : disallowExpression_;
   }
 
   public static final int DISALLOW_IS_ERROR_FIELD_NUMBER = 7;
@@ -520,7 +390,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getDisallowIsErrorOrBuilder() {
-    return getDisallowIsError();
+    return disallowIsError_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : disallowIsError_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -558,7 +428,7 @@ private static final long serialVersionUID = 0L;
     if (disallowIsError_ != null) {
       output.writeMessage(7, getDisallowIsError());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -595,7 +465,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getDisallowIsError());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -645,7 +515,7 @@ private static final long serialVersionUID = 0L;
       if (!getDisallowIsError()
           .equals(other.getDisallowIsError())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -684,7 +554,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DISALLOW_IS_ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getDisallowIsError().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -825,62 +695,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (allowAllRoutingBuilder_ == null) {
-        allowAllRouting_ = null;
-      } else {
-        allowAllRouting_ = null;
+      bitField0_ = 0;
+      allowAllRouting_ = null;
+      if (allowAllRoutingBuilder_ != null) {
+        allowAllRoutingBuilder_.dispose();
         allowAllRoutingBuilder_ = null;
       }
-      if (allowEnvoyBuilder_ == null) {
-        allowEnvoy_ = null;
-      } else {
-        allowEnvoy_ = null;
+      allowEnvoy_ = null;
+      if (allowEnvoyBuilder_ != null) {
+        allowEnvoyBuilder_.dispose();
         allowEnvoyBuilder_ = null;
       }
-      if (disallowSystemBuilder_ == null) {
-        disallowSystem_ = null;
-      } else {
-        disallowSystem_ = null;
+      disallowSystem_ = null;
+      if (disallowSystemBuilder_ != null) {
+        disallowSystemBuilder_.dispose();
         disallowSystemBuilder_ = null;
       }
-      if (disallowAllBuilder_ == null) {
-        disallowAll_ = null;
-      } else {
-        disallowAll_ = null;
+      disallowAll_ = null;
+      if (disallowAllBuilder_ != null) {
+        disallowAllBuilder_.dispose();
         disallowAllBuilder_ = null;
       }
-      if (allowExpressionBuilder_ == null) {
-        allowExpression_ = null;
-      } else {
-        allowExpression_ = null;
+      allowExpression_ = null;
+      if (allowExpressionBuilder_ != null) {
+        allowExpressionBuilder_.dispose();
         allowExpressionBuilder_ = null;
       }
-      if (disallowExpressionBuilder_ == null) {
-        disallowExpression_ = null;
-      } else {
-        disallowExpression_ = null;
+      disallowExpression_ = null;
+      if (disallowExpressionBuilder_ != null) {
+        disallowExpressionBuilder_.dispose();
         disallowExpressionBuilder_ = null;
       }
-      if (disallowIsErrorBuilder_ == null) {
-        disallowIsError_ = null;
-      } else {
-        disallowIsError_ = null;
+      disallowIsError_ = null;
+      if (disallowIsErrorBuilder_ != null) {
+        disallowIsErrorBuilder_.dispose();
         disallowIsErrorBuilder_ = null;
       }
       return this;
@@ -909,43 +768,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules buildPartial() {
       io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules result = new io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules(this);
-      if (allowAllRoutingBuilder_ == null) {
-        result.allowAllRouting_ = allowAllRouting_;
-      } else {
-        result.allowAllRouting_ = allowAllRoutingBuilder_.build();
-      }
-      if (allowEnvoyBuilder_ == null) {
-        result.allowEnvoy_ = allowEnvoy_;
-      } else {
-        result.allowEnvoy_ = allowEnvoyBuilder_.build();
-      }
-      if (disallowSystemBuilder_ == null) {
-        result.disallowSystem_ = disallowSystem_;
-      } else {
-        result.disallowSystem_ = disallowSystemBuilder_.build();
-      }
-      if (disallowAllBuilder_ == null) {
-        result.disallowAll_ = disallowAll_;
-      } else {
-        result.disallowAll_ = disallowAllBuilder_.build();
-      }
-      if (allowExpressionBuilder_ == null) {
-        result.allowExpression_ = allowExpression_;
-      } else {
-        result.allowExpression_ = allowExpressionBuilder_.build();
-      }
-      if (disallowExpressionBuilder_ == null) {
-        result.disallowExpression_ = disallowExpression_;
-      } else {
-        result.disallowExpression_ = disallowExpressionBuilder_.build();
-      }
-      if (disallowIsErrorBuilder_ == null) {
-        result.disallowIsError_ = disallowIsError_;
-      } else {
-        result.disallowIsError_ = disallowIsErrorBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.allowAllRouting_ = allowAllRoutingBuilder_ == null
+            ? allowAllRouting_
+            : allowAllRoutingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.allowEnvoy_ = allowEnvoyBuilder_ == null
+            ? allowEnvoy_
+            : allowEnvoyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.disallowSystem_ = disallowSystemBuilder_ == null
+            ? disallowSystem_
+            : disallowSystemBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.disallowAll_ = disallowAllBuilder_ == null
+            ? disallowAll_
+            : disallowAllBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.allowExpression_ = allowExpressionBuilder_ == null
+            ? allowExpression_
+            : allowExpressionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.disallowExpression_ = disallowExpressionBuilder_ == null
+            ? disallowExpression_
+            : disallowExpressionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.disallowIsError_ = disallowIsErrorBuilder_ == null
+            ? disallowIsError_
+            : disallowIsErrorBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1013,7 +877,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDisallowIsError()) {
         mergeDisallowIsError(other.getDisallowIsError());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1028,19 +892,82 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAllowAllRoutingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAllowEnvoyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDisallowSystemFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDisallowAllFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAllowExpressionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDisallowExpressionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDisallowIsErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.BoolValue allowAllRouting_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1057,7 +984,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allowAllRouting field is set.
      */
     public boolean hasAllowAllRouting() {
-      return allowAllRoutingBuilder_ != null || allowAllRouting_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1093,11 +1020,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allowAllRouting_ = value;
-        onChanged();
       } else {
         allowAllRoutingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1114,11 +1041,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (allowAllRoutingBuilder_ == null) {
         allowAllRouting_ = builderForValue.build();
-        onChanged();
       } else {
         allowAllRoutingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1133,17 +1060,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllowAllRouting(com.google.protobuf.BoolValue value) {
       if (allowAllRoutingBuilder_ == null) {
-        if (allowAllRouting_ != null) {
-          allowAllRouting_ =
-            com.google.protobuf.BoolValue.newBuilder(allowAllRouting_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          allowAllRouting_ != null &&
+          allowAllRouting_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getAllowAllRoutingBuilder().mergeFrom(value);
         } else {
           allowAllRouting_ = value;
         }
-        onChanged();
       } else {
         allowAllRoutingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1157,14 +1085,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue allow_all_routing = 1;</code>
      */
     public Builder clearAllowAllRouting() {
-      if (allowAllRoutingBuilder_ == null) {
-        allowAllRouting_ = null;
-        onChanged();
-      } else {
-        allowAllRouting_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      allowAllRouting_ = null;
+      if (allowAllRoutingBuilder_ != null) {
+        allowAllRoutingBuilder_.dispose();
         allowAllRoutingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1178,7 +1105,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue allow_all_routing = 1;</code>
      */
     public com.google.protobuf.BoolValue.Builder getAllowAllRoutingBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAllowAllRoutingFieldBuilder().getBuilder();
     }
@@ -1240,7 +1167,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allowEnvoy field is set.
      */
     public boolean hasAllowEnvoy() {
-      return allowEnvoyBuilder_ != null || allowEnvoy_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1278,11 +1205,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allowEnvoy_ = value;
-        onChanged();
       } else {
         allowEnvoyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1300,11 +1227,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (allowEnvoyBuilder_ == null) {
         allowEnvoy_ = builderForValue.build();
-        onChanged();
       } else {
         allowEnvoyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1320,17 +1247,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllowEnvoy(com.google.protobuf.BoolValue value) {
       if (allowEnvoyBuilder_ == null) {
-        if (allowEnvoy_ != null) {
-          allowEnvoy_ =
-            com.google.protobuf.BoolValue.newBuilder(allowEnvoy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          allowEnvoy_ != null &&
+          allowEnvoy_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getAllowEnvoyBuilder().mergeFrom(value);
         } else {
           allowEnvoy_ = value;
         }
-        onChanged();
       } else {
         allowEnvoyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1345,14 +1273,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue allow_envoy = 2;</code>
      */
     public Builder clearAllowEnvoy() {
-      if (allowEnvoyBuilder_ == null) {
-        allowEnvoy_ = null;
-        onChanged();
-      } else {
-        allowEnvoy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      allowEnvoy_ = null;
+      if (allowEnvoyBuilder_ != null) {
+        allowEnvoyBuilder_.dispose();
         allowEnvoyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1367,7 +1294,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue allow_envoy = 2;</code>
      */
     public com.google.protobuf.BoolValue.Builder getAllowEnvoyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAllowEnvoyFieldBuilder().getBuilder();
     }
@@ -1430,7 +1357,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the disallowSystem field is set.
      */
     public boolean hasDisallowSystem() {
-      return disallowSystemBuilder_ != null || disallowSystem_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1466,11 +1393,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         disallowSystem_ = value;
-        onChanged();
       } else {
         disallowSystemBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1487,11 +1414,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (disallowSystemBuilder_ == null) {
         disallowSystem_ = builderForValue.build();
-        onChanged();
       } else {
         disallowSystemBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1506,17 +1433,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDisallowSystem(com.google.protobuf.BoolValue value) {
       if (disallowSystemBuilder_ == null) {
-        if (disallowSystem_ != null) {
-          disallowSystem_ =
-            com.google.protobuf.BoolValue.newBuilder(disallowSystem_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          disallowSystem_ != null &&
+          disallowSystem_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getDisallowSystemBuilder().mergeFrom(value);
         } else {
           disallowSystem_ = value;
         }
-        onChanged();
       } else {
         disallowSystemBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1530,14 +1458,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue disallow_system = 3;</code>
      */
     public Builder clearDisallowSystem() {
-      if (disallowSystemBuilder_ == null) {
-        disallowSystem_ = null;
-        onChanged();
-      } else {
-        disallowSystem_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      disallowSystem_ = null;
+      if (disallowSystemBuilder_ != null) {
+        disallowSystemBuilder_.dispose();
         disallowSystemBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1551,7 +1478,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue disallow_system = 3;</code>
      */
     public com.google.protobuf.BoolValue.Builder getDisallowSystemBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDisallowSystemFieldBuilder().getBuilder();
     }
@@ -1611,7 +1538,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the disallowAll field is set.
      */
     public boolean hasDisallowAll() {
-      return disallowAllBuilder_ != null || disallowAll_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1645,11 +1572,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         disallowAll_ = value;
-        onChanged();
       } else {
         disallowAllBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1665,11 +1592,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (disallowAllBuilder_ == null) {
         disallowAll_ = builderForValue.build();
-        onChanged();
       } else {
         disallowAllBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1683,17 +1610,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDisallowAll(com.google.protobuf.BoolValue value) {
       if (disallowAllBuilder_ == null) {
-        if (disallowAll_ != null) {
-          disallowAll_ =
-            com.google.protobuf.BoolValue.newBuilder(disallowAll_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          disallowAll_ != null &&
+          disallowAll_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getDisallowAllBuilder().mergeFrom(value);
         } else {
           disallowAll_ = value;
         }
-        onChanged();
       } else {
         disallowAllBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1706,14 +1634,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue disallow_all = 4;</code>
      */
     public Builder clearDisallowAll() {
-      if (disallowAllBuilder_ == null) {
-        disallowAll_ = null;
-        onChanged();
-      } else {
-        disallowAll_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      disallowAll_ = null;
+      if (disallowAllBuilder_ != null) {
+        disallowAllBuilder_.dispose();
         disallowAllBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1726,7 +1653,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue disallow_all = 4;</code>
      */
     public com.google.protobuf.BoolValue.Builder getDisallowAllBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDisallowAllFieldBuilder().getBuilder();
     }
@@ -1784,7 +1711,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allowExpression field is set.
      */
     public boolean hasAllowExpression() {
-      return allowExpressionBuilder_ != null || allowExpression_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1818,11 +1745,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allowExpression_ = value;
-        onChanged();
       } else {
         allowExpressionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1838,11 +1765,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.Builder builderForValue) {
       if (allowExpressionBuilder_ == null) {
         allowExpression_ = builderForValue.build();
-        onChanged();
       } else {
         allowExpressionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1856,17 +1783,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllowExpression(io.envoyproxy.envoy.type.matcher.v3.RegexMatcher value) {
       if (allowExpressionBuilder_ == null) {
-        if (allowExpression_ != null) {
-          allowExpression_ =
-            io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.newBuilder(allowExpression_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          allowExpression_ != null &&
+          allowExpression_ != io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.getDefaultInstance()) {
+          getAllowExpressionBuilder().mergeFrom(value);
         } else {
           allowExpression_ = value;
         }
-        onChanged();
       } else {
         allowExpressionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1879,14 +1807,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.RegexMatcher allow_expression = 5;</code>
      */
     public Builder clearAllowExpression() {
-      if (allowExpressionBuilder_ == null) {
-        allowExpression_ = null;
-        onChanged();
-      } else {
-        allowExpression_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      allowExpression_ = null;
+      if (allowExpressionBuilder_ != null) {
+        allowExpressionBuilder_.dispose();
         allowExpressionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1899,7 +1826,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.RegexMatcher allow_expression = 5;</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.Builder getAllowExpressionBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getAllowExpressionFieldBuilder().getBuilder();
     }
@@ -1956,7 +1883,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the disallowExpression field is set.
      */
     public boolean hasDisallowExpression() {
-      return disallowExpressionBuilder_ != null || disallowExpression_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1988,11 +1915,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         disallowExpression_ = value;
-        onChanged();
       } else {
         disallowExpressionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2007,11 +1934,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.Builder builderForValue) {
       if (disallowExpressionBuilder_ == null) {
         disallowExpression_ = builderForValue.build();
-        onChanged();
       } else {
         disallowExpressionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2024,17 +1951,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDisallowExpression(io.envoyproxy.envoy.type.matcher.v3.RegexMatcher value) {
       if (disallowExpressionBuilder_ == null) {
-        if (disallowExpression_ != null) {
-          disallowExpression_ =
-            io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.newBuilder(disallowExpression_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          disallowExpression_ != null &&
+          disallowExpression_ != io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.getDefaultInstance()) {
+          getDisallowExpressionBuilder().mergeFrom(value);
         } else {
           disallowExpression_ = value;
         }
-        onChanged();
       } else {
         disallowExpressionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2046,14 +1974,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.RegexMatcher disallow_expression = 6;</code>
      */
     public Builder clearDisallowExpression() {
-      if (disallowExpressionBuilder_ == null) {
-        disallowExpression_ = null;
-        onChanged();
-      } else {
-        disallowExpression_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      disallowExpression_ = null;
+      if (disallowExpressionBuilder_ != null) {
+        disallowExpressionBuilder_.dispose();
         disallowExpressionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2065,7 +1992,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.RegexMatcher disallow_expression = 6;</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.RegexMatcher.Builder getDisallowExpressionBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getDisallowExpressionFieldBuilder().getBuilder();
     }
@@ -2124,7 +2051,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the disallowIsError field is set.
      */
     public boolean hasDisallowIsError() {
-      return disallowIsErrorBuilder_ != null || disallowIsError_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2164,11 +2091,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         disallowIsError_ = value;
-        onChanged();
       } else {
         disallowIsErrorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2187,11 +2114,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (disallowIsErrorBuilder_ == null) {
         disallowIsError_ = builderForValue.build();
-        onChanged();
       } else {
         disallowIsErrorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2208,17 +2135,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDisallowIsError(com.google.protobuf.BoolValue value) {
       if (disallowIsErrorBuilder_ == null) {
-        if (disallowIsError_ != null) {
-          disallowIsError_ =
-            com.google.protobuf.BoolValue.newBuilder(disallowIsError_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          disallowIsError_ != null &&
+          disallowIsError_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getDisallowIsErrorBuilder().mergeFrom(value);
         } else {
           disallowIsError_ = value;
         }
-        onChanged();
       } else {
         disallowIsErrorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2234,14 +2162,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue disallow_is_error = 7;</code>
      */
     public Builder clearDisallowIsError() {
-      if (disallowIsErrorBuilder_ == null) {
-        disallowIsError_ = null;
-        onChanged();
-      } else {
-        disallowIsError_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      disallowIsError_ = null;
+      if (disallowIsErrorBuilder_ != null) {
+        disallowIsErrorBuilder_.dispose();
         disallowIsErrorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2257,7 +2184,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue disallow_is_error = 7;</code>
      */
     public com.google.protobuf.BoolValue.Builder getDisallowIsErrorBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getDisallowIsErrorFieldBuilder().getBuilder();
     }
@@ -2339,7 +2266,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HeaderMutationRules(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

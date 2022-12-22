@@ -35,90 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Analysis(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (requestTime_ != null) {
-              subBuilder = requestTime_.toBuilder();
-            }
-            requestTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requestTime_);
-              requestTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.cloud.contactcenterinsights.v1.AnalysisResult.Builder subBuilder = null;
-            if (analysisResult_ != null) {
-              subBuilder = analysisResult_.toBuilder();
-            }
-            analysisResult_ = input.readMessage(com.google.cloud.contactcenterinsights.v1.AnalysisResult.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(analysisResult_);
-              analysisResult_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.contactcenterinsights.v1.ResourcesProto.internal_static_google_cloud_contactcenterinsights_v1_Analysis_descriptor;
@@ -133,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Immutable. The resource name of the analysis.
@@ -217,7 +134,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRequestTimeOrBuilder() {
-    return getRequestTime();
+    return requestTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : requestTime_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 3;
@@ -258,7 +175,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int ANALYSIS_RESULT_FIELD_NUMBER = 7;
@@ -299,7 +216,48 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.contactcenterinsights.v1.AnalysisResultOrBuilder getAnalysisResultOrBuilder() {
-    return getAnalysisResult();
+    return analysisResult_ == null ? com.google.cloud.contactcenterinsights.v1.AnalysisResult.getDefaultInstance() : analysisResult_;
+  }
+
+  public static final int ANNOTATOR_SELECTOR_FIELD_NUMBER = 8;
+  private com.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotatorSelector_;
+  /**
+   * <pre>
+   * To select the annotators to run and the phrase matchers to use
+   * (if any). If not specified, all annotators will be run.
+   * </pre>
+   *
+   * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+   * @return Whether the annotatorSelector field is set.
+   */
+  @java.lang.Override
+  public boolean hasAnnotatorSelector() {
+    return annotatorSelector_ != null;
+  }
+  /**
+   * <pre>
+   * To select the annotators to run and the phrase matchers to use
+   * (if any). If not specified, all annotators will be run.
+   * </pre>
+   *
+   * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+   * @return The annotatorSelector.
+   */
+  @java.lang.Override
+  public com.google.cloud.contactcenterinsights.v1.AnnotatorSelector getAnnotatorSelector() {
+    return annotatorSelector_ == null ? com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.getDefaultInstance() : annotatorSelector_;
+  }
+  /**
+   * <pre>
+   * To select the annotators to run and the phrase matchers to use
+   * (if any). If not specified, all annotators will be run.
+   * </pre>
+   *
+   * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.contactcenterinsights.v1.AnnotatorSelectorOrBuilder getAnnotatorSelectorOrBuilder() {
+    return annotatorSelector_ == null ? com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.getDefaultInstance() : annotatorSelector_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -328,7 +286,10 @@ private static final long serialVersionUID = 0L;
     if (analysisResult_ != null) {
       output.writeMessage(7, getAnalysisResult());
     }
-    unknownFields.writeTo(output);
+    if (annotatorSelector_ != null) {
+      output.writeMessage(8, getAnnotatorSelector());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -352,7 +313,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getAnalysisResult());
     }
-    size += unknownFields.getSerializedSize();
+    if (annotatorSelector_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getAnnotatorSelector());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -384,7 +349,12 @@ private static final long serialVersionUID = 0L;
       if (!getAnalysisResult()
           .equals(other.getAnalysisResult())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasAnnotatorSelector() != other.hasAnnotatorSelector()) return false;
+    if (hasAnnotatorSelector()) {
+      if (!getAnnotatorSelector()
+          .equals(other.getAnnotatorSelector())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -409,7 +379,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ANALYSIS_RESULT_FIELD_NUMBER;
       hash = (53 * hash) + getAnalysisResult().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasAnnotatorSelector()) {
+      hash = (37 * hash) + ANNOTATOR_SELECTOR_FIELD_NUMBER;
+      hash = (53 * hash) + getAnnotatorSelector().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -530,41 +504,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.contactcenterinsights.v1.Analysis.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (requestTimeBuilder_ == null) {
-        requestTime_ = null;
-      } else {
-        requestTime_ = null;
+      requestTime_ = null;
+      if (requestTimeBuilder_ != null) {
+        requestTimeBuilder_.dispose();
         requestTimeBuilder_ = null;
       }
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (analysisResultBuilder_ == null) {
-        analysisResult_ = null;
-      } else {
-        analysisResult_ = null;
+      analysisResult_ = null;
+      if (analysisResultBuilder_ != null) {
+        analysisResultBuilder_.dispose();
         analysisResultBuilder_ = null;
+      }
+      annotatorSelector_ = null;
+      if (annotatorSelectorBuilder_ != null) {
+        annotatorSelectorBuilder_.dispose();
+        annotatorSelectorBuilder_ = null;
       }
       return this;
     }
@@ -592,24 +563,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.contactcenterinsights.v1.Analysis buildPartial() {
       com.google.cloud.contactcenterinsights.v1.Analysis result = new com.google.cloud.contactcenterinsights.v1.Analysis(this);
-      result.name_ = name_;
-      if (requestTimeBuilder_ == null) {
-        result.requestTime_ = requestTime_;
-      } else {
-        result.requestTime_ = requestTimeBuilder_.build();
-      }
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (analysisResultBuilder_ == null) {
-        result.analysisResult_ = analysisResult_;
-      } else {
-        result.analysisResult_ = analysisResultBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.contactcenterinsights.v1.Analysis result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.requestTime_ = requestTimeBuilder_ == null
+            ? requestTime_
+            : requestTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.analysisResult_ = analysisResultBuilder_ == null
+            ? analysisResult_
+            : analysisResultBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.annotatorSelector_ = annotatorSelectorBuilder_ == null
+            ? annotatorSelector_
+            : annotatorSelectorBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -658,6 +641,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.contactcenterinsights.v1.Analysis.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasRequestTime()) {
@@ -669,7 +653,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasAnalysisResult()) {
         mergeAnalysisResult(other.getAnalysisResult());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasAnnotatorSelector()) {
+        mergeAnnotatorSelector(other.getAnnotatorSelector());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -684,19 +671,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.contactcenterinsights.v1.Analysis parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRequestTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 58: {
+              input.readMessage(
+                  getAnalysisResultFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getAnnotatorSelectorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.contactcenterinsights.v1.Analysis) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -757,11 +791,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -776,8 +808,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -794,12 +826,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -816,7 +846,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestTime field is set.
      */
     public boolean hasRequestTime() {
-      return requestTimeBuilder_ != null || requestTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -846,11 +876,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requestTime_ = value;
-        onChanged();
       } else {
         requestTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -864,11 +894,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (requestTimeBuilder_ == null) {
         requestTime_ = builderForValue.build();
-        onChanged();
       } else {
         requestTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -880,17 +910,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequestTime(com.google.protobuf.Timestamp value) {
       if (requestTimeBuilder_ == null) {
-        if (requestTime_ != null) {
-          requestTime_ =
-            com.google.protobuf.Timestamp.newBuilder(requestTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          requestTime_ != null &&
+          requestTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRequestTimeBuilder().mergeFrom(value);
         } else {
           requestTime_ = value;
         }
-        onChanged();
       } else {
         requestTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -901,14 +932,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp request_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearRequestTime() {
-      if (requestTimeBuilder_ == null) {
-        requestTime_ = null;
-        onChanged();
-      } else {
-        requestTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      requestTime_ = null;
+      if (requestTimeBuilder_ != null) {
+        requestTimeBuilder_.dispose();
         requestTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -919,7 +949,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp request_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getRequestTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRequestTimeFieldBuilder().getBuilder();
     }
@@ -972,7 +1002,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1004,11 +1034,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1023,11 +1053,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1040,17 +1070,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1062,14 +1093,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1081,7 +1111,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1136,7 +1166,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the analysisResult field is set.
      */
     public boolean hasAnalysisResult() {
-      return analysisResultBuilder_ != null || analysisResult_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1168,11 +1198,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         analysisResult_ = value;
-        onChanged();
       } else {
         analysisResultBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1187,11 +1217,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.contactcenterinsights.v1.AnalysisResult.Builder builderForValue) {
       if (analysisResultBuilder_ == null) {
         analysisResult_ = builderForValue.build();
-        onChanged();
       } else {
         analysisResultBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1204,17 +1234,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAnalysisResult(com.google.cloud.contactcenterinsights.v1.AnalysisResult value) {
       if (analysisResultBuilder_ == null) {
-        if (analysisResult_ != null) {
-          analysisResult_ =
-            com.google.cloud.contactcenterinsights.v1.AnalysisResult.newBuilder(analysisResult_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          analysisResult_ != null &&
+          analysisResult_ != com.google.cloud.contactcenterinsights.v1.AnalysisResult.getDefaultInstance()) {
+          getAnalysisResultBuilder().mergeFrom(value);
         } else {
           analysisResult_ = value;
         }
-        onChanged();
       } else {
         analysisResultBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1226,14 +1257,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.contactcenterinsights.v1.AnalysisResult analysis_result = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearAnalysisResult() {
-      if (analysisResultBuilder_ == null) {
-        analysisResult_ = null;
-        onChanged();
-      } else {
-        analysisResult_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      analysisResult_ = null;
+      if (analysisResultBuilder_ != null) {
+        analysisResultBuilder_.dispose();
         analysisResultBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1245,7 +1275,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.contactcenterinsights.v1.AnalysisResult analysis_result = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.contactcenterinsights.v1.AnalysisResult.Builder getAnalysisResultBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAnalysisResultFieldBuilder().getBuilder();
     }
@@ -1286,6 +1316,170 @@ private static final long serialVersionUID = 0L;
       }
       return analysisResultBuilder_;
     }
+
+    private com.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotatorSelector_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.contactcenterinsights.v1.AnnotatorSelector, com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.Builder, com.google.cloud.contactcenterinsights.v1.AnnotatorSelectorOrBuilder> annotatorSelectorBuilder_;
+    /**
+     * <pre>
+     * To select the annotators to run and the phrase matchers to use
+     * (if any). If not specified, all annotators will be run.
+     * </pre>
+     *
+     * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+     * @return Whether the annotatorSelector field is set.
+     */
+    public boolean hasAnnotatorSelector() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * To select the annotators to run and the phrase matchers to use
+     * (if any). If not specified, all annotators will be run.
+     * </pre>
+     *
+     * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+     * @return The annotatorSelector.
+     */
+    public com.google.cloud.contactcenterinsights.v1.AnnotatorSelector getAnnotatorSelector() {
+      if (annotatorSelectorBuilder_ == null) {
+        return annotatorSelector_ == null ? com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.getDefaultInstance() : annotatorSelector_;
+      } else {
+        return annotatorSelectorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * To select the annotators to run and the phrase matchers to use
+     * (if any). If not specified, all annotators will be run.
+     * </pre>
+     *
+     * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+     */
+    public Builder setAnnotatorSelector(com.google.cloud.contactcenterinsights.v1.AnnotatorSelector value) {
+      if (annotatorSelectorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        annotatorSelector_ = value;
+      } else {
+        annotatorSelectorBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * To select the annotators to run and the phrase matchers to use
+     * (if any). If not specified, all annotators will be run.
+     * </pre>
+     *
+     * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+     */
+    public Builder setAnnotatorSelector(
+        com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.Builder builderForValue) {
+      if (annotatorSelectorBuilder_ == null) {
+        annotatorSelector_ = builderForValue.build();
+      } else {
+        annotatorSelectorBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * To select the annotators to run and the phrase matchers to use
+     * (if any). If not specified, all annotators will be run.
+     * </pre>
+     *
+     * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+     */
+    public Builder mergeAnnotatorSelector(com.google.cloud.contactcenterinsights.v1.AnnotatorSelector value) {
+      if (annotatorSelectorBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+          annotatorSelector_ != null &&
+          annotatorSelector_ != com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.getDefaultInstance()) {
+          getAnnotatorSelectorBuilder().mergeFrom(value);
+        } else {
+          annotatorSelector_ = value;
+        }
+      } else {
+        annotatorSelectorBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * To select the annotators to run and the phrase matchers to use
+     * (if any). If not specified, all annotators will be run.
+     * </pre>
+     *
+     * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+     */
+    public Builder clearAnnotatorSelector() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      annotatorSelector_ = null;
+      if (annotatorSelectorBuilder_ != null) {
+        annotatorSelectorBuilder_.dispose();
+        annotatorSelectorBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * To select the annotators to run and the phrase matchers to use
+     * (if any). If not specified, all annotators will be run.
+     * </pre>
+     *
+     * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+     */
+    public com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.Builder getAnnotatorSelectorBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return getAnnotatorSelectorFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * To select the annotators to run and the phrase matchers to use
+     * (if any). If not specified, all annotators will be run.
+     * </pre>
+     *
+     * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+     */
+    public com.google.cloud.contactcenterinsights.v1.AnnotatorSelectorOrBuilder getAnnotatorSelectorOrBuilder() {
+      if (annotatorSelectorBuilder_ != null) {
+        return annotatorSelectorBuilder_.getMessageOrBuilder();
+      } else {
+        return annotatorSelector_ == null ?
+            com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.getDefaultInstance() : annotatorSelector_;
+      }
+    }
+    /**
+     * <pre>
+     * To select the annotators to run and the phrase matchers to use
+     * (if any). If not specified, all annotators will be run.
+     * </pre>
+     *
+     * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.contactcenterinsights.v1.AnnotatorSelector, com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.Builder, com.google.cloud.contactcenterinsights.v1.AnnotatorSelectorOrBuilder> 
+        getAnnotatorSelectorFieldBuilder() {
+      if (annotatorSelectorBuilder_ == null) {
+        annotatorSelectorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.contactcenterinsights.v1.AnnotatorSelector, com.google.cloud.contactcenterinsights.v1.AnnotatorSelector.Builder, com.google.cloud.contactcenterinsights.v1.AnnotatorSelectorOrBuilder>(
+                getAnnotatorSelector(),
+                getParentForChildren(),
+                isClean());
+        annotatorSelector_ = null;
+      }
+      return annotatorSelectorBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1319,7 +1513,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Analysis(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutoscalerLog(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dataproc.logging.AutoscalerStatus.Builder subBuilder = null;
-            if (status_ != null) {
-              subBuilder = status_.toBuilder();
-            }
-            status_ = input.readMessage(com.google.cloud.dataproc.logging.AutoscalerStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(status_);
-              status_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.dataproc.logging.AutoscalerRecommendation.Builder subBuilder = null;
-            if (recommendation_ != null) {
-              subBuilder = recommendation_.toBuilder();
-            }
-            recommendation_ = input.readMessage(com.google.cloud.dataproc.logging.AutoscalerRecommendation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(recommendation_);
-              recommendation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.logging.AutoscalerLogOuterClass.internal_static_google_cloud_dataproc_logging_AutoscalerLog_descriptor;
@@ -148,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.logging.AutoscalerStatusOrBuilder getStatusOrBuilder() {
-    return getStatus();
+    return status_ == null ? com.google.cloud.dataproc.logging.AutoscalerStatus.getDefaultInstance() : status_;
   }
 
   public static final int RECOMMENDATION_FIELD_NUMBER = 2;
@@ -189,7 +124,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.logging.AutoscalerRecommendationOrBuilder getRecommendationOrBuilder() {
-    return getRecommendation();
+    return recommendation_ == null ? com.google.cloud.dataproc.logging.AutoscalerRecommendation.getDefaultInstance() : recommendation_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -212,7 +147,7 @@ private static final long serialVersionUID = 0L;
     if (recommendation_ != null) {
       output.writeMessage(2, getRecommendation());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -229,7 +164,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getRecommendation());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -254,7 +189,7 @@ private static final long serialVersionUID = 0L;
       if (!getRecommendation()
           .equals(other.getRecommendation())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -273,7 +208,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RECOMMENDATION_FIELD_NUMBER;
       hash = (53 * hash) + getRecommendation().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -395,32 +330,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.logging.AutoscalerLog.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (statusBuilder_ == null) {
-        status_ = null;
-      } else {
-        status_ = null;
+      bitField0_ = 0;
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-      if (recommendationBuilder_ == null) {
-        recommendation_ = null;
-      } else {
-        recommendation_ = null;
+      recommendation_ = null;
+      if (recommendationBuilder_ != null) {
+        recommendationBuilder_.dispose();
         recommendationBuilder_ = null;
       }
       return this;
@@ -449,18 +378,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.logging.AutoscalerLog buildPartial() {
       com.google.cloud.dataproc.logging.AutoscalerLog result = new com.google.cloud.dataproc.logging.AutoscalerLog(this);
-      if (statusBuilder_ == null) {
-        result.status_ = status_;
-      } else {
-        result.status_ = statusBuilder_.build();
-      }
-      if (recommendationBuilder_ == null) {
-        result.recommendation_ = recommendation_;
-      } else {
-        result.recommendation_ = recommendationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.logging.AutoscalerLog result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.status_ = statusBuilder_ == null
+            ? status_
+            : statusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.recommendation_ = recommendationBuilder_ == null
+            ? recommendation_
+            : recommendationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -513,7 +447,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRecommendation()) {
         mergeRecommendation(other.getRecommendation());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -528,19 +462,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.logging.AutoscalerLog parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRecommendationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.logging.AutoscalerLog) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.dataproc.logging.AutoscalerStatus status_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -554,7 +516,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return statusBuilder_ != null || status_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -584,11 +546,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         status_ = value;
-        onChanged();
       } else {
         statusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -602,11 +564,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.logging.AutoscalerStatus.Builder builderForValue) {
       if (statusBuilder_ == null) {
         status_ = builderForValue.build();
-        onChanged();
       } else {
         statusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -618,17 +580,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatus(com.google.cloud.dataproc.logging.AutoscalerStatus value) {
       if (statusBuilder_ == null) {
-        if (status_ != null) {
-          status_ =
-            com.google.cloud.dataproc.logging.AutoscalerStatus.newBuilder(status_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          status_ != null &&
+          status_ != com.google.cloud.dataproc.logging.AutoscalerStatus.getDefaultInstance()) {
+          getStatusBuilder().mergeFrom(value);
         } else {
           status_ = value;
         }
-        onChanged();
       } else {
         statusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -639,14 +602,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.logging.AutoscalerStatus status = 1;</code>
      */
     public Builder clearStatus() {
-      if (statusBuilder_ == null) {
-        status_ = null;
-        onChanged();
-      } else {
-        status_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -657,7 +619,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.logging.AutoscalerStatus status = 1;</code>
      */
     public com.google.cloud.dataproc.logging.AutoscalerStatus.Builder getStatusBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getStatusFieldBuilder().getBuilder();
     }
@@ -710,7 +672,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the recommendation field is set.
      */
     public boolean hasRecommendation() {
-      return recommendationBuilder_ != null || recommendation_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -742,11 +704,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         recommendation_ = value;
-        onChanged();
       } else {
         recommendationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -761,11 +723,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.logging.AutoscalerRecommendation.Builder builderForValue) {
       if (recommendationBuilder_ == null) {
         recommendation_ = builderForValue.build();
-        onChanged();
       } else {
         recommendationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -778,17 +740,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRecommendation(com.google.cloud.dataproc.logging.AutoscalerRecommendation value) {
       if (recommendationBuilder_ == null) {
-        if (recommendation_ != null) {
-          recommendation_ =
-            com.google.cloud.dataproc.logging.AutoscalerRecommendation.newBuilder(recommendation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          recommendation_ != null &&
+          recommendation_ != com.google.cloud.dataproc.logging.AutoscalerRecommendation.getDefaultInstance()) {
+          getRecommendationBuilder().mergeFrom(value);
         } else {
           recommendation_ = value;
         }
-        onChanged();
       } else {
         recommendationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -800,14 +763,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.logging.AutoscalerRecommendation recommendation = 2;</code>
      */
     public Builder clearRecommendation() {
-      if (recommendationBuilder_ == null) {
-        recommendation_ = null;
-        onChanged();
-      } else {
-        recommendation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      recommendation_ = null;
+      if (recommendationBuilder_ != null) {
+        recommendationBuilder_.dispose();
         recommendationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -819,7 +781,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.logging.AutoscalerRecommendation recommendation = 2;</code>
      */
     public com.google.cloud.dataproc.logging.AutoscalerRecommendation.Builder getRecommendationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRecommendationFieldBuilder().getBuilder();
     }
@@ -893,7 +855,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutoscalerLog(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

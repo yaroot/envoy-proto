@@ -29,6 +29,8 @@ private static final long serialVersionUID = 0L;
     customGpuDriverPath_ = "";
     postStartupScript_ = "";
     kernels_ = java.util.Collections.emptyList();
+    postStartupScriptBehavior_ = 0;
+    version_ = "";
   }
 
   @java.lang.Override
@@ -43,101 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RuntimeSoftwareConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            notebookUpgradeSchedule_ = s;
-            break;
-          }
-          case 16: {
-            bitField0_ |= 0x00000001;
-            enableHealthMonitoring_ = input.readBool();
-            break;
-          }
-          case 24: {
-            bitField0_ |= 0x00000002;
-            idleShutdown_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            idleShutdownTimeout_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            installGpuDriver_ = input.readBool();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customGpuDriverPath_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            postStartupScript_ = s;
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              kernels_ = new java.util.ArrayList<com.google.cloud.notebooks.v1.ContainerImage>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            kernels_.add(
-                input.readMessage(com.google.cloud.notebooks.v1.ContainerImage.parser(), extensionRegistry));
-            break;
-          }
-          case 72: {
-            bitField0_ |= 0x00000004;
-            upgradeable_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        kernels_ = java.util.Collections.unmodifiableList(kernels_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.notebooks.v1.RuntimeProto.internal_static_google_cloud_notebooks_v1_RuntimeSoftwareConfig_descriptor;
@@ -151,9 +58,155 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.class, com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.Builder.class);
   }
 
+  /**
+   * <pre>
+   * Behavior for the post startup script.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior}
+   */
+  public enum PostStartupScriptBehavior
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * Unspecified post startup script behavior. Will run only once at creation.
+     * </pre>
+     *
+     * <code>POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED = 0;</code>
+     */
+    POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * Runs the post startup script provided during creation at every start.
+     * </pre>
+     *
+     * <code>RUN_EVERY_START = 1;</code>
+     */
+    RUN_EVERY_START(1),
+    /**
+     * <pre>
+     * Downloads and runs the provided post startup script at every start.
+     * </pre>
+     *
+     * <code>DOWNLOAD_AND_RUN_EVERY_START = 2;</code>
+     */
+    DOWNLOAD_AND_RUN_EVERY_START(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * Unspecified post startup script behavior. Will run only once at creation.
+     * </pre>
+     *
+     * <code>POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED = 0;</code>
+     */
+    public static final int POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * Runs the post startup script provided during creation at every start.
+     * </pre>
+     *
+     * <code>RUN_EVERY_START = 1;</code>
+     */
+    public static final int RUN_EVERY_START_VALUE = 1;
+    /**
+     * <pre>
+     * Downloads and runs the provided post startup script at every start.
+     * </pre>
+     *
+     * <code>DOWNLOAD_AND_RUN_EVERY_START = 2;</code>
+     */
+    public static final int DOWNLOAD_AND_RUN_EVERY_START_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static PostStartupScriptBehavior valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static PostStartupScriptBehavior forNumber(int value) {
+      switch (value) {
+        case 0: return POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED;
+        case 1: return RUN_EVERY_START;
+        case 2: return DOWNLOAD_AND_RUN_EVERY_START;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<PostStartupScriptBehavior>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        PostStartupScriptBehavior> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<PostStartupScriptBehavior>() {
+            public PostStartupScriptBehavior findValueByNumber(int number) {
+              return PostStartupScriptBehavior.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final PostStartupScriptBehavior[] VALUES = values();
+
+    public static PostStartupScriptBehavior valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private PostStartupScriptBehavior(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior)
+  }
+
   private int bitField0_;
   public static final int NOTEBOOK_UPGRADE_SCHEDULE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object notebookUpgradeSchedule_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object notebookUpgradeSchedule_ = "";
   /**
    * <pre>
    * Cron expression in UTC timezone, used to schedule instance auto upgrade.
@@ -201,7 +254,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_HEALTH_MONITORING_FIELD_NUMBER = 2;
-  private boolean enableHealthMonitoring_;
+  private boolean enableHealthMonitoring_ = false;
   /**
    * <pre>
    * Verifies core internal services are running.
@@ -230,7 +283,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IDLE_SHUTDOWN_FIELD_NUMBER = 3;
-  private boolean idleShutdown_;
+  private boolean idleShutdown_ = false;
   /**
    * <pre>
    * Runtime will automatically shutdown after idle_shutdown_time.
@@ -259,7 +312,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IDLE_SHUTDOWN_TIMEOUT_FIELD_NUMBER = 4;
-  private int idleShutdownTimeout_;
+  private int idleShutdownTimeout_ = 0;
   /**
    * <pre>
    * Time in minutes to wait before shutting down runtime. Default: 180 minutes
@@ -274,7 +327,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTALL_GPU_DRIVER_FIELD_NUMBER = 5;
-  private boolean installGpuDriver_;
+  private boolean installGpuDriver_ = false;
   /**
    * <pre>
    * Install Nvidia Driver automatically.
@@ -290,7 +343,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_GPU_DRIVER_PATH_FIELD_NUMBER = 6;
-  private volatile java.lang.Object customGpuDriverPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customGpuDriverPath_ = "";
   /**
    * <pre>
    * Specify a custom Cloud Storage path where the GPU driver is stored.
@@ -338,7 +392,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POST_STARTUP_SCRIPT_FIELD_NUMBER = 7;
-  private volatile java.lang.Object postStartupScript_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object postStartupScript_ = "";
   /**
    * <pre>
    * Path to a Bash script that automatically runs after a notebook instance
@@ -388,6 +443,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KERNELS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.notebooks.v1.ContainerImage> kernels_;
   /**
    * <pre>
@@ -448,7 +504,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPGRADEABLE_FIELD_NUMBER = 9;
-  private boolean upgradeable_;
+  private boolean upgradeable_ = false;
   /**
    * <pre>
    * Output only. Bool indicating whether an newer image is available in an image family.
@@ -472,6 +528,120 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean getUpgradeable() {
     return upgradeable_;
+  }
+
+  public static final int POST_STARTUP_SCRIPT_BEHAVIOR_FIELD_NUMBER = 10;
+  private int postStartupScriptBehavior_ = 0;
+  /**
+   * <pre>
+   * Behavior for the post startup script.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior post_startup_script_behavior = 10;</code>
+   * @return The enum numeric value on the wire for postStartupScriptBehavior.
+   */
+  @java.lang.Override public int getPostStartupScriptBehaviorValue() {
+    return postStartupScriptBehavior_;
+  }
+  /**
+   * <pre>
+   * Behavior for the post startup script.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior post_startup_script_behavior = 10;</code>
+   * @return The postStartupScriptBehavior.
+   */
+  @java.lang.Override public com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior getPostStartupScriptBehavior() {
+    com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior result = com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior.forNumber(postStartupScriptBehavior_);
+    return result == null ? com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior.UNRECOGNIZED : result;
+  }
+
+  public static final int DISABLE_TERMINAL_FIELD_NUMBER = 11;
+  private boolean disableTerminal_ = false;
+  /**
+   * <pre>
+   * Bool indicating whether JupyterLab terminal will be available or not.
+   * Default: False
+   * </pre>
+   *
+   * <code>optional bool disable_terminal = 11;</code>
+   * @return Whether the disableTerminal field is set.
+   */
+  @java.lang.Override
+  public boolean hasDisableTerminal() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <pre>
+   * Bool indicating whether JupyterLab terminal will be available or not.
+   * Default: False
+   * </pre>
+   *
+   * <code>optional bool disable_terminal = 11;</code>
+   * @return The disableTerminal.
+   */
+  @java.lang.Override
+  public boolean getDisableTerminal() {
+    return disableTerminal_;
+  }
+
+  public static final int VERSION_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
+  /**
+   * <pre>
+   * Output only. version of boot image such as M100, from release label of the image.
+   * </pre>
+   *
+   * <code>optional string version = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return Whether the version field is set.
+   */
+  @java.lang.Override
+  public boolean hasVersion() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <pre>
+   * Output only. version of boot image such as M100, from release label of the image.
+   * </pre>
+   *
+   * <code>optional string version = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The version.
+   */
+  @java.lang.Override
+  public java.lang.String getVersion() {
+    java.lang.Object ref = version_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      version_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Output only. version of boot image such as M100, from release label of the image.
+   * </pre>
+   *
+   * <code>optional string version = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The bytes for version.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getVersionBytes() {
+    java.lang.Object ref = version_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      version_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -515,7 +685,16 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeBool(9, upgradeable_);
     }
-    unknownFields.writeTo(output);
+    if (postStartupScriptBehavior_ != com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior.POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED.getNumber()) {
+      output.writeEnum(10, postStartupScriptBehavior_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      output.writeBool(11, disableTerminal_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, version_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -557,7 +736,18 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(9, upgradeable_);
     }
-    size += unknownFields.getSerializedSize();
+    if (postStartupScriptBehavior_ != com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior.POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(10, postStartupScriptBehavior_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(11, disableTerminal_);
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, version_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -599,7 +789,18 @@ private static final long serialVersionUID = 0L;
       if (getUpgradeable()
           != other.getUpgradeable()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (postStartupScriptBehavior_ != other.postStartupScriptBehavior_) return false;
+    if (hasDisableTerminal() != other.hasDisableTerminal()) return false;
+    if (hasDisableTerminal()) {
+      if (getDisableTerminal()
+          != other.getDisableTerminal()) return false;
+    }
+    if (hasVersion() != other.hasVersion()) return false;
+    if (hasVersion()) {
+      if (!getVersion()
+          .equals(other.getVersion())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -640,7 +841,18 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getUpgradeable());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + POST_STARTUP_SCRIPT_BEHAVIOR_FIELD_NUMBER;
+    hash = (53 * hash) + postStartupScriptBehavior_;
+    if (hasDisableTerminal()) {
+      hash = (37 * hash) + DISABLE_TERMINAL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getDisableTerminal());
+    }
+    if (hasVersion()) {
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -766,45 +978,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getKernelsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       notebookUpgradeSchedule_ = "";
-
       enableHealthMonitoring_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       idleShutdown_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       idleShutdownTimeout_ = 0;
-
       installGpuDriver_ = false;
-
       customGpuDriverPath_ = "";
-
       postStartupScript_ = "";
-
       if (kernelsBuilder_ == null) {
         kernels_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        kernels_ = null;
         kernelsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       upgradeable_ = false;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      postStartupScriptBehavior_ = 0;
+      disableTerminal_ = false;
+      version_ = "";
       return this;
     }
 
@@ -831,37 +1034,66 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.notebooks.v1.RuntimeSoftwareConfig buildPartial() {
       com.google.cloud.notebooks.v1.RuntimeSoftwareConfig result = new com.google.cloud.notebooks.v1.RuntimeSoftwareConfig(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.notebookUpgradeSchedule_ = notebookUpgradeSchedule_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.enableHealthMonitoring_ = enableHealthMonitoring_;
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.idleShutdown_ = idleShutdown_;
-        to_bitField0_ |= 0x00000002;
-      }
-      result.idleShutdownTimeout_ = idleShutdownTimeout_;
-      result.installGpuDriver_ = installGpuDriver_;
-      result.customGpuDriverPath_ = customGpuDriverPath_;
-      result.postStartupScript_ = postStartupScript_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.notebooks.v1.RuntimeSoftwareConfig result) {
       if (kernelsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           kernels_ = java.util.Collections.unmodifiableList(kernels_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.kernels_ = kernels_;
       } else {
         result.kernels_ = kernelsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.notebooks.v1.RuntimeSoftwareConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.notebookUpgradeSchedule_ = notebookUpgradeSchedule_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.enableHealthMonitoring_ = enableHealthMonitoring_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.idleShutdown_ = idleShutdown_;
+        to_bitField0_ |= 0x00000002;
+      }
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.idleShutdownTimeout_ = idleShutdownTimeout_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.installGpuDriver_ = installGpuDriver_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.customGpuDriverPath_ = customGpuDriverPath_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.postStartupScript_ = postStartupScript_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
         result.upgradeable_ = upgradeable_;
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.postStartupScriptBehavior_ = postStartupScriptBehavior_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.disableTerminal_ = disableTerminal_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.version_ = version_;
+        to_bitField0_ |= 0x00000010;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -910,6 +1142,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.getDefaultInstance()) return this;
       if (!other.getNotebookUpgradeSchedule().isEmpty()) {
         notebookUpgradeSchedule_ = other.notebookUpgradeSchedule_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasEnableHealthMonitoring()) {
@@ -926,17 +1159,19 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCustomGpuDriverPath().isEmpty()) {
         customGpuDriverPath_ = other.customGpuDriverPath_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getPostStartupScript().isEmpty()) {
         postStartupScript_ = other.postStartupScript_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (kernelsBuilder_ == null) {
         if (!other.kernels_.isEmpty()) {
           if (kernels_.isEmpty()) {
             kernels_ = other.kernels_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureKernelsIsMutable();
             kernels_.addAll(other.kernels_);
@@ -949,7 +1184,7 @@ private static final long serialVersionUID = 0L;
             kernelsBuilder_.dispose();
             kernelsBuilder_ = null;
             kernels_ = other.kernels_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000080);
             kernelsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getKernelsFieldBuilder() : null;
@@ -961,7 +1196,18 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpgradeable()) {
         setUpgradeable(other.getUpgradeable());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.postStartupScriptBehavior_ != 0) {
+        setPostStartupScriptBehaviorValue(other.getPostStartupScriptBehaviorValue());
+      }
+      if (other.hasDisableTerminal()) {
+        setDisableTerminal(other.getDisableTerminal());
+      }
+      if (other.hasVersion()) {
+        version_ = other.version_;
+        bitField0_ |= 0x00000800;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -976,17 +1222,98 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.notebooks.v1.RuntimeSoftwareConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              notebookUpgradeSchedule_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              enableHealthMonitoring_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              idleShutdown_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              idleShutdownTimeout_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              installGpuDriver_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              customGpuDriverPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              postStartupScript_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.cloud.notebooks.v1.ContainerImage m =
+                  input.readMessage(
+                      com.google.cloud.notebooks.v1.ContainerImage.parser(),
+                      extensionRegistry);
+              if (kernelsBuilder_ == null) {
+                ensureKernelsIsMutable();
+                kernels_.add(m);
+              } else {
+                kernelsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 72: {
+              upgradeable_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              postStartupScriptBehavior_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              disableTerminal_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 98: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.notebooks.v1.RuntimeSoftwareConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1047,11 +1374,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNotebookUpgradeSchedule(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       notebookUpgradeSchedule_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1065,8 +1390,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNotebookUpgradeSchedule() {
-      
       notebookUpgradeSchedule_ = getDefaultInstance().getNotebookUpgradeSchedule();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1082,12 +1407,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNotebookUpgradeScheduleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       notebookUpgradeSchedule_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1104,7 +1427,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasEnableHealthMonitoring() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1130,8 +1453,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableHealthMonitoring(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       enableHealthMonitoring_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1145,7 +1469,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableHealthMonitoring() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       enableHealthMonitoring_ = false;
       onChanged();
       return this;
@@ -1163,7 +1487,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIdleShutdown() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1189,8 +1513,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIdleShutdown(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       idleShutdown_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1204,7 +1529,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIdleShutdown() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       idleShutdown_ = false;
       onChanged();
       return this;
@@ -1235,6 +1560,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIdleShutdownTimeout(int value) {
       
       idleShutdownTimeout_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1247,7 +1573,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIdleShutdownTimeout() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       idleShutdownTimeout_ = 0;
       onChanged();
       return this;
@@ -1280,6 +1606,7 @@ private static final long serialVersionUID = 0L;
     public Builder setInstallGpuDriver(boolean value) {
       
       installGpuDriver_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1293,7 +1620,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstallGpuDriver() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       installGpuDriver_ = false;
       onChanged();
       return this;
@@ -1355,11 +1682,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomGpuDriverPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customGpuDriverPath_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1373,8 +1698,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomGpuDriverPath() {
-      
       customGpuDriverPath_ = getDefaultInstance().getCustomGpuDriverPath();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1390,12 +1715,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomGpuDriverPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customGpuDriverPath_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1459,11 +1782,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPostStartupScript(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       postStartupScript_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1478,8 +1799,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPostStartupScript() {
-      
       postStartupScript_ = getDefaultInstance().getPostStartupScript();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1496,12 +1817,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPostStartupScriptBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       postStartupScript_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1509,9 +1828,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.notebooks.v1.ContainerImage> kernels_ =
       java.util.Collections.emptyList();
     private void ensureKernelsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         kernels_ = new java.util.ArrayList<com.google.cloud.notebooks.v1.ContainerImage>(kernels_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -1705,7 +2024,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearKernels() {
       if (kernelsBuilder_ == null) {
         kernels_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         kernelsBuilder_.clear();
@@ -1810,7 +2129,7 @@ private static final long serialVersionUID = 0L;
         kernelsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.notebooks.v1.ContainerImage, com.google.cloud.notebooks.v1.ContainerImage.Builder, com.google.cloud.notebooks.v1.ContainerImageOrBuilder>(
                 kernels_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         kernels_ = null;
@@ -1829,7 +2148,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasUpgradeable() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -1853,8 +2172,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setUpgradeable(boolean value) {
-      bitField0_ |= 0x00000008;
+      
       upgradeable_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1867,8 +2187,244 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpgradeable() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000100);
       upgradeable_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int postStartupScriptBehavior_ = 0;
+    /**
+     * <pre>
+     * Behavior for the post startup script.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior post_startup_script_behavior = 10;</code>
+     * @return The enum numeric value on the wire for postStartupScriptBehavior.
+     */
+    @java.lang.Override public int getPostStartupScriptBehaviorValue() {
+      return postStartupScriptBehavior_;
+    }
+    /**
+     * <pre>
+     * Behavior for the post startup script.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior post_startup_script_behavior = 10;</code>
+     * @param value The enum numeric value on the wire for postStartupScriptBehavior to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPostStartupScriptBehaviorValue(int value) {
+      postStartupScriptBehavior_ = value;
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Behavior for the post startup script.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior post_startup_script_behavior = 10;</code>
+     * @return The postStartupScriptBehavior.
+     */
+    @java.lang.Override
+    public com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior getPostStartupScriptBehavior() {
+      com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior result = com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior.forNumber(postStartupScriptBehavior_);
+      return result == null ? com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Behavior for the post startup script.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior post_startup_script_behavior = 10;</code>
+     * @param value The postStartupScriptBehavior to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPostStartupScriptBehavior(com.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000200;
+      postStartupScriptBehavior_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Behavior for the post startup script.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1.RuntimeSoftwareConfig.PostStartupScriptBehavior post_startup_script_behavior = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPostStartupScriptBehavior() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      postStartupScriptBehavior_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean disableTerminal_ ;
+    /**
+     * <pre>
+     * Bool indicating whether JupyterLab terminal will be available or not.
+     * Default: False
+     * </pre>
+     *
+     * <code>optional bool disable_terminal = 11;</code>
+     * @return Whether the disableTerminal field is set.
+     */
+    @java.lang.Override
+    public boolean hasDisableTerminal() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <pre>
+     * Bool indicating whether JupyterLab terminal will be available or not.
+     * Default: False
+     * </pre>
+     *
+     * <code>optional bool disable_terminal = 11;</code>
+     * @return The disableTerminal.
+     */
+    @java.lang.Override
+    public boolean getDisableTerminal() {
+      return disableTerminal_;
+    }
+    /**
+     * <pre>
+     * Bool indicating whether JupyterLab terminal will be available or not.
+     * Default: False
+     * </pre>
+     *
+     * <code>optional bool disable_terminal = 11;</code>
+     * @param value The disableTerminal to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDisableTerminal(boolean value) {
+      
+      disableTerminal_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Bool indicating whether JupyterLab terminal will be available or not.
+     * Default: False
+     * </pre>
+     *
+     * <code>optional bool disable_terminal = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDisableTerminal() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      disableTerminal_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object version_ = "";
+    /**
+     * <pre>
+     * Output only. version of boot image such as M100, from release label of the image.
+     * </pre>
+     *
+     * <code>optional string version = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return Whether the version field is set.
+     */
+    public boolean hasVersion() {
+      return ((bitField0_ & 0x00000800) != 0);
+    }
+    /**
+     * <pre>
+     * Output only. version of boot image such as M100, from release label of the image.
+     * </pre>
+     *
+     * <code>optional string version = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The version.
+     */
+    public java.lang.String getVersion() {
+      java.lang.Object ref = version_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        version_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. version of boot image such as M100, from release label of the image.
+     * </pre>
+     *
+     * <code>optional string version = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The bytes for version.
+     */
+    public com.google.protobuf.ByteString
+        getVersionBytes() {
+      java.lang.Object ref = version_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        version_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. version of boot image such as M100, from release label of the image.
+     * </pre>
+     *
+     * <code>optional string version = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersion(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      version_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. version of boot image such as M100, from release label of the image.
+     * </pre>
+     *
+     * <code>optional string version = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVersion() {
+      version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000800);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. version of boot image such as M100, from release label of the image.
+     * </pre>
+     *
+     * <code>optional string version = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The bytes for version to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVersionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      version_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -1905,7 +2461,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RuntimeSoftwareConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,7 +9,7 @@ public interface GetDataExchangeRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The resource name of the DataExchange.
+   * Required. The resource name of the data exchange.
    * e.g. `projects/myproject/locations/US/dataExchanges/123`.
    * </pre>
    *
@@ -19,7 +19,7 @@ public interface GetDataExchangeRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The resource name of the DataExchange.
+   * Required. The resource name of the data exchange.
    * e.g. `projects/myproject/locations/US/dataExchanges/123`.
    * </pre>
    *

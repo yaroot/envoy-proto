@@ -41,8 +41,8 @@ public enum ApiType
   CHECK_STATUS(2),
   /**
    * <pre>
-   * Complain API. Maps to UPI's `Complaint` API. This is a metadata transaction
-   * API.
+   * Complaint API. Maps to UPI's `Complaint` API. This is a dispute and issue
+   * resolution API.
    * </pre>
    *
    * <code>COMPLAINT = 3;</code>
@@ -86,39 +86,65 @@ public enum ApiType
   MANDATE(7),
   /**
    * <pre>
+   * Mandate confirmation API. Maps to UPI's `MandateConfirmation` API. This is
+   * a metadata transaction API.
+   * </pre>
+   *
+   * <code>MANDATE_CONFIRMATION = 8;</code>
+   */
+  MANDATE_CONFIRMATION(8),
+  /**
+   * <pre>
    * Payment settlement API. Maps to UPI's `Pay` API. This is a financial
    * transaction API.
    * </pre>
    *
-   * <code>SETTLE_PAYMENT = 8;</code>
+   * <code>SETTLE_PAYMENT = 9;</code>
    */
-  SETTLE_PAYMENT(8),
+  SETTLE_PAYMENT(9),
   /**
    * <pre>
    * Update credentials API. Maps to UPI's `SetCre` API. This is a metadata
    * transaction API.
    * </pre>
    *
-   * <code>UPDATE_CREDENTIALS = 9;</code>
+   * <code>UPDATE_CREDENTIALS = 10;</code>
    */
-  UPDATE_CREDENTIALS(9),
+  UPDATE_CREDENTIALS(10),
   /**
    * <pre>
    * Validate registration API. Maps to UPI's `RegMob` API. This is a metadata
    * transaction API.
    * </pre>
    *
-   * <code>VALIDATE_REGISTRATION = 10;</code>
+   * <code>VALIDATE_REGISTRATION = 11;</code>
    */
-  VALIDATE_REGISTRATION(10),
+  VALIDATE_REGISTRATION(11),
+  /**
+   * <pre>
+   * Validate customer API. Maps to UPI's `ValCust` API. This is a validation
+   * API.
+   * </pre>
+   *
+   * <code>VALIDATE_CUSTOMER = 12;</code>
+   */
+  VALIDATE_CUSTOMER(12),
+  /**
+   * <pre>
+   * Voucher API. Maps to UPI's `Voucher` API.
+   * </pre>
+   *
+   * <code>VOUCHER = 13;</code>
+   */
+  VOUCHER(13),
   /**
    * <pre>
    * Voucher confirmation API. Maps to UPI's `VoucherConfirmation` API.
    * </pre>
    *
-   * <code>VOUCHER_CONFIRMATION = 11;</code>
+   * <code>VOUCHER_CONFIRMATION = 14;</code>
    */
-  VOUCHER_CONFIRMATION(11),
+  VOUCHER_CONFIRMATION(14),
   UNRECOGNIZED(-1),
   ;
 
@@ -150,8 +176,8 @@ public enum ApiType
   public static final int CHECK_STATUS_VALUE = 2;
   /**
    * <pre>
-   * Complain API. Maps to UPI's `Complaint` API. This is a metadata transaction
-   * API.
+   * Complaint API. Maps to UPI's `Complaint` API. This is a dispute and issue
+   * resolution API.
    * </pre>
    *
    * <code>COMPLAINT = 3;</code>
@@ -195,39 +221,65 @@ public enum ApiType
   public static final int MANDATE_VALUE = 7;
   /**
    * <pre>
+   * Mandate confirmation API. Maps to UPI's `MandateConfirmation` API. This is
+   * a metadata transaction API.
+   * </pre>
+   *
+   * <code>MANDATE_CONFIRMATION = 8;</code>
+   */
+  public static final int MANDATE_CONFIRMATION_VALUE = 8;
+  /**
+   * <pre>
    * Payment settlement API. Maps to UPI's `Pay` API. This is a financial
    * transaction API.
    * </pre>
    *
-   * <code>SETTLE_PAYMENT = 8;</code>
+   * <code>SETTLE_PAYMENT = 9;</code>
    */
-  public static final int SETTLE_PAYMENT_VALUE = 8;
+  public static final int SETTLE_PAYMENT_VALUE = 9;
   /**
    * <pre>
    * Update credentials API. Maps to UPI's `SetCre` API. This is a metadata
    * transaction API.
    * </pre>
    *
-   * <code>UPDATE_CREDENTIALS = 9;</code>
+   * <code>UPDATE_CREDENTIALS = 10;</code>
    */
-  public static final int UPDATE_CREDENTIALS_VALUE = 9;
+  public static final int UPDATE_CREDENTIALS_VALUE = 10;
   /**
    * <pre>
    * Validate registration API. Maps to UPI's `RegMob` API. This is a metadata
    * transaction API.
    * </pre>
    *
-   * <code>VALIDATE_REGISTRATION = 10;</code>
+   * <code>VALIDATE_REGISTRATION = 11;</code>
    */
-  public static final int VALIDATE_REGISTRATION_VALUE = 10;
+  public static final int VALIDATE_REGISTRATION_VALUE = 11;
+  /**
+   * <pre>
+   * Validate customer API. Maps to UPI's `ValCust` API. This is a validation
+   * API.
+   * </pre>
+   *
+   * <code>VALIDATE_CUSTOMER = 12;</code>
+   */
+  public static final int VALIDATE_CUSTOMER_VALUE = 12;
+  /**
+   * <pre>
+   * Voucher API. Maps to UPI's `Voucher` API.
+   * </pre>
+   *
+   * <code>VOUCHER = 13;</code>
+   */
+  public static final int VOUCHER_VALUE = 13;
   /**
    * <pre>
    * Voucher confirmation API. Maps to UPI's `VoucherConfirmation` API.
    * </pre>
    *
-   * <code>VOUCHER_CONFIRMATION = 11;</code>
+   * <code>VOUCHER_CONFIRMATION = 14;</code>
    */
-  public static final int VOUCHER_CONFIRMATION_VALUE = 11;
+  public static final int VOUCHER_CONFIRMATION_VALUE = 14;
 
 
   public final int getNumber() {
@@ -262,10 +314,13 @@ public enum ApiType
       case 5: return INITIATE_REGISTRATION;
       case 6: return LIST_ACCOUNTS;
       case 7: return MANDATE;
-      case 8: return SETTLE_PAYMENT;
-      case 9: return UPDATE_CREDENTIALS;
-      case 10: return VALIDATE_REGISTRATION;
-      case 11: return VOUCHER_CONFIRMATION;
+      case 8: return MANDATE_CONFIRMATION;
+      case 9: return SETTLE_PAYMENT;
+      case 10: return UPDATE_CREDENTIALS;
+      case 11: return VALIDATE_REGISTRATION;
+      case 12: return VALIDATE_CUSTOMER;
+      case 13: return VOUCHER;
+      case 14: return VOUCHER_CONFIRMATION;
       default: return null;
     }
   }

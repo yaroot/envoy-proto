@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AuditData(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            eventMessage_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              eventData_ = com.google.protobuf.MapField.newMapField(
-                  EventDataDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            eventData__ = input.readMessage(
-                EventDataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            eventData_.getMutableMap().put(
-                eventData__.getKey(), eventData__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.legacy.AuditDataProto.internal_static_google_appengine_legacy_AuditData_descriptor;
@@ -120,7 +61,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_MESSAGE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object eventMessage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object eventMessage_ = "";
   /**
    * <pre>
    * Text description of the admin event.
@@ -179,6 +121,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> eventData_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -189,7 +132,6 @@ private static final long serialVersionUID = 0L;
     }
     return eventData_;
   }
-
   public int getEventDataCount() {
     return internalGetEventData().getMap().size();
   }
@@ -201,7 +143,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; event_data = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsEventData(
       java.lang.String key) {
@@ -225,7 +166,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; event_data = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getEventDataMap() {
     return internalGetEventData().getMap();
   }
@@ -238,10 +178,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; event_data = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getEventDataOrDefault(
+  public /* nullable */
+java.lang.String getEventDataOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetEventData().getMap();
@@ -256,7 +197,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; event_data = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getEventDataOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -291,7 +231,7 @@ private static final long serialVersionUID = 0L;
         internalGetEventData(),
         EventDataDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -313,7 +253,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, eventData__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -332,7 +272,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getEventMessage())) return false;
     if (!internalGetEventData().equals(
         other.internalGetEventData())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -349,7 +289,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EVENT_DATA_FIELD_NUMBER;
       hash = (53 * hash) + internalGetEventData().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -492,24 +432,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.legacy.AuditData.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       eventMessage_ = "";
-
       internalGetMutableEventData().clear();
       return this;
     }
@@ -537,12 +472,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.legacy.AuditData buildPartial() {
       com.google.appengine.legacy.AuditData result = new com.google.appengine.legacy.AuditData(this);
-      int from_bitField0_ = bitField0_;
-      result.eventMessage_ = eventMessage_;
-      result.eventData_ = internalGetEventData();
-      result.eventData_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.appengine.legacy.AuditData result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.eventMessage_ = eventMessage_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.eventData_ = internalGetEventData();
+        result.eventData_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -591,11 +534,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.appengine.legacy.AuditData.getDefaultInstance()) return this;
       if (!other.getEventMessage().isEmpty()) {
         eventMessage_ = other.eventMessage_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableEventData().mergeFrom(
           other.internalGetEventData());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -610,17 +555,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.legacy.AuditData parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              eventMessage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              eventData__ = input.readMessage(
+                  EventDataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableEventData().getMutableMap().put(
+                  eventData__.getKey(), eventData__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.legacy.AuditData) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -681,11 +653,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       eventMessage_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -699,8 +669,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEventMessage() {
-      
       eventMessage_ = getDefaultInstance().getEventMessage();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -716,12 +686,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       eventMessage_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -729,7 +697,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> eventData_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetEventData() {
+        internalGetEventData() {
       if (eventData_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             EventDataDefaultEntryHolder.defaultEntry);
@@ -737,8 +705,7 @@ private static final long serialVersionUID = 0L;
       return eventData_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableEventData() {
-      onChanged();;
+        internalGetMutableEventData() {
       if (eventData_ == null) {
         eventData_ = com.google.protobuf.MapField.newMapField(
             EventDataDefaultEntryHolder.defaultEntry);
@@ -746,9 +713,10 @@ private static final long serialVersionUID = 0L;
       if (!eventData_.isMutable()) {
         eventData_ = eventData_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return eventData_;
     }
-
     public int getEventDataCount() {
       return internalGetEventData().getMap().size();
     }
@@ -760,7 +728,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; event_data = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsEventData(
         java.lang.String key) {
@@ -784,7 +751,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; event_data = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getEventDataMap() {
       return internalGetEventData().getMap();
     }
@@ -797,10 +763,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; event_data = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getEventDataOrDefault(
+    public /* nullable */
+java.lang.String getEventDataOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetEventData().getMap();
@@ -815,7 +782,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; event_data = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getEventDataOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -826,8 +792,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearEventData() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableEventData().getMutableMap()
           .clear();
       return this;
@@ -840,7 +806,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; event_data = 2;</code>
      */
-
     public Builder removeEventData(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -853,7 +818,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableEventData() {
+        getMutableEventData() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableEventData().getMutableMap();
     }
     /**
@@ -868,12 +834,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableEventData().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -884,11 +848,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; event_data = 2;</code>
      */
-
     public Builder putAllEventData(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableEventData().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -924,7 +888,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AuditData(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

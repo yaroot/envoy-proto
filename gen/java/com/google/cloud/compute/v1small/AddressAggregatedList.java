@@ -37,96 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AddressAggregatedList(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26842: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            id_ = s;
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            kind_ = s;
-            break;
-          }
-          case 405634274: {
-            com.google.cloud.compute.v1small.Warning.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000010) != 0)) {
-              subBuilder = warning_.toBuilder();
-            }
-            warning_ = input.readMessage(com.google.cloud.compute.v1small.Warning.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(warning_);
-              warning_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000010;
-            break;
-          }
-          case 638380202: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            nextPageToken_ = s;
-            break;
-          }
-          case 804208130: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              items_ = com.google.protobuf.MapField.newMapField(
-                  ItemsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList>
-            items__ = input.readMessage(
-                ItemsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            items_.getMutableMap().put(
-                items__.getKey(), items__.getValue());
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            selfLink_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1small.ComputeSmall.internal_static_google_cloud_compute_v1small_AddressAggregatedList_descriptor;
@@ -154,7 +64,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ID_FIELD_NUMBER = 3355;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * [Output Only] Unique identifier for the resource; defined by the server.
@@ -223,6 +134,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.compute.v1small.AddressesScopedList.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList> items_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList>
@@ -233,7 +145,6 @@ private static final long serialVersionUID = 0L;
     }
     return items_;
   }
-
   public int getItemsCount() {
     return internalGetItems().getMap().size();
   }
@@ -244,7 +155,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
    */
-
   @java.lang.Override
   public boolean containsItems(
       java.lang.String key) {
@@ -267,7 +177,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList> getItemsMap() {
     return internalGetItems().getMap();
   }
@@ -279,10 +188,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.compute.v1small.AddressesScopedList getItemsOrDefault(
+  public /* nullable */
+com.google.cloud.compute.v1small.AddressesScopedList getItemsOrDefault(
       java.lang.String key,
-      com.google.cloud.compute.v1small.AddressesScopedList defaultValue) {
+      /* nullable */
+com.google.cloud.compute.v1small.AddressesScopedList defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList> map =
         internalGetItems().getMap();
@@ -296,7 +206,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.compute.v1small.AddressesScopedList getItemsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -309,7 +218,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of resource. Always compute#addressAggregatedList for aggregated lists of addresses.
@@ -367,7 +277,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 79797525;
-  private volatile java.lang.Object nextPageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextPageToken_ = "";
   /**
    * <pre>
    * [Output Only] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
@@ -425,7 +336,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined URL for this resource.
@@ -555,7 +467,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 456214797, selfLink_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -590,7 +502,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(456214797, selfLink_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -632,7 +544,7 @@ private static final long serialVersionUID = 0L;
       if (!getWarning()
           .equals(other.getWarning())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -667,7 +579,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WARNING_FIELD_NUMBER;
       hash = (53 * hash) + getWarning().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -826,21 +738,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableItems().clear();
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       nextPageToken_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
-      if (warningBuilder_ == null) {
-        warning_ = null;
-      } else {
-        warningBuilder_.clear();
+      warning_ = null;
+      if (warningBuilder_ != null) {
+        warningBuilder_.dispose();
+        warningBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -867,37 +775,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1small.AddressAggregatedList buildPartial() {
       com.google.cloud.compute.v1small.AddressAggregatedList result = new com.google.cloud.compute.v1small.AddressAggregatedList(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1small.AddressAggregatedList result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
         to_bitField0_ |= 0x00000001;
       }
-      result.id_ = id_;
-      result.items_ = internalGetItems();
-      result.items_.makeImmutable();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.items_ = internalGetItems();
+        result.items_.makeImmutable();
+      }
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.kind_ = kind_;
         to_bitField0_ |= 0x00000002;
       }
-      result.kind_ = kind_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.nextPageToken_ = nextPageToken_;
         to_bitField0_ |= 0x00000004;
       }
-      result.nextPageToken_ = nextPageToken_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.selfLink_ = selfLink_;
         to_bitField0_ |= 0x00000008;
       }
-      result.selfLink_ = selfLink_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        if (warningBuilder_ == null) {
-          result.warning_ = warning_;
-        } else {
-          result.warning_ = warningBuilder_.build();
-        }
+        result.warning_ = warningBuilder_ == null
+            ? warning_
+            : warningBuilder_.build();
         to_bitField0_ |= 0x00000010;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -945,31 +857,32 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1small.AddressAggregatedList other) {
       if (other == com.google.cloud.compute.v1small.AddressAggregatedList.getDefaultInstance()) return this;
       if (other.hasId()) {
-        bitField0_ |= 0x00000001;
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableItems().mergeFrom(
           other.internalGetItems());
+      bitField0_ |= 0x00000002;
       if (other.hasKind()) {
-        bitField0_ |= 0x00000004;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasNextPageToken()) {
-        bitField0_ |= 0x00000008;
         nextPageToken_ = other.nextPageToken_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x00000010;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasWarning()) {
         mergeWarning(other.getWarning());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -984,17 +897,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1small.AddressAggregatedList parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26842: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 26842
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26336418
+            case 405634274: {
+              input.readMessage(
+                  getWarningFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 405634274
+            case 638380202: {
+              nextPageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 638380202
+            case 804208130: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList>
+              items__ = input.readMessage(
+                  ItemsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableItems().getMutableMap().put(
+                  items__.getKey(), items__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 804208130
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -645248918
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1small.AddressAggregatedList) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1063,11 +1025,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1080,8 +1040,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1096,12 +1056,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1109,7 +1067,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList> items_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList>
-    internalGetItems() {
+        internalGetItems() {
       if (items_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ItemsDefaultEntryHolder.defaultEntry);
@@ -1117,8 +1075,7 @@ private static final long serialVersionUID = 0L;
       return items_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList>
-    internalGetMutableItems() {
-      onChanged();;
+        internalGetMutableItems() {
       if (items_ == null) {
         items_ = com.google.protobuf.MapField.newMapField(
             ItemsDefaultEntryHolder.defaultEntry);
@@ -1126,9 +1083,10 @@ private static final long serialVersionUID = 0L;
       if (!items_.isMutable()) {
         items_ = items_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return items_;
     }
-
     public int getItemsCount() {
       return internalGetItems().getMap().size();
     }
@@ -1139,7 +1097,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
      */
-
     @java.lang.Override
     public boolean containsItems(
         java.lang.String key) {
@@ -1162,7 +1119,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList> getItemsMap() {
       return internalGetItems().getMap();
     }
@@ -1174,10 +1130,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.compute.v1small.AddressesScopedList getItemsOrDefault(
+    public /* nullable */
+com.google.cloud.compute.v1small.AddressesScopedList getItemsOrDefault(
         java.lang.String key,
-        com.google.cloud.compute.v1small.AddressesScopedList defaultValue) {
+        /* nullable */
+com.google.cloud.compute.v1small.AddressesScopedList defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList> map =
           internalGetItems().getMap();
@@ -1191,7 +1148,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.compute.v1small.AddressesScopedList getItemsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1202,8 +1158,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearItems() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableItems().getMutableMap()
           .clear();
       return this;
@@ -1215,7 +1171,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
      */
-
     public Builder removeItems(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1228,7 +1183,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList>
-    getMutableItems() {
+        getMutableItems() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableItems().getMutableMap();
     }
     /**
@@ -1242,12 +1198,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.compute.v1small.AddressesScopedList value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableItems().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1257,11 +1211,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1small.AddressesScopedList&gt; items = 100526016;</code>
      */
-
     public Builder putAllItems(
         java.util.Map<java.lang.String, com.google.cloud.compute.v1small.AddressesScopedList> values) {
       internalGetMutableItems().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -1329,11 +1283,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1346,8 +1298,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1362,12 +1314,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1436,11 +1386,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       nextPageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1453,8 +1401,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextPageToken() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       nextPageToken_ = getDefaultInstance().getNextPageToken();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1469,12 +1417,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextPageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1543,11 +1489,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1560,8 +1504,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1576,12 +1520,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1628,11 +1570,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         warning_ = value;
-        onChanged();
       } else {
         warningBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1646,11 +1588,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1small.Warning.Builder builderForValue) {
       if (warningBuilder_ == null) {
         warning_ = builderForValue.build();
-        onChanged();
       } else {
         warningBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1663,18 +1605,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeWarning(com.google.cloud.compute.v1small.Warning value) {
       if (warningBuilder_ == null) {
         if (((bitField0_ & 0x00000020) != 0) &&
-            warning_ != null &&
-            warning_ != com.google.cloud.compute.v1small.Warning.getDefaultInstance()) {
-          warning_ =
-            com.google.cloud.compute.v1small.Warning.newBuilder(warning_).mergeFrom(value).buildPartial();
+          warning_ != null &&
+          warning_ != com.google.cloud.compute.v1small.Warning.getDefaultInstance()) {
+          getWarningBuilder().mergeFrom(value);
         } else {
           warning_ = value;
         }
-        onChanged();
       } else {
         warningBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1685,13 +1626,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1small.Warning warning = 50704284;</code>
      */
     public Builder clearWarning() {
-      if (warningBuilder_ == null) {
-        warning_ = null;
-        onChanged();
-      } else {
-        warningBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000020);
+      warning_ = null;
+      if (warningBuilder_ != null) {
+        warningBuilder_.dispose();
+        warningBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1774,7 +1715,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AddressAggregatedList(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

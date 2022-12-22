@@ -37,73 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HumanAgentHandoffConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig.Builder subBuilder = null;
-            if (agentServiceCase_ == 1) {
-              subBuilder = ((com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig) agentService_).toBuilder();
-            }
-            agentService_ =
-                input.readMessage(com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig) agentService_);
-              agentService_ = subBuilder.buildPartial();
-            }
-            agentServiceCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig.Builder subBuilder = null;
-            if (agentServiceCase_ == 2) {
-              subBuilder = ((com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig) agentService_).toBuilder();
-            }
-            agentService_ =
-                input.readMessage(com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig) agentService_);
-              agentService_ = subBuilder.buildPartial();
-            }
-            agentServiceCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2beta1.ConversationProfileProto.internal_static_google_cloud_dialogflow_v2beta1_HumanAgentHandoffConfig_descriptor;
@@ -175,51 +108,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LivePersonConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              accountNumber_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.v2beta1.ConversationProfileProto.internal_static_google_cloud_dialogflow_v2beta1_HumanAgentHandoffConfig_LivePersonConfig_descriptor;
@@ -234,7 +122,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ACCOUNT_NUMBER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object accountNumber_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object accountNumber_ = "";
     /**
      * <pre>
      * Required. Account number of the LivePerson account to connect. This is
@@ -298,7 +187,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountNumber_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, accountNumber_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -310,7 +199,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountNumber_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, accountNumber_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -327,7 +216,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getAccountNumber()
           .equals(other.getAccountNumber())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -340,7 +229,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ACCOUNT_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getAccountNumber().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -461,24 +350,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         accountNumber_ = "";
-
         return this;
       }
 
@@ -505,9 +389,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig buildPartial() {
         com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig result = new com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig(this);
-        result.accountNumber_ = accountNumber_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.accountNumber_ = accountNumber_;
+        }
       }
 
       @java.lang.Override
@@ -556,9 +447,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig.getDefaultInstance()) return this;
         if (!other.getAccountNumber().isEmpty()) {
           accountNumber_ = other.accountNumber_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -573,19 +465,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                accountNumber_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object accountNumber_ = "";
       /**
@@ -643,11 +554,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAccountNumber(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         accountNumber_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -661,8 +570,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAccountNumber() {
-        
         accountNumber_ = getDefaultInstance().getAccountNumber();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -678,12 +587,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAccountNumberBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         accountNumber_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -720,7 +627,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LivePersonConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -865,69 +783,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SalesforceLiveAgentConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              organizationId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              deploymentId_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              buttonId_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              endpointDomain_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dialogflow.v2beta1.ConversationProfileProto.internal_static_google_cloud_dialogflow_v2beta1_HumanAgentHandoffConfig_SalesforceLiveAgentConfig_descriptor;
@@ -942,7 +797,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ORGANIZATION_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object organizationId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object organizationId_ = "";
     /**
      * <pre>
      * Required. The organization ID of the Salesforce account.
@@ -988,7 +844,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DEPLOYMENT_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object deploymentId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object deploymentId_ = "";
     /**
      * <pre>
      * Required. Live Agent deployment ID.
@@ -1034,7 +891,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BUTTON_ID_FIELD_NUMBER = 3;
-    private volatile java.lang.Object buttonId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object buttonId_ = "";
     /**
      * <pre>
      * Required. Live Agent chat button ID.
@@ -1080,7 +938,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENDPOINT_DOMAIN_FIELD_NUMBER = 4;
-    private volatile java.lang.Object endpointDomain_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object endpointDomain_ = "";
     /**
      * <pre>
      * Required. Domain of the Live Agent endpoint for this agent. You can find
@@ -1157,7 +1016,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointDomain_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, endpointDomain_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1178,7 +1037,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointDomain_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, endpointDomain_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1201,7 +1060,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getButtonId())) return false;
       if (!getEndpointDomain()
           .equals(other.getEndpointDomain())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1220,7 +1079,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getButtonId().hashCode();
       hash = (37 * hash) + ENDPOINT_DOMAIN_FIELD_NUMBER;
       hash = (53 * hash) + getEndpointDomain().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1341,30 +1200,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         organizationId_ = "";
-
         deploymentId_ = "";
-
         buttonId_ = "";
-
         endpointDomain_ = "";
-
         return this;
       }
 
@@ -1391,12 +1242,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig buildPartial() {
         com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig result = new com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig(this);
-        result.organizationId_ = organizationId_;
-        result.deploymentId_ = deploymentId_;
-        result.buttonId_ = buttonId_;
-        result.endpointDomain_ = endpointDomain_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.organizationId_ = organizationId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.deploymentId_ = deploymentId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.buttonId_ = buttonId_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.endpointDomain_ = endpointDomain_;
+        }
       }
 
       @java.lang.Override
@@ -1445,21 +1309,25 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig.getDefaultInstance()) return this;
         if (!other.getOrganizationId().isEmpty()) {
           organizationId_ = other.organizationId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDeploymentId().isEmpty()) {
           deploymentId_ = other.deploymentId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getButtonId().isEmpty()) {
           buttonId_ = other.buttonId_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getEndpointDomain().isEmpty()) {
           endpointDomain_ = other.endpointDomain_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1474,19 +1342,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                organizationId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                deploymentId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                buttonId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                endpointDomain_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object organizationId_ = "";
       /**
@@ -1541,11 +1443,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOrganizationId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         organizationId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1558,8 +1458,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOrganizationId() {
-        
         organizationId_ = getDefaultInstance().getOrganizationId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1574,12 +1474,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOrganizationIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         organizationId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1637,11 +1535,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDeploymentId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         deploymentId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1654,8 +1550,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDeploymentId() {
-        
         deploymentId_ = getDefaultInstance().getDeploymentId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1670,12 +1566,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDeploymentIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         deploymentId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1733,11 +1627,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setButtonId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         buttonId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1750,8 +1642,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearButtonId() {
-        
         buttonId_ = getDefaultInstance().getButtonId();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1766,12 +1658,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setButtonIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         buttonId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1838,11 +1728,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEndpointDomain(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         endpointDomain_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1858,8 +1746,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEndpointDomain() {
-        
         endpointDomain_ = getDefaultInstance().getEndpointDomain();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1877,12 +1765,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEndpointDomainBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         endpointDomain_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1919,7 +1805,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SalesforceLiveAgentConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2086,7 +1983,7 @@ private static final long serialVersionUID = 0L;
     if (agentServiceCase_ == 2) {
       output.writeMessage(2, (com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig) agentService_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2103,7 +2000,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.SalesforceLiveAgentConfig) agentService_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2131,7 +2028,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2154,7 +2051,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2278,22 +2175,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (livePersonConfigBuilder_ != null) {
+        livePersonConfigBuilder_.clear();
+      }
+      if (salesforceLiveAgentConfigBuilder_ != null) {
+        salesforceLiveAgentConfigBuilder_.clear();
+      }
       agentServiceCase_ = 0;
       agentService_ = null;
       return this;
@@ -2322,23 +2221,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig buildPartial() {
       com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig result = new com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig(this);
-      if (agentServiceCase_ == 1) {
-        if (livePersonConfigBuilder_ == null) {
-          result.agentService_ = agentService_;
-        } else {
-          result.agentService_ = livePersonConfigBuilder_.build();
-        }
-      }
-      if (agentServiceCase_ == 2) {
-        if (salesforceLiveAgentConfigBuilder_ == null) {
-          result.agentService_ = agentService_;
-        } else {
-          result.agentService_ = salesforceLiveAgentConfigBuilder_.build();
-        }
-      }
-      result.agentServiceCase_ = agentServiceCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig result) {
+      result.agentServiceCase_ = agentServiceCase_;
+      result.agentService_ = this.agentService_;
+      if (agentServiceCase_ == 1 &&
+          livePersonConfigBuilder_ != null) {
+        result.agentService_ = livePersonConfigBuilder_.build();
+      }
+      if (agentServiceCase_ == 2 &&
+          salesforceLiveAgentConfigBuilder_ != null) {
+        result.agentService_ = salesforceLiveAgentConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2398,7 +2301,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2413,17 +2316,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLivePersonConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              agentServiceCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSalesforceLiveAgentConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              agentServiceCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int agentServiceCase_ = 0;
@@ -2441,6 +2371,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig, com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfig.Builder, com.google.cloud.dialogflow.v2beta1.HumanAgentHandoffConfig.LivePersonConfigOrBuilder> livePersonConfigBuilder_;
@@ -2616,7 +2547,7 @@ private static final long serialVersionUID = 0L;
         agentService_ = null;
       }
       agentServiceCase_ = 1;
-      onChanged();;
+      onChanged();
       return livePersonConfigBuilder_;
     }
 
@@ -2794,7 +2725,7 @@ private static final long serialVersionUID = 0L;
         agentService_ = null;
       }
       agentServiceCase_ = 2;
-      onChanged();;
+      onChanged();
       return salesforceLiveAgentConfigBuilder_;
     }
     @java.lang.Override
@@ -2830,7 +2761,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HumanAgentHandoffConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

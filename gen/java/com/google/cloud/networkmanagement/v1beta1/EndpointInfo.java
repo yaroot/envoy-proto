@@ -42,91 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EndpointInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceIp_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            destinationIp_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            protocol_ = s;
-            break;
-          }
-          case 32: {
-
-            sourcePort_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            destinationPort_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceNetworkUri_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            destinationNetworkUri_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceAgentUri_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networkmanagement.v1beta1.TraceProto.internal_static_google_cloud_networkmanagement_v1beta1_EndpointInfo_descriptor;
@@ -141,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_IP_FIELD_NUMBER = 1;
-  private volatile java.lang.Object sourceIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceIp_ = "";
   /**
    * <pre>
    * Source IP address.
@@ -187,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_IP_FIELD_NUMBER = 2;
-  private volatile java.lang.Object destinationIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object destinationIp_ = "";
   /**
    * <pre>
    * Destination IP address.
@@ -233,7 +150,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROTOCOL_FIELD_NUMBER = 3;
-  private volatile java.lang.Object protocol_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object protocol_ = "";
   /**
    * <pre>
    * IP protocol in string format, for example: "TCP", "UDP", "ICMP".
@@ -279,7 +197,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_PORT_FIELD_NUMBER = 4;
-  private int sourcePort_;
+  private int sourcePort_ = 0;
   /**
    * <pre>
    * Source port. Only valid when protocol is TCP or UDP.
@@ -294,7 +212,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_PORT_FIELD_NUMBER = 5;
-  private int destinationPort_;
+  private int destinationPort_ = 0;
   /**
    * <pre>
    * Destination port. Only valid when protocol is TCP or UDP.
@@ -309,7 +227,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_NETWORK_URI_FIELD_NUMBER = 6;
-  private volatile java.lang.Object sourceNetworkUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceNetworkUri_ = "";
   /**
    * <pre>
    * URI of the network where this packet originates from.
@@ -355,7 +274,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_NETWORK_URI_FIELD_NUMBER = 7;
-  private volatile java.lang.Object destinationNetworkUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object destinationNetworkUri_ = "";
   /**
    * <pre>
    * URI of the network where this packet is sent to.
@@ -401,7 +321,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_AGENT_URI_FIELD_NUMBER = 8;
-  private volatile java.lang.Object sourceAgentUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceAgentUri_ = "";
   /**
    * <pre>
    * URI of the source telemetry agent this packet originates from.
@@ -484,7 +405,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceAgentUri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, sourceAgentUri_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -519,7 +440,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceAgentUri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, sourceAgentUri_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -550,7 +471,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDestinationNetworkUri())) return false;
     if (!getSourceAgentUri()
         .equals(other.getSourceAgentUri())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -577,7 +498,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDestinationNetworkUri().hashCode();
     hash = (37 * hash) + SOURCE_AGENT_URI_FIELD_NUMBER;
     hash = (53 * hash) + getSourceAgentUri().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -700,38 +621,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkmanagement.v1beta1.EndpointInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       sourceIp_ = "";
-
       destinationIp_ = "";
-
       protocol_ = "";
-
       sourcePort_ = 0;
-
       destinationPort_ = 0;
-
       sourceNetworkUri_ = "";
-
       destinationNetworkUri_ = "";
-
       sourceAgentUri_ = "";
-
       return this;
     }
 
@@ -758,16 +667,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkmanagement.v1beta1.EndpointInfo buildPartial() {
       com.google.cloud.networkmanagement.v1beta1.EndpointInfo result = new com.google.cloud.networkmanagement.v1beta1.EndpointInfo(this);
-      result.sourceIp_ = sourceIp_;
-      result.destinationIp_ = destinationIp_;
-      result.protocol_ = protocol_;
-      result.sourcePort_ = sourcePort_;
-      result.destinationPort_ = destinationPort_;
-      result.sourceNetworkUri_ = sourceNetworkUri_;
-      result.destinationNetworkUri_ = destinationNetworkUri_;
-      result.sourceAgentUri_ = sourceAgentUri_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.networkmanagement.v1beta1.EndpointInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sourceIp_ = sourceIp_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.destinationIp_ = destinationIp_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.protocol_ = protocol_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.sourcePort_ = sourcePort_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.destinationPort_ = destinationPort_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sourceNetworkUri_ = sourceNetworkUri_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.destinationNetworkUri_ = destinationNetworkUri_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.sourceAgentUri_ = sourceAgentUri_;
+      }
     }
 
     @java.lang.Override
@@ -816,14 +746,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.networkmanagement.v1beta1.EndpointInfo.getDefaultInstance()) return this;
       if (!other.getSourceIp().isEmpty()) {
         sourceIp_ = other.sourceIp_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDestinationIp().isEmpty()) {
         destinationIp_ = other.destinationIp_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getProtocol().isEmpty()) {
         protocol_ = other.protocol_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getSourcePort() != 0) {
@@ -834,17 +767,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSourceNetworkUri().isEmpty()) {
         sourceNetworkUri_ = other.sourceNetworkUri_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getDestinationNetworkUri().isEmpty()) {
         destinationNetworkUri_ = other.destinationNetworkUri_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getSourceAgentUri().isEmpty()) {
         sourceAgentUri_ = other.sourceAgentUri_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -859,19 +795,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkmanagement.v1beta1.EndpointInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              sourceIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              destinationIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              protocol_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              sourcePort_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              destinationPort_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              sourceNetworkUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              destinationNetworkUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              sourceAgentUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkmanagement.v1beta1.EndpointInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object sourceIp_ = "";
     /**
@@ -926,11 +916,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceIp_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -943,8 +931,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceIp() {
-      
       sourceIp_ = getDefaultInstance().getSourceIp();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -959,12 +947,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceIp_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1022,11 +1008,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       destinationIp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1039,8 +1023,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationIp() {
-      
       destinationIp_ = getDefaultInstance().getDestinationIp();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1055,12 +1039,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       destinationIp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1118,11 +1100,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProtocol(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       protocol_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1135,8 +1115,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProtocol() {
-      
       protocol_ = getDefaultInstance().getProtocol();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1151,12 +1131,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProtocolBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       protocol_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1186,6 +1164,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSourcePort(int value) {
       
       sourcePort_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1198,7 +1177,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourcePort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       sourcePort_ = 0;
       onChanged();
       return this;
@@ -1229,6 +1208,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDestinationPort(int value) {
       
       destinationPort_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1241,7 +1221,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       destinationPort_ = 0;
       onChanged();
       return this;
@@ -1300,11 +1280,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceNetworkUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceNetworkUri_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1317,8 +1295,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceNetworkUri() {
-      
       sourceNetworkUri_ = getDefaultInstance().getSourceNetworkUri();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1333,12 +1311,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceNetworkUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceNetworkUri_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1396,11 +1372,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationNetworkUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       destinationNetworkUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1413,8 +1387,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationNetworkUri() {
-      
       destinationNetworkUri_ = getDefaultInstance().getDestinationNetworkUri();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1429,12 +1403,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationNetworkUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       destinationNetworkUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1492,11 +1464,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceAgentUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceAgentUri_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1509,8 +1479,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceAgentUri() {
-      
       sourceAgentUri_ = getDefaultInstance().getSourceAgentUri();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1525,12 +1495,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceAgentUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceAgentUri_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1567,7 +1535,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EndpointInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

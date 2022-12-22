@@ -35,82 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BatchProcessRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 32: {
-
-            skipHumanReview_ = input.readBool();
-            break;
-          }
-          case 42: {
-            com.google.cloud.documentai.v1.BatchDocumentsInputConfig.Builder subBuilder = null;
-            if (inputDocuments_ != null) {
-              subBuilder = inputDocuments_.toBuilder();
-            }
-            inputDocuments_ = input.readMessage(com.google.cloud.documentai.v1.BatchDocumentsInputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inputDocuments_);
-              inputDocuments_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.documentai.v1.DocumentOutputConfig.Builder subBuilder = null;
-            if (documentOutputConfig_ != null) {
-              subBuilder = documentOutputConfig_.toBuilder();
-            }
-            documentOutputConfig_ = input.readMessage(com.google.cloud.documentai.v1.DocumentOutputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(documentOutputConfig_);
-              documentOutputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.documentai.v1.DocumentAiProcessorService.internal_static_google_cloud_documentai_v1_BatchProcessRequest_descriptor;
@@ -125,10 +49,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of
+   * [Processor][google.cloud.documentai.v1.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -149,7 +79,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of
+   * [Processor][google.cloud.documentai.v1.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -205,7 +140,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.documentai.v1.BatchDocumentsInputConfigOrBuilder getInputDocumentsOrBuilder() {
-    return getInputDocuments();
+    return inputDocuments_ == null ? com.google.cloud.documentai.v1.BatchDocumentsInputConfig.getDefaultInstance() : inputDocuments_;
   }
 
   public static final int DOCUMENT_OUTPUT_CONFIG_FIELD_NUMBER = 6;
@@ -243,11 +178,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.documentai.v1.DocumentOutputConfigOrBuilder getDocumentOutputConfigOrBuilder() {
-    return getDocumentOutputConfig();
+    return documentOutputConfig_ == null ? com.google.cloud.documentai.v1.DocumentOutputConfig.getDefaultInstance() : documentOutputConfig_;
   }
 
   public static final int SKIP_HUMAN_REVIEW_FIELD_NUMBER = 4;
-  private boolean skipHumanReview_;
+  private boolean skipHumanReview_ = false;
   /**
    * <pre>
    * Whether Human Review feature should be skipped for this request. Default to
@@ -288,7 +223,7 @@ private static final long serialVersionUID = 0L;
     if (documentOutputConfig_ != null) {
       output.writeMessage(6, getDocumentOutputConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -312,7 +247,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getDocumentOutputConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -341,7 +276,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getSkipHumanReview()
         != other.getSkipHumanReview()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -365,7 +300,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SKIP_HUMAN_REVIEW_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSkipHumanReview());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -486,38 +421,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.documentai.v1.BatchProcessRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (inputDocumentsBuilder_ == null) {
-        inputDocuments_ = null;
-      } else {
-        inputDocuments_ = null;
+      inputDocuments_ = null;
+      if (inputDocumentsBuilder_ != null) {
+        inputDocumentsBuilder_.dispose();
         inputDocumentsBuilder_ = null;
       }
-      if (documentOutputConfigBuilder_ == null) {
-        documentOutputConfig_ = null;
-      } else {
-        documentOutputConfig_ = null;
+      documentOutputConfig_ = null;
+      if (documentOutputConfigBuilder_ != null) {
+        documentOutputConfigBuilder_.dispose();
         documentOutputConfigBuilder_ = null;
       }
       skipHumanReview_ = false;
-
       return this;
     }
 
@@ -544,20 +471,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.documentai.v1.BatchProcessRequest buildPartial() {
       com.google.cloud.documentai.v1.BatchProcessRequest result = new com.google.cloud.documentai.v1.BatchProcessRequest(this);
-      result.name_ = name_;
-      if (inputDocumentsBuilder_ == null) {
-        result.inputDocuments_ = inputDocuments_;
-      } else {
-        result.inputDocuments_ = inputDocumentsBuilder_.build();
-      }
-      if (documentOutputConfigBuilder_ == null) {
-        result.documentOutputConfig_ = documentOutputConfig_;
-      } else {
-        result.documentOutputConfig_ = documentOutputConfigBuilder_.build();
-      }
-      result.skipHumanReview_ = skipHumanReview_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.documentai.v1.BatchProcessRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.inputDocuments_ = inputDocumentsBuilder_ == null
+            ? inputDocuments_
+            : inputDocumentsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.documentOutputConfig_ = documentOutputConfigBuilder_ == null
+            ? documentOutputConfig_
+            : documentOutputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.skipHumanReview_ = skipHumanReview_;
+      }
     }
 
     @java.lang.Override
@@ -606,6 +542,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.documentai.v1.BatchProcessRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasInputDocuments()) {
@@ -617,7 +554,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSkipHumanReview() != false) {
         setSkipHumanReview(other.getSkipHumanReview());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -632,24 +569,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.documentai.v1.BatchProcessRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 32: {
+              skipHumanReview_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getInputDocumentsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDocumentOutputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.documentai.v1.BatchProcessRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Required. The processor resource name.
+     * Required. The resource name of
+     * [Processor][google.cloud.documentai.v1.Processor] or
+     * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion].
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+     * or
+     * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -669,7 +649,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The processor resource name.
+     * Required. The resource name of
+     * [Processor][google.cloud.documentai.v1.Processor] or
+     * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion].
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+     * or
+     * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -690,7 +675,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The processor resource name.
+     * Required. The resource name of
+     * [Processor][google.cloud.documentai.v1.Processor] or
+     * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion].
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+     * or
+     * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -699,31 +689,39 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The processor resource name.
+     * Required. The resource name of
+     * [Processor][google.cloud.documentai.v1.Processor] or
+     * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion].
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+     * or
+     * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The processor resource name.
+     * Required. The resource name of
+     * [Processor][google.cloud.documentai.v1.Processor] or
+     * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion].
+     * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+     * or
+     * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -732,12 +730,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -754,7 +750,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inputDocuments field is set.
      */
     public boolean hasInputDocuments() {
-      return inputDocumentsBuilder_ != null || inputDocuments_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -784,11 +780,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inputDocuments_ = value;
-        onChanged();
       } else {
         inputDocumentsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -802,11 +798,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1.BatchDocumentsInputConfig.Builder builderForValue) {
       if (inputDocumentsBuilder_ == null) {
         inputDocuments_ = builderForValue.build();
-        onChanged();
       } else {
         inputDocumentsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -818,17 +814,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInputDocuments(com.google.cloud.documentai.v1.BatchDocumentsInputConfig value) {
       if (inputDocumentsBuilder_ == null) {
-        if (inputDocuments_ != null) {
-          inputDocuments_ =
-            com.google.cloud.documentai.v1.BatchDocumentsInputConfig.newBuilder(inputDocuments_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          inputDocuments_ != null &&
+          inputDocuments_ != com.google.cloud.documentai.v1.BatchDocumentsInputConfig.getDefaultInstance()) {
+          getInputDocumentsBuilder().mergeFrom(value);
         } else {
           inputDocuments_ = value;
         }
-        onChanged();
       } else {
         inputDocumentsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -839,14 +836,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1.BatchDocumentsInputConfig input_documents = 5;</code>
      */
     public Builder clearInputDocuments() {
-      if (inputDocumentsBuilder_ == null) {
-        inputDocuments_ = null;
-        onChanged();
-      } else {
-        inputDocuments_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      inputDocuments_ = null;
+      if (inputDocumentsBuilder_ != null) {
+        inputDocumentsBuilder_.dispose();
         inputDocumentsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -857,7 +853,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1.BatchDocumentsInputConfig input_documents = 5;</code>
      */
     public com.google.cloud.documentai.v1.BatchDocumentsInputConfig.Builder getInputDocumentsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getInputDocumentsFieldBuilder().getBuilder();
     }
@@ -909,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the documentOutputConfig field is set.
      */
     public boolean hasDocumentOutputConfig() {
-      return documentOutputConfigBuilder_ != null || documentOutputConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -939,11 +935,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         documentOutputConfig_ = value;
-        onChanged();
       } else {
         documentOutputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -957,11 +953,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1.DocumentOutputConfig.Builder builderForValue) {
       if (documentOutputConfigBuilder_ == null) {
         documentOutputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         documentOutputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -973,17 +969,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDocumentOutputConfig(com.google.cloud.documentai.v1.DocumentOutputConfig value) {
       if (documentOutputConfigBuilder_ == null) {
-        if (documentOutputConfig_ != null) {
-          documentOutputConfig_ =
-            com.google.cloud.documentai.v1.DocumentOutputConfig.newBuilder(documentOutputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          documentOutputConfig_ != null &&
+          documentOutputConfig_ != com.google.cloud.documentai.v1.DocumentOutputConfig.getDefaultInstance()) {
+          getDocumentOutputConfigBuilder().mergeFrom(value);
         } else {
           documentOutputConfig_ = value;
         }
-        onChanged();
       } else {
         documentOutputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -994,14 +991,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1.DocumentOutputConfig document_output_config = 6;</code>
      */
     public Builder clearDocumentOutputConfig() {
-      if (documentOutputConfigBuilder_ == null) {
-        documentOutputConfig_ = null;
-        onChanged();
-      } else {
-        documentOutputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      documentOutputConfig_ = null;
+      if (documentOutputConfigBuilder_ != null) {
+        documentOutputConfigBuilder_.dispose();
         documentOutputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1012,7 +1008,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1.DocumentOutputConfig document_output_config = 6;</code>
      */
     public com.google.cloud.documentai.v1.DocumentOutputConfig.Builder getDocumentOutputConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDocumentOutputConfigFieldBuilder().getBuilder();
     }
@@ -1079,6 +1075,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSkipHumanReview(boolean value) {
       
       skipHumanReview_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1092,7 +1089,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSkipHumanReview() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       skipHumanReview_ = false;
       onChanged();
       return this;
@@ -1130,7 +1127,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BatchProcessRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

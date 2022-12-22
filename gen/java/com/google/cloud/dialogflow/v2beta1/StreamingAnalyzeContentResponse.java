@@ -54,141 +54,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StreamingAnalyzeContentResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult.Builder subBuilder = null;
-            if (recognitionResult_ != null) {
-              subBuilder = recognitionResult_.toBuilder();
-            }
-            recognitionResult_ = input.readMessage(com.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(recognitionResult_);
-              recognitionResult_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            replyText_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.dialogflow.v2beta1.OutputAudio.Builder subBuilder = null;
-            if (replyAudio_ != null) {
-              subBuilder = replyAudio_.toBuilder();
-            }
-            replyAudio_ = input.readMessage(com.google.cloud.dialogflow.v2beta1.OutputAudio.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(replyAudio_);
-              replyAudio_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.dialogflow.v2beta1.AutomatedAgentReply.Builder subBuilder = null;
-            if (automatedAgentReply_ != null) {
-              subBuilder = automatedAgentReply_.toBuilder();
-            }
-            automatedAgentReply_ = input.readMessage(com.google.cloud.dialogflow.v2beta1.AutomatedAgentReply.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(automatedAgentReply_);
-              automatedAgentReply_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.dialogflow.v2beta1.Message.Builder subBuilder = null;
-            if (message_ != null) {
-              subBuilder = message_.toBuilder();
-            }
-            message_ = input.readMessage(com.google.cloud.dialogflow.v2beta1.Message.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(message_);
-              message_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              humanAgentSuggestionResults_ = new java.util.ArrayList<com.google.cloud.dialogflow.v2beta1.SuggestionResult>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            humanAgentSuggestionResults_.add(
-                input.readMessage(com.google.cloud.dialogflow.v2beta1.SuggestionResult.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              endUserSuggestionResults_ = new java.util.ArrayList<com.google.cloud.dialogflow.v2beta1.SuggestionResult>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            endUserSuggestionResults_.add(
-                input.readMessage(com.google.cloud.dialogflow.v2beta1.SuggestionResult.parser(), extensionRegistry));
-            break;
-          }
-          case 82: {
-            com.google.cloud.dialogflow.v2beta1.DtmfParameters.Builder subBuilder = null;
-            if (dtmfParameters_ != null) {
-              subBuilder = dtmfParameters_.toBuilder();
-            }
-            dtmfParameters_ = input.readMessage(com.google.cloud.dialogflow.v2beta1.DtmfParameters.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dtmfParameters_);
-              dtmfParameters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        humanAgentSuggestionResults_ = java.util.Collections.unmodifiableList(humanAgentSuggestionResults_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        endUserSuggestionResults_ = java.util.Collections.unmodifiableList(endUserSuggestionResults_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2beta1.ParticipantProto.internal_static_google_cloud_dialogflow_v2beta1_StreamingAnalyzeContentResponse_descriptor;
@@ -237,11 +102,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.v2beta1.StreamingRecognitionResultOrBuilder getRecognitionResultOrBuilder() {
-    return getRecognitionResult();
+    return recognitionResult_ == null ? com.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult.getDefaultInstance() : recognitionResult_;
   }
 
   public static final int REPLY_TEXT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object replyText_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object replyText_ = "";
   /**
    * <pre>
    * Optional. The output text content.
@@ -347,7 +213,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.v2beta1.OutputAudioOrBuilder getReplyAudioOrBuilder() {
-    return getReplyAudio();
+    return replyAudio_ == null ? com.google.cloud.dialogflow.v2beta1.OutputAudio.getDefaultInstance() : replyAudio_;
   }
 
   public static final int AUTOMATED_AGENT_REPLY_FIELD_NUMBER = 4;
@@ -394,7 +260,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.v2beta1.AutomatedAgentReplyOrBuilder getAutomatedAgentReplyOrBuilder() {
-    return getAutomatedAgentReply();
+    return automatedAgentReply_ == null ? com.google.cloud.dialogflow.v2beta1.AutomatedAgentReply.getDefaultInstance() : automatedAgentReply_;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 6;
@@ -432,10 +298,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.v2beta1.MessageOrBuilder getMessageOrBuilder() {
-    return getMessage();
+    return message_ == null ? com.google.cloud.dialogflow.v2beta1.Message.getDefaultInstance() : message_;
   }
 
   public static final int HUMAN_AGENT_SUGGESTION_RESULTS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dialogflow.v2beta1.SuggestionResult> humanAgentSuggestionResults_;
   /**
    * <pre>
@@ -506,6 +373,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_USER_SUGGESTION_RESULTS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dialogflow.v2beta1.SuggestionResult> endUserSuggestionResults_;
   /**
    * <pre>
@@ -610,7 +478,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.v2beta1.DtmfParametersOrBuilder getDtmfParametersOrBuilder() {
-    return getDtmfParameters();
+    return dtmfParameters_ == null ? com.google.cloud.dialogflow.v2beta1.DtmfParameters.getDefaultInstance() : dtmfParameters_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -651,7 +519,7 @@ private static final long serialVersionUID = 0L;
     if (dtmfParameters_ != null) {
       output.writeMessage(10, getDtmfParameters());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -691,7 +559,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getDtmfParameters());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -737,7 +605,7 @@ private static final long serialVersionUID = 0L;
       if (!getDtmfParameters()
           .equals(other.getDtmfParameters())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -778,7 +646,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DTMF_PARAMETERS_FIELD_NUMBER;
       hash = (53 * hash) + getDtmfParameters().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -916,66 +784,56 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHumanAgentSuggestionResultsFieldBuilder();
-        getEndUserSuggestionResultsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (recognitionResultBuilder_ == null) {
-        recognitionResult_ = null;
-      } else {
-        recognitionResult_ = null;
+      bitField0_ = 0;
+      recognitionResult_ = null;
+      if (recognitionResultBuilder_ != null) {
+        recognitionResultBuilder_.dispose();
         recognitionResultBuilder_ = null;
       }
       replyText_ = "";
-
-      if (replyAudioBuilder_ == null) {
-        replyAudio_ = null;
-      } else {
-        replyAudio_ = null;
+      replyAudio_ = null;
+      if (replyAudioBuilder_ != null) {
+        replyAudioBuilder_.dispose();
         replyAudioBuilder_ = null;
       }
-      if (automatedAgentReplyBuilder_ == null) {
-        automatedAgentReply_ = null;
-      } else {
-        automatedAgentReply_ = null;
+      automatedAgentReply_ = null;
+      if (automatedAgentReplyBuilder_ != null) {
+        automatedAgentReplyBuilder_.dispose();
         automatedAgentReplyBuilder_ = null;
       }
-      if (messageBuilder_ == null) {
-        message_ = null;
-      } else {
-        message_ = null;
+      message_ = null;
+      if (messageBuilder_ != null) {
+        messageBuilder_.dispose();
         messageBuilder_ = null;
       }
       if (humanAgentSuggestionResultsBuilder_ == null) {
         humanAgentSuggestionResults_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        humanAgentSuggestionResults_ = null;
         humanAgentSuggestionResultsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       if (endUserSuggestionResultsBuilder_ == null) {
         endUserSuggestionResults_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        endUserSuggestionResults_ = null;
         endUserSuggestionResultsBuilder_.clear();
       }
-      if (dtmfParametersBuilder_ == null) {
-        dtmfParameters_ = null;
-      } else {
-        dtmfParameters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      dtmfParameters_ = null;
+      if (dtmfParametersBuilder_ != null) {
+        dtmfParametersBuilder_.dispose();
         dtmfParametersBuilder_ = null;
       }
       return this;
@@ -1004,53 +862,63 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentResponse buildPartial() {
       com.google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentResponse result = new com.google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentResponse(this);
-      int from_bitField0_ = bitField0_;
-      if (recognitionResultBuilder_ == null) {
-        result.recognitionResult_ = recognitionResult_;
-      } else {
-        result.recognitionResult_ = recognitionResultBuilder_.build();
-      }
-      result.replyText_ = replyText_;
-      if (replyAudioBuilder_ == null) {
-        result.replyAudio_ = replyAudio_;
-      } else {
-        result.replyAudio_ = replyAudioBuilder_.build();
-      }
-      if (automatedAgentReplyBuilder_ == null) {
-        result.automatedAgentReply_ = automatedAgentReply_;
-      } else {
-        result.automatedAgentReply_ = automatedAgentReplyBuilder_.build();
-      }
-      if (messageBuilder_ == null) {
-        result.message_ = message_;
-      } else {
-        result.message_ = messageBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentResponse result) {
       if (humanAgentSuggestionResultsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           humanAgentSuggestionResults_ = java.util.Collections.unmodifiableList(humanAgentSuggestionResults_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.humanAgentSuggestionResults_ = humanAgentSuggestionResults_;
       } else {
         result.humanAgentSuggestionResults_ = humanAgentSuggestionResultsBuilder_.build();
       }
       if (endUserSuggestionResultsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           endUserSuggestionResults_ = java.util.Collections.unmodifiableList(endUserSuggestionResults_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.endUserSuggestionResults_ = endUserSuggestionResults_;
       } else {
         result.endUserSuggestionResults_ = endUserSuggestionResultsBuilder_.build();
       }
-      if (dtmfParametersBuilder_ == null) {
-        result.dtmfParameters_ = dtmfParameters_;
-      } else {
-        result.dtmfParameters_ = dtmfParametersBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.recognitionResult_ = recognitionResultBuilder_ == null
+            ? recognitionResult_
+            : recognitionResultBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.replyText_ = replyText_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.replyAudio_ = replyAudioBuilder_ == null
+            ? replyAudio_
+            : replyAudioBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.automatedAgentReply_ = automatedAgentReplyBuilder_ == null
+            ? automatedAgentReply_
+            : automatedAgentReplyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.message_ = messageBuilder_ == null
+            ? message_
+            : messageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.dtmfParameters_ = dtmfParametersBuilder_ == null
+            ? dtmfParameters_
+            : dtmfParametersBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1102,6 +970,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getReplyText().isEmpty()) {
         replyText_ = other.replyText_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasReplyAudio()) {
@@ -1117,7 +986,7 @@ private static final long serialVersionUID = 0L;
         if (!other.humanAgentSuggestionResults_.isEmpty()) {
           if (humanAgentSuggestionResults_.isEmpty()) {
             humanAgentSuggestionResults_ = other.humanAgentSuggestionResults_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureHumanAgentSuggestionResultsIsMutable();
             humanAgentSuggestionResults_.addAll(other.humanAgentSuggestionResults_);
@@ -1130,7 +999,7 @@ private static final long serialVersionUID = 0L;
             humanAgentSuggestionResultsBuilder_.dispose();
             humanAgentSuggestionResultsBuilder_ = null;
             humanAgentSuggestionResults_ = other.humanAgentSuggestionResults_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             humanAgentSuggestionResultsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getHumanAgentSuggestionResultsFieldBuilder() : null;
@@ -1143,7 +1012,7 @@ private static final long serialVersionUID = 0L;
         if (!other.endUserSuggestionResults_.isEmpty()) {
           if (endUserSuggestionResults_.isEmpty()) {
             endUserSuggestionResults_ = other.endUserSuggestionResults_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureEndUserSuggestionResultsIsMutable();
             endUserSuggestionResults_.addAll(other.endUserSuggestionResults_);
@@ -1156,7 +1025,7 @@ private static final long serialVersionUID = 0L;
             endUserSuggestionResultsBuilder_.dispose();
             endUserSuggestionResultsBuilder_ = null;
             endUserSuggestionResults_ = other.endUserSuggestionResults_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
             endUserSuggestionResultsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEndUserSuggestionResultsFieldBuilder() : null;
@@ -1168,7 +1037,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDtmfParameters()) {
         mergeDtmfParameters(other.getDtmfParameters());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1183,17 +1052,96 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRecognitionResultFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              replyText_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getReplyAudioFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getAutomatedAgentReplyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 50: {
+              input.readMessage(
+                  getMessageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 58: {
+              com.google.cloud.dialogflow.v2beta1.SuggestionResult m =
+                  input.readMessage(
+                      com.google.cloud.dialogflow.v2beta1.SuggestionResult.parser(),
+                      extensionRegistry);
+              if (humanAgentSuggestionResultsBuilder_ == null) {
+                ensureHumanAgentSuggestionResultsIsMutable();
+                humanAgentSuggestionResults_.add(m);
+              } else {
+                humanAgentSuggestionResultsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              com.google.cloud.dialogflow.v2beta1.SuggestionResult m =
+                  input.readMessage(
+                      com.google.cloud.dialogflow.v2beta1.SuggestionResult.parser(),
+                      extensionRegistry);
+              if (endUserSuggestionResultsBuilder_ == null) {
+                ensureEndUserSuggestionResultsIsMutable();
+                endUserSuggestionResults_.add(m);
+              } else {
+                endUserSuggestionResultsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 82: {
+              input.readMessage(
+                  getDtmfParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2beta1.StreamingAnalyzeContentResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1210,7 +1158,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the recognitionResult field is set.
      */
     public boolean hasRecognitionResult() {
-      return recognitionResultBuilder_ != null || recognitionResult_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1240,11 +1188,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         recognitionResult_ = value;
-        onChanged();
       } else {
         recognitionResultBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1258,11 +1206,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult.Builder builderForValue) {
       if (recognitionResultBuilder_ == null) {
         recognitionResult_ = builderForValue.build();
-        onChanged();
       } else {
         recognitionResultBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1274,17 +1222,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRecognitionResult(com.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult value) {
       if (recognitionResultBuilder_ == null) {
-        if (recognitionResult_ != null) {
-          recognitionResult_ =
-            com.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult.newBuilder(recognitionResult_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          recognitionResult_ != null &&
+          recognitionResult_ != com.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult.getDefaultInstance()) {
+          getRecognitionResultBuilder().mergeFrom(value);
         } else {
           recognitionResult_ = value;
         }
-        onChanged();
       } else {
         recognitionResultBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1295,14 +1244,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult recognition_result = 1;</code>
      */
     public Builder clearRecognitionResult() {
-      if (recognitionResultBuilder_ == null) {
-        recognitionResult_ = null;
-        onChanged();
-      } else {
-        recognitionResult_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      recognitionResult_ = null;
+      if (recognitionResultBuilder_ != null) {
+        recognitionResultBuilder_.dispose();
         recognitionResultBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1313,7 +1261,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult recognition_result = 1;</code>
      */
     public com.google.cloud.dialogflow.v2beta1.StreamingRecognitionResult.Builder getRecognitionResultBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRecognitionResultFieldBuilder().getBuilder();
     }
@@ -1409,11 +1357,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReplyText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       replyText_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1427,8 +1373,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReplyText() {
-      
       replyText_ = getDefaultInstance().getReplyText();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1444,12 +1390,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReplyTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       replyText_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1474,7 +1418,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the replyAudio field is set.
      */
     public boolean hasReplyAudio() {
-      return replyAudioBuilder_ != null || replyAudio_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1520,11 +1464,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         replyAudio_ = value;
-        onChanged();
       } else {
         replyAudioBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1546,11 +1490,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.v2beta1.OutputAudio.Builder builderForValue) {
       if (replyAudioBuilder_ == null) {
         replyAudio_ = builderForValue.build();
-        onChanged();
       } else {
         replyAudioBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1570,17 +1514,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReplyAudio(com.google.cloud.dialogflow.v2beta1.OutputAudio value) {
       if (replyAudioBuilder_ == null) {
-        if (replyAudio_ != null) {
-          replyAudio_ =
-            com.google.cloud.dialogflow.v2beta1.OutputAudio.newBuilder(replyAudio_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          replyAudio_ != null &&
+          replyAudio_ != com.google.cloud.dialogflow.v2beta1.OutputAudio.getDefaultInstance()) {
+          getReplyAudioBuilder().mergeFrom(value);
         } else {
           replyAudio_ = value;
         }
-        onChanged();
       } else {
         replyAudioBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1599,14 +1544,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.OutputAudio reply_audio = 3;</code>
      */
     public Builder clearReplyAudio() {
-      if (replyAudioBuilder_ == null) {
-        replyAudio_ = null;
-        onChanged();
-      } else {
-        replyAudio_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      replyAudio_ = null;
+      if (replyAudioBuilder_ != null) {
+        replyAudioBuilder_.dispose();
         replyAudioBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1625,7 +1569,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.OutputAudio reply_audio = 3;</code>
      */
     public com.google.cloud.dialogflow.v2beta1.OutputAudio.Builder getReplyAudioBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getReplyAudioFieldBuilder().getBuilder();
     }
@@ -1696,7 +1640,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the automatedAgentReply field is set.
      */
     public boolean hasAutomatedAgentReply() {
-      return automatedAgentReplyBuilder_ != null || automatedAgentReply_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1732,11 +1676,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         automatedAgentReply_ = value;
-        onChanged();
       } else {
         automatedAgentReplyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1753,11 +1697,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.v2beta1.AutomatedAgentReply.Builder builderForValue) {
       if (automatedAgentReplyBuilder_ == null) {
         automatedAgentReply_ = builderForValue.build();
-        onChanged();
       } else {
         automatedAgentReplyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1772,17 +1716,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAutomatedAgentReply(com.google.cloud.dialogflow.v2beta1.AutomatedAgentReply value) {
       if (automatedAgentReplyBuilder_ == null) {
-        if (automatedAgentReply_ != null) {
-          automatedAgentReply_ =
-            com.google.cloud.dialogflow.v2beta1.AutomatedAgentReply.newBuilder(automatedAgentReply_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          automatedAgentReply_ != null &&
+          automatedAgentReply_ != com.google.cloud.dialogflow.v2beta1.AutomatedAgentReply.getDefaultInstance()) {
+          getAutomatedAgentReplyBuilder().mergeFrom(value);
         } else {
           automatedAgentReply_ = value;
         }
-        onChanged();
       } else {
         automatedAgentReplyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1796,14 +1741,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.AutomatedAgentReply automated_agent_reply = 4;</code>
      */
     public Builder clearAutomatedAgentReply() {
-      if (automatedAgentReplyBuilder_ == null) {
-        automatedAgentReply_ = null;
-        onChanged();
-      } else {
-        automatedAgentReply_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      automatedAgentReply_ = null;
+      if (automatedAgentReplyBuilder_ != null) {
+        automatedAgentReplyBuilder_.dispose();
         automatedAgentReplyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1817,7 +1761,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.AutomatedAgentReply automated_agent_reply = 4;</code>
      */
     public com.google.cloud.dialogflow.v2beta1.AutomatedAgentReply.Builder getAutomatedAgentReplyBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAutomatedAgentReplyFieldBuilder().getBuilder();
     }
@@ -1875,7 +1819,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the message field is set.
      */
     public boolean hasMessage() {
-      return messageBuilder_ != null || message_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1905,11 +1849,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         message_ = value;
-        onChanged();
       } else {
         messageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1923,11 +1867,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.v2beta1.Message.Builder builderForValue) {
       if (messageBuilder_ == null) {
         message_ = builderForValue.build();
-        onChanged();
       } else {
         messageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1939,17 +1883,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMessage(com.google.cloud.dialogflow.v2beta1.Message value) {
       if (messageBuilder_ == null) {
-        if (message_ != null) {
-          message_ =
-            com.google.cloud.dialogflow.v2beta1.Message.newBuilder(message_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          message_ != null &&
+          message_ != com.google.cloud.dialogflow.v2beta1.Message.getDefaultInstance()) {
+          getMessageBuilder().mergeFrom(value);
         } else {
           message_ = value;
         }
-        onChanged();
       } else {
         messageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1960,14 +1905,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.Message message = 6;</code>
      */
     public Builder clearMessage() {
-      if (messageBuilder_ == null) {
-        message_ = null;
-        onChanged();
-      } else {
-        message_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      message_ = null;
+      if (messageBuilder_ != null) {
+        messageBuilder_.dispose();
         messageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1978,7 +1922,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.Message message = 6;</code>
      */
     public com.google.cloud.dialogflow.v2beta1.Message.Builder getMessageBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getMessageFieldBuilder().getBuilder();
     }
@@ -2021,9 +1965,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dialogflow.v2beta1.SuggestionResult> humanAgentSuggestionResults_ =
       java.util.Collections.emptyList();
     private void ensureHumanAgentSuggestionResultsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         humanAgentSuggestionResults_ = new java.util.ArrayList<com.google.cloud.dialogflow.v2beta1.SuggestionResult>(humanAgentSuggestionResults_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2239,7 +2183,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearHumanAgentSuggestionResults() {
       if (humanAgentSuggestionResultsBuilder_ == null) {
         humanAgentSuggestionResults_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         humanAgentSuggestionResultsBuilder_.clear();
@@ -2358,7 +2302,7 @@ private static final long serialVersionUID = 0L;
         humanAgentSuggestionResultsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dialogflow.v2beta1.SuggestionResult, com.google.cloud.dialogflow.v2beta1.SuggestionResult.Builder, com.google.cloud.dialogflow.v2beta1.SuggestionResultOrBuilder>(
                 humanAgentSuggestionResults_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         humanAgentSuggestionResults_ = null;
@@ -2369,9 +2313,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dialogflow.v2beta1.SuggestionResult> endUserSuggestionResults_ =
       java.util.Collections.emptyList();
     private void ensureEndUserSuggestionResultsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         endUserSuggestionResults_ = new java.util.ArrayList<com.google.cloud.dialogflow.v2beta1.SuggestionResult>(endUserSuggestionResults_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2587,7 +2531,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEndUserSuggestionResults() {
       if (endUserSuggestionResultsBuilder_ == null) {
         endUserSuggestionResults_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         endUserSuggestionResultsBuilder_.clear();
@@ -2706,7 +2650,7 @@ private static final long serialVersionUID = 0L;
         endUserSuggestionResultsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dialogflow.v2beta1.SuggestionResult, com.google.cloud.dialogflow.v2beta1.SuggestionResult.Builder, com.google.cloud.dialogflow.v2beta1.SuggestionResultOrBuilder>(
                 endUserSuggestionResults_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         endUserSuggestionResults_ = null;
@@ -2726,7 +2670,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dtmfParameters field is set.
      */
     public boolean hasDtmfParameters() {
-      return dtmfParametersBuilder_ != null || dtmfParameters_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2756,11 +2700,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dtmfParameters_ = value;
-        onChanged();
       } else {
         dtmfParametersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2774,11 +2718,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.v2beta1.DtmfParameters.Builder builderForValue) {
       if (dtmfParametersBuilder_ == null) {
         dtmfParameters_ = builderForValue.build();
-        onChanged();
       } else {
         dtmfParametersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2790,17 +2734,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDtmfParameters(com.google.cloud.dialogflow.v2beta1.DtmfParameters value) {
       if (dtmfParametersBuilder_ == null) {
-        if (dtmfParameters_ != null) {
-          dtmfParameters_ =
-            com.google.cloud.dialogflow.v2beta1.DtmfParameters.newBuilder(dtmfParameters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          dtmfParameters_ != null &&
+          dtmfParameters_ != com.google.cloud.dialogflow.v2beta1.DtmfParameters.getDefaultInstance()) {
+          getDtmfParametersBuilder().mergeFrom(value);
         } else {
           dtmfParameters_ = value;
         }
-        onChanged();
       } else {
         dtmfParametersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2811,14 +2756,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.DtmfParameters dtmf_parameters = 10;</code>
      */
     public Builder clearDtmfParameters() {
-      if (dtmfParametersBuilder_ == null) {
-        dtmfParameters_ = null;
-        onChanged();
-      } else {
-        dtmfParameters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      dtmfParameters_ = null;
+      if (dtmfParametersBuilder_ != null) {
+        dtmfParametersBuilder_.dispose();
         dtmfParametersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2829,7 +2773,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.DtmfParameters dtmf_parameters = 10;</code>
      */
     public com.google.cloud.dialogflow.v2beta1.DtmfParameters.Builder getDtmfParametersBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDtmfParametersFieldBuilder().getBuilder();
     }
@@ -2901,7 +2845,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StreamingAnalyzeContentResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

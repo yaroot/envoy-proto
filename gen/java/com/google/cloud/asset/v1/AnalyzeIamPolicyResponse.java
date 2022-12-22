@@ -5,8 +5,7 @@ package com.google.cloud.asset.v1;
 
 /**
  * <pre>
- * A response message for
- * [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
+ * A response message for [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
  * </pre>
  *
  * Protobuf type {@code google.cloud.asset.v1.AnalyzeIamPolicyResponse}
@@ -35,76 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private AnalyzeIamPolicyResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.Builder subBuilder = null;
-            if (mainAnalysis_ != null) {
-              subBuilder = mainAnalysis_.toBuilder();
-            }
-            mainAnalysis_ = input.readMessage(com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mainAnalysis_);
-              mainAnalysis_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              serviceAccountImpersonationAnalysis_ = new java.util.ArrayList<com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            serviceAccountImpersonationAnalysis_.add(
-                input.readMessage(com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.parser(), extensionRegistry));
-            break;
-          }
-          case 24: {
-
-            fullyExplored_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        serviceAccountImpersonationAnalysis_ = java.util.Collections.unmodifiableList(serviceAccountImpersonationAnalysis_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -152,9 +81,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -163,9 +91,8 @@ private static final long serialVersionUID = 0L;
         getAnalysisResultsList();
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -173,9 +100,8 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.asset.v1.IamPolicyAnalysisResult getAnalysisResults(int index);
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -183,9 +109,8 @@ private static final long serialVersionUID = 0L;
     int getAnalysisResultsCount();
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -194,9 +119,8 @@ private static final long serialVersionUID = 0L;
         getAnalysisResultsOrBuilderList();
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -206,9 +130,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Represents whether all entries in the
-     * [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results]
-     * have been fully explored to answer the query.
+     * Represents whether all entries in the [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results] have been
+     * fully explored to answer the query.
      * </pre>
      *
      * <code>bool fully_explored = 3;</code>
@@ -293,88 +216,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private IamPolicyAnalysis(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.asset.v1.IamPolicyAnalysisQuery.Builder subBuilder = null;
-              if (analysisQuery_ != null) {
-                subBuilder = analysisQuery_.toBuilder();
-              }
-              analysisQuery_ = input.readMessage(com.google.cloud.asset.v1.IamPolicyAnalysisQuery.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(analysisQuery_);
-                analysisQuery_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                analysisResults_ = new java.util.ArrayList<com.google.cloud.asset.v1.IamPolicyAnalysisResult>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              analysisResults_.add(
-                  input.readMessage(com.google.cloud.asset.v1.IamPolicyAnalysisResult.parser(), extensionRegistry));
-              break;
-            }
-            case 24: {
-
-              fullyExplored_ = input.readBool();
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                nonCriticalErrors_ = new java.util.ArrayList<com.google.cloud.asset.v1.IamPolicyAnalysisState>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              nonCriticalErrors_.add(
-                  input.readMessage(com.google.cloud.asset.v1.IamPolicyAnalysisState.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          analysisResults_ = java.util.Collections.unmodifiableList(analysisResults_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          nonCriticalErrors_ = java.util.Collections.unmodifiableList(nonCriticalErrors_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.asset.v1.AssetServiceProto.internal_static_google_cloud_asset_v1_AnalyzeIamPolicyResponse_IamPolicyAnalysis_descriptor;
@@ -423,16 +264,16 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.asset.v1.IamPolicyAnalysisQueryOrBuilder getAnalysisQueryOrBuilder() {
-      return getAnalysisQuery();
+      return analysisQuery_ == null ? com.google.cloud.asset.v1.IamPolicyAnalysisQuery.getDefaultInstance() : analysisQuery_;
     }
 
     public static final int ANALYSIS_RESULTS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.asset.v1.IamPolicyAnalysisResult> analysisResults_;
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -443,9 +284,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -457,9 +297,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -470,9 +309,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -483,9 +321,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of
-     * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-     * that matches the analysis query, or empty if no result is found.
+     * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+     * empty if no result is found.
      * </pre>
      *
      * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -497,12 +334,11 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FULLY_EXPLORED_FIELD_NUMBER = 3;
-    private boolean fullyExplored_;
+    private boolean fullyExplored_ = false;
     /**
      * <pre>
-     * Represents whether all entries in the
-     * [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results]
-     * have been fully explored to answer the query.
+     * Represents whether all entries in the [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results] have been
+     * fully explored to answer the query.
      * </pre>
      *
      * <code>bool fully_explored = 3;</code>
@@ -514,6 +350,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NON_CRITICAL_ERRORS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.asset.v1.IamPolicyAnalysisState> nonCriticalErrors_;
     /**
      * <pre>
@@ -599,7 +436,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < nonCriticalErrors_.size(); i++) {
         output.writeMessage(5, nonCriticalErrors_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -624,7 +461,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, nonCriticalErrors_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -650,7 +487,7 @@ private static final long serialVersionUID = 0L;
           != other.getFullyExplored()) return false;
       if (!getNonCriticalErrorsList()
           .equals(other.getNonCriticalErrorsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -676,7 +513,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + NON_CRITICAL_ERRORS_FIELD_NUMBER;
         hash = (53 * hash) + getNonCriticalErrorsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -797,44 +634,38 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAnalysisResultsFieldBuilder();
-          getNonCriticalErrorsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (analysisQueryBuilder_ == null) {
-          analysisQuery_ = null;
-        } else {
-          analysisQuery_ = null;
+        bitField0_ = 0;
+        analysisQuery_ = null;
+        if (analysisQueryBuilder_ != null) {
+          analysisQueryBuilder_.dispose();
           analysisQueryBuilder_ = null;
         }
         if (analysisResultsBuilder_ == null) {
           analysisResults_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          analysisResults_ = null;
           analysisResultsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         fullyExplored_ = false;
-
         if (nonCriticalErrorsBuilder_ == null) {
           nonCriticalErrors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          nonCriticalErrors_ = null;
           nonCriticalErrorsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -861,33 +692,43 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis buildPartial() {
         com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis result = new com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis(this);
-        int from_bitField0_ = bitField0_;
-        if (analysisQueryBuilder_ == null) {
-          result.analysisQuery_ = analysisQuery_;
-        } else {
-          result.analysisQuery_ = analysisQueryBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis result) {
         if (analysisResultsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             analysisResults_ = java.util.Collections.unmodifiableList(analysisResults_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.analysisResults_ = analysisResults_;
         } else {
           result.analysisResults_ = analysisResultsBuilder_.build();
         }
-        result.fullyExplored_ = fullyExplored_;
         if (nonCriticalErrorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             nonCriticalErrors_ = java.util.Collections.unmodifiableList(nonCriticalErrors_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.nonCriticalErrors_ = nonCriticalErrors_;
         } else {
           result.nonCriticalErrors_ = nonCriticalErrorsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.analysisQuery_ = analysisQueryBuilder_ == null
+              ? analysisQuery_
+              : analysisQueryBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.fullyExplored_ = fullyExplored_;
+        }
       }
 
       @java.lang.Override
@@ -941,7 +782,7 @@ private static final long serialVersionUID = 0L;
           if (!other.analysisResults_.isEmpty()) {
             if (analysisResults_.isEmpty()) {
               analysisResults_ = other.analysisResults_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureAnalysisResultsIsMutable();
               analysisResults_.addAll(other.analysisResults_);
@@ -954,7 +795,7 @@ private static final long serialVersionUID = 0L;
               analysisResultsBuilder_.dispose();
               analysisResultsBuilder_ = null;
               analysisResults_ = other.analysisResults_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               analysisResultsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAnalysisResultsFieldBuilder() : null;
@@ -970,7 +811,7 @@ private static final long serialVersionUID = 0L;
           if (!other.nonCriticalErrors_.isEmpty()) {
             if (nonCriticalErrors_.isEmpty()) {
               nonCriticalErrors_ = other.nonCriticalErrors_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureNonCriticalErrorsIsMutable();
               nonCriticalErrors_.addAll(other.nonCriticalErrors_);
@@ -983,7 +824,7 @@ private static final long serialVersionUID = 0L;
               nonCriticalErrorsBuilder_.dispose();
               nonCriticalErrorsBuilder_ = null;
               nonCriticalErrors_ = other.nonCriticalErrors_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000008);
               nonCriticalErrorsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getNonCriticalErrorsFieldBuilder() : null;
@@ -992,7 +833,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1007,17 +848,68 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAnalysisQueryFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.cloud.asset.v1.IamPolicyAnalysisResult m =
+                    input.readMessage(
+                        com.google.cloud.asset.v1.IamPolicyAnalysisResult.parser(),
+                        extensionRegistry);
+                if (analysisResultsBuilder_ == null) {
+                  ensureAnalysisResultsIsMutable();
+                  analysisResults_.add(m);
+                } else {
+                  analysisResultsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 24: {
+                fullyExplored_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 42: {
+                com.google.cloud.asset.v1.IamPolicyAnalysisState m =
+                    input.readMessage(
+                        com.google.cloud.asset.v1.IamPolicyAnalysisState.parser(),
+                        extensionRegistry);
+                if (nonCriticalErrorsBuilder_ == null) {
+                  ensureNonCriticalErrorsIsMutable();
+                  nonCriticalErrors_.add(m);
+                } else {
+                  nonCriticalErrorsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1034,7 +926,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the analysisQuery field is set.
        */
       public boolean hasAnalysisQuery() {
-        return analysisQueryBuilder_ != null || analysisQuery_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1064,11 +956,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           analysisQuery_ = value;
-          onChanged();
         } else {
           analysisQueryBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1082,11 +974,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.asset.v1.IamPolicyAnalysisQuery.Builder builderForValue) {
         if (analysisQueryBuilder_ == null) {
           analysisQuery_ = builderForValue.build();
-          onChanged();
         } else {
           analysisQueryBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1098,17 +990,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeAnalysisQuery(com.google.cloud.asset.v1.IamPolicyAnalysisQuery value) {
         if (analysisQueryBuilder_ == null) {
-          if (analysisQuery_ != null) {
-            analysisQuery_ =
-              com.google.cloud.asset.v1.IamPolicyAnalysisQuery.newBuilder(analysisQuery_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            analysisQuery_ != null &&
+            analysisQuery_ != com.google.cloud.asset.v1.IamPolicyAnalysisQuery.getDefaultInstance()) {
+            getAnalysisQueryBuilder().mergeFrom(value);
           } else {
             analysisQuery_ = value;
           }
-          onChanged();
         } else {
           analysisQueryBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1119,14 +1012,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.asset.v1.IamPolicyAnalysisQuery analysis_query = 1;</code>
        */
       public Builder clearAnalysisQuery() {
-        if (analysisQueryBuilder_ == null) {
-          analysisQuery_ = null;
-          onChanged();
-        } else {
-          analysisQuery_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        analysisQuery_ = null;
+        if (analysisQueryBuilder_ != null) {
+          analysisQueryBuilder_.dispose();
           analysisQueryBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1137,7 +1029,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.asset.v1.IamPolicyAnalysisQuery analysis_query = 1;</code>
        */
       public com.google.cloud.asset.v1.IamPolicyAnalysisQuery.Builder getAnalysisQueryBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getAnalysisQueryFieldBuilder().getBuilder();
       }
@@ -1180,9 +1072,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.asset.v1.IamPolicyAnalysisResult> analysisResults_ =
         java.util.Collections.emptyList();
       private void ensureAnalysisResultsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           analysisResults_ = new java.util.ArrayList<com.google.cloud.asset.v1.IamPolicyAnalysisResult>(analysisResults_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1191,9 +1083,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1207,9 +1098,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1223,9 +1113,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1239,9 +1128,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1262,9 +1150,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1282,9 +1169,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1304,9 +1190,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1327,9 +1212,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1347,9 +1231,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1367,9 +1250,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1388,9 +1270,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1398,7 +1279,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearAnalysisResults() {
         if (analysisResultsBuilder_ == null) {
           analysisResults_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           analysisResultsBuilder_.clear();
@@ -1407,9 +1288,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1426,9 +1306,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1439,9 +1318,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1455,9 +1333,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1472,9 +1349,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1485,9 +1361,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1499,9 +1374,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of
-       * [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult]
-       * that matches the analysis query, or empty if no result is found.
+       * A list of [IamPolicyAnalysisResult][google.cloud.asset.v1.IamPolicyAnalysisResult] that matches the analysis query, or
+       * empty if no result is found.
        * </pre>
        *
        * <code>repeated .google.cloud.asset.v1.IamPolicyAnalysisResult analysis_results = 2;</code>
@@ -1517,7 +1391,7 @@ private static final long serialVersionUID = 0L;
           analysisResultsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.asset.v1.IamPolicyAnalysisResult, com.google.cloud.asset.v1.IamPolicyAnalysisResult.Builder, com.google.cloud.asset.v1.IamPolicyAnalysisResultOrBuilder>(
                   analysisResults_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           analysisResults_ = null;
@@ -1528,9 +1402,8 @@ private static final long serialVersionUID = 0L;
       private boolean fullyExplored_ ;
       /**
        * <pre>
-       * Represents whether all entries in the
-       * [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results]
-       * have been fully explored to answer the query.
+       * Represents whether all entries in the [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results] have been
+       * fully explored to answer the query.
        * </pre>
        *
        * <code>bool fully_explored = 3;</code>
@@ -1542,9 +1415,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Represents whether all entries in the
-       * [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results]
-       * have been fully explored to answer the query.
+       * Represents whether all entries in the [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results] have been
+       * fully explored to answer the query.
        * </pre>
        *
        * <code>bool fully_explored = 3;</code>
@@ -1554,21 +1426,21 @@ private static final long serialVersionUID = 0L;
       public Builder setFullyExplored(boolean value) {
         
         fullyExplored_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Represents whether all entries in the
-       * [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results]
-       * have been fully explored to answer the query.
+       * Represents whether all entries in the [analysis_results][google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.analysis_results] have been
+       * fully explored to answer the query.
        * </pre>
        *
        * <code>bool fully_explored = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearFullyExplored() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         fullyExplored_ = false;
         onChanged();
         return this;
@@ -1577,9 +1449,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.asset.v1.IamPolicyAnalysisState> nonCriticalErrors_ =
         java.util.Collections.emptyList();
       private void ensureNonCriticalErrorsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           nonCriticalErrors_ = new java.util.ArrayList<com.google.cloud.asset.v1.IamPolicyAnalysisState>(nonCriticalErrors_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -1773,7 +1645,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearNonCriticalErrors() {
         if (nonCriticalErrorsBuilder_ == null) {
           nonCriticalErrors_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           nonCriticalErrorsBuilder_.clear();
@@ -1878,7 +1750,7 @@ private static final long serialVersionUID = 0L;
           nonCriticalErrorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.asset.v1.IamPolicyAnalysisState, com.google.cloud.asset.v1.IamPolicyAnalysisState.Builder, com.google.cloud.asset.v1.IamPolicyAnalysisStateOrBuilder>(
                   nonCriticalErrors_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           nonCriticalErrors_ = null;
@@ -1918,7 +1790,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new IamPolicyAnalysis(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1973,10 +1856,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysisOrBuilder getMainAnalysisOrBuilder() {
-    return getMainAnalysis();
+    return mainAnalysis_ == null ? com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.getDefaultInstance() : mainAnalysis_;
   }
 
   public static final int SERVICE_ACCOUNT_IMPERSONATION_ANALYSIS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis> serviceAccountImpersonationAnalysis_;
   /**
    * <pre>
@@ -2047,14 +1931,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FULLY_EXPLORED_FIELD_NUMBER = 3;
-  private boolean fullyExplored_;
+  private boolean fullyExplored_ = false;
   /**
    * <pre>
-   * Represents whether all entries in the
-   * [main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis]
-   * and
-   * [service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis]
-   * have been fully explored to answer the query in the request.
+   * Represents whether all entries in the [main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis] and
+   * [service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis] have been fully explored to
+   * answer the query in the request.
    * </pre>
    *
    * <code>bool fully_explored = 3;</code>
@@ -2088,7 +1970,7 @@ private static final long serialVersionUID = 0L;
     if (fullyExplored_ != false) {
       output.writeBool(3, fullyExplored_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2109,7 +1991,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, fullyExplored_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2133,7 +2015,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getServiceAccountImpersonationAnalysisList())) return false;
     if (getFullyExplored()
         != other.getFullyExplored()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2155,7 +2037,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + FULLY_EXPLORED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getFullyExplored());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2252,8 +2134,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A response message for
-   * [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
+   * A response message for [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
    * </pre>
    *
    * Protobuf type {@code google.cloud.asset.v1.AnalyzeIamPolicyResponse}
@@ -2277,37 +2158,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getServiceAccountImpersonationAnalysisFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (mainAnalysisBuilder_ == null) {
-        mainAnalysis_ = null;
-      } else {
-        mainAnalysis_ = null;
+      bitField0_ = 0;
+      mainAnalysis_ = null;
+      if (mainAnalysisBuilder_ != null) {
+        mainAnalysisBuilder_.dispose();
         mainAnalysisBuilder_ = null;
       }
       if (serviceAccountImpersonationAnalysisBuilder_ == null) {
         serviceAccountImpersonationAnalysis_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        serviceAccountImpersonationAnalysis_ = null;
         serviceAccountImpersonationAnalysisBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       fullyExplored_ = false;
-
       return this;
     }
 
@@ -2334,24 +2209,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1.AnalyzeIamPolicyResponse buildPartial() {
       com.google.cloud.asset.v1.AnalyzeIamPolicyResponse result = new com.google.cloud.asset.v1.AnalyzeIamPolicyResponse(this);
-      int from_bitField0_ = bitField0_;
-      if (mainAnalysisBuilder_ == null) {
-        result.mainAnalysis_ = mainAnalysis_;
-      } else {
-        result.mainAnalysis_ = mainAnalysisBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.asset.v1.AnalyzeIamPolicyResponse result) {
       if (serviceAccountImpersonationAnalysisBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           serviceAccountImpersonationAnalysis_ = java.util.Collections.unmodifiableList(serviceAccountImpersonationAnalysis_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.serviceAccountImpersonationAnalysis_ = serviceAccountImpersonationAnalysis_;
       } else {
         result.serviceAccountImpersonationAnalysis_ = serviceAccountImpersonationAnalysisBuilder_.build();
       }
-      result.fullyExplored_ = fullyExplored_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.AnalyzeIamPolicyResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.mainAnalysis_ = mainAnalysisBuilder_ == null
+            ? mainAnalysis_
+            : mainAnalysisBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.fullyExplored_ = fullyExplored_;
+      }
     }
 
     @java.lang.Override
@@ -2405,7 +2290,7 @@ private static final long serialVersionUID = 0L;
         if (!other.serviceAccountImpersonationAnalysis_.isEmpty()) {
           if (serviceAccountImpersonationAnalysis_.isEmpty()) {
             serviceAccountImpersonationAnalysis_ = other.serviceAccountImpersonationAnalysis_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureServiceAccountImpersonationAnalysisIsMutable();
             serviceAccountImpersonationAnalysis_.addAll(other.serviceAccountImpersonationAnalysis_);
@@ -2418,7 +2303,7 @@ private static final long serialVersionUID = 0L;
             serviceAccountImpersonationAnalysisBuilder_.dispose();
             serviceAccountImpersonationAnalysisBuilder_ = null;
             serviceAccountImpersonationAnalysis_ = other.serviceAccountImpersonationAnalysis_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             serviceAccountImpersonationAnalysisBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getServiceAccountImpersonationAnalysisFieldBuilder() : null;
@@ -2430,7 +2315,7 @@ private static final long serialVersionUID = 0L;
       if (other.getFullyExplored() != false) {
         setFullyExplored(other.getFullyExplored());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2445,17 +2330,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.AnalyzeIamPolicyResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMainAnalysisFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis m =
+                  input.readMessage(
+                      com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.parser(),
+                      extensionRegistry);
+              if (serviceAccountImpersonationAnalysisBuilder_ == null) {
+                ensureServiceAccountImpersonationAnalysisIsMutable();
+                serviceAccountImpersonationAnalysis_.add(m);
+              } else {
+                serviceAccountImpersonationAnalysisBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 24: {
+              fullyExplored_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.AnalyzeIamPolicyResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2472,7 +2395,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the mainAnalysis field is set.
      */
     public boolean hasMainAnalysis() {
-      return mainAnalysisBuilder_ != null || mainAnalysis_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2502,11 +2425,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         mainAnalysis_ = value;
-        onChanged();
       } else {
         mainAnalysisBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2520,11 +2443,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.Builder builderForValue) {
       if (mainAnalysisBuilder_ == null) {
         mainAnalysis_ = builderForValue.build();
-        onChanged();
       } else {
         mainAnalysisBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2536,17 +2459,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMainAnalysis(com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis value) {
       if (mainAnalysisBuilder_ == null) {
-        if (mainAnalysis_ != null) {
-          mainAnalysis_ =
-            com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.newBuilder(mainAnalysis_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          mainAnalysis_ != null &&
+          mainAnalysis_ != com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.getDefaultInstance()) {
+          getMainAnalysisBuilder().mergeFrom(value);
         } else {
           mainAnalysis_ = value;
         }
-        onChanged();
       } else {
         mainAnalysisBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2557,14 +2481,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis main_analysis = 1;</code>
      */
     public Builder clearMainAnalysis() {
-      if (mainAnalysisBuilder_ == null) {
-        mainAnalysis_ = null;
-        onChanged();
-      } else {
-        mainAnalysis_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      mainAnalysis_ = null;
+      if (mainAnalysisBuilder_ != null) {
+        mainAnalysisBuilder_.dispose();
         mainAnalysisBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2575,7 +2498,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis main_analysis = 1;</code>
      */
     public com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.Builder getMainAnalysisBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMainAnalysisFieldBuilder().getBuilder();
     }
@@ -2618,9 +2541,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis> serviceAccountImpersonationAnalysis_ =
       java.util.Collections.emptyList();
     private void ensureServiceAccountImpersonationAnalysisIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         serviceAccountImpersonationAnalysis_ = new java.util.ArrayList<com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis>(serviceAccountImpersonationAnalysis_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -2836,7 +2759,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearServiceAccountImpersonationAnalysis() {
       if (serviceAccountImpersonationAnalysisBuilder_ == null) {
         serviceAccountImpersonationAnalysis_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         serviceAccountImpersonationAnalysisBuilder_.clear();
@@ -2955,7 +2878,7 @@ private static final long serialVersionUID = 0L;
         serviceAccountImpersonationAnalysisBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis, com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysis.Builder, com.google.cloud.asset.v1.AnalyzeIamPolicyResponse.IamPolicyAnalysisOrBuilder>(
                 serviceAccountImpersonationAnalysis_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         serviceAccountImpersonationAnalysis_ = null;
@@ -2966,11 +2889,9 @@ private static final long serialVersionUID = 0L;
     private boolean fullyExplored_ ;
     /**
      * <pre>
-     * Represents whether all entries in the
-     * [main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis]
-     * and
-     * [service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis]
-     * have been fully explored to answer the query in the request.
+     * Represents whether all entries in the [main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis] and
+     * [service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis] have been fully explored to
+     * answer the query in the request.
      * </pre>
      *
      * <code>bool fully_explored = 3;</code>
@@ -2982,11 +2903,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Represents whether all entries in the
-     * [main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis]
-     * and
-     * [service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis]
-     * have been fully explored to answer the query in the request.
+     * Represents whether all entries in the [main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis] and
+     * [service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis] have been fully explored to
+     * answer the query in the request.
      * </pre>
      *
      * <code>bool fully_explored = 3;</code>
@@ -2996,23 +2915,22 @@ private static final long serialVersionUID = 0L;
     public Builder setFullyExplored(boolean value) {
       
       fullyExplored_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Represents whether all entries in the
-     * [main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis]
-     * and
-     * [service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis]
-     * have been fully explored to answer the query in the request.
+     * Represents whether all entries in the [main_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.main_analysis] and
+     * [service_account_impersonation_analysis][google.cloud.asset.v1.AnalyzeIamPolicyResponse.service_account_impersonation_analysis] have been fully explored to
+     * answer the query in the request.
      * </pre>
      *
      * <code>bool fully_explored = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearFullyExplored() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       fullyExplored_ = false;
       onChanged();
       return this;
@@ -3050,7 +2968,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnalyzeIamPolicyResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

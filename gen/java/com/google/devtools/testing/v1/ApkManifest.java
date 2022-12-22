@@ -39,97 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ApkManifest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            packageName_ = s;
-            break;
-          }
-          case 16: {
-
-            minSdkVersion_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            maxSdkVersion_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            applicationLabel_ = s;
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              intentFilters_ = new java.util.ArrayList<com.google.devtools.testing.v1.IntentFilter>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            intentFilters_.add(
-                input.readMessage(com.google.devtools.testing.v1.IntentFilter.parser(), extensionRegistry));
-            break;
-          }
-          case 48: {
-
-            targetSdkVersion_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              usesPermission_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            usesPermission_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        intentFilters_ = java.util.Collections.unmodifiableList(intentFilters_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        usesPermission_ = usesPermission_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.ApplicationDetailProto.internal_static_google_devtools_testing_v1_ApkManifest_descriptor;
@@ -144,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PACKAGE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object packageName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object packageName_ = "";
   /**
    * <pre>
    * Full Java-style package name for this application, e.g.
@@ -192,7 +102,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_SDK_VERSION_FIELD_NUMBER = 2;
-  private int minSdkVersion_;
+  private int minSdkVersion_ = 0;
   /**
    * <pre>
    * Minimum API level required for the application to run.
@@ -207,7 +117,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_SDK_VERSION_FIELD_NUMBER = 3;
-  private int maxSdkVersion_;
+  private int maxSdkVersion_ = 0;
   /**
    * <pre>
    * Maximum API level on which the application is designed to run.
@@ -222,7 +132,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_SDK_VERSION_FIELD_NUMBER = 6;
-  private int targetSdkVersion_;
+  private int targetSdkVersion_ = 0;
   /**
    * <pre>
    * Specifies the API Level on which the application is designed to run.
@@ -237,7 +147,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPLICATION_LABEL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object applicationLabel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object applicationLabel_ = "";
   /**
    * <pre>
    * User-readable name for the application.
@@ -283,6 +194,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTENT_FILTERS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.IntentFilter> intentFilters_;
   /**
    * <code>repeated .google.devtools.testing.v1.IntentFilter intent_filters = 5;</code>
@@ -323,6 +235,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USES_PERMISSION_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList usesPermission_;
   /**
    * <pre>
@@ -408,7 +321,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < usesPermission_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, usesPermission_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -447,7 +360,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getUsesPermissionList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -476,7 +389,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getIntentFiltersList())) return false;
     if (!getUsesPermissionList()
         .equals(other.getUsesPermissionList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -505,7 +418,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USES_PERMISSION_FIELD_NUMBER;
       hash = (53 * hash) + getUsesPermissionList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -627,41 +540,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.ApkManifest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getIntentFiltersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       packageName_ = "";
-
       minSdkVersion_ = 0;
-
       maxSdkVersion_ = 0;
-
       targetSdkVersion_ = 0;
-
       applicationLabel_ = "";
-
       if (intentFiltersBuilder_ == null) {
         intentFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        intentFilters_ = null;
         intentFiltersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       usesPermission_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -688,28 +592,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.ApkManifest buildPartial() {
       com.google.devtools.testing.v1.ApkManifest result = new com.google.devtools.testing.v1.ApkManifest(this);
-      int from_bitField0_ = bitField0_;
-      result.packageName_ = packageName_;
-      result.minSdkVersion_ = minSdkVersion_;
-      result.maxSdkVersion_ = maxSdkVersion_;
-      result.targetSdkVersion_ = targetSdkVersion_;
-      result.applicationLabel_ = applicationLabel_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.testing.v1.ApkManifest result) {
       if (intentFiltersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           intentFilters_ = java.util.Collections.unmodifiableList(intentFilters_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.intentFilters_ = intentFilters_;
       } else {
         result.intentFilters_ = intentFiltersBuilder_.build();
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         usesPermission_ = usesPermission_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000040);
       }
       result.usesPermission_ = usesPermission_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.ApkManifest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.packageName_ = packageName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.minSdkVersion_ = minSdkVersion_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxSdkVersion_ = maxSdkVersion_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.targetSdkVersion_ = targetSdkVersion_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.applicationLabel_ = applicationLabel_;
+      }
     }
 
     @java.lang.Override
@@ -758,6 +680,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.testing.v1.ApkManifest.getDefaultInstance()) return this;
       if (!other.getPackageName().isEmpty()) {
         packageName_ = other.packageName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getMinSdkVersion() != 0) {
@@ -771,13 +694,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getApplicationLabel().isEmpty()) {
         applicationLabel_ = other.applicationLabel_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (intentFiltersBuilder_ == null) {
         if (!other.intentFilters_.isEmpty()) {
           if (intentFilters_.isEmpty()) {
             intentFilters_ = other.intentFilters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureIntentFiltersIsMutable();
             intentFilters_.addAll(other.intentFilters_);
@@ -790,7 +714,7 @@ private static final long serialVersionUID = 0L;
             intentFiltersBuilder_.dispose();
             intentFiltersBuilder_ = null;
             intentFilters_ = other.intentFilters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             intentFiltersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getIntentFiltersFieldBuilder() : null;
@@ -802,14 +726,14 @@ private static final long serialVersionUID = 0L;
       if (!other.usesPermission_.isEmpty()) {
         if (usesPermission_.isEmpty()) {
           usesPermission_ = other.usesPermission_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureUsesPermissionIsMutable();
           usesPermission_.addAll(other.usesPermission_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -824,17 +748,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.ApkManifest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              packageName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              minSdkVersion_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              maxSdkVersion_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              applicationLabel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              com.google.devtools.testing.v1.IntentFilter m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.IntentFilter.parser(),
+                      extensionRegistry);
+              if (intentFiltersBuilder_ == null) {
+                ensureIntentFiltersIsMutable();
+                intentFilters_.add(m);
+              } else {
+                intentFiltersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 48: {
+              targetSdkVersion_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 48
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureUsesPermissionIsMutable();
+              usesPermission_.add(s);
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.ApkManifest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -895,11 +876,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPackageName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       packageName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -913,8 +892,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPackageName() {
-      
       packageName_ = getDefaultInstance().getPackageName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -930,12 +909,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPackageNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       packageName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -965,6 +942,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinSdkVersion(int value) {
       
       minSdkVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -977,7 +955,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinSdkVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       minSdkVersion_ = 0;
       onChanged();
       return this;
@@ -1008,6 +986,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxSdkVersion(int value) {
       
       maxSdkVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1020,7 +999,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxSdkVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       maxSdkVersion_ = 0;
       onChanged();
       return this;
@@ -1051,6 +1030,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetSdkVersion(int value) {
       
       targetSdkVersion_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1063,7 +1043,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetSdkVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       targetSdkVersion_ = 0;
       onChanged();
       return this;
@@ -1122,11 +1102,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       applicationLabel_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1139,8 +1117,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApplicationLabel() {
-      
       applicationLabel_ = getDefaultInstance().getApplicationLabel();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1155,12 +1133,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       applicationLabel_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1168,9 +1144,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.devtools.testing.v1.IntentFilter> intentFilters_ =
       java.util.Collections.emptyList();
     private void ensureIntentFiltersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         intentFilters_ = new java.util.ArrayList<com.google.devtools.testing.v1.IntentFilter>(intentFilters_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -1320,7 +1296,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearIntentFilters() {
       if (intentFiltersBuilder_ == null) {
         intentFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         intentFiltersBuilder_.clear();
@@ -1397,7 +1373,7 @@ private static final long serialVersionUID = 0L;
         intentFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.devtools.testing.v1.IntentFilter, com.google.devtools.testing.v1.IntentFilter.Builder, com.google.devtools.testing.v1.IntentFilterOrBuilder>(
                 intentFilters_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         intentFilters_ = null;
@@ -1407,9 +1383,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList usesPermission_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureUsesPermissionIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         usesPermission_ = new com.google.protobuf.LazyStringArrayList(usesPermission_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -1472,10 +1448,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsesPermission(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUsesPermissionIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUsesPermissionIsMutable();
       usesPermission_.set(index, value);
       onChanged();
       return this;
@@ -1491,10 +1465,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addUsesPermission(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUsesPermissionIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUsesPermissionIsMutable();
       usesPermission_.add(value);
       onChanged();
       return this;
@@ -1526,7 +1498,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearUsesPermission() {
       usesPermission_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1541,10 +1513,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addUsesPermissionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureUsesPermissionIsMutable();
       usesPermission_.add(value);
       onChanged();
@@ -1583,7 +1553,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ApkManifest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -141,4 +141,26 @@ public interface PrivateClusterConfigOrBuilder extends
    * <code>.google.container.v1.PrivateClusterMasterGlobalAccessConfig master_global_access_config = 8;</code>
    */
   com.google.container.v1.PrivateClusterMasterGlobalAccessConfigOrBuilder getMasterGlobalAccessConfigOrBuilder();
+
+  /**
+   * <pre>
+   * Subnet to provision the master's private endpoint during cluster creation.
+   * Specified in projects/&#42;&#47;regions/&#42;&#47;subnetworks/&#42; format.
+   * </pre>
+   *
+   * <code>string private_endpoint_subnetwork = 10;</code>
+   * @return The privateEndpointSubnetwork.
+   */
+  java.lang.String getPrivateEndpointSubnetwork();
+  /**
+   * <pre>
+   * Subnet to provision the master's private endpoint during cluster creation.
+   * Specified in projects/&#42;&#47;regions/&#42;&#47;subnetworks/&#42; format.
+   * </pre>
+   *
+   * <code>string private_endpoint_subnetwork = 10;</code>
+   * @return The bytes for privateEndpointSubnetwork.
+   */
+  com.google.protobuf.ByteString
+      getPrivateEndpointSubnetworkBytes();
 }

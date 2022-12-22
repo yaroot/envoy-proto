@@ -12,10 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nCgoogle/cloud/gkehub/v1alpha/configmanagement/configmanagement.proto\x12,google.cloud.gkehub.configmanagement.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xd4\x04\n\x0fMembershipState\x12\x14\n\x0c\x63luster_name\x18\x01 \x01(\t\x12U\n\x0fmembership_spec\x18\x02 \x01(\x0b\x32<.google.cloud.gkehub.configmanagement.v1alpha.MembershipSpec\x12S\n\x0eoperator_state\x18\x03 \x01(\x0b\x32;.google.cloud.gkehub.configmanagement.v1alpha.OperatorState\x12X\n\x11\x63onfig_sync_state\x18\x04 \x01(\x0b\x32=.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncState\x12\x64\n\x17policy_controller_state\x18\x05 \x01(\x0b\x32\x43.google.cloud.gkehub.configmanagement.v1alpha.PolicyControllerState\x12S\n\x0e\x62inauthz_state\x18\x06 \x01(\x0b\x32;.google.cloud.gkehub.configmanagement.v1alpha.BinauthzState\x12j\n\x1ahierarchy_controller_state\x18\x07 \x01(\x0b\x32\x46.google.cloud.gkehub.configmanagement.v1alpha.HierarchyControllerState\"\x82\x03\n\x0eMembershipSpec\x12M\n\x0b\x63onfig_sync\x18\x01 \x01(\x0b\x32\x38.google.cloud.gkehub.configmanagement.v1alpha.ConfigSync\x12Y\n\x11policy_controller\x18\x02 \x01(\x0b\x32>.google.cloud.gkehub.configmanagement.v1alpha.PolicyController\x12N\n\x08\x62inauthz\x18\x03 \x01(\x0b\x32<.google.cloud.gkehub.configmanagement.v1alpha.BinauthzConfig\x12\x65\n\x14hierarchy_controller\x18\x04 \x01(\x0b\x32G.google.cloud.gkehub.configmanagement.v1alpha.HierarchyControllerConfig\x12\x0f\n\x07version\x18\n \x01(\t\"i\n\nConfigSync\x12\x44\n\x03git\x18\x07 \x01(\x0b\x32\x37.google.cloud.gkehub.configmanagement.v1alpha.GitConfig\x12\x15\n\rsource_format\x18\x08 \x01(\t\"\xbe\x01\n\tGitConfig\x12\x11\n\tsync_repo\x18\x01 \x01(\t\x12\x13\n\x0bsync_branch\x18\x02 \x01(\t\x12\x12\n\npolicy_dir\x18\x03 \x01(\t\x12\x16\n\x0esync_wait_secs\x18\x04 \x01(\x03\x12\x10\n\x08sync_rev\x18\x05 \x01(\t\x12\x13\n\x0bsecret_type\x18\x06 \x01(\t\x12\x13\n\x0bhttps_proxy\x18\x07 \x01(\t\x12!\n\x19gcp_service_account_email\x18\x08 \x01(\t\"\xa3\x02\n\x10PolicyController\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\'\n\x1atemplate_library_installed\x18\x02 \x01(\x08H\x00\x88\x01\x01\x12#\n\x16\x61udit_interval_seconds\x18\x03 \x01(\x03H\x01\x88\x01\x01\x12\x1d\n\x15\x65xemptable_namespaces\x18\x04 \x03(\t\x12!\n\x19referential_rules_enabled\x18\x05 \x01(\x08\x12\x1a\n\x12log_denies_enabled\x18\x06 \x01(\x08\x12\x18\n\x10mutation_enabled\x18\x07 \x01(\x08\x42\x1d\n\x1b_template_library_installedB\x19\n\x17_audit_interval_seconds\"!\n\x0e\x42inauthzConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"x\n\x19HierarchyControllerConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x1e\n\x16\x65nable_pod_tree_labels\x18\x02 \x01(\x08\x12*\n\"enable_hierarchical_resource_quota\x18\x03 \x01(\x08\"\xc2\x01\n\"HierarchyControllerDeploymentState\x12J\n\x03hnc\x18\x01 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12P\n\textension\x18\x02 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\"<\n\x1aHierarchyControllerVersion\x12\x0b\n\x03hnc\x18\x01 \x01(\t\x12\x11\n\textension\x18\x02 \x01(\t\"\xd6\x01\n\x18HierarchyControllerState\x12Y\n\x07version\x18\x01 \x01(\x0b\x32H.google.cloud.gkehub.configmanagement.v1alpha.HierarchyControllerVersion\x12_\n\x05state\x18\x02 \x01(\x0b\x32P.google.cloud.gkehub.configmanagement.v1alpha.HierarchyControllerDeploymentState\"\xc5\x01\n\rOperatorState\x12\x0f\n\x07version\x18\x01 \x01(\t\x12W\n\x10\x64\x65ployment_state\x18\x02 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12J\n\x06\x65rrors\x18\x03 \x03(\x0b\x32:.google.cloud.gkehub.configmanagement.v1alpha.InstallError\"%\n\x0cInstallError\x12\x15\n\rerror_message\x18\x01 \x01(\t\"\x93\x02\n\x0f\x43onfigSyncState\x12P\n\x07version\x18\x01 \x01(\x0b\x32?.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion\x12\x61\n\x10\x64\x65ployment_state\x18\x02 \x01(\x0b\x32G.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState\x12K\n\nsync_state\x18\x03 \x01(\x0b\x32\x37.google.cloud.gkehub.configmanagement.v1alpha.SyncState\"\x8d\x01\n\x11\x43onfigSyncVersion\x12\x10\n\x08importer\x18\x01 \x01(\t\x12\x0e\n\x06syncer\x18\x02 \x01(\t\x12\x10\n\x08git_sync\x18\x03 \x01(\t\x12\x0f\n\x07monitor\x18\x04 \x01(\t\x12\x1a\n\x12reconciler_manager\x18\x05 \x01(\t\x12\x17\n\x0froot_reconciler\x18\x06 \x01(\t\"\x8f\x04\n\x19\x43onfigSyncDeploymentState\x12O\n\x08importer\x18\x01 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12M\n\x06syncer\x18\x02 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12O\n\x08git_sync\x18\x03 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12N\n\x07monitor\x18\x04 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12Y\n\x12reconciler_manager\x18\x05 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12V\n\x0froot_reconciler\x18\x06 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\"\xc5\x03\n\tSyncState\x12\x14\n\x0csource_token\x18\x01 \x01(\t\x12\x14\n\x0cimport_token\x18\x02 \x01(\t\x12\x12\n\nsync_token\x18\x03 \x01(\t\x12\x15\n\tlast_sync\x18\x04 \x01(\tB\x02\x18\x01\x12\x32\n\x0elast_sync_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12N\n\x04\x63ode\x18\x05 \x01(\x0e\x32@.google.cloud.gkehub.configmanagement.v1alpha.SyncState.SyncCode\x12G\n\x06\x65rrors\x18\x06 \x03(\x0b\x32\x37.google.cloud.gkehub.configmanagement.v1alpha.SyncError\"\x93\x01\n\x08SyncCode\x12\x19\n\x15SYNC_CODE_UNSPECIFIED\x10\x00\x12\n\n\x06SYNCED\x10\x01\x12\x0b\n\x07PENDING\x10\x02\x12\t\n\x05\x45RROR\x10\x03\x12\x12\n\x0eNOT_CONFIGURED\x10\x04\x12\x11\n\rNOT_INSTALLED\x10\x05\x12\x10\n\x0cUNAUTHORIZED\x10\x06\x12\x0f\n\x0bUNREACHABLE\x10\x07\"\x86\x01\n\tSyncError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\t\x12\x15\n\rerror_message\x18\x02 \x01(\t\x12T\n\x0f\x65rror_resources\x18\x03 \x03(\x0b\x32;.google.cloud.gkehub.configmanagement.v1alpha.ErrorResource\"\xad\x01\n\rErrorResource\x12\x13\n\x0bsource_path\x18\x01 \x01(\t\x12\x15\n\rresource_name\x18\x02 \x01(\t\x12\x1a\n\x12resource_namespace\x18\x03 \x01(\t\x12T\n\x0cresource_gvk\x18\x04 \x01(\x0b\x32>.google.cloud.gkehub.configmanagement.v1alpha.GroupVersionKind\"@\n\x10GroupVersionKind\x12\r\n\x05group\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x0c\n\x04kind\x18\x03 \x01(\t\"\xd2\x01\n\x15PolicyControllerState\x12V\n\x07version\x18\x01 \x01(\x0b\x32\x45.google.cloud.gkehub.configmanagement.v1alpha.PolicyControllerVersion\x12\x61\n\x10\x64\x65ployment_state\x18\x02 \x01(\x0b\x32G.google.cloud.gkehub.configmanagement.v1alpha.GatekeeperDeploymentState\"*\n\x17PolicyControllerVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\"\xaf\x01\n\rBinauthzState\x12N\n\x07webhook\x18\x01 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12N\n\x07version\x18\x02 \x01(\x0b\x32=.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion\"*\n\x0f\x42inauthzVersion\x12\x17\n\x0fwebhook_version\x18\x01 \x01(\t\"\xbc\x02\n\x19GatekeeperDeploymentState\x12j\n#gatekeeper_controller_manager_state\x18\x01 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12W\n\x10gatekeeper_audit\x18\x02 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12Z\n\x13gatekeeper_mutation\x18\x03 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState*`\n\x0f\x44\x65ploymentState\x12 \n\x1c\x44\x45PLOYMENT_STATE_UNSPECIFIED\x10\x00\x12\x11\n\rNOT_INSTALLED\x10\x01\x12\r\n\tINSTALLED\x10\x02\x12\t\n\x05\x45RROR\x10\x03\x42\xba\x02\n0com.google.cloud.gkehub.configmanagement.v1alphaB\x15\x43onfigManagementProtoP\x01Z\\google.golang.org/genproto/googleapis/cloud/gkehub/configmanagement/v1alpha;configmanagement\xaa\x02,Google.Cloud.GkeHub.ConfigManagement.V1Alpha\xca\x02,Google\\Cloud\\GkeHub\\ConfigManagement\\V1alpha\xea\x02\x30Google::Cloud::GkeHub::ConfigManagement::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nCgoogle/cloud/gkehub/v1alpha/configmanagement/configmanagement.proto\x12,google.cloud.gkehub.configmanagement.v1alpha\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd4\x04\n\x0fMembershipState\x12\x14\n\x0c\x63luster_name\x18\x01 \x01(\t\x12U\n\x0fmembership_spec\x18\x02 \x01(\x0b\x32<.google.cloud.gkehub.configmanagement.v1alpha.MembershipSpec\x12S\n\x0eoperator_state\x18\x03 \x01(\x0b\x32;.google.cloud.gkehub.configmanagement.v1alpha.OperatorState\x12X\n\x11\x63onfig_sync_state\x18\x04 \x01(\x0b\x32=.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncState\x12\x64\n\x17policy_controller_state\x18\x05 \x01(\x0b\x32\x43.google.cloud.gkehub.configmanagement.v1alpha.PolicyControllerState\x12S\n\x0e\x62inauthz_state\x18\x06 \x01(\x0b\x32;.google.cloud.gkehub.configmanagement.v1alpha.BinauthzState\x12j\n\x1ahierarchy_controller_state\x18\x07 \x01(\x0b\x32\x46.google.cloud.gkehub.configmanagement.v1alpha.HierarchyControllerState\"\x82\x03\n\x0eMembershipSpec\x12M\n\x0b\x63onfig_sync\x18\x01 \x01(\x0b\x32\x38.google.cloud.gkehub.configmanagement.v1alpha.ConfigSync\x12Y\n\x11policy_controller\x18\x02 \x01(\x0b\x32>.google.cloud.gkehub.configmanagement.v1alpha.PolicyController\x12N\n\x08\x62inauthz\x18\x03 \x01(\x0b\x32<.google.cloud.gkehub.configmanagement.v1alpha.BinauthzConfig\x12\x65\n\x14hierarchy_controller\x18\x04 \x01(\x0b\x32G.google.cloud.gkehub.configmanagement.v1alpha.HierarchyControllerConfig\x12\x0f\n\x07version\x18\n \x01(\t\"i\n\nConfigSync\x12\x44\n\x03git\x18\x07 \x01(\x0b\x32\x37.google.cloud.gkehub.configmanagement.v1alpha.GitConfig\x12\x15\n\rsource_format\x18\x08 \x01(\t\"\xbe\x01\n\tGitConfig\x12\x11\n\tsync_repo\x18\x01 \x01(\t\x12\x13\n\x0bsync_branch\x18\x02 \x01(\t\x12\x12\n\npolicy_dir\x18\x03 \x01(\t\x12\x16\n\x0esync_wait_secs\x18\x04 \x01(\x03\x12\x10\n\x08sync_rev\x18\x05 \x01(\t\x12\x13\n\x0bsecret_type\x18\x06 \x01(\t\x12\x13\n\x0bhttps_proxy\x18\x07 \x01(\t\x12!\n\x19gcp_service_account_email\x18\x08 \x01(\t\"\xa3\x02\n\x10PolicyController\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\'\n\x1atemplate_library_installed\x18\x02 \x01(\x08H\x00\x88\x01\x01\x12#\n\x16\x61udit_interval_seconds\x18\x03 \x01(\x03H\x01\x88\x01\x01\x12\x1d\n\x15\x65xemptable_namespaces\x18\x04 \x03(\t\x12!\n\x19referential_rules_enabled\x18\x05 \x01(\x08\x12\x1a\n\x12log_denies_enabled\x18\x06 \x01(\x08\x12\x18\n\x10mutation_enabled\x18\x07 \x01(\x08\x42\x1d\n\x1b_template_library_installedB\x19\n\x17_audit_interval_seconds\"!\n\x0e\x42inauthzConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"x\n\x19HierarchyControllerConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x1e\n\x16\x65nable_pod_tree_labels\x18\x02 \x01(\x08\x12*\n\"enable_hierarchical_resource_quota\x18\x03 \x01(\x08\"\xc2\x01\n\"HierarchyControllerDeploymentState\x12J\n\x03hnc\x18\x01 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12P\n\textension\x18\x02 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\"<\n\x1aHierarchyControllerVersion\x12\x0b\n\x03hnc\x18\x01 \x01(\t\x12\x11\n\textension\x18\x02 \x01(\t\"\xd6\x01\n\x18HierarchyControllerState\x12Y\n\x07version\x18\x01 \x01(\x0b\x32H.google.cloud.gkehub.configmanagement.v1alpha.HierarchyControllerVersion\x12_\n\x05state\x18\x02 \x01(\x0b\x32P.google.cloud.gkehub.configmanagement.v1alpha.HierarchyControllerDeploymentState\"\xc5\x01\n\rOperatorState\x12\x0f\n\x07version\x18\x01 \x01(\t\x12W\n\x10\x64\x65ployment_state\x18\x02 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12J\n\x06\x65rrors\x18\x03 \x03(\x0b\x32:.google.cloud.gkehub.configmanagement.v1alpha.InstallError\"%\n\x0cInstallError\x12\x15\n\rerror_message\x18\x01 \x01(\t\"\x93\x02\n\x0f\x43onfigSyncState\x12P\n\x07version\x18\x01 \x01(\x0b\x32?.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncVersion\x12\x61\n\x10\x64\x65ployment_state\x18\x02 \x01(\x0b\x32G.google.cloud.gkehub.configmanagement.v1alpha.ConfigSyncDeploymentState\x12K\n\nsync_state\x18\x03 \x01(\x0b\x32\x37.google.cloud.gkehub.configmanagement.v1alpha.SyncState\"\x8d\x01\n\x11\x43onfigSyncVersion\x12\x10\n\x08importer\x18\x01 \x01(\t\x12\x0e\n\x06syncer\x18\x02 \x01(\t\x12\x10\n\x08git_sync\x18\x03 \x01(\t\x12\x0f\n\x07monitor\x18\x04 \x01(\t\x12\x1a\n\x12reconciler_manager\x18\x05 \x01(\t\x12\x17\n\x0froot_reconciler\x18\x06 \x01(\t\"\x8f\x04\n\x19\x43onfigSyncDeploymentState\x12O\n\x08importer\x18\x01 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12M\n\x06syncer\x18\x02 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12O\n\x08git_sync\x18\x03 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12N\n\x07monitor\x18\x04 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12Y\n\x12reconciler_manager\x18\x05 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12V\n\x0froot_reconciler\x18\x06 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\"\xc5\x03\n\tSyncState\x12\x14\n\x0csource_token\x18\x01 \x01(\t\x12\x14\n\x0cimport_token\x18\x02 \x01(\t\x12\x12\n\nsync_token\x18\x03 \x01(\t\x12\x15\n\tlast_sync\x18\x04 \x01(\tB\x02\x18\x01\x12\x32\n\x0elast_sync_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12N\n\x04\x63ode\x18\x05 \x01(\x0e\x32@.google.cloud.gkehub.configmanagement.v1alpha.SyncState.SyncCode\x12G\n\x06\x65rrors\x18\x06 \x03(\x0b\x32\x37.google.cloud.gkehub.configmanagement.v1alpha.SyncError\"\x93\x01\n\x08SyncCode\x12\x19\n\x15SYNC_CODE_UNSPECIFIED\x10\x00\x12\n\n\x06SYNCED\x10\x01\x12\x0b\n\x07PENDING\x10\x02\x12\t\n\x05\x45RROR\x10\x03\x12\x12\n\x0eNOT_CONFIGURED\x10\x04\x12\x11\n\rNOT_INSTALLED\x10\x05\x12\x10\n\x0cUNAUTHORIZED\x10\x06\x12\x0f\n\x0bUNREACHABLE\x10\x07\"\x86\x01\n\tSyncError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\t\x12\x15\n\rerror_message\x18\x02 \x01(\t\x12T\n\x0f\x65rror_resources\x18\x03 \x03(\x0b\x32;.google.cloud.gkehub.configmanagement.v1alpha.ErrorResource\"\xad\x01\n\rErrorResource\x12\x13\n\x0bsource_path\x18\x01 \x01(\t\x12\x15\n\rresource_name\x18\x02 \x01(\t\x12\x1a\n\x12resource_namespace\x18\x03 \x01(\t\x12T\n\x0cresource_gvk\x18\x04 \x01(\x0b\x32>.google.cloud.gkehub.configmanagement.v1alpha.GroupVersionKind\"@\n\x10GroupVersionKind\x12\r\n\x05group\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x0c\n\x04kind\x18\x03 \x01(\t\"\xd2\x01\n\x15PolicyControllerState\x12V\n\x07version\x18\x01 \x01(\x0b\x32\x45.google.cloud.gkehub.configmanagement.v1alpha.PolicyControllerVersion\x12\x61\n\x10\x64\x65ployment_state\x18\x02 \x01(\x0b\x32G.google.cloud.gkehub.configmanagement.v1alpha.GatekeeperDeploymentState\"*\n\x17PolicyControllerVersion\x12\x0f\n\x07version\x18\x01 \x01(\t\"\xaf\x01\n\rBinauthzState\x12N\n\x07webhook\x18\x01 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12N\n\x07version\x18\x02 \x01(\x0b\x32=.google.cloud.gkehub.configmanagement.v1alpha.BinauthzVersion\"*\n\x0f\x42inauthzVersion\x12\x17\n\x0fwebhook_version\x18\x01 \x01(\t\"\xbc\x02\n\x19GatekeeperDeploymentState\x12j\n#gatekeeper_controller_manager_state\x18\x01 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12W\n\x10gatekeeper_audit\x18\x02 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState\x12Z\n\x13gatekeeper_mutation\x18\x03 \x01(\x0e\x32=.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState*`\n\x0f\x44\x65ploymentState\x12 \n\x1c\x44\x45PLOYMENT_STATE_UNSPECIFIED\x10\x00\x12\x11\n\rNOT_INSTALLED\x10\x01\x12\r\n\tINSTALLED\x10\x02\x12\t\n\x05\x45RROR\x10\x03\x42\xba\x02\n0com.google.cloud.gkehub.configmanagement.v1alphaB\x15\x43onfigManagementProtoP\x01Z\\google.golang.org/genproto/googleapis/cloud/gkehub/configmanagement/v1alpha;configmanagement\xaa\x02,Google.Cloud.GkeHub.ConfigManagement.V1Alpha\xca\x02,Google\\Cloud\\GkeHub\\ConfigManagement\\V1alpha\xea\x02\x30Google::Cloud::GkeHub::ConfigManagement::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.gkehub.v1alpha.configmanagement.configmanagement_pb2', globals())
@@ -25,56 +24,56 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n0com.google.cloud.gkehub.configmanagement.v1alphaB\025ConfigManagementProtoP\001Z\\google.golang.org/genproto/googleapis/cloud/gkehub/configmanagement/v1alpha;configmanagement\252\002,Google.Cloud.GkeHub.ConfigManagement.V1Alpha\312\002,Google\\Cloud\\GkeHub\\ConfigManagement\\V1alpha\352\0020Google::Cloud::GkeHub::ConfigManagement::V1alpha'
   _SYNCSTATE.fields_by_name['last_sync']._options = None
   _SYNCSTATE.fields_by_name['last_sync']._serialized_options = b'\030\001'
-  _DEPLOYMENTSTATE._serialized_start=5219
-  _DEPLOYMENTSTATE._serialized_end=5315
-  _MEMBERSHIPSTATE._serialized_start=181
-  _MEMBERSHIPSTATE._serialized_end=777
-  _MEMBERSHIPSPEC._serialized_start=780
-  _MEMBERSHIPSPEC._serialized_end=1166
-  _CONFIGSYNC._serialized_start=1168
-  _CONFIGSYNC._serialized_end=1273
-  _GITCONFIG._serialized_start=1276
-  _GITCONFIG._serialized_end=1466
-  _POLICYCONTROLLER._serialized_start=1469
-  _POLICYCONTROLLER._serialized_end=1760
-  _BINAUTHZCONFIG._serialized_start=1762
-  _BINAUTHZCONFIG._serialized_end=1795
-  _HIERARCHYCONTROLLERCONFIG._serialized_start=1797
-  _HIERARCHYCONTROLLERCONFIG._serialized_end=1917
-  _HIERARCHYCONTROLLERDEPLOYMENTSTATE._serialized_start=1920
-  _HIERARCHYCONTROLLERDEPLOYMENTSTATE._serialized_end=2114
-  _HIERARCHYCONTROLLERVERSION._serialized_start=2116
-  _HIERARCHYCONTROLLERVERSION._serialized_end=2176
-  _HIERARCHYCONTROLLERSTATE._serialized_start=2179
-  _HIERARCHYCONTROLLERSTATE._serialized_end=2393
-  _OPERATORSTATE._serialized_start=2396
-  _OPERATORSTATE._serialized_end=2593
-  _INSTALLERROR._serialized_start=2595
-  _INSTALLERROR._serialized_end=2632
-  _CONFIGSYNCSTATE._serialized_start=2635
-  _CONFIGSYNCSTATE._serialized_end=2910
-  _CONFIGSYNCVERSION._serialized_start=2913
-  _CONFIGSYNCVERSION._serialized_end=3054
-  _CONFIGSYNCDEPLOYMENTSTATE._serialized_start=3057
-  _CONFIGSYNCDEPLOYMENTSTATE._serialized_end=3584
-  _SYNCSTATE._serialized_start=3587
-  _SYNCSTATE._serialized_end=4040
-  _SYNCSTATE_SYNCCODE._serialized_start=3893
-  _SYNCSTATE_SYNCCODE._serialized_end=4040
-  _SYNCERROR._serialized_start=4043
-  _SYNCERROR._serialized_end=4177
-  _ERRORRESOURCE._serialized_start=4180
-  _ERRORRESOURCE._serialized_end=4353
-  _GROUPVERSIONKIND._serialized_start=4355
-  _GROUPVERSIONKIND._serialized_end=4419
-  _POLICYCONTROLLERSTATE._serialized_start=4422
-  _POLICYCONTROLLERSTATE._serialized_end=4632
-  _POLICYCONTROLLERVERSION._serialized_start=4634
-  _POLICYCONTROLLERVERSION._serialized_end=4676
-  _BINAUTHZSTATE._serialized_start=4679
-  _BINAUTHZSTATE._serialized_end=4854
-  _BINAUTHZVERSION._serialized_start=4856
-  _BINAUTHZVERSION._serialized_end=4898
-  _GATEKEEPERDEPLOYMENTSTATE._serialized_start=4901
-  _GATEKEEPERDEPLOYMENTSTATE._serialized_end=5217
+  _DEPLOYMENTSTATE._serialized_start=5189
+  _DEPLOYMENTSTATE._serialized_end=5285
+  _MEMBERSHIPSTATE._serialized_start=151
+  _MEMBERSHIPSTATE._serialized_end=747
+  _MEMBERSHIPSPEC._serialized_start=750
+  _MEMBERSHIPSPEC._serialized_end=1136
+  _CONFIGSYNC._serialized_start=1138
+  _CONFIGSYNC._serialized_end=1243
+  _GITCONFIG._serialized_start=1246
+  _GITCONFIG._serialized_end=1436
+  _POLICYCONTROLLER._serialized_start=1439
+  _POLICYCONTROLLER._serialized_end=1730
+  _BINAUTHZCONFIG._serialized_start=1732
+  _BINAUTHZCONFIG._serialized_end=1765
+  _HIERARCHYCONTROLLERCONFIG._serialized_start=1767
+  _HIERARCHYCONTROLLERCONFIG._serialized_end=1887
+  _HIERARCHYCONTROLLERDEPLOYMENTSTATE._serialized_start=1890
+  _HIERARCHYCONTROLLERDEPLOYMENTSTATE._serialized_end=2084
+  _HIERARCHYCONTROLLERVERSION._serialized_start=2086
+  _HIERARCHYCONTROLLERVERSION._serialized_end=2146
+  _HIERARCHYCONTROLLERSTATE._serialized_start=2149
+  _HIERARCHYCONTROLLERSTATE._serialized_end=2363
+  _OPERATORSTATE._serialized_start=2366
+  _OPERATORSTATE._serialized_end=2563
+  _INSTALLERROR._serialized_start=2565
+  _INSTALLERROR._serialized_end=2602
+  _CONFIGSYNCSTATE._serialized_start=2605
+  _CONFIGSYNCSTATE._serialized_end=2880
+  _CONFIGSYNCVERSION._serialized_start=2883
+  _CONFIGSYNCVERSION._serialized_end=3024
+  _CONFIGSYNCDEPLOYMENTSTATE._serialized_start=3027
+  _CONFIGSYNCDEPLOYMENTSTATE._serialized_end=3554
+  _SYNCSTATE._serialized_start=3557
+  _SYNCSTATE._serialized_end=4010
+  _SYNCSTATE_SYNCCODE._serialized_start=3863
+  _SYNCSTATE_SYNCCODE._serialized_end=4010
+  _SYNCERROR._serialized_start=4013
+  _SYNCERROR._serialized_end=4147
+  _ERRORRESOURCE._serialized_start=4150
+  _ERRORRESOURCE._serialized_end=4323
+  _GROUPVERSIONKIND._serialized_start=4325
+  _GROUPVERSIONKIND._serialized_end=4389
+  _POLICYCONTROLLERSTATE._serialized_start=4392
+  _POLICYCONTROLLERSTATE._serialized_end=4602
+  _POLICYCONTROLLERVERSION._serialized_start=4604
+  _POLICYCONTROLLERVERSION._serialized_end=4646
+  _BINAUTHZSTATE._serialized_start=4649
+  _BINAUTHZSTATE._serialized_end=4824
+  _BINAUTHZVERSION._serialized_start=4826
+  _BINAUTHZVERSION._serialized_end=4868
+  _GATEKEEPERDEPLOYMENTSTATE._serialized_start=4871
+  _GATEKEEPERDEPLOYMENTSTATE._serialized_end=5187
 # @@protoc_insertion_point(module_scope)

@@ -47,289 +47,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Entry(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-            entryTypeCase_ = 2;
-            entryType_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 42: {
-            com.google.cloud.datacatalog.v1.Schema.Builder subBuilder = null;
-            if (schema_ != null) {
-              subBuilder = schema_.toBuilder();
-            }
-            schema_ = input.readMessage(com.google.cloud.datacatalog.v1.Schema.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(schema_);
-              schema_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.datacatalog.v1.GcsFilesetSpec.Builder subBuilder = null;
-            if (typeSpecCase_ == 6) {
-              subBuilder = ((com.google.cloud.datacatalog.v1.GcsFilesetSpec) typeSpec_).toBuilder();
-            }
-            typeSpec_ =
-                input.readMessage(com.google.cloud.datacatalog.v1.GcsFilesetSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1.GcsFilesetSpec) typeSpec_);
-              typeSpec_ = subBuilder.buildPartial();
-            }
-            typeSpecCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.cloud.datacatalog.v1.SystemTimestamps.Builder subBuilder = null;
-            if (sourceSystemTimestamps_ != null) {
-              subBuilder = sourceSystemTimestamps_.toBuilder();
-            }
-            sourceSystemTimestamps_ = input.readMessage(com.google.cloud.datacatalog.v1.SystemTimestamps.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sourceSystemTimestamps_);
-              sourceSystemTimestamps_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            linkedResource_ = s;
-            break;
-          }
-          case 98: {
-            com.google.cloud.datacatalog.v1.BigQueryTableSpec.Builder subBuilder = null;
-            if (typeSpecCase_ == 12) {
-              subBuilder = ((com.google.cloud.datacatalog.v1.BigQueryTableSpec) typeSpec_).toBuilder();
-            }
-            typeSpec_ =
-                input.readMessage(com.google.cloud.datacatalog.v1.BigQueryTableSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1.BigQueryTableSpec) typeSpec_);
-              typeSpec_ = subBuilder.buildPartial();
-            }
-            typeSpecCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.cloud.datacatalog.v1.UsageSignal.Builder subBuilder = null;
-            if (usageSignal_ != null) {
-              subBuilder = usageSignal_.toBuilder();
-            }
-            usageSignal_ = input.readMessage(com.google.cloud.datacatalog.v1.UsageSignal.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(usageSignal_);
-              usageSignal_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 122: {
-            com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec.Builder subBuilder = null;
-            if (typeSpecCase_ == 15) {
-              subBuilder = ((com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec) typeSpec_).toBuilder();
-            }
-            typeSpec_ =
-                input.readMessage(com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec) typeSpec_);
-              typeSpec_ = subBuilder.buildPartial();
-            }
-            typeSpecCase_ = 15;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-            entryTypeCase_ = 16;
-            entryType_ = s;
-            break;
-          }
-          case 136: {
-            int rawValue = input.readEnum();
-            systemCase_ = 17;
-            system_ = rawValue;
-            break;
-          }
-          case 146: {
-            java.lang.String s = input.readStringRequireUtf8();
-            systemCase_ = 18;
-            system_ = s;
-            break;
-          }
-          case 162: {
-            com.google.cloud.datacatalog.v1.DataSource.Builder subBuilder = null;
-            if (dataSource_ != null) {
-              subBuilder = dataSource_.toBuilder();
-            }
-            dataSource_ = input.readMessage(com.google.cloud.datacatalog.v1.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dataSource_);
-              dataSource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 194: {
-            com.google.cloud.datacatalog.v1.DatabaseTableSpec.Builder subBuilder = null;
-            if (specCase_ == 24) {
-              subBuilder = ((com.google.cloud.datacatalog.v1.DatabaseTableSpec) spec_).toBuilder();
-            }
-            spec_ =
-                input.readMessage(com.google.cloud.datacatalog.v1.DatabaseTableSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1.DatabaseTableSpec) spec_);
-              spec_ = subBuilder.buildPartial();
-            }
-            specCase_ = 24;
-            break;
-          }
-          case 210: {
-            com.google.cloud.datacatalog.v1.PersonalDetails.Builder subBuilder = null;
-            if (personalDetails_ != null) {
-              subBuilder = personalDetails_.toBuilder();
-            }
-            personalDetails_ = input.readMessage(com.google.cloud.datacatalog.v1.PersonalDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(personalDetails_);
-              personalDetails_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 218: {
-            com.google.cloud.datacatalog.v1.DataSourceConnectionSpec.Builder subBuilder = null;
-            if (specCase_ == 27) {
-              subBuilder = ((com.google.cloud.datacatalog.v1.DataSourceConnectionSpec) spec_).toBuilder();
-            }
-            spec_ =
-                input.readMessage(com.google.cloud.datacatalog.v1.DataSourceConnectionSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1.DataSourceConnectionSpec) spec_);
-              spec_ = subBuilder.buildPartial();
-            }
-            specCase_ = 27;
-            break;
-          }
-          case 226: {
-            com.google.cloud.datacatalog.v1.RoutineSpec.Builder subBuilder = null;
-            if (specCase_ == 28) {
-              subBuilder = ((com.google.cloud.datacatalog.v1.RoutineSpec) spec_).toBuilder();
-            }
-            spec_ =
-                input.readMessage(com.google.cloud.datacatalog.v1.RoutineSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1.RoutineSpec) spec_);
-              spec_ = subBuilder.buildPartial();
-            }
-            specCase_ = 28;
-            break;
-          }
-          case 234: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fullyQualifiedName_ = s;
-            break;
-          }
-          case 266: {
-            com.google.cloud.datacatalog.v1.FilesetSpec.Builder subBuilder = null;
-            if (specCase_ == 33) {
-              subBuilder = ((com.google.cloud.datacatalog.v1.FilesetSpec) spec_).toBuilder();
-            }
-            spec_ =
-                input.readMessage(com.google.cloud.datacatalog.v1.FilesetSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1.FilesetSpec) spec_);
-              spec_ = subBuilder.buildPartial();
-            }
-            specCase_ = 33;
-            break;
-          }
-          case 298: {
-            com.google.cloud.datacatalog.v1.BusinessContext.Builder subBuilder = null;
-            if (businessContext_ != null) {
-              subBuilder = businessContext_.toBuilder();
-            }
-            businessContext_ = input.readMessage(com.google.cloud.datacatalog.v1.BusinessContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(businessContext_);
-              businessContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1.Datacatalog.internal_static_google_cloud_datacatalog_v1_Entry_descriptor;
@@ -526,7 +243,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of an entry in URL format.
@@ -576,7 +294,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LINKED_RESOURCE_FIELD_NUMBER = 9;
-  private volatile java.lang.Object linkedResource_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object linkedResource_ = "";
   /**
    * <pre>
    * The resource this metadata entry refers to.
@@ -646,7 +365,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FULLY_QUALIFIED_NAME_FIELD_NUMBER = 29;
-  private volatile java.lang.Object fullyQualifiedName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fullyQualifiedName_ = "";
   /**
    * <pre>
    * Fully qualified name (FQN) of the resource. Set automatically for entries
@@ -754,8 +474,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.cloud.datacatalog.v1.EntryType getType() {
     if (entryTypeCase_ == 2) {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.datacatalog.v1.EntryType result = com.google.cloud.datacatalog.v1.EntryType.valueOf(
+      com.google.cloud.datacatalog.v1.EntryType result = com.google.cloud.datacatalog.v1.EntryType.forNumber(
           (java.lang.Integer) entryType_);
       return result == null ? com.google.cloud.datacatalog.v1.EntryType.UNRECOGNIZED : result;
     }
@@ -892,8 +611,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.cloud.datacatalog.v1.IntegratedSystem getIntegratedSystem() {
     if (systemCase_ == 17) {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.datacatalog.v1.IntegratedSystem result = com.google.cloud.datacatalog.v1.IntegratedSystem.valueOf(
+      com.google.cloud.datacatalog.v1.IntegratedSystem result = com.google.cloud.datacatalog.v1.IntegratedSystem.forNumber(
           (java.lang.Integer) system_);
       return result == null ? com.google.cloud.datacatalog.v1.IntegratedSystem.UNRECOGNIZED : result;
     }
@@ -1031,11 +749,11 @@ private static final long serialVersionUID = 0L;
   public static final int BIGQUERY_TABLE_SPEC_FIELD_NUMBER = 12;
   /**
    * <pre>
-   * Specification that applies to a BigQuery table. Valid only for
-   * entries with the `TABLE` type.
+   * Output only. Specification that applies to a BigQuery table. Valid only
+   * for entries with the `TABLE` type.
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+   * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return Whether the bigqueryTableSpec field is set.
    */
   @java.lang.Override
@@ -1044,11 +762,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Specification that applies to a BigQuery table. Valid only for
-   * entries with the `TABLE` type.
+   * Output only. Specification that applies to a BigQuery table. Valid only
+   * for entries with the `TABLE` type.
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+   * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The bigqueryTableSpec.
    */
   @java.lang.Override
@@ -1060,11 +778,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Specification that applies to a BigQuery table. Valid only for
-   * entries with the `TABLE` type.
+   * Output only. Specification that applies to a BigQuery table. Valid only
+   * for entries with the `TABLE` type.
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+   * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.BigQueryTableSpecOrBuilder getBigqueryTableSpecOrBuilder() {
@@ -1077,13 +795,13 @@ private static final long serialVersionUID = 0L;
   public static final int BIGQUERY_DATE_SHARDED_SPEC_FIELD_NUMBER = 15;
   /**
    * <pre>
-   * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-   * name pattern.
+   * Output only. Specification for a group of BigQuery tables with
+   * the `[prefix]YYYYMMDD` name pattern.
    * For more information, see [Introduction to partitioned tables]
    * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+   * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return Whether the bigqueryDateShardedSpec field is set.
    */
   @java.lang.Override
@@ -1092,13 +810,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-   * name pattern.
+   * Output only. Specification for a group of BigQuery tables with
+   * the `[prefix]YYYYMMDD` name pattern.
    * For more information, see [Introduction to partitioned tables]
    * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+   * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The bigqueryDateShardedSpec.
    */
   @java.lang.Override
@@ -1110,13 +828,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-   * name pattern.
+   * Output only. Specification for a group of BigQuery tables with
+   * the `[prefix]YYYYMMDD` name pattern.
    * For more information, see [Introduction to partitioned tables]
    * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+   * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.BigQueryDateShardedSpecOrBuilder getBigqueryDateShardedSpecOrBuilder() {
@@ -1311,7 +1029,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Display name of an entry.
@@ -1365,7 +1084,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Entry description that can consist of several sentences or paragraphs
@@ -1457,7 +1177,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.BusinessContextOrBuilder getBusinessContextOrBuilder() {
-    return getBusinessContext();
+    return businessContext_ == null ? com.google.cloud.datacatalog.v1.BusinessContext.getDefaultInstance() : businessContext_;
   }
 
   public static final int SCHEMA_FIELD_NUMBER = 5;
@@ -1495,7 +1215,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.SchemaOrBuilder getSchemaOrBuilder() {
-    return getSchema();
+    return schema_ == null ? com.google.cloud.datacatalog.v1.Schema.getDefaultInstance() : schema_;
   }
 
   public static final int SOURCE_SYSTEM_TIMESTAMPS_FIELD_NUMBER = 7;
@@ -1504,9 +1224,9 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamps from the underlying resource, not from the Data Catalog
    * entry.
-   * Output only when the entry has a type listed in the `EntryType` enum.
-   * For entries with `user_specified_type`, this field is optional and defaults
-   * to an empty timestamp.
+   * Output only when the entry has a system listed in the `IntegratedSystem`
+   * enum. For entries with `user_specified_system`, this field is optional
+   * and defaults to an empty timestamp.
    * </pre>
    *
    * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
@@ -1520,9 +1240,9 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamps from the underlying resource, not from the Data Catalog
    * entry.
-   * Output only when the entry has a type listed in the `EntryType` enum.
-   * For entries with `user_specified_type`, this field is optional and defaults
-   * to an empty timestamp.
+   * Output only when the entry has a system listed in the `IntegratedSystem`
+   * enum. For entries with `user_specified_system`, this field is optional
+   * and defaults to an empty timestamp.
    * </pre>
    *
    * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
@@ -1536,26 +1256,26 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Timestamps from the underlying resource, not from the Data Catalog
    * entry.
-   * Output only when the entry has a type listed in the `EntryType` enum.
-   * For entries with `user_specified_type`, this field is optional and defaults
-   * to an empty timestamp.
+   * Output only when the entry has a system listed in the `IntegratedSystem`
+   * enum. For entries with `user_specified_system`, this field is optional
+   * and defaults to an empty timestamp.
    * </pre>
    *
    * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.SystemTimestampsOrBuilder getSourceSystemTimestampsOrBuilder() {
-    return getSourceSystemTimestamps();
+    return sourceSystemTimestamps_ == null ? com.google.cloud.datacatalog.v1.SystemTimestamps.getDefaultInstance() : sourceSystemTimestamps_;
   }
 
   public static final int USAGE_SIGNAL_FIELD_NUMBER = 13;
   private com.google.cloud.datacatalog.v1.UsageSignal usageSignal_;
   /**
    * <pre>
-   * Output only. Resource usage statistics.
+   * Resource usage statistics.
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
    * @return Whether the usageSignal field is set.
    */
   @java.lang.Override
@@ -1564,10 +1284,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Resource usage statistics.
+   * Resource usage statistics.
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
    * @return The usageSignal.
    */
   @java.lang.Override
@@ -1576,14 +1296,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Resource usage statistics.
+   * Resource usage statistics.
    * </pre>
    *
-   * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.UsageSignalOrBuilder getUsageSignalOrBuilder() {
-    return getUsageSignal();
+    return usageSignal_ == null ? com.google.cloud.datacatalog.v1.UsageSignal.getDefaultInstance() : usageSignal_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 14;
@@ -1598,6 +1318,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1608,7 +1329,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -1622,7 +1342,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 14;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -1648,7 +1367,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 14;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -1663,10 +1381,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 14;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -1683,7 +1402,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 14;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1730,7 +1448,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.DataSourceOrBuilder getDataSourceOrBuilder() {
-    return getDataSource();
+    return dataSource_ == null ? com.google.cloud.datacatalog.v1.DataSource.getDefaultInstance() : dataSource_;
   }
 
   public static final int PERSONAL_DETAILS_FIELD_NUMBER = 26;
@@ -1768,7 +1486,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.PersonalDetailsOrBuilder getPersonalDetailsOrBuilder() {
-    return getPersonalDetails();
+    return personalDetails_ == null ? com.google.cloud.datacatalog.v1.PersonalDetails.getDefaultInstance() : personalDetails_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1857,7 +1575,7 @@ private static final long serialVersionUID = 0L;
     if (businessContext_ != null) {
       output.writeMessage(37, getBusinessContext());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1957,7 +1675,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(37, getBusinessContext());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2078,7 +1796,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2187,7 +1905,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2338,67 +2056,73 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1.Entry.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       linkedResource_ = "";
-
       fullyQualifiedName_ = "";
-
+      if (gcsFilesetSpecBuilder_ != null) {
+        gcsFilesetSpecBuilder_.clear();
+      }
+      if (bigqueryTableSpecBuilder_ != null) {
+        bigqueryTableSpecBuilder_.clear();
+      }
+      if (bigqueryDateShardedSpecBuilder_ != null) {
+        bigqueryDateShardedSpecBuilder_.clear();
+      }
+      if (databaseTableSpecBuilder_ != null) {
+        databaseTableSpecBuilder_.clear();
+      }
+      if (dataSourceConnectionSpecBuilder_ != null) {
+        dataSourceConnectionSpecBuilder_.clear();
+      }
+      if (routineSpecBuilder_ != null) {
+        routineSpecBuilder_.clear();
+      }
+      if (filesetSpecBuilder_ != null) {
+        filesetSpecBuilder_.clear();
+      }
       displayName_ = "";
-
       description_ = "";
-
-      if (businessContextBuilder_ == null) {
-        businessContext_ = null;
-      } else {
-        businessContext_ = null;
+      businessContext_ = null;
+      if (businessContextBuilder_ != null) {
+        businessContextBuilder_.dispose();
         businessContextBuilder_ = null;
       }
-      if (schemaBuilder_ == null) {
-        schema_ = null;
-      } else {
-        schema_ = null;
+      schema_ = null;
+      if (schemaBuilder_ != null) {
+        schemaBuilder_.dispose();
         schemaBuilder_ = null;
       }
-      if (sourceSystemTimestampsBuilder_ == null) {
-        sourceSystemTimestamps_ = null;
-      } else {
-        sourceSystemTimestamps_ = null;
+      sourceSystemTimestamps_ = null;
+      if (sourceSystemTimestampsBuilder_ != null) {
+        sourceSystemTimestampsBuilder_.dispose();
         sourceSystemTimestampsBuilder_ = null;
       }
-      if (usageSignalBuilder_ == null) {
-        usageSignal_ = null;
-      } else {
-        usageSignal_ = null;
+      usageSignal_ = null;
+      if (usageSignalBuilder_ != null) {
+        usageSignalBuilder_.dispose();
         usageSignalBuilder_ = null;
       }
       internalGetMutableLabels().clear();
-      if (dataSourceBuilder_ == null) {
-        dataSource_ = null;
-      } else {
-        dataSource_ = null;
+      dataSource_ = null;
+      if (dataSourceBuilder_ != null) {
+        dataSourceBuilder_.dispose();
         dataSourceBuilder_ = null;
       }
-      if (personalDetailsBuilder_ == null) {
-        personalDetails_ = null;
-      } else {
-        personalDetails_ = null;
+      personalDetails_ = null;
+      if (personalDetailsBuilder_ != null) {
+        personalDetailsBuilder_.dispose();
         personalDetailsBuilder_ = null;
       }
       entryTypeCase_ = 0;
@@ -2435,111 +2159,102 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.Entry buildPartial() {
       com.google.cloud.datacatalog.v1.Entry result = new com.google.cloud.datacatalog.v1.Entry(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.linkedResource_ = linkedResource_;
-      result.fullyQualifiedName_ = fullyQualifiedName_;
-      if (entryTypeCase_ == 2) {
-        result.entryType_ = entryType_;
-      }
-      if (entryTypeCase_ == 16) {
-        result.entryType_ = entryType_;
-      }
-      if (systemCase_ == 17) {
-        result.system_ = system_;
-      }
-      if (systemCase_ == 18) {
-        result.system_ = system_;
-      }
-      if (typeSpecCase_ == 6) {
-        if (gcsFilesetSpecBuilder_ == null) {
-          result.typeSpec_ = typeSpec_;
-        } else {
-          result.typeSpec_ = gcsFilesetSpecBuilder_.build();
-        }
-      }
-      if (typeSpecCase_ == 12) {
-        if (bigqueryTableSpecBuilder_ == null) {
-          result.typeSpec_ = typeSpec_;
-        } else {
-          result.typeSpec_ = bigqueryTableSpecBuilder_.build();
-        }
-      }
-      if (typeSpecCase_ == 15) {
-        if (bigqueryDateShardedSpecBuilder_ == null) {
-          result.typeSpec_ = typeSpec_;
-        } else {
-          result.typeSpec_ = bigqueryDateShardedSpecBuilder_.build();
-        }
-      }
-      if (specCase_ == 24) {
-        if (databaseTableSpecBuilder_ == null) {
-          result.spec_ = spec_;
-        } else {
-          result.spec_ = databaseTableSpecBuilder_.build();
-        }
-      }
-      if (specCase_ == 27) {
-        if (dataSourceConnectionSpecBuilder_ == null) {
-          result.spec_ = spec_;
-        } else {
-          result.spec_ = dataSourceConnectionSpecBuilder_.build();
-        }
-      }
-      if (specCase_ == 28) {
-        if (routineSpecBuilder_ == null) {
-          result.spec_ = spec_;
-        } else {
-          result.spec_ = routineSpecBuilder_.build();
-        }
-      }
-      if (specCase_ == 33) {
-        if (filesetSpecBuilder_ == null) {
-          result.spec_ = spec_;
-        } else {
-          result.spec_ = filesetSpecBuilder_.build();
-        }
-      }
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      if (businessContextBuilder_ == null) {
-        result.businessContext_ = businessContext_;
-      } else {
-        result.businessContext_ = businessContextBuilder_.build();
-      }
-      if (schemaBuilder_ == null) {
-        result.schema_ = schema_;
-      } else {
-        result.schema_ = schemaBuilder_.build();
-      }
-      if (sourceSystemTimestampsBuilder_ == null) {
-        result.sourceSystemTimestamps_ = sourceSystemTimestamps_;
-      } else {
-        result.sourceSystemTimestamps_ = sourceSystemTimestampsBuilder_.build();
-      }
-      if (usageSignalBuilder_ == null) {
-        result.usageSignal_ = usageSignal_;
-      } else {
-        result.usageSignal_ = usageSignalBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (dataSourceBuilder_ == null) {
-        result.dataSource_ = dataSource_;
-      } else {
-        result.dataSource_ = dataSourceBuilder_.build();
-      }
-      if (personalDetailsBuilder_ == null) {
-        result.personalDetails_ = personalDetails_;
-      } else {
-        result.personalDetails_ = personalDetailsBuilder_.build();
-      }
-      result.entryTypeCase_ = entryTypeCase_;
-      result.systemCase_ = systemCase_;
-      result.typeSpecCase_ = typeSpecCase_;
-      result.specCase_ = specCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1.Entry result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.linkedResource_ = linkedResource_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.fullyQualifiedName_ = fullyQualifiedName_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.businessContext_ = businessContextBuilder_ == null
+            ? businessContext_
+            : businessContextBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.schema_ = schemaBuilder_ == null
+            ? schema_
+            : schemaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.sourceSystemTimestamps_ = sourceSystemTimestampsBuilder_ == null
+            ? sourceSystemTimestamps_
+            : sourceSystemTimestampsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.usageSignal_ = usageSignalBuilder_ == null
+            ? usageSignal_
+            : usageSignalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.dataSource_ = dataSourceBuilder_ == null
+            ? dataSource_
+            : dataSourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.personalDetails_ = personalDetailsBuilder_ == null
+            ? personalDetails_
+            : personalDetailsBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datacatalog.v1.Entry result) {
+      result.entryTypeCase_ = entryTypeCase_;
+      result.entryType_ = this.entryType_;
+      result.systemCase_ = systemCase_;
+      result.system_ = this.system_;
+      result.typeSpecCase_ = typeSpecCase_;
+      result.typeSpec_ = this.typeSpec_;
+      if (typeSpecCase_ == 6 &&
+          gcsFilesetSpecBuilder_ != null) {
+        result.typeSpec_ = gcsFilesetSpecBuilder_.build();
+      }
+      if (typeSpecCase_ == 12 &&
+          bigqueryTableSpecBuilder_ != null) {
+        result.typeSpec_ = bigqueryTableSpecBuilder_.build();
+      }
+      if (typeSpecCase_ == 15 &&
+          bigqueryDateShardedSpecBuilder_ != null) {
+        result.typeSpec_ = bigqueryDateShardedSpecBuilder_.build();
+      }
+      result.specCase_ = specCase_;
+      result.spec_ = this.spec_;
+      if (specCase_ == 24 &&
+          databaseTableSpecBuilder_ != null) {
+        result.spec_ = databaseTableSpecBuilder_.build();
+      }
+      if (specCase_ == 27 &&
+          dataSourceConnectionSpecBuilder_ != null) {
+        result.spec_ = dataSourceConnectionSpecBuilder_.build();
+      }
+      if (specCase_ == 28 &&
+          routineSpecBuilder_ != null) {
+        result.spec_ = routineSpecBuilder_.build();
+      }
+      if (specCase_ == 33 &&
+          filesetSpecBuilder_ != null) {
+        result.spec_ = filesetSpecBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2588,22 +2303,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datacatalog.v1.Entry.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getLinkedResource().isEmpty()) {
         linkedResource_ = other.linkedResource_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getFullyQualifiedName().isEmpty()) {
         fullyQualifiedName_ = other.fullyQualifiedName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00008000;
         onChanged();
       }
       if (other.hasBusinessContext()) {
@@ -2620,6 +2340,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00100000;
       if (other.hasDataSource()) {
         mergeDataSource(other.getDataSource());
       }
@@ -2694,7 +2415,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2709,17 +2430,179 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1.Entry parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              int rawValue = input.readEnum();
+              entryTypeCase_ = 2;
+              entryType_ = rawValue;
+              break;
+            } // case 16
+            case 26: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 26
+            case 34: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSchemaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getGcsFilesetSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeSpecCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getSourceSystemTimestampsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 58
+            case 74: {
+              linkedResource_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 74
+            case 98: {
+              input.readMessage(
+                  getBigqueryTableSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeSpecCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getUsageSignalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 106
+            case 114: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getBigqueryDateShardedSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeSpecCase_ = 15;
+              break;
+            } // case 122
+            case 130: {
+              java.lang.String s = input.readStringRequireUtf8();
+              entryTypeCase_ = 16;
+              entryType_ = s;
+              break;
+            } // case 130
+            case 136: {
+              int rawValue = input.readEnum();
+              systemCase_ = 17;
+              system_ = rawValue;
+              break;
+            } // case 136
+            case 146: {
+              java.lang.String s = input.readStringRequireUtf8();
+              systemCase_ = 18;
+              system_ = s;
+              break;
+            } // case 146
+            case 162: {
+              input.readMessage(
+                  getDataSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 162
+            case 194: {
+              input.readMessage(
+                  getDatabaseTableSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specCase_ = 24;
+              break;
+            } // case 194
+            case 210: {
+              input.readMessage(
+                  getPersonalDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 210
+            case 218: {
+              input.readMessage(
+                  getDataSourceConnectionSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specCase_ = 27;
+              break;
+            } // case 218
+            case 226: {
+              input.readMessage(
+                  getRoutineSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specCase_ = 28;
+              break;
+            } // case 226
+            case 234: {
+              fullyQualifiedName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 234
+            case 266: {
+              input.readMessage(
+                  getFilesetSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              specCase_ = 33;
+              break;
+            } // case 266
+            case 298: {
+              input.readMessage(
+                  getBusinessContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 298
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1.Entry) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int entryTypeCase_ = 0;
@@ -2843,11 +2726,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2862,8 +2743,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2880,12 +2761,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2979,11 +2858,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLinkedResource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       linkedResource_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3008,8 +2885,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLinkedResource() {
-      
       linkedResource_ = getDefaultInstance().getLinkedResource();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3036,12 +2913,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLinkedResourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       linkedResource_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3126,11 +3001,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFullyQualifiedName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       fullyQualifiedName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3152,8 +3025,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFullyQualifiedName() {
-      
       fullyQualifiedName_ = getDefaultInstance().getFullyQualifiedName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3177,12 +3050,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFullyQualifiedNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fullyQualifiedName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3252,8 +3123,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.EntryType getType() {
       if (entryTypeCase_ == 2) {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.datacatalog.v1.EntryType result = com.google.cloud.datacatalog.v1.EntryType.valueOf(
+        com.google.cloud.datacatalog.v1.EntryType result = com.google.cloud.datacatalog.v1.EntryType.forNumber(
             (java.lang.Integer) entryType_);
         return result == null ? com.google.cloud.datacatalog.v1.EntryType.UNRECOGNIZED : result;
       }
@@ -3412,10 +3282,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserSpecifiedType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  entryTypeCase_ = 16;
+      if (value == null) { throw new NullPointerException(); }
+      entryTypeCase_ = 16;
       entryType_ = value;
       onChanged();
       return this;
@@ -3465,10 +3333,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserSpecifiedTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       entryTypeCase_ = 16;
       entryType_ = value;
       onChanged();
@@ -3532,8 +3398,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.IntegratedSystem getIntegratedSystem() {
       if (systemCase_ == 17) {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.datacatalog.v1.IntegratedSystem result = com.google.cloud.datacatalog.v1.IntegratedSystem.valueOf(
+        com.google.cloud.datacatalog.v1.IntegratedSystem result = com.google.cloud.datacatalog.v1.IntegratedSystem.forNumber(
             (java.lang.Integer) system_);
         return result == null ? com.google.cloud.datacatalog.v1.IntegratedSystem.UNRECOGNIZED : result;
       }
@@ -3676,10 +3541,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserSpecifiedSystem(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  systemCase_ = 18;
+      if (value == null) { throw new NullPointerException(); }
+      systemCase_ = 18;
       system_ = value;
       onChanged();
       return this;
@@ -3723,10 +3586,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserSpecifiedSystemBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       systemCase_ = 18;
       system_ = value;
       onChanged();
@@ -3916,7 +3777,7 @@ private static final long serialVersionUID = 0L;
         typeSpec_ = null;
       }
       typeSpecCase_ = 6;
-      onChanged();;
+      onChanged();
       return gcsFilesetSpecBuilder_;
     }
 
@@ -3924,11 +3785,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.BigQueryTableSpec, com.google.cloud.datacatalog.v1.BigQueryTableSpec.Builder, com.google.cloud.datacatalog.v1.BigQueryTableSpecOrBuilder> bigqueryTableSpecBuilder_;
     /**
      * <pre>
-     * Specification that applies to a BigQuery table. Valid only for
-     * entries with the `TABLE` type.
+     * Output only. Specification that applies to a BigQuery table. Valid only
+     * for entries with the `TABLE` type.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the bigqueryTableSpec field is set.
      */
     @java.lang.Override
@@ -3937,11 +3798,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification that applies to a BigQuery table. Valid only for
-     * entries with the `TABLE` type.
+     * Output only. Specification that applies to a BigQuery table. Valid only
+     * for entries with the `TABLE` type.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bigqueryTableSpec.
      */
     @java.lang.Override
@@ -3960,11 +3821,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification that applies to a BigQuery table. Valid only for
-     * entries with the `TABLE` type.
+     * Output only. Specification that applies to a BigQuery table. Valid only
+     * for entries with the `TABLE` type.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder setBigqueryTableSpec(com.google.cloud.datacatalog.v1.BigQueryTableSpec value) {
       if (bigqueryTableSpecBuilder_ == null) {
@@ -3981,11 +3842,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification that applies to a BigQuery table. Valid only for
-     * entries with the `TABLE` type.
+     * Output only. Specification that applies to a BigQuery table. Valid only
+     * for entries with the `TABLE` type.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder setBigqueryTableSpec(
         com.google.cloud.datacatalog.v1.BigQueryTableSpec.Builder builderForValue) {
@@ -4000,11 +3861,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification that applies to a BigQuery table. Valid only for
-     * entries with the `TABLE` type.
+     * Output only. Specification that applies to a BigQuery table. Valid only
+     * for entries with the `TABLE` type.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder mergeBigqueryTableSpec(com.google.cloud.datacatalog.v1.BigQueryTableSpec value) {
       if (bigqueryTableSpecBuilder_ == null) {
@@ -4028,11 +3889,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification that applies to a BigQuery table. Valid only for
-     * entries with the `TABLE` type.
+     * Output only. Specification that applies to a BigQuery table. Valid only
+     * for entries with the `TABLE` type.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearBigqueryTableSpec() {
       if (bigqueryTableSpecBuilder_ == null) {
@@ -4052,22 +3913,22 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification that applies to a BigQuery table. Valid only for
-     * entries with the `TABLE` type.
+     * Output only. Specification that applies to a BigQuery table. Valid only
+     * for entries with the `TABLE` type.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.datacatalog.v1.BigQueryTableSpec.Builder getBigqueryTableSpecBuilder() {
       return getBigqueryTableSpecFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Specification that applies to a BigQuery table. Valid only for
-     * entries with the `TABLE` type.
+     * Output only. Specification that applies to a BigQuery table. Valid only
+     * for entries with the `TABLE` type.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.BigQueryTableSpecOrBuilder getBigqueryTableSpecOrBuilder() {
@@ -4082,11 +3943,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification that applies to a BigQuery table. Valid only for
-     * entries with the `TABLE` type.
+     * Output only. Specification that applies to a BigQuery table. Valid only
+     * for entries with the `TABLE` type.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryTableSpec bigquery_table_spec = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.datacatalog.v1.BigQueryTableSpec, com.google.cloud.datacatalog.v1.BigQueryTableSpec.Builder, com.google.cloud.datacatalog.v1.BigQueryTableSpecOrBuilder> 
@@ -4103,7 +3964,7 @@ private static final long serialVersionUID = 0L;
         typeSpec_ = null;
       }
       typeSpecCase_ = 12;
-      onChanged();;
+      onChanged();
       return bigqueryTableSpecBuilder_;
     }
 
@@ -4111,13 +3972,13 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec, com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec.Builder, com.google.cloud.datacatalog.v1.BigQueryDateShardedSpecOrBuilder> bigqueryDateShardedSpecBuilder_;
     /**
      * <pre>
-     * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-     * name pattern.
+     * Output only. Specification for a group of BigQuery tables with
+     * the `[prefix]YYYYMMDD` name pattern.
      * For more information, see [Introduction to partitioned tables]
      * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return Whether the bigqueryDateShardedSpec field is set.
      */
     @java.lang.Override
@@ -4126,13 +3987,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-     * name pattern.
+     * Output only. Specification for a group of BigQuery tables with
+     * the `[prefix]YYYYMMDD` name pattern.
      * For more information, see [Introduction to partitioned tables]
      * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return The bigqueryDateShardedSpec.
      */
     @java.lang.Override
@@ -4151,13 +4012,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-     * name pattern.
+     * Output only. Specification for a group of BigQuery tables with
+     * the `[prefix]YYYYMMDD` name pattern.
      * For more information, see [Introduction to partitioned tables]
      * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder setBigqueryDateShardedSpec(com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec value) {
       if (bigqueryDateShardedSpecBuilder_ == null) {
@@ -4174,13 +4035,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-     * name pattern.
+     * Output only. Specification for a group of BigQuery tables with
+     * the `[prefix]YYYYMMDD` name pattern.
      * For more information, see [Introduction to partitioned tables]
      * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder setBigqueryDateShardedSpec(
         com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec.Builder builderForValue) {
@@ -4195,13 +4056,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-     * name pattern.
+     * Output only. Specification for a group of BigQuery tables with
+     * the `[prefix]YYYYMMDD` name pattern.
      * For more information, see [Introduction to partitioned tables]
      * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder mergeBigqueryDateShardedSpec(com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec value) {
       if (bigqueryDateShardedSpecBuilder_ == null) {
@@ -4225,13 +4086,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-     * name pattern.
+     * Output only. Specification for a group of BigQuery tables with
+     * the `[prefix]YYYYMMDD` name pattern.
      * For more information, see [Introduction to partitioned tables]
      * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearBigqueryDateShardedSpec() {
       if (bigqueryDateShardedSpecBuilder_ == null) {
@@ -4251,26 +4112,26 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-     * name pattern.
+     * Output only. Specification for a group of BigQuery tables with
+     * the `[prefix]YYYYMMDD` name pattern.
      * For more information, see [Introduction to partitioned tables]
      * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec.Builder getBigqueryDateShardedSpecBuilder() {
       return getBigqueryDateShardedSpecFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-     * name pattern.
+     * Output only. Specification for a group of BigQuery tables with
+     * the `[prefix]YYYYMMDD` name pattern.
      * For more information, see [Introduction to partitioned tables]
      * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.BigQueryDateShardedSpecOrBuilder getBigqueryDateShardedSpecOrBuilder() {
@@ -4285,13 +4146,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
-     * name pattern.
+     * Output only. Specification for a group of BigQuery tables with
+     * the `[prefix]YYYYMMDD` name pattern.
      * For more information, see [Introduction to partitioned tables]
      * (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15;</code>
+     * <code>.google.cloud.datacatalog.v1.BigQueryDateShardedSpec bigquery_date_sharded_spec = 15 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec, com.google.cloud.datacatalog.v1.BigQueryDateShardedSpec.Builder, com.google.cloud.datacatalog.v1.BigQueryDateShardedSpecOrBuilder> 
@@ -4308,7 +4169,7 @@ private static final long serialVersionUID = 0L;
         typeSpec_ = null;
       }
       typeSpecCase_ = 15;
-      onChanged();;
+      onChanged();
       return bigqueryDateShardedSpecBuilder_;
     }
 
@@ -4495,7 +4356,7 @@ private static final long serialVersionUID = 0L;
         spec_ = null;
       }
       specCase_ = 24;
-      onChanged();;
+      onChanged();
       return databaseTableSpecBuilder_;
     }
 
@@ -4682,7 +4543,7 @@ private static final long serialVersionUID = 0L;
         spec_ = null;
       }
       specCase_ = 27;
-      onChanged();;
+      onChanged();
       return dataSourceConnectionSpecBuilder_;
     }
 
@@ -4869,7 +4730,7 @@ private static final long serialVersionUID = 0L;
         spec_ = null;
       }
       specCase_ = 28;
-      onChanged();;
+      onChanged();
       return routineSpecBuilder_;
     }
 
@@ -5056,7 +4917,7 @@ private static final long serialVersionUID = 0L;
         spec_ = null;
       }
       specCase_ = 33;
-      onChanged();;
+      onChanged();
       return filesetSpecBuilder_;
     }
 
@@ -5125,11 +4986,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -5146,8 +5005,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -5166,12 +5025,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -5247,11 +5104,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -5270,8 +5125,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -5292,12 +5147,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -5314,7 +5167,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the businessContext field is set.
      */
     public boolean hasBusinessContext() {
-      return businessContextBuilder_ != null || businessContext_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -5344,11 +5197,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         businessContext_ = value;
-        onChanged();
       } else {
         businessContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5362,11 +5215,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.BusinessContext.Builder builderForValue) {
       if (businessContextBuilder_ == null) {
         businessContext_ = builderForValue.build();
-        onChanged();
       } else {
         businessContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5378,17 +5231,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBusinessContext(com.google.cloud.datacatalog.v1.BusinessContext value) {
       if (businessContextBuilder_ == null) {
-        if (businessContext_ != null) {
-          businessContext_ =
-            com.google.cloud.datacatalog.v1.BusinessContext.newBuilder(businessContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          businessContext_ != null &&
+          businessContext_ != com.google.cloud.datacatalog.v1.BusinessContext.getDefaultInstance()) {
+          getBusinessContextBuilder().mergeFrom(value);
         } else {
           businessContext_ = value;
         }
-        onChanged();
       } else {
         businessContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5399,14 +5253,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.BusinessContext business_context = 37;</code>
      */
     public Builder clearBusinessContext() {
-      if (businessContextBuilder_ == null) {
-        businessContext_ = null;
-        onChanged();
-      } else {
-        businessContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      businessContext_ = null;
+      if (businessContextBuilder_ != null) {
+        businessContextBuilder_.dispose();
         businessContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5417,7 +5270,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.BusinessContext business_context = 37;</code>
      */
     public com.google.cloud.datacatalog.v1.BusinessContext.Builder getBusinessContextBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getBusinessContextFieldBuilder().getBuilder();
     }
@@ -5469,7 +5322,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the schema field is set.
      */
     public boolean hasSchema() {
-      return schemaBuilder_ != null || schema_ != null;
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <pre>
@@ -5499,11 +5352,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         schema_ = value;
-        onChanged();
       } else {
         schemaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5517,11 +5370,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.Schema.Builder builderForValue) {
       if (schemaBuilder_ == null) {
         schema_ = builderForValue.build();
-        onChanged();
       } else {
         schemaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5533,17 +5386,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSchema(com.google.cloud.datacatalog.v1.Schema value) {
       if (schemaBuilder_ == null) {
-        if (schema_ != null) {
-          schema_ =
-            com.google.cloud.datacatalog.v1.Schema.newBuilder(schema_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00020000) != 0) &&
+          schema_ != null &&
+          schema_ != com.google.cloud.datacatalog.v1.Schema.getDefaultInstance()) {
+          getSchemaBuilder().mergeFrom(value);
         } else {
           schema_ = value;
         }
-        onChanged();
       } else {
         schemaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5554,14 +5408,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.Schema schema = 5;</code>
      */
     public Builder clearSchema() {
-      if (schemaBuilder_ == null) {
-        schema_ = null;
-        onChanged();
-      } else {
-        schema_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      schema_ = null;
+      if (schemaBuilder_ != null) {
+        schemaBuilder_.dispose();
         schemaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5572,7 +5425,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.Schema schema = 5;</code>
      */
     public com.google.cloud.datacatalog.v1.Schema.Builder getSchemaBuilder() {
-      
+      bitField0_ |= 0x00020000;
       onChanged();
       return getSchemaFieldBuilder().getBuilder();
     }
@@ -5619,24 +5472,24 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamps from the underlying resource, not from the Data Catalog
      * entry.
-     * Output only when the entry has a type listed in the `EntryType` enum.
-     * For entries with `user_specified_type`, this field is optional and defaults
-     * to an empty timestamp.
+     * Output only when the entry has a system listed in the `IntegratedSystem`
+     * enum. For entries with `user_specified_system`, this field is optional
+     * and defaults to an empty timestamp.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
      * @return Whether the sourceSystemTimestamps field is set.
      */
     public boolean hasSourceSystemTimestamps() {
-      return sourceSystemTimestampsBuilder_ != null || sourceSystemTimestamps_ != null;
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <pre>
      * Timestamps from the underlying resource, not from the Data Catalog
      * entry.
-     * Output only when the entry has a type listed in the `EntryType` enum.
-     * For entries with `user_specified_type`, this field is optional and defaults
-     * to an empty timestamp.
+     * Output only when the entry has a system listed in the `IntegratedSystem`
+     * enum. For entries with `user_specified_system`, this field is optional
+     * and defaults to an empty timestamp.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
@@ -5653,9 +5506,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamps from the underlying resource, not from the Data Catalog
      * entry.
-     * Output only when the entry has a type listed in the `EntryType` enum.
-     * For entries with `user_specified_type`, this field is optional and defaults
-     * to an empty timestamp.
+     * Output only when the entry has a system listed in the `IntegratedSystem`
+     * enum. For entries with `user_specified_system`, this field is optional
+     * and defaults to an empty timestamp.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
@@ -5666,20 +5519,20 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sourceSystemTimestamps_ = value;
-        onChanged();
       } else {
         sourceSystemTimestampsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Timestamps from the underlying resource, not from the Data Catalog
      * entry.
-     * Output only when the entry has a type listed in the `EntryType` enum.
-     * For entries with `user_specified_type`, this field is optional and defaults
-     * to an empty timestamp.
+     * Output only when the entry has a system listed in the `IntegratedSystem`
+     * enum. For entries with `user_specified_system`, this field is optional
+     * and defaults to an empty timestamp.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
@@ -5688,74 +5541,74 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.SystemTimestamps.Builder builderForValue) {
       if (sourceSystemTimestampsBuilder_ == null) {
         sourceSystemTimestamps_ = builderForValue.build();
-        onChanged();
       } else {
         sourceSystemTimestampsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Timestamps from the underlying resource, not from the Data Catalog
      * entry.
-     * Output only when the entry has a type listed in the `EntryType` enum.
-     * For entries with `user_specified_type`, this field is optional and defaults
-     * to an empty timestamp.
+     * Output only when the entry has a system listed in the `IntegratedSystem`
+     * enum. For entries with `user_specified_system`, this field is optional
+     * and defaults to an empty timestamp.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
      */
     public Builder mergeSourceSystemTimestamps(com.google.cloud.datacatalog.v1.SystemTimestamps value) {
       if (sourceSystemTimestampsBuilder_ == null) {
-        if (sourceSystemTimestamps_ != null) {
-          sourceSystemTimestamps_ =
-            com.google.cloud.datacatalog.v1.SystemTimestamps.newBuilder(sourceSystemTimestamps_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00040000) != 0) &&
+          sourceSystemTimestamps_ != null &&
+          sourceSystemTimestamps_ != com.google.cloud.datacatalog.v1.SystemTimestamps.getDefaultInstance()) {
+          getSourceSystemTimestampsBuilder().mergeFrom(value);
         } else {
           sourceSystemTimestamps_ = value;
         }
-        onChanged();
       } else {
         sourceSystemTimestampsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Timestamps from the underlying resource, not from the Data Catalog
      * entry.
-     * Output only when the entry has a type listed in the `EntryType` enum.
-     * For entries with `user_specified_type`, this field is optional and defaults
-     * to an empty timestamp.
+     * Output only when the entry has a system listed in the `IntegratedSystem`
+     * enum. For entries with `user_specified_system`, this field is optional
+     * and defaults to an empty timestamp.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
      */
     public Builder clearSourceSystemTimestamps() {
-      if (sourceSystemTimestampsBuilder_ == null) {
-        sourceSystemTimestamps_ = null;
-        onChanged();
-      } else {
-        sourceSystemTimestamps_ = null;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      sourceSystemTimestamps_ = null;
+      if (sourceSystemTimestampsBuilder_ != null) {
+        sourceSystemTimestampsBuilder_.dispose();
         sourceSystemTimestampsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Timestamps from the underlying resource, not from the Data Catalog
      * entry.
-     * Output only when the entry has a type listed in the `EntryType` enum.
-     * For entries with `user_specified_type`, this field is optional and defaults
-     * to an empty timestamp.
+     * Output only when the entry has a system listed in the `IntegratedSystem`
+     * enum. For entries with `user_specified_system`, this field is optional
+     * and defaults to an empty timestamp.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
      */
     public com.google.cloud.datacatalog.v1.SystemTimestamps.Builder getSourceSystemTimestampsBuilder() {
-      
+      bitField0_ |= 0x00040000;
       onChanged();
       return getSourceSystemTimestampsFieldBuilder().getBuilder();
     }
@@ -5763,9 +5616,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamps from the underlying resource, not from the Data Catalog
      * entry.
-     * Output only when the entry has a type listed in the `EntryType` enum.
-     * For entries with `user_specified_type`, this field is optional and defaults
-     * to an empty timestamp.
+     * Output only when the entry has a system listed in the `IntegratedSystem`
+     * enum. For entries with `user_specified_system`, this field is optional
+     * and defaults to an empty timestamp.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
@@ -5782,9 +5635,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Timestamps from the underlying resource, not from the Data Catalog
      * entry.
-     * Output only when the entry has a type listed in the `EntryType` enum.
-     * For entries with `user_specified_type`, this field is optional and defaults
-     * to an empty timestamp.
+     * Output only when the entry has a system listed in the `IntegratedSystem`
+     * enum. For entries with `user_specified_system`, this field is optional
+     * and defaults to an empty timestamp.
      * </pre>
      *
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps source_system_timestamps = 7;</code>
@@ -5808,21 +5661,21 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.UsageSignal, com.google.cloud.datacatalog.v1.UsageSignal.Builder, com.google.cloud.datacatalog.v1.UsageSignalOrBuilder> usageSignalBuilder_;
     /**
      * <pre>
-     * Output only. Resource usage statistics.
+     * Resource usage statistics.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
      * @return Whether the usageSignal field is set.
      */
     public boolean hasUsageSignal() {
-      return usageSignalBuilder_ != null || usageSignal_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
-     * Output only. Resource usage statistics.
+     * Resource usage statistics.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
      * @return The usageSignal.
      */
     public com.google.cloud.datacatalog.v1.UsageSignal getUsageSignal() {
@@ -5834,10 +5687,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Resource usage statistics.
+     * Resource usage statistics.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
      */
     public Builder setUsageSignal(com.google.cloud.datacatalog.v1.UsageSignal value) {
       if (usageSignalBuilder_ == null) {
@@ -5845,89 +5698,89 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         usageSignal_ = value;
-        onChanged();
       } else {
         usageSignalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Resource usage statistics.
+     * Resource usage statistics.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
      */
     public Builder setUsageSignal(
         com.google.cloud.datacatalog.v1.UsageSignal.Builder builderForValue) {
       if (usageSignalBuilder_ == null) {
         usageSignal_ = builderForValue.build();
-        onChanged();
       } else {
         usageSignalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Resource usage statistics.
+     * Resource usage statistics.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
      */
     public Builder mergeUsageSignal(com.google.cloud.datacatalog.v1.UsageSignal value) {
       if (usageSignalBuilder_ == null) {
-        if (usageSignal_ != null) {
-          usageSignal_ =
-            com.google.cloud.datacatalog.v1.UsageSignal.newBuilder(usageSignal_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          usageSignal_ != null &&
+          usageSignal_ != com.google.cloud.datacatalog.v1.UsageSignal.getDefaultInstance()) {
+          getUsageSignalBuilder().mergeFrom(value);
         } else {
           usageSignal_ = value;
         }
-        onChanged();
       } else {
         usageSignalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Resource usage statistics.
+     * Resource usage statistics.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
      */
     public Builder clearUsageSignal() {
-      if (usageSignalBuilder_ == null) {
-        usageSignal_ = null;
-        onChanged();
-      } else {
-        usageSignal_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      usageSignal_ = null;
+      if (usageSignalBuilder_ != null) {
+        usageSignalBuilder_.dispose();
         usageSignalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Resource usage statistics.
+     * Resource usage statistics.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
      */
     public com.google.cloud.datacatalog.v1.UsageSignal.Builder getUsageSignalBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getUsageSignalFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Output only. Resource usage statistics.
+     * Resource usage statistics.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
      */
     public com.google.cloud.datacatalog.v1.UsageSignalOrBuilder getUsageSignalOrBuilder() {
       if (usageSignalBuilder_ != null) {
@@ -5939,10 +5792,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Resource usage statistics.
+     * Resource usage statistics.
      * </pre>
      *
-     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * <code>.google.cloud.datacatalog.v1.UsageSignal usage_signal = 13;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.datacatalog.v1.UsageSignal, com.google.cloud.datacatalog.v1.UsageSignal.Builder, com.google.cloud.datacatalog.v1.UsageSignalOrBuilder> 
@@ -5961,7 +5814,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -5969,8 +5822,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -5978,9 +5830,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00100000;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -5994,7 +5847,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 14;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -6020,7 +5872,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 14;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -6035,10 +5886,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 14;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -6055,7 +5907,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 14;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6066,8 +5917,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00100000);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -6082,7 +5933,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 14;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6095,7 +5945,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00100000;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -6112,12 +5963,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00100000;
       return this;
     }
     /**
@@ -6130,11 +5979,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 14;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00100000;
       return this;
     }
 
@@ -6150,7 +5999,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dataSource field is set.
      */
     public boolean hasDataSource() {
-      return dataSourceBuilder_ != null || dataSource_ != null;
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <pre>
@@ -6180,11 +6029,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dataSource_ = value;
-        onChanged();
       } else {
         dataSourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -6198,11 +6047,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.DataSource.Builder builderForValue) {
       if (dataSourceBuilder_ == null) {
         dataSource_ = builderForValue.build();
-        onChanged();
       } else {
         dataSourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -6214,17 +6063,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDataSource(com.google.cloud.datacatalog.v1.DataSource value) {
       if (dataSourceBuilder_ == null) {
-        if (dataSource_ != null) {
-          dataSource_ =
-            com.google.cloud.datacatalog.v1.DataSource.newBuilder(dataSource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00200000) != 0) &&
+          dataSource_ != null &&
+          dataSource_ != com.google.cloud.datacatalog.v1.DataSource.getDefaultInstance()) {
+          getDataSourceBuilder().mergeFrom(value);
         } else {
           dataSource_ = value;
         }
-        onChanged();
       } else {
         dataSourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -6235,14 +6085,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.DataSource data_source = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearDataSource() {
-      if (dataSourceBuilder_ == null) {
-        dataSource_ = null;
-        onChanged();
-      } else {
-        dataSource_ = null;
+      bitField0_ = (bitField0_ & ~0x00200000);
+      dataSource_ = null;
+      if (dataSourceBuilder_ != null) {
+        dataSourceBuilder_.dispose();
         dataSourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6253,7 +6102,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.DataSource data_source = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.datacatalog.v1.DataSource.Builder getDataSourceBuilder() {
-      
+      bitField0_ |= 0x00200000;
       onChanged();
       return getDataSourceFieldBuilder().getBuilder();
     }
@@ -6305,7 +6154,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the personalDetails field is set.
      */
     public boolean hasPersonalDetails() {
-      return personalDetailsBuilder_ != null || personalDetails_ != null;
+      return ((bitField0_ & 0x00400000) != 0);
     }
     /**
      * <pre>
@@ -6335,11 +6184,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         personalDetails_ = value;
-        onChanged();
       } else {
         personalDetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -6353,11 +6202,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.PersonalDetails.Builder builderForValue) {
       if (personalDetailsBuilder_ == null) {
         personalDetails_ = builderForValue.build();
-        onChanged();
       } else {
         personalDetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -6369,17 +6218,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePersonalDetails(com.google.cloud.datacatalog.v1.PersonalDetails value) {
       if (personalDetailsBuilder_ == null) {
-        if (personalDetails_ != null) {
-          personalDetails_ =
-            com.google.cloud.datacatalog.v1.PersonalDetails.newBuilder(personalDetails_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00400000) != 0) &&
+          personalDetails_ != null &&
+          personalDetails_ != com.google.cloud.datacatalog.v1.PersonalDetails.getDefaultInstance()) {
+          getPersonalDetailsBuilder().mergeFrom(value);
         } else {
           personalDetails_ = value;
         }
-        onChanged();
       } else {
         personalDetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -6390,14 +6240,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.PersonalDetails personal_details = 26 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearPersonalDetails() {
-      if (personalDetailsBuilder_ == null) {
-        personalDetails_ = null;
-        onChanged();
-      } else {
-        personalDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00400000);
+      personalDetails_ = null;
+      if (personalDetailsBuilder_ != null) {
+        personalDetailsBuilder_.dispose();
         personalDetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6408,7 +6257,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.PersonalDetails personal_details = 26 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.datacatalog.v1.PersonalDetails.Builder getPersonalDetailsBuilder() {
-      
+      bitField0_ |= 0x00400000;
       onChanged();
       return getPersonalDetailsFieldBuilder().getBuilder();
     }
@@ -6480,7 +6329,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Entry(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

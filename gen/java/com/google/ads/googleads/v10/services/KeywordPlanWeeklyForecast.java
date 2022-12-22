@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KeywordPlanWeeklyForecast(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            startDate_ = s;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v10.services.ForecastMetrics.Builder subBuilder = null;
-            if (forecast_ != null) {
-              subBuilder = forecast_.toBuilder();
-            }
-            forecast_ = input.readMessage(com.google.ads.googleads.v10.services.ForecastMetrics.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(forecast_);
-              forecast_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.services.KeywordPlanServiceProto.internal_static_google_ads_googleads_v10_services_KeywordPlanWeeklyForecast_descriptor;
@@ -109,7 +50,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int START_DATE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object startDate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object startDate_ = "";
   /**
    * <pre>
    * The start date, in yyyy-mm-dd format. This date is inclusive.
@@ -201,7 +143,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.services.ForecastMetricsOrBuilder getForecastOrBuilder() {
-    return getForecast();
+    return forecast_ == null ? com.google.ads.googleads.v10.services.ForecastMetrics.getDefaultInstance() : forecast_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -224,7 +166,7 @@ private static final long serialVersionUID = 0L;
     if (forecast_ != null) {
       output.writeMessage(2, getForecast());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -240,7 +182,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getForecast());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -265,7 +207,7 @@ private static final long serialVersionUID = 0L;
       if (!getForecast()
           .equals(other.getForecast())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -284,7 +226,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FORECAST_FIELD_NUMBER;
       hash = (53 * hash) + getForecast().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -405,28 +347,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.services.KeywordPlanWeeklyForecast.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       startDate_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (forecastBuilder_ == null) {
-        forecast_ = null;
-      } else {
-        forecast_ = null;
+      forecast_ = null;
+      if (forecastBuilder_ != null) {
+        forecastBuilder_.dispose();
         forecastBuilder_ = null;
       }
       return this;
@@ -455,20 +391,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.services.KeywordPlanWeeklyForecast buildPartial() {
       com.google.ads.googleads.v10.services.KeywordPlanWeeklyForecast result = new com.google.ads.googleads.v10.services.KeywordPlanWeeklyForecast(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.services.KeywordPlanWeeklyForecast result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.startDate_ = startDate_;
         to_bitField0_ |= 0x00000001;
       }
-      result.startDate_ = startDate_;
-      if (forecastBuilder_ == null) {
-        result.forecast_ = forecast_;
-      } else {
-        result.forecast_ = forecastBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.forecast_ = forecastBuilder_ == null
+            ? forecast_
+            : forecastBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -516,14 +456,14 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.ads.googleads.v10.services.KeywordPlanWeeklyForecast other) {
       if (other == com.google.ads.googleads.v10.services.KeywordPlanWeeklyForecast.getDefaultInstance()) return this;
       if (other.hasStartDate()) {
-        bitField0_ |= 0x00000001;
         startDate_ = other.startDate_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasForecast()) {
         mergeForecast(other.getForecast());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -538,17 +478,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.services.KeywordPlanWeeklyForecast parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              startDate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getForecastFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.services.KeywordPlanWeeklyForecast) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -617,11 +582,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartDate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       startDate_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -634,8 +597,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartDate() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       startDate_ = getDefaultInstance().getStartDate();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -650,12 +613,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartDateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       startDate_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -672,7 +633,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the forecast field is set.
      */
     public boolean hasForecast() {
-      return forecastBuilder_ != null || forecast_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -702,11 +663,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         forecast_ = value;
-        onChanged();
       } else {
         forecastBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -720,11 +681,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.services.ForecastMetrics.Builder builderForValue) {
       if (forecastBuilder_ == null) {
         forecast_ = builderForValue.build();
-        onChanged();
       } else {
         forecastBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -736,17 +697,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeForecast(com.google.ads.googleads.v10.services.ForecastMetrics value) {
       if (forecastBuilder_ == null) {
-        if (forecast_ != null) {
-          forecast_ =
-            com.google.ads.googleads.v10.services.ForecastMetrics.newBuilder(forecast_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          forecast_ != null &&
+          forecast_ != com.google.ads.googleads.v10.services.ForecastMetrics.getDefaultInstance()) {
+          getForecastBuilder().mergeFrom(value);
         } else {
           forecast_ = value;
         }
-        onChanged();
       } else {
         forecastBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -757,14 +719,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.services.ForecastMetrics forecast = 2;</code>
      */
     public Builder clearForecast() {
-      if (forecastBuilder_ == null) {
-        forecast_ = null;
-        onChanged();
-      } else {
-        forecast_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      forecast_ = null;
+      if (forecastBuilder_ != null) {
+        forecastBuilder_.dispose();
         forecastBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -775,7 +736,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.services.ForecastMetrics forecast = 2;</code>
      */
     public com.google.ads.googleads.v10.services.ForecastMetrics.Builder getForecastBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getForecastFieldBuilder().getBuilder();
     }
@@ -847,7 +808,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KeywordPlanWeeklyForecast(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

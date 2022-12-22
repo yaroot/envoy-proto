@@ -44,99 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SpecialistPool(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 24: {
-
-            specialistManagersCount_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              specialistManagerEmails_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            specialistManagerEmails_.add(s);
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              pendingDataLabelingJobs_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            pendingDataLabelingJobs_.add(s);
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              specialistWorkerEmails_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            specialistWorkerEmails_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        specialistManagerEmails_ = specialistManagerEmails_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        pendingDataLabelingJobs_ = pendingDataLabelingJobs_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        specialistWorkerEmails_ = specialistWorkerEmails_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.SpecialistPoolProto.internal_static_google_cloud_aiplatform_v1beta1_SpecialistPool_descriptor;
@@ -151,7 +58,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of the SpecialistPool.
@@ -197,11 +105,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The user-defined name of the SpecialistPool.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * This field should be unique on project-level.
    * </pre>
@@ -225,7 +134,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Required. The user-defined name of the SpecialistPool.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * This field should be unique on project-level.
    * </pre>
@@ -249,7 +158,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPECIALIST_MANAGERS_COUNT_FIELD_NUMBER = 3;
-  private int specialistManagersCount_;
+  private int specialistManagersCount_ = 0;
   /**
    * <pre>
    * Output only. The number of managers in this SpecialistPool.
@@ -264,6 +173,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPECIALIST_MANAGER_EMAILS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList specialistManagerEmails_;
   /**
    * <pre>
@@ -315,6 +225,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PENDING_DATA_LABELING_JOBS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList pendingDataLabelingJobs_;
   /**
    * <pre>
@@ -366,6 +277,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPECIALIST_WORKER_EMAILS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList specialistWorkerEmails_;
   /**
    * <pre>
@@ -448,7 +360,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < specialistWorkerEmails_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, specialistWorkerEmails_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -491,7 +403,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getSpecialistWorkerEmailsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -518,7 +430,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPendingDataLabelingJobsList())) return false;
     if (!getSpecialistWorkerEmailsList()
         .equals(other.getSpecialistWorkerEmailsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -547,7 +459,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SPECIALIST_WORKER_EMAILS_FIELD_NUMBER;
       hash = (53 * hash) + getSpecialistWorkerEmailsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -673,34 +585,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.SpecialistPool.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       specialistManagersCount_ = 0;
-
       specialistManagerEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       pendingDataLabelingJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       specialistWorkerEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -727,27 +632,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.SpecialistPool buildPartial() {
       com.google.cloud.aiplatform.v1beta1.SpecialistPool result = new com.google.cloud.aiplatform.v1beta1.SpecialistPool(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.specialistManagersCount_ = specialistManagersCount_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        specialistManagerEmails_ = specialistManagerEmails_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.specialistManagerEmails_ = specialistManagerEmails_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        pendingDataLabelingJobs_ = pendingDataLabelingJobs_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.pendingDataLabelingJobs_ = pendingDataLabelingJobs_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        specialistWorkerEmails_ = specialistWorkerEmails_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.specialistWorkerEmails_ = specialistWorkerEmails_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.SpecialistPool result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        specialistManagerEmails_ = specialistManagerEmails_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.specialistManagerEmails_ = specialistManagerEmails_;
+      if (((bitField0_ & 0x00000010) != 0)) {
+        pendingDataLabelingJobs_ = pendingDataLabelingJobs_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.pendingDataLabelingJobs_ = pendingDataLabelingJobs_;
+      if (((bitField0_ & 0x00000020) != 0)) {
+        specialistWorkerEmails_ = specialistWorkerEmails_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.specialistWorkerEmails_ = specialistWorkerEmails_;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.SpecialistPool result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.specialistManagersCount_ = specialistManagersCount_;
+      }
     }
 
     @java.lang.Override
@@ -796,10 +715,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1beta1.SpecialistPool.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getSpecialistManagersCount() != 0) {
@@ -808,7 +729,7 @@ private static final long serialVersionUID = 0L;
       if (!other.specialistManagerEmails_.isEmpty()) {
         if (specialistManagerEmails_.isEmpty()) {
           specialistManagerEmails_ = other.specialistManagerEmails_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureSpecialistManagerEmailsIsMutable();
           specialistManagerEmails_.addAll(other.specialistManagerEmails_);
@@ -818,7 +739,7 @@ private static final long serialVersionUID = 0L;
       if (!other.pendingDataLabelingJobs_.isEmpty()) {
         if (pendingDataLabelingJobs_.isEmpty()) {
           pendingDataLabelingJobs_ = other.pendingDataLabelingJobs_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensurePendingDataLabelingJobsIsMutable();
           pendingDataLabelingJobs_.addAll(other.pendingDataLabelingJobs_);
@@ -828,14 +749,14 @@ private static final long serialVersionUID = 0L;
       if (!other.specialistWorkerEmails_.isEmpty()) {
         if (specialistWorkerEmails_.isEmpty()) {
           specialistWorkerEmails_ = other.specialistWorkerEmails_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureSpecialistWorkerEmailsIsMutable();
           specialistWorkerEmails_.addAll(other.specialistWorkerEmails_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -850,17 +771,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.SpecialistPool parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              specialistManagersCount_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSpecialistManagerEmailsIsMutable();
+              specialistManagerEmails_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensurePendingDataLabelingJobsIsMutable();
+              pendingDataLabelingJobs_.add(s);
+              break;
+            } // case 42
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSpecialistWorkerEmailsIsMutable();
+              specialistWorkerEmails_.add(s);
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.SpecialistPool) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -918,11 +885,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -935,8 +900,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -951,12 +916,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -965,7 +928,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The user-defined name of the SpecialistPool.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * This field should be unique on project-level.
      * </pre>
@@ -988,7 +951,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The user-defined name of the SpecialistPool.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * This field should be unique on project-level.
      * </pre>
@@ -1012,7 +975,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The user-defined name of the SpecialistPool.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * This field should be unique on project-level.
      * </pre>
@@ -1023,18 +986,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The user-defined name of the SpecialistPool.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * This field should be unique on project-level.
      * </pre>
@@ -1043,15 +1004,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The user-defined name of the SpecialistPool.
-     * The name can be up to 128 characters long and can be consist of any UTF-8
+     * The name can be up to 128 characters long and can consist of any UTF-8
      * characters.
      * This field should be unique on project-level.
      * </pre>
@@ -1062,12 +1023,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1097,6 +1056,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSpecialistManagersCount(int value) {
       
       specialistManagersCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1109,7 +1069,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpecialistManagersCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       specialistManagersCount_ = 0;
       onChanged();
       return this;
@@ -1117,9 +1077,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList specialistManagerEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSpecialistManagerEmailsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         specialistManagerEmails_ = new com.google.protobuf.LazyStringArrayList(specialistManagerEmails_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1182,10 +1142,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSpecialistManagerEmails(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSpecialistManagerEmailsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSpecialistManagerEmailsIsMutable();
       specialistManagerEmails_.set(index, value);
       onChanged();
       return this;
@@ -1201,10 +1159,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSpecialistManagerEmails(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSpecialistManagerEmailsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSpecialistManagerEmailsIsMutable();
       specialistManagerEmails_.add(value);
       onChanged();
       return this;
@@ -1236,7 +1192,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSpecialistManagerEmails() {
       specialistManagerEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1251,10 +1207,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSpecialistManagerEmailsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSpecialistManagerEmailsIsMutable();
       specialistManagerEmails_.add(value);
       onChanged();
@@ -1263,9 +1217,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList pendingDataLabelingJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensurePendingDataLabelingJobsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         pendingDataLabelingJobs_ = new com.google.protobuf.LazyStringArrayList(pendingDataLabelingJobs_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1328,10 +1282,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPendingDataLabelingJobs(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePendingDataLabelingJobsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePendingDataLabelingJobsIsMutable();
       pendingDataLabelingJobs_.set(index, value);
       onChanged();
       return this;
@@ -1347,10 +1299,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPendingDataLabelingJobs(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePendingDataLabelingJobsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensurePendingDataLabelingJobsIsMutable();
       pendingDataLabelingJobs_.add(value);
       onChanged();
       return this;
@@ -1382,7 +1332,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPendingDataLabelingJobs() {
       pendingDataLabelingJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1397,10 +1347,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addPendingDataLabelingJobsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensurePendingDataLabelingJobsIsMutable();
       pendingDataLabelingJobs_.add(value);
       onChanged();
@@ -1409,9 +1357,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList specialistWorkerEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSpecialistWorkerEmailsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         specialistWorkerEmails_ = new com.google.protobuf.LazyStringArrayList(specialistWorkerEmails_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -1474,10 +1422,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSpecialistWorkerEmails(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSpecialistWorkerEmailsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSpecialistWorkerEmailsIsMutable();
       specialistWorkerEmails_.set(index, value);
       onChanged();
       return this;
@@ -1493,10 +1439,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSpecialistWorkerEmails(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSpecialistWorkerEmailsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSpecialistWorkerEmailsIsMutable();
       specialistWorkerEmails_.add(value);
       onChanged();
       return this;
@@ -1528,7 +1472,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSpecialistWorkerEmails() {
       specialistWorkerEmails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1543,10 +1487,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSpecialistWorkerEmailsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSpecialistWorkerEmailsIsMutable();
       specialistWorkerEmails_.add(value);
       onChanged();
@@ -1585,7 +1527,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SpecialistPool(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

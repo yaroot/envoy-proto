@@ -56,90 +56,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpService(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.api.v2.core.HttpUri.Builder subBuilder = null;
-            if (serverUri_ != null) {
-              subBuilder = serverUri_.toBuilder();
-            }
-            serverUri_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.HttpUri.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(serverUri_);
-              serverUri_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pathPrefix_ = s;
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest.Builder subBuilder = null;
-            if (authorizationRequest_ != null) {
-              subBuilder = authorizationRequest_.toBuilder();
-            }
-            authorizationRequest_ = input.readMessage(io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(authorizationRequest_);
-              authorizationRequest_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse.Builder subBuilder = null;
-            if (authorizationResponse_ != null) {
-              subBuilder = authorizationResponse_.toBuilder();
-            }
-            authorizationResponse_ = input.readMessage(io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(authorizationResponse_);
-              authorizationResponse_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.filter.http.ext_authz.v2.ExtAuthzProto.internal_static_envoy_config_filter_http_ext_authz_v2_HttpService_descriptor;
@@ -188,11 +104,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.core.HttpUriOrBuilder getServerUriOrBuilder() {
-    return getServerUri();
+    return serverUri_ == null ? io.envoyproxy.envoy.api.v2.core.HttpUri.getDefaultInstance() : serverUri_;
   }
 
   public static final int PATH_PREFIX_FIELD_NUMBER = 2;
-  private volatile java.lang.Object pathPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pathPrefix_ = "";
   /**
    * <pre>
    * Sets a prefix to the value of authorization request header *Path*.
@@ -272,7 +189,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationRequestOrBuilder getAuthorizationRequestOrBuilder() {
-    return getAuthorizationRequest();
+    return authorizationRequest_ == null ? io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest.getDefaultInstance() : authorizationRequest_;
   }
 
   public static final int AUTHORIZATION_RESPONSE_FIELD_NUMBER = 8;
@@ -310,7 +227,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationResponseOrBuilder getAuthorizationResponseOrBuilder() {
-    return getAuthorizationResponse();
+    return authorizationResponse_ == null ? io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse.getDefaultInstance() : authorizationResponse_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -339,7 +256,7 @@ private static final long serialVersionUID = 0L;
     if (authorizationResponse_ != null) {
       output.writeMessage(8, getAuthorizationResponse());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -363,7 +280,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getAuthorizationResponse());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -395,7 +312,7 @@ private static final long serialVersionUID = 0L;
       if (!getAuthorizationResponse()
           .equals(other.getAuthorizationResponse())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -420,7 +337,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AUTHORIZATION_RESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + getAuthorizationResponse().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -562,40 +479,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.filter.http.ext_authz.v2.HttpService.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (serverUriBuilder_ == null) {
-        serverUri_ = null;
-      } else {
-        serverUri_ = null;
+      bitField0_ = 0;
+      serverUri_ = null;
+      if (serverUriBuilder_ != null) {
+        serverUriBuilder_.dispose();
         serverUriBuilder_ = null;
       }
       pathPrefix_ = "";
-
-      if (authorizationRequestBuilder_ == null) {
-        authorizationRequest_ = null;
-      } else {
-        authorizationRequest_ = null;
+      authorizationRequest_ = null;
+      if (authorizationRequestBuilder_ != null) {
+        authorizationRequestBuilder_.dispose();
         authorizationRequestBuilder_ = null;
       }
-      if (authorizationResponseBuilder_ == null) {
-        authorizationResponse_ = null;
-      } else {
-        authorizationResponse_ = null;
+      authorizationResponse_ = null;
+      if (authorizationResponseBuilder_ != null) {
+        authorizationResponseBuilder_.dispose();
         authorizationResponseBuilder_ = null;
       }
       return this;
@@ -624,24 +533,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.filter.http.ext_authz.v2.HttpService buildPartial() {
       io.envoyproxy.envoy.config.filter.http.ext_authz.v2.HttpService result = new io.envoyproxy.envoy.config.filter.http.ext_authz.v2.HttpService(this);
-      if (serverUriBuilder_ == null) {
-        result.serverUri_ = serverUri_;
-      } else {
-        result.serverUri_ = serverUriBuilder_.build();
-      }
-      result.pathPrefix_ = pathPrefix_;
-      if (authorizationRequestBuilder_ == null) {
-        result.authorizationRequest_ = authorizationRequest_;
-      } else {
-        result.authorizationRequest_ = authorizationRequestBuilder_.build();
-      }
-      if (authorizationResponseBuilder_ == null) {
-        result.authorizationResponse_ = authorizationResponse_;
-      } else {
-        result.authorizationResponse_ = authorizationResponseBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.filter.http.ext_authz.v2.HttpService result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.serverUri_ = serverUriBuilder_ == null
+            ? serverUri_
+            : serverUriBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pathPrefix_ = pathPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.authorizationRequest_ = authorizationRequestBuilder_ == null
+            ? authorizationRequest_
+            : authorizationRequestBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.authorizationResponse_ = authorizationResponseBuilder_ == null
+            ? authorizationResponse_
+            : authorizationResponseBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -693,6 +609,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPathPrefix().isEmpty()) {
         pathPrefix_ = other.pathPrefix_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasAuthorizationRequest()) {
@@ -701,7 +618,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAuthorizationResponse()) {
         mergeAuthorizationResponse(other.getAuthorizationResponse());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -716,19 +633,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.filter.http.ext_authz.v2.HttpService parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getServerUriFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              pathPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 58: {
+              input.readMessage(
+                  getAuthorizationRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getAuthorizationResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.filter.http.ext_authz.v2.HttpService) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.api.v2.core.HttpUri serverUri_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -742,7 +699,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the serverUri field is set.
      */
     public boolean hasServerUri() {
-      return serverUriBuilder_ != null || serverUri_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -772,11 +729,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         serverUri_ = value;
-        onChanged();
       } else {
         serverUriBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -790,11 +747,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.core.HttpUri.Builder builderForValue) {
       if (serverUriBuilder_ == null) {
         serverUri_ = builderForValue.build();
-        onChanged();
       } else {
         serverUriBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -806,17 +763,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeServerUri(io.envoyproxy.envoy.api.v2.core.HttpUri value) {
       if (serverUriBuilder_ == null) {
-        if (serverUri_ != null) {
-          serverUri_ =
-            io.envoyproxy.envoy.api.v2.core.HttpUri.newBuilder(serverUri_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          serverUri_ != null &&
+          serverUri_ != io.envoyproxy.envoy.api.v2.core.HttpUri.getDefaultInstance()) {
+          getServerUriBuilder().mergeFrom(value);
         } else {
           serverUri_ = value;
         }
-        onChanged();
       } else {
         serverUriBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -827,14 +785,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.HttpUri server_uri = 1;</code>
      */
     public Builder clearServerUri() {
-      if (serverUriBuilder_ == null) {
-        serverUri_ = null;
-        onChanged();
-      } else {
-        serverUri_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      serverUri_ = null;
+      if (serverUriBuilder_ != null) {
+        serverUriBuilder_.dispose();
         serverUriBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -845,7 +802,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.HttpUri server_uri = 1;</code>
      */
     public io.envoyproxy.envoy.api.v2.core.HttpUri.Builder getServerUriBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getServerUriFieldBuilder().getBuilder();
     }
@@ -938,11 +895,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pathPrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -955,8 +910,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPathPrefix() {
-      
       pathPrefix_ = getDefaultInstance().getPathPrefix();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -971,12 +926,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pathPrefix_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -993,7 +946,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the authorizationRequest field is set.
      */
     public boolean hasAuthorizationRequest() {
-      return authorizationRequestBuilder_ != null || authorizationRequest_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1023,11 +976,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         authorizationRequest_ = value;
-        onChanged();
       } else {
         authorizationRequestBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1041,11 +994,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest.Builder builderForValue) {
       if (authorizationRequestBuilder_ == null) {
         authorizationRequest_ = builderForValue.build();
-        onChanged();
       } else {
         authorizationRequestBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1057,17 +1010,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAuthorizationRequest(io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest value) {
       if (authorizationRequestBuilder_ == null) {
-        if (authorizationRequest_ != null) {
-          authorizationRequest_ =
-            io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest.newBuilder(authorizationRequest_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          authorizationRequest_ != null &&
+          authorizationRequest_ != io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest.getDefaultInstance()) {
+          getAuthorizationRequestBuilder().mergeFrom(value);
         } else {
           authorizationRequest_ = value;
         }
-        onChanged();
       } else {
         authorizationRequestBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1078,14 +1032,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest authorization_request = 7;</code>
      */
     public Builder clearAuthorizationRequest() {
-      if (authorizationRequestBuilder_ == null) {
-        authorizationRequest_ = null;
-        onChanged();
-      } else {
-        authorizationRequest_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      authorizationRequest_ = null;
+      if (authorizationRequestBuilder_ != null) {
+        authorizationRequestBuilder_.dispose();
         authorizationRequestBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1096,7 +1049,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest authorization_request = 7;</code>
      */
     public io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationRequest.Builder getAuthorizationRequestBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAuthorizationRequestFieldBuilder().getBuilder();
     }
@@ -1148,7 +1101,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the authorizationResponse field is set.
      */
     public boolean hasAuthorizationResponse() {
-      return authorizationResponseBuilder_ != null || authorizationResponse_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1178,11 +1131,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         authorizationResponse_ = value;
-        onChanged();
       } else {
         authorizationResponseBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1196,11 +1149,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse.Builder builderForValue) {
       if (authorizationResponseBuilder_ == null) {
         authorizationResponse_ = builderForValue.build();
-        onChanged();
       } else {
         authorizationResponseBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1212,17 +1165,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAuthorizationResponse(io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse value) {
       if (authorizationResponseBuilder_ == null) {
-        if (authorizationResponse_ != null) {
-          authorizationResponse_ =
-            io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse.newBuilder(authorizationResponse_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          authorizationResponse_ != null &&
+          authorizationResponse_ != io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse.getDefaultInstance()) {
+          getAuthorizationResponseBuilder().mergeFrom(value);
         } else {
           authorizationResponse_ = value;
         }
-        onChanged();
       } else {
         authorizationResponseBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1233,14 +1187,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse authorization_response = 8;</code>
      */
     public Builder clearAuthorizationResponse() {
-      if (authorizationResponseBuilder_ == null) {
-        authorizationResponse_ = null;
-        onChanged();
-      } else {
-        authorizationResponse_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      authorizationResponse_ = null;
+      if (authorizationResponseBuilder_ != null) {
+        authorizationResponseBuilder_.dispose();
         authorizationResponseBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1251,7 +1204,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse authorization_response = 8;</code>
      */
     public io.envoyproxy.envoy.config.filter.http.ext_authz.v2.AuthorizationResponse.Builder getAuthorizationResponseBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAuthorizationResponseFieldBuilder().getBuilder();
     }
@@ -1323,7 +1276,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpService(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

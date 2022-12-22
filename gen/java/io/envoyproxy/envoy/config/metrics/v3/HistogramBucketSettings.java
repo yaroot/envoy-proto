@@ -35,83 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HistogramBucketSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder subBuilder = null;
-            if (match_ != null) {
-              subBuilder = match_.toBuilder();
-            }
-            match_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.StringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(match_);
-              match_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 17: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              buckets_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            buckets_.addDouble(input.readDouble());
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              buckets_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              buckets_.addDouble(input.readDouble());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        buckets_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.metrics.v3.StatsProto.internal_static_envoy_config_metrics_v3_HistogramBucketSettings_descriptor;
@@ -163,10 +86,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.StringMatcherOrBuilder getMatchOrBuilder() {
-    return getMatch();
+    return match_ == null ? io.envoyproxy.envoy.type.matcher.v3.StringMatcher.getDefaultInstance() : match_;
   }
 
   public static final int BUCKETS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.DoubleList buckets_;
   /**
    * <pre>
@@ -234,7 +158,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < buckets_.size(); i++) {
       output.writeDoubleNoTag(buckets_.getDouble(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -258,7 +182,7 @@ private static final long serialVersionUID = 0L;
       }
       bucketsMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -280,7 +204,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getBucketsList()
         .equals(other.getBucketsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -299,7 +223,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BUCKETS_FIELD_NUMBER;
       hash = (53 * hash) + getBucketsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -420,30 +344,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.metrics.v3.HistogramBucketSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (matchBuilder_ == null) {
-        match_ = null;
-      } else {
-        match_ = null;
+      bitField0_ = 0;
+      match_ = null;
+      if (matchBuilder_ != null) {
+        matchBuilder_.dispose();
         matchBuilder_ = null;
       }
       buckets_ = emptyDoubleList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -470,19 +388,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.metrics.v3.HistogramBucketSettings buildPartial() {
       io.envoyproxy.envoy.config.metrics.v3.HistogramBucketSettings result = new io.envoyproxy.envoy.config.metrics.v3.HistogramBucketSettings(this);
-      int from_bitField0_ = bitField0_;
-      if (matchBuilder_ == null) {
-        result.match_ = match_;
-      } else {
-        result.match_ = matchBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        buckets_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.buckets_ = buckets_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.metrics.v3.HistogramBucketSettings result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        buckets_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.buckets_ = buckets_;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.metrics.v3.HistogramBucketSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.match_ = matchBuilder_ == null
+            ? match_
+            : matchBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -535,14 +461,14 @@ private static final long serialVersionUID = 0L;
       if (!other.buckets_.isEmpty()) {
         if (buckets_.isEmpty()) {
           buckets_ = other.buckets_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureBucketsIsMutable();
           buckets_.addAll(other.buckets_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -557,17 +483,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.metrics.v3.HistogramBucketSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 17: {
+              double v = input.readDouble();
+              ensureBucketsIsMutable();
+              buckets_.addDouble(v);
+              break;
+            } // case 17
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureBucketsIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                buckets_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.metrics.v3.HistogramBucketSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -585,7 +547,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the match field is set.
      */
     public boolean hasMatch() {
-      return matchBuilder_ != null || match_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -617,11 +579,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         match_ = value;
-        onChanged();
       } else {
         matchBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -636,11 +598,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder builderForValue) {
       if (matchBuilder_ == null) {
         match_ = builderForValue.build();
-        onChanged();
       } else {
         matchBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -653,17 +615,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMatch(io.envoyproxy.envoy.type.matcher.v3.StringMatcher value) {
       if (matchBuilder_ == null) {
-        if (match_ != null) {
-          match_ =
-            io.envoyproxy.envoy.type.matcher.v3.StringMatcher.newBuilder(match_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          match_ != null &&
+          match_ != io.envoyproxy.envoy.type.matcher.v3.StringMatcher.getDefaultInstance()) {
+          getMatchBuilder().mergeFrom(value);
         } else {
           match_ = value;
         }
-        onChanged();
       } else {
         matchBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -675,14 +638,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.StringMatcher match = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMatch() {
-      if (matchBuilder_ == null) {
-        match_ = null;
-        onChanged();
-      } else {
-        match_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      match_ = null;
+      if (matchBuilder_ != null) {
+        matchBuilder_.dispose();
         matchBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -694,7 +656,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.StringMatcher match = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder getMatchBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMatchFieldBuilder().getBuilder();
     }
@@ -738,10 +700,10 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.Internal.DoubleList buckets_ = emptyDoubleList();
     private void ensureBucketsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         buckets_ = mutableCopy(buckets_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00000002;
+      }
     }
     /**
      * <pre>
@@ -754,7 +716,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Double>
         getBucketsList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00000002) != 0) ?
                java.util.Collections.unmodifiableList(buckets_) : buckets_;
     }
     /**
@@ -795,6 +757,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBuckets(
         int index, double value) {
+      
       ensureBucketsIsMutable();
       buckets_.setDouble(index, value);
       onChanged();
@@ -811,6 +774,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addBuckets(double value) {
+      
       ensureBucketsIsMutable();
       buckets_.addDouble(value);
       onChanged();
@@ -845,7 +809,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearBuckets() {
       buckets_ = emptyDoubleList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -882,7 +846,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HistogramBucketSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

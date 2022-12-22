@@ -41,106 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SubjectAltNames(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              dnsNames_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            dnsNames_.add(s);
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              uris_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            uris_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              emailAddresses_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            emailAddresses_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              ipAddresses_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            ipAddresses_.add(s);
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              customSans_ = new java.util.ArrayList<com.google.cloud.security.privateca.v1.X509Extension>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            customSans_.add(
-                input.readMessage(com.google.cloud.security.privateca.v1.X509Extension.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        dnsNames_ = dnsNames_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        uris_ = uris_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        emailAddresses_ = emailAddresses_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        ipAddresses_ = ipAddresses_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        customSans_ = java.util.Collections.unmodifiableList(customSans_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.security.privateca.v1.PrivateCaResourcesProto.internal_static_google_cloud_security_privateca_v1_SubjectAltNames_descriptor;
@@ -155,6 +55,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DNS_NAMES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList dnsNames_;
   /**
    * <pre>
@@ -206,6 +107,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URIS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList uris_;
   /**
    * <pre>
@@ -257,6 +159,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMAIL_ADDRESSES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList emailAddresses_;
   /**
    * <pre>
@@ -308,6 +211,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_ADDRESSES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList ipAddresses_;
   /**
    * <pre>
@@ -359,6 +263,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_SANS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.security.privateca.v1.X509Extension> customSans_;
   /**
    * <pre>
@@ -457,7 +362,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < customSans_.size(); i++) {
       output.writeMessage(5, customSans_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -502,7 +407,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, customSans_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -527,7 +432,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getIpAddressesList())) return false;
     if (!getCustomSansList()
         .equals(other.getCustomSansList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -558,7 +463,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CUSTOM_SANS_FIELD_NUMBER;
       hash = (53 * hash) + getCustomSansList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -681,23 +586,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.security.privateca.v1.SubjectAltNames.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCustomSansFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       dnsNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       uris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -708,10 +608,11 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000008);
       if (customSansBuilder_ == null) {
         customSans_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        customSans_ = null;
         customSansBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -738,7 +639,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.security.privateca.v1.SubjectAltNames buildPartial() {
       com.google.cloud.security.privateca.v1.SubjectAltNames result = new com.google.cloud.security.privateca.v1.SubjectAltNames(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.security.privateca.v1.SubjectAltNames result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         dnsNames_ = dnsNames_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -768,8 +675,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.customSans_ = customSansBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.security.privateca.v1.SubjectAltNames result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -882,7 +791,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -897,17 +806,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.security.privateca.v1.SubjectAltNames parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDnsNamesIsMutable();
+              dnsNames_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureUrisIsMutable();
+              uris_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureEmailAddressesIsMutable();
+              emailAddresses_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIpAddressesIsMutable();
+              ipAddresses_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.security.privateca.v1.X509Extension m =
+                  input.readMessage(
+                      com.google.cloud.security.privateca.v1.X509Extension.parser(),
+                      extensionRegistry);
+              if (customSansBuilder_ == null) {
+                ensureCustomSansIsMutable();
+                customSans_.add(m);
+              } else {
+                customSansBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.security.privateca.v1.SubjectAltNames) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -979,10 +938,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDnsNames(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDnsNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDnsNamesIsMutable();
       dnsNames_.set(index, value);
       onChanged();
       return this;
@@ -998,10 +955,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDnsNames(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDnsNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDnsNamesIsMutable();
       dnsNames_.add(value);
       onChanged();
       return this;
@@ -1048,10 +1003,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDnsNamesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDnsNamesIsMutable();
       dnsNames_.add(value);
       onChanged();
@@ -1125,10 +1078,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUris(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUrisIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUrisIsMutable();
       uris_.set(index, value);
       onChanged();
       return this;
@@ -1144,10 +1095,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addUris(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUrisIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUrisIsMutable();
       uris_.add(value);
       onChanged();
       return this;
@@ -1194,10 +1143,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addUrisBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureUrisIsMutable();
       uris_.add(value);
       onChanged();
@@ -1271,10 +1218,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEmailAddresses(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEmailAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEmailAddressesIsMutable();
       emailAddresses_.set(index, value);
       onChanged();
       return this;
@@ -1290,10 +1235,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEmailAddresses(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEmailAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEmailAddressesIsMutable();
       emailAddresses_.add(value);
       onChanged();
       return this;
@@ -1340,10 +1283,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEmailAddressesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureEmailAddressesIsMutable();
       emailAddresses_.add(value);
       onChanged();
@@ -1417,10 +1358,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpAddresses(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpAddressesIsMutable();
       ipAddresses_.set(index, value);
       onChanged();
       return this;
@@ -1436,10 +1375,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpAddresses(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpAddressesIsMutable();
       ipAddresses_.add(value);
       onChanged();
       return this;
@@ -1486,10 +1423,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpAddressesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIpAddressesIsMutable();
       ipAddresses_.add(value);
       onChanged();
@@ -1876,7 +1811,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SubjectAltNames(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

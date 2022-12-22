@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     privateEndpoint_ = "";
     publicEndpoint_ = "";
     peeringName_ = "";
+    privateEndpointSubnetwork_ = "";
   }
 
   @java.lang.Override
@@ -37,92 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private PrivateClusterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enablePrivateNodes_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            enablePrivateEndpoint_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            masterIpv4CidrBlock_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            privateEndpoint_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            publicEndpoint_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            peeringName_ = s;
-            break;
-          }
-          case 66: {
-            com.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig.Builder subBuilder = null;
-            if (masterGlobalAccessConfig_ != null) {
-              subBuilder = masterGlobalAccessConfig_.toBuilder();
-            }
-            masterGlobalAccessConfig_ = input.readMessage(com.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(masterGlobalAccessConfig_);
-              masterGlobalAccessConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -138,7 +53,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_PRIVATE_NODES_FIELD_NUMBER = 1;
-  private boolean enablePrivateNodes_;
+  private boolean enablePrivateNodes_ = false;
   /**
    * <pre>
    * Whether nodes have internal IP addresses only. If enabled, all nodes are
@@ -155,7 +70,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_PRIVATE_ENDPOINT_FIELD_NUMBER = 2;
-  private boolean enablePrivateEndpoint_;
+  private boolean enablePrivateEndpoint_ = false;
   /**
    * <pre>
    * Whether the master's internal IP address is used as the cluster endpoint.
@@ -170,7 +85,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MASTER_IPV4_CIDR_BLOCK_FIELD_NUMBER = 3;
-  private volatile java.lang.Object masterIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object masterIpv4CidrBlock_ = "";
   /**
    * <pre>
    * The IP range in CIDR notation to use for the hosted master network. This
@@ -222,7 +138,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIVATE_ENDPOINT_FIELD_NUMBER = 4;
-  private volatile java.lang.Object privateEndpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object privateEndpoint_ = "";
   /**
    * <pre>
    * Output only. The internal IP address of this cluster's master endpoint.
@@ -268,7 +185,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PUBLIC_ENDPOINT_FIELD_NUMBER = 5;
-  private volatile java.lang.Object publicEndpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object publicEndpoint_ = "";
   /**
    * <pre>
    * Output only. The external IP address of this cluster's master endpoint.
@@ -314,7 +232,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PEERING_NAME_FIELD_NUMBER = 7;
-  private volatile java.lang.Object peeringName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object peeringName_ = "";
   /**
    * <pre>
    * Output only. The peering name in the customer VPC used by this cluster.
@@ -394,7 +313,56 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfigOrBuilder getMasterGlobalAccessConfigOrBuilder() {
-    return getMasterGlobalAccessConfig();
+    return masterGlobalAccessConfig_ == null ? com.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig.getDefaultInstance() : masterGlobalAccessConfig_;
+  }
+
+  public static final int PRIVATE_ENDPOINT_SUBNETWORK_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object privateEndpointSubnetwork_ = "";
+  /**
+   * <pre>
+   * Subnet to provision the master's private endpoint during cluster creation.
+   * Specified in projects/&#42;&#47;regions/&#42;&#47;subnetworks/&#42; format.
+   * </pre>
+   *
+   * <code>string private_endpoint_subnetwork = 10;</code>
+   * @return The privateEndpointSubnetwork.
+   */
+  @java.lang.Override
+  public java.lang.String getPrivateEndpointSubnetwork() {
+    java.lang.Object ref = privateEndpointSubnetwork_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      privateEndpointSubnetwork_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Subnet to provision the master's private endpoint during cluster creation.
+   * Specified in projects/&#42;&#47;regions/&#42;&#47;subnetworks/&#42; format.
+   * </pre>
+   *
+   * <code>string private_endpoint_subnetwork = 10;</code>
+   * @return The bytes for privateEndpointSubnetwork.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPrivateEndpointSubnetworkBytes() {
+    java.lang.Object ref = privateEndpointSubnetwork_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      privateEndpointSubnetwork_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -432,7 +400,10 @@ private static final long serialVersionUID = 0L;
     if (masterGlobalAccessConfig_ != null) {
       output.writeMessage(8, getMasterGlobalAccessConfig());
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(privateEndpointSubnetwork_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, privateEndpointSubnetwork_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -465,7 +436,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getMasterGlobalAccessConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(privateEndpointSubnetwork_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, privateEndpointSubnetwork_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -497,7 +471,9 @@ private static final long serialVersionUID = 0L;
       if (!getMasterGlobalAccessConfig()
           .equals(other.getMasterGlobalAccessConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getPrivateEndpointSubnetwork()
+        .equals(other.getPrivateEndpointSubnetwork())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -526,7 +502,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MASTER_GLOBAL_ACCESS_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getMasterGlobalAccessConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + PRIVATE_ENDPOINT_SUBNETWORK_FIELD_NUMBER;
+    hash = (53 * hash) + getPrivateEndpointSubnetwork().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -647,40 +625,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.PrivateClusterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enablePrivateNodes_ = false;
-
       enablePrivateEndpoint_ = false;
-
       masterIpv4CidrBlock_ = "";
-
       privateEndpoint_ = "";
-
       publicEndpoint_ = "";
-
       peeringName_ = "";
-
-      if (masterGlobalAccessConfigBuilder_ == null) {
-        masterGlobalAccessConfig_ = null;
-      } else {
-        masterGlobalAccessConfig_ = null;
+      masterGlobalAccessConfig_ = null;
+      if (masterGlobalAccessConfigBuilder_ != null) {
+        masterGlobalAccessConfigBuilder_.dispose();
         masterGlobalAccessConfigBuilder_ = null;
       }
+      privateEndpointSubnetwork_ = "";
       return this;
     }
 
@@ -707,19 +675,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.PrivateClusterConfig buildPartial() {
       com.google.container.v1beta1.PrivateClusterConfig result = new com.google.container.v1beta1.PrivateClusterConfig(this);
-      result.enablePrivateNodes_ = enablePrivateNodes_;
-      result.enablePrivateEndpoint_ = enablePrivateEndpoint_;
-      result.masterIpv4CidrBlock_ = masterIpv4CidrBlock_;
-      result.privateEndpoint_ = privateEndpoint_;
-      result.publicEndpoint_ = publicEndpoint_;
-      result.peeringName_ = peeringName_;
-      if (masterGlobalAccessConfigBuilder_ == null) {
-        result.masterGlobalAccessConfig_ = masterGlobalAccessConfig_;
-      } else {
-        result.masterGlobalAccessConfig_ = masterGlobalAccessConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.PrivateClusterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enablePrivateNodes_ = enablePrivateNodes_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.enablePrivateEndpoint_ = enablePrivateEndpoint_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.masterIpv4CidrBlock_ = masterIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.privateEndpoint_ = privateEndpoint_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.publicEndpoint_ = publicEndpoint_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.peeringName_ = peeringName_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.masterGlobalAccessConfig_ = masterGlobalAccessConfigBuilder_ == null
+            ? masterGlobalAccessConfig_
+            : masterGlobalAccessConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.privateEndpointSubnetwork_ = privateEndpointSubnetwork_;
+      }
     }
 
     @java.lang.Override
@@ -774,24 +762,33 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMasterIpv4CidrBlock().isEmpty()) {
         masterIpv4CidrBlock_ = other.masterIpv4CidrBlock_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPrivateEndpoint().isEmpty()) {
         privateEndpoint_ = other.privateEndpoint_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getPublicEndpoint().isEmpty()) {
         publicEndpoint_ = other.publicEndpoint_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getPeeringName().isEmpty()) {
         peeringName_ = other.peeringName_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasMasterGlobalAccessConfig()) {
         mergeMasterGlobalAccessConfig(other.getMasterGlobalAccessConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getPrivateEndpointSubnetwork().isEmpty()) {
+        privateEndpointSubnetwork_ = other.privateEndpointSubnetwork_;
+        bitField0_ |= 0x00000080;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -806,19 +803,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.PrivateClusterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enablePrivateNodes_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              enablePrivateEndpoint_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              masterIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              privateEndpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              publicEndpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 58: {
+              peeringName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getMasterGlobalAccessConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 82: {
+              privateEndpointSubnetwork_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.PrivateClusterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean enablePrivateNodes_ ;
     /**
@@ -849,6 +902,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnablePrivateNodes(boolean value) {
       
       enablePrivateNodes_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -863,7 +917,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnablePrivateNodes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enablePrivateNodes_ = false;
       onChanged();
       return this;
@@ -894,6 +948,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnablePrivateEndpoint(boolean value) {
       
       enablePrivateEndpoint_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -906,7 +961,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnablePrivateEndpoint() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       enablePrivateEndpoint_ = false;
       onChanged();
       return this;
@@ -974,11 +1029,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       masterIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -994,8 +1047,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMasterIpv4CidrBlock() {
-      
       masterIpv4CidrBlock_ = getDefaultInstance().getMasterIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1013,12 +1066,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       masterIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1076,11 +1127,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrivateEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       privateEndpoint_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1093,8 +1142,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrivateEndpoint() {
-      
       privateEndpoint_ = getDefaultInstance().getPrivateEndpoint();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1109,12 +1158,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrivateEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       privateEndpoint_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1172,11 +1219,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPublicEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       publicEndpoint_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1189,8 +1234,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPublicEndpoint() {
-      
       publicEndpoint_ = getDefaultInstance().getPublicEndpoint();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1205,12 +1250,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPublicEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       publicEndpoint_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1268,11 +1311,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPeeringName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       peeringName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1285,8 +1326,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPeeringName() {
-      
       peeringName_ = getDefaultInstance().getPeeringName();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1301,12 +1342,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPeeringNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       peeringName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1323,7 +1362,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the masterGlobalAccessConfig field is set.
      */
     public boolean hasMasterGlobalAccessConfig() {
-      return masterGlobalAccessConfigBuilder_ != null || masterGlobalAccessConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1353,11 +1392,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         masterGlobalAccessConfig_ = value;
-        onChanged();
       } else {
         masterGlobalAccessConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1371,11 +1410,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig.Builder builderForValue) {
       if (masterGlobalAccessConfigBuilder_ == null) {
         masterGlobalAccessConfig_ = builderForValue.build();
-        onChanged();
       } else {
         masterGlobalAccessConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1387,17 +1426,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMasterGlobalAccessConfig(com.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig value) {
       if (masterGlobalAccessConfigBuilder_ == null) {
-        if (masterGlobalAccessConfig_ != null) {
-          masterGlobalAccessConfig_ =
-            com.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig.newBuilder(masterGlobalAccessConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          masterGlobalAccessConfig_ != null &&
+          masterGlobalAccessConfig_ != com.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig.getDefaultInstance()) {
+          getMasterGlobalAccessConfigBuilder().mergeFrom(value);
         } else {
           masterGlobalAccessConfig_ = value;
         }
-        onChanged();
       } else {
         masterGlobalAccessConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1408,14 +1448,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig master_global_access_config = 8;</code>
      */
     public Builder clearMasterGlobalAccessConfig() {
-      if (masterGlobalAccessConfigBuilder_ == null) {
-        masterGlobalAccessConfig_ = null;
-        onChanged();
-      } else {
-        masterGlobalAccessConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      masterGlobalAccessConfig_ = null;
+      if (masterGlobalAccessConfigBuilder_ != null) {
+        masterGlobalAccessConfigBuilder_.dispose();
         masterGlobalAccessConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1426,7 +1465,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig master_global_access_config = 8;</code>
      */
     public com.google.container.v1beta1.PrivateClusterMasterGlobalAccessConfig.Builder getMasterGlobalAccessConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getMasterGlobalAccessConfigFieldBuilder().getBuilder();
     }
@@ -1465,6 +1504,103 @@ private static final long serialVersionUID = 0L;
       }
       return masterGlobalAccessConfigBuilder_;
     }
+
+    private java.lang.Object privateEndpointSubnetwork_ = "";
+    /**
+     * <pre>
+     * Subnet to provision the master's private endpoint during cluster creation.
+     * Specified in projects/&#42;&#47;regions/&#42;&#47;subnetworks/&#42; format.
+     * </pre>
+     *
+     * <code>string private_endpoint_subnetwork = 10;</code>
+     * @return The privateEndpointSubnetwork.
+     */
+    public java.lang.String getPrivateEndpointSubnetwork() {
+      java.lang.Object ref = privateEndpointSubnetwork_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        privateEndpointSubnetwork_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Subnet to provision the master's private endpoint during cluster creation.
+     * Specified in projects/&#42;&#47;regions/&#42;&#47;subnetworks/&#42; format.
+     * </pre>
+     *
+     * <code>string private_endpoint_subnetwork = 10;</code>
+     * @return The bytes for privateEndpointSubnetwork.
+     */
+    public com.google.protobuf.ByteString
+        getPrivateEndpointSubnetworkBytes() {
+      java.lang.Object ref = privateEndpointSubnetwork_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        privateEndpointSubnetwork_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Subnet to provision the master's private endpoint during cluster creation.
+     * Specified in projects/&#42;&#47;regions/&#42;&#47;subnetworks/&#42; format.
+     * </pre>
+     *
+     * <code>string private_endpoint_subnetwork = 10;</code>
+     * @param value The privateEndpointSubnetwork to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrivateEndpointSubnetwork(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      privateEndpointSubnetwork_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Subnet to provision the master's private endpoint during cluster creation.
+     * Specified in projects/&#42;&#47;regions/&#42;&#47;subnetworks/&#42; format.
+     * </pre>
+     *
+     * <code>string private_endpoint_subnetwork = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPrivateEndpointSubnetwork() {
+      privateEndpointSubnetwork_ = getDefaultInstance().getPrivateEndpointSubnetwork();
+      bitField0_ = (bitField0_ & ~0x00000080);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Subnet to provision the master's private endpoint during cluster creation.
+     * Specified in projects/&#42;&#47;regions/&#42;&#47;subnetworks/&#42; format.
+     * </pre>
+     *
+     * <code>string private_endpoint_subnetwork = 10;</code>
+     * @param value The bytes for privateEndpointSubnetwork to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrivateEndpointSubnetworkBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      privateEndpointSubnetwork_ = value;
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1498,7 +1634,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PrivateClusterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

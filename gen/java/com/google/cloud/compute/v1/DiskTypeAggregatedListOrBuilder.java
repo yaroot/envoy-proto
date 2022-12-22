@@ -75,7 +75,6 @@ public interface DiskTypeAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.DiskTypesScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.DiskTypesScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.DiskTypesScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.DiskTypesScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.DiskTypesScopedList getItemsOrThrow(
       java.lang.String key);
 

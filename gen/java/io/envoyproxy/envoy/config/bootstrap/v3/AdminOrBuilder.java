@@ -66,7 +66,7 @@ public interface AdminOrBuilder extends
    *
    * <code>string access_log_path = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.bootstrap.v3.Admin.access_log_path is deprecated.
-   *     See envoy/config/bootstrap/v3/bootstrap.proto;l=353
+   *     See envoy/config/bootstrap/v3/bootstrap.proto;l=372
    * @return The accessLogPath.
    */
   @java.lang.Deprecated java.lang.String getAccessLogPath();
@@ -80,7 +80,7 @@ public interface AdminOrBuilder extends
    *
    * <code>string access_log_path = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.bootstrap.v3.Admin.access_log_path is deprecated.
-   *     See envoy/config/bootstrap/v3/bootstrap.proto;l=353
+   *     See envoy/config/bootstrap/v3/bootstrap.proto;l=372
    * @return The bytes for accessLogPath.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

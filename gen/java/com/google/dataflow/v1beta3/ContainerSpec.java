@@ -35,90 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ContainerSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            image_ = s;
-            break;
-          }
-          case 18: {
-            com.google.dataflow.v1beta3.TemplateMetadata.Builder subBuilder = null;
-            if (metadata_ != null) {
-              subBuilder = metadata_.toBuilder();
-            }
-            metadata_ = input.readMessage(com.google.dataflow.v1beta3.TemplateMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.dataflow.v1beta3.SDKInfo.Builder subBuilder = null;
-            if (sdkInfo_ != null) {
-              subBuilder = sdkInfo_.toBuilder();
-            }
-            sdkInfo_ = input.readMessage(com.google.dataflow.v1beta3.SDKInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sdkInfo_);
-              sdkInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment.Builder subBuilder = null;
-            if (defaultEnvironment_ != null) {
-              subBuilder = defaultEnvironment_.toBuilder();
-            }
-            defaultEnvironment_ = input.readMessage(com.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(defaultEnvironment_);
-              defaultEnvironment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.TemplatesProto.internal_static_google_dataflow_v1beta3_ContainerSpec_descriptor;
@@ -133,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object image_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object image_ = "";
   /**
    * <pre>
    * Name of the docker container image. E.g., gcr.io/project/some-image
@@ -213,7 +130,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.dataflow.v1beta3.TemplateMetadataOrBuilder getMetadataOrBuilder() {
-    return getMetadata();
+    return metadata_ == null ? com.google.dataflow.v1beta3.TemplateMetadata.getDefaultInstance() : metadata_;
   }
 
   public static final int SDK_INFO_FIELD_NUMBER = 3;
@@ -251,7 +168,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.dataflow.v1beta3.SDKInfoOrBuilder getSdkInfoOrBuilder() {
-    return getSdkInfo();
+    return sdkInfo_ == null ? com.google.dataflow.v1beta3.SDKInfo.getDefaultInstance() : sdkInfo_;
   }
 
   public static final int DEFAULT_ENVIRONMENT_FIELD_NUMBER = 4;
@@ -289,7 +206,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironmentOrBuilder getDefaultEnvironmentOrBuilder() {
-    return getDefaultEnvironment();
+    return defaultEnvironment_ == null ? com.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment.getDefaultInstance() : defaultEnvironment_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -318,7 +235,7 @@ private static final long serialVersionUID = 0L;
     if (defaultEnvironment_ != null) {
       output.writeMessage(4, getDefaultEnvironment());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -342,7 +259,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getDefaultEnvironment());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -374,7 +291,7 @@ private static final long serialVersionUID = 0L;
       if (!getDefaultEnvironment()
           .equals(other.getDefaultEnvironment())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -399,7 +316,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DEFAULT_ENVIRONMENT_FIELD_NUMBER;
       hash = (53 * hash) + getDefaultEnvironment().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -520,40 +437,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.ContainerSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       image_ = "";
-
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-      } else {
-        metadata_ = null;
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
-      if (sdkInfoBuilder_ == null) {
-        sdkInfo_ = null;
-      } else {
-        sdkInfo_ = null;
+      sdkInfo_ = null;
+      if (sdkInfoBuilder_ != null) {
+        sdkInfoBuilder_.dispose();
         sdkInfoBuilder_ = null;
       }
-      if (defaultEnvironmentBuilder_ == null) {
-        defaultEnvironment_ = null;
-      } else {
-        defaultEnvironment_ = null;
+      defaultEnvironment_ = null;
+      if (defaultEnvironmentBuilder_ != null) {
+        defaultEnvironmentBuilder_.dispose();
         defaultEnvironmentBuilder_ = null;
       }
       return this;
@@ -582,24 +491,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.ContainerSpec buildPartial() {
       com.google.dataflow.v1beta3.ContainerSpec result = new com.google.dataflow.v1beta3.ContainerSpec(this);
-      result.image_ = image_;
-      if (metadataBuilder_ == null) {
-        result.metadata_ = metadata_;
-      } else {
-        result.metadata_ = metadataBuilder_.build();
-      }
-      if (sdkInfoBuilder_ == null) {
-        result.sdkInfo_ = sdkInfo_;
-      } else {
-        result.sdkInfo_ = sdkInfoBuilder_.build();
-      }
-      if (defaultEnvironmentBuilder_ == null) {
-        result.defaultEnvironment_ = defaultEnvironment_;
-      } else {
-        result.defaultEnvironment_ = defaultEnvironmentBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.ContainerSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.image_ = image_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.metadata_ = metadataBuilder_ == null
+            ? metadata_
+            : metadataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sdkInfo_ = sdkInfoBuilder_ == null
+            ? sdkInfo_
+            : sdkInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.defaultEnvironment_ = defaultEnvironmentBuilder_ == null
+            ? defaultEnvironment_
+            : defaultEnvironmentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -648,6 +564,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.dataflow.v1beta3.ContainerSpec.getDefaultInstance()) return this;
       if (!other.getImage().isEmpty()) {
         image_ = other.image_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasMetadata()) {
@@ -659,7 +576,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDefaultEnvironment()) {
         mergeDefaultEnvironment(other.getDefaultEnvironment());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -674,19 +591,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.ContainerSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              image_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getSdkInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDefaultEnvironmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.ContainerSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object image_ = "";
     /**
@@ -741,11 +698,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       image_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -758,8 +713,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImage() {
-      
       image_ = getDefaultInstance().getImage();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -774,12 +729,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       image_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -796,7 +749,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the metadata field is set.
      */
     public boolean hasMetadata() {
-      return metadataBuilder_ != null || metadata_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -826,11 +779,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metadata_ = value;
-        onChanged();
       } else {
         metadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -844,11 +797,11 @@ private static final long serialVersionUID = 0L;
         com.google.dataflow.v1beta3.TemplateMetadata.Builder builderForValue) {
       if (metadataBuilder_ == null) {
         metadata_ = builderForValue.build();
-        onChanged();
       } else {
         metadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -860,17 +813,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMetadata(com.google.dataflow.v1beta3.TemplateMetadata value) {
       if (metadataBuilder_ == null) {
-        if (metadata_ != null) {
-          metadata_ =
-            com.google.dataflow.v1beta3.TemplateMetadata.newBuilder(metadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          metadata_ != null &&
+          metadata_ != com.google.dataflow.v1beta3.TemplateMetadata.getDefaultInstance()) {
+          getMetadataBuilder().mergeFrom(value);
         } else {
           metadata_ = value;
         }
-        onChanged();
       } else {
         metadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -881,14 +835,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.TemplateMetadata metadata = 2;</code>
      */
     public Builder clearMetadata() {
-      if (metadataBuilder_ == null) {
-        metadata_ = null;
-        onChanged();
-      } else {
-        metadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      metadata_ = null;
+      if (metadataBuilder_ != null) {
+        metadataBuilder_.dispose();
         metadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -899,7 +852,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.TemplateMetadata metadata = 2;</code>
      */
     public com.google.dataflow.v1beta3.TemplateMetadata.Builder getMetadataBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMetadataFieldBuilder().getBuilder();
     }
@@ -951,7 +904,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sdkInfo field is set.
      */
     public boolean hasSdkInfo() {
-      return sdkInfoBuilder_ != null || sdkInfo_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -981,11 +934,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sdkInfo_ = value;
-        onChanged();
       } else {
         sdkInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -999,11 +952,11 @@ private static final long serialVersionUID = 0L;
         com.google.dataflow.v1beta3.SDKInfo.Builder builderForValue) {
       if (sdkInfoBuilder_ == null) {
         sdkInfo_ = builderForValue.build();
-        onChanged();
       } else {
         sdkInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1015,17 +968,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSdkInfo(com.google.dataflow.v1beta3.SDKInfo value) {
       if (sdkInfoBuilder_ == null) {
-        if (sdkInfo_ != null) {
-          sdkInfo_ =
-            com.google.dataflow.v1beta3.SDKInfo.newBuilder(sdkInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          sdkInfo_ != null &&
+          sdkInfo_ != com.google.dataflow.v1beta3.SDKInfo.getDefaultInstance()) {
+          getSdkInfoBuilder().mergeFrom(value);
         } else {
           sdkInfo_ = value;
         }
-        onChanged();
       } else {
         sdkInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1036,14 +990,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.SDKInfo sdk_info = 3;</code>
      */
     public Builder clearSdkInfo() {
-      if (sdkInfoBuilder_ == null) {
-        sdkInfo_ = null;
-        onChanged();
-      } else {
-        sdkInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      sdkInfo_ = null;
+      if (sdkInfoBuilder_ != null) {
+        sdkInfoBuilder_.dispose();
         sdkInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1054,7 +1007,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.SDKInfo sdk_info = 3;</code>
      */
     public com.google.dataflow.v1beta3.SDKInfo.Builder getSdkInfoBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSdkInfoFieldBuilder().getBuilder();
     }
@@ -1106,7 +1059,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the defaultEnvironment field is set.
      */
     public boolean hasDefaultEnvironment() {
-      return defaultEnvironmentBuilder_ != null || defaultEnvironment_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1136,11 +1089,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         defaultEnvironment_ = value;
-        onChanged();
       } else {
         defaultEnvironmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1154,11 +1107,11 @@ private static final long serialVersionUID = 0L;
         com.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment.Builder builderForValue) {
       if (defaultEnvironmentBuilder_ == null) {
         defaultEnvironment_ = builderForValue.build();
-        onChanged();
       } else {
         defaultEnvironmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1170,17 +1123,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDefaultEnvironment(com.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment value) {
       if (defaultEnvironmentBuilder_ == null) {
-        if (defaultEnvironment_ != null) {
-          defaultEnvironment_ =
-            com.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment.newBuilder(defaultEnvironment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          defaultEnvironment_ != null &&
+          defaultEnvironment_ != com.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment.getDefaultInstance()) {
+          getDefaultEnvironmentBuilder().mergeFrom(value);
         } else {
           defaultEnvironment_ = value;
         }
-        onChanged();
       } else {
         defaultEnvironmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1191,14 +1145,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment default_environment = 4;</code>
      */
     public Builder clearDefaultEnvironment() {
-      if (defaultEnvironmentBuilder_ == null) {
-        defaultEnvironment_ = null;
-        onChanged();
-      } else {
-        defaultEnvironment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      defaultEnvironment_ = null;
+      if (defaultEnvironmentBuilder_ != null) {
+        defaultEnvironmentBuilder_.dispose();
         defaultEnvironmentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1209,7 +1162,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment default_environment = 4;</code>
      */
     public com.google.dataflow.v1beta3.FlexTemplateRuntimeEnvironment.Builder getDefaultEnvironmentBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDefaultEnvironmentFieldBuilder().getBuilder();
     }
@@ -1281,7 +1234,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ContainerSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

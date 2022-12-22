@@ -5,8 +5,8 @@ package com.google.cloud.networkconnectivity.v1;
 
 /**
  * <pre>
- * A spoke represents a connection between your Google Cloud network resources
- * and a non-Google-Cloud network.
+ * A Network Connectivity Center spoke represents a connection between your
+ * Google Cloud network resources and a non-Google-Cloud network.
  * When you create a spoke, you associate it with a hub. You must also identify
  * a value for exactly one of the following fields:
  * * linked_vpn_tunnels
@@ -45,154 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Spoke(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            hub_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uniqueId_ = s;
-            break;
-          }
-          case 120: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 138: {
-            com.google.cloud.networkconnectivity.v1.LinkedVpnTunnels.Builder subBuilder = null;
-            if (linkedVpnTunnels_ != null) {
-              subBuilder = linkedVpnTunnels_.toBuilder();
-            }
-            linkedVpnTunnels_ = input.readMessage(com.google.cloud.networkconnectivity.v1.LinkedVpnTunnels.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(linkedVpnTunnels_);
-              linkedVpnTunnels_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            com.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments.Builder subBuilder = null;
-            if (linkedInterconnectAttachments_ != null) {
-              subBuilder = linkedInterconnectAttachments_.toBuilder();
-            }
-            linkedInterconnectAttachments_ = input.readMessage(com.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(linkedInterconnectAttachments_);
-              linkedInterconnectAttachments_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 154: {
-            com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances.Builder subBuilder = null;
-            if (linkedRouterApplianceInstances_ != null) {
-              subBuilder = linkedRouterApplianceInstances_.toBuilder();
-            }
-            linkedRouterApplianceInstances_ = input.readMessage(com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(linkedRouterApplianceInstances_);
-              linkedRouterApplianceInstances_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networkconnectivity.v1.HubProto.internal_static_google_cloud_networkconnectivity_v1_Spoke_descriptor;
@@ -219,7 +71,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Immutable. The name of the spoke. Spoke names must be unique. They use the
@@ -303,7 +156,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 3;
@@ -341,7 +194,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 4;
@@ -356,6 +209,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -366,7 +220,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -379,7 +232,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -404,7 +256,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -418,10 +269,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -437,7 +289,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -450,7 +301,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of the spoke.
@@ -496,7 +348,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HUB_FIELD_NUMBER = 6;
-  private volatile java.lang.Object hub_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hub_ = "";
   /**
    * <pre>
    * Immutable. The name of the hub that this spoke is attached to.
@@ -576,7 +429,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.networkconnectivity.v1.LinkedVpnTunnelsOrBuilder getLinkedVpnTunnelsOrBuilder() {
-    return getLinkedVpnTunnels();
+    return linkedVpnTunnels_ == null ? com.google.cloud.networkconnectivity.v1.LinkedVpnTunnels.getDefaultInstance() : linkedVpnTunnels_;
   }
 
   public static final int LINKED_INTERCONNECT_ATTACHMENTS_FIELD_NUMBER = 18;
@@ -614,7 +467,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachmentsOrBuilder getLinkedInterconnectAttachmentsOrBuilder() {
-    return getLinkedInterconnectAttachments();
+    return linkedInterconnectAttachments_ == null ? com.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments.getDefaultInstance() : linkedInterconnectAttachments_;
   }
 
   public static final int LINKED_ROUTER_APPLIANCE_INSTANCES_FIELD_NUMBER = 19;
@@ -652,16 +505,17 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstancesOrBuilder getLinkedRouterApplianceInstancesOrBuilder() {
-    return getLinkedRouterApplianceInstances();
+    return linkedRouterApplianceInstances_ == null ? com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances.getDefaultInstance() : linkedRouterApplianceInstances_;
   }
 
   public static final int UNIQUE_ID_FIELD_NUMBER = 11;
-  private volatile java.lang.Object uniqueId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uniqueId_ = "";
   /**
    * <pre>
-   * Output only. The Google-generated UUID for the spoke. This value is unique across all
-   * spoke resources. If a spoke is deleted and another with the same name is
-   * created, the new spoke is assigned a different unique_id.
+   * Output only. The Google-generated UUID for the spoke. This value is unique
+   * across all spoke resources. If a spoke is deleted and another with the same
+   * name is created, the new spoke is assigned a different unique_id.
    * </pre>
    *
    * <code>string unique_id = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -682,9 +536,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The Google-generated UUID for the spoke. This value is unique across all
-   * spoke resources. If a spoke is deleted and another with the same name is
-   * created, the new spoke is assigned a different unique_id.
+   * Output only. The Google-generated UUID for the spoke. This value is unique
+   * across all spoke resources. If a spoke is deleted and another with the same
+   * name is created, the new spoke is assigned a different unique_id.
    * </pre>
    *
    * <code>string unique_id = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -706,7 +560,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 15;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The current lifecycle state of this spoke.
@@ -727,8 +581,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.networkconnectivity.v1.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.networkconnectivity.v1.State result = com.google.cloud.networkconnectivity.v1.State.valueOf(state_);
+    com.google.cloud.networkconnectivity.v1.State result = com.google.cloud.networkconnectivity.v1.State.forNumber(state_);
     return result == null ? com.google.cloud.networkconnectivity.v1.State.UNRECOGNIZED : result;
   }
 
@@ -782,7 +635,7 @@ private static final long serialVersionUID = 0L;
     if (linkedRouterApplianceInstances_ != null) {
       output.writeMessage(19, getLinkedRouterApplianceInstances());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -837,7 +690,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, getLinkedRouterApplianceInstances());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -888,7 +741,7 @@ private static final long serialVersionUID = 0L;
     if (!getUniqueId()
         .equals(other.getUniqueId())) return false;
     if (state_ != other.state_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -933,7 +786,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUniqueId().hashCode();
     hash = (37 * hash) + STATE_FIELD_NUMBER;
     hash = (53 * hash) + state_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1030,8 +883,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A spoke represents a connection between your Google Cloud network resources
-   * and a non-Google-Cloud network.
+   * A Network Connectivity Center spoke represents a connection between your
+   * Google Cloud network resources and a non-Google-Cloud network.
    * When you create a spoke, you associate it with a hub. You must also identify
    * a value for exactly one of the following fields:
    * * linked_vpn_tunnels
@@ -1082,63 +935,49 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkconnectivity.v1.Spoke.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       internalGetMutableLabels().clear();
       description_ = "";
-
       hub_ = "";
-
-      if (linkedVpnTunnelsBuilder_ == null) {
-        linkedVpnTunnels_ = null;
-      } else {
-        linkedVpnTunnels_ = null;
+      linkedVpnTunnels_ = null;
+      if (linkedVpnTunnelsBuilder_ != null) {
+        linkedVpnTunnelsBuilder_.dispose();
         linkedVpnTunnelsBuilder_ = null;
       }
-      if (linkedInterconnectAttachmentsBuilder_ == null) {
-        linkedInterconnectAttachments_ = null;
-      } else {
-        linkedInterconnectAttachments_ = null;
+      linkedInterconnectAttachments_ = null;
+      if (linkedInterconnectAttachmentsBuilder_ != null) {
+        linkedInterconnectAttachmentsBuilder_.dispose();
         linkedInterconnectAttachmentsBuilder_ = null;
       }
-      if (linkedRouterApplianceInstancesBuilder_ == null) {
-        linkedRouterApplianceInstances_ = null;
-      } else {
-        linkedRouterApplianceInstances_ = null;
+      linkedRouterApplianceInstances_ = null;
+      if (linkedRouterApplianceInstancesBuilder_ != null) {
+        linkedRouterApplianceInstancesBuilder_.dispose();
         linkedRouterApplianceInstancesBuilder_ = null;
       }
       uniqueId_ = "";
-
       state_ = 0;
-
       return this;
     }
 
@@ -1165,41 +1004,57 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkconnectivity.v1.Spoke buildPartial() {
       com.google.cloud.networkconnectivity.v1.Spoke result = new com.google.cloud.networkconnectivity.v1.Spoke(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.description_ = description_;
-      result.hub_ = hub_;
-      if (linkedVpnTunnelsBuilder_ == null) {
-        result.linkedVpnTunnels_ = linkedVpnTunnels_;
-      } else {
-        result.linkedVpnTunnels_ = linkedVpnTunnelsBuilder_.build();
-      }
-      if (linkedInterconnectAttachmentsBuilder_ == null) {
-        result.linkedInterconnectAttachments_ = linkedInterconnectAttachments_;
-      } else {
-        result.linkedInterconnectAttachments_ = linkedInterconnectAttachmentsBuilder_.build();
-      }
-      if (linkedRouterApplianceInstancesBuilder_ == null) {
-        result.linkedRouterApplianceInstances_ = linkedRouterApplianceInstances_;
-      } else {
-        result.linkedRouterApplianceInstances_ = linkedRouterApplianceInstancesBuilder_.build();
-      }
-      result.uniqueId_ = uniqueId_;
-      result.state_ = state_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.networkconnectivity.v1.Spoke result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.hub_ = hub_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.linkedVpnTunnels_ = linkedVpnTunnelsBuilder_ == null
+            ? linkedVpnTunnels_
+            : linkedVpnTunnelsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.linkedInterconnectAttachments_ = linkedInterconnectAttachmentsBuilder_ == null
+            ? linkedInterconnectAttachments_
+            : linkedInterconnectAttachmentsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.linkedRouterApplianceInstances_ = linkedRouterApplianceInstancesBuilder_ == null
+            ? linkedRouterApplianceInstances_
+            : linkedRouterApplianceInstancesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.uniqueId_ = uniqueId_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.state_ = state_;
+      }
     }
 
     @java.lang.Override
@@ -1248,6 +1103,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.networkconnectivity.v1.Spoke.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -1258,12 +1114,15 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000008;
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getHub().isEmpty()) {
         hub_ = other.hub_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasLinkedVpnTunnels()) {
@@ -1277,12 +1136,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUniqueId().isEmpty()) {
         uniqueId_ = other.uniqueId_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.state_ != 0) {
         setStateValue(other.getStateValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1297,17 +1157,99 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkconnectivity.v1.Spoke parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              hub_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 90: {
+              uniqueId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
+            case 120: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 120
+            case 138: {
+              input.readMessage(
+                  getLinkedVpnTunnelsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getLinkedInterconnectAttachmentsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getLinkedRouterApplianceInstancesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 154
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkconnectivity.v1.Spoke) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1371,11 +1313,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1390,8 +1330,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1408,12 +1348,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1430,7 +1368,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1460,11 +1398,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1478,11 +1416,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1494,17 +1432,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1515,14 +1454,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1533,7 +1471,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1585,7 +1523,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1615,11 +1553,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1633,11 +1571,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1649,17 +1587,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1670,14 +1609,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1688,7 +1626,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -1731,7 +1669,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1739,8 +1677,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1748,9 +1685,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -1763,7 +1701,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -1788,7 +1725,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -1802,10 +1738,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -1821,7 +1758,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1832,8 +1768,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -1847,7 +1783,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1860,7 +1795,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -1876,12 +1812,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -1893,11 +1827,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
@@ -1954,11 +1888,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1971,8 +1903,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1987,12 +1919,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2050,11 +1980,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHub(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hub_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2067,8 +1995,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHub() {
-      
       hub_ = getDefaultInstance().getHub();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2083,12 +2011,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHubBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hub_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2105,7 +2031,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the linkedVpnTunnels field is set.
      */
     public boolean hasLinkedVpnTunnels() {
-      return linkedVpnTunnelsBuilder_ != null || linkedVpnTunnels_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2135,11 +2061,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         linkedVpnTunnels_ = value;
-        onChanged();
       } else {
         linkedVpnTunnelsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2153,11 +2079,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.networkconnectivity.v1.LinkedVpnTunnels.Builder builderForValue) {
       if (linkedVpnTunnelsBuilder_ == null) {
         linkedVpnTunnels_ = builderForValue.build();
-        onChanged();
       } else {
         linkedVpnTunnelsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2169,17 +2095,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLinkedVpnTunnels(com.google.cloud.networkconnectivity.v1.LinkedVpnTunnels value) {
       if (linkedVpnTunnelsBuilder_ == null) {
-        if (linkedVpnTunnels_ != null) {
-          linkedVpnTunnels_ =
-            com.google.cloud.networkconnectivity.v1.LinkedVpnTunnels.newBuilder(linkedVpnTunnels_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          linkedVpnTunnels_ != null &&
+          linkedVpnTunnels_ != com.google.cloud.networkconnectivity.v1.LinkedVpnTunnels.getDefaultInstance()) {
+          getLinkedVpnTunnelsBuilder().mergeFrom(value);
         } else {
           linkedVpnTunnels_ = value;
         }
-        onChanged();
       } else {
         linkedVpnTunnelsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2190,14 +2117,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networkconnectivity.v1.LinkedVpnTunnels linked_vpn_tunnels = 17;</code>
      */
     public Builder clearLinkedVpnTunnels() {
-      if (linkedVpnTunnelsBuilder_ == null) {
-        linkedVpnTunnels_ = null;
-        onChanged();
-      } else {
-        linkedVpnTunnels_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      linkedVpnTunnels_ = null;
+      if (linkedVpnTunnelsBuilder_ != null) {
+        linkedVpnTunnelsBuilder_.dispose();
         linkedVpnTunnelsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2208,7 +2134,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networkconnectivity.v1.LinkedVpnTunnels linked_vpn_tunnels = 17;</code>
      */
     public com.google.cloud.networkconnectivity.v1.LinkedVpnTunnels.Builder getLinkedVpnTunnelsBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getLinkedVpnTunnelsFieldBuilder().getBuilder();
     }
@@ -2260,7 +2186,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the linkedInterconnectAttachments field is set.
      */
     public boolean hasLinkedInterconnectAttachments() {
-      return linkedInterconnectAttachmentsBuilder_ != null || linkedInterconnectAttachments_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2290,11 +2216,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         linkedInterconnectAttachments_ = value;
-        onChanged();
       } else {
         linkedInterconnectAttachmentsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2308,11 +2234,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments.Builder builderForValue) {
       if (linkedInterconnectAttachmentsBuilder_ == null) {
         linkedInterconnectAttachments_ = builderForValue.build();
-        onChanged();
       } else {
         linkedInterconnectAttachmentsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2324,17 +2250,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLinkedInterconnectAttachments(com.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments value) {
       if (linkedInterconnectAttachmentsBuilder_ == null) {
-        if (linkedInterconnectAttachments_ != null) {
-          linkedInterconnectAttachments_ =
-            com.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments.newBuilder(linkedInterconnectAttachments_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          linkedInterconnectAttachments_ != null &&
+          linkedInterconnectAttachments_ != com.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments.getDefaultInstance()) {
+          getLinkedInterconnectAttachmentsBuilder().mergeFrom(value);
         } else {
           linkedInterconnectAttachments_ = value;
         }
-        onChanged();
       } else {
         linkedInterconnectAttachmentsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2345,14 +2272,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments linked_interconnect_attachments = 18;</code>
      */
     public Builder clearLinkedInterconnectAttachments() {
-      if (linkedInterconnectAttachmentsBuilder_ == null) {
-        linkedInterconnectAttachments_ = null;
-        onChanged();
-      } else {
-        linkedInterconnectAttachments_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      linkedInterconnectAttachments_ = null;
+      if (linkedInterconnectAttachmentsBuilder_ != null) {
+        linkedInterconnectAttachmentsBuilder_.dispose();
         linkedInterconnectAttachmentsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2363,7 +2289,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments linked_interconnect_attachments = 18;</code>
      */
     public com.google.cloud.networkconnectivity.v1.LinkedInterconnectAttachments.Builder getLinkedInterconnectAttachmentsBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getLinkedInterconnectAttachmentsFieldBuilder().getBuilder();
     }
@@ -2415,7 +2341,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the linkedRouterApplianceInstances field is set.
      */
     public boolean hasLinkedRouterApplianceInstances() {
-      return linkedRouterApplianceInstancesBuilder_ != null || linkedRouterApplianceInstances_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2445,11 +2371,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         linkedRouterApplianceInstances_ = value;
-        onChanged();
       } else {
         linkedRouterApplianceInstancesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2463,11 +2389,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances.Builder builderForValue) {
       if (linkedRouterApplianceInstancesBuilder_ == null) {
         linkedRouterApplianceInstances_ = builderForValue.build();
-        onChanged();
       } else {
         linkedRouterApplianceInstancesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2479,17 +2405,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLinkedRouterApplianceInstances(com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances value) {
       if (linkedRouterApplianceInstancesBuilder_ == null) {
-        if (linkedRouterApplianceInstances_ != null) {
-          linkedRouterApplianceInstances_ =
-            com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances.newBuilder(linkedRouterApplianceInstances_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          linkedRouterApplianceInstances_ != null &&
+          linkedRouterApplianceInstances_ != com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances.getDefaultInstance()) {
+          getLinkedRouterApplianceInstancesBuilder().mergeFrom(value);
         } else {
           linkedRouterApplianceInstances_ = value;
         }
-        onChanged();
       } else {
         linkedRouterApplianceInstancesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2500,14 +2427,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances linked_router_appliance_instances = 19;</code>
      */
     public Builder clearLinkedRouterApplianceInstances() {
-      if (linkedRouterApplianceInstancesBuilder_ == null) {
-        linkedRouterApplianceInstances_ = null;
-        onChanged();
-      } else {
-        linkedRouterApplianceInstances_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      linkedRouterApplianceInstances_ = null;
+      if (linkedRouterApplianceInstancesBuilder_ != null) {
+        linkedRouterApplianceInstancesBuilder_.dispose();
         linkedRouterApplianceInstancesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2518,7 +2444,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances linked_router_appliance_instances = 19;</code>
      */
     public com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances.Builder getLinkedRouterApplianceInstancesBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getLinkedRouterApplianceInstancesFieldBuilder().getBuilder();
     }
@@ -2561,9 +2487,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object uniqueId_ = "";
     /**
      * <pre>
-     * Output only. The Google-generated UUID for the spoke. This value is unique across all
-     * spoke resources. If a spoke is deleted and another with the same name is
-     * created, the new spoke is assigned a different unique_id.
+     * Output only. The Google-generated UUID for the spoke. This value is unique
+     * across all spoke resources. If a spoke is deleted and another with the same
+     * name is created, the new spoke is assigned a different unique_id.
      * </pre>
      *
      * <code>string unique_id = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2583,9 +2509,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The Google-generated UUID for the spoke. This value is unique across all
-     * spoke resources. If a spoke is deleted and another with the same name is
-     * created, the new spoke is assigned a different unique_id.
+     * Output only. The Google-generated UUID for the spoke. This value is unique
+     * across all spoke resources. If a spoke is deleted and another with the same
+     * name is created, the new spoke is assigned a different unique_id.
      * </pre>
      *
      * <code>string unique_id = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2606,9 +2532,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The Google-generated UUID for the spoke. This value is unique across all
-     * spoke resources. If a spoke is deleted and another with the same name is
-     * created, the new spoke is assigned a different unique_id.
+     * Output only. The Google-generated UUID for the spoke. This value is unique
+     * across all spoke resources. If a spoke is deleted and another with the same
+     * name is created, the new spoke is assigned a different unique_id.
      * </pre>
      *
      * <code>string unique_id = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2617,35 +2543,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUniqueId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uniqueId_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The Google-generated UUID for the spoke. This value is unique across all
-     * spoke resources. If a spoke is deleted and another with the same name is
-     * created, the new spoke is assigned a different unique_id.
+     * Output only. The Google-generated UUID for the spoke. This value is unique
+     * across all spoke resources. If a spoke is deleted and another with the same
+     * name is created, the new spoke is assigned a different unique_id.
      * </pre>
      *
      * <code>string unique_id = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearUniqueId() {
-      
       uniqueId_ = getDefaultInstance().getUniqueId();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The Google-generated UUID for the spoke. This value is unique across all
-     * spoke resources. If a spoke is deleted and another with the same name is
-     * created, the new spoke is assigned a different unique_id.
+     * Output only. The Google-generated UUID for the spoke. This value is unique
+     * across all spoke resources. If a spoke is deleted and another with the same
+     * name is created, the new spoke is assigned a different unique_id.
      * </pre>
      *
      * <code>string unique_id = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2654,12 +2578,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUniqueIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uniqueId_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2686,8 +2608,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2701,8 +2623,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.networkconnectivity.v1.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.networkconnectivity.v1.State result = com.google.cloud.networkconnectivity.v1.State.valueOf(state_);
+      com.google.cloud.networkconnectivity.v1.State result = com.google.cloud.networkconnectivity.v1.State.forNumber(state_);
       return result == null ? com.google.cloud.networkconnectivity.v1.State.UNRECOGNIZED : result;
     }
     /**
@@ -2718,7 +2639,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2732,7 +2653,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       state_ = 0;
       onChanged();
       return this;
@@ -2770,7 +2691,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Spoke(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

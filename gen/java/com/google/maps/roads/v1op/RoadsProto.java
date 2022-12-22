@@ -49,41 +49,39 @@ public final class RoadsProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\"google/maps/roads/v1op/roads.proto\022\026go" +
-      "ogle.maps.roads.v1op\032\034google/api/annotat" +
-      "ions.proto\032\027google/api/client.proto\032\036goo" +
-      "gle/protobuf/wrappers.proto\032\030google/type" +
-      "/latlng.proto\"\202\001\n\022SnapToRoadsRequest\022\014\n\004" +
-      "path\030\001 \001(\t\022\023\n\013interpolate\030\002 \001(\010\022\020\n\010asset" +
-      "_id\030\003 \001(\t\0227\n\013travel_mode\030\004 \001(\0162\".google." +
-      "maps.roads.v1op.TravelMode\"}\n\014SnappedPoi" +
-      "nt\022%\n\010location\030\001 \001(\0132\023.google.type.LatLn" +
-      "g\0224\n\016original_index\030\002 \001(\0132\034.google.proto" +
-      "buf.UInt32Value\022\020\n\010place_id\030\003 \001(\t\"l\n\023Sna" +
-      "pToRoadsResponse\022<\n\016snapped_points\030\001 \003(\013" +
-      "2$.google.maps.roads.v1op.SnappedPoint\022\027" +
-      "\n\017warning_message\030\002 \001(\t\"b\n\027ListNearestRo" +
-      "adsRequest\022\016\n\006points\030\001 \001(\t\0227\n\013travel_mod" +
-      "e\030\002 \001(\0162\".google.maps.roads.v1op.TravelM" +
-      "ode\"X\n\030ListNearestRoadsResponse\022<\n\016snapp" +
-      "ed_points\030\001 \003(\0132$.google.maps.roads.v1op" +
-      ".SnappedPoint*P\n\nTravelMode\022\033\n\027TRAVEL_MO" +
-      "DE_UNSPECIFIED\020\000\022\013\n\007DRIVING\020\001\022\013\n\007CYCLING" +
-      "\020\002\022\013\n\007WALKING\020\0032\233\002\n\014RoadsService\022o\n\013Snap" +
-      "ToRoads\022*.google.maps.roads.v1op.SnapToR" +
-      "oadsRequest\032+.google.maps.roads.v1op.Sna" +
-      "pToRoadsResponse\"\007\332A\004path\022\200\001\n\020ListNeares" +
-      "tRoads\022/.google.maps.roads.v1op.ListNear" +
-      "estRoadsRequest\0320.google.maps.roads.v1op" +
-      ".ListNearestRoadsResponse\"\t\332A\006points\032\027\312A" +
-      "\024roads.googleapis.comBg\n\032com.google.maps" +
-      ".roads.v1opB\nRoadsProtoP\001Z;google.golang" +
-      ".org/genproto/googleapis/maps/roads/v1op" +
-      ";roadsb\006proto3"
+      "ogle.maps.roads.v1op\032\027google/api/client." +
+      "proto\032\036google/protobuf/wrappers.proto\032\030g" +
+      "oogle/type/latlng.proto\"\202\001\n\022SnapToRoadsR" +
+      "equest\022\014\n\004path\030\001 \001(\t\022\023\n\013interpolate\030\002 \001(" +
+      "\010\022\020\n\010asset_id\030\003 \001(\t\0227\n\013travel_mode\030\004 \001(\016" +
+      "2\".google.maps.roads.v1op.TravelMode\"}\n\014" +
+      "SnappedPoint\022%\n\010location\030\001 \001(\0132\023.google." +
+      "type.LatLng\0224\n\016original_index\030\002 \001(\0132\034.go" +
+      "ogle.protobuf.UInt32Value\022\020\n\010place_id\030\003 " +
+      "\001(\t\"l\n\023SnapToRoadsResponse\022<\n\016snapped_po" +
+      "ints\030\001 \003(\0132$.google.maps.roads.v1op.Snap" +
+      "pedPoint\022\027\n\017warning_message\030\002 \001(\t\"b\n\027Lis" +
+      "tNearestRoadsRequest\022\016\n\006points\030\001 \001(\t\0227\n\013" +
+      "travel_mode\030\002 \001(\0162\".google.maps.roads.v1" +
+      "op.TravelMode\"X\n\030ListNearestRoadsRespons" +
+      "e\022<\n\016snapped_points\030\001 \003(\0132$.google.maps." +
+      "roads.v1op.SnappedPoint*P\n\nTravelMode\022\033\n" +
+      "\027TRAVEL_MODE_UNSPECIFIED\020\000\022\013\n\007DRIVING\020\001\022" +
+      "\013\n\007CYCLING\020\002\022\013\n\007WALKING\020\0032\233\002\n\014RoadsServi" +
+      "ce\022o\n\013SnapToRoads\022*.google.maps.roads.v1" +
+      "op.SnapToRoadsRequest\032+.google.maps.road" +
+      "s.v1op.SnapToRoadsResponse\"\007\332A\004path\022\200\001\n\020" +
+      "ListNearestRoads\022/.google.maps.roads.v1o" +
+      "p.ListNearestRoadsRequest\0320.google.maps." +
+      "roads.v1op.ListNearestRoadsResponse\"\t\332A\006" +
+      "points\032\027\312A\024roads.googleapis.comBg\n\032com.g" +
+      "oogle.maps.roads.v1opB\nRoadsProtoP\001Z;goo" +
+      "gle.golang.org/genproto/googleapis/maps/" +
+      "roads/v1op;roadsb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
           com.google.api.ClientProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
           com.google.type.LatLngProto.getDescriptor(),
@@ -124,7 +122,6 @@ public final class RoadsProto {
     registry.add(com.google.api.ClientProto.methodSignature);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    com.google.api.AnnotationsProto.getDescriptor();
     com.google.api.ClientProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
     com.google.type.LatLngProto.getDescriptor();

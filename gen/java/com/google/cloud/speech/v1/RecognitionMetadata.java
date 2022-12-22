@@ -41,92 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RecognitionMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            interactionType_ = rawValue;
-            break;
-          }
-          case 24: {
-
-            industryNaicsCodeOfAudio_ = input.readUInt32();
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            microphoneDistance_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            originalMediaType_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            recordingDeviceType_ = rawValue;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            recordingDeviceName_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            originalMimeType_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            audioTopic_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.speech.v1.SpeechProto.internal_static_google_cloud_speech_v1_RecognitionMetadata_descriptor;
@@ -927,7 +841,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTERACTION_TYPE_FIELD_NUMBER = 1;
-  private int interactionType_;
+  private int interactionType_ = 0;
   /**
    * <pre>
    * The use case most closely describing the audio content to be recognized.
@@ -948,13 +862,12 @@ private static final long serialVersionUID = 0L;
    * @return The interactionType.
    */
   @java.lang.Override public com.google.cloud.speech.v1.RecognitionMetadata.InteractionType getInteractionType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.speech.v1.RecognitionMetadata.InteractionType result = com.google.cloud.speech.v1.RecognitionMetadata.InteractionType.valueOf(interactionType_);
+    com.google.cloud.speech.v1.RecognitionMetadata.InteractionType result = com.google.cloud.speech.v1.RecognitionMetadata.InteractionType.forNumber(interactionType_);
     return result == null ? com.google.cloud.speech.v1.RecognitionMetadata.InteractionType.UNRECOGNIZED : result;
   }
 
   public static final int INDUSTRY_NAICS_CODE_OF_AUDIO_FIELD_NUMBER = 3;
-  private int industryNaicsCodeOfAudio_;
+  private int industryNaicsCodeOfAudio_ = 0;
   /**
    * <pre>
    * The industry vertical to which this speech recognition request most
@@ -972,7 +885,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MICROPHONE_DISTANCE_FIELD_NUMBER = 4;
-  private int microphoneDistance_;
+  private int microphoneDistance_ = 0;
   /**
    * <pre>
    * The audio type that most closely describes the audio being recognized.
@@ -993,13 +906,12 @@ private static final long serialVersionUID = 0L;
    * @return The microphoneDistance.
    */
   @java.lang.Override public com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance getMicrophoneDistance() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance result = com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance.valueOf(microphoneDistance_);
+    com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance result = com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance.forNumber(microphoneDistance_);
     return result == null ? com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance.UNRECOGNIZED : result;
   }
 
   public static final int ORIGINAL_MEDIA_TYPE_FIELD_NUMBER = 5;
-  private int originalMediaType_;
+  private int originalMediaType_ = 0;
   /**
    * <pre>
    * The original media the speech was recorded on.
@@ -1020,13 +932,12 @@ private static final long serialVersionUID = 0L;
    * @return The originalMediaType.
    */
   @java.lang.Override public com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType getOriginalMediaType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType result = com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType.valueOf(originalMediaType_);
+    com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType result = com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType.forNumber(originalMediaType_);
     return result == null ? com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType.UNRECOGNIZED : result;
   }
 
   public static final int RECORDING_DEVICE_TYPE_FIELD_NUMBER = 6;
-  private int recordingDeviceType_;
+  private int recordingDeviceType_ = 0;
   /**
    * <pre>
    * The type of device the speech was recorded with.
@@ -1047,13 +958,13 @@ private static final long serialVersionUID = 0L;
    * @return The recordingDeviceType.
    */
   @java.lang.Override public com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType getRecordingDeviceType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType result = com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType.valueOf(recordingDeviceType_);
+    com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType result = com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType.forNumber(recordingDeviceType_);
     return result == null ? com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType.UNRECOGNIZED : result;
   }
 
   public static final int RECORDING_DEVICE_NAME_FIELD_NUMBER = 7;
-  private volatile java.lang.Object recordingDeviceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object recordingDeviceName_ = "";
   /**
    * <pre>
    * The device used to make the recording.  Examples 'Nexus 5X' or
@@ -1103,7 +1014,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORIGINAL_MIME_TYPE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object originalMimeType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object originalMimeType_ = "";
   /**
    * <pre>
    * Mime type of the original audio file.  For example `audio/m4a`,
@@ -1155,7 +1067,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUDIO_TOPIC_FIELD_NUMBER = 10;
-  private volatile java.lang.Object audioTopic_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object audioTopic_ = "";
   /**
    * <pre>
    * Description of the content. Eg. "Recordings of federal supreme court
@@ -1240,7 +1153,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(audioTopic_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, audioTopic_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1278,7 +1191,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(audioTopic_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, audioTopic_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1305,7 +1218,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOriginalMimeType())) return false;
     if (!getAudioTopic()
         .equals(other.getAudioTopic())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1332,7 +1245,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getOriginalMimeType().hashCode();
     hash = (37 * hash) + AUDIO_TOPIC_FIELD_NUMBER;
     hash = (53 * hash) + getAudioTopic().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1453,38 +1366,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.speech.v1.RecognitionMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       interactionType_ = 0;
-
       industryNaicsCodeOfAudio_ = 0;
-
       microphoneDistance_ = 0;
-
       originalMediaType_ = 0;
-
       recordingDeviceType_ = 0;
-
       recordingDeviceName_ = "";
-
       originalMimeType_ = "";
-
       audioTopic_ = "";
-
       return this;
     }
 
@@ -1511,16 +1412,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.speech.v1.RecognitionMetadata buildPartial() {
       com.google.cloud.speech.v1.RecognitionMetadata result = new com.google.cloud.speech.v1.RecognitionMetadata(this);
-      result.interactionType_ = interactionType_;
-      result.industryNaicsCodeOfAudio_ = industryNaicsCodeOfAudio_;
-      result.microphoneDistance_ = microphoneDistance_;
-      result.originalMediaType_ = originalMediaType_;
-      result.recordingDeviceType_ = recordingDeviceType_;
-      result.recordingDeviceName_ = recordingDeviceName_;
-      result.originalMimeType_ = originalMimeType_;
-      result.audioTopic_ = audioTopic_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.speech.v1.RecognitionMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.interactionType_ = interactionType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.industryNaicsCodeOfAudio_ = industryNaicsCodeOfAudio_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.microphoneDistance_ = microphoneDistance_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.originalMediaType_ = originalMediaType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.recordingDeviceType_ = recordingDeviceType_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.recordingDeviceName_ = recordingDeviceName_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.originalMimeType_ = originalMimeType_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.audioTopic_ = audioTopic_;
+      }
     }
 
     @java.lang.Override
@@ -1584,17 +1506,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRecordingDeviceName().isEmpty()) {
         recordingDeviceName_ = other.recordingDeviceName_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getOriginalMimeType().isEmpty()) {
         originalMimeType_ = other.originalMimeType_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getAudioTopic().isEmpty()) {
         audioTopic_ = other.audioTopic_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1609,19 +1534,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.speech.v1.RecognitionMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              interactionType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 24: {
+              industryNaicsCodeOfAudio_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            case 32: {
+              microphoneDistance_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 40: {
+              originalMediaType_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 48: {
+              recordingDeviceType_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 48
+            case 58: {
+              recordingDeviceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              originalMimeType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 82: {
+              audioTopic_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.speech.v1.RecognitionMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int interactionType_ = 0;
     /**
@@ -1645,8 +1624,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInteractionTypeValue(int value) {
-      
       interactionType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1660,8 +1639,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.speech.v1.RecognitionMetadata.InteractionType getInteractionType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.speech.v1.RecognitionMetadata.InteractionType result = com.google.cloud.speech.v1.RecognitionMetadata.InteractionType.valueOf(interactionType_);
+      com.google.cloud.speech.v1.RecognitionMetadata.InteractionType result = com.google.cloud.speech.v1.RecognitionMetadata.InteractionType.forNumber(interactionType_);
       return result == null ? com.google.cloud.speech.v1.RecognitionMetadata.InteractionType.UNRECOGNIZED : result;
     }
     /**
@@ -1677,7 +1655,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       interactionType_ = value.getNumber();
       onChanged();
       return this;
@@ -1691,7 +1669,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInteractionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       interactionType_ = 0;
       onChanged();
       return this;
@@ -1728,6 +1706,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIndustryNaicsCodeOfAudio(int value) {
       
       industryNaicsCodeOfAudio_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1743,7 +1722,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIndustryNaicsCodeOfAudio() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       industryNaicsCodeOfAudio_ = 0;
       onChanged();
       return this;
@@ -1771,8 +1750,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMicrophoneDistanceValue(int value) {
-      
       microphoneDistance_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1786,8 +1765,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance getMicrophoneDistance() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance result = com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance.valueOf(microphoneDistance_);
+      com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance result = com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance.forNumber(microphoneDistance_);
       return result == null ? com.google.cloud.speech.v1.RecognitionMetadata.MicrophoneDistance.UNRECOGNIZED : result;
     }
     /**
@@ -1803,7 +1781,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       microphoneDistance_ = value.getNumber();
       onChanged();
       return this;
@@ -1817,7 +1795,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMicrophoneDistance() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       microphoneDistance_ = 0;
       onChanged();
       return this;
@@ -1845,8 +1823,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOriginalMediaTypeValue(int value) {
-      
       originalMediaType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1860,8 +1838,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType getOriginalMediaType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType result = com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType.valueOf(originalMediaType_);
+      com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType result = com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType.forNumber(originalMediaType_);
       return result == null ? com.google.cloud.speech.v1.RecognitionMetadata.OriginalMediaType.UNRECOGNIZED : result;
     }
     /**
@@ -1877,7 +1854,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       originalMediaType_ = value.getNumber();
       onChanged();
       return this;
@@ -1891,7 +1868,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOriginalMediaType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       originalMediaType_ = 0;
       onChanged();
       return this;
@@ -1919,8 +1896,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRecordingDeviceTypeValue(int value) {
-      
       recordingDeviceType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1934,8 +1911,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType getRecordingDeviceType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType result = com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType.valueOf(recordingDeviceType_);
+      com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType result = com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType.forNumber(recordingDeviceType_);
       return result == null ? com.google.cloud.speech.v1.RecognitionMetadata.RecordingDeviceType.UNRECOGNIZED : result;
     }
     /**
@@ -1951,7 +1927,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       recordingDeviceType_ = value.getNumber();
       onChanged();
       return this;
@@ -1965,7 +1941,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecordingDeviceType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       recordingDeviceType_ = 0;
       onChanged();
       return this;
@@ -2030,11 +2006,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRecordingDeviceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       recordingDeviceName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2049,8 +2023,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecordingDeviceName() {
-      
       recordingDeviceName_ = getDefaultInstance().getRecordingDeviceName();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2067,12 +2041,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRecordingDeviceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       recordingDeviceName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2139,11 +2111,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOriginalMimeType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       originalMimeType_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2159,8 +2129,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOriginalMimeType() {
-      
       originalMimeType_ = getDefaultInstance().getOriginalMimeType();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2178,12 +2148,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOriginalMimeTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       originalMimeType_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2244,11 +2212,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAudioTopic(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       audioTopic_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2262,8 +2228,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAudioTopic() {
-      
       audioTopic_ = getDefaultInstance().getAudioTopic();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2279,12 +2245,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAudioTopicBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       audioTopic_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2321,7 +2285,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RecognitionMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

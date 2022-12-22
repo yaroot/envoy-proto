@@ -253,7 +253,6 @@ public interface ServerConfigOrBuilder extends
    *
    * <code>map&lt;string, .google.container.v1beta1.WindowsVersions&gt; windows_version_maps = 10;</code>
    */
-
   /* nullable */
 com.google.container.v1beta1.WindowsVersions getWindowsVersionMapsOrDefault(
       java.lang.String key,
@@ -266,7 +265,6 @@ com.google.container.v1beta1.WindowsVersions defaultValue);
    *
    * <code>map&lt;string, .google.container.v1beta1.WindowsVersions&gt; windows_version_maps = 10;</code>
    */
-
   com.google.container.v1beta1.WindowsVersions getWindowsVersionMapsOrThrow(
       java.lang.String key);
 }

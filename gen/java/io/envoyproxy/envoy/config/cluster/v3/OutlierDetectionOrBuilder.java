@@ -9,9 +9,9 @@ public interface OutlierDetectionOrBuilder extends
 
   /**
    * <pre>
-   * The number of consecutive 5xx responses or local origin errors that are mapped
-   * to 5xx error codes before a consecutive 5xx ejection
-   * occurs. Defaults to 5.
+   * The number of consecutive server-side error responses (for HTTP traffic,
+   * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+   * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
@@ -20,9 +20,9 @@ public interface OutlierDetectionOrBuilder extends
   boolean hasConsecutive5Xx();
   /**
    * <pre>
-   * The number of consecutive 5xx responses or local origin errors that are mapped
-   * to 5xx error codes before a consecutive 5xx ejection
-   * occurs. Defaults to 5.
+   * The number of consecutive server-side error responses (for HTTP traffic,
+   * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+   * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
@@ -31,9 +31,9 @@ public interface OutlierDetectionOrBuilder extends
   com.google.protobuf.UInt32Value getConsecutive5Xx();
   /**
    * <pre>
-   * The number of consecutive 5xx responses or local origin errors that are mapped
-   * to 5xx error codes before a consecutive 5xx ejection
-   * occurs. Defaults to 5.
+   * The number of consecutive server-side error responses (for HTTP traffic,
+   * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+   * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>

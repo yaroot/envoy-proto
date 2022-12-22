@@ -49,19 +49,19 @@ public interface NodeOrBuilder extends
 
   /**
    * <pre>
-   * Required. The type of hardware accelerators associated with this node.
+   * The type of hardware accelerators associated with this node.
    * </pre>
    *
-   * <code>string accelerator_type = 5 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string accelerator_type = 5;</code>
    * @return The acceleratorType.
    */
   java.lang.String getAcceleratorType();
   /**
    * <pre>
-   * Required. The type of hardware accelerators associated with this node.
+   * The type of hardware accelerators associated with this node.
    * </pre>
    *
-   * <code>string accelerator_type = 5 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string accelerator_type = 5;</code>
    * @return The bytes for acceleratorType.
    */
   com.google.protobuf.ByteString
@@ -385,7 +385,6 @@ public interface NodeOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 24;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -398,7 +397,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 24;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -445,7 +443,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 34;</code>
    */
-
   /* nullable */
 java.lang.String getMetadataOrDefault(
       java.lang.String key,
@@ -459,7 +456,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 34;</code>
    */
-
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
 
@@ -624,4 +620,53 @@ java.lang.String defaultValue);
    */
   com.google.cloud.tpu.v2alpha1.SymptomOrBuilder getSymptomsOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * Output only. The qualified name of the QueuedResource that requested this
+   * Node.
+   * </pre>
+   *
+   * <code>string queued_resource = 43 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The queuedResource.
+   */
+  java.lang.String getQueuedResource();
+  /**
+   * <pre>
+   * Output only. The qualified name of the QueuedResource that requested this
+   * Node.
+   * </pre>
+   *
+   * <code>string queued_resource = 43 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The bytes for queuedResource.
+   */
+  com.google.protobuf.ByteString
+      getQueuedResourceBytes();
+
+  /**
+   * <pre>
+   * Shielded Instance options.
+   * </pre>
+   *
+   * <code>.google.cloud.tpu.v2alpha1.ShieldedInstanceConfig shielded_instance_config = 45;</code>
+   * @return Whether the shieldedInstanceConfig field is set.
+   */
+  boolean hasShieldedInstanceConfig();
+  /**
+   * <pre>
+   * Shielded Instance options.
+   * </pre>
+   *
+   * <code>.google.cloud.tpu.v2alpha1.ShieldedInstanceConfig shielded_instance_config = 45;</code>
+   * @return The shieldedInstanceConfig.
+   */
+  com.google.cloud.tpu.v2alpha1.ShieldedInstanceConfig getShieldedInstanceConfig();
+  /**
+   * <pre>
+   * Shielded Instance options.
+   * </pre>
+   *
+   * <code>.google.cloud.tpu.v2alpha1.ShieldedInstanceConfig shielded_instance_config = 45;</code>
+   */
+  com.google.cloud.tpu.v2alpha1.ShieldedInstanceConfigOrBuilder getShieldedInstanceConfigOrBuilder();
 }

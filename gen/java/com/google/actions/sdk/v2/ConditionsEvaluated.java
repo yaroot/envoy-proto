@@ -36,71 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConditionsEvaluated(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              failedConditions_ = new java.util.ArrayList<com.google.actions.sdk.v2.Condition>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            failedConditions_.add(
-                input.readMessage(com.google.actions.sdk.v2.Condition.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.actions.sdk.v2.Condition.Builder subBuilder = null;
-            if (successCondition_ != null) {
-              subBuilder = successCondition_.toBuilder();
-            }
-            successCondition_ = input.readMessage(com.google.actions.sdk.v2.Condition.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(successCondition_);
-              successCondition_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        failedConditions_ = java.util.Collections.unmodifiableList(failedConditions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.EventLogsProto.internal_static_google_actions_sdk_v2_ConditionsEvaluated_descriptor;
@@ -115,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FAILED_CONDITIONS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.Condition> failedConditions_;
   /**
    * <pre>
@@ -209,7 +145,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.ConditionOrBuilder getSuccessConditionOrBuilder() {
-    return getSuccessCondition();
+    return successCondition_ == null ? com.google.actions.sdk.v2.Condition.getDefaultInstance() : successCondition_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -232,7 +168,7 @@ private static final long serialVersionUID = 0L;
     if (successCondition_ != null) {
       output.writeMessage(2, getSuccessCondition());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +185,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getSuccessCondition());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -271,7 +207,7 @@ private static final long serialVersionUID = 0L;
       if (!getSuccessCondition()
           .equals(other.getSuccessCondition())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -290,7 +226,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUCCESS_CONDITION_FIELD_NUMBER;
       hash = (53 * hash) + getSuccessCondition().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -412,33 +348,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.ConditionsEvaluated.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFailedConditionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (failedConditionsBuilder_ == null) {
         failedConditions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        failedConditions_ = null;
         failedConditionsBuilder_.clear();
       }
-      if (successConditionBuilder_ == null) {
-        successCondition_ = null;
-      } else {
-        successCondition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      successCondition_ = null;
+      if (successConditionBuilder_ != null) {
+        successConditionBuilder_.dispose();
         successConditionBuilder_ = null;
       }
       return this;
@@ -467,7 +398,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.ConditionsEvaluated buildPartial() {
       com.google.actions.sdk.v2.ConditionsEvaluated result = new com.google.actions.sdk.v2.ConditionsEvaluated(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.ConditionsEvaluated result) {
       if (failedConditionsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           failedConditions_ = java.util.Collections.unmodifiableList(failedConditions_);
@@ -477,13 +414,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.failedConditions_ = failedConditionsBuilder_.build();
       }
-      if (successConditionBuilder_ == null) {
-        result.successCondition_ = successCondition_;
-      } else {
-        result.successCondition_ = successConditionBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.ConditionsEvaluated result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.successCondition_ = successConditionBuilder_ == null
+            ? successCondition_
+            : successConditionBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -559,7 +498,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSuccessCondition()) {
         mergeSuccessCondition(other.getSuccessCondition());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -574,17 +513,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.ConditionsEvaluated parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.actions.sdk.v2.Condition m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.Condition.parser(),
+                      extensionRegistry);
+              if (failedConditionsBuilder_ == null) {
+                ensureFailedConditionsIsMutable();
+                failedConditions_.add(m);
+              } else {
+                failedConditionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSuccessConditionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.ConditionsEvaluated) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -913,7 +885,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the successCondition field is set.
      */
     public boolean hasSuccessCondition() {
-      return successConditionBuilder_ != null || successCondition_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -943,11 +915,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         successCondition_ = value;
-        onChanged();
       } else {
         successConditionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -961,11 +933,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.Condition.Builder builderForValue) {
       if (successConditionBuilder_ == null) {
         successCondition_ = builderForValue.build();
-        onChanged();
       } else {
         successConditionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -977,17 +949,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSuccessCondition(com.google.actions.sdk.v2.Condition value) {
       if (successConditionBuilder_ == null) {
-        if (successCondition_ != null) {
-          successCondition_ =
-            com.google.actions.sdk.v2.Condition.newBuilder(successCondition_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          successCondition_ != null &&
+          successCondition_ != com.google.actions.sdk.v2.Condition.getDefaultInstance()) {
+          getSuccessConditionBuilder().mergeFrom(value);
         } else {
           successCondition_ = value;
         }
-        onChanged();
       } else {
         successConditionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -998,14 +971,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.Condition success_condition = 2;</code>
      */
     public Builder clearSuccessCondition() {
-      if (successConditionBuilder_ == null) {
-        successCondition_ = null;
-        onChanged();
-      } else {
-        successCondition_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      successCondition_ = null;
+      if (successConditionBuilder_ != null) {
+        successConditionBuilder_.dispose();
         successConditionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1016,7 +988,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.Condition success_condition = 2;</code>
      */
     public com.google.actions.sdk.v2.Condition.Builder getSuccessConditionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSuccessConditionFieldBuilder().getBuilder();
     }
@@ -1088,7 +1060,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConditionsEvaluated(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

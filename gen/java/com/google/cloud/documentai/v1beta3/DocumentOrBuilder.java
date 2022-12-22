@@ -117,51 +117,51 @@ public interface DocumentOrBuilder extends
 
   /**
    * <pre>
-   * Placeholder.  Styles for the
+   * Styles for the
    * [Document.text][google.cloud.documentai.v1beta3.Document.text].
    * </pre>
    *
-   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5;</code>
+   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5 [deprecated = true];</code>
    */
-  java.util.List<com.google.cloud.documentai.v1beta3.Document.Style> 
+  @java.lang.Deprecated java.util.List<com.google.cloud.documentai.v1beta3.Document.Style> 
       getTextStylesList();
   /**
    * <pre>
-   * Placeholder.  Styles for the
+   * Styles for the
    * [Document.text][google.cloud.documentai.v1beta3.Document.text].
    * </pre>
    *
-   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5;</code>
+   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5 [deprecated = true];</code>
    */
-  com.google.cloud.documentai.v1beta3.Document.Style getTextStyles(int index);
+  @java.lang.Deprecated com.google.cloud.documentai.v1beta3.Document.Style getTextStyles(int index);
   /**
    * <pre>
-   * Placeholder.  Styles for the
+   * Styles for the
    * [Document.text][google.cloud.documentai.v1beta3.Document.text].
    * </pre>
    *
-   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5;</code>
+   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5 [deprecated = true];</code>
    */
-  int getTextStylesCount();
+  @java.lang.Deprecated int getTextStylesCount();
   /**
    * <pre>
-   * Placeholder.  Styles for the
+   * Styles for the
    * [Document.text][google.cloud.documentai.v1beta3.Document.text].
    * </pre>
    *
-   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5;</code>
+   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5 [deprecated = true];</code>
    */
-  java.util.List<? extends com.google.cloud.documentai.v1beta3.Document.StyleOrBuilder> 
+  @java.lang.Deprecated java.util.List<? extends com.google.cloud.documentai.v1beta3.Document.StyleOrBuilder> 
       getTextStylesOrBuilderList();
   /**
    * <pre>
-   * Placeholder.  Styles for the
+   * Styles for the
    * [Document.text][google.cloud.documentai.v1beta3.Document.text].
    * </pre>
    *
-   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5;</code>
+   * <code>repeated .google.cloud.documentai.v1beta3.Document.Style text_styles = 5 [deprecated = true];</code>
    */
-  com.google.cloud.documentai.v1beta3.Document.StyleOrBuilder getTextStylesOrBuilder(
+  @java.lang.Deprecated com.google.cloud.documentai.v1beta3.Document.StyleOrBuilder getTextStylesOrBuilder(
       int index);
 
   /**
@@ -318,7 +318,8 @@ public interface DocumentOrBuilder extends
 
   /**
    * <pre>
-   * Placeholder.  A list of text corrections made to [Document.text].  This is
+   * Placeholder.  A list of text corrections made to
+   * [Document.text][google.cloud.documentai.v1beta3.Document.text].  This is
    * usually used for annotating corrections to OCR mistakes.  Text changes for
    * a given revision may not overlap with each other.
    * </pre>
@@ -329,7 +330,8 @@ public interface DocumentOrBuilder extends
       getTextChangesList();
   /**
    * <pre>
-   * Placeholder.  A list of text corrections made to [Document.text].  This is
+   * Placeholder.  A list of text corrections made to
+   * [Document.text][google.cloud.documentai.v1beta3.Document.text].  This is
    * usually used for annotating corrections to OCR mistakes.  Text changes for
    * a given revision may not overlap with each other.
    * </pre>
@@ -339,7 +341,8 @@ public interface DocumentOrBuilder extends
   com.google.cloud.documentai.v1beta3.Document.TextChange getTextChanges(int index);
   /**
    * <pre>
-   * Placeholder.  A list of text corrections made to [Document.text].  This is
+   * Placeholder.  A list of text corrections made to
+   * [Document.text][google.cloud.documentai.v1beta3.Document.text].  This is
    * usually used for annotating corrections to OCR mistakes.  Text changes for
    * a given revision may not overlap with each other.
    * </pre>
@@ -349,7 +352,8 @@ public interface DocumentOrBuilder extends
   int getTextChangesCount();
   /**
    * <pre>
-   * Placeholder.  A list of text corrections made to [Document.text].  This is
+   * Placeholder.  A list of text corrections made to
+   * [Document.text][google.cloud.documentai.v1beta3.Document.text].  This is
    * usually used for annotating corrections to OCR mistakes.  Text changes for
    * a given revision may not overlap with each other.
    * </pre>
@@ -360,7 +364,8 @@ public interface DocumentOrBuilder extends
       getTextChangesOrBuilderList();
   /**
    * <pre>
-   * Placeholder.  A list of text corrections made to [Document.text].  This is
+   * Placeholder.  A list of text corrections made to
+   * [Document.text][google.cloud.documentai.v1beta3.Document.text].  This is
    * usually used for annotating corrections to OCR mistakes.  Text changes for
    * a given revision may not overlap with each other.
    * </pre>

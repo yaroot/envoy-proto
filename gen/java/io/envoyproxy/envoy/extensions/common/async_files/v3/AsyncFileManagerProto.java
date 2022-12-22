@@ -37,17 +37,17 @@ public final class AsyncFileManagerProto {
       "/async_file_manager.proto\022&envoy.extensi" +
       "ons.common.async_files.v3\032\037xds/annotatio" +
       "ns/v3/status.proto\032\035udpa/annotations/sta" +
-      "tus.proto\032\027validate/validate.proto\"\277\001\n\026A" +
+      "tus.proto\032\027validate/validate.proto\"\311\001\n\026A" +
       "syncFileManagerConfig\022\n\n\002id\030\001 \001(\t\022`\n\013thr" +
       "ead_pool\030\002 \001(\0132I.envoy.extensions.common" +
       ".async_files.v3.AsyncFileManagerConfig.T" +
-      "hreadPoolH\000\032\"\n\nThreadPool\022\024\n\014thread_coun" +
-      "t\030\001 \001(\rB\023\n\014manager_type\022\003\370B\001B\274\001\n4io.envo" +
-      "yproxy.envoy.extensions.common.async_fil" +
-      "es.v3B\025AsyncFileManagerProtoP\001Z[github.c" +
-      "om/envoyproxy/go-control-plane/envoy/ext" +
-      "ensions/common/async_files/v3;async_file" +
-      "sv3\272\200\310\321\006\002\020\002\322\306\244\341\006\002\010\001b\006proto3"
+      "hreadPoolH\000\032,\n\nThreadPool\022\036\n\014thread_coun" +
+      "t\030\001 \001(\rB\010\372B\005*\003\030\200\010B\023\n\014manager_type\022\003\370B\001B\274" +
+      "\001\n4io.envoyproxy.envoy.extensions.common" +
+      ".async_files.v3B\025AsyncFileManagerProtoP\001" +
+      "Z[github.com/envoyproxy/go-control-plane" +
+      "/envoy/extensions/common/async_files/v3;" +
+      "async_filesv3\272\200\310\321\006\002\020\002\322\306\244\341\006\002\010\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -72,6 +72,7 @@ public final class AsyncFileManagerProto {
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);
     registry.add(io.envoyproxy.pgv.validate.Validate.required);
+    registry.add(io.envoyproxy.pgv.validate.Validate.rules);
     registry.add(xds.annotations.v3.Status.fileStatus);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);

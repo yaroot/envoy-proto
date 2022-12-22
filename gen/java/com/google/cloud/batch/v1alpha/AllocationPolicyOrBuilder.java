@@ -36,29 +36,29 @@ public interface AllocationPolicyOrBuilder extends
 
   /**
    * <pre>
-   * Create only instances allowed by this policy.
+   * Deprecated: please use instances[0].policy instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=415
+   *     See google/cloud/batch/v1alpha/job.proto;l=460
    * @return Whether the instance field is set.
    */
   @java.lang.Deprecated boolean hasInstance();
   /**
    * <pre>
-   * Create only instances allowed by this policy.
+   * Deprecated: please use instances[0].policy instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=415
+   *     See google/cloud/batch/v1alpha/job.proto;l=460
    * @return The instance.
    */
   @java.lang.Deprecated com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy getInstance();
   /**
    * <pre>
-   * Create only instances allowed by this policy.
+   * Deprecated: please use instances[0].policy instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
@@ -116,51 +116,47 @@ public interface AllocationPolicyOrBuilder extends
 
   /**
    * <pre>
-   * Instance templates that are used to VMs.
-   * If specified, only instance_templates[0] is used.
+   * Deprecated: please use instances[0].template instead.
    * </pre>
    *
    * <code>repeated string instance_templates = 3 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=423
+   *     See google/cloud/batch/v1alpha/job.proto;l=467
    * @return A list containing the instanceTemplates.
    */
   @java.lang.Deprecated java.util.List<java.lang.String>
       getInstanceTemplatesList();
   /**
    * <pre>
-   * Instance templates that are used to VMs.
-   * If specified, only instance_templates[0] is used.
+   * Deprecated: please use instances[0].template instead.
    * </pre>
    *
    * <code>repeated string instance_templates = 3 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=423
+   *     See google/cloud/batch/v1alpha/job.proto;l=467
    * @return The count of instanceTemplates.
    */
   @java.lang.Deprecated int getInstanceTemplatesCount();
   /**
    * <pre>
-   * Instance templates that are used to VMs.
-   * If specified, only instance_templates[0] is used.
+   * Deprecated: please use instances[0].template instead.
    * </pre>
    *
    * <code>repeated string instance_templates = 3 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=423
+   *     See google/cloud/batch/v1alpha/job.proto;l=467
    * @param index The index of the element to return.
    * @return The instanceTemplates at the given index.
    */
   @java.lang.Deprecated java.lang.String getInstanceTemplates(int index);
   /**
    * <pre>
-   * Instance templates that are used to VMs.
-   * If specified, only instance_templates[0] is used.
+   * Deprecated: please use instances[0].template instead.
    * </pre>
    *
    * <code>repeated string instance_templates = 3 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=423
+   *     See google/cloud/batch/v1alpha/job.proto;l=467
    * @param index The index of the value to return.
    * @return The bytes of the instanceTemplates at the given index.
    */
@@ -169,73 +165,58 @@ public interface AllocationPolicyOrBuilder extends
 
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @return A list containing the provisioningModels.
    */
   @java.lang.Deprecated java.util.List<com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel> getProvisioningModelsList();
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @return The count of provisioningModels.
    */
   @java.lang.Deprecated int getProvisioningModelsCount();
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @param index The index of the element to return.
    * @return The provisioningModels at the given index.
    */
   @java.lang.Deprecated com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel getProvisioningModels(int index);
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @return A list containing the enum numeric values on the wire for provisioningModels.
    */
   @java.lang.Deprecated java.util.List<java.lang.Integer>
   getProvisioningModelsValueList();
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @param index The index of the value to return.
    * @return The enum numeric value on the wire of provisioningModels at the given index.
    */
@@ -243,28 +224,31 @@ public interface AllocationPolicyOrBuilder extends
 
   /**
    * <pre>
-   * Email of the service account that VMs will run as.
+   * Deprecated: please use service_account instead.
    * </pre>
    *
-   * <code>string service_account_email = 5;</code>
+   * <code>string service_account_email = 5 [deprecated = true];</code>
+   * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.service_account_email is deprecated.
+   *     See google/cloud/batch/v1alpha/job.proto;l=473
    * @return The serviceAccountEmail.
    */
-  java.lang.String getServiceAccountEmail();
+  @java.lang.Deprecated java.lang.String getServiceAccountEmail();
   /**
    * <pre>
-   * Email of the service account that VMs will run as.
+   * Deprecated: please use service_account instead.
    * </pre>
    *
-   * <code>string service_account_email = 5;</code>
+   * <code>string service_account_email = 5 [deprecated = true];</code>
+   * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.service_account_email is deprecated.
+   *     See google/cloud/batch/v1alpha/job.proto;l=473
    * @return The bytes for serviceAccountEmail.
    */
-  com.google.protobuf.ByteString
+  @java.lang.Deprecated com.google.protobuf.ByteString
       getServiceAccountEmailBytes();
 
   /**
    * <pre>
    * Service account that VMs will run as.
-   * Not yet implemented.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -274,7 +258,6 @@ public interface AllocationPolicyOrBuilder extends
   /**
    * <pre>
    * Service account that VMs will run as.
-   * Not yet implemented.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -284,7 +267,6 @@ public interface AllocationPolicyOrBuilder extends
   /**
    * <pre>
    * Service account that VMs will run as.
-   * Not yet implemented.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -354,7 +336,6 @@ public interface AllocationPolicyOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -373,7 +354,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

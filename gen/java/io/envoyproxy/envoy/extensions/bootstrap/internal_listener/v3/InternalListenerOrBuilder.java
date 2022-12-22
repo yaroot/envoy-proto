@@ -6,4 +6,40 @@ package io.envoyproxy.envoy.extensions.bootstrap.internal_listener.v3;
 public interface InternalListenerOrBuilder extends
     // @@protoc_insertion_point(interface_extends:envoy.extensions.bootstrap.internal_listener.v3.InternalListener)
     com.google.protobuf.MessageOrBuilder {
+
+  /**
+   * <pre>
+   * The internal listener client connection buffer size in KiB.
+   * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+   * 5 KiB = 5 * 1024 bytes.
+   * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+   * @return Whether the bufferSizeKb field is set.
+   */
+  boolean hasBufferSizeKb();
+  /**
+   * <pre>
+   * The internal listener client connection buffer size in KiB.
+   * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+   * 5 KiB = 5 * 1024 bytes.
+   * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+   * @return The bufferSizeKb.
+   */
+  com.google.protobuf.UInt32Value getBufferSizeKb();
+  /**
+   * <pre>
+   * The internal listener client connection buffer size in KiB.
+   * For example, if ``buffer_size_kb`` is set to 5, then the actual buffer size is
+   * 5 KiB = 5 * 1024 bytes.
+   * If the ``buffer_size_kb`` is not specified, the buffer size is set to 1024 KiB.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value buffer_size_kb = 1 [(.validate.rules) = { ... }</code>
+   */
+  com.google.protobuf.UInt32ValueOrBuilder getBufferSizeKbOrBuilder();
 }

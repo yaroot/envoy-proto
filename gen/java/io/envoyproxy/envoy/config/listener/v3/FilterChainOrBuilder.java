@@ -40,6 +40,11 @@ public interface FilterChainOrBuilder extends
    * connections established with the listener. Order matters as the filters are
    * processed sequentially as connection events happen. Note: If the filter
    * list is empty, the connection will close by default.
+   * For QUIC listeners, network filters other than HTTP Connection Manager (HCM)
+   * can be created, but due to differences in the connection implementation compared
+   * to TCP, the onData() method will never be called. Therefore, network filters
+   * for QUIC listeners should only expect to do work at the start of a new connection
+   * (i.e. in onNewConnection()). HCM must be the last (or only) filter in the chain.
    * </pre>
    *
    * <code>repeated .envoy.config.listener.v3.Filter filters = 3;</code>
@@ -52,6 +57,11 @@ public interface FilterChainOrBuilder extends
    * connections established with the listener. Order matters as the filters are
    * processed sequentially as connection events happen. Note: If the filter
    * list is empty, the connection will close by default.
+   * For QUIC listeners, network filters other than HTTP Connection Manager (HCM)
+   * can be created, but due to differences in the connection implementation compared
+   * to TCP, the onData() method will never be called. Therefore, network filters
+   * for QUIC listeners should only expect to do work at the start of a new connection
+   * (i.e. in onNewConnection()). HCM must be the last (or only) filter in the chain.
    * </pre>
    *
    * <code>repeated .envoy.config.listener.v3.Filter filters = 3;</code>
@@ -63,6 +73,11 @@ public interface FilterChainOrBuilder extends
    * connections established with the listener. Order matters as the filters are
    * processed sequentially as connection events happen. Note: If the filter
    * list is empty, the connection will close by default.
+   * For QUIC listeners, network filters other than HTTP Connection Manager (HCM)
+   * can be created, but due to differences in the connection implementation compared
+   * to TCP, the onData() method will never be called. Therefore, network filters
+   * for QUIC listeners should only expect to do work at the start of a new connection
+   * (i.e. in onNewConnection()). HCM must be the last (or only) filter in the chain.
    * </pre>
    *
    * <code>repeated .envoy.config.listener.v3.Filter filters = 3;</code>
@@ -74,6 +89,11 @@ public interface FilterChainOrBuilder extends
    * connections established with the listener. Order matters as the filters are
    * processed sequentially as connection events happen. Note: If the filter
    * list is empty, the connection will close by default.
+   * For QUIC listeners, network filters other than HTTP Connection Manager (HCM)
+   * can be created, but due to differences in the connection implementation compared
+   * to TCP, the onData() method will never be called. Therefore, network filters
+   * for QUIC listeners should only expect to do work at the start of a new connection
+   * (i.e. in onNewConnection()). HCM must be the last (or only) filter in the chain.
    * </pre>
    *
    * <code>repeated .envoy.config.listener.v3.Filter filters = 3;</code>
@@ -86,6 +106,11 @@ public interface FilterChainOrBuilder extends
    * connections established with the listener. Order matters as the filters are
    * processed sequentially as connection events happen. Note: If the filter
    * list is empty, the connection will close by default.
+   * For QUIC listeners, network filters other than HTTP Connection Manager (HCM)
+   * can be created, but due to differences in the connection implementation compared
+   * to TCP, the onData() method will never be called. Therefore, network filters
+   * for QUIC listeners should only expect to do work at the start of a new connection
+   * (i.e. in onNewConnection()). HCM must be the last (or only) filter in the chain.
    * </pre>
    *
    * <code>repeated .envoy.config.listener.v3.Filter filters = 3;</code>
@@ -108,7 +133,7 @@ public interface FilterChainOrBuilder extends
    *
    * <code>.google.protobuf.BoolValue use_proxy_proto = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.listener.v3.FilterChain.use_proxy_proto is deprecated.
-   *     See envoy/config/listener/v3/listener_components.proto;l=241
+   *     See envoy/config/listener/v3/listener_components.proto;l=248
    * @return Whether the useProxyProto field is set.
    */
   @java.lang.Deprecated boolean hasUseProxyProto();
@@ -127,7 +152,7 @@ public interface FilterChainOrBuilder extends
    *
    * <code>.google.protobuf.BoolValue use_proxy_proto = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.listener.v3.FilterChain.use_proxy_proto is deprecated.
-   *     See envoy/config/listener/v3/listener_components.proto;l=241
+   *     See envoy/config/listener/v3/listener_components.proto;l=248
    * @return The useProxyProto.
    */
   @java.lang.Deprecated com.google.protobuf.BoolValue getUseProxyProto();

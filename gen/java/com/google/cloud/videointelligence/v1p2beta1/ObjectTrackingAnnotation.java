@@ -35,95 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ObjectTrackingAnnotation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.videointelligence.v1p2beta1.Entity.Builder subBuilder = null;
-            if (entity_ != null) {
-              subBuilder = entity_.toBuilder();
-            }
-            entity_ = input.readMessage(com.google.cloud.videointelligence.v1p2beta1.Entity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(entity_);
-              entity_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              frames_ = new java.util.ArrayList<com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrame>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            frames_.add(
-                input.readMessage(com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrame.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.cloud.videointelligence.v1p2beta1.VideoSegment.Builder subBuilder = null;
-            if (trackInfoCase_ == 3) {
-              subBuilder = ((com.google.cloud.videointelligence.v1p2beta1.VideoSegment) trackInfo_).toBuilder();
-            }
-            trackInfo_ =
-                input.readMessage(com.google.cloud.videointelligence.v1p2beta1.VideoSegment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.videointelligence.v1p2beta1.VideoSegment) trackInfo_);
-              trackInfo_ = subBuilder.buildPartial();
-            }
-            trackInfoCase_ = 3;
-            break;
-          }
-          case 37: {
-
-            confidence_ = input.readFloat();
-            break;
-          }
-          case 40: {
-            trackInfo_ = input.readInt64();
-            trackInfoCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        frames_ = java.util.Collections.unmodifiableList(frames_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.videointelligence.v1p2beta1.VideoIntelligenceServiceProto.internal_static_google_cloud_videointelligence_v1p2beta1_ObjectTrackingAnnotation_descriptor;
@@ -298,11 +209,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p2beta1.EntityOrBuilder getEntityOrBuilder() {
-    return getEntity();
+    return entity_ == null ? com.google.cloud.videointelligence.v1p2beta1.Entity.getDefaultInstance() : entity_;
   }
 
   public static final int CONFIDENCE_FIELD_NUMBER = 4;
-  private float confidence_;
+  private float confidence_ = 0F;
   /**
    * <pre>
    * Object category's labeling confidence of this track.
@@ -317,6 +228,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FRAMES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrame> frames_;
   /**
    * <pre>
@@ -406,7 +318,7 @@ private static final long serialVersionUID = 0L;
       output.writeInt64(
           5, (long)((java.lang.Long) trackInfo_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -436,7 +348,7 @@ private static final long serialVersionUID = 0L;
         .computeInt64Size(
             5, (long)((java.lang.Long) trackInfo_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -474,7 +386,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -509,7 +421,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -630,37 +542,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingAnnotation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFramesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (entityBuilder_ == null) {
-        entity_ = null;
-      } else {
-        entity_ = null;
+      bitField0_ = 0;
+      if (segmentBuilder_ != null) {
+        segmentBuilder_.clear();
+      }
+      entity_ = null;
+      if (entityBuilder_ != null) {
+        entityBuilder_.dispose();
         entityBuilder_ = null;
       }
       confidence_ = 0F;
-
       if (framesBuilder_ == null) {
         frames_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        frames_ = null;
         framesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       trackInfoCase_ = 0;
       trackInfo_ = null;
       return this;
@@ -689,35 +598,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingAnnotation buildPartial() {
       com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingAnnotation result = new com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingAnnotation(this);
-      int from_bitField0_ = bitField0_;
-      if (trackInfoCase_ == 3) {
-        if (segmentBuilder_ == null) {
-          result.trackInfo_ = trackInfo_;
-        } else {
-          result.trackInfo_ = segmentBuilder_.build();
-        }
-      }
-      if (trackInfoCase_ == 5) {
-        result.trackInfo_ = trackInfo_;
-      }
-      if (entityBuilder_ == null) {
-        result.entity_ = entity_;
-      } else {
-        result.entity_ = entityBuilder_.build();
-      }
-      result.confidence_ = confidence_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingAnnotation result) {
       if (framesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           frames_ = java.util.Collections.unmodifiableList(frames_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.frames_ = frames_;
       } else {
         result.frames_ = framesBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingAnnotation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.entity_ = entityBuilder_ == null
+            ? entity_
+            : entityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.confidence_ = confidence_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingAnnotation result) {
       result.trackInfoCase_ = trackInfoCase_;
-      onBuilt();
-      return result;
+      result.trackInfo_ = this.trackInfo_;
+      if (trackInfoCase_ == 3 &&
+          segmentBuilder_ != null) {
+        result.trackInfo_ = segmentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -774,7 +692,7 @@ private static final long serialVersionUID = 0L;
         if (!other.frames_.isEmpty()) {
           if (frames_.isEmpty()) {
             frames_ = other.frames_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureFramesIsMutable();
             frames_.addAll(other.frames_);
@@ -787,7 +705,7 @@ private static final long serialVersionUID = 0L;
             framesBuilder_.dispose();
             framesBuilder_ = null;
             frames_ = other.frames_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             framesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFramesFieldBuilder() : null;
@@ -809,7 +727,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -824,17 +742,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingAnnotation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEntityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrame m =
+                  input.readMessage(
+                      com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrame.parser(),
+                      extensionRegistry);
+              if (framesBuilder_ == null) {
+                ensureFramesIsMutable();
+                frames_.add(m);
+              } else {
+                framesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getSegmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              trackInfoCase_ = 3;
+              break;
+            } // case 26
+            case 37: {
+              confidence_ = input.readFloat();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 37
+            case 40: {
+              trackInfo_ = input.readInt64();
+              trackInfoCase_ = 5;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingAnnotation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int trackInfoCase_ = 0;
@@ -1037,7 +1005,7 @@ private static final long serialVersionUID = 0L;
         trackInfo_ = null;
       }
       trackInfoCase_ = 3;
-      onChanged();;
+      onChanged();
       return segmentBuilder_;
     }
 
@@ -1091,6 +1059,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTrackId(long value) {
+      
       trackInfoCase_ = 5;
       trackInfo_ = value;
       onChanged();
@@ -1130,7 +1099,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the entity field is set.
      */
     public boolean hasEntity() {
-      return entityBuilder_ != null || entity_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1160,11 +1129,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         entity_ = value;
-        onChanged();
       } else {
         entityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1178,11 +1147,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p2beta1.Entity.Builder builderForValue) {
       if (entityBuilder_ == null) {
         entity_ = builderForValue.build();
-        onChanged();
       } else {
         entityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1194,17 +1163,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEntity(com.google.cloud.videointelligence.v1p2beta1.Entity value) {
       if (entityBuilder_ == null) {
-        if (entity_ != null) {
-          entity_ =
-            com.google.cloud.videointelligence.v1p2beta1.Entity.newBuilder(entity_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          entity_ != null &&
+          entity_ != com.google.cloud.videointelligence.v1p2beta1.Entity.getDefaultInstance()) {
+          getEntityBuilder().mergeFrom(value);
         } else {
           entity_ = value;
         }
-        onChanged();
       } else {
         entityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1215,14 +1185,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p2beta1.Entity entity = 1;</code>
      */
     public Builder clearEntity() {
-      if (entityBuilder_ == null) {
-        entity_ = null;
-        onChanged();
-      } else {
-        entity_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      entity_ = null;
+      if (entityBuilder_ != null) {
+        entityBuilder_.dispose();
         entityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1233,7 +1202,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p2beta1.Entity entity = 1;</code>
      */
     public com.google.cloud.videointelligence.v1p2beta1.Entity.Builder getEntityBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getEntityFieldBuilder().getBuilder();
     }
@@ -1298,6 +1267,7 @@ private static final long serialVersionUID = 0L;
     public Builder setConfidence(float value) {
       
       confidence_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1310,7 +1280,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConfidence() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       confidence_ = 0F;
       onChanged();
       return this;
@@ -1319,9 +1289,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrame> frames_ =
       java.util.Collections.emptyList();
     private void ensureFramesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         frames_ = new java.util.ArrayList<com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrame>(frames_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1515,7 +1485,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFrames() {
       if (framesBuilder_ == null) {
         frames_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         framesBuilder_.clear();
@@ -1620,7 +1590,7 @@ private static final long serialVersionUID = 0L;
         framesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrame, com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrame.Builder, com.google.cloud.videointelligence.v1p2beta1.ObjectTrackingFrameOrBuilder>(
                 frames_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         frames_ = null;
@@ -1660,7 +1630,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ObjectTrackingAnnotation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

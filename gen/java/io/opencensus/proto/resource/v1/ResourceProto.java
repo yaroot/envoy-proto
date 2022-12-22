@@ -38,11 +38,11 @@ public final class ResourceProto {
       "Resource\022\014\n\004type\030\001 \001(\t\022B\n\006labels\030\002 \003(\01322" +
       ".opencensus.proto.resource.v1.Resource.L" +
       "abelsEntry\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001B\230\001\n\037io.opencensus.prot" +
+      "\n\005value\030\002 \001(\t:\0028\001B\233\001\n\037io.opencensus.prot" +
       "o.resource.v1B\rResourceProtoP\001ZEgithub.c" +
       "om/census-instrumentation/opencensus-pro" +
-      "to/gen-go/resource/v1\352\002\034OpenCensus.Proto" +
-      ".Resource.V1b\006proto3"
+      "to/gen-go/resource/v1\352\002\037OpenCensus::Prot" +
+      "o::Resource::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

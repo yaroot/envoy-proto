@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MetadataIntegration(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.metastore.v1beta.DataCatalogConfig.Builder subBuilder = null;
-            if (dataCatalogConfig_ != null) {
-              subBuilder = dataCatalogConfig_.toBuilder();
-            }
-            dataCatalogConfig_ = input.readMessage(com.google.cloud.metastore.v1beta.DataCatalogConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dataCatalogConfig_);
-              dataCatalogConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1beta.MetastoreProto.internal_static_google_cloud_metastore_v1beta_MetadataIntegration_descriptor;
@@ -134,7 +82,45 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.metastore.v1beta.DataCatalogConfigOrBuilder getDataCatalogConfigOrBuilder() {
-    return getDataCatalogConfig();
+    return dataCatalogConfig_ == null ? com.google.cloud.metastore.v1beta.DataCatalogConfig.getDefaultInstance() : dataCatalogConfig_;
+  }
+
+  public static final int DATAPLEX_CONFIG_FIELD_NUMBER = 2;
+  private com.google.cloud.metastore.v1beta.DataplexConfig dataplexConfig_;
+  /**
+   * <pre>
+   * The integration config for the Dataplex service.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+   * @return Whether the dataplexConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasDataplexConfig() {
+    return dataplexConfig_ != null;
+  }
+  /**
+   * <pre>
+   * The integration config for the Dataplex service.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+   * @return The dataplexConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.metastore.v1beta.DataplexConfig getDataplexConfig() {
+    return dataplexConfig_ == null ? com.google.cloud.metastore.v1beta.DataplexConfig.getDefaultInstance() : dataplexConfig_;
+  }
+  /**
+   * <pre>
+   * The integration config for the Dataplex service.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.metastore.v1beta.DataplexConfigOrBuilder getDataplexConfigOrBuilder() {
+    return dataplexConfig_ == null ? com.google.cloud.metastore.v1beta.DataplexConfig.getDefaultInstance() : dataplexConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +140,10 @@ private static final long serialVersionUID = 0L;
     if (dataCatalogConfig_ != null) {
       output.writeMessage(1, getDataCatalogConfig());
     }
-    unknownFields.writeTo(output);
+    if (dataplexConfig_ != null) {
+      output.writeMessage(2, getDataplexConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +156,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getDataCatalogConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (dataplexConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getDataplexConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +180,12 @@ private static final long serialVersionUID = 0L;
       if (!getDataCatalogConfig()
           .equals(other.getDataCatalogConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasDataplexConfig() != other.hasDataplexConfig()) return false;
+    if (hasDataplexConfig()) {
+      if (!getDataplexConfig()
+          .equals(other.getDataplexConfig())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +200,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DATA_CATALOG_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getDataCatalogConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasDataplexConfig()) {
+      hash = (37 * hash) + DATAPLEX_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getDataplexConfig().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,27 +325,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1beta.MetadataIntegration.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (dataCatalogConfigBuilder_ == null) {
-        dataCatalogConfig_ = null;
-      } else {
-        dataCatalogConfig_ = null;
+      bitField0_ = 0;
+      dataCatalogConfig_ = null;
+      if (dataCatalogConfigBuilder_ != null) {
+        dataCatalogConfigBuilder_.dispose();
         dataCatalogConfigBuilder_ = null;
+      }
+      dataplexConfig_ = null;
+      if (dataplexConfigBuilder_ != null) {
+        dataplexConfigBuilder_.dispose();
+        dataplexConfigBuilder_ = null;
       }
       return this;
     }
@@ -371,13 +373,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1beta.MetadataIntegration buildPartial() {
       com.google.cloud.metastore.v1beta.MetadataIntegration result = new com.google.cloud.metastore.v1beta.MetadataIntegration(this);
-      if (dataCatalogConfigBuilder_ == null) {
-        result.dataCatalogConfig_ = dataCatalogConfig_;
-      } else {
-        result.dataCatalogConfig_ = dataCatalogConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1beta.MetadataIntegration result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.dataCatalogConfig_ = dataCatalogConfigBuilder_ == null
+            ? dataCatalogConfig_
+            : dataCatalogConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dataplexConfig_ = dataplexConfigBuilder_ == null
+            ? dataplexConfig_
+            : dataplexConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -427,7 +439,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasDataCatalogConfig()) {
         mergeDataCatalogConfig(other.getDataCatalogConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasDataplexConfig()) {
+        mergeDataplexConfig(other.getDataplexConfig());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +457,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1beta.MetadataIntegration parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDataCatalogConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDataplexConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1beta.MetadataIntegration) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.metastore.v1beta.DataCatalogConfig dataCatalogConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dataCatalogConfig field is set.
      */
     public boolean hasDataCatalogConfig() {
-      return dataCatalogConfigBuilder_ != null || dataCatalogConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dataCatalogConfig_ = value;
-        onChanged();
       } else {
         dataCatalogConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1beta.DataCatalogConfig.Builder builderForValue) {
       if (dataCatalogConfigBuilder_ == null) {
         dataCatalogConfig_ = builderForValue.build();
-        onChanged();
       } else {
         dataCatalogConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDataCatalogConfig(com.google.cloud.metastore.v1beta.DataCatalogConfig value) {
       if (dataCatalogConfigBuilder_ == null) {
-        if (dataCatalogConfig_ != null) {
-          dataCatalogConfig_ =
-            com.google.cloud.metastore.v1beta.DataCatalogConfig.newBuilder(dataCatalogConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          dataCatalogConfig_ != null &&
+          dataCatalogConfig_ != com.google.cloud.metastore.v1beta.DataCatalogConfig.getDefaultInstance()) {
+          getDataCatalogConfigBuilder().mergeFrom(value);
         } else {
           dataCatalogConfig_ = value;
         }
-        onChanged();
       } else {
         dataCatalogConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1beta.DataCatalogConfig data_catalog_config = 1;</code>
      */
     public Builder clearDataCatalogConfig() {
-      if (dataCatalogConfigBuilder_ == null) {
-        dataCatalogConfig_ = null;
-        onChanged();
-      } else {
-        dataCatalogConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      dataCatalogConfig_ = null;
+      if (dataCatalogConfigBuilder_ != null) {
+        dataCatalogConfigBuilder_.dispose();
         dataCatalogConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1beta.DataCatalogConfig data_catalog_config = 1;</code>
      */
     public com.google.cloud.metastore.v1beta.DataCatalogConfig.Builder getDataCatalogConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDataCatalogConfigFieldBuilder().getBuilder();
     }
@@ -610,6 +653,161 @@ private static final long serialVersionUID = 0L;
       }
       return dataCatalogConfigBuilder_;
     }
+
+    private com.google.cloud.metastore.v1beta.DataplexConfig dataplexConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.metastore.v1beta.DataplexConfig, com.google.cloud.metastore.v1beta.DataplexConfig.Builder, com.google.cloud.metastore.v1beta.DataplexConfigOrBuilder> dataplexConfigBuilder_;
+    /**
+     * <pre>
+     * The integration config for the Dataplex service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+     * @return Whether the dataplexConfig field is set.
+     */
+    public boolean hasDataplexConfig() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * The integration config for the Dataplex service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+     * @return The dataplexConfig.
+     */
+    public com.google.cloud.metastore.v1beta.DataplexConfig getDataplexConfig() {
+      if (dataplexConfigBuilder_ == null) {
+        return dataplexConfig_ == null ? com.google.cloud.metastore.v1beta.DataplexConfig.getDefaultInstance() : dataplexConfig_;
+      } else {
+        return dataplexConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The integration config for the Dataplex service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+     */
+    public Builder setDataplexConfig(com.google.cloud.metastore.v1beta.DataplexConfig value) {
+      if (dataplexConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        dataplexConfig_ = value;
+      } else {
+        dataplexConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The integration config for the Dataplex service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+     */
+    public Builder setDataplexConfig(
+        com.google.cloud.metastore.v1beta.DataplexConfig.Builder builderForValue) {
+      if (dataplexConfigBuilder_ == null) {
+        dataplexConfig_ = builderForValue.build();
+      } else {
+        dataplexConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The integration config for the Dataplex service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+     */
+    public Builder mergeDataplexConfig(com.google.cloud.metastore.v1beta.DataplexConfig value) {
+      if (dataplexConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+          dataplexConfig_ != null &&
+          dataplexConfig_ != com.google.cloud.metastore.v1beta.DataplexConfig.getDefaultInstance()) {
+          getDataplexConfigBuilder().mergeFrom(value);
+        } else {
+          dataplexConfig_ = value;
+        }
+      } else {
+        dataplexConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The integration config for the Dataplex service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+     */
+    public Builder clearDataplexConfig() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      dataplexConfig_ = null;
+      if (dataplexConfigBuilder_ != null) {
+        dataplexConfigBuilder_.dispose();
+        dataplexConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The integration config for the Dataplex service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+     */
+    public com.google.cloud.metastore.v1beta.DataplexConfig.Builder getDataplexConfigBuilder() {
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return getDataplexConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The integration config for the Dataplex service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+     */
+    public com.google.cloud.metastore.v1beta.DataplexConfigOrBuilder getDataplexConfigOrBuilder() {
+      if (dataplexConfigBuilder_ != null) {
+        return dataplexConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return dataplexConfig_ == null ?
+            com.google.cloud.metastore.v1beta.DataplexConfig.getDefaultInstance() : dataplexConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * The integration config for the Dataplex service.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.DataplexConfig dataplex_config = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.metastore.v1beta.DataplexConfig, com.google.cloud.metastore.v1beta.DataplexConfig.Builder, com.google.cloud.metastore.v1beta.DataplexConfigOrBuilder> 
+        getDataplexConfigFieldBuilder() {
+      if (dataplexConfigBuilder_ == null) {
+        dataplexConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.metastore.v1beta.DataplexConfig, com.google.cloud.metastore.v1beta.DataplexConfig.Builder, com.google.cloud.metastore.v1beta.DataplexConfigOrBuilder>(
+                getDataplexConfig(),
+                getParentForChildren(),
+                isClean());
+        dataplexConfig_ = null;
+      }
+      return dataplexConfigBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -643,7 +841,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MetadataIntegration(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

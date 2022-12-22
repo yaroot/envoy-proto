@@ -38,137 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CommonTlsContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.api.v2.auth.TlsParameters.Builder subBuilder = null;
-            if (tlsParams_ != null) {
-              subBuilder = tlsParams_.toBuilder();
-            }
-            tlsParams_ = input.readMessage(io.envoyproxy.envoy.api.v2.auth.TlsParameters.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tlsParams_);
-              tlsParams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tlsCertificates_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.auth.TlsCertificate>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            tlsCertificates_.add(
-                input.readMessage(io.envoyproxy.envoy.api.v2.auth.TlsCertificate.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.Builder subBuilder = null;
-            if (validationContextTypeCase_ == 3) {
-              subBuilder = ((io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext) validationContextType_).toBuilder();
-            }
-            validationContextType_ =
-                input.readMessage(io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext) validationContextType_);
-              validationContextType_ = subBuilder.buildPartial();
-            }
-            validationContextTypeCase_ = 3;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              alpnProtocols_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            alpnProtocols_.add(s);
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              tlsCertificateSdsSecretConfigs_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            tlsCertificateSdsSecretConfigs_.add(
-                input.readMessage(io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.Builder subBuilder = null;
-            if (validationContextTypeCase_ == 7) {
-              subBuilder = ((io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig) validationContextType_).toBuilder();
-            }
-            validationContextType_ =
-                input.readMessage(io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig) validationContextType_);
-              validationContextType_ = subBuilder.buildPartial();
-            }
-            validationContextTypeCase_ = 7;
-            break;
-          }
-          case 66: {
-            io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext.Builder subBuilder = null;
-            if (validationContextTypeCase_ == 8) {
-              subBuilder = ((io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext) validationContextType_).toBuilder();
-            }
-            validationContextType_ =
-                input.readMessage(io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext) validationContextType_);
-              validationContextType_ = subBuilder.buildPartial();
-            }
-            validationContextTypeCase_ = 8;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        tlsCertificates_ = java.util.Collections.unmodifiableList(tlsCertificates_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        alpnProtocols_ = alpnProtocols_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        tlsCertificateSdsSecretConfigs_ = java.util.Collections.unmodifiableList(tlsCertificateSdsSecretConfigs_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.auth.TlsProto.internal_static_envoy_api_v2_auth_CommonTlsContext_descriptor;
@@ -267,71 +136,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CombinedCertificateValidationContext(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.Builder subBuilder = null;
-              if (defaultValidationContext_ != null) {
-                subBuilder = defaultValidationContext_.toBuilder();
-              }
-              defaultValidationContext_ = input.readMessage(io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(defaultValidationContext_);
-                defaultValidationContext_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.Builder subBuilder = null;
-              if (validationContextSdsSecretConfig_ != null) {
-                subBuilder = validationContextSdsSecretConfig_.toBuilder();
-              }
-              validationContextSdsSecretConfig_ = input.readMessage(io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(validationContextSdsSecretConfig_);
-                validationContextSdsSecretConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.api.v2.auth.TlsProto.internal_static_envoy_api_v2_auth_CommonTlsContext_CombinedCertificateValidationContext_descriptor;
@@ -380,7 +184,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.auth.CertificateValidationContextOrBuilder getDefaultValidationContextOrBuilder() {
-      return getDefaultValidationContext();
+      return defaultValidationContext_ == null ? io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.getDefaultInstance() : defaultValidationContext_;
     }
 
     public static final int VALIDATION_CONTEXT_SDS_SECRET_CONFIG_FIELD_NUMBER = 2;
@@ -418,7 +222,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.auth.SdsSecretConfigOrBuilder getValidationContextSdsSecretConfigOrBuilder() {
-      return getValidationContextSdsSecretConfig();
+      return validationContextSdsSecretConfig_ == null ? io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.getDefaultInstance() : validationContextSdsSecretConfig_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -441,7 +245,7 @@ private static final long serialVersionUID = 0L;
       if (validationContextSdsSecretConfig_ != null) {
         output.writeMessage(2, getValidationContextSdsSecretConfig());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -458,7 +262,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getValidationContextSdsSecretConfig());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -483,7 +287,7 @@ private static final long serialVersionUID = 0L;
         if (!getValidationContextSdsSecretConfig()
             .equals(other.getValidationContextSdsSecretConfig())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -502,7 +306,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + VALIDATION_CONTEXT_SDS_SECRET_CONFIG_FIELD_NUMBER;
         hash = (53 * hash) + getValidationContextSdsSecretConfig().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -619,32 +423,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (defaultValidationContextBuilder_ == null) {
-          defaultValidationContext_ = null;
-        } else {
-          defaultValidationContext_ = null;
+        bitField0_ = 0;
+        defaultValidationContext_ = null;
+        if (defaultValidationContextBuilder_ != null) {
+          defaultValidationContextBuilder_.dispose();
           defaultValidationContextBuilder_ = null;
         }
-        if (validationContextSdsSecretConfigBuilder_ == null) {
-          validationContextSdsSecretConfig_ = null;
-        } else {
-          validationContextSdsSecretConfig_ = null;
+        validationContextSdsSecretConfig_ = null;
+        if (validationContextSdsSecretConfigBuilder_ != null) {
+          validationContextSdsSecretConfigBuilder_.dispose();
           validationContextSdsSecretConfigBuilder_ = null;
         }
         return this;
@@ -673,18 +471,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext buildPartial() {
         io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext result = new io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext(this);
-        if (defaultValidationContextBuilder_ == null) {
-          result.defaultValidationContext_ = defaultValidationContext_;
-        } else {
-          result.defaultValidationContext_ = defaultValidationContextBuilder_.build();
-        }
-        if (validationContextSdsSecretConfigBuilder_ == null) {
-          result.validationContextSdsSecretConfig_ = validationContextSdsSecretConfig_;
-        } else {
-          result.validationContextSdsSecretConfig_ = validationContextSdsSecretConfigBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.defaultValidationContext_ = defaultValidationContextBuilder_ == null
+              ? defaultValidationContext_
+              : defaultValidationContextBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.validationContextSdsSecretConfig_ = validationContextSdsSecretConfigBuilder_ == null
+              ? validationContextSdsSecretConfig_
+              : validationContextSdsSecretConfigBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -737,7 +540,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasValidationContextSdsSecretConfig()) {
           mergeValidationContextSdsSecretConfig(other.getValidationContextSdsSecretConfig());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -752,19 +555,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getDefaultValidationContextFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getValidationContextSdsSecretConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext defaultValidationContext_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -778,7 +609,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the defaultValidationContext field is set.
        */
       public boolean hasDefaultValidationContext() {
-        return defaultValidationContextBuilder_ != null || defaultValidationContext_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -808,11 +639,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           defaultValidationContext_ = value;
-          onChanged();
         } else {
           defaultValidationContextBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -826,11 +657,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.Builder builderForValue) {
         if (defaultValidationContextBuilder_ == null) {
           defaultValidationContext_ = builderForValue.build();
-          onChanged();
         } else {
           defaultValidationContextBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -842,17 +673,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeDefaultValidationContext(io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext value) {
         if (defaultValidationContextBuilder_ == null) {
-          if (defaultValidationContext_ != null) {
-            defaultValidationContext_ =
-              io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.newBuilder(defaultValidationContext_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            defaultValidationContext_ != null &&
+            defaultValidationContext_ != io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.getDefaultInstance()) {
+            getDefaultValidationContextBuilder().mergeFrom(value);
           } else {
             defaultValidationContext_ = value;
           }
-          onChanged();
         } else {
           defaultValidationContextBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -863,14 +695,13 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.api.v2.auth.CertificateValidationContext default_validation_context = 1 [(.validate.rules) = { ... }</code>
        */
       public Builder clearDefaultValidationContext() {
-        if (defaultValidationContextBuilder_ == null) {
-          defaultValidationContext_ = null;
-          onChanged();
-        } else {
-          defaultValidationContext_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        defaultValidationContext_ = null;
+        if (defaultValidationContextBuilder_ != null) {
+          defaultValidationContextBuilder_.dispose();
           defaultValidationContextBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -881,7 +712,7 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.api.v2.auth.CertificateValidationContext default_validation_context = 1 [(.validate.rules) = { ... }</code>
        */
       public io.envoyproxy.envoy.api.v2.auth.CertificateValidationContext.Builder getDefaultValidationContextBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getDefaultValidationContextFieldBuilder().getBuilder();
       }
@@ -933,7 +764,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the validationContextSdsSecretConfig field is set.
        */
       public boolean hasValidationContextSdsSecretConfig() {
-        return validationContextSdsSecretConfigBuilder_ != null || validationContextSdsSecretConfig_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -963,11 +794,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           validationContextSdsSecretConfig_ = value;
-          onChanged();
         } else {
           validationContextSdsSecretConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -981,11 +812,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.Builder builderForValue) {
         if (validationContextSdsSecretConfigBuilder_ == null) {
           validationContextSdsSecretConfig_ = builderForValue.build();
-          onChanged();
         } else {
           validationContextSdsSecretConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -997,17 +828,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeValidationContextSdsSecretConfig(io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig value) {
         if (validationContextSdsSecretConfigBuilder_ == null) {
-          if (validationContextSdsSecretConfig_ != null) {
-            validationContextSdsSecretConfig_ =
-              io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.newBuilder(validationContextSdsSecretConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            validationContextSdsSecretConfig_ != null &&
+            validationContextSdsSecretConfig_ != io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.getDefaultInstance()) {
+            getValidationContextSdsSecretConfigBuilder().mergeFrom(value);
           } else {
             validationContextSdsSecretConfig_ = value;
           }
-          onChanged();
         } else {
           validationContextSdsSecretConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1018,14 +850,13 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.api.v2.auth.SdsSecretConfig validation_context_sds_secret_config = 2 [(.validate.rules) = { ... }</code>
        */
       public Builder clearValidationContextSdsSecretConfig() {
-        if (validationContextSdsSecretConfigBuilder_ == null) {
-          validationContextSdsSecretConfig_ = null;
-          onChanged();
-        } else {
-          validationContextSdsSecretConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        validationContextSdsSecretConfig_ = null;
+        if (validationContextSdsSecretConfigBuilder_ != null) {
+          validationContextSdsSecretConfigBuilder_.dispose();
           validationContextSdsSecretConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1036,7 +867,7 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.api.v2.auth.SdsSecretConfig validation_context_sds_secret_config = 2 [(.validate.rules) = { ... }</code>
        */
       public io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.Builder getValidationContextSdsSecretConfigBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getValidationContextSdsSecretConfigFieldBuilder().getBuilder();
       }
@@ -1108,7 +939,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CombinedCertificateValidationContext(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1206,10 +1048,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.auth.TlsParametersOrBuilder getTlsParamsOrBuilder() {
-    return getTlsParams();
+    return tlsParams_ == null ? io.envoyproxy.envoy.api.v2.auth.TlsParameters.getDefaultInstance() : tlsParams_;
   }
 
   public static final int TLS_CERTIFICATES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.api.v2.auth.TlsCertificate> tlsCertificates_;
   /**
    * <pre>
@@ -1290,6 +1133,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TLS_CERTIFICATE_SDS_SECRET_CONFIGS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig> tlsCertificateSdsSecretConfigs_;
   /**
    * <pre>
@@ -1497,6 +1341,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALPN_PROTOCOLS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList alpnProtocols_;
   /**
    * <pre>
@@ -1610,7 +1455,7 @@ private static final long serialVersionUID = 0L;
     if (validationContextTypeCase_ == 8) {
       output.writeMessage(8, (io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext) validationContextType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1651,7 +1496,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, (io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.CombinedCertificateValidationContext) validationContextType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1694,7 +1539,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1737,7 +1582,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1859,44 +1704,48 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.auth.CommonTlsContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTlsCertificatesFieldBuilder();
-        getTlsCertificateSdsSecretConfigsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (tlsParamsBuilder_ == null) {
-        tlsParams_ = null;
-      } else {
-        tlsParams_ = null;
+      bitField0_ = 0;
+      tlsParams_ = null;
+      if (tlsParamsBuilder_ != null) {
+        tlsParamsBuilder_.dispose();
         tlsParamsBuilder_ = null;
       }
       if (tlsCertificatesBuilder_ == null) {
         tlsCertificates_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        tlsCertificates_ = null;
         tlsCertificatesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (tlsCertificateSdsSecretConfigsBuilder_ == null) {
         tlsCertificateSdsSecretConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        tlsCertificateSdsSecretConfigs_ = null;
         tlsCertificateSdsSecretConfigsBuilder_.clear();
       }
-      alpnProtocols_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
+      if (validationContextBuilder_ != null) {
+        validationContextBuilder_.clear();
+      }
+      if (validationContextSdsSecretConfigBuilder_ != null) {
+        validationContextSdsSecretConfigBuilder_.clear();
+      }
+      if (combinedValidationContextBuilder_ != null) {
+        combinedValidationContextBuilder_.clear();
+      }
+      alpnProtocols_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000040);
       validationContextTypeCase_ = 0;
       validationContextType_ = null;
       return this;
@@ -1925,59 +1774,63 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.auth.CommonTlsContext buildPartial() {
       io.envoyproxy.envoy.api.v2.auth.CommonTlsContext result = new io.envoyproxy.envoy.api.v2.auth.CommonTlsContext(this);
-      int from_bitField0_ = bitField0_;
-      if (tlsParamsBuilder_ == null) {
-        result.tlsParams_ = tlsParams_;
-      } else {
-        result.tlsParams_ = tlsParamsBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.api.v2.auth.CommonTlsContext result) {
       if (tlsCertificatesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           tlsCertificates_ = java.util.Collections.unmodifiableList(tlsCertificates_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.tlsCertificates_ = tlsCertificates_;
       } else {
         result.tlsCertificates_ = tlsCertificatesBuilder_.build();
       }
       if (tlsCertificateSdsSecretConfigsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           tlsCertificateSdsSecretConfigs_ = java.util.Collections.unmodifiableList(tlsCertificateSdsSecretConfigs_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.tlsCertificateSdsSecretConfigs_ = tlsCertificateSdsSecretConfigs_;
       } else {
         result.tlsCertificateSdsSecretConfigs_ = tlsCertificateSdsSecretConfigsBuilder_.build();
       }
-      if (validationContextTypeCase_ == 3) {
-        if (validationContextBuilder_ == null) {
-          result.validationContextType_ = validationContextType_;
-        } else {
-          result.validationContextType_ = validationContextBuilder_.build();
-        }
-      }
-      if (validationContextTypeCase_ == 7) {
-        if (validationContextSdsSecretConfigBuilder_ == null) {
-          result.validationContextType_ = validationContextType_;
-        } else {
-          result.validationContextType_ = validationContextSdsSecretConfigBuilder_.build();
-        }
-      }
-      if (validationContextTypeCase_ == 8) {
-        if (combinedValidationContextBuilder_ == null) {
-          result.validationContextType_ = validationContextType_;
-        } else {
-          result.validationContextType_ = combinedValidationContextBuilder_.build();
-        }
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         alpnProtocols_ = alpnProtocols_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000040);
       }
       result.alpnProtocols_ = alpnProtocols_;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.auth.CommonTlsContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tlsParams_ = tlsParamsBuilder_ == null
+            ? tlsParams_
+            : tlsParamsBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.api.v2.auth.CommonTlsContext result) {
       result.validationContextTypeCase_ = validationContextTypeCase_;
-      onBuilt();
-      return result;
+      result.validationContextType_ = this.validationContextType_;
+      if (validationContextTypeCase_ == 3 &&
+          validationContextBuilder_ != null) {
+        result.validationContextType_ = validationContextBuilder_.build();
+      }
+      if (validationContextTypeCase_ == 7 &&
+          validationContextSdsSecretConfigBuilder_ != null) {
+        result.validationContextType_ = validationContextSdsSecretConfigBuilder_.build();
+      }
+      if (validationContextTypeCase_ == 8 &&
+          combinedValidationContextBuilder_ != null) {
+        result.validationContextType_ = combinedValidationContextBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2031,7 +1884,7 @@ private static final long serialVersionUID = 0L;
         if (!other.tlsCertificates_.isEmpty()) {
           if (tlsCertificates_.isEmpty()) {
             tlsCertificates_ = other.tlsCertificates_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureTlsCertificatesIsMutable();
             tlsCertificates_.addAll(other.tlsCertificates_);
@@ -2044,7 +1897,7 @@ private static final long serialVersionUID = 0L;
             tlsCertificatesBuilder_.dispose();
             tlsCertificatesBuilder_ = null;
             tlsCertificates_ = other.tlsCertificates_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             tlsCertificatesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTlsCertificatesFieldBuilder() : null;
@@ -2057,7 +1910,7 @@ private static final long serialVersionUID = 0L;
         if (!other.tlsCertificateSdsSecretConfigs_.isEmpty()) {
           if (tlsCertificateSdsSecretConfigs_.isEmpty()) {
             tlsCertificateSdsSecretConfigs_ = other.tlsCertificateSdsSecretConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureTlsCertificateSdsSecretConfigsIsMutable();
             tlsCertificateSdsSecretConfigs_.addAll(other.tlsCertificateSdsSecretConfigs_);
@@ -2070,7 +1923,7 @@ private static final long serialVersionUID = 0L;
             tlsCertificateSdsSecretConfigsBuilder_.dispose();
             tlsCertificateSdsSecretConfigsBuilder_ = null;
             tlsCertificateSdsSecretConfigs_ = other.tlsCertificateSdsSecretConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             tlsCertificateSdsSecretConfigsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTlsCertificateSdsSecretConfigsFieldBuilder() : null;
@@ -2082,7 +1935,7 @@ private static final long serialVersionUID = 0L;
       if (!other.alpnProtocols_.isEmpty()) {
         if (alpnProtocols_.isEmpty()) {
           alpnProtocols_ = other.alpnProtocols_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureAlpnProtocolsIsMutable();
           alpnProtocols_.addAll(other.alpnProtocols_);
@@ -2106,7 +1959,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2121,17 +1974,90 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.auth.CommonTlsContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTlsParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.envoyproxy.envoy.api.v2.auth.TlsCertificate m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.api.v2.auth.TlsCertificate.parser(),
+                      extensionRegistry);
+              if (tlsCertificatesBuilder_ == null) {
+                ensureTlsCertificatesIsMutable();
+                tlsCertificates_.add(m);
+              } else {
+                tlsCertificatesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getValidationContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              validationContextTypeCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAlpnProtocolsIsMutable();
+              alpnProtocols_.add(s);
+              break;
+            } // case 34
+            case 50: {
+              io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.parser(),
+                      extensionRegistry);
+              if (tlsCertificateSdsSecretConfigsBuilder_ == null) {
+                ensureTlsCertificateSdsSecretConfigsIsMutable();
+                tlsCertificateSdsSecretConfigs_.add(m);
+              } else {
+                tlsCertificateSdsSecretConfigsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getValidationContextSdsSecretConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              validationContextTypeCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getCombinedValidationContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              validationContextTypeCase_ = 8;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.auth.CommonTlsContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int validationContextTypeCase_ = 0;
@@ -2163,7 +2089,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tlsParams field is set.
      */
     public boolean hasTlsParams() {
-      return tlsParamsBuilder_ != null || tlsParams_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2193,11 +2119,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tlsParams_ = value;
-        onChanged();
       } else {
         tlsParamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2211,11 +2137,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.auth.TlsParameters.Builder builderForValue) {
       if (tlsParamsBuilder_ == null) {
         tlsParams_ = builderForValue.build();
-        onChanged();
       } else {
         tlsParamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2227,17 +2153,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTlsParams(io.envoyproxy.envoy.api.v2.auth.TlsParameters value) {
       if (tlsParamsBuilder_ == null) {
-        if (tlsParams_ != null) {
-          tlsParams_ =
-            io.envoyproxy.envoy.api.v2.auth.TlsParameters.newBuilder(tlsParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          tlsParams_ != null &&
+          tlsParams_ != io.envoyproxy.envoy.api.v2.auth.TlsParameters.getDefaultInstance()) {
+          getTlsParamsBuilder().mergeFrom(value);
         } else {
           tlsParams_ = value;
         }
-        onChanged();
       } else {
         tlsParamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2248,14 +2175,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.auth.TlsParameters tls_params = 1;</code>
      */
     public Builder clearTlsParams() {
-      if (tlsParamsBuilder_ == null) {
-        tlsParams_ = null;
-        onChanged();
-      } else {
-        tlsParams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      tlsParams_ = null;
+      if (tlsParamsBuilder_ != null) {
+        tlsParamsBuilder_.dispose();
         tlsParamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2266,7 +2192,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.auth.TlsParameters tls_params = 1;</code>
      */
     public io.envoyproxy.envoy.api.v2.auth.TlsParameters.Builder getTlsParamsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTlsParamsFieldBuilder().getBuilder();
     }
@@ -2309,9 +2235,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.api.v2.auth.TlsCertificate> tlsCertificates_ =
       java.util.Collections.emptyList();
     private void ensureTlsCertificatesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         tlsCertificates_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.auth.TlsCertificate>(tlsCertificates_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -2549,7 +2475,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTlsCertificates() {
       if (tlsCertificatesBuilder_ == null) {
         tlsCertificates_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         tlsCertificatesBuilder_.clear();
@@ -2682,7 +2608,7 @@ private static final long serialVersionUID = 0L;
         tlsCertificatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.api.v2.auth.TlsCertificate, io.envoyproxy.envoy.api.v2.auth.TlsCertificate.Builder, io.envoyproxy.envoy.api.v2.auth.TlsCertificateOrBuilder>(
                 tlsCertificates_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         tlsCertificates_ = null;
@@ -2693,9 +2619,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig> tlsCertificateSdsSecretConfigs_ =
       java.util.Collections.emptyList();
     private void ensureTlsCertificateSdsSecretConfigsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         tlsCertificateSdsSecretConfigs_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig>(tlsCertificateSdsSecretConfigs_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -2889,7 +2815,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTlsCertificateSdsSecretConfigs() {
       if (tlsCertificateSdsSecretConfigsBuilder_ == null) {
         tlsCertificateSdsSecretConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         tlsCertificateSdsSecretConfigsBuilder_.clear();
@@ -2994,7 +2920,7 @@ private static final long serialVersionUID = 0L;
         tlsCertificateSdsSecretConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig, io.envoyproxy.envoy.api.v2.auth.SdsSecretConfig.Builder, io.envoyproxy.envoy.api.v2.auth.SdsSecretConfigOrBuilder>(
                 tlsCertificateSdsSecretConfigs_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         tlsCertificateSdsSecretConfigs_ = null;
@@ -3176,7 +3102,7 @@ private static final long serialVersionUID = 0L;
         validationContextType_ = null;
       }
       validationContextTypeCase_ = 3;
-      onChanged();;
+      onChanged();
       return validationContextBuilder_;
     }
 
@@ -3354,7 +3280,7 @@ private static final long serialVersionUID = 0L;
         validationContextType_ = null;
       }
       validationContextTypeCase_ = 7;
-      onChanged();;
+      onChanged();
       return validationContextSdsSecretConfigBuilder_;
     }
 
@@ -3586,15 +3512,15 @@ private static final long serialVersionUID = 0L;
         validationContextType_ = null;
       }
       validationContextTypeCase_ = 8;
-      onChanged();;
+      onChanged();
       return combinedValidationContextBuilder_;
     }
 
     private com.google.protobuf.LazyStringList alpnProtocols_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAlpnProtocolsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         alpnProtocols_ = new com.google.protobuf.LazyStringArrayList(alpnProtocols_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -3692,10 +3618,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlpnProtocols(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAlpnProtocolsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAlpnProtocolsIsMutable();
       alpnProtocols_.set(index, value);
       onChanged();
       return this;
@@ -3718,10 +3642,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAlpnProtocols(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAlpnProtocolsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAlpnProtocolsIsMutable();
       alpnProtocols_.add(value);
       onChanged();
       return this;
@@ -3767,7 +3689,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAlpnProtocols() {
       alpnProtocols_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3789,10 +3711,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAlpnProtocolsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAlpnProtocolsIsMutable();
       alpnProtocols_.add(value);
       onChanged();
@@ -3831,7 +3751,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CommonTlsContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

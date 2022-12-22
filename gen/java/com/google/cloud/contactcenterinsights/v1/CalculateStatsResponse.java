@@ -34,134 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CalculateStatsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (averageDuration_ != null) {
-              subBuilder = averageDuration_.toBuilder();
-            }
-            averageDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(averageDuration_);
-              averageDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            averageTurnCount_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            conversationCount_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              smartHighlighterMatches_ = com.google.protobuf.MapField.newMapField(
-                  SmartHighlighterMatchesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-            smartHighlighterMatches__ = input.readMessage(
-                SmartHighlighterMatchesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            smartHighlighterMatches_.getMutableMap().put(
-                smartHighlighterMatches__.getKey(), smartHighlighterMatches__.getValue());
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              customHighlighterMatches_ = com.google.protobuf.MapField.newMapField(
-                  CustomHighlighterMatchesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-            customHighlighterMatches__ = input.readMessage(
-                CustomHighlighterMatchesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            customHighlighterMatches_.getMutableMap().put(
-                customHighlighterMatches__.getKey(), customHighlighterMatches__.getValue());
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              issueMatches_ = com.google.protobuf.MapField.newMapField(
-                  IssueMatchesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-            issueMatches__ = input.readMessage(
-                IssueMatchesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            issueMatches_.getMutableMap().put(
-                issueMatches__.getKey(), issueMatches__.getValue());
-            break;
-          }
-          case 58: {
-            com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Builder subBuilder = null;
-            if (conversationCountTimeSeries_ != null) {
-              subBuilder = conversationCountTimeSeries_.toBuilder();
-            }
-            conversationCountTimeSeries_ = input.readMessage(com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(conversationCountTimeSeries_);
-              conversationCountTimeSeries_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              issueMatchesStats_ = com.google.protobuf.MapField.newMapField(
-                  IssueMatchesStatsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000008;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats>
-            issueMatchesStats__ = input.readMessage(
-                IssueMatchesStatsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            issueMatchesStats_.getMutableMap().put(
-                issueMatchesStats__.getKey(), issueMatchesStats__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.contactcenterinsights.v1.ContactCenterInsightsProto.internal_static_google_cloud_contactcenterinsights_v1_CalculateStatsResponse_descriptor;
@@ -310,71 +182,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TimeSeries(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (intervalDuration_ != null) {
-                subBuilder = intervalDuration_.toBuilder();
-              }
-              intervalDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(intervalDuration_);
-                intervalDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                points_ = new java.util.ArrayList<com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              points_.add(
-                  input.readMessage(com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          points_ = java.util.Collections.unmodifiableList(points_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.contactcenterinsights.v1.ContactCenterInsightsProto.internal_static_google_cloud_contactcenterinsights_v1_CalculateStatsResponse_TimeSeries_descriptor;
@@ -460,63 +267,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Interval(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                com.google.protobuf.Timestamp.Builder subBuilder = null;
-                if (startTime_ != null) {
-                  subBuilder = startTime_.toBuilder();
-                }
-                startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(startTime_);
-                  startTime_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 16: {
-
-                conversationCount_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.contactcenterinsights.v1.ContactCenterInsightsProto.internal_static_google_cloud_contactcenterinsights_v1_CalculateStatsResponse_TimeSeries_Interval_descriptor;
@@ -565,11 +315,11 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-        return getStartTime();
+        return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
       }
 
       public static final int CONVERSATION_COUNT_FIELD_NUMBER = 2;
-      private int conversationCount_;
+      private int conversationCount_ = 0;
       /**
        * <pre>
        * The number of conversations created in this interval.
@@ -603,7 +353,7 @@ private static final long serialVersionUID = 0L;
         if (conversationCount_ != 0) {
           output.writeInt32(2, conversationCount_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -620,7 +370,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(2, conversationCount_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -642,7 +392,7 @@ private static final long serialVersionUID = 0L;
         }
         if (getConversationCount()
             != other.getConversationCount()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -659,7 +409,7 @@ private static final long serialVersionUID = 0L;
         }
         hash = (37 * hash) + CONVERSATION_COUNT_FIELD_NUMBER;
         hash = (53 * hash) + getConversationCount();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -780,30 +530,24 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          if (startTimeBuilder_ == null) {
-            startTime_ = null;
-          } else {
-            startTime_ = null;
+          bitField0_ = 0;
+          startTime_ = null;
+          if (startTimeBuilder_ != null) {
+            startTimeBuilder_.dispose();
             startTimeBuilder_ = null;
           }
           conversationCount_ = 0;
-
           return this;
         }
 
@@ -830,14 +574,21 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval buildPartial() {
           com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval result = new com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval(this);
-          if (startTimeBuilder_ == null) {
-            result.startTime_ = startTime_;
-          } else {
-            result.startTime_ = startTimeBuilder_.build();
-          }
-          result.conversationCount_ = conversationCount_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.startTime_ = startTimeBuilder_ == null
+                ? startTime_
+                : startTimeBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.conversationCount_ = conversationCount_;
+          }
         }
 
         @java.lang.Override
@@ -890,7 +641,7 @@ private static final long serialVersionUID = 0L;
           if (other.getConversationCount() != 0) {
             setConversationCount(other.getConversationCount());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -905,19 +656,45 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  input.readMessage(
+                      getStartTimeFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 16: {
+                  conversationCount_ = input.readInt32();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private com.google.protobuf.Timestamp startTime_;
         private com.google.protobuf.SingleFieldBuilderV3<
@@ -931,7 +708,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the startTime field is set.
          */
         public boolean hasStartTime() {
-          return startTimeBuilder_ != null || startTime_ != null;
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -961,11 +738,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             startTime_ = value;
-            onChanged();
           } else {
             startTimeBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -979,11 +756,11 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.Timestamp.Builder builderForValue) {
           if (startTimeBuilder_ == null) {
             startTime_ = builderForValue.build();
-            onChanged();
           } else {
             startTimeBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -995,17 +772,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
           if (startTimeBuilder_ == null) {
-            if (startTime_ != null) {
-              startTime_ =
-                com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000001) != 0) &&
+              startTime_ != null &&
+              startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+              getStartTimeBuilder().mergeFrom(value);
             } else {
               startTime_ = value;
             }
-            onChanged();
           } else {
             startTimeBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1016,14 +794,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Timestamp start_time = 1;</code>
          */
         public Builder clearStartTime() {
-          if (startTimeBuilder_ == null) {
-            startTime_ = null;
-            onChanged();
-          } else {
-            startTime_ = null;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          startTime_ = null;
+          if (startTimeBuilder_ != null) {
+            startTimeBuilder_.dispose();
             startTimeBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1034,7 +811,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Timestamp start_time = 1;</code>
          */
         public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-          
+          bitField0_ |= 0x00000001;
           onChanged();
           return getStartTimeFieldBuilder().getBuilder();
         }
@@ -1099,6 +876,7 @@ private static final long serialVersionUID = 0L;
         public Builder setConversationCount(int value) {
           
           conversationCount_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -1111,7 +889,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearConversationCount() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           conversationCount_ = 0;
           onChanged();
           return this;
@@ -1149,7 +927,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Interval(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1204,10 +993,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getIntervalDurationOrBuilder() {
-      return getIntervalDuration();
+      return intervalDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : intervalDuration_;
     }
 
     public static final int POINTS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval> points_;
     /**
      * <pre>
@@ -1297,7 +1087,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < points_.size(); i++) {
         output.writeMessage(2, points_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1314,7 +1104,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, points_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1336,7 +1126,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!getPointsList()
           .equals(other.getPointsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1355,7 +1145,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + POINTS_FIELD_NUMBER;
         hash = (53 * hash) + getPointsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1476,35 +1266,30 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPointsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (intervalDurationBuilder_ == null) {
-          intervalDuration_ = null;
-        } else {
-          intervalDuration_ = null;
+        bitField0_ = 0;
+        intervalDuration_ = null;
+        if (intervalDurationBuilder_ != null) {
+          intervalDurationBuilder_.dispose();
           intervalDurationBuilder_ = null;
         }
         if (pointsBuilder_ == null) {
           points_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          points_ = null;
           pointsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1531,23 +1316,31 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries buildPartial() {
         com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries result = new com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries(this);
-        int from_bitField0_ = bitField0_;
-        if (intervalDurationBuilder_ == null) {
-          result.intervalDuration_ = intervalDuration_;
-        } else {
-          result.intervalDuration_ = intervalDurationBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries result) {
         if (pointsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             points_ = java.util.Collections.unmodifiableList(points_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.points_ = points_;
         } else {
           result.points_ = pointsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.intervalDuration_ = intervalDurationBuilder_ == null
+              ? intervalDuration_
+              : intervalDurationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1601,7 +1394,7 @@ private static final long serialVersionUID = 0L;
           if (!other.points_.isEmpty()) {
             if (points_.isEmpty()) {
               points_ = other.points_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensurePointsIsMutable();
               points_.addAll(other.points_);
@@ -1614,7 +1407,7 @@ private static final long serialVersionUID = 0L;
               pointsBuilder_.dispose();
               pointsBuilder_ = null;
               points_ = other.points_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               pointsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPointsFieldBuilder() : null;
@@ -1623,7 +1416,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1638,17 +1431,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getIntervalDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval m =
+                    input.readMessage(
+                        com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval.parser(),
+                        extensionRegistry);
+                if (pointsBuilder_ == null) {
+                  ensurePointsIsMutable();
+                  points_.add(m);
+                } else {
+                  pointsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1665,7 +1491,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the intervalDuration field is set.
        */
       public boolean hasIntervalDuration() {
-        return intervalDurationBuilder_ != null || intervalDuration_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1695,11 +1521,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           intervalDuration_ = value;
-          onChanged();
         } else {
           intervalDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1713,11 +1539,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (intervalDurationBuilder_ == null) {
           intervalDuration_ = builderForValue.build();
-          onChanged();
         } else {
           intervalDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1729,17 +1555,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeIntervalDuration(com.google.protobuf.Duration value) {
         if (intervalDurationBuilder_ == null) {
-          if (intervalDuration_ != null) {
-            intervalDuration_ =
-              com.google.protobuf.Duration.newBuilder(intervalDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            intervalDuration_ != null &&
+            intervalDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getIntervalDurationBuilder().mergeFrom(value);
           } else {
             intervalDuration_ = value;
           }
-          onChanged();
         } else {
           intervalDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1750,14 +1577,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration interval_duration = 1;</code>
        */
       public Builder clearIntervalDuration() {
-        if (intervalDurationBuilder_ == null) {
-          intervalDuration_ = null;
-          onChanged();
-        } else {
-          intervalDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        intervalDuration_ = null;
+        if (intervalDurationBuilder_ != null) {
+          intervalDurationBuilder_.dispose();
           intervalDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1768,7 +1594,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration interval_duration = 1;</code>
        */
       public com.google.protobuf.Duration.Builder getIntervalDurationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getIntervalDurationFieldBuilder().getBuilder();
       }
@@ -1811,9 +1637,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval> points_ =
         java.util.Collections.emptyList();
       private void ensurePointsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           points_ = new java.util.ArrayList<com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval>(points_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -2029,7 +1855,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearPoints() {
         if (pointsBuilder_ == null) {
           points_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           pointsBuilder_.clear();
@@ -2148,7 +1974,7 @@ private static final long serialVersionUID = 0L;
           pointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval, com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Interval.Builder, com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.IntervalOrBuilder>(
                   points_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           points_ = null;
@@ -2188,7 +2014,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TimeSeries(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2246,11 +2083,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getAverageDurationOrBuilder() {
-    return getAverageDuration();
+    return averageDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : averageDuration_;
   }
 
   public static final int AVERAGE_TURN_COUNT_FIELD_NUMBER = 2;
-  private int averageTurnCount_;
+  private int averageTurnCount_ = 0;
   /**
    * <pre>
    * The average number of turns per conversation.
@@ -2265,7 +2102,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONVERSATION_COUNT_FIELD_NUMBER = 3;
-  private int conversationCount_;
+  private int conversationCount_ = 0;
   /**
    * <pre>
    * The total number of conversations.
@@ -2291,6 +2128,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT32,
                 0);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Integer> smartHighlighterMatches_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -2301,7 +2139,6 @@ private static final long serialVersionUID = 0L;
     }
     return smartHighlighterMatches_;
   }
-
   public int getSmartHighlighterMatchesCount() {
     return internalGetSmartHighlighterMatches().getMap().size();
   }
@@ -2313,7 +2150,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsSmartHighlighterMatches(
       java.lang.String key) {
@@ -2337,7 +2173,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Integer> getSmartHighlighterMatchesMap() {
     return internalGetSmartHighlighterMatches().getMap();
   }
@@ -2350,7 +2185,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
    */
   @java.lang.Override
-
   public int getSmartHighlighterMatchesOrDefault(
       java.lang.String key,
       int defaultValue) {
@@ -2368,7 +2202,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
    */
   @java.lang.Override
-
   public int getSmartHighlighterMatchesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2392,6 +2225,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT32,
                 0);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Integer> customHighlighterMatches_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -2402,7 +2236,6 @@ private static final long serialVersionUID = 0L;
     }
     return customHighlighterMatches_;
   }
-
   public int getCustomHighlighterMatchesCount() {
     return internalGetCustomHighlighterMatches().getMap().size();
   }
@@ -2414,7 +2247,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsCustomHighlighterMatches(
       java.lang.String key) {
@@ -2438,7 +2270,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Integer> getCustomHighlighterMatchesMap() {
     return internalGetCustomHighlighterMatches().getMap();
   }
@@ -2451,7 +2282,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
    */
   @java.lang.Override
-
   public int getCustomHighlighterMatchesOrDefault(
       java.lang.String key,
       int defaultValue) {
@@ -2469,7 +2299,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
    */
   @java.lang.Override
-
   public int getCustomHighlighterMatchesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2493,6 +2322,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT32,
                 0);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Integer> issueMatches_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -2503,8 +2333,7 @@ private static final long serialVersionUID = 0L;
     }
     return issueMatches_;
   }
-  @java.lang.Deprecated 
-  public int getIssueMatchesCount() {
+  @java.lang.Deprecated public int getIssueMatchesCount() {
     return internalGetIssueMatches().getMap().size();
   }
   /**
@@ -2517,9 +2346,8 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
   @java.lang.Override
-  public boolean containsIssueMatches(
+  @java.lang.Deprecated public boolean containsIssueMatches(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
     return internalGetIssueMatches().getMap().containsKey(key);
@@ -2543,8 +2371,7 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated 
-  public java.util.Map<java.lang.String, java.lang.Integer> getIssueMatchesMap() {
+  @java.lang.Deprecated public java.util.Map<java.lang.String, java.lang.Integer> getIssueMatchesMap() {
     return internalGetIssueMatches().getMap();
   }
   /**
@@ -2558,8 +2385,7 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated 
-  public int getIssueMatchesOrDefault(
+  @java.lang.Deprecated public int getIssueMatchesOrDefault(
       java.lang.String key,
       int defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2578,8 +2404,7 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated 
-  public int getIssueMatchesOrThrow(
+  @java.lang.Deprecated public int getIssueMatchesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.Integer> map =
@@ -2602,6 +2427,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats> issueMatchesStats_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats>
@@ -2612,7 +2438,6 @@ private static final long serialVersionUID = 0L;
     }
     return issueMatchesStats_;
   }
-
   public int getIssueMatchesStatsCount() {
     return internalGetIssueMatchesStats().getMap().size();
   }
@@ -2625,7 +2450,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
    */
-
   @java.lang.Override
   public boolean containsIssueMatchesStats(
       java.lang.String key) {
@@ -2650,7 +2474,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats> getIssueMatchesStatsMap() {
     return internalGetIssueMatchesStats().getMap();
   }
@@ -2664,10 +2487,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueMatchesStatsOrDefault(
+  public /* nullable */
+com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueMatchesStatsOrDefault(
       java.lang.String key,
-      com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats defaultValue) {
+      /* nullable */
+com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats> map =
         internalGetIssueMatchesStats().getMap();
@@ -2683,7 +2507,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueMatchesStatsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2733,7 +2556,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeriesOrBuilder getConversationCountTimeSeriesOrBuilder() {
-    return getConversationCountTimeSeries();
+    return conversationCountTimeSeries_ == null ? com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.getDefaultInstance() : conversationCountTimeSeries_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -2786,7 +2609,7 @@ private static final long serialVersionUID = 0L;
         internalGetIssueMatchesStats(),
         IssueMatchesStatsDefaultEntryHolder.defaultEntry,
         8);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2851,7 +2674,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, issueMatchesStats__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2888,7 +2711,7 @@ private static final long serialVersionUID = 0L;
       if (!getConversationCountTimeSeries()
           .equals(other.getConversationCountTimeSeries())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2927,7 +2750,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONVERSATION_COUNT_TIME_SERIES_FIELD_NUMBER;
       hash = (53 * hash) + getConversationCountTimeSeries().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3082,40 +2905,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (averageDurationBuilder_ == null) {
-        averageDuration_ = null;
-      } else {
-        averageDuration_ = null;
+      bitField0_ = 0;
+      averageDuration_ = null;
+      if (averageDurationBuilder_ != null) {
+        averageDurationBuilder_.dispose();
         averageDurationBuilder_ = null;
       }
       averageTurnCount_ = 0;
-
       conversationCount_ = 0;
-
       internalGetMutableSmartHighlighterMatches().clear();
       internalGetMutableCustomHighlighterMatches().clear();
       internalGetMutableIssueMatches().clear();
       internalGetMutableIssueMatchesStats().clear();
-      if (conversationCountTimeSeriesBuilder_ == null) {
-        conversationCountTimeSeries_ = null;
-      } else {
-        conversationCountTimeSeries_ = null;
+      conversationCountTimeSeries_ = null;
+      if (conversationCountTimeSeriesBuilder_ != null) {
+        conversationCountTimeSeriesBuilder_.dispose();
         conversationCountTimeSeriesBuilder_ = null;
       }
       return this;
@@ -3144,29 +2959,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse buildPartial() {
       com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse result = new com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse(this);
-      int from_bitField0_ = bitField0_;
-      if (averageDurationBuilder_ == null) {
-        result.averageDuration_ = averageDuration_;
-      } else {
-        result.averageDuration_ = averageDurationBuilder_.build();
-      }
-      result.averageTurnCount_ = averageTurnCount_;
-      result.conversationCount_ = conversationCount_;
-      result.smartHighlighterMatches_ = internalGetSmartHighlighterMatches();
-      result.smartHighlighterMatches_.makeImmutable();
-      result.customHighlighterMatches_ = internalGetCustomHighlighterMatches();
-      result.customHighlighterMatches_.makeImmutable();
-      result.issueMatches_ = internalGetIssueMatches();
-      result.issueMatches_.makeImmutable();
-      result.issueMatchesStats_ = internalGetIssueMatchesStats();
-      result.issueMatchesStats_.makeImmutable();
-      if (conversationCountTimeSeriesBuilder_ == null) {
-        result.conversationCountTimeSeries_ = conversationCountTimeSeries_;
-      } else {
-        result.conversationCountTimeSeries_ = conversationCountTimeSeriesBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.averageDuration_ = averageDurationBuilder_ == null
+            ? averageDuration_
+            : averageDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.averageTurnCount_ = averageTurnCount_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.conversationCount_ = conversationCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.smartHighlighterMatches_ = internalGetSmartHighlighterMatches();
+        result.smartHighlighterMatches_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.customHighlighterMatches_ = internalGetCustomHighlighterMatches();
+        result.customHighlighterMatches_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.issueMatches_ = internalGetIssueMatches();
+        result.issueMatches_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.issueMatchesStats_ = internalGetIssueMatchesStats();
+        result.issueMatchesStats_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.conversationCountTimeSeries_ = conversationCountTimeSeriesBuilder_ == null
+            ? conversationCountTimeSeries_
+            : conversationCountTimeSeriesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3224,16 +3055,20 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableSmartHighlighterMatches().mergeFrom(
           other.internalGetSmartHighlighterMatches());
+      bitField0_ |= 0x00000008;
       internalGetMutableCustomHighlighterMatches().mergeFrom(
           other.internalGetCustomHighlighterMatches());
+      bitField0_ |= 0x00000010;
       internalGetMutableIssueMatches().mergeFrom(
           other.internalGetIssueMatches());
+      bitField0_ |= 0x00000020;
       internalGetMutableIssueMatchesStats().mergeFrom(
           other.internalGetIssueMatchesStats());
+      bitField0_ |= 0x00000040;
       if (other.hasConversationCountTimeSeries()) {
         mergeConversationCountTimeSeries(other.getConversationCountTimeSeries());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3248,17 +3083,90 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAverageDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              averageTurnCount_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              conversationCount_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              smartHighlighterMatches__ = input.readMessage(
+                  SmartHighlighterMatchesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableSmartHighlighterMatches().getMutableMap().put(
+                  smartHighlighterMatches__.getKey(), smartHighlighterMatches__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              customHighlighterMatches__ = input.readMessage(
+                  CustomHighlighterMatchesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableCustomHighlighterMatches().getMutableMap().put(
+                  customHighlighterMatches__.getKey(), customHighlighterMatches__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              issueMatches__ = input.readMessage(
+                  IssueMatchesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableIssueMatches().getMutableMap().put(
+                  issueMatches__.getKey(), issueMatches__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getConversationCountTimeSeriesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats>
+              issueMatchesStats__ = input.readMessage(
+                  IssueMatchesStatsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableIssueMatchesStats().getMutableMap().put(
+                  issueMatchesStats__.getKey(), issueMatchesStats__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3276,7 +3184,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the averageDuration field is set.
      */
     public boolean hasAverageDuration() {
-      return averageDurationBuilder_ != null || averageDuration_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -3308,11 +3216,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         averageDuration_ = value;
-        onChanged();
       } else {
         averageDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -3327,11 +3235,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (averageDurationBuilder_ == null) {
         averageDuration_ = builderForValue.build();
-        onChanged();
       } else {
         averageDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -3344,17 +3252,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAverageDuration(com.google.protobuf.Duration value) {
       if (averageDurationBuilder_ == null) {
-        if (averageDuration_ != null) {
-          averageDuration_ =
-            com.google.protobuf.Duration.newBuilder(averageDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          averageDuration_ != null &&
+          averageDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getAverageDurationBuilder().mergeFrom(value);
         } else {
           averageDuration_ = value;
         }
-        onChanged();
       } else {
         averageDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -3366,14 +3275,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration average_duration = 1;</code>
      */
     public Builder clearAverageDuration() {
-      if (averageDurationBuilder_ == null) {
-        averageDuration_ = null;
-        onChanged();
-      } else {
-        averageDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      averageDuration_ = null;
+      if (averageDurationBuilder_ != null) {
+        averageDurationBuilder_.dispose();
         averageDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3385,7 +3293,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration average_duration = 1;</code>
      */
     public com.google.protobuf.Duration.Builder getAverageDurationBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAverageDurationFieldBuilder().getBuilder();
     }
@@ -3452,6 +3360,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAverageTurnCount(int value) {
       
       averageTurnCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3464,7 +3373,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAverageTurnCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       averageTurnCount_ = 0;
       onChanged();
       return this;
@@ -3495,6 +3404,7 @@ private static final long serialVersionUID = 0L;
     public Builder setConversationCount(int value) {
       
       conversationCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3507,7 +3417,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConversationCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       conversationCount_ = 0;
       onChanged();
       return this;
@@ -3516,7 +3426,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> smartHighlighterMatches_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetSmartHighlighterMatches() {
+        internalGetSmartHighlighterMatches() {
       if (smartHighlighterMatches_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             SmartHighlighterMatchesDefaultEntryHolder.defaultEntry);
@@ -3524,8 +3434,7 @@ private static final long serialVersionUID = 0L;
       return smartHighlighterMatches_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetMutableSmartHighlighterMatches() {
-      onChanged();;
+        internalGetMutableSmartHighlighterMatches() {
       if (smartHighlighterMatches_ == null) {
         smartHighlighterMatches_ = com.google.protobuf.MapField.newMapField(
             SmartHighlighterMatchesDefaultEntryHolder.defaultEntry);
@@ -3533,9 +3442,10 @@ private static final long serialVersionUID = 0L;
       if (!smartHighlighterMatches_.isMutable()) {
         smartHighlighterMatches_ = smartHighlighterMatches_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return smartHighlighterMatches_;
     }
-
     public int getSmartHighlighterMatchesCount() {
       return internalGetSmartHighlighterMatches().getMap().size();
     }
@@ -3547,7 +3457,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsSmartHighlighterMatches(
         java.lang.String key) {
@@ -3571,7 +3480,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Integer> getSmartHighlighterMatchesMap() {
       return internalGetSmartHighlighterMatches().getMap();
     }
@@ -3584,7 +3492,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
      */
     @java.lang.Override
-
     public int getSmartHighlighterMatchesOrDefault(
         java.lang.String key,
         int defaultValue) {
@@ -3602,7 +3509,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
      */
     @java.lang.Override
-
     public int getSmartHighlighterMatchesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3613,8 +3519,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearSmartHighlighterMatches() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableSmartHighlighterMatches().getMutableMap()
           .clear();
       return this;
@@ -3627,7 +3533,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
      */
-
     public Builder removeSmartHighlighterMatches(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3640,7 +3545,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
-    getMutableSmartHighlighterMatches() {
+        getMutableSmartHighlighterMatches() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableSmartHighlighterMatches().getMutableMap();
     }
     /**
@@ -3658,6 +3564,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableSmartHighlighterMatches().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -3668,18 +3575,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; smart_highlighter_matches = 4;</code>
      */
-
     public Builder putAllSmartHighlighterMatches(
         java.util.Map<java.lang.String, java.lang.Integer> values) {
       internalGetMutableSmartHighlighterMatches().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> customHighlighterMatches_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetCustomHighlighterMatches() {
+        internalGetCustomHighlighterMatches() {
       if (customHighlighterMatches_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             CustomHighlighterMatchesDefaultEntryHolder.defaultEntry);
@@ -3687,8 +3594,7 @@ private static final long serialVersionUID = 0L;
       return customHighlighterMatches_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetMutableCustomHighlighterMatches() {
-      onChanged();;
+        internalGetMutableCustomHighlighterMatches() {
       if (customHighlighterMatches_ == null) {
         customHighlighterMatches_ = com.google.protobuf.MapField.newMapField(
             CustomHighlighterMatchesDefaultEntryHolder.defaultEntry);
@@ -3696,9 +3602,10 @@ private static final long serialVersionUID = 0L;
       if (!customHighlighterMatches_.isMutable()) {
         customHighlighterMatches_ = customHighlighterMatches_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return customHighlighterMatches_;
     }
-
     public int getCustomHighlighterMatchesCount() {
       return internalGetCustomHighlighterMatches().getMap().size();
     }
@@ -3710,7 +3617,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsCustomHighlighterMatches(
         java.lang.String key) {
@@ -3734,7 +3640,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Integer> getCustomHighlighterMatchesMap() {
       return internalGetCustomHighlighterMatches().getMap();
     }
@@ -3747,7 +3652,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
      */
     @java.lang.Override
-
     public int getCustomHighlighterMatchesOrDefault(
         java.lang.String key,
         int defaultValue) {
@@ -3765,7 +3669,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
      */
     @java.lang.Override
-
     public int getCustomHighlighterMatchesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3776,8 +3679,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearCustomHighlighterMatches() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableCustomHighlighterMatches().getMutableMap()
           .clear();
       return this;
@@ -3790,7 +3693,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
      */
-
     public Builder removeCustomHighlighterMatches(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3803,7 +3705,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
-    getMutableCustomHighlighterMatches() {
+        getMutableCustomHighlighterMatches() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableCustomHighlighterMatches().getMutableMap();
     }
     /**
@@ -3821,6 +3724,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableCustomHighlighterMatches().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -3831,27 +3735,26 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; custom_highlighter_matches = 5;</code>
      */
-
     public Builder putAllCustomHighlighterMatches(
         java.util.Map<java.lang.String, java.lang.Integer> values) {
       internalGetMutableCustomHighlighterMatches().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> issueMatches_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetIssueMatches() {
+    @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetIssueMatches() {
       if (issueMatches_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             IssueMatchesDefaultEntryHolder.defaultEntry);
       }
       return issueMatches_;
     }
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetMutableIssueMatches() {
-      onChanged();;
+    @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableIssueMatches() {
       if (issueMatches_ == null) {
         issueMatches_ = com.google.protobuf.MapField.newMapField(
             IssueMatchesDefaultEntryHolder.defaultEntry);
@@ -3859,10 +3762,11 @@ private static final long serialVersionUID = 0L;
       if (!issueMatches_.isMutable()) {
         issueMatches_ = issueMatches_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return issueMatches_;
     }
-    @java.lang.Deprecated 
-    public int getIssueMatchesCount() {
+    @java.lang.Deprecated public int getIssueMatchesCount() {
       return internalGetIssueMatches().getMap().size();
     }
     /**
@@ -3875,9 +3779,8 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
     @java.lang.Override
-    public boolean containsIssueMatches(
+    @java.lang.Deprecated public boolean containsIssueMatches(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       return internalGetIssueMatches().getMap().containsKey(key);
@@ -3901,8 +3804,7 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public java.util.Map<java.lang.String, java.lang.Integer> getIssueMatchesMap() {
+    @java.lang.Deprecated public java.util.Map<java.lang.String, java.lang.Integer> getIssueMatchesMap() {
       return internalGetIssueMatches().getMap();
     }
     /**
@@ -3916,8 +3818,7 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public int getIssueMatchesOrDefault(
+    @java.lang.Deprecated public int getIssueMatchesOrDefault(
         java.lang.String key,
         int defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3936,8 +3837,7 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public int getIssueMatchesOrThrow(
+    @java.lang.Deprecated public int getIssueMatchesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Integer> map =
@@ -3947,8 +3847,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-    @java.lang.Deprecated 
-    public Builder clearIssueMatches() {
+    @java.lang.Deprecated public Builder clearIssueMatches() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableIssueMatches().getMutableMap()
           .clear();
       return this;
@@ -3963,8 +3863,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public Builder removeIssueMatches(
+    @java.lang.Deprecated public Builder removeIssueMatches(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableIssueMatches().getMutableMap()
@@ -3976,7 +3875,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
-    getMutableIssueMatches() {
+        getMutableIssueMatches() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableIssueMatches().getMutableMap();
     }
     /**
@@ -3996,6 +3896,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableIssueMatches().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -4008,18 +3909,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int32&gt; issue_matches = 6 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public Builder putAllIssueMatches(
+    @java.lang.Deprecated public Builder putAllIssueMatches(
         java.util.Map<java.lang.String, java.lang.Integer> values) {
       internalGetMutableIssueMatches().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats> issueMatchesStats_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats>
-    internalGetIssueMatchesStats() {
+        internalGetIssueMatchesStats() {
       if (issueMatchesStats_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             IssueMatchesStatsDefaultEntryHolder.defaultEntry);
@@ -4027,8 +3928,7 @@ private static final long serialVersionUID = 0L;
       return issueMatchesStats_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats>
-    internalGetMutableIssueMatchesStats() {
-      onChanged();;
+        internalGetMutableIssueMatchesStats() {
       if (issueMatchesStats_ == null) {
         issueMatchesStats_ = com.google.protobuf.MapField.newMapField(
             IssueMatchesStatsDefaultEntryHolder.defaultEntry);
@@ -4036,9 +3936,10 @@ private static final long serialVersionUID = 0L;
       if (!issueMatchesStats_.isMutable()) {
         issueMatchesStats_ = issueMatchesStats_.copy();
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
       return issueMatchesStats_;
     }
-
     public int getIssueMatchesStatsCount() {
       return internalGetIssueMatchesStats().getMap().size();
     }
@@ -4051,7 +3952,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
      */
-
     @java.lang.Override
     public boolean containsIssueMatchesStats(
         java.lang.String key) {
@@ -4076,7 +3976,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats> getIssueMatchesStatsMap() {
       return internalGetIssueMatchesStats().getMap();
     }
@@ -4090,10 +3989,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueMatchesStatsOrDefault(
+    public /* nullable */
+com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueMatchesStatsOrDefault(
         java.lang.String key,
-        com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats defaultValue) {
+        /* nullable */
+com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats> map =
           internalGetIssueMatchesStats().getMap();
@@ -4109,7 +4009,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueMatchesStatsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4120,8 +4019,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearIssueMatchesStats() {
+      bitField0_ = (bitField0_ & ~0x00000040);
       internalGetMutableIssueMatchesStats().getMutableMap()
           .clear();
       return this;
@@ -4135,7 +4034,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
      */
-
     public Builder removeIssueMatchesStats(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4148,7 +4046,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats>
-    getMutableIssueMatchesStats() {
+        getMutableIssueMatchesStats() {
+      bitField0_ |= 0x00000040;
       return internalGetMutableIssueMatchesStats().getMutableMap();
     }
     /**
@@ -4164,12 +4063,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableIssueMatchesStats().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000040;
       return this;
     }
     /**
@@ -4181,11 +4078,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_matches_stats = 8;</code>
      */
-
     public Builder putAllIssueMatchesStats(
         java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats> values) {
       internalGetMutableIssueMatchesStats().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
@@ -4202,7 +4099,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the conversationCountTimeSeries field is set.
      */
     public boolean hasConversationCountTimeSeries() {
-      return conversationCountTimeSeriesBuilder_ != null || conversationCountTimeSeries_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -4234,11 +4131,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         conversationCountTimeSeries_ = value;
-        onChanged();
       } else {
         conversationCountTimeSeriesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4253,11 +4150,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Builder builderForValue) {
       if (conversationCountTimeSeriesBuilder_ == null) {
         conversationCountTimeSeries_ = builderForValue.build();
-        onChanged();
       } else {
         conversationCountTimeSeriesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4270,17 +4167,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConversationCountTimeSeries(com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries value) {
       if (conversationCountTimeSeriesBuilder_ == null) {
-        if (conversationCountTimeSeries_ != null) {
-          conversationCountTimeSeries_ =
-            com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.newBuilder(conversationCountTimeSeries_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          conversationCountTimeSeries_ != null &&
+          conversationCountTimeSeries_ != com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.getDefaultInstance()) {
+          getConversationCountTimeSeriesBuilder().mergeFrom(value);
         } else {
           conversationCountTimeSeries_ = value;
         }
-        onChanged();
       } else {
         conversationCountTimeSeriesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4292,14 +4190,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries conversation_count_time_series = 7;</code>
      */
     public Builder clearConversationCountTimeSeries() {
-      if (conversationCountTimeSeriesBuilder_ == null) {
-        conversationCountTimeSeries_ = null;
-        onChanged();
-      } else {
-        conversationCountTimeSeries_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      conversationCountTimeSeries_ = null;
+      if (conversationCountTimeSeriesBuilder_ != null) {
+        conversationCountTimeSeriesBuilder_.dispose();
         conversationCountTimeSeriesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4311,7 +4208,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries conversation_count_time_series = 7;</code>
      */
     public com.google.cloud.contactcenterinsights.v1.CalculateStatsResponse.TimeSeries.Builder getConversationCountTimeSeriesBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getConversationCountTimeSeriesFieldBuilder().getBuilder();
     }
@@ -4385,7 +4282,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CalculateStatsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

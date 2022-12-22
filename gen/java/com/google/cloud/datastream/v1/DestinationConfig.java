@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DestinationConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            destinationConnectionProfile_ = s;
-            break;
-          }
-          case 802: {
-            com.google.cloud.datastream.v1.GcsDestinationConfig.Builder subBuilder = null;
-            if (destinationStreamConfigCase_ == 100) {
-              subBuilder = ((com.google.cloud.datastream.v1.GcsDestinationConfig) destinationStreamConfig_).toBuilder();
-            }
-            destinationStreamConfig_ =
-                input.readMessage(com.google.cloud.datastream.v1.GcsDestinationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1.GcsDestinationConfig) destinationStreamConfig_);
-              destinationStreamConfig_ = subBuilder.buildPartial();
-            }
-            destinationStreamConfigCase_ = 100;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1.DatastreamResourcesProto.internal_static_google_cloud_datastream_v1_DestinationConfig_descriptor;
@@ -113,6 +54,7 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.Internal.EnumLite,
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     GCS_DESTINATION_CONFIG(100),
+    BIGQUERY_DESTINATION_CONFIG(101),
     DESTINATIONSTREAMCONFIG_NOT_SET(0);
     private final int value;
     private DestinationStreamConfigCase(int value) {
@@ -131,6 +73,7 @@ private static final long serialVersionUID = 0L;
     public static DestinationStreamConfigCase forNumber(int value) {
       switch (value) {
         case 100: return GCS_DESTINATION_CONFIG;
+        case 101: return BIGQUERY_DESTINATION_CONFIG;
         case 0: return DESTINATIONSTREAMCONFIG_NOT_SET;
         default: return null;
       }
@@ -147,7 +90,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_CONNECTION_PROFILE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object destinationConnectionProfile_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object destinationConnectionProfile_ = "";
   /**
    * <pre>
    * Required. Destination connection profile resource.
@@ -237,6 +181,49 @@ private static final long serialVersionUID = 0L;
     return com.google.cloud.datastream.v1.GcsDestinationConfig.getDefaultInstance();
   }
 
+  public static final int BIGQUERY_DESTINATION_CONFIG_FIELD_NUMBER = 101;
+  /**
+   * <pre>
+   * BigQuery destination configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+   * @return Whether the bigqueryDestinationConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasBigqueryDestinationConfig() {
+    return destinationStreamConfigCase_ == 101;
+  }
+  /**
+   * <pre>
+   * BigQuery destination configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+   * @return The bigqueryDestinationConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.datastream.v1.BigQueryDestinationConfig getBigqueryDestinationConfig() {
+    if (destinationStreamConfigCase_ == 101) {
+       return (com.google.cloud.datastream.v1.BigQueryDestinationConfig) destinationStreamConfig_;
+    }
+    return com.google.cloud.datastream.v1.BigQueryDestinationConfig.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * BigQuery destination configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.datastream.v1.BigQueryDestinationConfigOrBuilder getBigqueryDestinationConfigOrBuilder() {
+    if (destinationStreamConfigCase_ == 101) {
+       return (com.google.cloud.datastream.v1.BigQueryDestinationConfig) destinationStreamConfig_;
+    }
+    return com.google.cloud.datastream.v1.BigQueryDestinationConfig.getDefaultInstance();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -257,7 +244,10 @@ private static final long serialVersionUID = 0L;
     if (destinationStreamConfigCase_ == 100) {
       output.writeMessage(100, (com.google.cloud.datastream.v1.GcsDestinationConfig) destinationStreamConfig_);
     }
-    unknownFields.writeTo(output);
+    if (destinationStreamConfigCase_ == 101) {
+      output.writeMessage(101, (com.google.cloud.datastream.v1.BigQueryDestinationConfig) destinationStreamConfig_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -273,7 +263,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(100, (com.google.cloud.datastream.v1.GcsDestinationConfig) destinationStreamConfig_);
     }
-    size += unknownFields.getSerializedSize();
+    if (destinationStreamConfigCase_ == 101) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(101, (com.google.cloud.datastream.v1.BigQueryDestinationConfig) destinationStreamConfig_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -296,10 +290,14 @@ private static final long serialVersionUID = 0L;
         if (!getGcsDestinationConfig()
             .equals(other.getGcsDestinationConfig())) return false;
         break;
+      case 101:
+        if (!getBigqueryDestinationConfig()
+            .equals(other.getBigqueryDestinationConfig())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -317,10 +315,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + GCS_DESTINATION_CONFIG_FIELD_NUMBER;
         hash = (53 * hash) + getGcsDestinationConfig().hashCode();
         break;
+      case 101:
+        hash = (37 * hash) + BIGQUERY_DESTINATION_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getBigqueryDestinationConfig().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -441,24 +443,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1.DestinationConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       destinationConnectionProfile_ = "";
-
+      if (gcsDestinationConfigBuilder_ != null) {
+        gcsDestinationConfigBuilder_.clear();
+      }
+      if (bigqueryDestinationConfigBuilder_ != null) {
+        bigqueryDestinationConfigBuilder_.clear();
+      }
       destinationStreamConfigCase_ = 0;
       destinationStreamConfig_ = null;
       return this;
@@ -487,17 +490,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1.DestinationConfig buildPartial() {
       com.google.cloud.datastream.v1.DestinationConfig result = new com.google.cloud.datastream.v1.DestinationConfig(this);
-      result.destinationConnectionProfile_ = destinationConnectionProfile_;
-      if (destinationStreamConfigCase_ == 100) {
-        if (gcsDestinationConfigBuilder_ == null) {
-          result.destinationStreamConfig_ = destinationStreamConfig_;
-        } else {
-          result.destinationStreamConfig_ = gcsDestinationConfigBuilder_.build();
-        }
-      }
-      result.destinationStreamConfigCase_ = destinationStreamConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1.DestinationConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.destinationConnectionProfile_ = destinationConnectionProfile_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datastream.v1.DestinationConfig result) {
+      result.destinationStreamConfigCase_ = destinationStreamConfigCase_;
+      result.destinationStreamConfig_ = this.destinationStreamConfig_;
+      if (destinationStreamConfigCase_ == 100 &&
+          gcsDestinationConfigBuilder_ != null) {
+        result.destinationStreamConfig_ = gcsDestinationConfigBuilder_.build();
+      }
+      if (destinationStreamConfigCase_ == 101 &&
+          bigqueryDestinationConfigBuilder_ != null) {
+        result.destinationStreamConfig_ = bigqueryDestinationConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -546,6 +562,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datastream.v1.DestinationConfig.getDefaultInstance()) return this;
       if (!other.getDestinationConnectionProfile().isEmpty()) {
         destinationConnectionProfile_ = other.destinationConnectionProfile_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getDestinationStreamConfigCase()) {
@@ -553,11 +570,15 @@ private static final long serialVersionUID = 0L;
           mergeGcsDestinationConfig(other.getGcsDestinationConfig());
           break;
         }
+        case BIGQUERY_DESTINATION_CONFIG: {
+          mergeBigqueryDestinationConfig(other.getBigqueryDestinationConfig());
+          break;
+        }
         case DESTINATIONSTREAMCONFIG_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -572,17 +593,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1.DestinationConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              destinationConnectionProfile_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 802: {
+              input.readMessage(
+                  getGcsDestinationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              destinationStreamConfigCase_ = 100;
+              break;
+            } // case 802
+            case 810: {
+              input.readMessage(
+                  getBigqueryDestinationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              destinationStreamConfigCase_ = 101;
+              break;
+            } // case 810
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1.DestinationConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int destinationStreamConfigCase_ = 0;
@@ -600,6 +653,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object destinationConnectionProfile_ = "";
     /**
@@ -657,11 +711,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationConnectionProfile(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       destinationConnectionProfile_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -675,8 +727,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationConnectionProfile() {
-      
       destinationConnectionProfile_ = getDefaultInstance().getDestinationConnectionProfile();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -692,12 +744,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationConnectionProfileBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       destinationConnectionProfile_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -876,8 +926,186 @@ private static final long serialVersionUID = 0L;
         destinationStreamConfig_ = null;
       }
       destinationStreamConfigCase_ = 100;
-      onChanged();;
+      onChanged();
       return gcsDestinationConfigBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.datastream.v1.BigQueryDestinationConfig, com.google.cloud.datastream.v1.BigQueryDestinationConfig.Builder, com.google.cloud.datastream.v1.BigQueryDestinationConfigOrBuilder> bigqueryDestinationConfigBuilder_;
+    /**
+     * <pre>
+     * BigQuery destination configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+     * @return Whether the bigqueryDestinationConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasBigqueryDestinationConfig() {
+      return destinationStreamConfigCase_ == 101;
+    }
+    /**
+     * <pre>
+     * BigQuery destination configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+     * @return The bigqueryDestinationConfig.
+     */
+    @java.lang.Override
+    public com.google.cloud.datastream.v1.BigQueryDestinationConfig getBigqueryDestinationConfig() {
+      if (bigqueryDestinationConfigBuilder_ == null) {
+        if (destinationStreamConfigCase_ == 101) {
+          return (com.google.cloud.datastream.v1.BigQueryDestinationConfig) destinationStreamConfig_;
+        }
+        return com.google.cloud.datastream.v1.BigQueryDestinationConfig.getDefaultInstance();
+      } else {
+        if (destinationStreamConfigCase_ == 101) {
+          return bigqueryDestinationConfigBuilder_.getMessage();
+        }
+        return com.google.cloud.datastream.v1.BigQueryDestinationConfig.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * BigQuery destination configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+     */
+    public Builder setBigqueryDestinationConfig(com.google.cloud.datastream.v1.BigQueryDestinationConfig value) {
+      if (bigqueryDestinationConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        destinationStreamConfig_ = value;
+        onChanged();
+      } else {
+        bigqueryDestinationConfigBuilder_.setMessage(value);
+      }
+      destinationStreamConfigCase_ = 101;
+      return this;
+    }
+    /**
+     * <pre>
+     * BigQuery destination configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+     */
+    public Builder setBigqueryDestinationConfig(
+        com.google.cloud.datastream.v1.BigQueryDestinationConfig.Builder builderForValue) {
+      if (bigqueryDestinationConfigBuilder_ == null) {
+        destinationStreamConfig_ = builderForValue.build();
+        onChanged();
+      } else {
+        bigqueryDestinationConfigBuilder_.setMessage(builderForValue.build());
+      }
+      destinationStreamConfigCase_ = 101;
+      return this;
+    }
+    /**
+     * <pre>
+     * BigQuery destination configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+     */
+    public Builder mergeBigqueryDestinationConfig(com.google.cloud.datastream.v1.BigQueryDestinationConfig value) {
+      if (bigqueryDestinationConfigBuilder_ == null) {
+        if (destinationStreamConfigCase_ == 101 &&
+            destinationStreamConfig_ != com.google.cloud.datastream.v1.BigQueryDestinationConfig.getDefaultInstance()) {
+          destinationStreamConfig_ = com.google.cloud.datastream.v1.BigQueryDestinationConfig.newBuilder((com.google.cloud.datastream.v1.BigQueryDestinationConfig) destinationStreamConfig_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          destinationStreamConfig_ = value;
+        }
+        onChanged();
+      } else {
+        if (destinationStreamConfigCase_ == 101) {
+          bigqueryDestinationConfigBuilder_.mergeFrom(value);
+        } else {
+          bigqueryDestinationConfigBuilder_.setMessage(value);
+        }
+      }
+      destinationStreamConfigCase_ = 101;
+      return this;
+    }
+    /**
+     * <pre>
+     * BigQuery destination configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+     */
+    public Builder clearBigqueryDestinationConfig() {
+      if (bigqueryDestinationConfigBuilder_ == null) {
+        if (destinationStreamConfigCase_ == 101) {
+          destinationStreamConfigCase_ = 0;
+          destinationStreamConfig_ = null;
+          onChanged();
+        }
+      } else {
+        if (destinationStreamConfigCase_ == 101) {
+          destinationStreamConfigCase_ = 0;
+          destinationStreamConfig_ = null;
+        }
+        bigqueryDestinationConfigBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * BigQuery destination configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+     */
+    public com.google.cloud.datastream.v1.BigQueryDestinationConfig.Builder getBigqueryDestinationConfigBuilder() {
+      return getBigqueryDestinationConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * BigQuery destination configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.datastream.v1.BigQueryDestinationConfigOrBuilder getBigqueryDestinationConfigOrBuilder() {
+      if ((destinationStreamConfigCase_ == 101) && (bigqueryDestinationConfigBuilder_ != null)) {
+        return bigqueryDestinationConfigBuilder_.getMessageOrBuilder();
+      } else {
+        if (destinationStreamConfigCase_ == 101) {
+          return (com.google.cloud.datastream.v1.BigQueryDestinationConfig) destinationStreamConfig_;
+        }
+        return com.google.cloud.datastream.v1.BigQueryDestinationConfig.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * BigQuery destination configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.BigQueryDestinationConfig bigquery_destination_config = 101;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.datastream.v1.BigQueryDestinationConfig, com.google.cloud.datastream.v1.BigQueryDestinationConfig.Builder, com.google.cloud.datastream.v1.BigQueryDestinationConfigOrBuilder> 
+        getBigqueryDestinationConfigFieldBuilder() {
+      if (bigqueryDestinationConfigBuilder_ == null) {
+        if (!(destinationStreamConfigCase_ == 101)) {
+          destinationStreamConfig_ = com.google.cloud.datastream.v1.BigQueryDestinationConfig.getDefaultInstance();
+        }
+        bigqueryDestinationConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.datastream.v1.BigQueryDestinationConfig, com.google.cloud.datastream.v1.BigQueryDestinationConfig.Builder, com.google.cloud.datastream.v1.BigQueryDestinationConfigOrBuilder>(
+                (com.google.cloud.datastream.v1.BigQueryDestinationConfig) destinationStreamConfig_,
+                getParentForChildren(),
+                isClean());
+        destinationStreamConfig_ = null;
+      }
+      destinationStreamConfigCase_ = 101;
+      onChanged();
+      return bigqueryDestinationConfigBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -912,7 +1140,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DestinationConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

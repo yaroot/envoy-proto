@@ -38,125 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccountLink(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.ads.googleads.v11.resources.ThirdPartyAppAnalyticsLinkIdentifier.Builder subBuilder = null;
-            if (linkedAccountCase_ == 5) {
-              subBuilder = ((com.google.ads.googleads.v11.resources.ThirdPartyAppAnalyticsLinkIdentifier) linkedAccount_).toBuilder();
-            }
-            linkedAccount_ =
-                input.readMessage(com.google.ads.googleads.v11.resources.ThirdPartyAppAnalyticsLinkIdentifier.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.resources.ThirdPartyAppAnalyticsLinkIdentifier) linkedAccount_);
-              linkedAccount_ = subBuilder.buildPartial();
-            }
-            linkedAccountCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.ads.googleads.v11.resources.DataPartnerLinkIdentifier.Builder subBuilder = null;
-            if (linkedAccountCase_ == 6) {
-              subBuilder = ((com.google.ads.googleads.v11.resources.DataPartnerLinkIdentifier) linkedAccount_).toBuilder();
-            }
-            linkedAccount_ =
-                input.readMessage(com.google.ads.googleads.v11.resources.DataPartnerLinkIdentifier.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.resources.DataPartnerLinkIdentifier) linkedAccount_);
-              linkedAccount_ = subBuilder.buildPartial();
-            }
-            linkedAccountCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.ads.googleads.v11.resources.GoogleAdsLinkIdentifier.Builder subBuilder = null;
-            if (linkedAccountCase_ == 7) {
-              subBuilder = ((com.google.ads.googleads.v11.resources.GoogleAdsLinkIdentifier) linkedAccount_).toBuilder();
-            }
-            linkedAccount_ =
-                input.readMessage(com.google.ads.googleads.v11.resources.GoogleAdsLinkIdentifier.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.resources.GoogleAdsLinkIdentifier) linkedAccount_);
-              linkedAccount_ = subBuilder.buildPartial();
-            }
-            linkedAccountCase_ = 7;
-            break;
-          }
-          case 64: {
-            bitField0_ |= 0x00000001;
-            accountLinkId_ = input.readInt64();
-            break;
-          }
-          case 74: {
-            com.google.ads.googleads.v11.resources.HotelCenterLinkIdentifier.Builder subBuilder = null;
-            if (linkedAccountCase_ == 9) {
-              subBuilder = ((com.google.ads.googleads.v11.resources.HotelCenterLinkIdentifier) linkedAccount_).toBuilder();
-            }
-            linkedAccount_ =
-                input.readMessage(com.google.ads.googleads.v11.resources.HotelCenterLinkIdentifier.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.resources.HotelCenterLinkIdentifier) linkedAccount_);
-              linkedAccount_ = subBuilder.buildPartial();
-            }
-            linkedAccountCase_ = 9;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.resources.AccountLinkProto.internal_static_google_ads_googleads_v11_resources_AccountLink_descriptor;
@@ -217,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Immutable. Resource name of the account link.
@@ -267,7 +149,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCOUNT_LINK_ID_FIELD_NUMBER = 8;
-  private long accountLinkId_;
+  private long accountLinkId_ = 0L;
   /**
    * <pre>
    * Output only. The ID of the link.
@@ -296,7 +178,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 3;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * The status of the link.
@@ -317,13 +199,12 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus result = com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus.valueOf(status_);
+    com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus result = com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus.forNumber(status_);
     return result == null ? com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus.UNRECOGNIZED : result;
   }
 
   public static final int TYPE_FIELD_NUMBER = 4;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Output only. The type of the linked account.
@@ -344,8 +225,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType result = com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType.valueOf(type_);
+    com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType result = com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType.forNumber(type_);
     return result == null ? com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType.UNRECOGNIZED : result;
   }
 
@@ -559,7 +439,7 @@ private static final long serialVersionUID = 0L;
     if (linkedAccountCase_ == 9) {
       output.writeMessage(9, (com.google.ads.googleads.v11.resources.HotelCenterLinkIdentifier) linkedAccount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -599,7 +479,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, (com.google.ads.googleads.v11.resources.HotelCenterLinkIdentifier) linkedAccount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -644,7 +524,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -686,7 +566,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -808,30 +688,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.resources.AccountLink.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       accountLinkId_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       status_ = 0;
-
       type_ = 0;
-
+      if (thirdPartyAppAnalyticsBuilder_ != null) {
+        thirdPartyAppAnalyticsBuilder_.clear();
+      }
+      if (dataPartnerBuilder_ != null) {
+        dataPartnerBuilder_.clear();
+      }
+      if (googleAdsBuilder_ != null) {
+        googleAdsBuilder_.clear();
+      }
+      if (hotelCenterBuilder_ != null) {
+        hotelCenterBuilder_.clear();
+      }
       linkedAccountCase_ = 0;
       linkedAccount_ = null;
       return this;
@@ -860,47 +744,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.resources.AccountLink buildPartial() {
       com.google.ads.googleads.v11.resources.AccountLink result = new com.google.ads.googleads.v11.resources.AccountLink(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.resources.AccountLink result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.accountLinkId_ = accountLinkId_;
         to_bitField0_ |= 0x00000001;
       }
-      result.status_ = status_;
-      result.type_ = type_;
-      if (linkedAccountCase_ == 5) {
-        if (thirdPartyAppAnalyticsBuilder_ == null) {
-          result.linkedAccount_ = linkedAccount_;
-        } else {
-          result.linkedAccount_ = thirdPartyAppAnalyticsBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.status_ = status_;
       }
-      if (linkedAccountCase_ == 6) {
-        if (dataPartnerBuilder_ == null) {
-          result.linkedAccount_ = linkedAccount_;
-        } else {
-          result.linkedAccount_ = dataPartnerBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.type_ = type_;
       }
-      if (linkedAccountCase_ == 7) {
-        if (googleAdsBuilder_ == null) {
-          result.linkedAccount_ = linkedAccount_;
-        } else {
-          result.linkedAccount_ = googleAdsBuilder_.build();
-        }
-      }
-      if (linkedAccountCase_ == 9) {
-        if (hotelCenterBuilder_ == null) {
-          result.linkedAccount_ = linkedAccount_;
-        } else {
-          result.linkedAccount_ = hotelCenterBuilder_.build();
-        }
-      }
-      result.bitField0_ = to_bitField0_;
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.resources.AccountLink result) {
       result.linkedAccountCase_ = linkedAccountCase_;
-      onBuilt();
-      return result;
+      result.linkedAccount_ = this.linkedAccount_;
+      if (linkedAccountCase_ == 5 &&
+          thirdPartyAppAnalyticsBuilder_ != null) {
+        result.linkedAccount_ = thirdPartyAppAnalyticsBuilder_.build();
+      }
+      if (linkedAccountCase_ == 6 &&
+          dataPartnerBuilder_ != null) {
+        result.linkedAccount_ = dataPartnerBuilder_.build();
+      }
+      if (linkedAccountCase_ == 7 &&
+          googleAdsBuilder_ != null) {
+        result.linkedAccount_ = googleAdsBuilder_.build();
+      }
+      if (linkedAccountCase_ == 9 &&
+          hotelCenterBuilder_ != null) {
+        result.linkedAccount_ = hotelCenterBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -949,6 +836,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.resources.AccountLink.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAccountLinkId()) {
@@ -981,7 +869,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -996,17 +884,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.resources.AccountLink parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 24: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getThirdPartyAppAnalyticsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              linkedAccountCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDataPartnerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              linkedAccountCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getGoogleAdsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              linkedAccountCase_ = 7;
+              break;
+            } // case 58
+            case 64: {
+              accountLinkId_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getHotelCenterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              linkedAccountCase_ = 9;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.resources.AccountLink) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int linkedAccountCase_ = 0;
@@ -1085,11 +1034,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1104,8 +1051,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1122,12 +1069,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1144,7 +1089,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasAccountLinkId() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1170,8 +1115,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAccountLinkId(long value) {
-      bitField0_ |= 0x00000001;
+      
       accountLinkId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1185,7 +1131,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAccountLinkId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       accountLinkId_ = 0L;
       onChanged();
       return this;
@@ -1213,8 +1159,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1228,8 +1174,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus result = com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus.valueOf(status_);
+      com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus result = com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus.forNumber(status_);
       return result == null ? com.google.ads.googleads.v11.enums.AccountLinkStatusEnum.AccountLinkStatus.UNRECOGNIZED : result;
     }
     /**
@@ -1245,7 +1190,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -1259,7 +1204,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       status_ = 0;
       onChanged();
       return this;
@@ -1287,8 +1232,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1302,8 +1247,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType result = com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType.valueOf(type_);
+      com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType result = com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType.forNumber(type_);
       return result == null ? com.google.ads.googleads.v11.enums.LinkedAccountTypeEnum.LinkedAccountType.UNRECOGNIZED : result;
     }
     /**
@@ -1319,7 +1263,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -1333,7 +1277,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       type_ = 0;
       onChanged();
       return this;
@@ -1513,7 +1457,7 @@ private static final long serialVersionUID = 0L;
         linkedAccount_ = null;
       }
       linkedAccountCase_ = 5;
-      onChanged();;
+      onChanged();
       return thirdPartyAppAnalyticsBuilder_;
     }
 
@@ -1691,7 +1635,7 @@ private static final long serialVersionUID = 0L;
         linkedAccount_ = null;
       }
       linkedAccountCase_ = 6;
-      onChanged();;
+      onChanged();
       return dataPartnerBuilder_;
     }
 
@@ -1869,7 +1813,7 @@ private static final long serialVersionUID = 0L;
         linkedAccount_ = null;
       }
       linkedAccountCase_ = 7;
-      onChanged();;
+      onChanged();
       return googleAdsBuilder_;
     }
 
@@ -2047,7 +1991,7 @@ private static final long serialVersionUID = 0L;
         linkedAccount_ = null;
       }
       linkedAccountCase_ = 9;
-      onChanged();;
+      onChanged();
       return hotelCenterBuilder_;
     }
     @java.lang.Override
@@ -2083,7 +2027,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccountLink(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

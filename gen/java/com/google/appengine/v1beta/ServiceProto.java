@@ -40,30 +40,29 @@ public final class ServiceProto {
     java.lang.String[] descriptorData = {
       "\n%google/appengine/v1beta/service.proto\022" +
       "\027google.appengine.v1beta\032.google/appengi" +
-      "ne/v1beta/network_settings.proto\032\034google" +
-      "/api/annotations.proto\"\235\001\n\007Service\022\014\n\004na" +
-      "me\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\0224\n\005split\030\003 \001(\0132%.go" +
-      "ogle.appengine.v1beta.TrafficSplit\022B\n\020ne" +
-      "twork_settings\030\006 \001(\0132(.google.appengine." +
-      "v1beta.NetworkSettings\"\214\002\n\014TrafficSplit\022" +
-      "?\n\010shard_by\030\001 \001(\0162-.google.appengine.v1b" +
-      "eta.TrafficSplit.ShardBy\022K\n\013allocations\030" +
-      "\002 \003(\01326.google.appengine.v1beta.TrafficS" +
-      "plit.AllocationsEntry\0322\n\020AllocationsEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\":\n\007Sha" +
-      "rdBy\022\017\n\013UNSPECIFIED\020\000\022\n\n\006COOKIE\020\001\022\006\n\002IP\020" +
-      "\002\022\n\n\006RANDOM\020\003B\322\001\n\033com.google.appengine.v" +
-      "1betaB\014ServiceProtoP\001Z@google.golang.org" +
-      "/genproto/googleapis/appengine/v1beta;ap" +
-      "pengine\252\002\035Google.Cloud.AppEngine.V1Beta\312" +
-      "\002\035Google\\Cloud\\AppEngine\\V1beta\352\002 Google" +
-      "::Cloud::AppEngine::V1betab\006proto3"
+      "ne/v1beta/network_settings.proto\"\235\001\n\007Ser" +
+      "vice\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\t\0224\n\005split\030" +
+      "\003 \001(\0132%.google.appengine.v1beta.TrafficS" +
+      "plit\022B\n\020network_settings\030\006 \001(\0132(.google." +
+      "appengine.v1beta.NetworkSettings\"\214\002\n\014Tra" +
+      "fficSplit\022?\n\010shard_by\030\001 \001(\0162-.google.app" +
+      "engine.v1beta.TrafficSplit.ShardBy\022K\n\013al" +
+      "locations\030\002 \003(\01326.google.appengine.v1bet" +
+      "a.TrafficSplit.AllocationsEntry\0322\n\020Alloc" +
+      "ationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:" +
+      "\0028\001\":\n\007ShardBy\022\017\n\013UNSPECIFIED\020\000\022\n\n\006COOKI" +
+      "E\020\001\022\006\n\002IP\020\002\022\n\n\006RANDOM\020\003B\322\001\n\033com.google.a" +
+      "ppengine.v1betaB\014ServiceProtoP\001Z@google." +
+      "golang.org/genproto/googleapis/appengine" +
+      "/v1beta;appengine\252\002\035Google.Cloud.AppEngi" +
+      "ne.V1Beta\312\002\035Google\\Cloud\\AppEngine\\V1bet" +
+      "a\352\002 Google::Cloud::AppEngine::V1betab\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.appengine.v1beta.NetworkSettingsProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_appengine_v1beta_Service_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -84,7 +83,6 @@ public final class ServiceProto {
         internal_static_google_appengine_v1beta_TrafficSplit_AllocationsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     com.google.appengine.v1beta.NetworkSettingsProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

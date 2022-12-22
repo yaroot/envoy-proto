@@ -23,7 +23,7 @@ public interface VirtualClusterOrBuilder extends
    *
    * <code>string pattern = 1 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.VirtualCluster.pattern is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1328
+   *     See envoy/api/v2/route/route_components.proto;l=1329
    * @return The pattern.
    */
   @java.lang.Deprecated java.lang.String getPattern();
@@ -43,7 +43,7 @@ public interface VirtualClusterOrBuilder extends
    *
    * <code>string pattern = 1 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.VirtualCluster.pattern is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1328
+   *     See envoy/api/v2/route/route_components.proto;l=1329
    * @return The bytes for pattern.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -137,7 +137,7 @@ public interface VirtualClusterOrBuilder extends
    *
    * <code>.envoy.api.v2.core.RequestMethod method = 3 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
    * @deprecated envoy.api.v2.route.VirtualCluster.method is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1349
+   *     See envoy/api/v2/route/route_components.proto;l=1350
    * @return The enum numeric value on the wire for method.
    */
   @java.lang.Deprecated int getMethodValue();
@@ -151,7 +151,7 @@ public interface VirtualClusterOrBuilder extends
    *
    * <code>.envoy.api.v2.core.RequestMethod method = 3 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
    * @deprecated envoy.api.v2.route.VirtualCluster.method is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1349
+   *     See envoy/api/v2/route/route_components.proto;l=1350
    * @return The method.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.api.v2.core.RequestMethod getMethod();

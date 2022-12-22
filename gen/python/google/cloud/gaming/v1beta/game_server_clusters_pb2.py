@@ -16,10 +16,9 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.gaming.v1beta import common_pb2 as google_dot_cloud_dot_gaming_dot_v1beta_dot_common__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5google/cloud/gaming/v1beta/game_server_clusters.proto\x12\x1agoogle.cloud.gaming.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/gaming/v1beta/common.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xc3\x01\n\x1dListGameServerClustersRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-gameservices.googleapis.com/GameServerCluster\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x9b\x01\n\x1eListGameServerClustersResponse\x12K\n\x14game_server_clusters\x18\x01 \x03(\x0b\x32-.google.cloud.gaming.v1beta.GameServerCluster\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x04 \x03(\t\"b\n\x1bGetGameServerClusterRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-gameservices.googleapis.com/GameServerCluster\"\xdd\x01\n\x1e\x43reateGameServerClusterRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-gameservices.googleapis.com/GameServerCluster\x12#\n\x16game_server_cluster_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12O\n\x13game_server_cluster\x18\x03 \x01(\x0b\x32-.google.cloud.gaming.v1beta.GameServerClusterB\x03\xe0\x41\x02\"\x9b\x02\n%PreviewCreateGameServerClusterRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-gameservices.googleapis.com/GameServerCluster\x12#\n\x16game_server_cluster_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12O\n\x13game_server_cluster\x18\x03 \x01(\x0b\x32-.google.cloud.gaming.v1beta.GameServerClusterB\x03\xe0\x41\x02\x12\x35\n\x0cpreview_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\"u\n&PreviewCreateGameServerClusterResponse\x12\x0c\n\x04\x65tag\x18\x02 \x01(\t\x12=\n\x0ctarget_state\x18\x03 \x01(\x0b\x32\'.google.cloud.gaming.v1beta.TargetState\"e\n\x1e\x44\x65leteGameServerClusterRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-gameservices.googleapis.com/GameServerCluster\"\xa3\x01\n%PreviewDeleteGameServerClusterRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-gameservices.googleapis.com/GameServerCluster\x12\x35\n\x0cpreview_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\"u\n&PreviewDeleteGameServerClusterResponse\x12\x0c\n\x04\x65tag\x18\x02 \x01(\t\x12=\n\x0ctarget_state\x18\x03 \x01(\x0b\x32\'.google.cloud.gaming.v1beta.TargetState\"\xa7\x01\n\x1eUpdateGameServerClusterRequest\x12O\n\x13game_server_cluster\x18\x01 \x01(\x0b\x32-.google.cloud.gaming.v1beta.GameServerClusterB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xe5\x01\n%PreviewUpdateGameServerClusterRequest\x12O\n\x13game_server_cluster\x18\x01 \x01(\x0b\x32-.google.cloud.gaming.v1beta.GameServerClusterB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x35\n\x0cpreview_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\"u\n&PreviewUpdateGameServerClusterResponse\x12\x0c\n\x04\x65tag\x18\x02 \x01(\t\x12=\n\x0ctarget_state\x18\x03 \x01(\x0b\x32\'.google.cloud.gaming.v1beta.TargetState\"\x9b\x01\n\x1fGameServerClusterConnectionInfo\x12P\n\x15gke_cluster_reference\x18\x07 \x01(\x0b\x32/.google.cloud.gaming.v1beta.GkeClusterReferenceH\x00\x12\x11\n\tnamespace\x18\x05 \x01(\tB\x13\n\x11\x63luster_reference\"&\n\x13GkeClusterReference\x12\x0f\n\x07\x63luster\x18\x01 \x01(\t\"\x90\x04\n\x11GameServerCluster\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12I\n\x06labels\x18\x04 \x03(\x0b\x32\x39.google.cloud.gaming.v1beta.GameServerCluster.LabelsEntry\x12T\n\x0f\x63onnection_info\x18\x05 \x01(\x0b\x32;.google.cloud.gaming.v1beta.GameServerClusterConnectionInfo\x12\x0c\n\x04\x65tag\x18\x06 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x07 \x01(\t\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x88\x01\xea\x41\x84\x01\n-gameservices.googleapis.com/GameServerCluster\x12Sprojects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}B\x81\x01\n\x1e\x63om.google.cloud.gaming.v1betaP\x01Z@google.golang.org/genproto/googleapis/cloud/gaming/v1beta;gaming\xca\x02\x1aGoogle\\Cloud\\Gaming\\V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5google/cloud/gaming/v1beta/game_server_clusters.proto\x12\x1agoogle.cloud.gaming.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/gaming/v1beta/common.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x01\n\x1dListGameServerClustersRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-gameservices.googleapis.com/GameServerCluster\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\x9b\x01\n\x1eListGameServerClustersResponse\x12K\n\x14game_server_clusters\x18\x01 \x03(\x0b\x32-.google.cloud.gaming.v1beta.GameServerCluster\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x04 \x03(\t\"b\n\x1bGetGameServerClusterRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-gameservices.googleapis.com/GameServerCluster\"\xdd\x01\n\x1e\x43reateGameServerClusterRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-gameservices.googleapis.com/GameServerCluster\x12#\n\x16game_server_cluster_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12O\n\x13game_server_cluster\x18\x03 \x01(\x0b\x32-.google.cloud.gaming.v1beta.GameServerClusterB\x03\xe0\x41\x02\"\x9b\x02\n%PreviewCreateGameServerClusterRequest\x12\x45\n\x06parent\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\x12-gameservices.googleapis.com/GameServerCluster\x12#\n\x16game_server_cluster_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12O\n\x13game_server_cluster\x18\x03 \x01(\x0b\x32-.google.cloud.gaming.v1beta.GameServerClusterB\x03\xe0\x41\x02\x12\x35\n\x0cpreview_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\"u\n&PreviewCreateGameServerClusterResponse\x12\x0c\n\x04\x65tag\x18\x02 \x01(\t\x12=\n\x0ctarget_state\x18\x03 \x01(\x0b\x32\'.google.cloud.gaming.v1beta.TargetState\"e\n\x1e\x44\x65leteGameServerClusterRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-gameservices.googleapis.com/GameServerCluster\"\xa3\x01\n%PreviewDeleteGameServerClusterRequest\x12\x43\n\x04name\x18\x01 \x01(\tB5\xe0\x41\x02\xfa\x41/\n-gameservices.googleapis.com/GameServerCluster\x12\x35\n\x0cpreview_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\"u\n&PreviewDeleteGameServerClusterResponse\x12\x0c\n\x04\x65tag\x18\x02 \x01(\t\x12=\n\x0ctarget_state\x18\x03 \x01(\x0b\x32\'.google.cloud.gaming.v1beta.TargetState\"\xa7\x01\n\x1eUpdateGameServerClusterRequest\x12O\n\x13game_server_cluster\x18\x01 \x01(\x0b\x32-.google.cloud.gaming.v1beta.GameServerClusterB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xe5\x01\n%PreviewUpdateGameServerClusterRequest\x12O\n\x13game_server_cluster\x18\x01 \x01(\x0b\x32-.google.cloud.gaming.v1beta.GameServerClusterB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\x12\x35\n\x0cpreview_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\"u\n&PreviewUpdateGameServerClusterResponse\x12\x0c\n\x04\x65tag\x18\x02 \x01(\t\x12=\n\x0ctarget_state\x18\x03 \x01(\x0b\x32\'.google.cloud.gaming.v1beta.TargetState\"\x9b\x01\n\x1fGameServerClusterConnectionInfo\x12P\n\x15gke_cluster_reference\x18\x07 \x01(\x0b\x32/.google.cloud.gaming.v1beta.GkeClusterReferenceH\x00\x12\x11\n\tnamespace\x18\x05 \x01(\tB\x13\n\x11\x63luster_reference\"&\n\x13GkeClusterReference\x12\x0f\n\x07\x63luster\x18\x01 \x01(\t\"\x90\x04\n\x11GameServerCluster\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12I\n\x06labels\x18\x04 \x03(\x0b\x32\x39.google.cloud.gaming.v1beta.GameServerCluster.LabelsEntry\x12T\n\x0f\x63onnection_info\x18\x05 \x01(\x0b\x32;.google.cloud.gaming.v1beta.GameServerClusterConnectionInfo\x12\x0c\n\x04\x65tag\x18\x06 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x07 \x01(\t\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x88\x01\xea\x41\x84\x01\n-gameservices.googleapis.com/GameServerCluster\x12Sprojects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}B\x81\x01\n\x1e\x63om.google.cloud.gaming.v1betaP\x01Z@google.golang.org/genproto/googleapis/cloud/gaming/v1beta;gaming\xca\x02\x1aGoogle\\Cloud\\Gaming\\V1betab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.gaming.v1beta.game_server_clusters_pb2', globals())
@@ -79,36 +78,36 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GAMESERVERCLUSTER.fields_by_name['update_time']._serialized_options = b'\340A\003'
   _GAMESERVERCLUSTER._options = None
   _GAMESERVERCLUSTER._serialized_options = b'\352A\204\001\n-gameservices.googleapis.com/GameServerCluster\022Sprojects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}'
-  _LISTGAMESERVERCLUSTERSREQUEST._serialized_start=284
-  _LISTGAMESERVERCLUSTERSREQUEST._serialized_end=479
-  _LISTGAMESERVERCLUSTERSRESPONSE._serialized_start=482
-  _LISTGAMESERVERCLUSTERSRESPONSE._serialized_end=637
-  _GETGAMESERVERCLUSTERREQUEST._serialized_start=639
-  _GETGAMESERVERCLUSTERREQUEST._serialized_end=737
-  _CREATEGAMESERVERCLUSTERREQUEST._serialized_start=740
-  _CREATEGAMESERVERCLUSTERREQUEST._serialized_end=961
-  _PREVIEWCREATEGAMESERVERCLUSTERREQUEST._serialized_start=964
-  _PREVIEWCREATEGAMESERVERCLUSTERREQUEST._serialized_end=1247
-  _PREVIEWCREATEGAMESERVERCLUSTERRESPONSE._serialized_start=1249
-  _PREVIEWCREATEGAMESERVERCLUSTERRESPONSE._serialized_end=1366
-  _DELETEGAMESERVERCLUSTERREQUEST._serialized_start=1368
-  _DELETEGAMESERVERCLUSTERREQUEST._serialized_end=1469
-  _PREVIEWDELETEGAMESERVERCLUSTERREQUEST._serialized_start=1472
-  _PREVIEWDELETEGAMESERVERCLUSTERREQUEST._serialized_end=1635
-  _PREVIEWDELETEGAMESERVERCLUSTERRESPONSE._serialized_start=1637
-  _PREVIEWDELETEGAMESERVERCLUSTERRESPONSE._serialized_end=1754
-  _UPDATEGAMESERVERCLUSTERREQUEST._serialized_start=1757
-  _UPDATEGAMESERVERCLUSTERREQUEST._serialized_end=1924
-  _PREVIEWUPDATEGAMESERVERCLUSTERREQUEST._serialized_start=1927
-  _PREVIEWUPDATEGAMESERVERCLUSTERREQUEST._serialized_end=2156
-  _PREVIEWUPDATEGAMESERVERCLUSTERRESPONSE._serialized_start=2158
-  _PREVIEWUPDATEGAMESERVERCLUSTERRESPONSE._serialized_end=2275
-  _GAMESERVERCLUSTERCONNECTIONINFO._serialized_start=2278
-  _GAMESERVERCLUSTERCONNECTIONINFO._serialized_end=2433
-  _GKECLUSTERREFERENCE._serialized_start=2435
-  _GKECLUSTERREFERENCE._serialized_end=2473
-  _GAMESERVERCLUSTER._serialized_start=2476
-  _GAMESERVERCLUSTER._serialized_end=3004
-  _GAMESERVERCLUSTER_LABELSENTRY._serialized_start=2820
-  _GAMESERVERCLUSTER_LABELSENTRY._serialized_end=2865
+  _LISTGAMESERVERCLUSTERSREQUEST._serialized_start=254
+  _LISTGAMESERVERCLUSTERSREQUEST._serialized_end=449
+  _LISTGAMESERVERCLUSTERSRESPONSE._serialized_start=452
+  _LISTGAMESERVERCLUSTERSRESPONSE._serialized_end=607
+  _GETGAMESERVERCLUSTERREQUEST._serialized_start=609
+  _GETGAMESERVERCLUSTERREQUEST._serialized_end=707
+  _CREATEGAMESERVERCLUSTERREQUEST._serialized_start=710
+  _CREATEGAMESERVERCLUSTERREQUEST._serialized_end=931
+  _PREVIEWCREATEGAMESERVERCLUSTERREQUEST._serialized_start=934
+  _PREVIEWCREATEGAMESERVERCLUSTERREQUEST._serialized_end=1217
+  _PREVIEWCREATEGAMESERVERCLUSTERRESPONSE._serialized_start=1219
+  _PREVIEWCREATEGAMESERVERCLUSTERRESPONSE._serialized_end=1336
+  _DELETEGAMESERVERCLUSTERREQUEST._serialized_start=1338
+  _DELETEGAMESERVERCLUSTERREQUEST._serialized_end=1439
+  _PREVIEWDELETEGAMESERVERCLUSTERREQUEST._serialized_start=1442
+  _PREVIEWDELETEGAMESERVERCLUSTERREQUEST._serialized_end=1605
+  _PREVIEWDELETEGAMESERVERCLUSTERRESPONSE._serialized_start=1607
+  _PREVIEWDELETEGAMESERVERCLUSTERRESPONSE._serialized_end=1724
+  _UPDATEGAMESERVERCLUSTERREQUEST._serialized_start=1727
+  _UPDATEGAMESERVERCLUSTERREQUEST._serialized_end=1894
+  _PREVIEWUPDATEGAMESERVERCLUSTERREQUEST._serialized_start=1897
+  _PREVIEWUPDATEGAMESERVERCLUSTERREQUEST._serialized_end=2126
+  _PREVIEWUPDATEGAMESERVERCLUSTERRESPONSE._serialized_start=2128
+  _PREVIEWUPDATEGAMESERVERCLUSTERRESPONSE._serialized_end=2245
+  _GAMESERVERCLUSTERCONNECTIONINFO._serialized_start=2248
+  _GAMESERVERCLUSTERCONNECTIONINFO._serialized_end=2403
+  _GKECLUSTERREFERENCE._serialized_start=2405
+  _GKECLUSTERREFERENCE._serialized_end=2443
+  _GAMESERVERCLUSTER._serialized_start=2446
+  _GAMESERVERCLUSTER._serialized_end=2974
+  _GAMESERVERCLUSTER_LABELSENTRY._serialized_start=2790
+  _GAMESERVERCLUSTER_LABELSENTRY._serialized_end=2835
 # @@protoc_insertion_point(module_scope)

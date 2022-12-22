@@ -158,7 +158,7 @@ public interface AssetReferenceOrBuilder extends
    *
    * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
    * @return Whether the gcsPath field is set.
    */
   @java.lang.Deprecated boolean hasGcsPath();
@@ -169,7 +169,7 @@ public interface AssetReferenceOrBuilder extends
    *
    * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
    * @return The gcsPath.
    */
   @java.lang.Deprecated java.lang.String getGcsPath();
@@ -180,7 +180,7 @@ public interface AssetReferenceOrBuilder extends
    *
    * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
    * @return The bytes for gcsPath.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -301,7 +301,7 @@ public interface AssetReferenceOrBuilder extends
    *
    * <code>string version = 14 [deprecated = true];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.version is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=483
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=480
    * @return The version.
    */
   @java.lang.Deprecated java.lang.String getVersion();
@@ -312,7 +312,7 @@ public interface AssetReferenceOrBuilder extends
    *
    * <code>string version = 14 [deprecated = true];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.version is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=483
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=480
    * @return The bytes for version.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

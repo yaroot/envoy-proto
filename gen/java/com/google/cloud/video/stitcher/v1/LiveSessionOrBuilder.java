@@ -138,7 +138,6 @@ public interface LiveSessionOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.video.stitcher.v1.AdTag&gt; ad_tag_map = 5;</code>
    */
-
   /* nullable */
 com.google.cloud.video.stitcher.v1.AdTag getAdTagMapOrDefault(
       java.lang.String key,
@@ -152,7 +151,6 @@ com.google.cloud.video.stitcher.v1.AdTag defaultValue);
    *
    * <code>map&lt;string, .google.cloud.video.stitcher.v1.AdTag&gt; ad_tag_map = 5;</code>
    */
-
   com.google.cloud.video.stitcher.v1.AdTag getAdTagMapOrThrow(
       java.lang.String key);
 
@@ -227,7 +225,6 @@ com.google.cloud.video.stitcher.v1.AdTag defaultValue);
    *
    * <code>map&lt;string, string&gt; ad_tag_macros = 6;</code>
    */
-
   /* nullable */
 java.lang.String getAdTagMacrosOrDefault(
       java.lang.String key,
@@ -248,7 +245,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; ad_tag_macros = 6;</code>
    */
-
   java.lang.String getAdTagMacrosOrThrow(
       java.lang.String key);
 

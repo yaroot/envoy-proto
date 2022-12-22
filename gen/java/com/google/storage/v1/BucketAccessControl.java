@@ -42,106 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BucketAccessControl(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            role_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bucket_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            entity_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            entityId_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            email_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            domain_ = s;
-            break;
-          }
-          case 82: {
-            com.google.storage.v1.ProjectTeam.Builder subBuilder = null;
-            if (projectTeam_ != null) {
-              subBuilder = projectTeam_.toBuilder();
-            }
-            projectTeam_ = input.readMessage(com.google.storage.v1.ProjectTeam.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(projectTeam_);
-              projectTeam_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.storage.v1.CloudStorageResourcesProto.internal_static_google_storage_v1_BucketAccessControl_descriptor;
@@ -156,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROLE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object role_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object role_ = "";
   /**
    * <pre>
    * The access permission for the entity.
@@ -202,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 2;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * HTTP 1.1 ["https://tools.ietf.org/html/rfc7232#section-2.3][Entity tag]
@@ -250,7 +152,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The ID of the access-control entry.
@@ -296,7 +199,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUCKET_FIELD_NUMBER = 4;
-  private volatile java.lang.Object bucket_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bucket_ = "";
   /**
    * <pre>
    * The name of the bucket.
@@ -342,7 +246,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENTITY_FIELD_NUMBER = 6;
-  private volatile java.lang.Object entity_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object entity_ = "";
   /**
    * <pre>
    * The entity holding the permission, in one of the following forms:
@@ -416,7 +321,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENTITY_ID_FIELD_NUMBER = 7;
-  private volatile java.lang.Object entityId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object entityId_ = "";
   /**
    * <pre>
    * The ID for the entity, if any.
@@ -462,7 +368,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMAIL_FIELD_NUMBER = 8;
-  private volatile java.lang.Object email_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object email_ = "";
   /**
    * <pre>
    * The email address associated with the entity, if any.
@@ -508,7 +415,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAIN_FIELD_NUMBER = 9;
-  private volatile java.lang.Object domain_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object domain_ = "";
   /**
    * <pre>
    * The domain associated with the entity, if any.
@@ -588,7 +496,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.storage.v1.ProjectTeamOrBuilder getProjectTeamOrBuilder() {
-    return getProjectTeam();
+    return projectTeam_ == null ? com.google.storage.v1.ProjectTeam.getDefaultInstance() : projectTeam_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -632,7 +540,7 @@ private static final long serialVersionUID = 0L;
     if (projectTeam_ != null) {
       output.writeMessage(10, getProjectTeam());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -669,7 +577,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getProjectTeam());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -705,7 +613,7 @@ private static final long serialVersionUID = 0L;
       if (!getProjectTeam()
           .equals(other.getProjectTeam())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -736,7 +644,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROJECT_TEAM_FIELD_NUMBER;
       hash = (53 * hash) + getProjectTeam().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -857,42 +765,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.storage.v1.BucketAccessControl.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       role_ = "";
-
       etag_ = "";
-
       id_ = "";
-
       bucket_ = "";
-
       entity_ = "";
-
       entityId_ = "";
-
       email_ = "";
-
       domain_ = "";
-
-      if (projectTeamBuilder_ == null) {
-        projectTeam_ = null;
-      } else {
-        projectTeam_ = null;
+      projectTeam_ = null;
+      if (projectTeamBuilder_ != null) {
+        projectTeamBuilder_.dispose();
         projectTeamBuilder_ = null;
       }
       return this;
@@ -921,21 +816,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v1.BucketAccessControl buildPartial() {
       com.google.storage.v1.BucketAccessControl result = new com.google.storage.v1.BucketAccessControl(this);
-      result.role_ = role_;
-      result.etag_ = etag_;
-      result.id_ = id_;
-      result.bucket_ = bucket_;
-      result.entity_ = entity_;
-      result.entityId_ = entityId_;
-      result.email_ = email_;
-      result.domain_ = domain_;
-      if (projectTeamBuilder_ == null) {
-        result.projectTeam_ = projectTeam_;
-      } else {
-        result.projectTeam_ = projectTeamBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.storage.v1.BucketAccessControl result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.role_ = role_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.bucket_ = bucket_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.entity_ = entity_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.entityId_ = entityId_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.email_ = email_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.domain_ = domain_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.projectTeam_ = projectTeamBuilder_ == null
+            ? projectTeam_
+            : projectTeamBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -984,40 +900,48 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.storage.v1.BucketAccessControl.getDefaultInstance()) return this;
       if (!other.getRole().isEmpty()) {
         role_ = other.role_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getBucket().isEmpty()) {
         bucket_ = other.bucket_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getEntity().isEmpty()) {
         entity_ = other.entity_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getEntityId().isEmpty()) {
         entityId_ = other.entityId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getEmail().isEmpty()) {
         email_ = other.email_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getDomain().isEmpty()) {
         domain_ = other.domain_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasProjectTeam()) {
         mergeProjectTeam(other.getProjectTeam());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1032,19 +956,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v1.BucketAccessControl parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              role_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              bucket_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 50: {
+              entity_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 58: {
+              entityId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              email_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 74: {
+              domain_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getProjectTeamFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v1.BucketAccessControl) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object role_ = "";
     /**
@@ -1099,11 +1084,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRole(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       role_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1116,8 +1099,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRole() {
-      
       role_ = getDefaultInstance().getRole();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1132,12 +1115,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRoleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       role_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1198,11 +1179,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1216,8 +1195,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1233,12 +1212,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1296,11 +1273,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1313,8 +1288,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1329,12 +1304,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1392,11 +1365,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucket(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bucket_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1409,8 +1380,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBucket() {
-      
       bucket_ = getDefaultInstance().getBucket();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1425,12 +1396,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucketBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bucket_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1530,11 +1499,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEntity(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       entity_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1561,8 +1528,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEntity() {
-      
       entity_ = getDefaultInstance().getEntity();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1591,12 +1558,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEntityBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       entity_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1654,11 +1619,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEntityId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       entityId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1671,8 +1634,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEntityId() {
-      
       entityId_ = getDefaultInstance().getEntityId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1687,12 +1650,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEntityIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       entityId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1750,11 +1711,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       email_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1767,8 +1726,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEmail() {
-      
       email_ = getDefaultInstance().getEmail();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1783,12 +1742,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       email_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1846,11 +1803,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomain(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       domain_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1863,8 +1818,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDomain() {
-      
       domain_ = getDefaultInstance().getDomain();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1879,12 +1834,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       domain_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1901,7 +1854,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the projectTeam field is set.
      */
     public boolean hasProjectTeam() {
-      return projectTeamBuilder_ != null || projectTeam_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -1931,11 +1884,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         projectTeam_ = value;
-        onChanged();
       } else {
         projectTeamBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1949,11 +1902,11 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v1.ProjectTeam.Builder builderForValue) {
       if (projectTeamBuilder_ == null) {
         projectTeam_ = builderForValue.build();
-        onChanged();
       } else {
         projectTeamBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1965,17 +1918,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProjectTeam(com.google.storage.v1.ProjectTeam value) {
       if (projectTeamBuilder_ == null) {
-        if (projectTeam_ != null) {
-          projectTeam_ =
-            com.google.storage.v1.ProjectTeam.newBuilder(projectTeam_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          projectTeam_ != null &&
+          projectTeam_ != com.google.storage.v1.ProjectTeam.getDefaultInstance()) {
+          getProjectTeamBuilder().mergeFrom(value);
         } else {
           projectTeam_ = value;
         }
-        onChanged();
       } else {
         projectTeamBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1986,14 +1940,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.ProjectTeam project_team = 10;</code>
      */
     public Builder clearProjectTeam() {
-      if (projectTeamBuilder_ == null) {
-        projectTeam_ = null;
-        onChanged();
-      } else {
-        projectTeam_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      projectTeam_ = null;
+      if (projectTeamBuilder_ != null) {
+        projectTeamBuilder_.dispose();
         projectTeamBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2004,7 +1957,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v1.ProjectTeam project_team = 10;</code>
      */
     public com.google.storage.v1.ProjectTeam.Builder getProjectTeamBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getProjectTeamFieldBuilder().getBuilder();
     }
@@ -2076,7 +2029,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BucketAccessControl(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

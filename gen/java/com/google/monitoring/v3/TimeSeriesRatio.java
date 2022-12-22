@@ -42,63 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TimeSeriesRatio(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            goodServiceFilter_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            badServiceFilter_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            totalServiceFilter_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.v3.ServiceMonitoringProto.internal_static_google_monitoring_v3_TimeSeriesRatio_descriptor;
@@ -113,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GOOD_SERVICE_FILTER_FIELD_NUMBER = 4;
-  private volatile java.lang.Object goodServiceFilter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object goodServiceFilter_ = "";
   /**
    * <pre>
    * A [monitoring filter](https://cloud.google.com/monitoring/api/v3/filters)
@@ -165,7 +109,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BAD_SERVICE_FILTER_FIELD_NUMBER = 5;
-  private volatile java.lang.Object badServiceFilter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object badServiceFilter_ = "";
   /**
    * <pre>
    * A [monitoring filter](https://cloud.google.com/monitoring/api/v3/filters)
@@ -219,7 +164,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTAL_SERVICE_FILTER_FIELD_NUMBER = 6;
-  private volatile java.lang.Object totalServiceFilter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object totalServiceFilter_ = "";
   /**
    * <pre>
    * A [monitoring filter](https://cloud.google.com/monitoring/api/v3/filters)
@@ -293,7 +239,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(totalServiceFilter_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, totalServiceFilter_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -311,7 +257,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(totalServiceFilter_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, totalServiceFilter_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -332,7 +278,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getBadServiceFilter())) return false;
     if (!getTotalServiceFilter()
         .equals(other.getTotalServiceFilter())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -349,7 +295,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getBadServiceFilter().hashCode();
     hash = (37 * hash) + TOTAL_SERVICE_FILTER_FIELD_NUMBER;
     hash = (53 * hash) + getTotalServiceFilter().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -475,28 +421,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.v3.TimeSeriesRatio.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       goodServiceFilter_ = "";
-
       badServiceFilter_ = "";
-
       totalServiceFilter_ = "";
-
       return this;
     }
 
@@ -523,11 +462,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.v3.TimeSeriesRatio buildPartial() {
       com.google.monitoring.v3.TimeSeriesRatio result = new com.google.monitoring.v3.TimeSeriesRatio(this);
-      result.goodServiceFilter_ = goodServiceFilter_;
-      result.badServiceFilter_ = badServiceFilter_;
-      result.totalServiceFilter_ = totalServiceFilter_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.v3.TimeSeriesRatio result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.goodServiceFilter_ = goodServiceFilter_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.badServiceFilter_ = badServiceFilter_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.totalServiceFilter_ = totalServiceFilter_;
+      }
     }
 
     @java.lang.Override
@@ -576,17 +526,20 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.v3.TimeSeriesRatio.getDefaultInstance()) return this;
       if (!other.getGoodServiceFilter().isEmpty()) {
         goodServiceFilter_ = other.goodServiceFilter_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getBadServiceFilter().isEmpty()) {
         badServiceFilter_ = other.badServiceFilter_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getTotalServiceFilter().isEmpty()) {
         totalServiceFilter_ = other.totalServiceFilter_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -601,19 +554,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.v3.TimeSeriesRatio parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              goodServiceFilter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 34
+            case 42: {
+              badServiceFilter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              totalServiceFilter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.v3.TimeSeriesRatio) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object goodServiceFilter_ = "";
     /**
@@ -677,11 +659,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoodServiceFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       goodServiceFilter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -697,8 +677,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGoodServiceFilter() {
-      
       goodServiceFilter_ = getDefaultInstance().getGoodServiceFilter();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -716,12 +696,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoodServiceFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       goodServiceFilter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -791,11 +769,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBadServiceFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       badServiceFilter_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -812,8 +788,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBadServiceFilter() {
-      
       badServiceFilter_ = getDefaultInstance().getBadServiceFilter();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -832,12 +808,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBadServiceFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       badServiceFilter_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -904,11 +878,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTotalServiceFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       totalServiceFilter_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -924,8 +896,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTotalServiceFilter() {
-      
       totalServiceFilter_ = getDefaultInstance().getTotalServiceFilter();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -943,12 +915,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTotalServiceFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       totalServiceFilter_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -985,7 +955,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TimeSeriesRatio(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

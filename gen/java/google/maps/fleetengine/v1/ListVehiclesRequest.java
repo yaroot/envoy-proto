@@ -42,201 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListVehiclesRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 24: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (minimumCapacity_ != null) {
-              subBuilder = minimumCapacity_.toBuilder();
-            }
-            minimumCapacity_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(minimumCapacity_);
-              minimumCapacity_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tripTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            tripTypes_.add(rawValue);
-            break;
-          }
-          case 58: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                tripTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              tripTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maximumStaleness_ != null) {
-              subBuilder = maximumStaleness_.toBuilder();
-            }
-            maximumStaleness_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maximumStaleness_);
-              maximumStaleness_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              vehicleTypeCategories_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            vehicleTypeCategories_.add(rawValue);
-            break;
-          }
-          case 74: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                vehicleTypeCategories_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              vehicleTypeCategories_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              requiredAttributes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            requiredAttributes_.add(s);
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            vehicleState_ = rawValue;
-            break;
-          }
-          case 98: {
-            google.maps.fleetengine.v1.RequestHeader.Builder subBuilder = null;
-            if (header_ != null) {
-              subBuilder = header_.toBuilder();
-            }
-            header_ = input.readMessage(google.maps.fleetengine.v1.RequestHeader.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(header_);
-              header_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              requiredOneOfAttributes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            requiredOneOfAttributes_.add(s);
-            break;
-          }
-          case 112: {
-
-            onTripOnly_ = input.readBool();
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              requiredOneOfAttributeSets_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            requiredOneOfAttributeSets_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        tripTypes_ = java.util.Collections.unmodifiableList(tripTypes_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        vehicleTypeCategories_ = java.util.Collections.unmodifiableList(vehicleTypeCategories_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        requiredAttributes_ = requiredAttributes_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        requiredOneOfAttributes_ = requiredOneOfAttributes_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        requiredOneOfAttributeSets_ = requiredOneOfAttributeSets_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.VehicleApi.internal_static_maps_fleetengine_v1_ListVehiclesRequest_descriptor;
@@ -285,11 +90,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.RequestHeaderOrBuilder getHeaderOrBuilder() {
-    return getHeader();
+    return header_ == null ? google.maps.fleetengine.v1.RequestHeader.getDefaultInstance() : header_;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Must be in the format `providers/{provider}`.
@@ -341,7 +147,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 3;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * The maximum number of vehicles to return.
@@ -357,13 +163,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 4;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
-   * The `next_page_token` value returned from a previous call to
-   * `ListVehicles`. Functionality is undefined if the filter criteria of this
-   * request don't match the criteria in the request that produced this
-   * `page_token`.
+   * The value of the `next_page_token` provided by a previous call to
+   * `ListVehicles` so that you can paginate through groups of vehicles. The
+   * value is undefined if the filter criteria of the request is not the same as
+   * the filter criteria for the previous call to `ListVehicles`.
    * </pre>
    *
    * <code>string page_token = 4;</code>
@@ -384,10 +191,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The `next_page_token` value returned from a previous call to
-   * `ListVehicles`. Functionality is undefined if the filter criteria of this
-   * request don't match the criteria in the request that produced this
-   * `page_token`.
+   * The value of the `next_page_token` provided by a previous call to
+   * `ListVehicles` so that you can paginate through groups of vehicles. The
+   * value is undefined if the filter criteria of the request is not the same as
+   * the filter criteria for the previous call to `ListVehicles`.
    * </pre>
    *
    * <code>string page_token = 4;</code>
@@ -449,25 +256,25 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getMinimumCapacityOrBuilder() {
-    return getMinimumCapacity();
+    return minimumCapacity_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : minimumCapacity_;
   }
 
   public static final int TRIP_TYPES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> tripTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, google.maps.fleetengine.v1.TripType> tripTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, google.maps.fleetengine.v1.TripType>() {
             public google.maps.fleetengine.v1.TripType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              google.maps.fleetengine.v1.TripType result = google.maps.fleetengine.v1.TripType.valueOf(from);
+              google.maps.fleetengine.v1.TripType result = google.maps.fleetengine.v1.TripType.forNumber(from);
               return result == null ? google.maps.fleetengine.v1.TripType.UNRECOGNIZED : result;
             }
           };
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -480,8 +287,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -493,8 +300,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -507,8 +314,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -521,8 +328,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles that support at least
-   * one of the specified trip types.
+   * Restricts the response to vehicles that support at least one of the
+   * specified trip types.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -539,9 +346,9 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Duration maximumStaleness_;
   /**
    * <pre>
-   * Restrict the response to vehicles that have updated
-   * their locations within the specified duration back from now.
-   * If present, must be a valid positive duration.
+   * Restricts the response to vehicles that have updated their locations within
+   * the specified duration at the time of the call. If present, must be a valid
+   * positive duration.
    * </pre>
    *
    * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -553,9 +360,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles that have updated
-   * their locations within the specified duration back from now.
-   * If present, must be a valid positive duration.
+   * Restricts the response to vehicles that have updated their locations within
+   * the specified duration at the time of the call. If present, must be a valid
+   * positive duration.
    * </pre>
    *
    * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -567,33 +374,33 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles that have updated
-   * their locations within the specified duration back from now.
-   * If present, must be a valid positive duration.
+   * Restricts the response to vehicles that have updated their locations within
+   * the specified duration at the time of the call. If present, must be a valid
+   * positive duration.
    * </pre>
    *
    * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaximumStalenessOrBuilder() {
-    return getMaximumStaleness();
+    return maximumStaleness_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maximumStaleness_;
   }
 
   public static final int VEHICLE_TYPE_CATEGORIES_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> vehicleTypeCategories_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, google.maps.fleetengine.v1.Vehicle.VehicleType.Category> vehicleTypeCategories_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, google.maps.fleetengine.v1.Vehicle.VehicleType.Category>() {
             public google.maps.fleetengine.v1.Vehicle.VehicleType.Category convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              google.maps.fleetengine.v1.Vehicle.VehicleType.Category result = google.maps.fleetengine.v1.Vehicle.VehicleType.Category.valueOf(from);
+              google.maps.fleetengine.v1.Vehicle.VehicleType.Category result = google.maps.fleetengine.v1.Vehicle.VehicleType.Category.forNumber(from);
               return result == null ? google.maps.fleetengine.v1.Vehicle.VehicleType.Category.UNRECOGNIZED : result;
             }
           };
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -607,7 +414,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -620,7 +427,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -634,7 +441,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -648,7 +455,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Restrict the response to vehicles with one of the specified type
+   * Required. Restricts the response to vehicles with one of the specified type
    * categories.
    * </pre>
    *
@@ -663,6 +470,7 @@ private static final long serialVersionUID = 0L;
   private int vehicleTypeCategoriesMemoizedSerializedSize;
 
   public static final int REQUIRED_ATTRIBUTES_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList requiredAttributes_;
   /**
    * <pre>
@@ -681,10 +489,10 @@ private static final long serialVersionUID = 0L;
    * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
    * ...)
    * ```
-   * Restrict the response to vehicles with the specified attributes. This field
-   * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-   * however, the combined key:value string length cannot exceed 1024
-   * characters.
+   * Restricts the response to vehicles with the specified attributes. This
+   * field is a conjunction/AND operation. Your app can specify up to 100
+   * attributes; however, the combined key:value string length cannot exceed
+   * 1024 characters.
    * </pre>
    *
    * <code>repeated string required_attributes = 10;</code>
@@ -711,10 +519,10 @@ private static final long serialVersionUID = 0L;
    * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
    * ...)
    * ```
-   * Restrict the response to vehicles with the specified attributes. This field
-   * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-   * however, the combined key:value string length cannot exceed 1024
-   * characters.
+   * Restricts the response to vehicles with the specified attributes. This
+   * field is a conjunction/AND operation. Your app can specify up to 100
+   * attributes; however, the combined key:value string length cannot exceed
+   * 1024 characters.
    * </pre>
    *
    * <code>repeated string required_attributes = 10;</code>
@@ -740,10 +548,10 @@ private static final long serialVersionUID = 0L;
    * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
    * ...)
    * ```
-   * Restrict the response to vehicles with the specified attributes. This field
-   * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-   * however, the combined key:value string length cannot exceed 1024
-   * characters.
+   * Restricts the response to vehicles with the specified attributes. This
+   * field is a conjunction/AND operation. Your app can specify up to 100
+   * attributes; however, the combined key:value string length cannot exceed
+   * 1024 characters.
    * </pre>
    *
    * <code>repeated string required_attributes = 10;</code>
@@ -770,10 +578,10 @@ private static final long serialVersionUID = 0L;
    * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
    * ...)
    * ```
-   * Restrict the response to vehicles with the specified attributes. This field
-   * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-   * however, the combined key:value string length cannot exceed 1024
-   * characters.
+   * Restricts the response to vehicles with the specified attributes. This
+   * field is a conjunction/AND operation. Your app can specify up to 100
+   * attributes; however, the combined key:value string length cannot exceed
+   * 1024 characters.
    * </pre>
    *
    * <code>repeated string required_attributes = 10;</code>
@@ -786,16 +594,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRED_ONE_OF_ATTRIBUTES_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList requiredOneOfAttributes_;
   /**
    * <pre>
-   * Restrict the response to vehicles with at least one
-   * of the specified attributes in each `VehicleAttributeList`.
-   * Within each list, a vehicle must match at least one of the attributes.
-   * This field is an inclusive disjunction/OR operation in each
-   * `VehicleAttributeList` and a conjunction/AND operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * Restricts the response to vehicles with at least one of the specified
+   * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+   * match at least one of the attributes. This field is an inclusive
+   * disjunction/OR operation in each `VehicleAttributeList` and a
+   * conjunction/AND operation across the collection of `VehicleAttributeList`.
+   * Format: key1:value1|key2:value2|key3:value3...
    * </pre>
    *
    * <code>repeated string required_one_of_attributes = 13;</code>
@@ -807,13 +615,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles with at least one
-   * of the specified attributes in each `VehicleAttributeList`.
-   * Within each list, a vehicle must match at least one of the attributes.
-   * This field is an inclusive disjunction/OR operation in each
-   * `VehicleAttributeList` and a conjunction/AND operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * Restricts the response to vehicles with at least one of the specified
+   * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+   * match at least one of the attributes. This field is an inclusive
+   * disjunction/OR operation in each `VehicleAttributeList` and a
+   * conjunction/AND operation across the collection of `VehicleAttributeList`.
+   * Format: key1:value1|key2:value2|key3:value3...
    * </pre>
    *
    * <code>repeated string required_one_of_attributes = 13;</code>
@@ -824,13 +631,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles with at least one
-   * of the specified attributes in each `VehicleAttributeList`.
-   * Within each list, a vehicle must match at least one of the attributes.
-   * This field is an inclusive disjunction/OR operation in each
-   * `VehicleAttributeList` and a conjunction/AND operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * Restricts the response to vehicles with at least one of the specified
+   * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+   * match at least one of the attributes. This field is an inclusive
+   * disjunction/OR operation in each `VehicleAttributeList` and a
+   * conjunction/AND operation across the collection of `VehicleAttributeList`.
+   * Format: key1:value1|key2:value2|key3:value3...
    * </pre>
    *
    * <code>repeated string required_one_of_attributes = 13;</code>
@@ -842,13 +648,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles with at least one
-   * of the specified attributes in each `VehicleAttributeList`.
-   * Within each list, a vehicle must match at least one of the attributes.
-   * This field is an inclusive disjunction/OR operation in each
-   * `VehicleAttributeList` and a conjunction/AND operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * Restricts the response to vehicles with at least one of the specified
+   * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+   * match at least one of the attributes. This field is an inclusive
+   * disjunction/OR operation in each `VehicleAttributeList` and a
+   * conjunction/AND operation across the collection of `VehicleAttributeList`.
+   * Format: key1:value1|key2:value2|key3:value3...
    * </pre>
    *
    * <code>repeated string required_one_of_attributes = 13;</code>
@@ -861,6 +666,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRED_ONE_OF_ATTRIBUTE_SETS_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList requiredOneOfAttributeSets_;
   /**
    * <pre>
@@ -877,12 +683,12 @@ private static final long serialVersionUID = 0L;
    * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
    * ...)
    * ```
-   * Restrict the response to vehicles that match all the attributes in a
+   * Restricts the response to vehicles that match all the attributes in a
    * `VehicleAttributeList`. Within each list, a vehicle must match all of the
    * attributes. This field is a conjunction/AND operation in each
    * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * collection of `VehicleAttributeList`. Each repeated string should be of the
+   * format "key1:value1|key2:value2|key3:value3".
    * </pre>
    *
    * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -907,12 +713,12 @@ private static final long serialVersionUID = 0L;
    * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
    * ...)
    * ```
-   * Restrict the response to vehicles that match all the attributes in a
+   * Restricts the response to vehicles that match all the attributes in a
    * `VehicleAttributeList`. Within each list, a vehicle must match all of the
    * attributes. This field is a conjunction/AND operation in each
    * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * collection of `VehicleAttributeList`. Each repeated string should be of the
+   * format "key1:value1|key2:value2|key3:value3".
    * </pre>
    *
    * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -936,12 +742,12 @@ private static final long serialVersionUID = 0L;
    * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
    * ...)
    * ```
-   * Restrict the response to vehicles that match all the attributes in a
+   * Restricts the response to vehicles that match all the attributes in a
    * `VehicleAttributeList`. Within each list, a vehicle must match all of the
    * attributes. This field is a conjunction/AND operation in each
    * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * collection of `VehicleAttributeList`. Each repeated string should be of the
+   * format "key1:value1|key2:value2|key3:value3".
    * </pre>
    *
    * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -966,12 +772,12 @@ private static final long serialVersionUID = 0L;
    * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
    * ...)
    * ```
-   * Restrict the response to vehicles that match all the attributes in a
+   * Restricts the response to vehicles that match all the attributes in a
    * `VehicleAttributeList`. Within each list, a vehicle must match all of the
    * attributes. This field is a conjunction/AND operation in each
    * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-   * collection of `VehicleAttributeList`. Format:
-   * key1:value1|key2:value2|key3:value3...
+   * collection of `VehicleAttributeList`. Each repeated string should be of the
+   * format "key1:value1|key2:value2|key3:value3".
    * </pre>
    *
    * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -984,10 +790,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VEHICLE_STATE_FIELD_NUMBER = 11;
-  private int vehicleState_;
+  private int vehicleState_ = 0;
   /**
    * <pre>
-   * Restrict the response to vehicles that have this vehicle state.
+   * Restricts the response to vehicles that have this vehicle state.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleState vehicle_state = 11;</code>
@@ -998,20 +804,19 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Restrict the response to vehicles that have this vehicle state.
+   * Restricts the response to vehicles that have this vehicle state.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleState vehicle_state = 11;</code>
    * @return The vehicleState.
    */
   @java.lang.Override public google.maps.fleetengine.v1.VehicleState getVehicleState() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.VehicleState result = google.maps.fleetengine.v1.VehicleState.valueOf(vehicleState_);
+    google.maps.fleetengine.v1.VehicleState result = google.maps.fleetengine.v1.VehicleState.forNumber(vehicleState_);
     return result == null ? google.maps.fleetengine.v1.VehicleState.UNRECOGNIZED : result;
   }
 
   public static final int ON_TRIP_ONLY_FIELD_NUMBER = 14;
-  private boolean onTripOnly_;
+  private boolean onTripOnly_ = false;
   /**
    * <pre>
    * Only return the vehicles with current trip(s).
@@ -1087,7 +892,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < requiredOneOfAttributeSets_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, requiredOneOfAttributeSets_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1174,7 +979,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getRequiredOneOfAttributeSetsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1221,7 +1026,7 @@ private static final long serialVersionUID = 0L;
     if (vehicleState_ != other.vehicleState_) return false;
     if (getOnTripOnly()
         != other.getOnTripOnly()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1275,7 +1080,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ON_TRIP_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getOnTripOnly());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1396,60 +1201,48 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.ListVehiclesRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (headerBuilder_ == null) {
-        header_ = null;
-      } else {
-        header_ = null;
+      bitField0_ = 0;
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
       parent_ = "";
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
-      if (minimumCapacityBuilder_ == null) {
-        minimumCapacity_ = null;
-      } else {
-        minimumCapacity_ = null;
+      minimumCapacity_ = null;
+      if (minimumCapacityBuilder_ != null) {
+        minimumCapacityBuilder_.dispose();
         minimumCapacityBuilder_ = null;
       }
       tripTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (maximumStalenessBuilder_ == null) {
-        maximumStaleness_ = null;
-      } else {
-        maximumStaleness_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      maximumStaleness_ = null;
+      if (maximumStalenessBuilder_ != null) {
+        maximumStalenessBuilder_.dispose();
         maximumStalenessBuilder_ = null;
       }
       vehicleTypeCategories_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000080);
       requiredAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000100);
       requiredOneOfAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000200);
       requiredOneOfAttributeSets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000400);
       vehicleState_ = 0;
-
       onTripOnly_ = false;
-
       return this;
     }
 
@@ -1476,54 +1269,72 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.ListVehiclesRequest buildPartial() {
       google.maps.fleetengine.v1.ListVehiclesRequest result = new google.maps.fleetengine.v1.ListVehiclesRequest(this);
-      int from_bitField0_ = bitField0_;
-      if (headerBuilder_ == null) {
-        result.header_ = header_;
-      } else {
-        result.header_ = headerBuilder_.build();
-      }
-      result.parent_ = parent_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      if (minimumCapacityBuilder_ == null) {
-        result.minimumCapacity_ = minimumCapacity_;
-      } else {
-        result.minimumCapacity_ = minimumCapacityBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        tripTypes_ = java.util.Collections.unmodifiableList(tripTypes_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.tripTypes_ = tripTypes_;
-      if (maximumStalenessBuilder_ == null) {
-        result.maximumStaleness_ = maximumStaleness_;
-      } else {
-        result.maximumStaleness_ = maximumStalenessBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        vehicleTypeCategories_ = java.util.Collections.unmodifiableList(vehicleTypeCategories_);
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.vehicleTypeCategories_ = vehicleTypeCategories_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        requiredAttributes_ = requiredAttributes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.requiredAttributes_ = requiredAttributes_;
-      if (((bitField0_ & 0x00000008) != 0)) {
-        requiredOneOfAttributes_ = requiredOneOfAttributes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
-      }
-      result.requiredOneOfAttributes_ = requiredOneOfAttributes_;
-      if (((bitField0_ & 0x00000010) != 0)) {
-        requiredOneOfAttributeSets_ = requiredOneOfAttributeSets_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000010);
-      }
-      result.requiredOneOfAttributeSets_ = requiredOneOfAttributeSets_;
-      result.vehicleState_ = vehicleState_;
-      result.onTripOnly_ = onTripOnly_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(google.maps.fleetengine.v1.ListVehiclesRequest result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
+        tripTypes_ = java.util.Collections.unmodifiableList(tripTypes_);
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.tripTypes_ = tripTypes_;
+      if (((bitField0_ & 0x00000080) != 0)) {
+        vehicleTypeCategories_ = java.util.Collections.unmodifiableList(vehicleTypeCategories_);
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.vehicleTypeCategories_ = vehicleTypeCategories_;
+      if (((bitField0_ & 0x00000100) != 0)) {
+        requiredAttributes_ = requiredAttributes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000100);
+      }
+      result.requiredAttributes_ = requiredAttributes_;
+      if (((bitField0_ & 0x00000200) != 0)) {
+        requiredOneOfAttributes_ = requiredOneOfAttributes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000200);
+      }
+      result.requiredOneOfAttributes_ = requiredOneOfAttributes_;
+      if (((bitField0_ & 0x00000400) != 0)) {
+        requiredOneOfAttributeSets_ = requiredOneOfAttributeSets_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000400);
+      }
+      result.requiredOneOfAttributeSets_ = requiredOneOfAttributeSets_;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.ListVehiclesRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.header_ = headerBuilder_ == null
+            ? header_
+            : headerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.minimumCapacity_ = minimumCapacityBuilder_ == null
+            ? minimumCapacity_
+            : minimumCapacityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.maximumStaleness_ = maximumStalenessBuilder_ == null
+            ? maximumStaleness_
+            : maximumStalenessBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.vehicleState_ = vehicleState_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.onTripOnly_ = onTripOnly_;
+      }
     }
 
     @java.lang.Override
@@ -1575,6 +1386,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -1582,6 +1394,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasMinimumCapacity()) {
@@ -1590,7 +1403,7 @@ private static final long serialVersionUID = 0L;
       if (!other.tripTypes_.isEmpty()) {
         if (tripTypes_.isEmpty()) {
           tripTypes_ = other.tripTypes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureTripTypesIsMutable();
           tripTypes_.addAll(other.tripTypes_);
@@ -1603,7 +1416,7 @@ private static final long serialVersionUID = 0L;
       if (!other.vehicleTypeCategories_.isEmpty()) {
         if (vehicleTypeCategories_.isEmpty()) {
           vehicleTypeCategories_ = other.vehicleTypeCategories_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureVehicleTypeCategoriesIsMutable();
           vehicleTypeCategories_.addAll(other.vehicleTypeCategories_);
@@ -1613,7 +1426,7 @@ private static final long serialVersionUID = 0L;
       if (!other.requiredAttributes_.isEmpty()) {
         if (requiredAttributes_.isEmpty()) {
           requiredAttributes_ = other.requiredAttributes_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensureRequiredAttributesIsMutable();
           requiredAttributes_.addAll(other.requiredAttributes_);
@@ -1623,7 +1436,7 @@ private static final long serialVersionUID = 0L;
       if (!other.requiredOneOfAttributes_.isEmpty()) {
         if (requiredOneOfAttributes_.isEmpty()) {
           requiredOneOfAttributes_ = other.requiredOneOfAttributes_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           ensureRequiredOneOfAttributesIsMutable();
           requiredOneOfAttributes_.addAll(other.requiredOneOfAttributes_);
@@ -1633,7 +1446,7 @@ private static final long serialVersionUID = 0L;
       if (!other.requiredOneOfAttributeSets_.isEmpty()) {
         if (requiredOneOfAttributeSets_.isEmpty()) {
           requiredOneOfAttributeSets_ = other.requiredOneOfAttributeSets_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000400);
         } else {
           ensureRequiredOneOfAttributeSetsIsMutable();
           requiredOneOfAttributeSets_.addAll(other.requiredOneOfAttributeSets_);
@@ -1646,7 +1459,7 @@ private static final long serialVersionUID = 0L;
       if (other.getOnTripOnly() != false) {
         setOnTripOnly(other.getOnTripOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1661,17 +1474,128 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.ListVehiclesRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 24: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 50: {
+              input.readMessage(
+                  getMinimumCapacityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 56: {
+              int tmpRaw = input.readEnum();
+              ensureTripTypesIsMutable();
+              tripTypes_.add(tmpRaw);
+              break;
+            } // case 56
+            case 58: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureTripTypesIsMutable();
+                tripTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getMaximumStalenessFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 72: {
+              int tmpRaw = input.readEnum();
+              ensureVehicleTypeCategoriesIsMutable();
+              vehicleTypeCategories_.add(tmpRaw);
+              break;
+            } // case 72
+            case 74: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureVehicleTypeCategoriesIsMutable();
+                vehicleTypeCategories_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRequiredAttributesIsMutable();
+              requiredAttributes_.add(s);
+              break;
+            } // case 82
+            case 88: {
+              vehicleState_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 88
+            case 98: {
+              input.readMessage(
+                  getHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 98
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRequiredOneOfAttributesIsMutable();
+              requiredOneOfAttributes_.add(s);
+              break;
+            } // case 106
+            case 112: {
+              onTripOnly_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 112
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRequiredOneOfAttributeSetsIsMutable();
+              requiredOneOfAttributeSets_.add(s);
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.ListVehiclesRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1688,7 +1612,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the header field is set.
      */
     public boolean hasHeader() {
-      return headerBuilder_ != null || header_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1718,11 +1642,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         header_ = value;
-        onChanged();
       } else {
         headerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1736,11 +1660,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.RequestHeader.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
-        onChanged();
       } else {
         headerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1752,17 +1676,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeader(google.maps.fleetengine.v1.RequestHeader value) {
       if (headerBuilder_ == null) {
-        if (header_ != null) {
-          header_ =
-            google.maps.fleetengine.v1.RequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          header_ != null &&
+          header_ != google.maps.fleetengine.v1.RequestHeader.getDefaultInstance()) {
+          getHeaderBuilder().mergeFrom(value);
         } else {
           header_ = value;
         }
-        onChanged();
       } else {
         headerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1773,14 +1698,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 12;</code>
      */
     public Builder clearHeader() {
-      if (headerBuilder_ == null) {
-        header_ = null;
-        onChanged();
-      } else {
-        header_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1791,7 +1715,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 12;</code>
      */
     public google.maps.fleetengine.v1.RequestHeader.Builder getHeaderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -1893,11 +1817,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1913,8 +1835,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1932,12 +1854,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1969,6 +1889,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1982,7 +1903,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1991,10 +1912,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object pageToken_ = "";
     /**
      * <pre>
-     * The `next_page_token` value returned from a previous call to
-     * `ListVehicles`. Functionality is undefined if the filter criteria of this
-     * request don't match the criteria in the request that produced this
-     * `page_token`.
+     * The value of the `next_page_token` provided by a previous call to
+     * `ListVehicles` so that you can paginate through groups of vehicles. The
+     * value is undefined if the filter criteria of the request is not the same as
+     * the filter criteria for the previous call to `ListVehicles`.
      * </pre>
      *
      * <code>string page_token = 4;</code>
@@ -2014,10 +1935,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The `next_page_token` value returned from a previous call to
-     * `ListVehicles`. Functionality is undefined if the filter criteria of this
-     * request don't match the criteria in the request that produced this
-     * `page_token`.
+     * The value of the `next_page_token` provided by a previous call to
+     * `ListVehicles` so that you can paginate through groups of vehicles. The
+     * value is undefined if the filter criteria of the request is not the same as
+     * the filter criteria for the previous call to `ListVehicles`.
      * </pre>
      *
      * <code>string page_token = 4;</code>
@@ -2038,10 +1959,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The `next_page_token` value returned from a previous call to
-     * `ListVehicles`. Functionality is undefined if the filter criteria of this
-     * request don't match the criteria in the request that produced this
-     * `page_token`.
+     * The value of the `next_page_token` provided by a previous call to
+     * `ListVehicles` so that you can paginate through groups of vehicles. The
+     * value is undefined if the filter criteria of the request is not the same as
+     * the filter criteria for the previous call to `ListVehicles`.
      * </pre>
      *
      * <code>string page_token = 4;</code>
@@ -2050,37 +1971,35 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The `next_page_token` value returned from a previous call to
-     * `ListVehicles`. Functionality is undefined if the filter criteria of this
-     * request don't match the criteria in the request that produced this
-     * `page_token`.
+     * The value of the `next_page_token` provided by a previous call to
+     * `ListVehicles` so that you can paginate through groups of vehicles. The
+     * value is undefined if the filter criteria of the request is not the same as
+     * the filter criteria for the previous call to `ListVehicles`.
      * </pre>
      *
      * <code>string page_token = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The `next_page_token` value returned from a previous call to
-     * `ListVehicles`. Functionality is undefined if the filter criteria of this
-     * request don't match the criteria in the request that produced this
-     * `page_token`.
+     * The value of the `next_page_token` provided by a previous call to
+     * `ListVehicles` so that you can paginate through groups of vehicles. The
+     * value is undefined if the filter criteria of the request is not the same as
+     * the filter criteria for the previous call to `ListVehicles`.
      * </pre>
      *
      * <code>string page_token = 4;</code>
@@ -2089,12 +2008,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2113,7 +2030,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the minimumCapacity field is set.
      */
     public boolean hasMinimumCapacity() {
-      return minimumCapacityBuilder_ != null || minimumCapacity_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2147,11 +2064,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         minimumCapacity_ = value;
-        onChanged();
       } else {
         minimumCapacityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2167,11 +2084,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (minimumCapacityBuilder_ == null) {
         minimumCapacity_ = builderForValue.build();
-        onChanged();
       } else {
         minimumCapacityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2185,17 +2102,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMinimumCapacity(com.google.protobuf.Int32Value value) {
       if (minimumCapacityBuilder_ == null) {
-        if (minimumCapacity_ != null) {
-          minimumCapacity_ =
-            com.google.protobuf.Int32Value.newBuilder(minimumCapacity_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          minimumCapacity_ != null &&
+          minimumCapacity_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getMinimumCapacityBuilder().mergeFrom(value);
         } else {
           minimumCapacity_ = value;
         }
-        onChanged();
       } else {
         minimumCapacityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2208,14 +2126,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value minimum_capacity = 6;</code>
      */
     public Builder clearMinimumCapacity() {
-      if (minimumCapacityBuilder_ == null) {
-        minimumCapacity_ = null;
-        onChanged();
-      } else {
-        minimumCapacity_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      minimumCapacity_ = null;
+      if (minimumCapacityBuilder_ != null) {
+        minimumCapacityBuilder_.dispose();
         minimumCapacityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2228,7 +2145,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value minimum_capacity = 6;</code>
      */
     public com.google.protobuf.Int32Value.Builder getMinimumCapacityBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getMinimumCapacityFieldBuilder().getBuilder();
     }
@@ -2275,15 +2192,15 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> tripTypes_ =
       java.util.Collections.emptyList();
     private void ensureTripTypesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         tripTypes_ = new java.util.ArrayList<java.lang.Integer>(tripTypes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
       }
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2295,8 +2212,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2307,8 +2224,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2320,8 +2237,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2341,8 +2258,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2360,8 +2277,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2379,8 +2296,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2388,14 +2305,14 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTripTypes() {
       tripTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2407,8 +2324,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2420,8 +2337,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2438,8 +2355,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2454,8 +2371,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that support at least
-     * one of the specified trip types.
+     * Restricts the response to vehicles that support at least one of the
+     * specified trip types.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.TripType trip_types = 7;</code>
@@ -2477,22 +2394,22 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> maximumStalenessBuilder_;
     /**
      * <pre>
-     * Restrict the response to vehicles that have updated
-     * their locations within the specified duration back from now.
-     * If present, must be a valid positive duration.
+     * Restricts the response to vehicles that have updated their locations within
+     * the specified duration at the time of the call. If present, must be a valid
+     * positive duration.
      * </pre>
      *
      * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
      * @return Whether the maximumStaleness field is set.
      */
     public boolean hasMaximumStaleness() {
-      return maximumStalenessBuilder_ != null || maximumStaleness_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have updated
-     * their locations within the specified duration back from now.
-     * If present, must be a valid positive duration.
+     * Restricts the response to vehicles that have updated their locations within
+     * the specified duration at the time of the call. If present, must be a valid
+     * positive duration.
      * </pre>
      *
      * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -2507,9 +2424,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have updated
-     * their locations within the specified duration back from now.
-     * If present, must be a valid positive duration.
+     * Restricts the response to vehicles that have updated their locations within
+     * the specified duration at the time of the call. If present, must be a valid
+     * positive duration.
      * </pre>
      *
      * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -2520,18 +2437,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maximumStaleness_ = value;
-        onChanged();
       } else {
         maximumStalenessBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have updated
-     * their locations within the specified duration back from now.
-     * If present, must be a valid positive duration.
+     * Restricts the response to vehicles that have updated their locations within
+     * the specified duration at the time of the call. If present, must be a valid
+     * positive duration.
      * </pre>
      *
      * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -2540,76 +2457,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maximumStalenessBuilder_ == null) {
         maximumStaleness_ = builderForValue.build();
-        onChanged();
       } else {
         maximumStalenessBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have updated
-     * their locations within the specified duration back from now.
-     * If present, must be a valid positive duration.
+     * Restricts the response to vehicles that have updated their locations within
+     * the specified duration at the time of the call. If present, must be a valid
+     * positive duration.
      * </pre>
      *
      * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
      */
     public Builder mergeMaximumStaleness(com.google.protobuf.Duration value) {
       if (maximumStalenessBuilder_ == null) {
-        if (maximumStaleness_ != null) {
-          maximumStaleness_ =
-            com.google.protobuf.Duration.newBuilder(maximumStaleness_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          maximumStaleness_ != null &&
+          maximumStaleness_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaximumStalenessBuilder().mergeFrom(value);
         } else {
           maximumStaleness_ = value;
         }
-        onChanged();
       } else {
         maximumStalenessBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have updated
-     * their locations within the specified duration back from now.
-     * If present, must be a valid positive duration.
+     * Restricts the response to vehicles that have updated their locations within
+     * the specified duration at the time of the call. If present, must be a valid
+     * positive duration.
      * </pre>
      *
      * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
      */
     public Builder clearMaximumStaleness() {
-      if (maximumStalenessBuilder_ == null) {
-        maximumStaleness_ = null;
-        onChanged();
-      } else {
-        maximumStaleness_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      maximumStaleness_ = null;
+      if (maximumStalenessBuilder_ != null) {
+        maximumStalenessBuilder_.dispose();
         maximumStalenessBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have updated
-     * their locations within the specified duration back from now.
-     * If present, must be a valid positive duration.
+     * Restricts the response to vehicles that have updated their locations within
+     * the specified duration at the time of the call. If present, must be a valid
+     * positive duration.
      * </pre>
      *
      * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
      */
     public com.google.protobuf.Duration.Builder getMaximumStalenessBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getMaximumStalenessFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have updated
-     * their locations within the specified duration back from now.
-     * If present, must be a valid positive duration.
+     * Restricts the response to vehicles that have updated their locations within
+     * the specified duration at the time of the call. If present, must be a valid
+     * positive duration.
      * </pre>
      *
      * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -2624,9 +2541,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have updated
-     * their locations within the specified duration back from now.
-     * If present, must be a valid positive duration.
+     * Restricts the response to vehicles that have updated their locations within
+     * the specified duration at the time of the call. If present, must be a valid
+     * positive duration.
      * </pre>
      *
      * <code>.google.protobuf.Duration maximum_staleness = 8;</code>
@@ -2648,14 +2565,14 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> vehicleTypeCategories_ =
       java.util.Collections.emptyList();
     private void ensureVehicleTypeCategoriesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         vehicleTypeCategories_ = new java.util.ArrayList<java.lang.Integer>(vehicleTypeCategories_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
       }
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2668,7 +2585,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2680,7 +2597,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2693,7 +2610,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2714,7 +2631,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2733,7 +2650,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2752,7 +2669,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2761,13 +2678,13 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearVehicleTypeCategories() {
       vehicleTypeCategories_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2780,7 +2697,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2793,7 +2710,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2811,7 +2728,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2827,7 +2744,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Restrict the response to vehicles with one of the specified type
+     * Required. Restricts the response to vehicles with one of the specified type
      * categories.
      * </pre>
      *
@@ -2847,9 +2764,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList requiredAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRequiredAttributesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         requiredAttributes_ = new com.google.protobuf.LazyStringArrayList(requiredAttributes_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000100;
        }
     }
     /**
@@ -2869,10 +2786,10 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
      * ...)
      * ```
-     * Restrict the response to vehicles with the specified attributes. This field
-     * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-     * however, the combined key:value string length cannot exceed 1024
-     * characters.
+     * Restricts the response to vehicles with the specified attributes. This
+     * field is a conjunction/AND operation. Your app can specify up to 100
+     * attributes; however, the combined key:value string length cannot exceed
+     * 1024 characters.
      * </pre>
      *
      * <code>repeated string required_attributes = 10;</code>
@@ -2899,10 +2816,10 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
      * ...)
      * ```
-     * Restrict the response to vehicles with the specified attributes. This field
-     * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-     * however, the combined key:value string length cannot exceed 1024
-     * characters.
+     * Restricts the response to vehicles with the specified attributes. This
+     * field is a conjunction/AND operation. Your app can specify up to 100
+     * attributes; however, the combined key:value string length cannot exceed
+     * 1024 characters.
      * </pre>
      *
      * <code>repeated string required_attributes = 10;</code>
@@ -2928,10 +2845,10 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
      * ...)
      * ```
-     * Restrict the response to vehicles with the specified attributes. This field
-     * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-     * however, the combined key:value string length cannot exceed 1024
-     * characters.
+     * Restricts the response to vehicles with the specified attributes. This
+     * field is a conjunction/AND operation. Your app can specify up to 100
+     * attributes; however, the combined key:value string length cannot exceed
+     * 1024 characters.
      * </pre>
      *
      * <code>repeated string required_attributes = 10;</code>
@@ -2958,10 +2875,10 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
      * ...)
      * ```
-     * Restrict the response to vehicles with the specified attributes. This field
-     * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-     * however, the combined key:value string length cannot exceed 1024
-     * characters.
+     * Restricts the response to vehicles with the specified attributes. This
+     * field is a conjunction/AND operation. Your app can specify up to 100
+     * attributes; however, the combined key:value string length cannot exceed
+     * 1024 characters.
      * </pre>
      *
      * <code>repeated string required_attributes = 10;</code>
@@ -2989,10 +2906,10 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
      * ...)
      * ```
-     * Restrict the response to vehicles with the specified attributes. This field
-     * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-     * however, the combined key:value string length cannot exceed 1024
-     * characters.
+     * Restricts the response to vehicles with the specified attributes. This
+     * field is a conjunction/AND operation. Your app can specify up to 100
+     * attributes; however, the combined key:value string length cannot exceed
+     * 1024 characters.
      * </pre>
      *
      * <code>repeated string required_attributes = 10;</code>
@@ -3002,10 +2919,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequiredAttributes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredAttributesIsMutable();
       requiredAttributes_.set(index, value);
       onChanged();
       return this;
@@ -3027,10 +2942,10 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
      * ...)
      * ```
-     * Restrict the response to vehicles with the specified attributes. This field
-     * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-     * however, the combined key:value string length cannot exceed 1024
-     * characters.
+     * Restricts the response to vehicles with the specified attributes. This
+     * field is a conjunction/AND operation. Your app can specify up to 100
+     * attributes; however, the combined key:value string length cannot exceed
+     * 1024 characters.
      * </pre>
      *
      * <code>repeated string required_attributes = 10;</code>
@@ -3039,10 +2954,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredAttributes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredAttributesIsMutable();
       requiredAttributes_.add(value);
       onChanged();
       return this;
@@ -3064,10 +2977,10 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
      * ...)
      * ```
-     * Restrict the response to vehicles with the specified attributes. This field
-     * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-     * however, the combined key:value string length cannot exceed 1024
-     * characters.
+     * Restricts the response to vehicles with the specified attributes. This
+     * field is a conjunction/AND operation. Your app can specify up to 100
+     * attributes; however, the combined key:value string length cannot exceed
+     * 1024 characters.
      * </pre>
      *
      * <code>repeated string required_attributes = 10;</code>
@@ -3099,10 +3012,10 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
      * ...)
      * ```
-     * Restrict the response to vehicles with the specified attributes. This field
-     * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-     * however, the combined key:value string length cannot exceed 1024
-     * characters.
+     * Restricts the response to vehicles with the specified attributes. This
+     * field is a conjunction/AND operation. Your app can specify up to 100
+     * attributes; however, the combined key:value string length cannot exceed
+     * 1024 characters.
      * </pre>
      *
      * <code>repeated string required_attributes = 10;</code>
@@ -3110,7 +3023,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRequiredAttributes() {
       requiredAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3131,10 +3044,10 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] OR required_one_of_attributes[1][1] OR
      * ...)
      * ```
-     * Restrict the response to vehicles with the specified attributes. This field
-     * is a conjunction/AND operation. Your app can specify up to 100 attributes;
-     * however, the combined key:value string length cannot exceed 1024
-     * characters.
+     * Restricts the response to vehicles with the specified attributes. This
+     * field is a conjunction/AND operation. Your app can specify up to 100
+     * attributes; however, the combined key:value string length cannot exceed
+     * 1024 characters.
      * </pre>
      *
      * <code>repeated string required_attributes = 10;</code>
@@ -3143,10 +3056,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredAttributesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRequiredAttributesIsMutable();
       requiredAttributes_.add(value);
       onChanged();
@@ -3155,20 +3066,19 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList requiredOneOfAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRequiredOneOfAttributesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         requiredOneOfAttributes_ = new com.google.protobuf.LazyStringArrayList(requiredOneOfAttributes_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000200;
        }
     }
     /**
      * <pre>
-     * Restrict the response to vehicles with at least one
-     * of the specified attributes in each `VehicleAttributeList`.
-     * Within each list, a vehicle must match at least one of the attributes.
-     * This field is an inclusive disjunction/OR operation in each
-     * `VehicleAttributeList` and a conjunction/AND operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * Restricts the response to vehicles with at least one of the specified
+     * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+     * match at least one of the attributes. This field is an inclusive
+     * disjunction/OR operation in each `VehicleAttributeList` and a
+     * conjunction/AND operation across the collection of `VehicleAttributeList`.
+     * Format: key1:value1|key2:value2|key3:value3...
      * </pre>
      *
      * <code>repeated string required_one_of_attributes = 13;</code>
@@ -3180,13 +3090,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles with at least one
-     * of the specified attributes in each `VehicleAttributeList`.
-     * Within each list, a vehicle must match at least one of the attributes.
-     * This field is an inclusive disjunction/OR operation in each
-     * `VehicleAttributeList` and a conjunction/AND operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * Restricts the response to vehicles with at least one of the specified
+     * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+     * match at least one of the attributes. This field is an inclusive
+     * disjunction/OR operation in each `VehicleAttributeList` and a
+     * conjunction/AND operation across the collection of `VehicleAttributeList`.
+     * Format: key1:value1|key2:value2|key3:value3...
      * </pre>
      *
      * <code>repeated string required_one_of_attributes = 13;</code>
@@ -3197,13 +3106,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles with at least one
-     * of the specified attributes in each `VehicleAttributeList`.
-     * Within each list, a vehicle must match at least one of the attributes.
-     * This field is an inclusive disjunction/OR operation in each
-     * `VehicleAttributeList` and a conjunction/AND operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * Restricts the response to vehicles with at least one of the specified
+     * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+     * match at least one of the attributes. This field is an inclusive
+     * disjunction/OR operation in each `VehicleAttributeList` and a
+     * conjunction/AND operation across the collection of `VehicleAttributeList`.
+     * Format: key1:value1|key2:value2|key3:value3...
      * </pre>
      *
      * <code>repeated string required_one_of_attributes = 13;</code>
@@ -3215,13 +3123,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles with at least one
-     * of the specified attributes in each `VehicleAttributeList`.
-     * Within each list, a vehicle must match at least one of the attributes.
-     * This field is an inclusive disjunction/OR operation in each
-     * `VehicleAttributeList` and a conjunction/AND operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * Restricts the response to vehicles with at least one of the specified
+     * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+     * match at least one of the attributes. This field is an inclusive
+     * disjunction/OR operation in each `VehicleAttributeList` and a
+     * conjunction/AND operation across the collection of `VehicleAttributeList`.
+     * Format: key1:value1|key2:value2|key3:value3...
      * </pre>
      *
      * <code>repeated string required_one_of_attributes = 13;</code>
@@ -3234,13 +3141,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles with at least one
-     * of the specified attributes in each `VehicleAttributeList`.
-     * Within each list, a vehicle must match at least one of the attributes.
-     * This field is an inclusive disjunction/OR operation in each
-     * `VehicleAttributeList` and a conjunction/AND operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * Restricts the response to vehicles with at least one of the specified
+     * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+     * match at least one of the attributes. This field is an inclusive
+     * disjunction/OR operation in each `VehicleAttributeList` and a
+     * conjunction/AND operation across the collection of `VehicleAttributeList`.
+     * Format: key1:value1|key2:value2|key3:value3...
      * </pre>
      *
      * <code>repeated string required_one_of_attributes = 13;</code>
@@ -3250,23 +3156,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequiredOneOfAttributes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredOneOfAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredOneOfAttributesIsMutable();
       requiredOneOfAttributes_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles with at least one
-     * of the specified attributes in each `VehicleAttributeList`.
-     * Within each list, a vehicle must match at least one of the attributes.
-     * This field is an inclusive disjunction/OR operation in each
-     * `VehicleAttributeList` and a conjunction/AND operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * Restricts the response to vehicles with at least one of the specified
+     * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+     * match at least one of the attributes. This field is an inclusive
+     * disjunction/OR operation in each `VehicleAttributeList` and a
+     * conjunction/AND operation across the collection of `VehicleAttributeList`.
+     * Format: key1:value1|key2:value2|key3:value3...
      * </pre>
      *
      * <code>repeated string required_one_of_attributes = 13;</code>
@@ -3275,23 +3178,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredOneOfAttributes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredOneOfAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredOneOfAttributesIsMutable();
       requiredOneOfAttributes_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles with at least one
-     * of the specified attributes in each `VehicleAttributeList`.
-     * Within each list, a vehicle must match at least one of the attributes.
-     * This field is an inclusive disjunction/OR operation in each
-     * `VehicleAttributeList` and a conjunction/AND operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * Restricts the response to vehicles with at least one of the specified
+     * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+     * match at least one of the attributes. This field is an inclusive
+     * disjunction/OR operation in each `VehicleAttributeList` and a
+     * conjunction/AND operation across the collection of `VehicleAttributeList`.
+     * Format: key1:value1|key2:value2|key3:value3...
      * </pre>
      *
      * <code>repeated string required_one_of_attributes = 13;</code>
@@ -3308,13 +3208,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles with at least one
-     * of the specified attributes in each `VehicleAttributeList`.
-     * Within each list, a vehicle must match at least one of the attributes.
-     * This field is an inclusive disjunction/OR operation in each
-     * `VehicleAttributeList` and a conjunction/AND operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * Restricts the response to vehicles with at least one of the specified
+     * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+     * match at least one of the attributes. This field is an inclusive
+     * disjunction/OR operation in each `VehicleAttributeList` and a
+     * conjunction/AND operation across the collection of `VehicleAttributeList`.
+     * Format: key1:value1|key2:value2|key3:value3...
      * </pre>
      *
      * <code>repeated string required_one_of_attributes = 13;</code>
@@ -3322,19 +3221,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRequiredOneOfAttributes() {
       requiredOneOfAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles with at least one
-     * of the specified attributes in each `VehicleAttributeList`.
-     * Within each list, a vehicle must match at least one of the attributes.
-     * This field is an inclusive disjunction/OR operation in each
-     * `VehicleAttributeList` and a conjunction/AND operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * Restricts the response to vehicles with at least one of the specified
+     * attributes in each `VehicleAttributeList`. Within each list, a vehicle must
+     * match at least one of the attributes. This field is an inclusive
+     * disjunction/OR operation in each `VehicleAttributeList` and a
+     * conjunction/AND operation across the collection of `VehicleAttributeList`.
+     * Format: key1:value1|key2:value2|key3:value3...
      * </pre>
      *
      * <code>repeated string required_one_of_attributes = 13;</code>
@@ -3343,10 +3241,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredOneOfAttributesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRequiredOneOfAttributesIsMutable();
       requiredOneOfAttributes_.add(value);
       onChanged();
@@ -3355,9 +3251,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList requiredOneOfAttributeSets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRequiredOneOfAttributeSetsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         requiredOneOfAttributeSets_ = new com.google.protobuf.LazyStringArrayList(requiredOneOfAttributeSets_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000400;
        }
     }
     /**
@@ -3375,12 +3271,12 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
      * ...)
      * ```
-     * Restrict the response to vehicles that match all the attributes in a
+     * Restricts the response to vehicles that match all the attributes in a
      * `VehicleAttributeList`. Within each list, a vehicle must match all of the
      * attributes. This field is a conjunction/AND operation in each
      * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * collection of `VehicleAttributeList`. Each repeated string should be of the
+     * format "key1:value1|key2:value2|key3:value3".
      * </pre>
      *
      * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -3405,12 +3301,12 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
      * ...)
      * ```
-     * Restrict the response to vehicles that match all the attributes in a
+     * Restricts the response to vehicles that match all the attributes in a
      * `VehicleAttributeList`. Within each list, a vehicle must match all of the
      * attributes. This field is a conjunction/AND operation in each
      * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * collection of `VehicleAttributeList`. Each repeated string should be of the
+     * format "key1:value1|key2:value2|key3:value3".
      * </pre>
      *
      * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -3434,12 +3330,12 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
      * ...)
      * ```
-     * Restrict the response to vehicles that match all the attributes in a
+     * Restricts the response to vehicles that match all the attributes in a
      * `VehicleAttributeList`. Within each list, a vehicle must match all of the
      * attributes. This field is a conjunction/AND operation in each
      * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * collection of `VehicleAttributeList`. Each repeated string should be of the
+     * format "key1:value1|key2:value2|key3:value3".
      * </pre>
      *
      * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -3464,12 +3360,12 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
      * ...)
      * ```
-     * Restrict the response to vehicles that match all the attributes in a
+     * Restricts the response to vehicles that match all the attributes in a
      * `VehicleAttributeList`. Within each list, a vehicle must match all of the
      * attributes. This field is a conjunction/AND operation in each
      * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * collection of `VehicleAttributeList`. Each repeated string should be of the
+     * format "key1:value1|key2:value2|key3:value3".
      * </pre>
      *
      * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -3495,12 +3391,12 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
      * ...)
      * ```
-     * Restrict the response to vehicles that match all the attributes in a
+     * Restricts the response to vehicles that match all the attributes in a
      * `VehicleAttributeList`. Within each list, a vehicle must match all of the
      * attributes. This field is a conjunction/AND operation in each
      * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * collection of `VehicleAttributeList`. Each repeated string should be of the
+     * format "key1:value1|key2:value2|key3:value3".
      * </pre>
      *
      * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -3510,10 +3406,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequiredOneOfAttributeSets(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredOneOfAttributeSetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredOneOfAttributeSetsIsMutable();
       requiredOneOfAttributeSets_.set(index, value);
       onChanged();
       return this;
@@ -3533,12 +3427,12 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
      * ...)
      * ```
-     * Restrict the response to vehicles that match all the attributes in a
+     * Restricts the response to vehicles that match all the attributes in a
      * `VehicleAttributeList`. Within each list, a vehicle must match all of the
      * attributes. This field is a conjunction/AND operation in each
      * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * collection of `VehicleAttributeList`. Each repeated string should be of the
+     * format "key1:value1|key2:value2|key3:value3".
      * </pre>
      *
      * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -3547,10 +3441,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredOneOfAttributeSets(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredOneOfAttributeSetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredOneOfAttributeSetsIsMutable();
       requiredOneOfAttributeSets_.add(value);
       onChanged();
       return this;
@@ -3570,12 +3462,12 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
      * ...)
      * ```
-     * Restrict the response to vehicles that match all the attributes in a
+     * Restricts the response to vehicles that match all the attributes in a
      * `VehicleAttributeList`. Within each list, a vehicle must match all of the
      * attributes. This field is a conjunction/AND operation in each
      * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * collection of `VehicleAttributeList`. Each repeated string should be of the
+     * format "key1:value1|key2:value2|key3:value3".
      * </pre>
      *
      * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -3605,12 +3497,12 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
      * ...)
      * ```
-     * Restrict the response to vehicles that match all the attributes in a
+     * Restricts the response to vehicles that match all the attributes in a
      * `VehicleAttributeList`. Within each list, a vehicle must match all of the
      * attributes. This field is a conjunction/AND operation in each
      * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * collection of `VehicleAttributeList`. Each repeated string should be of the
+     * format "key1:value1|key2:value2|key3:value3".
      * </pre>
      *
      * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -3618,7 +3510,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRequiredOneOfAttributeSets() {
       requiredOneOfAttributeSets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3637,12 +3529,12 @@ private static final long serialVersionUID = 0L;
      * (required_one_of_attributes[1][0] AND required_one_of_attributes[1][1] AND
      * ...)
      * ```
-     * Restrict the response to vehicles that match all the attributes in a
+     * Restricts the response to vehicles that match all the attributes in a
      * `VehicleAttributeList`. Within each list, a vehicle must match all of the
      * attributes. This field is a conjunction/AND operation in each
      * `VehicleAttributeList` and inclusive disjunction/OR operation across the
-     * collection of `VehicleAttributeList`. Format:
-     * key1:value1|key2:value2|key3:value3...
+     * collection of `VehicleAttributeList`. Each repeated string should be of the
+     * format "key1:value1|key2:value2|key3:value3".
      * </pre>
      *
      * <code>repeated string required_one_of_attribute_sets = 15;</code>
@@ -3651,10 +3543,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredOneOfAttributeSetsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRequiredOneOfAttributeSetsIsMutable();
       requiredOneOfAttributeSets_.add(value);
       onChanged();
@@ -3664,7 +3554,7 @@ private static final long serialVersionUID = 0L;
     private int vehicleState_ = 0;
     /**
      * <pre>
-     * Restrict the response to vehicles that have this vehicle state.
+     * Restricts the response to vehicles that have this vehicle state.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleState vehicle_state = 11;</code>
@@ -3675,7 +3565,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have this vehicle state.
+     * Restricts the response to vehicles that have this vehicle state.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleState vehicle_state = 11;</code>
@@ -3683,14 +3573,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVehicleStateValue(int value) {
-      
       vehicleState_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have this vehicle state.
+     * Restricts the response to vehicles that have this vehicle state.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleState vehicle_state = 11;</code>
@@ -3698,13 +3588,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.VehicleState getVehicleState() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.VehicleState result = google.maps.fleetengine.v1.VehicleState.valueOf(vehicleState_);
+      google.maps.fleetengine.v1.VehicleState result = google.maps.fleetengine.v1.VehicleState.forNumber(vehicleState_);
       return result == null ? google.maps.fleetengine.v1.VehicleState.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have this vehicle state.
+     * Restricts the response to vehicles that have this vehicle state.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleState vehicle_state = 11;</code>
@@ -3715,21 +3604,21 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000800;
       vehicleState_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Restrict the response to vehicles that have this vehicle state.
+     * Restricts the response to vehicles that have this vehicle state.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleState vehicle_state = 11;</code>
      * @return This builder for chaining.
      */
     public Builder clearVehicleState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       vehicleState_ = 0;
       onChanged();
       return this;
@@ -3760,6 +3649,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOnTripOnly(boolean value) {
       
       onTripOnly_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3772,7 +3662,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOnTripOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       onTripOnly_ = false;
       onChanged();
       return this;
@@ -3810,7 +3700,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListVehiclesRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

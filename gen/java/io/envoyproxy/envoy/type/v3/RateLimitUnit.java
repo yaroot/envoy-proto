@@ -52,6 +52,22 @@ public enum RateLimitUnit
    * <code>DAY = 4;</code>
    */
   DAY(4),
+  /**
+   * <pre>
+   * The time unit representing a month.
+   * </pre>
+   *
+   * <code>MONTH = 5;</code>
+   */
+  MONTH(5),
+  /**
+   * <pre>
+   * The time unit representing a year.
+   * </pre>
+   *
+   * <code>YEAR = 6;</code>
+   */
+  YEAR(6),
   UNRECOGNIZED(-1),
   ;
 
@@ -95,6 +111,22 @@ public enum RateLimitUnit
    * <code>DAY = 4;</code>
    */
   public static final int DAY_VALUE = 4;
+  /**
+   * <pre>
+   * The time unit representing a month.
+   * </pre>
+   *
+   * <code>MONTH = 5;</code>
+   */
+  public static final int MONTH_VALUE = 5;
+  /**
+   * <pre>
+   * The time unit representing a year.
+   * </pre>
+   *
+   * <code>YEAR = 6;</code>
+   */
+  public static final int YEAR_VALUE = 6;
 
 
   public final int getNumber() {
@@ -126,6 +158,8 @@ public enum RateLimitUnit
       case 2: return MINUTE;
       case 3: return HOUR;
       case 4: return DAY;
+      case 5: return MONTH;
+      case 6: return YEAR;
       default: return null;
     }
   }

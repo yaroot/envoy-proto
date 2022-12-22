@@ -35,93 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConverseResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (converseResponseCase_ == 1) {
-              subBuilder = ((com.google.rpc.Status) converseResponse_).toBuilder();
-            }
-            converseResponse_ =
-                input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.rpc.Status) converseResponse_);
-              converseResponse_ = subBuilder.buildPartial();
-            }
-            converseResponseCase_ = 1;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-            converseResponseCase_ = 2;
-            converseResponse_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.assistant.embedded.v1alpha1.AudioOut.Builder subBuilder = null;
-            if (converseResponseCase_ == 3) {
-              subBuilder = ((com.google.assistant.embedded.v1alpha1.AudioOut) converseResponse_).toBuilder();
-            }
-            converseResponse_ =
-                input.readMessage(com.google.assistant.embedded.v1alpha1.AudioOut.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.assistant.embedded.v1alpha1.AudioOut) converseResponse_);
-              converseResponse_ = subBuilder.buildPartial();
-            }
-            converseResponseCase_ = 3;
-            break;
-          }
-          case 42: {
-            com.google.assistant.embedded.v1alpha1.ConverseResult.Builder subBuilder = null;
-            if (converseResponseCase_ == 5) {
-              subBuilder = ((com.google.assistant.embedded.v1alpha1.ConverseResult) converseResponse_).toBuilder();
-            }
-            converseResponse_ =
-                input.readMessage(com.google.assistant.embedded.v1alpha1.ConverseResult.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.assistant.embedded.v1alpha1.ConverseResult) converseResponse_);
-              converseResponse_ = subBuilder.buildPartial();
-            }
-            converseResponseCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.assistant.embedded.v1alpha1.AssistantProto.internal_static_google_assistant_embedded_v1alpha1_ConverseResponse_descriptor;
@@ -406,8 +319,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType getEventType() {
     if (converseResponseCase_ == 2) {
-      @SuppressWarnings("deprecation")
-      com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType result = com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType.valueOf(
+      com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType result = com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType.forNumber(
           (java.lang.Integer) converseResponse_);
       return result == null ? com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType.UNRECOGNIZED : result;
     }
@@ -526,7 +438,7 @@ private static final long serialVersionUID = 0L;
     if (converseResponseCase_ == 5) {
       output.writeMessage(5, (com.google.assistant.embedded.v1alpha1.ConverseResult) converseResponse_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -551,7 +463,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (com.google.assistant.embedded.v1alpha1.ConverseResult) converseResponse_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -587,7 +499,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -618,7 +530,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -740,22 +652,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.assistant.embedded.v1alpha1.ConverseResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (errorBuilder_ != null) {
+        errorBuilder_.clear();
+      }
+      if (audioOutBuilder_ != null) {
+        audioOutBuilder_.clear();
+      }
+      if (resultBuilder_ != null) {
+        resultBuilder_.clear();
+      }
       converseResponseCase_ = 0;
       converseResponse_ = null;
       return this;
@@ -784,33 +701,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha1.ConverseResponse buildPartial() {
       com.google.assistant.embedded.v1alpha1.ConverseResponse result = new com.google.assistant.embedded.v1alpha1.ConverseResponse(this);
-      if (converseResponseCase_ == 1) {
-        if (errorBuilder_ == null) {
-          result.converseResponse_ = converseResponse_;
-        } else {
-          result.converseResponse_ = errorBuilder_.build();
-        }
-      }
-      if (converseResponseCase_ == 2) {
-        result.converseResponse_ = converseResponse_;
-      }
-      if (converseResponseCase_ == 3) {
-        if (audioOutBuilder_ == null) {
-          result.converseResponse_ = converseResponse_;
-        } else {
-          result.converseResponse_ = audioOutBuilder_.build();
-        }
-      }
-      if (converseResponseCase_ == 5) {
-        if (resultBuilder_ == null) {
-          result.converseResponse_ = converseResponse_;
-        } else {
-          result.converseResponse_ = resultBuilder_.build();
-        }
-      }
-      result.converseResponseCase_ = converseResponseCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.assistant.embedded.v1alpha1.ConverseResponse result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.assistant.embedded.v1alpha1.ConverseResponse result) {
+      result.converseResponseCase_ = converseResponseCase_;
+      result.converseResponse_ = this.converseResponse_;
+      if (converseResponseCase_ == 1 &&
+          errorBuilder_ != null) {
+        result.converseResponse_ = errorBuilder_.build();
+      }
+      if (converseResponseCase_ == 3 &&
+          audioOutBuilder_ != null) {
+        result.converseResponse_ = audioOutBuilder_.build();
+      }
+      if (converseResponseCase_ == 5 &&
+          resultBuilder_ != null) {
+        result.converseResponse_ = resultBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -878,7 +793,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -893,17 +808,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.assistant.embedded.v1alpha1.ConverseResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getErrorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              converseResponseCase_ = 1;
+              break;
+            } // case 10
+            case 16: {
+              int rawValue = input.readEnum();
+              converseResponseCase_ = 2;
+              converseResponse_ = rawValue;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getAudioOutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              converseResponseCase_ = 3;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getResultFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              converseResponseCase_ = 5;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.assistant.embedded.v1alpha1.ConverseResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int converseResponseCase_ = 0;
@@ -921,6 +876,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.rpc.Status, com.google.rpc.Status.Builder, com.google.rpc.StatusOrBuilder> errorBuilder_;
@@ -1123,7 +1079,7 @@ private static final long serialVersionUID = 0L;
         converseResponse_ = null;
       }
       converseResponseCase_ = 1;
-      onChanged();;
+      onChanged();
       return errorBuilder_;
     }
 
@@ -1180,8 +1136,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType getEventType() {
       if (converseResponseCase_ == 2) {
-        @SuppressWarnings("deprecation")
-        com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType result = com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType.valueOf(
+        com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType result = com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType.forNumber(
             (java.lang.Integer) converseResponse_);
         return result == null ? com.google.assistant.embedded.v1alpha1.ConverseResponse.EventType.UNRECOGNIZED : result;
       }
@@ -1396,7 +1351,7 @@ private static final long serialVersionUID = 0L;
         converseResponse_ = null;
       }
       converseResponseCase_ = 3;
-      onChanged();;
+      onChanged();
       return audioOutBuilder_;
     }
 
@@ -1574,7 +1529,7 @@ private static final long serialVersionUID = 0L;
         converseResponse_ = null;
       }
       converseResponseCase_ = 5;
-      onChanged();;
+      onChanged();
       return resultBuilder_;
     }
     @java.lang.Override
@@ -1610,7 +1565,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConverseResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

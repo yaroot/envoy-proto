@@ -57,108 +57,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Taxonomy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 32: {
-
-            policyTagCount_ = input.readInt32();
-            break;
-          }
-          case 42: {
-            com.google.cloud.datacatalog.v1.SystemTimestamps.Builder subBuilder = null;
-            if (taxonomyTimestamps_ != null) {
-              subBuilder = taxonomyTimestamps_.toBuilder();
-            }
-            taxonomyTimestamps_ = input.readMessage(com.google.cloud.datacatalog.v1.SystemTimestamps.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(taxonomyTimestamps_);
-              taxonomyTimestamps_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              activatedPolicyTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            activatedPolicyTypes_.add(rawValue);
-            break;
-          }
-          case 50: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                activatedPolicyTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              activatedPolicyTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        activatedPolicyTypes_ = java.util.Collections.unmodifiableList(activatedPolicyTypes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1.PolicyTagManagerProto.internal_static_google_cloud_datacatalog_v1_Taxonomy_descriptor;
@@ -303,7 +201,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Resource name of this taxonomy in URL format.
@@ -351,7 +250,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. User-defined name of this taxonomy.
@@ -405,7 +305,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Optional. Description of this taxonomy. If not set, defaults to empty.
@@ -457,7 +358,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POLICY_TAG_COUNT_FIELD_NUMBER = 4;
-  private int policyTagCount_;
+  private int policyTagCount_ = 0;
   /**
    * <pre>
    * Output only. Number of policy tags in this taxonomy.
@@ -506,18 +407,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.SystemTimestampsOrBuilder getTaxonomyTimestampsOrBuilder() {
-    return getTaxonomyTimestamps();
+    return taxonomyTimestamps_ == null ? com.google.cloud.datacatalog.v1.SystemTimestamps.getDefaultInstance() : taxonomyTimestamps_;
   }
 
   public static final int ACTIVATED_POLICY_TYPES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> activatedPolicyTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.datacatalog.v1.Taxonomy.PolicyType> activatedPolicyTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.datacatalog.v1.Taxonomy.PolicyType>() {
             public com.google.cloud.datacatalog.v1.Taxonomy.PolicyType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.datacatalog.v1.Taxonomy.PolicyType result = com.google.cloud.datacatalog.v1.Taxonomy.PolicyType.valueOf(from);
+              com.google.cloud.datacatalog.v1.Taxonomy.PolicyType result = com.google.cloud.datacatalog.v1.Taxonomy.PolicyType.forNumber(from);
               return result == null ? com.google.cloud.datacatalog.v1.Taxonomy.PolicyType.UNRECOGNIZED : result;
             }
           };
@@ -629,7 +530,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < activatedPolicyTypes_.size(); i++) {
       output.writeEnumNoTag(activatedPolicyTypes_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -667,7 +568,7 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }activatedPolicyTypesMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -696,7 +597,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getTaxonomyTimestamps())) return false;
     }
     if (!activatedPolicyTypes_.equals(other.activatedPolicyTypes_)) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -723,7 +624,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ACTIVATED_POLICY_TYPES_FIELD_NUMBER;
       hash = (53 * hash) + activatedPolicyTypes_.hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -863,38 +764,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1.Taxonomy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       description_ = "";
-
       policyTagCount_ = 0;
-
-      if (taxonomyTimestampsBuilder_ == null) {
-        taxonomyTimestamps_ = null;
-      } else {
-        taxonomyTimestamps_ = null;
+      taxonomyTimestamps_ = null;
+      if (taxonomyTimestampsBuilder_ != null) {
+        taxonomyTimestampsBuilder_.dispose();
         taxonomyTimestampsBuilder_ = null;
       }
       activatedPolicyTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -921,23 +813,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.Taxonomy buildPartial() {
       com.google.cloud.datacatalog.v1.Taxonomy result = new com.google.cloud.datacatalog.v1.Taxonomy(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      result.policyTagCount_ = policyTagCount_;
-      if (taxonomyTimestampsBuilder_ == null) {
-        result.taxonomyTimestamps_ = taxonomyTimestamps_;
-      } else {
-        result.taxonomyTimestamps_ = taxonomyTimestampsBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        activatedPolicyTypes_ = java.util.Collections.unmodifiableList(activatedPolicyTypes_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.activatedPolicyTypes_ = activatedPolicyTypes_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.datacatalog.v1.Taxonomy result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
+        activatedPolicyTypes_ = java.util.Collections.unmodifiableList(activatedPolicyTypes_);
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.activatedPolicyTypes_ = activatedPolicyTypes_;
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1.Taxonomy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.policyTagCount_ = policyTagCount_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.taxonomyTimestamps_ = taxonomyTimestampsBuilder_ == null
+            ? taxonomyTimestamps_
+            : taxonomyTimestampsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -986,14 +894,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datacatalog.v1.Taxonomy.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getPolicyTagCount() != 0) {
@@ -1005,14 +916,14 @@ private static final long serialVersionUID = 0L;
       if (!other.activatedPolicyTypes_.isEmpty()) {
         if (activatedPolicyTypes_.isEmpty()) {
           activatedPolicyTypes_ = other.activatedPolicyTypes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureActivatedPolicyTypesIsMutable();
           activatedPolicyTypes_.addAll(other.activatedPolicyTypes_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1027,17 +938,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1.Taxonomy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              policyTagCount_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getTaxonomyTimestampsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              int tmpRaw = input.readEnum();
+              ensureActivatedPolicyTypesIsMutable();
+              activatedPolicyTypes_.add(tmpRaw);
+              break;
+            } // case 48
+            case 50: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureActivatedPolicyTypesIsMutable();
+                activatedPolicyTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1.Taxonomy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1098,11 +1066,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1116,8 +1082,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1133,12 +1099,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1208,11 +1172,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1229,8 +1191,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1249,12 +1211,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1321,11 +1281,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1341,8 +1299,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1360,12 +1318,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1395,6 +1351,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPolicyTagCount(int value) {
       
       policyTagCount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1407,7 +1364,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPolicyTagCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       policyTagCount_ = 0;
       onChanged();
       return this;
@@ -1425,7 +1382,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the taxonomyTimestamps field is set.
      */
     public boolean hasTaxonomyTimestamps() {
-      return taxonomyTimestampsBuilder_ != null || taxonomyTimestamps_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1455,11 +1412,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         taxonomyTimestamps_ = value;
-        onChanged();
       } else {
         taxonomyTimestampsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1473,11 +1430,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.SystemTimestamps.Builder builderForValue) {
       if (taxonomyTimestampsBuilder_ == null) {
         taxonomyTimestamps_ = builderForValue.build();
-        onChanged();
       } else {
         taxonomyTimestampsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1489,17 +1446,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTaxonomyTimestamps(com.google.cloud.datacatalog.v1.SystemTimestamps value) {
       if (taxonomyTimestampsBuilder_ == null) {
-        if (taxonomyTimestamps_ != null) {
-          taxonomyTimestamps_ =
-            com.google.cloud.datacatalog.v1.SystemTimestamps.newBuilder(taxonomyTimestamps_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          taxonomyTimestamps_ != null &&
+          taxonomyTimestamps_ != com.google.cloud.datacatalog.v1.SystemTimestamps.getDefaultInstance()) {
+          getTaxonomyTimestampsBuilder().mergeFrom(value);
         } else {
           taxonomyTimestamps_ = value;
         }
-        onChanged();
       } else {
         taxonomyTimestampsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1510,14 +1468,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps taxonomy_timestamps = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearTaxonomyTimestamps() {
-      if (taxonomyTimestampsBuilder_ == null) {
-        taxonomyTimestamps_ = null;
-        onChanged();
-      } else {
-        taxonomyTimestamps_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      taxonomyTimestamps_ = null;
+      if (taxonomyTimestampsBuilder_ != null) {
+        taxonomyTimestampsBuilder_.dispose();
         taxonomyTimestampsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1528,7 +1485,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.SystemTimestamps taxonomy_timestamps = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.datacatalog.v1.SystemTimestamps.Builder getTaxonomyTimestampsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getTaxonomyTimestampsFieldBuilder().getBuilder();
     }
@@ -1571,9 +1528,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> activatedPolicyTypes_ =
       java.util.Collections.emptyList();
     private void ensureActivatedPolicyTypesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         activatedPolicyTypes_ = new java.util.ArrayList<java.lang.Integer>(activatedPolicyTypes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
       }
     }
     /**
@@ -1684,7 +1641,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearActivatedPolicyTypes() {
       activatedPolicyTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1800,7 +1757,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Taxonomy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

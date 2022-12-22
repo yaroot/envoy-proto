@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nYgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/automl_text_sentiment.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\x1a\x1cgoogle/api/annotations.proto\"\x7f\n\x13\x41utoMlTextSentiment\x12h\n\x06inputs\x18\x01 \x01(\x0b\x32X.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTextSentimentInputs\"2\n\x19\x41utoMlTextSentimentInputs\x12\x15\n\rsentiment_max\x18\x01 \x01(\x05\x42\x8e\x03\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB\x18\x41utoMLTextSentimentProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition\xaa\x02=Google.Cloud.AIPlatform.V1Beta1.Schema.TrainingJob.Definition\xca\x02=Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\TrainingJob\\Definition\xea\x02\x43Google::Cloud::AIPlatform::V1beta1::Schema::TrainingJob::Definitionb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nYgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/automl_text_sentiment.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\"\x7f\n\x13\x41utoMlTextSentiment\x12h\n\x06inputs\x18\x01 \x01(\x0b\x32X.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTextSentimentInputs\"2\n\x19\x41utoMlTextSentimentInputs\x12\x15\n\rsentiment_max\x18\x01 \x01(\x05\x42\x8e\x03\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB\x18\x41utoMLTextSentimentProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition\xaa\x02=Google.Cloud.AIPlatform.V1Beta1.Schema.TrainingJob.Definition\xca\x02=Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\TrainingJob\\Definition\xea\x02\x43Google::Cloud::AIPlatform::V1beta1::Schema::TrainingJob::Definitionb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.automl_text_sentiment_pb2', globals())
@@ -22,8 +21,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB\030AutoMLTextSentimentProtoP\001Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition\252\002=Google.Cloud.AIPlatform.V1Beta1.Schema.TrainingJob.Definition\312\002=Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\TrainingJob\\Definition\352\002CGoogle::Cloud::AIPlatform::V1beta1::Schema::TrainingJob::Definition'
-  _AUTOMLTEXTSENTIMENT._serialized_start=186
-  _AUTOMLTEXTSENTIMENT._serialized_end=313
-  _AUTOMLTEXTSENTIMENTINPUTS._serialized_start=315
-  _AUTOMLTEXTSENTIMENTINPUTS._serialized_end=365
+  _AUTOMLTEXTSENTIMENT._serialized_start=156
+  _AUTOMLTEXTSENTIMENT._serialized_end=283
+  _AUTOMLTEXTSENTIMENTINPUTS._serialized_start=285
+  _AUTOMLTEXTSENTIMENTINPUTS._serialized_end=335
 # @@protoc_insertion_point(module_scope)

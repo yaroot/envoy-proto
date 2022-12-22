@@ -35,98 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SourceProvenance(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26: {
-            com.google.cloudbuild.v1.StorageSource.Builder subBuilder = null;
-            if (resolvedStorageSource_ != null) {
-              subBuilder = resolvedStorageSource_.toBuilder();
-            }
-            resolvedStorageSource_ = input.readMessage(com.google.cloudbuild.v1.StorageSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resolvedStorageSource_);
-              resolvedStorageSource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              fileHashes_ = com.google.protobuf.MapField.newMapField(
-                  FileHashesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloudbuild.v1.FileHashes>
-            fileHashes__ = input.readMessage(
-                FileHashesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            fileHashes_.getMutableMap().put(
-                fileHashes__.getKey(), fileHashes__.getValue());
-            break;
-          }
-          case 50: {
-            com.google.cloudbuild.v1.RepoSource.Builder subBuilder = null;
-            if (resolvedRepoSource_ != null) {
-              subBuilder = resolvedRepoSource_.toBuilder();
-            }
-            resolvedRepoSource_ = input.readMessage(com.google.cloudbuild.v1.RepoSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resolvedRepoSource_);
-              resolvedRepoSource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.cloudbuild.v1.StorageSourceManifest.Builder subBuilder = null;
-            if (resolvedStorageSourceManifest_ != null) {
-              subBuilder = resolvedStorageSourceManifest_.toBuilder();
-            }
-            resolvedStorageSourceManifest_ = input.readMessage(com.google.cloudbuild.v1.StorageSourceManifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resolvedStorageSourceManifest_);
-              resolvedStorageSourceManifest_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_SourceProvenance_descriptor;
@@ -190,7 +98,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloudbuild.v1.StorageSourceOrBuilder getResolvedStorageSourceOrBuilder() {
-    return getResolvedStorageSource();
+    return resolvedStorageSource_ == null ? com.google.cloudbuild.v1.StorageSource.getDefaultInstance() : resolvedStorageSource_;
   }
 
   public static final int RESOLVED_REPO_SOURCE_FIELD_NUMBER = 6;
@@ -231,7 +139,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloudbuild.v1.RepoSourceOrBuilder getResolvedRepoSourceOrBuilder() {
-    return getResolvedRepoSource();
+    return resolvedRepoSource_ == null ? com.google.cloudbuild.v1.RepoSource.getDefaultInstance() : resolvedRepoSource_;
   }
 
   public static final int RESOLVED_STORAGE_SOURCE_MANIFEST_FIELD_NUMBER = 9;
@@ -275,7 +183,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloudbuild.v1.StorageSourceManifestOrBuilder getResolvedStorageSourceManifestOrBuilder() {
-    return getResolvedStorageSourceManifest();
+    return resolvedStorageSourceManifest_ == null ? com.google.cloudbuild.v1.StorageSourceManifest.getDefaultInstance() : resolvedStorageSourceManifest_;
   }
 
   public static final int FILE_HASHES_FIELD_NUMBER = 4;
@@ -290,6 +198,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloudbuild.v1.FileHashes.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloudbuild.v1.FileHashes> fileHashes_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloudbuild.v1.FileHashes>
@@ -300,7 +209,6 @@ private static final long serialVersionUID = 0L;
     }
     return fileHashes_;
   }
-
   public int getFileHashesCount() {
     return internalGetFileHashes().getMap().size();
   }
@@ -318,7 +226,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   @java.lang.Override
   public boolean containsFileHashes(
       java.lang.String key) {
@@ -348,7 +255,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloudbuild.v1.FileHashes> getFileHashesMap() {
     return internalGetFileHashes().getMap();
   }
@@ -367,10 +273,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
-  public com.google.cloudbuild.v1.FileHashes getFileHashesOrDefault(
+  public /* nullable */
+com.google.cloudbuild.v1.FileHashes getFileHashesOrDefault(
       java.lang.String key,
-      com.google.cloudbuild.v1.FileHashes defaultValue) {
+      /* nullable */
+com.google.cloudbuild.v1.FileHashes defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloudbuild.v1.FileHashes> map =
         internalGetFileHashes().getMap();
@@ -391,7 +298,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public com.google.cloudbuild.v1.FileHashes getFileHashesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -432,7 +338,7 @@ private static final long serialVersionUID = 0L;
     if (resolvedStorageSourceManifest_ != null) {
       output.writeMessage(9, getResolvedStorageSourceManifest());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -463,7 +369,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getResolvedStorageSourceManifest());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -495,7 +401,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetFileHashes().equals(
         other.internalGetFileHashes())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -522,7 +428,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FILE_HASHES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetFileHashes().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -666,38 +572,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloudbuild.v1.SourceProvenance.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (resolvedStorageSourceBuilder_ == null) {
-        resolvedStorageSource_ = null;
-      } else {
-        resolvedStorageSource_ = null;
+      bitField0_ = 0;
+      resolvedStorageSource_ = null;
+      if (resolvedStorageSourceBuilder_ != null) {
+        resolvedStorageSourceBuilder_.dispose();
         resolvedStorageSourceBuilder_ = null;
       }
-      if (resolvedRepoSourceBuilder_ == null) {
-        resolvedRepoSource_ = null;
-      } else {
-        resolvedRepoSource_ = null;
+      resolvedRepoSource_ = null;
+      if (resolvedRepoSourceBuilder_ != null) {
+        resolvedRepoSourceBuilder_.dispose();
         resolvedRepoSourceBuilder_ = null;
       }
-      if (resolvedStorageSourceManifestBuilder_ == null) {
-        resolvedStorageSourceManifest_ = null;
-      } else {
-        resolvedStorageSourceManifest_ = null;
+      resolvedStorageSourceManifest_ = null;
+      if (resolvedStorageSourceManifestBuilder_ != null) {
+        resolvedStorageSourceManifestBuilder_.dispose();
         resolvedStorageSourceManifestBuilder_ = null;
       }
       internalGetMutableFileHashes().clear();
@@ -727,26 +626,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloudbuild.v1.SourceProvenance buildPartial() {
       com.google.cloudbuild.v1.SourceProvenance result = new com.google.cloudbuild.v1.SourceProvenance(this);
-      int from_bitField0_ = bitField0_;
-      if (resolvedStorageSourceBuilder_ == null) {
-        result.resolvedStorageSource_ = resolvedStorageSource_;
-      } else {
-        result.resolvedStorageSource_ = resolvedStorageSourceBuilder_.build();
-      }
-      if (resolvedRepoSourceBuilder_ == null) {
-        result.resolvedRepoSource_ = resolvedRepoSource_;
-      } else {
-        result.resolvedRepoSource_ = resolvedRepoSourceBuilder_.build();
-      }
-      if (resolvedStorageSourceManifestBuilder_ == null) {
-        result.resolvedStorageSourceManifest_ = resolvedStorageSourceManifest_;
-      } else {
-        result.resolvedStorageSourceManifest_ = resolvedStorageSourceManifestBuilder_.build();
-      }
-      result.fileHashes_ = internalGetFileHashes();
-      result.fileHashes_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloudbuild.v1.SourceProvenance result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resolvedStorageSource_ = resolvedStorageSourceBuilder_ == null
+            ? resolvedStorageSource_
+            : resolvedStorageSourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.resolvedRepoSource_ = resolvedRepoSourceBuilder_ == null
+            ? resolvedRepoSource_
+            : resolvedRepoSourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.resolvedStorageSourceManifest_ = resolvedStorageSourceManifestBuilder_ == null
+            ? resolvedStorageSourceManifest_
+            : resolvedStorageSourceManifestBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.fileHashes_ = internalGetFileHashes();
+        result.fileHashes_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -804,7 +709,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableFileHashes().mergeFrom(
           other.internalGetFileHashes());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000008;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -819,17 +725,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloudbuild.v1.SourceProvenance parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              input.readMessage(
+                  getResolvedStorageSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloudbuild.v1.FileHashes>
+              fileHashes__ = input.readMessage(
+                  FileHashesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFileHashes().getMutableMap().put(
+                  fileHashes__.getKey(), fileHashes__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 50: {
+              input.readMessage(
+                  getResolvedRepoSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 50
+            case 74: {
+              input.readMessage(
+                  getResolvedStorageSourceManifestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloudbuild.v1.SourceProvenance) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -847,7 +796,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resolvedStorageSource field is set.
      */
     public boolean hasResolvedStorageSource() {
-      return resolvedStorageSourceBuilder_ != null || resolvedStorageSource_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -879,11 +828,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resolvedStorageSource_ = value;
-        onChanged();
       } else {
         resolvedStorageSourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -898,11 +847,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloudbuild.v1.StorageSource.Builder builderForValue) {
       if (resolvedStorageSourceBuilder_ == null) {
         resolvedStorageSource_ = builderForValue.build();
-        onChanged();
       } else {
         resolvedStorageSourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -915,17 +864,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResolvedStorageSource(com.google.cloudbuild.v1.StorageSource value) {
       if (resolvedStorageSourceBuilder_ == null) {
-        if (resolvedStorageSource_ != null) {
-          resolvedStorageSource_ =
-            com.google.cloudbuild.v1.StorageSource.newBuilder(resolvedStorageSource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          resolvedStorageSource_ != null &&
+          resolvedStorageSource_ != com.google.cloudbuild.v1.StorageSource.getDefaultInstance()) {
+          getResolvedStorageSourceBuilder().mergeFrom(value);
         } else {
           resolvedStorageSource_ = value;
         }
-        onChanged();
       } else {
         resolvedStorageSourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -937,14 +887,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.StorageSource resolved_storage_source = 3;</code>
      */
     public Builder clearResolvedStorageSource() {
-      if (resolvedStorageSourceBuilder_ == null) {
-        resolvedStorageSource_ = null;
-        onChanged();
-      } else {
-        resolvedStorageSource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      resolvedStorageSource_ = null;
+      if (resolvedStorageSourceBuilder_ != null) {
+        resolvedStorageSourceBuilder_.dispose();
         resolvedStorageSourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -956,7 +905,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.StorageSource resolved_storage_source = 3;</code>
      */
     public com.google.cloudbuild.v1.StorageSource.Builder getResolvedStorageSourceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getResolvedStorageSourceFieldBuilder().getBuilder();
     }
@@ -1011,7 +960,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resolvedRepoSource field is set.
      */
     public boolean hasResolvedRepoSource() {
-      return resolvedRepoSourceBuilder_ != null || resolvedRepoSource_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1043,11 +992,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resolvedRepoSource_ = value;
-        onChanged();
       } else {
         resolvedRepoSourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1062,11 +1011,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloudbuild.v1.RepoSource.Builder builderForValue) {
       if (resolvedRepoSourceBuilder_ == null) {
         resolvedRepoSource_ = builderForValue.build();
-        onChanged();
       } else {
         resolvedRepoSourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1079,17 +1028,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResolvedRepoSource(com.google.cloudbuild.v1.RepoSource value) {
       if (resolvedRepoSourceBuilder_ == null) {
-        if (resolvedRepoSource_ != null) {
-          resolvedRepoSource_ =
-            com.google.cloudbuild.v1.RepoSource.newBuilder(resolvedRepoSource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          resolvedRepoSource_ != null &&
+          resolvedRepoSource_ != com.google.cloudbuild.v1.RepoSource.getDefaultInstance()) {
+          getResolvedRepoSourceBuilder().mergeFrom(value);
         } else {
           resolvedRepoSource_ = value;
         }
-        onChanged();
       } else {
         resolvedRepoSourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1101,14 +1051,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.RepoSource resolved_repo_source = 6;</code>
      */
     public Builder clearResolvedRepoSource() {
-      if (resolvedRepoSourceBuilder_ == null) {
-        resolvedRepoSource_ = null;
-        onChanged();
-      } else {
-        resolvedRepoSource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      resolvedRepoSource_ = null;
+      if (resolvedRepoSourceBuilder_ != null) {
+        resolvedRepoSourceBuilder_.dispose();
         resolvedRepoSourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1120,7 +1069,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.RepoSource resolved_repo_source = 6;</code>
      */
     public com.google.cloudbuild.v1.RepoSource.Builder getResolvedRepoSourceBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getResolvedRepoSourceFieldBuilder().getBuilder();
     }
@@ -1176,7 +1125,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resolvedStorageSourceManifest field is set.
      */
     public boolean hasResolvedStorageSourceManifest() {
-      return resolvedStorageSourceManifestBuilder_ != null || resolvedStorageSourceManifest_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1210,11 +1159,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resolvedStorageSourceManifest_ = value;
-        onChanged();
       } else {
         resolvedStorageSourceManifestBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1230,11 +1179,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloudbuild.v1.StorageSourceManifest.Builder builderForValue) {
       if (resolvedStorageSourceManifestBuilder_ == null) {
         resolvedStorageSourceManifest_ = builderForValue.build();
-        onChanged();
       } else {
         resolvedStorageSourceManifestBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1248,17 +1197,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResolvedStorageSourceManifest(com.google.cloudbuild.v1.StorageSourceManifest value) {
       if (resolvedStorageSourceManifestBuilder_ == null) {
-        if (resolvedStorageSourceManifest_ != null) {
-          resolvedStorageSourceManifest_ =
-            com.google.cloudbuild.v1.StorageSourceManifest.newBuilder(resolvedStorageSourceManifest_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          resolvedStorageSourceManifest_ != null &&
+          resolvedStorageSourceManifest_ != com.google.cloudbuild.v1.StorageSourceManifest.getDefaultInstance()) {
+          getResolvedStorageSourceManifestBuilder().mergeFrom(value);
         } else {
           resolvedStorageSourceManifest_ = value;
         }
-        onChanged();
       } else {
         resolvedStorageSourceManifestBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1271,14 +1221,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.StorageSourceManifest resolved_storage_source_manifest = 9;</code>
      */
     public Builder clearResolvedStorageSourceManifest() {
-      if (resolvedStorageSourceManifestBuilder_ == null) {
-        resolvedStorageSourceManifest_ = null;
-        onChanged();
-      } else {
-        resolvedStorageSourceManifest_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      resolvedStorageSourceManifest_ = null;
+      if (resolvedStorageSourceManifestBuilder_ != null) {
+        resolvedStorageSourceManifestBuilder_.dispose();
         resolvedStorageSourceManifestBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1291,7 +1240,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.cloudbuild.v1.StorageSourceManifest resolved_storage_source_manifest = 9;</code>
      */
     public com.google.cloudbuild.v1.StorageSourceManifest.Builder getResolvedStorageSourceManifestBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getResolvedStorageSourceManifestFieldBuilder().getBuilder();
     }
@@ -1338,7 +1287,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloudbuild.v1.FileHashes> fileHashes_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloudbuild.v1.FileHashes>
-    internalGetFileHashes() {
+        internalGetFileHashes() {
       if (fileHashes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             FileHashesDefaultEntryHolder.defaultEntry);
@@ -1346,8 +1295,7 @@ private static final long serialVersionUID = 0L;
       return fileHashes_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloudbuild.v1.FileHashes>
-    internalGetMutableFileHashes() {
-      onChanged();;
+        internalGetMutableFileHashes() {
       if (fileHashes_ == null) {
         fileHashes_ = com.google.protobuf.MapField.newMapField(
             FileHashesDefaultEntryHolder.defaultEntry);
@@ -1355,9 +1303,10 @@ private static final long serialVersionUID = 0L;
       if (!fileHashes_.isMutable()) {
         fileHashes_ = fileHashes_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return fileHashes_;
     }
-
     public int getFileHashesCount() {
       return internalGetFileHashes().getMap().size();
     }
@@ -1375,7 +1324,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     @java.lang.Override
     public boolean containsFileHashes(
         java.lang.String key) {
@@ -1405,7 +1353,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloudbuild.v1.FileHashes> getFileHashesMap() {
       return internalGetFileHashes().getMap();
     }
@@ -1424,10 +1371,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
-    public com.google.cloudbuild.v1.FileHashes getFileHashesOrDefault(
+    public /* nullable */
+com.google.cloudbuild.v1.FileHashes getFileHashesOrDefault(
         java.lang.String key,
-        com.google.cloudbuild.v1.FileHashes defaultValue) {
+        /* nullable */
+com.google.cloudbuild.v1.FileHashes defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloudbuild.v1.FileHashes> map =
           internalGetFileHashes().getMap();
@@ -1448,7 +1396,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public com.google.cloudbuild.v1.FileHashes getFileHashesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1459,8 +1406,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearFileHashes() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableFileHashes().getMutableMap()
           .clear();
       return this;
@@ -1479,7 +1426,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder removeFileHashes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1492,7 +1438,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloudbuild.v1.FileHashes>
-    getMutableFileHashes() {
+        getMutableFileHashes() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableFileHashes().getMutableMap();
     }
     /**
@@ -1513,12 +1460,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloudbuild.v1.FileHashes value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableFileHashes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -1535,11 +1480,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.devtools.cloudbuild.v1.FileHashes&gt; file_hashes = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder putAllFileHashes(
         java.util.Map<java.lang.String, com.google.cloudbuild.v1.FileHashes> values) {
       internalGetMutableFileHashes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
     @java.lang.Override
@@ -1575,7 +1520,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SourceProvenance(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

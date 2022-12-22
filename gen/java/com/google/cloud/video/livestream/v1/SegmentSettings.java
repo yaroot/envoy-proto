@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SegmentSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (segmentDuration_ != null) {
-              subBuilder = segmentDuration_.toBuilder();
-            }
-            segmentDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(segmentDuration_);
-              segmentDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.livestream.v1.OutputsProto.internal_static_google_cloud_video_livestream_v1_SegmentSettings_descriptor;
@@ -155,7 +103,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getSegmentDurationOrBuilder() {
-    return getSegmentDuration();
+    return segmentDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : segmentDuration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -175,7 +123,7 @@ private static final long serialVersionUID = 0L;
     if (segmentDuration_ != null) {
       output.writeMessage(1, getSegmentDuration());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -188,7 +136,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getSegmentDuration());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -208,7 +156,7 @@ private static final long serialVersionUID = 0L;
       if (!getSegmentDuration()
           .equals(other.getSegmentDuration())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -223,7 +171,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SEGMENT_DURATION_FIELD_NUMBER;
       hash = (53 * hash) + getSegmentDuration().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -344,26 +292,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.livestream.v1.SegmentSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (segmentDurationBuilder_ == null) {
-        segmentDuration_ = null;
-      } else {
-        segmentDuration_ = null;
+      bitField0_ = 0;
+      segmentDuration_ = null;
+      if (segmentDurationBuilder_ != null) {
+        segmentDurationBuilder_.dispose();
         segmentDurationBuilder_ = null;
       }
       return this;
@@ -392,13 +335,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.livestream.v1.SegmentSettings buildPartial() {
       com.google.cloud.video.livestream.v1.SegmentSettings result = new com.google.cloud.video.livestream.v1.SegmentSettings(this);
-      if (segmentDurationBuilder_ == null) {
-        result.segmentDuration_ = segmentDuration_;
-      } else {
-        result.segmentDuration_ = segmentDurationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.livestream.v1.SegmentSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.segmentDuration_ = segmentDurationBuilder_ == null
+            ? segmentDuration_
+            : segmentDurationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -448,7 +396,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSegmentDuration()) {
         mergeSegmentDuration(other.getSegmentDuration());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -463,19 +411,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.livestream.v1.SegmentSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSegmentDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.livestream.v1.SegmentSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Duration segmentDuration_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -496,7 +465,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the segmentDuration field is set.
      */
     public boolean hasSegmentDuration() {
-      return segmentDurationBuilder_ != null || segmentDuration_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -540,11 +509,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         segmentDuration_ = value;
-        onChanged();
       } else {
         segmentDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -565,11 +534,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (segmentDurationBuilder_ == null) {
         segmentDuration_ = builderForValue.build();
-        onChanged();
       } else {
         segmentDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -588,17 +557,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSegmentDuration(com.google.protobuf.Duration value) {
       if (segmentDurationBuilder_ == null) {
-        if (segmentDuration_ != null) {
-          segmentDuration_ =
-            com.google.protobuf.Duration.newBuilder(segmentDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          segmentDuration_ != null &&
+          segmentDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getSegmentDurationBuilder().mergeFrom(value);
         } else {
           segmentDuration_ = value;
         }
-        onChanged();
       } else {
         segmentDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -616,14 +586,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration segment_duration = 1;</code>
      */
     public Builder clearSegmentDuration() {
-      if (segmentDurationBuilder_ == null) {
-        segmentDuration_ = null;
-        onChanged();
-      } else {
-        segmentDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      segmentDuration_ = null;
+      if (segmentDurationBuilder_ != null) {
+        segmentDurationBuilder_.dispose();
         segmentDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -641,7 +610,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration segment_duration = 1;</code>
      */
     public com.google.protobuf.Duration.Builder getSegmentDurationBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSegmentDurationFieldBuilder().getBuilder();
     }
@@ -727,7 +696,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SegmentSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -10,7 +10,7 @@ public interface CreateDeploymentResourcePoolRequestOrBuilder extends
   /**
    * <pre>
    * Required. The parent location resource where this DeploymentResourcePool will be
-   * created. Format: projects/{project}/locations/{location}
+   * created. Format: `projects/{project}/locations/{location}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +20,7 @@ public interface CreateDeploymentResourcePoolRequestOrBuilder extends
   /**
    * <pre>
    * Required. The parent location resource where this DeploymentResourcePool will be
-   * created. Format: projects/{project}/locations/{location}
+   * created. Format: `projects/{project}/locations/{location}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

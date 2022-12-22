@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MysqlSourceConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.datastream.v1.MysqlRdbms.Builder subBuilder = null;
-            if (includeObjects_ != null) {
-              subBuilder = includeObjects_.toBuilder();
-            }
-            includeObjects_ = input.readMessage(com.google.cloud.datastream.v1.MysqlRdbms.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(includeObjects_);
-              includeObjects_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.datastream.v1.MysqlRdbms.Builder subBuilder = null;
-            if (excludeObjects_ != null) {
-              subBuilder = excludeObjects_.toBuilder();
-            }
-            excludeObjects_ = input.readMessage(com.google.cloud.datastream.v1.MysqlRdbms.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(excludeObjects_);
-              excludeObjects_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1.DatastreamResourcesProto.internal_static_google_cloud_datastream_v1_MysqlSourceConfig_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datastream.v1.MysqlRdbmsOrBuilder getIncludeObjectsOrBuilder() {
-    return getIncludeObjects();
+    return includeObjects_ == null ? com.google.cloud.datastream.v1.MysqlRdbms.getDefaultInstance() : includeObjects_;
   }
 
   public static final int EXCLUDE_OBJECTS_FIELD_NUMBER = 2;
@@ -185,7 +120,23 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datastream.v1.MysqlRdbmsOrBuilder getExcludeObjectsOrBuilder() {
-    return getExcludeObjects();
+    return excludeObjects_ == null ? com.google.cloud.datastream.v1.MysqlRdbms.getDefaultInstance() : excludeObjects_;
+  }
+
+  public static final int MAX_CONCURRENT_CDC_TASKS_FIELD_NUMBER = 3;
+  private int maxConcurrentCdcTasks_ = 0;
+  /**
+   * <pre>
+   * Maximum number of concurrent CDC tasks. The number should be non negative.
+   * If not set (or set to 0), the system's default value will be used.
+   * </pre>
+   *
+   * <code>int32 max_concurrent_cdc_tasks = 3;</code>
+   * @return The maxConcurrentCdcTasks.
+   */
+  @java.lang.Override
+  public int getMaxConcurrentCdcTasks() {
+    return maxConcurrentCdcTasks_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +159,10 @@ private static final long serialVersionUID = 0L;
     if (excludeObjects_ != null) {
       output.writeMessage(2, getExcludeObjects());
     }
-    unknownFields.writeTo(output);
+    if (maxConcurrentCdcTasks_ != 0) {
+      output.writeInt32(3, maxConcurrentCdcTasks_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +179,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getExcludeObjects());
     }
-    size += unknownFields.getSerializedSize();
+    if (maxConcurrentCdcTasks_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, maxConcurrentCdcTasks_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +208,9 @@ private static final long serialVersionUID = 0L;
       if (!getExcludeObjects()
           .equals(other.getExcludeObjects())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getMaxConcurrentCdcTasks()
+        != other.getMaxConcurrentCdcTasks()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +229,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXCLUDE_OBJECTS_FIELD_NUMBER;
       hash = (53 * hash) + getExcludeObjects().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + MAX_CONCURRENT_CDC_TASKS_FIELD_NUMBER;
+    hash = (53 * hash) + getMaxConcurrentCdcTasks();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,34 +352,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1.MysqlSourceConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (includeObjectsBuilder_ == null) {
-        includeObjects_ = null;
-      } else {
-        includeObjects_ = null;
+      bitField0_ = 0;
+      includeObjects_ = null;
+      if (includeObjectsBuilder_ != null) {
+        includeObjectsBuilder_.dispose();
         includeObjectsBuilder_ = null;
       }
-      if (excludeObjectsBuilder_ == null) {
-        excludeObjects_ = null;
-      } else {
-        excludeObjects_ = null;
+      excludeObjects_ = null;
+      if (excludeObjectsBuilder_ != null) {
+        excludeObjectsBuilder_.dispose();
         excludeObjectsBuilder_ = null;
       }
+      maxConcurrentCdcTasks_ = 0;
       return this;
     }
 
@@ -444,18 +401,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1.MysqlSourceConfig buildPartial() {
       com.google.cloud.datastream.v1.MysqlSourceConfig result = new com.google.cloud.datastream.v1.MysqlSourceConfig(this);
-      if (includeObjectsBuilder_ == null) {
-        result.includeObjects_ = includeObjects_;
-      } else {
-        result.includeObjects_ = includeObjectsBuilder_.build();
-      }
-      if (excludeObjectsBuilder_ == null) {
-        result.excludeObjects_ = excludeObjects_;
-      } else {
-        result.excludeObjects_ = excludeObjectsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1.MysqlSourceConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.includeObjects_ = includeObjectsBuilder_ == null
+            ? includeObjects_
+            : includeObjectsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.excludeObjects_ = excludeObjectsBuilder_ == null
+            ? excludeObjects_
+            : excludeObjectsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxConcurrentCdcTasks_ = maxConcurrentCdcTasks_;
+      }
     }
 
     @java.lang.Override
@@ -508,7 +473,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasExcludeObjects()) {
         mergeExcludeObjects(other.getExcludeObjects());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getMaxConcurrentCdcTasks() != 0) {
+        setMaxConcurrentCdcTasks(other.getMaxConcurrentCdcTasks());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +491,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1.MysqlSourceConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getIncludeObjectsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getExcludeObjectsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              maxConcurrentCdcTasks_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1.MysqlSourceConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.datastream.v1.MysqlRdbms includeObjects_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +550,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the includeObjects field is set.
      */
     public boolean hasIncludeObjects() {
-      return includeObjectsBuilder_ != null || includeObjects_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +580,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         includeObjects_ = value;
-        onChanged();
       } else {
         includeObjectsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +598,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datastream.v1.MysqlRdbms.Builder builderForValue) {
       if (includeObjectsBuilder_ == null) {
         includeObjects_ = builderForValue.build();
-        onChanged();
       } else {
         includeObjectsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +614,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIncludeObjects(com.google.cloud.datastream.v1.MysqlRdbms value) {
       if (includeObjectsBuilder_ == null) {
-        if (includeObjects_ != null) {
-          includeObjects_ =
-            com.google.cloud.datastream.v1.MysqlRdbms.newBuilder(includeObjects_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          includeObjects_ != null &&
+          includeObjects_ != com.google.cloud.datastream.v1.MysqlRdbms.getDefaultInstance()) {
+          getIncludeObjectsBuilder().mergeFrom(value);
         } else {
           includeObjects_ = value;
         }
-        onChanged();
       } else {
         includeObjectsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +636,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1.MysqlRdbms include_objects = 1;</code>
      */
     public Builder clearIncludeObjects() {
-      if (includeObjectsBuilder_ == null) {
-        includeObjects_ = null;
-        onChanged();
-      } else {
-        includeObjects_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      includeObjects_ = null;
+      if (includeObjectsBuilder_ != null) {
+        includeObjectsBuilder_.dispose();
         includeObjectsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +653,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1.MysqlRdbms include_objects = 1;</code>
      */
     public com.google.cloud.datastream.v1.MysqlRdbms.Builder getIncludeObjectsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getIncludeObjectsFieldBuilder().getBuilder();
     }
@@ -704,7 +705,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the excludeObjects field is set.
      */
     public boolean hasExcludeObjects() {
-      return excludeObjectsBuilder_ != null || excludeObjects_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +735,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         excludeObjects_ = value;
-        onChanged();
       } else {
         excludeObjectsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +753,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datastream.v1.MysqlRdbms.Builder builderForValue) {
       if (excludeObjectsBuilder_ == null) {
         excludeObjects_ = builderForValue.build();
-        onChanged();
       } else {
         excludeObjectsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +769,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExcludeObjects(com.google.cloud.datastream.v1.MysqlRdbms value) {
       if (excludeObjectsBuilder_ == null) {
-        if (excludeObjects_ != null) {
-          excludeObjects_ =
-            com.google.cloud.datastream.v1.MysqlRdbms.newBuilder(excludeObjects_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          excludeObjects_ != null &&
+          excludeObjects_ != com.google.cloud.datastream.v1.MysqlRdbms.getDefaultInstance()) {
+          getExcludeObjectsBuilder().mergeFrom(value);
         } else {
           excludeObjects_ = value;
         }
-        onChanged();
       } else {
         excludeObjectsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +791,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1.MysqlRdbms exclude_objects = 2;</code>
      */
     public Builder clearExcludeObjects() {
-      if (excludeObjectsBuilder_ == null) {
-        excludeObjects_ = null;
-        onChanged();
-      } else {
-        excludeObjects_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      excludeObjects_ = null;
+      if (excludeObjectsBuilder_ != null) {
+        excludeObjectsBuilder_.dispose();
         excludeObjectsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +808,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1.MysqlRdbms exclude_objects = 2;</code>
      */
     public com.google.cloud.datastream.v1.MysqlRdbms.Builder getExcludeObjectsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getExcludeObjectsFieldBuilder().getBuilder();
     }
@@ -846,6 +847,53 @@ private static final long serialVersionUID = 0L;
       }
       return excludeObjectsBuilder_;
     }
+
+    private int maxConcurrentCdcTasks_ ;
+    /**
+     * <pre>
+     * Maximum number of concurrent CDC tasks. The number should be non negative.
+     * If not set (or set to 0), the system's default value will be used.
+     * </pre>
+     *
+     * <code>int32 max_concurrent_cdc_tasks = 3;</code>
+     * @return The maxConcurrentCdcTasks.
+     */
+    @java.lang.Override
+    public int getMaxConcurrentCdcTasks() {
+      return maxConcurrentCdcTasks_;
+    }
+    /**
+     * <pre>
+     * Maximum number of concurrent CDC tasks. The number should be non negative.
+     * If not set (or set to 0), the system's default value will be used.
+     * </pre>
+     *
+     * <code>int32 max_concurrent_cdc_tasks = 3;</code>
+     * @param value The maxConcurrentCdcTasks to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMaxConcurrentCdcTasks(int value) {
+      
+      maxConcurrentCdcTasks_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Maximum number of concurrent CDC tasks. The number should be non negative.
+     * If not set (or set to 0), the system's default value will be used.
+     * </pre>
+     *
+     * <code>int32 max_concurrent_cdc_tasks = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMaxConcurrentCdcTasks() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      maxConcurrentCdcTasks_ = 0;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -879,7 +927,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MysqlSourceConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,77 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MacVerifyResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            success_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            verifiedDataCrc32C_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            verifiedMacCrc32C_ = input.readBool();
-            break;
-          }
-          case 40: {
-
-            verifiedSuccessIntegrity_ = input.readBool();
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            protectionLevel_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.kms.v1.KmsProto.internal_static_google_cloud_kms_v1_MacVerifyResponse_descriptor;
@@ -122,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name of the
@@ -174,7 +104,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUCCESS_FIELD_NUMBER = 2;
-  private boolean success_;
+  private boolean success_ = false;
   /**
    * <pre>
    * This field indicates whether or not the verification operation for
@@ -192,7 +122,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFIED_DATA_CRC32C_FIELD_NUMBER = 3;
-  private boolean verifiedDataCrc32C_;
+  private boolean verifiedDataCrc32C_ = false;
   /**
    * <pre>
    * Integrity verification field. A flag indicating whether
@@ -220,7 +150,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFIED_MAC_CRC32C_FIELD_NUMBER = 4;
-  private boolean verifiedMacCrc32C_;
+  private boolean verifiedMacCrc32C_ = false;
   /**
    * <pre>
    * Integrity verification field. A flag indicating whether
@@ -248,7 +178,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFIED_SUCCESS_INTEGRITY_FIELD_NUMBER = 5;
-  private boolean verifiedSuccessIntegrity_;
+  private boolean verifiedSuccessIntegrity_ = false;
   /**
    * <pre>
    * Integrity verification field. This value is used for the integrity
@@ -266,7 +196,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROTECTION_LEVEL_FIELD_NUMBER = 6;
-  private int protectionLevel_;
+  private int protectionLevel_ = 0;
   /**
    * <pre>
    * The [ProtectionLevel][google.cloud.kms.v1.ProtectionLevel] of the
@@ -291,8 +221,7 @@ private static final long serialVersionUID = 0L;
    * @return The protectionLevel.
    */
   @java.lang.Override public com.google.cloud.kms.v1.ProtectionLevel getProtectionLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.valueOf(protectionLevel_);
+    com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.forNumber(protectionLevel_);
     return result == null ? com.google.cloud.kms.v1.ProtectionLevel.UNRECOGNIZED : result;
   }
 
@@ -328,7 +257,7 @@ private static final long serialVersionUID = 0L;
     if (protectionLevel_ != com.google.cloud.kms.v1.ProtectionLevel.PROTECTION_LEVEL_UNSPECIFIED.getNumber()) {
       output.writeEnum(6, protectionLevel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -360,7 +289,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, protectionLevel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -386,7 +315,7 @@ private static final long serialVersionUID = 0L;
     if (getVerifiedSuccessIntegrity()
         != other.getVerifiedSuccessIntegrity()) return false;
     if (protectionLevel_ != other.protectionLevel_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -413,7 +342,7 @@ private static final long serialVersionUID = 0L;
         getVerifiedSuccessIntegrity());
     hash = (37 * hash) + PROTECTION_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + protectionLevel_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -535,34 +464,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.kms.v1.MacVerifyResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       success_ = false;
-
       verifiedDataCrc32C_ = false;
-
       verifiedMacCrc32C_ = false;
-
       verifiedSuccessIntegrity_ = false;
-
       protectionLevel_ = 0;
-
       return this;
     }
 
@@ -589,14 +508,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.kms.v1.MacVerifyResponse buildPartial() {
       com.google.cloud.kms.v1.MacVerifyResponse result = new com.google.cloud.kms.v1.MacVerifyResponse(this);
-      result.name_ = name_;
-      result.success_ = success_;
-      result.verifiedDataCrc32C_ = verifiedDataCrc32C_;
-      result.verifiedMacCrc32C_ = verifiedMacCrc32C_;
-      result.verifiedSuccessIntegrity_ = verifiedSuccessIntegrity_;
-      result.protectionLevel_ = protectionLevel_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.kms.v1.MacVerifyResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.success_ = success_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.verifiedDataCrc32C_ = verifiedDataCrc32C_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.verifiedMacCrc32C_ = verifiedMacCrc32C_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.verifiedSuccessIntegrity_ = verifiedSuccessIntegrity_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.protectionLevel_ = protectionLevel_;
+      }
     }
 
     @java.lang.Override
@@ -645,6 +581,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.kms.v1.MacVerifyResponse.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getSuccess() != false) {
@@ -662,7 +599,7 @@ private static final long serialVersionUID = 0L;
       if (other.protectionLevel_ != 0) {
         setProtectionLevelValue(other.getProtectionLevelValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -677,19 +614,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.kms.v1.MacVerifyResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              success_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              verifiedDataCrc32C_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              verifiedMacCrc32C_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              verifiedSuccessIntegrity_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              protectionLevel_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.kms.v1.MacVerifyResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -753,11 +734,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -773,8 +752,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -792,12 +771,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -833,6 +810,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSuccess(boolean value) {
       
       success_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -848,7 +826,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSuccess() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       success_ = false;
       onChanged();
       return this;
@@ -905,6 +883,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVerifiedDataCrc32C(boolean value) {
       
       verifiedDataCrc32C_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -930,7 +909,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVerifiedDataCrc32C() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       verifiedDataCrc32C_ = false;
       onChanged();
       return this;
@@ -987,6 +966,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVerifiedMacCrc32C(boolean value) {
       
       verifiedMacCrc32C_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1012,7 +992,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVerifiedMacCrc32C() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       verifiedMacCrc32C_ = false;
       onChanged();
       return this;
@@ -1049,6 +1029,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVerifiedSuccessIntegrity(boolean value) {
       
       verifiedSuccessIntegrity_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1064,7 +1045,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVerifiedSuccessIntegrity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       verifiedSuccessIntegrity_ = false;
       onChanged();
       return this;
@@ -1096,8 +1077,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProtectionLevelValue(int value) {
-      
       protectionLevel_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1113,8 +1094,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.kms.v1.ProtectionLevel getProtectionLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.valueOf(protectionLevel_);
+      com.google.cloud.kms.v1.ProtectionLevel result = com.google.cloud.kms.v1.ProtectionLevel.forNumber(protectionLevel_);
       return result == null ? com.google.cloud.kms.v1.ProtectionLevel.UNRECOGNIZED : result;
     }
     /**
@@ -1132,7 +1112,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       protectionLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -1148,7 +1128,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProtectionLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       protectionLevel_ = 0;
       onChanged();
       return this;
@@ -1186,7 +1166,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MacVerifyResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

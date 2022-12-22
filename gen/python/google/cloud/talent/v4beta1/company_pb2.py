@@ -16,7 +16,7 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.talent.v4beta1 import common_pb2 as google_dot_cloud_dot_talent_dot_v4beta1_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)google/cloud/talent/v4beta1/company.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a(google/cloud/talent/v4beta1/common.proto\"\xfc\x04\n\x07\x43ompany\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0b\x65xternal_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x36\n\x04size\x18\x04 \x01(\x0e\x32(.google.cloud.talent.v4beta1.CompanySize\x12\x1c\n\x14headquarters_address\x18\x05 \x01(\t\x12\x15\n\rhiring_agency\x18\x06 \x01(\x08\x12\x10\n\x08\x65\x65o_text\x18\x07 \x01(\t\x12\x13\n\x0bwebsite_uri\x18\x08 \x01(\t\x12\x17\n\x0f\x63\x61reer_site_uri\x18\t \x01(\t\x12\x11\n\timage_uri\x18\n \x01(\t\x12\x30\n(keyword_searchable_job_custom_attributes\x18\x0b \x03(\t\x12K\n\x0c\x64\x65rived_info\x18\x0c \x01(\x0b\x32\x30.google.cloud.talent.v4beta1.Company.DerivedInfoB\x03\xe0\x41\x03\x12\x16\n\tsuspended\x18\r \x01(\x08\x42\x03\xe0\x41\x03\x1aS\n\x0b\x44\x65rivedInfo\x12\x44\n\x15headquarters_location\x18\x01 \x01(\x0b\x32%.google.cloud.talent.v4beta1.Location:\x81\x01\xea\x41~\n\x1bjobs.googleapis.com/Company\x12\x37projects/{project}/tenants/{tenant}/companies/{company}\x12&projects/{project}/companies/{company}B\x82\x01\n\x1f\x63om.google.cloud.talent.v4beta1B\x14\x43ompanyResourceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)google/cloud/talent/v4beta1/company.proto\x12\x1bgoogle.cloud.talent.v4beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a(google/cloud/talent/v4beta1/common.proto\"\x80\x05\n\x07\x43ompany\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x19\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x18\n\x0b\x65xternal_id\x18\x03 \x01(\tB\x03\xe0\x41\x02\x12\x36\n\x04size\x18\x04 \x01(\x0e\x32(.google.cloud.talent.v4beta1.CompanySize\x12\x1c\n\x14headquarters_address\x18\x05 \x01(\t\x12\x15\n\rhiring_agency\x18\x06 \x01(\x08\x12\x10\n\x08\x65\x65o_text\x18\x07 \x01(\t\x12\x13\n\x0bwebsite_uri\x18\x08 \x01(\t\x12\x17\n\x0f\x63\x61reer_site_uri\x18\t \x01(\t\x12\x11\n\timage_uri\x18\n \x01(\t\x12\x34\n(keyword_searchable_job_custom_attributes\x18\x0b \x03(\tB\x02\x18\x01\x12K\n\x0c\x64\x65rived_info\x18\x0c \x01(\x0b\x32\x30.google.cloud.talent.v4beta1.Company.DerivedInfoB\x03\xe0\x41\x03\x12\x16\n\tsuspended\x18\r \x01(\x08\x42\x03\xe0\x41\x03\x1aS\n\x0b\x44\x65rivedInfo\x12\x44\n\x15headquarters_location\x18\x01 \x01(\x0b\x32%.google.cloud.talent.v4beta1.Location:\x81\x01\xea\x41~\n\x1bjobs.googleapis.com/Company\x12\x37projects/{project}/tenants/{tenant}/companies/{company}\x12&projects/{project}/companies/{company}B\x82\x01\n\x1f\x63om.google.cloud.talent.v4beta1B\x14\x43ompanyResourceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/talent/v4beta1;talent\xa2\x02\x03\x43TSb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.talent.v4beta1.company_pb2', globals())
@@ -28,6 +28,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _COMPANY.fields_by_name['display_name']._serialized_options = b'\340A\002'
   _COMPANY.fields_by_name['external_id']._options = None
   _COMPANY.fields_by_name['external_id']._serialized_options = b'\340A\002'
+  _COMPANY.fields_by_name['keyword_searchable_job_custom_attributes']._options = None
+  _COMPANY.fields_by_name['keyword_searchable_job_custom_attributes']._serialized_options = b'\030\001'
   _COMPANY.fields_by_name['derived_info']._options = None
   _COMPANY.fields_by_name['derived_info']._serialized_options = b'\340A\003'
   _COMPANY.fields_by_name['suspended']._options = None
@@ -35,7 +37,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _COMPANY._options = None
   _COMPANY._serialized_options = b'\352A~\n\033jobs.googleapis.com/Company\0227projects/{project}/tenants/{tenant}/companies/{company}\022&projects/{project}/companies/{company}'
   _COMPANY._serialized_start=177
-  _COMPANY._serialized_end=813
-  _COMPANY_DERIVEDINFO._serialized_start=598
-  _COMPANY_DERIVEDINFO._serialized_end=681
+  _COMPANY._serialized_end=817
+  _COMPANY_DERIVEDINFO._serialized_start=602
+  _COMPANY_DERIVEDINFO._serialized_end=685
 # @@protoc_insertion_point(module_scope)

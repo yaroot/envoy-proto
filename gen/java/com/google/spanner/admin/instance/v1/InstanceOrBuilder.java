@@ -115,10 +115,10 @@ public interface InstanceOrBuilder extends
   /**
    * <pre>
    * Output only. The current instance state. For
-   * [CreateInstance][google.spanner.admin.instance.v1.InstanceAdmin.CreateInstance], the state must be
-   * either omitted or set to `CREATING`. For
-   * [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance], the state must be
-   * either omitted or set to `READY`.
+   * [CreateInstance][google.spanner.admin.instance.v1.InstanceAdmin.CreateInstance],
+   * the state must be either omitted or set to `CREATING`. For
+   * [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance],
+   * the state must be either omitted or set to `READY`.
    * </pre>
    *
    * <code>.google.spanner.admin.instance.v1.Instance.State state = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -128,10 +128,10 @@ public interface InstanceOrBuilder extends
   /**
    * <pre>
    * Output only. The current instance state. For
-   * [CreateInstance][google.spanner.admin.instance.v1.InstanceAdmin.CreateInstance], the state must be
-   * either omitted or set to `CREATING`. For
-   * [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance], the state must be
-   * either omitted or set to `READY`.
+   * [CreateInstance][google.spanner.admin.instance.v1.InstanceAdmin.CreateInstance],
+   * the state must be either omitted or set to `CREATING`. For
+   * [UpdateInstance][google.spanner.admin.instance.v1.InstanceAdmin.UpdateInstance],
+   * the state must be either omitted or set to `READY`.
    * </pre>
    *
    * <code>.google.spanner.admin.instance.v1.Instance.State state = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -246,7 +246,6 @@ public interface InstanceOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -276,7 +275,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 7;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

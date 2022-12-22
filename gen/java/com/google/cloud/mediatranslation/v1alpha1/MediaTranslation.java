@@ -279,87 +279,6 @@ public final class MediaTranslation {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TranslateSpeechConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              audioEncoding_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              sourceLanguageCode_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              targetLanguageCode_ = s;
-              break;
-            }
-            case 32: {
-
-              sampleRateHertz_ = input.readInt32();
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              model_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                alternativeSourceLanguageCodes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              alternativeSourceLanguageCodes_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          alternativeSourceLanguageCodes_ = alternativeSourceLanguageCodes_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.internal_static_google_cloud_mediatranslation_v1alpha1_TranslateSpeechConfig_descriptor;
@@ -374,7 +293,8 @@ public final class MediaTranslation {
     }
 
     public static final int AUDIO_ENCODING_FIELD_NUMBER = 1;
-    private volatile java.lang.Object audioEncoding_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object audioEncoding_ = "";
     /**
      * <pre>
      * Required. Encoding of audio data.
@@ -462,7 +382,8 @@ public final class MediaTranslation {
     }
 
     public static final int SOURCE_LANGUAGE_CODE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object sourceLanguageCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object sourceLanguageCode_ = "";
     /**
      * <pre>
      * Required. Source language code (BCP-47) of the input audio.
@@ -508,7 +429,8 @@ public final class MediaTranslation {
     }
 
     public static final int TARGET_LANGUAGE_CODE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object targetLanguageCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object targetLanguageCode_ = "";
     /**
      * <pre>
      * Required. Target language code (BCP-47) of the output.
@@ -554,6 +476,7 @@ public final class MediaTranslation {
     }
 
     public static final int ALTERNATIVE_SOURCE_LANGUAGE_CODES_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList alternativeSourceLanguageCodes_;
     /**
      * <pre>
@@ -653,7 +576,7 @@ public final class MediaTranslation {
     }
 
     public static final int SAMPLE_RATE_HERTZ_FIELD_NUMBER = 4;
-    private int sampleRateHertz_;
+    private int sampleRateHertz_ = 0;
     /**
      * <pre>
      * Optional. Sample rate in Hertz of the audio data. Valid values are:
@@ -671,7 +594,8 @@ public final class MediaTranslation {
     }
 
     public static final int MODEL_FIELD_NUMBER = 5;
-    private volatile java.lang.Object model_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object model_ = "";
     /**
      * <pre>
      * Optional.
@@ -748,7 +672,7 @@ public final class MediaTranslation {
       for (int i = 0; i < alternativeSourceLanguageCodes_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, alternativeSourceLanguageCodes_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -781,7 +705,7 @@ public final class MediaTranslation {
         size += dataSize;
         size += 1 * getAlternativeSourceLanguageCodesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -808,7 +732,7 @@ public final class MediaTranslation {
           != other.getSampleRateHertz()) return false;
       if (!getModel()
           .equals(other.getModel())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -833,7 +757,7 @@ public final class MediaTranslation {
       hash = (53 * hash) + getSampleRateHertz();
       hash = (37 * hash) + MODEL_FIELD_NUMBER;
       hash = (53 * hash) + getModel().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -955,34 +879,25 @@ public final class MediaTranslation {
 
       // Construct using com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         audioEncoding_ = "";
-
         sourceLanguageCode_ = "";
-
         targetLanguageCode_ = "";
-
         alternativeSourceLanguageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         sampleRateHertz_ = 0;
-
         model_ = "";
-
         return this;
       }
 
@@ -1009,19 +924,37 @@ public final class MediaTranslation {
       @java.lang.Override
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig buildPartial() {
         com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig result = new com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig(this);
-        int from_bitField0_ = bitField0_;
-        result.audioEncoding_ = audioEncoding_;
-        result.sourceLanguageCode_ = sourceLanguageCode_;
-        result.targetLanguageCode_ = targetLanguageCode_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          alternativeSourceLanguageCodes_ = alternativeSourceLanguageCodes_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.alternativeSourceLanguageCodes_ = alternativeSourceLanguageCodes_;
-        result.sampleRateHertz_ = sampleRateHertz_;
-        result.model_ = model_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig result) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          alternativeSourceLanguageCodes_ = alternativeSourceLanguageCodes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.alternativeSourceLanguageCodes_ = alternativeSourceLanguageCodes_;
+      }
+
+      private void buildPartial0(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.audioEncoding_ = audioEncoding_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.sourceLanguageCode_ = sourceLanguageCode_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.targetLanguageCode_ = targetLanguageCode_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.sampleRateHertz_ = sampleRateHertz_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.model_ = model_;
+        }
       }
 
       @java.lang.Override
@@ -1070,20 +1003,23 @@ public final class MediaTranslation {
         if (other == com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig.getDefaultInstance()) return this;
         if (!other.getAudioEncoding().isEmpty()) {
           audioEncoding_ = other.audioEncoding_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getSourceLanguageCode().isEmpty()) {
           sourceLanguageCode_ = other.sourceLanguageCode_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getTargetLanguageCode().isEmpty()) {
           targetLanguageCode_ = other.targetLanguageCode_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.alternativeSourceLanguageCodes_.isEmpty()) {
           if (alternativeSourceLanguageCodes_.isEmpty()) {
             alternativeSourceLanguageCodes_ = other.alternativeSourceLanguageCodes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureAlternativeSourceLanguageCodesIsMutable();
             alternativeSourceLanguageCodes_.addAll(other.alternativeSourceLanguageCodes_);
@@ -1095,9 +1031,10 @@ public final class MediaTranslation {
         }
         if (!other.getModel().isEmpty()) {
           model_ = other.model_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1112,17 +1049,61 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                audioEncoding_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                sourceLanguageCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                targetLanguageCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                sampleRateHertz_ = input.readInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 32
+              case 42: {
+                model_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 42
+              case 50: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAlternativeSourceLanguageCodesIsMutable();
+                alternativeSourceLanguageCodes_.add(s);
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1243,11 +1224,9 @@ public final class MediaTranslation {
        */
       public Builder setAudioEncoding(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         audioEncoding_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1281,8 +1260,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearAudioEncoding() {
-        
         audioEncoding_ = getDefaultInstance().getAudioEncoding();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1318,12 +1297,10 @@ public final class MediaTranslation {
        */
       public Builder setAudioEncodingBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         audioEncoding_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1381,11 +1358,9 @@ public final class MediaTranslation {
        */
       public Builder setSourceLanguageCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         sourceLanguageCode_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1398,8 +1373,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearSourceLanguageCode() {
-        
         sourceLanguageCode_ = getDefaultInstance().getSourceLanguageCode();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1414,12 +1389,10 @@ public final class MediaTranslation {
        */
       public Builder setSourceLanguageCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         sourceLanguageCode_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1477,11 +1450,9 @@ public final class MediaTranslation {
        */
       public Builder setTargetLanguageCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         targetLanguageCode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1494,8 +1465,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearTargetLanguageCode() {
-        
         targetLanguageCode_ = getDefaultInstance().getTargetLanguageCode();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1510,21 +1481,19 @@ public final class MediaTranslation {
        */
       public Builder setTargetLanguageCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         targetLanguageCode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList alternativeSourceLanguageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureAlternativeSourceLanguageCodesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           alternativeSourceLanguageCodes_ = new com.google.protobuf.LazyStringArrayList(alternativeSourceLanguageCodes_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -1647,10 +1616,8 @@ public final class MediaTranslation {
        */
       public Builder setAlternativeSourceLanguageCodes(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAlternativeSourceLanguageCodesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAlternativeSourceLanguageCodesIsMutable();
         alternativeSourceLanguageCodes_.set(index, value);
         onChanged();
         return this;
@@ -1678,10 +1645,8 @@ public final class MediaTranslation {
        */
       public Builder addAlternativeSourceLanguageCodes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAlternativeSourceLanguageCodesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAlternativeSourceLanguageCodesIsMutable();
         alternativeSourceLanguageCodes_.add(value);
         onChanged();
         return this;
@@ -1737,7 +1702,7 @@ public final class MediaTranslation {
        */
       public Builder clearAlternativeSourceLanguageCodes() {
         alternativeSourceLanguageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1764,10 +1729,8 @@ public final class MediaTranslation {
        */
       public Builder addAlternativeSourceLanguageCodesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAlternativeSourceLanguageCodesIsMutable();
         alternativeSourceLanguageCodes_.add(value);
         onChanged();
@@ -1805,6 +1768,7 @@ public final class MediaTranslation {
       public Builder setSampleRateHertz(int value) {
         
         sampleRateHertz_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1820,7 +1784,7 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearSampleRateHertz() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         sampleRateHertz_ = 0;
         onChanged();
         return this;
@@ -1879,11 +1843,9 @@ public final class MediaTranslation {
        */
       public Builder setModel(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         model_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1896,8 +1858,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearModel() {
-        
         model_ = getDefaultInstance().getModel();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -1912,12 +1874,10 @@ public final class MediaTranslation {
        */
       public Builder setModelBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         model_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1954,7 +1914,18 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TranslateSpeechConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2171,80 +2142,6 @@ public final class MediaTranslation {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StreamingTranslateSpeechConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig.Builder subBuilder = null;
-              if (audioConfig_ != null) {
-                subBuilder = audioConfig_.toBuilder();
-              }
-              audioConfig_ = input.readMessage(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(audioConfig_);
-                audioConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-
-              singleUtterance_ = input.readBool();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              stability_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              translationMode_ = s;
-              break;
-            }
-            case 40: {
-
-              disableInterimResults_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.internal_static_google_cloud_mediatranslation_v1alpha1_StreamingTranslateSpeechConfig_descriptor;
@@ -2293,11 +2190,11 @@ public final class MediaTranslation {
      */
     @java.lang.Override
     public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfigOrBuilder getAudioConfigOrBuilder() {
-      return getAudioConfig();
+      return audioConfig_ == null ? com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig.getDefaultInstance() : audioConfig_;
     }
 
     public static final int SINGLE_UTTERANCE_FIELD_NUMBER = 2;
-    private boolean singleUtterance_;
+    private boolean singleUtterance_ = false;
     /**
      * <pre>
      * Optional. If `false` or omitted, the system performs
@@ -2324,7 +2221,8 @@ public final class MediaTranslation {
     }
 
     public static final int STABILITY_FIELD_NUMBER = 3;
-    private volatile java.lang.Object stability_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object stability_ = "";
     /**
      * <pre>
      * Optional. Stability control for the media translation text. The value should be
@@ -2404,7 +2302,8 @@ public final class MediaTranslation {
     }
 
     public static final int TRANSLATION_MODE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object translationMode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object translationMode_ = "";
     /**
      * <pre>
      * Optional. Translation mode, the value should be "text", "audio", "text_and_audio".
@@ -2474,7 +2373,7 @@ public final class MediaTranslation {
     }
 
     public static final int DISABLE_INTERIM_RESULTS_FIELD_NUMBER = 5;
-    private boolean disableInterimResults_;
+    private boolean disableInterimResults_ = false;
     /**
      * <pre>
      * Optional. If disable_interim_results is true, we will only return "final" responses.
@@ -2520,7 +2419,7 @@ public final class MediaTranslation {
       if (disableInterimResults_ != false) {
         output.writeBool(5, disableInterimResults_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2547,7 +2446,7 @@ public final class MediaTranslation {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, disableInterimResults_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2575,7 +2474,7 @@ public final class MediaTranslation {
           .equals(other.getTranslationMode())) return false;
       if (getDisableInterimResults()
           != other.getDisableInterimResults()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2600,7 +2499,7 @@ public final class MediaTranslation {
       hash = (37 * hash) + DISABLE_INTERIM_RESULTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getDisableInterimResults());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2721,36 +2620,27 @@ public final class MediaTranslation {
 
       // Construct using com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (audioConfigBuilder_ == null) {
-          audioConfig_ = null;
-        } else {
-          audioConfig_ = null;
+        bitField0_ = 0;
+        audioConfig_ = null;
+        if (audioConfigBuilder_ != null) {
+          audioConfigBuilder_.dispose();
           audioConfigBuilder_ = null;
         }
         singleUtterance_ = false;
-
         stability_ = "";
-
         translationMode_ = "";
-
         disableInterimResults_ = false;
-
         return this;
       }
 
@@ -2777,17 +2667,30 @@ public final class MediaTranslation {
       @java.lang.Override
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig buildPartial() {
         com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig result = new com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig(this);
-        if (audioConfigBuilder_ == null) {
-          result.audioConfig_ = audioConfig_;
-        } else {
-          result.audioConfig_ = audioConfigBuilder_.build();
-        }
-        result.singleUtterance_ = singleUtterance_;
-        result.stability_ = stability_;
-        result.translationMode_ = translationMode_;
-        result.disableInterimResults_ = disableInterimResults_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.audioConfig_ = audioConfigBuilder_ == null
+              ? audioConfig_
+              : audioConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.singleUtterance_ = singleUtterance_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.stability_ = stability_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.translationMode_ = translationMode_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.disableInterimResults_ = disableInterimResults_;
+        }
       }
 
       @java.lang.Override
@@ -2842,16 +2745,18 @@ public final class MediaTranslation {
         }
         if (!other.getStability().isEmpty()) {
           stability_ = other.stability_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getTranslationMode().isEmpty()) {
           translationMode_ = other.translationMode_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.getDisableInterimResults() != false) {
           setDisableInterimResults(other.getDisableInterimResults());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2866,19 +2771,60 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAudioConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                singleUtterance_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                stability_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                translationMode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                disableInterimResults_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig audioConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2892,7 +2838,7 @@ public final class MediaTranslation {
        * @return Whether the audioConfig field is set.
        */
       public boolean hasAudioConfig() {
-        return audioConfigBuilder_ != null || audioConfig_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2922,11 +2868,11 @@ public final class MediaTranslation {
             throw new NullPointerException();
           }
           audioConfig_ = value;
-          onChanged();
         } else {
           audioConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2940,11 +2886,11 @@ public final class MediaTranslation {
           com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig.Builder builderForValue) {
         if (audioConfigBuilder_ == null) {
           audioConfig_ = builderForValue.build();
-          onChanged();
         } else {
           audioConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2956,17 +2902,18 @@ public final class MediaTranslation {
        */
       public Builder mergeAudioConfig(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig value) {
         if (audioConfigBuilder_ == null) {
-          if (audioConfig_ != null) {
-            audioConfig_ =
-              com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig.newBuilder(audioConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            audioConfig_ != null &&
+            audioConfig_ != com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig.getDefaultInstance()) {
+            getAudioConfigBuilder().mergeFrom(value);
           } else {
             audioConfig_ = value;
           }
-          onChanged();
         } else {
           audioConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2977,14 +2924,13 @@ public final class MediaTranslation {
        * <code>.google.cloud.mediatranslation.v1alpha1.TranslateSpeechConfig audio_config = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearAudioConfig() {
-        if (audioConfigBuilder_ == null) {
-          audioConfig_ = null;
-          onChanged();
-        } else {
-          audioConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        audioConfig_ = null;
+        if (audioConfigBuilder_ != null) {
+          audioConfigBuilder_.dispose();
           audioConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2995,7 +2941,7 @@ public final class MediaTranslation {
        * <code>.google.cloud.mediatranslation.v1alpha1.TranslateSpeechConfig audio_config = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.TranslateSpeechConfig.Builder getAudioConfigBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getAudioConfigFieldBuilder().getBuilder();
       }
@@ -3084,6 +3030,7 @@ public final class MediaTranslation {
       public Builder setSingleUtterance(boolean value) {
         
         singleUtterance_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3108,7 +3055,7 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearSingleUtterance() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         singleUtterance_ = false;
         onChanged();
         return this;
@@ -3218,11 +3165,9 @@ public final class MediaTranslation {
        */
       public Builder setStability(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         stability_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3252,8 +3197,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearStability() {
-        
         stability_ = getDefaultInstance().getStability();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -3285,12 +3230,10 @@ public final class MediaTranslation {
        */
       public Builder setStabilityBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         stability_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3384,11 +3327,9 @@ public final class MediaTranslation {
        */
       public Builder setTranslationMode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         translationMode_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3413,8 +3354,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearTranslationMode() {
-        
         translationMode_ = getDefaultInstance().getTranslationMode();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -3441,12 +3382,10 @@ public final class MediaTranslation {
        */
       public Builder setTranslationModeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         translationMode_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3482,6 +3421,7 @@ public final class MediaTranslation {
       public Builder setDisableInterimResults(boolean value) {
         
         disableInterimResults_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -3497,7 +3437,7 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearDisableInterimResults() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         disableInterimResults_ = false;
         onChanged();
         return this;
@@ -3535,7 +3475,18 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StreamingTranslateSpeechConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3661,64 +3612,6 @@ public final class MediaTranslation {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private StreamingTranslateSpeechRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig.Builder subBuilder = null;
-              if (streamingRequestCase_ == 1) {
-                subBuilder = ((com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig) streamingRequest_).toBuilder();
-              }
-              streamingRequest_ =
-                  input.readMessage(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig) streamingRequest_);
-                streamingRequest_ = subBuilder.buildPartial();
-              }
-              streamingRequestCase_ = 1;
-              break;
-            }
-            case 18: {
-              streamingRequest_ = input.readBytes();
-              streamingRequestCase_ = 2;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -3887,7 +3780,7 @@ public final class MediaTranslation {
         output.writeBytes(
             2, (com.google.protobuf.ByteString) streamingRequest_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3905,7 +3798,7 @@ public final class MediaTranslation {
           .computeBytesSize(
               2, (com.google.protobuf.ByteString) streamingRequest_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3933,7 +3826,7 @@ public final class MediaTranslation {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3956,7 +3849,7 @@ public final class MediaTranslation {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4081,22 +3974,21 @@ public final class MediaTranslation {
 
       // Construct using com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (streamingConfigBuilder_ != null) {
+          streamingConfigBuilder_.clear();
+        }
         streamingRequestCase_ = 0;
         streamingRequest_ = null;
         return this;
@@ -4125,19 +4017,23 @@ public final class MediaTranslation {
       @java.lang.Override
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechRequest buildPartial() {
         com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechRequest result = new com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechRequest(this);
-        if (streamingRequestCase_ == 1) {
-          if (streamingConfigBuilder_ == null) {
-            result.streamingRequest_ = streamingRequest_;
-          } else {
-            result.streamingRequest_ = streamingConfigBuilder_.build();
-          }
-        }
-        if (streamingRequestCase_ == 2) {
-          result.streamingRequest_ = streamingRequest_;
-        }
-        result.streamingRequestCase_ = streamingRequestCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechRequest result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechRequest result) {
+        result.streamingRequestCase_ = streamingRequestCase_;
+        result.streamingRequest_ = this.streamingRequest_;
+        if (streamingRequestCase_ == 1 &&
+            streamingConfigBuilder_ != null) {
+          result.streamingRequest_ = streamingConfigBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4197,7 +4093,7 @@ public final class MediaTranslation {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4212,17 +4108,42 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getStreamingConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                streamingRequestCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                streamingRequest_ = input.readBytes();
+                streamingRequestCase_ = 2;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int streamingRequestCase_ = 0;
@@ -4240,6 +4161,7 @@ public final class MediaTranslation {
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig, com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfig.Builder, com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechConfigOrBuilder> streamingConfigBuilder_;
@@ -4433,7 +4355,7 @@ public final class MediaTranslation {
           streamingRequest_ = null;
         }
         streamingRequestCase_ = 1;
-        onChanged();;
+        onChanged();
         return streamingConfigBuilder_;
       }
 
@@ -4493,10 +4415,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder setAudioContent(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  streamingRequestCase_ = 2;
+        if (value == null) { throw new NullPointerException(); }
+        streamingRequestCase_ = 2;
         streamingRequest_ = value;
         onChanged();
         return this;
@@ -4557,7 +4477,18 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StreamingTranslateSpeechRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4713,83 +4644,6 @@ public final class MediaTranslation {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StreamingTranslateSpeechResult(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult.Builder subBuilder = null;
-              if (textTranslationResult_ != null) {
-                subBuilder = textTranslationResult_.toBuilder();
-              }
-              textTranslationResult_ = input.readMessage(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(textTranslationResult_);
-                textTranslationResult_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult.Builder subBuilder = null;
-              if (audioTranslationResult_ != null) {
-                subBuilder = audioTranslationResult_.toBuilder();
-              }
-              audioTranslationResult_ = input.readMessage(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(audioTranslationResult_);
-                audioTranslationResult_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              recognitionResult_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              detectedSourceLanguageCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.internal_static_google_cloud_mediatranslation_v1alpha1_StreamingTranslateSpeechResult_descriptor;
@@ -4874,56 +4728,6 @@ public final class MediaTranslation {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private TextTranslationResult(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                translation_ = s;
-                break;
-              }
-              case 16: {
-
-                isFinal_ = input.readBool();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.internal_static_google_cloud_mediatranslation_v1alpha1_StreamingTranslateSpeechResult_TextTranslationResult_descriptor;
@@ -4938,7 +4742,8 @@ public final class MediaTranslation {
       }
 
       public static final int TRANSLATION_FIELD_NUMBER = 1;
-      private volatile java.lang.Object translation_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object translation_ = "";
       /**
        * <pre>
        * Output only. The translated sentence.
@@ -4984,7 +4789,7 @@ public final class MediaTranslation {
       }
 
       public static final int IS_FINAL_FIELD_NUMBER = 2;
-      private boolean isFinal_;
+      private boolean isFinal_ = false;
       /**
        * <pre>
        * Output only. If `false`, this `StreamingTranslateSpeechResult` represents
@@ -5023,7 +4828,7 @@ public final class MediaTranslation {
         if (isFinal_ != false) {
           output.writeBool(2, isFinal_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -5039,7 +4844,7 @@ public final class MediaTranslation {
           size += com.google.protobuf.CodedOutputStream
             .computeBoolSize(2, isFinal_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -5058,7 +4863,7 @@ public final class MediaTranslation {
             .equals(other.getTranslation())) return false;
         if (getIsFinal()
             != other.getIsFinal()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -5074,7 +4879,7 @@ public final class MediaTranslation {
         hash = (37 * hash) + IS_FINAL_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getIsFinal());
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -5195,26 +5000,20 @@ public final class MediaTranslation {
 
         // Construct using com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           translation_ = "";
-
           isFinal_ = false;
-
           return this;
         }
 
@@ -5241,10 +5040,19 @@ public final class MediaTranslation {
         @java.lang.Override
         public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult buildPartial() {
           com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult result = new com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult(this);
-          result.translation_ = translation_;
-          result.isFinal_ = isFinal_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.translation_ = translation_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.isFinal_ = isFinal_;
+          }
         }
 
         @java.lang.Override
@@ -5293,12 +5101,13 @@ public final class MediaTranslation {
           if (other == com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult.getDefaultInstance()) return this;
           if (!other.getTranslation().isEmpty()) {
             translation_ = other.translation_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.getIsFinal() != false) {
             setIsFinal(other.getIsFinal());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -5313,19 +5122,43 @@ public final class MediaTranslation {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  translation_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 16: {
+                  isFinal_ = input.readBool();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object translation_ = "";
         /**
@@ -5380,11 +5213,9 @@ public final class MediaTranslation {
          */
         public Builder setTranslation(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           translation_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -5397,8 +5228,8 @@ public final class MediaTranslation {
          * @return This builder for chaining.
          */
         public Builder clearTranslation() {
-          
           translation_ = getDefaultInstance().getTranslation();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -5413,12 +5244,10 @@ public final class MediaTranslation {
          */
         public Builder setTranslationBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           translation_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -5458,6 +5287,7 @@ public final class MediaTranslation {
         public Builder setIsFinal(boolean value) {
           
           isFinal_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -5475,7 +5305,7 @@ public final class MediaTranslation {
          * @return This builder for chaining.
          */
         public Builder clearIsFinal() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           isFinal_ = false;
           onChanged();
           return this;
@@ -5513,7 +5343,18 @@ public final class MediaTranslation {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TextTranslationResult(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -5579,50 +5420,6 @@ public final class MediaTranslation {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private AudioTranslationResult(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-
-                audioTranslation_ = input.readBytes();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.internal_static_google_cloud_mediatranslation_v1alpha1_StreamingTranslateSpeechResult_AudioTranslationResult_descriptor;
@@ -5637,7 +5434,7 @@ public final class MediaTranslation {
       }
 
       public static final int AUDIO_TRANSLATION_FIELD_NUMBER = 1;
-      private com.google.protobuf.ByteString audioTranslation_;
+      private com.google.protobuf.ByteString audioTranslation_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
        * Output only. The translated audio.
@@ -5668,7 +5465,7 @@ public final class MediaTranslation {
         if (!audioTranslation_.isEmpty()) {
           output.writeBytes(1, audioTranslation_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -5681,7 +5478,7 @@ public final class MediaTranslation {
           size += com.google.protobuf.CodedOutputStream
             .computeBytesSize(1, audioTranslation_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -5698,7 +5495,7 @@ public final class MediaTranslation {
 
         if (!getAudioTranslation()
             .equals(other.getAudioTranslation())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -5711,7 +5508,7 @@ public final class MediaTranslation {
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + AUDIO_TRANSLATION_FIELD_NUMBER;
         hash = (53 * hash) + getAudioTranslation().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -5832,24 +5629,19 @@ public final class MediaTranslation {
 
         // Construct using com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           audioTranslation_ = com.google.protobuf.ByteString.EMPTY;
-
           return this;
         }
 
@@ -5876,9 +5668,16 @@ public final class MediaTranslation {
         @java.lang.Override
         public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult buildPartial() {
           com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult result = new com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult(this);
-          result.audioTranslation_ = audioTranslation_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.audioTranslation_ = audioTranslation_;
+          }
         }
 
         @java.lang.Override
@@ -5928,7 +5727,7 @@ public final class MediaTranslation {
           if (other.getAudioTranslation() != com.google.protobuf.ByteString.EMPTY) {
             setAudioTranslation(other.getAudioTranslation());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -5943,19 +5742,38 @@ public final class MediaTranslation {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  audioTranslation_ = input.readBytes();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private com.google.protobuf.ByteString audioTranslation_ = com.google.protobuf.ByteString.EMPTY;
         /**
@@ -5980,11 +5798,9 @@ public final class MediaTranslation {
          * @return This builder for chaining.
          */
         public Builder setAudioTranslation(com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           audioTranslation_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -5997,7 +5813,7 @@ public final class MediaTranslation {
          * @return This builder for chaining.
          */
         public Builder clearAudioTranslation() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           audioTranslation_ = getDefaultInstance().getAudioTranslation();
           onChanged();
           return this;
@@ -6035,7 +5851,18 @@ public final class MediaTranslation {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new AudioTranslationResult(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -6090,7 +5917,7 @@ public final class MediaTranslation {
      */
     @java.lang.Override
     public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResultOrBuilder getTextTranslationResultOrBuilder() {
-      return getTextTranslationResult();
+      return textTranslationResult_ == null ? com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult.getDefaultInstance() : textTranslationResult_;
     }
 
     public static final int AUDIO_TRANSLATION_RESULT_FIELD_NUMBER = 2;
@@ -6128,11 +5955,12 @@ public final class MediaTranslation {
      */
     @java.lang.Override
     public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResultOrBuilder getAudioTranslationResultOrBuilder() {
-      return getAudioTranslationResult();
+      return audioTranslationResult_ == null ? com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult.getDefaultInstance() : audioTranslationResult_;
     }
 
     public static final int RECOGNITION_RESULT_FIELD_NUMBER = 3;
-    private volatile java.lang.Object recognitionResult_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object recognitionResult_ = "";
     /**
      * <pre>
      * Output only. The debug only recognition result in original language. This field is debug
@@ -6182,7 +6010,8 @@ public final class MediaTranslation {
     }
 
     public static final int DETECTED_SOURCE_LANGUAGE_CODE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object detectedSourceLanguageCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object detectedSourceLanguageCode_ = "";
     /**
      * <pre>
      * Output only.
@@ -6253,7 +6082,7 @@ public final class MediaTranslation {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(detectedSourceLanguageCode_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, detectedSourceLanguageCode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6276,7 +6105,7 @@ public final class MediaTranslation {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(detectedSourceLanguageCode_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, detectedSourceLanguageCode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6305,7 +6134,7 @@ public final class MediaTranslation {
           .equals(other.getRecognitionResult())) return false;
       if (!getDetectedSourceLanguageCode()
           .equals(other.getDetectedSourceLanguageCode())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6328,7 +6157,7 @@ public final class MediaTranslation {
       hash = (53 * hash) + getRecognitionResult().hashCode();
       hash = (37 * hash) + DETECTED_SOURCE_LANGUAGE_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getDetectedSourceLanguageCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6450,38 +6279,30 @@ public final class MediaTranslation {
 
       // Construct using com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (textTranslationResultBuilder_ == null) {
-          textTranslationResult_ = null;
-        } else {
-          textTranslationResult_ = null;
+        bitField0_ = 0;
+        textTranslationResult_ = null;
+        if (textTranslationResultBuilder_ != null) {
+          textTranslationResultBuilder_.dispose();
           textTranslationResultBuilder_ = null;
         }
-        if (audioTranslationResultBuilder_ == null) {
-          audioTranslationResult_ = null;
-        } else {
-          audioTranslationResult_ = null;
+        audioTranslationResult_ = null;
+        if (audioTranslationResultBuilder_ != null) {
+          audioTranslationResultBuilder_.dispose();
           audioTranslationResultBuilder_ = null;
         }
         recognitionResult_ = "";
-
         detectedSourceLanguageCode_ = "";
-
         return this;
       }
 
@@ -6508,20 +6329,29 @@ public final class MediaTranslation {
       @java.lang.Override
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult buildPartial() {
         com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult result = new com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult(this);
-        if (textTranslationResultBuilder_ == null) {
-          result.textTranslationResult_ = textTranslationResult_;
-        } else {
-          result.textTranslationResult_ = textTranslationResultBuilder_.build();
-        }
-        if (audioTranslationResultBuilder_ == null) {
-          result.audioTranslationResult_ = audioTranslationResult_;
-        } else {
-          result.audioTranslationResult_ = audioTranslationResultBuilder_.build();
-        }
-        result.recognitionResult_ = recognitionResult_;
-        result.detectedSourceLanguageCode_ = detectedSourceLanguageCode_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.textTranslationResult_ = textTranslationResultBuilder_ == null
+              ? textTranslationResult_
+              : textTranslationResultBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.audioTranslationResult_ = audioTranslationResultBuilder_ == null
+              ? audioTranslationResult_
+              : audioTranslationResultBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.recognitionResult_ = recognitionResult_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.detectedSourceLanguageCode_ = detectedSourceLanguageCode_;
+        }
       }
 
       @java.lang.Override
@@ -6576,13 +6406,15 @@ public final class MediaTranslation {
         }
         if (!other.getRecognitionResult().isEmpty()) {
           recognitionResult_ = other.recognitionResult_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getDetectedSourceLanguageCode().isEmpty()) {
           detectedSourceLanguageCode_ = other.detectedSourceLanguageCode_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6597,19 +6429,57 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTextTranslationResultFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getAudioTranslationResultFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                recognitionResult_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                detectedSourceLanguageCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult textTranslationResult_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6623,7 +6493,7 @@ public final class MediaTranslation {
        * @return Whether the textTranslationResult field is set.
        */
       public boolean hasTextTranslationResult() {
-        return textTranslationResultBuilder_ != null || textTranslationResult_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -6653,11 +6523,11 @@ public final class MediaTranslation {
             throw new NullPointerException();
           }
           textTranslationResult_ = value;
-          onChanged();
         } else {
           textTranslationResultBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6671,11 +6541,11 @@ public final class MediaTranslation {
           com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult.Builder builderForValue) {
         if (textTranslationResultBuilder_ == null) {
           textTranslationResult_ = builderForValue.build();
-          onChanged();
         } else {
           textTranslationResultBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6687,17 +6557,18 @@ public final class MediaTranslation {
        */
       public Builder mergeTextTranslationResult(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult value) {
         if (textTranslationResultBuilder_ == null) {
-          if (textTranslationResult_ != null) {
-            textTranslationResult_ =
-              com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult.newBuilder(textTranslationResult_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            textTranslationResult_ != null &&
+            textTranslationResult_ != com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult.getDefaultInstance()) {
+            getTextTranslationResultBuilder().mergeFrom(value);
           } else {
             textTranslationResult_ = value;
           }
-          onChanged();
         } else {
           textTranslationResultBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6708,14 +6579,13 @@ public final class MediaTranslation {
        * <code>.google.cloud.mediatranslation.v1alpha1.StreamingTranslateSpeechResult.TextTranslationResult text_translation_result = 1;</code>
        */
       public Builder clearTextTranslationResult() {
-        if (textTranslationResultBuilder_ == null) {
-          textTranslationResult_ = null;
-          onChanged();
-        } else {
-          textTranslationResult_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        textTranslationResult_ = null;
+        if (textTranslationResultBuilder_ != null) {
+          textTranslationResultBuilder_.dispose();
           textTranslationResultBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6726,7 +6596,7 @@ public final class MediaTranslation {
        * <code>.google.cloud.mediatranslation.v1alpha1.StreamingTranslateSpeechResult.TextTranslationResult text_translation_result = 1;</code>
        */
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.TextTranslationResult.Builder getTextTranslationResultBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTextTranslationResultFieldBuilder().getBuilder();
       }
@@ -6778,7 +6648,7 @@ public final class MediaTranslation {
        * @return Whether the audioTranslationResult field is set.
        */
       public boolean hasAudioTranslationResult() {
-        return audioTranslationResultBuilder_ != null || audioTranslationResult_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -6808,11 +6678,11 @@ public final class MediaTranslation {
             throw new NullPointerException();
           }
           audioTranslationResult_ = value;
-          onChanged();
         } else {
           audioTranslationResultBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -6826,11 +6696,11 @@ public final class MediaTranslation {
           com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult.Builder builderForValue) {
         if (audioTranslationResultBuilder_ == null) {
           audioTranslationResult_ = builderForValue.build();
-          onChanged();
         } else {
           audioTranslationResultBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -6842,17 +6712,18 @@ public final class MediaTranslation {
        */
       public Builder mergeAudioTranslationResult(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult value) {
         if (audioTranslationResultBuilder_ == null) {
-          if (audioTranslationResult_ != null) {
-            audioTranslationResult_ =
-              com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult.newBuilder(audioTranslationResult_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            audioTranslationResult_ != null &&
+            audioTranslationResult_ != com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult.getDefaultInstance()) {
+            getAudioTranslationResultBuilder().mergeFrom(value);
           } else {
             audioTranslationResult_ = value;
           }
-          onChanged();
         } else {
           audioTranslationResultBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -6863,14 +6734,13 @@ public final class MediaTranslation {
        * <code>.google.cloud.mediatranslation.v1alpha1.StreamingTranslateSpeechResult.AudioTranslationResult audio_translation_result = 2;</code>
        */
       public Builder clearAudioTranslationResult() {
-        if (audioTranslationResultBuilder_ == null) {
-          audioTranslationResult_ = null;
-          onChanged();
-        } else {
-          audioTranslationResult_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        audioTranslationResult_ = null;
+        if (audioTranslationResultBuilder_ != null) {
+          audioTranslationResultBuilder_.dispose();
           audioTranslationResultBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6881,7 +6751,7 @@ public final class MediaTranslation {
        * <code>.google.cloud.mediatranslation.v1alpha1.StreamingTranslateSpeechResult.AudioTranslationResult audio_translation_result = 2;</code>
        */
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.AudioTranslationResult.Builder getAudioTranslationResultBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getAudioTranslationResultFieldBuilder().getBuilder();
       }
@@ -6980,11 +6850,9 @@ public final class MediaTranslation {
        */
       public Builder setRecognitionResult(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         recognitionResult_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6999,8 +6867,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearRecognitionResult() {
-        
         recognitionResult_ = getDefaultInstance().getRecognitionResult();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -7017,12 +6885,10 @@ public final class MediaTranslation {
        */
       public Builder setRecognitionResultBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         recognitionResult_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -7080,11 +6946,9 @@ public final class MediaTranslation {
        */
       public Builder setDetectedSourceLanguageCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         detectedSourceLanguageCode_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -7097,8 +6961,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearDetectedSourceLanguageCode() {
-        
         detectedSourceLanguageCode_ = getDefaultInstance().getDetectedSourceLanguageCode();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -7113,12 +6977,10 @@ public final class MediaTranslation {
        */
       public Builder setDetectedSourceLanguageCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         detectedSourceLanguageCode_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -7155,7 +7017,18 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StreamingTranslateSpeechResult(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7302,77 +7175,6 @@ public final class MediaTranslation {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private StreamingTranslateSpeechResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.rpc.Status.Builder subBuilder = null;
-              if (error_ != null) {
-                subBuilder = error_.toBuilder();
-              }
-              error_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(error_);
-                error_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.Builder subBuilder = null;
-              if (result_ != null) {
-                subBuilder = result_.toBuilder();
-              }
-              result_ = input.readMessage(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(result_);
-                result_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              speechEventType_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -7571,7 +7373,7 @@ public final class MediaTranslation {
      */
     @java.lang.Override
     public com.google.rpc.StatusOrBuilder getErrorOrBuilder() {
-      return getError();
+      return error_ == null ? com.google.rpc.Status.getDefaultInstance() : error_;
     }
 
     public static final int RESULT_FIELD_NUMBER = 2;
@@ -7624,11 +7426,11 @@ public final class MediaTranslation {
      */
     @java.lang.Override
     public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResultOrBuilder getResultOrBuilder() {
-      return getResult();
+      return result_ == null ? com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.getDefaultInstance() : result_;
     }
 
     public static final int SPEECH_EVENT_TYPE_FIELD_NUMBER = 3;
-    private int speechEventType_;
+    private int speechEventType_ = 0;
     /**
      * <pre>
      * Output only. Indicates the type of speech event.
@@ -7649,8 +7451,7 @@ public final class MediaTranslation {
      * @return The speechEventType.
      */
     @java.lang.Override public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType getSpeechEventType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType result = com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType.valueOf(speechEventType_);
+      com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType result = com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType.forNumber(speechEventType_);
       return result == null ? com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType.UNRECOGNIZED : result;
     }
 
@@ -7677,7 +7478,7 @@ public final class MediaTranslation {
       if (speechEventType_ != com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType.SPEECH_EVENT_TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(3, speechEventType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7698,7 +7499,7 @@ public final class MediaTranslation {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, speechEventType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7724,7 +7525,7 @@ public final class MediaTranslation {
             .equals(other.getResult())) return false;
       }
       if (speechEventType_ != other.speechEventType_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7745,7 +7546,7 @@ public final class MediaTranslation {
       }
       hash = (37 * hash) + SPEECH_EVENT_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + speechEventType_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7867,36 +7668,29 @@ public final class MediaTranslation {
 
       // Construct using com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (errorBuilder_ == null) {
-          error_ = null;
-        } else {
-          error_ = null;
+        bitField0_ = 0;
+        error_ = null;
+        if (errorBuilder_ != null) {
+          errorBuilder_.dispose();
           errorBuilder_ = null;
         }
-        if (resultBuilder_ == null) {
-          result_ = null;
-        } else {
-          result_ = null;
+        result_ = null;
+        if (resultBuilder_ != null) {
+          resultBuilder_.dispose();
           resultBuilder_ = null;
         }
         speechEventType_ = 0;
-
         return this;
       }
 
@@ -7923,19 +7717,26 @@ public final class MediaTranslation {
       @java.lang.Override
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse buildPartial() {
         com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse result = new com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse(this);
-        if (errorBuilder_ == null) {
-          result.error_ = error_;
-        } else {
-          result.error_ = errorBuilder_.build();
-        }
-        if (resultBuilder_ == null) {
-          result.result_ = result_;
-        } else {
-          result.result_ = resultBuilder_.build();
-        }
-        result.speechEventType_ = speechEventType_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.error_ = errorBuilder_ == null
+              ? error_
+              : errorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.result_ = resultBuilder_ == null
+              ? result_
+              : resultBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.speechEventType_ = speechEventType_;
+        }
       }
 
       @java.lang.Override
@@ -7991,7 +7792,7 @@ public final class MediaTranslation {
         if (other.speechEventType_ != 0) {
           setSpeechEventTypeValue(other.getSpeechEventTypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8006,19 +7807,52 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getErrorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getResultFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                speechEventType_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.rpc.Status error_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -8033,7 +7867,7 @@ public final class MediaTranslation {
        * @return Whether the error field is set.
        */
       public boolean hasError() {
-        return errorBuilder_ != null || error_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -8065,11 +7899,11 @@ public final class MediaTranslation {
             throw new NullPointerException();
           }
           error_ = value;
-          onChanged();
         } else {
           errorBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -8084,11 +7918,11 @@ public final class MediaTranslation {
           com.google.rpc.Status.Builder builderForValue) {
         if (errorBuilder_ == null) {
           error_ = builderForValue.build();
-          onChanged();
         } else {
           errorBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -8101,17 +7935,18 @@ public final class MediaTranslation {
        */
       public Builder mergeError(com.google.rpc.Status value) {
         if (errorBuilder_ == null) {
-          if (error_ != null) {
-            error_ =
-              com.google.rpc.Status.newBuilder(error_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            error_ != null &&
+            error_ != com.google.rpc.Status.getDefaultInstance()) {
+            getErrorBuilder().mergeFrom(value);
           } else {
             error_ = value;
           }
-          onChanged();
         } else {
           errorBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -8123,14 +7958,13 @@ public final class MediaTranslation {
        * <code>.google.rpc.Status error = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearError() {
-        if (errorBuilder_ == null) {
-          error_ = null;
-          onChanged();
-        } else {
-          error_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        error_ = null;
+        if (errorBuilder_ != null) {
+          errorBuilder_.dispose();
           errorBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8142,7 +7976,7 @@ public final class MediaTranslation {
        * <code>.google.rpc.Status error = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.rpc.Status.Builder getErrorBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getErrorFieldBuilder().getBuilder();
       }
@@ -8201,7 +8035,7 @@ public final class MediaTranslation {
        * @return Whether the result field is set.
        */
       public boolean hasResult() {
-        return resultBuilder_ != null || result_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -8241,11 +8075,11 @@ public final class MediaTranslation {
             throw new NullPointerException();
           }
           result_ = value;
-          onChanged();
         } else {
           resultBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8264,11 +8098,11 @@ public final class MediaTranslation {
           com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.Builder builderForValue) {
         if (resultBuilder_ == null) {
           result_ = builderForValue.build();
-          onChanged();
         } else {
           resultBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8285,17 +8119,18 @@ public final class MediaTranslation {
        */
       public Builder mergeResult(com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult value) {
         if (resultBuilder_ == null) {
-          if (result_ != null) {
-            result_ =
-              com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.newBuilder(result_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            result_ != null &&
+            result_ != com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.getDefaultInstance()) {
+            getResultBuilder().mergeFrom(value);
           } else {
             result_ = value;
           }
-          onChanged();
         } else {
           resultBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -8311,14 +8146,13 @@ public final class MediaTranslation {
        * <code>.google.cloud.mediatranslation.v1alpha1.StreamingTranslateSpeechResult result = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearResult() {
-        if (resultBuilder_ == null) {
-          result_ = null;
-          onChanged();
-        } else {
-          result_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        result_ = null;
+        if (resultBuilder_ != null) {
+          resultBuilder_.dispose();
           resultBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8334,7 +8168,7 @@ public final class MediaTranslation {
        * <code>.google.cloud.mediatranslation.v1alpha1.StreamingTranslateSpeechResult result = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResult.Builder getResultBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getResultFieldBuilder().getBuilder();
       }
@@ -8406,8 +8240,8 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder setSpeechEventTypeValue(int value) {
-        
         speechEventType_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8421,8 +8255,7 @@ public final class MediaTranslation {
        */
       @java.lang.Override
       public com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType getSpeechEventType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType result = com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType.valueOf(speechEventType_);
+        com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType result = com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType.forNumber(speechEventType_);
         return result == null ? com.google.cloud.mediatranslation.v1alpha1.MediaTranslation.StreamingTranslateSpeechResponse.SpeechEventType.UNRECOGNIZED : result;
       }
       /**
@@ -8438,7 +8271,7 @@ public final class MediaTranslation {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         speechEventType_ = value.getNumber();
         onChanged();
         return this;
@@ -8452,7 +8285,7 @@ public final class MediaTranslation {
        * @return This builder for chaining.
        */
       public Builder clearSpeechEventType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         speechEventType_ = 0;
         onChanged();
         return this;
@@ -8490,7 +8323,18 @@ public final class MediaTranslation {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StreamingTranslateSpeechResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

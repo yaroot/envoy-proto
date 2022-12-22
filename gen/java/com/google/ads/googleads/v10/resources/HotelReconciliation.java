@@ -44,108 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HotelReconciliation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            commissionId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            orderId_ = s;
-            break;
-          }
-          case 32: {
-
-            hotelCenterId_ = input.readInt64();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            hotelId_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            checkInDate_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            checkOutDate_ = s;
-            break;
-          }
-          case 64: {
-
-            reconciledValueMicros_ = input.readInt64();
-            break;
-          }
-          case 72: {
-
-            billed_ = input.readBool();
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            campaign_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.resources.HotelReconciliationProto.internal_static_google_ads_googleads_v10_resources_HotelReconciliation_descriptor;
@@ -160,7 +58,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Immutable. The resource name of the hotel reconciliation.
@@ -210,7 +109,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMMISSION_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object commissionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object commissionId_ = "";
   /**
    * <pre>
    * Required. Output only. The commission ID is Google's ID for this booking. Every booking event is
@@ -258,7 +158,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORDER_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object orderId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object orderId_ = "";
   /**
    * <pre>
    * Output only. The order ID is the identifier for this booking as provided in the
@@ -306,7 +207,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAMPAIGN_FIELD_NUMBER = 11;
-  private volatile java.lang.Object campaign_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object campaign_ = "";
   /**
    * <pre>
    * Output only. The resource name for the Campaign associated with the conversion.
@@ -352,7 +254,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOTEL_CENTER_ID_FIELD_NUMBER = 4;
-  private long hotelCenterId_;
+  private long hotelCenterId_ = 0L;
   /**
    * <pre>
    * Output only. Identifier for the Hotel Center account which provides the rates for the
@@ -368,7 +270,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOTEL_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object hotelId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hotelId_ = "";
   /**
    * <pre>
    * Output only. Unique identifier for the booked property, as provided in the Hotel Center
@@ -418,7 +321,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHECK_IN_DATE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object checkInDate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object checkInDate_ = "";
   /**
    * <pre>
    * Output only. Check-in date recorded when the booking is made. If the check-in date is
@@ -468,7 +372,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHECK_OUT_DATE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object checkOutDate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object checkOutDate_ = "";
   /**
    * <pre>
    * Output only. Check-out date recorded when the booking is made. If the check-in date is
@@ -518,7 +423,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECONCILED_VALUE_MICROS_FIELD_NUMBER = 8;
-  private long reconciledValueMicros_;
+  private long reconciledValueMicros_ = 0L;
   /**
    * <pre>
    * Required. Output only. Reconciled value is the final value of a booking as paid by the guest. If
@@ -539,7 +444,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BILLED_FIELD_NUMBER = 9;
-  private boolean billed_;
+  private boolean billed_ = false;
   /**
    * <pre>
    * Output only. Whether a given booking has been billed. Once billed, a booking can't be
@@ -555,7 +460,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 10;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * Required. Output only. Current status of a booking with regards to reconciliation and billing.
@@ -582,8 +487,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus result = com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus.valueOf(status_);
+    com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus result = com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus.forNumber(status_);
     return result == null ? com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus.UNRECOGNIZED : result;
   }
 
@@ -634,7 +538,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(campaign_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, campaign_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -680,7 +584,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(campaign_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, campaign_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -716,7 +620,7 @@ private static final long serialVersionUID = 0L;
     if (getBilled()
         != other.getBilled()) return false;
     if (status_ != other.status_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -752,7 +656,7 @@ private static final long serialVersionUID = 0L;
         getBilled());
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -875,44 +779,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.resources.HotelReconciliation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       commissionId_ = "";
-
       orderId_ = "";
-
       campaign_ = "";
-
       hotelCenterId_ = 0L;
-
       hotelId_ = "";
-
       checkInDate_ = "";
-
       checkOutDate_ = "";
-
       reconciledValueMicros_ = 0L;
-
       billed_ = false;
-
       status_ = 0;
-
       return this;
     }
 
@@ -939,19 +828,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.resources.HotelReconciliation buildPartial() {
       com.google.ads.googleads.v10.resources.HotelReconciliation result = new com.google.ads.googleads.v10.resources.HotelReconciliation(this);
-      result.resourceName_ = resourceName_;
-      result.commissionId_ = commissionId_;
-      result.orderId_ = orderId_;
-      result.campaign_ = campaign_;
-      result.hotelCenterId_ = hotelCenterId_;
-      result.hotelId_ = hotelId_;
-      result.checkInDate_ = checkInDate_;
-      result.checkOutDate_ = checkOutDate_;
-      result.reconciledValueMicros_ = reconciledValueMicros_;
-      result.billed_ = billed_;
-      result.status_ = status_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.resources.HotelReconciliation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.commissionId_ = commissionId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.orderId_ = orderId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.campaign_ = campaign_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.hotelCenterId_ = hotelCenterId_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.hotelId_ = hotelId_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.checkInDate_ = checkInDate_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.checkOutDate_ = checkOutDate_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.reconciledValueMicros_ = reconciledValueMicros_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.billed_ = billed_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.status_ = status_;
+      }
     }
 
     @java.lang.Override
@@ -1000,18 +916,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.resources.HotelReconciliation.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCommissionId().isEmpty()) {
         commissionId_ = other.commissionId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getOrderId().isEmpty()) {
         orderId_ = other.orderId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getCampaign().isEmpty()) {
         campaign_ = other.campaign_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getHotelCenterId() != 0L) {
@@ -1019,14 +939,17 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getHotelId().isEmpty()) {
         hotelId_ = other.hotelId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getCheckInDate().isEmpty()) {
         checkInDate_ = other.checkInDate_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getCheckOutDate().isEmpty()) {
         checkOutDate_ = other.checkOutDate_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.getReconciledValueMicros() != 0L) {
@@ -1038,7 +961,7 @@ private static final long serialVersionUID = 0L;
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1053,19 +976,88 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.resources.HotelReconciliation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              commissionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              orderId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              hotelCenterId_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 42: {
+              hotelId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              checkInDate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              checkOutDate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 64: {
+              reconciledValueMicros_ = input.readInt64();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 64
+            case 72: {
+              billed_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 72
+            case 80: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 80
+            case 90: {
+              campaign_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.resources.HotelReconciliation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object resourceName_ = "";
     /**
@@ -1126,11 +1118,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1145,8 +1135,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1163,12 +1153,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1229,11 +1217,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommissionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       commissionId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1247,8 +1233,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCommissionId() {
-      
       commissionId_ = getDefaultInstance().getCommissionId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1264,12 +1250,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommissionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       commissionId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1330,11 +1314,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       orderId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1348,8 +1330,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrderId() {
-      
       orderId_ = getDefaultInstance().getOrderId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1365,12 +1347,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       orderId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1428,11 +1408,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCampaign(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       campaign_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1445,8 +1423,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCampaign() {
-      
       campaign_ = getDefaultInstance().getCampaign();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1461,12 +1439,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCampaignBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       campaign_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1498,6 +1474,7 @@ private static final long serialVersionUID = 0L;
     public Builder setHotelCenterId(long value) {
       
       hotelCenterId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1511,7 +1488,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHotelCenterId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       hotelCenterId_ = 0L;
       onChanged();
       return this;
@@ -1576,11 +1553,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHotelId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hotelId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1595,8 +1570,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHotelId() {
-      
       hotelId_ = getDefaultInstance().getHotelId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1613,12 +1588,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHotelIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hotelId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1682,11 +1655,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCheckInDate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       checkInDate_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1701,8 +1672,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCheckInDate() {
-      
       checkInDate_ = getDefaultInstance().getCheckInDate();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1719,12 +1690,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCheckInDateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       checkInDate_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1788,11 +1757,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCheckOutDate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       checkOutDate_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1807,8 +1774,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCheckOutDate() {
-      
       checkOutDate_ = getDefaultInstance().getCheckOutDate();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1825,12 +1792,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCheckOutDateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       checkOutDate_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1872,6 +1837,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReconciledValueMicros(long value) {
       
       reconciledValueMicros_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1890,7 +1856,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReconciledValueMicros() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       reconciledValueMicros_ = 0L;
       onChanged();
       return this;
@@ -1923,6 +1889,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBilled(boolean value) {
       
       billed_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1936,7 +1903,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBilled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       billed_ = false;
       onChanged();
       return this;
@@ -1970,8 +1937,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1988,8 +1955,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus result = com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus.valueOf(status_);
+      com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus result = com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus.forNumber(status_);
       return result == null ? com.google.ads.googleads.v10.enums.HotelReconciliationStatusEnum.HotelReconciliationStatus.UNRECOGNIZED : result;
     }
     /**
@@ -2008,7 +1974,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -2025,7 +1991,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       status_ = 0;
       onChanged();
       return this;
@@ -2063,7 +2029,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HotelReconciliation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

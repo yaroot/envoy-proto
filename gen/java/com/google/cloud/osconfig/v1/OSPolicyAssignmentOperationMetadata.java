@@ -38,89 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OSPolicyAssignmentOperationMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            osPolicyAssignment_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            apiMethod_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            rolloutState_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (rolloutStartTime_ != null) {
-              subBuilder = rolloutStartTime_.toBuilder();
-            }
-            rolloutStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rolloutStartTime_);
-              rolloutStartTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (rolloutUpdateTime_ != null) {
-              subBuilder = rolloutUpdateTime_.toBuilder();
-            }
-            rolloutUpdateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rolloutUpdateTime_);
-              rolloutUpdateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.osconfig.v1.OsPolicyAssignmentsProto.internal_static_google_cloud_osconfig_v1_OSPolicyAssignmentOperationMetadata_descriptor;
@@ -476,7 +393,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OS_POLICY_ASSIGNMENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object osPolicyAssignment_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object osPolicyAssignment_ = "";
   /**
    * <pre>
    * Reference to the `OSPolicyAssignment` API resource.
@@ -526,7 +444,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int API_METHOD_FIELD_NUMBER = 2;
-  private int apiMethod_;
+  private int apiMethod_ = 0;
   /**
    * <pre>
    * The OS policy assignment API method.
@@ -547,13 +465,12 @@ private static final long serialVersionUID = 0L;
    * @return The apiMethod.
    */
   @java.lang.Override public com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod getApiMethod() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod result = com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod.valueOf(apiMethod_);
+    com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod result = com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod.forNumber(apiMethod_);
     return result == null ? com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod.UNRECOGNIZED : result;
   }
 
   public static final int ROLLOUT_STATE_FIELD_NUMBER = 3;
-  private int rolloutState_;
+  private int rolloutState_ = 0;
   /**
    * <pre>
    * State of the rollout
@@ -574,8 +491,7 @@ private static final long serialVersionUID = 0L;
    * @return The rolloutState.
    */
   @java.lang.Override public com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState getRolloutState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState result = com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState.valueOf(rolloutState_);
+    com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState result = com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState.forNumber(rolloutState_);
     return result == null ? com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState.UNRECOGNIZED : result;
   }
 
@@ -614,7 +530,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRolloutStartTimeOrBuilder() {
-    return getRolloutStartTime();
+    return rolloutStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : rolloutStartTime_;
   }
 
   public static final int ROLLOUT_UPDATE_TIME_FIELD_NUMBER = 5;
@@ -652,7 +568,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRolloutUpdateTimeOrBuilder() {
-    return getRolloutUpdateTime();
+    return rolloutUpdateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : rolloutUpdateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -684,7 +600,7 @@ private static final long serialVersionUID = 0L;
     if (rolloutUpdateTime_ != null) {
       output.writeMessage(5, getRolloutUpdateTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -712,7 +628,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getRolloutUpdateTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -741,7 +657,7 @@ private static final long serialVersionUID = 0L;
       if (!getRolloutUpdateTime()
           .equals(other.getRolloutUpdateTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -766,7 +682,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ROLLOUT_UPDATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getRolloutUpdateTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -888,38 +804,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       osPolicyAssignment_ = "";
-
       apiMethod_ = 0;
-
       rolloutState_ = 0;
-
-      if (rolloutStartTimeBuilder_ == null) {
-        rolloutStartTime_ = null;
-      } else {
-        rolloutStartTime_ = null;
+      rolloutStartTime_ = null;
+      if (rolloutStartTimeBuilder_ != null) {
+        rolloutStartTimeBuilder_.dispose();
         rolloutStartTimeBuilder_ = null;
       }
-      if (rolloutUpdateTimeBuilder_ == null) {
-        rolloutUpdateTime_ = null;
-      } else {
-        rolloutUpdateTime_ = null;
+      rolloutUpdateTime_ = null;
+      if (rolloutUpdateTimeBuilder_ != null) {
+        rolloutUpdateTimeBuilder_.dispose();
         rolloutUpdateTimeBuilder_ = null;
       }
       return this;
@@ -948,21 +855,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata buildPartial() {
       com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata result = new com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata(this);
-      result.osPolicyAssignment_ = osPolicyAssignment_;
-      result.apiMethod_ = apiMethod_;
-      result.rolloutState_ = rolloutState_;
-      if (rolloutStartTimeBuilder_ == null) {
-        result.rolloutStartTime_ = rolloutStartTime_;
-      } else {
-        result.rolloutStartTime_ = rolloutStartTimeBuilder_.build();
-      }
-      if (rolloutUpdateTimeBuilder_ == null) {
-        result.rolloutUpdateTime_ = rolloutUpdateTime_;
-      } else {
-        result.rolloutUpdateTime_ = rolloutUpdateTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.osPolicyAssignment_ = osPolicyAssignment_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.apiMethod_ = apiMethod_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.rolloutState_ = rolloutState_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.rolloutStartTime_ = rolloutStartTimeBuilder_ == null
+            ? rolloutStartTime_
+            : rolloutStartTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.rolloutUpdateTime_ = rolloutUpdateTimeBuilder_ == null
+            ? rolloutUpdateTime_
+            : rolloutUpdateTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1011,6 +929,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.getDefaultInstance()) return this;
       if (!other.getOsPolicyAssignment().isEmpty()) {
         osPolicyAssignment_ = other.osPolicyAssignment_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.apiMethod_ != 0) {
@@ -1025,7 +944,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRolloutUpdateTime()) {
         mergeRolloutUpdateTime(other.getRolloutUpdateTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1040,19 +959,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              osPolicyAssignment_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              apiMethod_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              rolloutState_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getRolloutStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getRolloutUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object osPolicyAssignment_ = "";
     /**
@@ -1113,11 +1075,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsPolicyAssignment(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       osPolicyAssignment_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1132,8 +1092,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOsPolicyAssignment() {
-      
       osPolicyAssignment_ = getDefaultInstance().getOsPolicyAssignment();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1150,12 +1110,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsPolicyAssignmentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       osPolicyAssignment_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1182,8 +1140,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setApiMethodValue(int value) {
-      
       apiMethod_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1197,8 +1155,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod getApiMethod() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod result = com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod.valueOf(apiMethod_);
+      com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod result = com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod.forNumber(apiMethod_);
       return result == null ? com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.APIMethod.UNRECOGNIZED : result;
     }
     /**
@@ -1214,7 +1171,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       apiMethod_ = value.getNumber();
       onChanged();
       return this;
@@ -1228,7 +1185,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApiMethod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       apiMethod_ = 0;
       onChanged();
       return this;
@@ -1256,8 +1213,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRolloutStateValue(int value) {
-      
       rolloutState_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1271,8 +1228,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState getRolloutState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState result = com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState.valueOf(rolloutState_);
+      com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState result = com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState.forNumber(rolloutState_);
       return result == null ? com.google.cloud.osconfig.v1.OSPolicyAssignmentOperationMetadata.RolloutState.UNRECOGNIZED : result;
     }
     /**
@@ -1288,7 +1244,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       rolloutState_ = value.getNumber();
       onChanged();
       return this;
@@ -1302,7 +1258,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRolloutState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       rolloutState_ = 0;
       onChanged();
       return this;
@@ -1320,7 +1276,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rolloutStartTime field is set.
      */
     public boolean hasRolloutStartTime() {
-      return rolloutStartTimeBuilder_ != null || rolloutStartTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1350,11 +1306,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rolloutStartTime_ = value;
-        onChanged();
       } else {
         rolloutStartTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1368,11 +1324,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (rolloutStartTimeBuilder_ == null) {
         rolloutStartTime_ = builderForValue.build();
-        onChanged();
       } else {
         rolloutStartTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1384,17 +1340,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRolloutStartTime(com.google.protobuf.Timestamp value) {
       if (rolloutStartTimeBuilder_ == null) {
-        if (rolloutStartTime_ != null) {
-          rolloutStartTime_ =
-            com.google.protobuf.Timestamp.newBuilder(rolloutStartTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          rolloutStartTime_ != null &&
+          rolloutStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRolloutStartTimeBuilder().mergeFrom(value);
         } else {
           rolloutStartTime_ = value;
         }
-        onChanged();
       } else {
         rolloutStartTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1405,14 +1362,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp rollout_start_time = 4;</code>
      */
     public Builder clearRolloutStartTime() {
-      if (rolloutStartTimeBuilder_ == null) {
-        rolloutStartTime_ = null;
-        onChanged();
-      } else {
-        rolloutStartTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      rolloutStartTime_ = null;
+      if (rolloutStartTimeBuilder_ != null) {
+        rolloutStartTimeBuilder_.dispose();
         rolloutStartTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1423,7 +1379,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp rollout_start_time = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getRolloutStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRolloutStartTimeFieldBuilder().getBuilder();
     }
@@ -1475,7 +1431,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rolloutUpdateTime field is set.
      */
     public boolean hasRolloutUpdateTime() {
-      return rolloutUpdateTimeBuilder_ != null || rolloutUpdateTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1505,11 +1461,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rolloutUpdateTime_ = value;
-        onChanged();
       } else {
         rolloutUpdateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1523,11 +1479,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (rolloutUpdateTimeBuilder_ == null) {
         rolloutUpdateTime_ = builderForValue.build();
-        onChanged();
       } else {
         rolloutUpdateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1539,17 +1495,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRolloutUpdateTime(com.google.protobuf.Timestamp value) {
       if (rolloutUpdateTimeBuilder_ == null) {
-        if (rolloutUpdateTime_ != null) {
-          rolloutUpdateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(rolloutUpdateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          rolloutUpdateTime_ != null &&
+          rolloutUpdateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRolloutUpdateTimeBuilder().mergeFrom(value);
         } else {
           rolloutUpdateTime_ = value;
         }
-        onChanged();
       } else {
         rolloutUpdateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1560,14 +1517,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp rollout_update_time = 5;</code>
      */
     public Builder clearRolloutUpdateTime() {
-      if (rolloutUpdateTimeBuilder_ == null) {
-        rolloutUpdateTime_ = null;
-        onChanged();
-      } else {
-        rolloutUpdateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      rolloutUpdateTime_ = null;
+      if (rolloutUpdateTimeBuilder_ != null) {
+        rolloutUpdateTimeBuilder_.dispose();
         rolloutUpdateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1578,7 +1534,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp rollout_update_time = 5;</code>
      */
     public com.google.protobuf.Timestamp.Builder getRolloutUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getRolloutUpdateTimeFieldBuilder().getBuilder();
     }
@@ -1650,7 +1606,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OSPolicyAssignmentOperationMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

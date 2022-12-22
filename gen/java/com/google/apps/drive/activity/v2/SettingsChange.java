@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SettingsChange(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              restrictionChanges_ = new java.util.ArrayList<com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            restrictionChanges_.add(
-                input.readMessage(com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        restrictionChanges_ = java.util.Collections.unmodifiableList(restrictionChanges_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.drive.activity.v2.ActionProto.internal_static_google_apps_drive_activity_v2_SettingsChange_descriptor;
@@ -174,57 +122,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private RestrictionChange(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              feature_ = rawValue;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              newRestriction_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -568,7 +465,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FEATURE_FIELD_NUMBER = 1;
-    private int feature_;
+    private int feature_ = 0;
     /**
      * <pre>
      * The feature which had a change in restriction policy.
@@ -589,13 +486,12 @@ private static final long serialVersionUID = 0L;
      * @return The feature.
      */
     @java.lang.Override public com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature getFeature() {
-      @SuppressWarnings("deprecation")
-      com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature result = com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature.valueOf(feature_);
+      com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature result = com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature.forNumber(feature_);
       return result == null ? com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature.UNRECOGNIZED : result;
     }
 
     public static final int NEW_RESTRICTION_FIELD_NUMBER = 2;
-    private int newRestriction_;
+    private int newRestriction_ = 0;
     /**
      * <pre>
      * The restriction in place after the change.
@@ -616,8 +512,7 @@ private static final long serialVersionUID = 0L;
      * @return The newRestriction.
      */
     @java.lang.Override public com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction getNewRestriction() {
-      @SuppressWarnings("deprecation")
-      com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction result = com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction.valueOf(newRestriction_);
+      com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction result = com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction.forNumber(newRestriction_);
       return result == null ? com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction.UNRECOGNIZED : result;
     }
 
@@ -641,7 +536,7 @@ private static final long serialVersionUID = 0L;
       if (newRestriction_ != com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction.RESTRICTION_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, newRestriction_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -658,7 +553,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, newRestriction_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -675,7 +570,7 @@ private static final long serialVersionUID = 0L;
 
       if (feature_ != other.feature_) return false;
       if (newRestriction_ != other.newRestriction_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -690,7 +585,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + feature_;
       hash = (37 * hash) + NEW_RESTRICTION_FIELD_NUMBER;
       hash = (53 * hash) + newRestriction_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -811,26 +706,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         feature_ = 0;
-
         newRestriction_ = 0;
-
         return this;
       }
 
@@ -857,10 +746,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange buildPartial() {
         com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange result = new com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange(this);
-        result.feature_ = feature_;
-        result.newRestriction_ = newRestriction_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.feature_ = feature_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.newRestriction_ = newRestriction_;
+        }
       }
 
       @java.lang.Override
@@ -913,7 +811,7 @@ private static final long serialVersionUID = 0L;
         if (other.newRestriction_ != 0) {
           setNewRestrictionValue(other.getNewRestrictionValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -928,19 +826,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                feature_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                newRestriction_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int feature_ = 0;
       /**
@@ -964,8 +886,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setFeatureValue(int value) {
-        
         feature_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -979,8 +901,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature getFeature() {
-        @SuppressWarnings("deprecation")
-        com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature result = com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature.valueOf(feature_);
+        com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature result = com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature.forNumber(feature_);
         return result == null ? com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Feature.UNRECOGNIZED : result;
       }
       /**
@@ -996,7 +917,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         feature_ = value.getNumber();
         onChanged();
         return this;
@@ -1010,7 +931,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFeature() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         feature_ = 0;
         onChanged();
         return this;
@@ -1038,8 +959,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setNewRestrictionValue(int value) {
-        
         newRestriction_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1053,8 +974,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction getNewRestriction() {
-        @SuppressWarnings("deprecation")
-        com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction result = com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction.valueOf(newRestriction_);
+        com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction result = com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction.forNumber(newRestriction_);
         return result == null ? com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.Restriction.UNRECOGNIZED : result;
       }
       /**
@@ -1070,7 +990,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         newRestriction_ = value.getNumber();
         onChanged();
         return this;
@@ -1084,7 +1004,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearNewRestriction() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         newRestriction_ = 0;
         onChanged();
         return this;
@@ -1122,7 +1042,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RestrictionChange(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1143,6 +1074,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESTRICTION_CHANGES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange> restrictionChanges_;
   /**
    * <pre>
@@ -1219,7 +1151,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < restrictionChanges_.size(); i++) {
       output.writeMessage(1, restrictionChanges_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1232,7 +1164,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, restrictionChanges_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1249,7 +1181,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getRestrictionChangesList()
         .equals(other.getRestrictionChangesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1264,7 +1196,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESTRICTION_CHANGES_FIELD_NUMBER;
       hash = (53 * hash) + getRestrictionChangesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1385,29 +1317,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.drive.activity.v2.SettingsChange.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRestrictionChangesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (restrictionChangesBuilder_ == null) {
         restrictionChanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        restrictionChanges_ = null;
         restrictionChangesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -1434,7 +1362,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.drive.activity.v2.SettingsChange buildPartial() {
       com.google.apps.drive.activity.v2.SettingsChange result = new com.google.apps.drive.activity.v2.SettingsChange(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.apps.drive.activity.v2.SettingsChange result) {
       if (restrictionChangesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           restrictionChanges_ = java.util.Collections.unmodifiableList(restrictionChanges_);
@@ -1444,8 +1378,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.restrictionChanges_ = restrictionChangesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.apps.drive.activity.v2.SettingsChange result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -1518,7 +1454,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1533,17 +1469,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.drive.activity.v2.SettingsChange parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange m =
+                  input.readMessage(
+                      com.google.apps.drive.activity.v2.SettingsChange.RestrictionChange.parser(),
+                      extensionRegistry);
+              if (restrictionChangesBuilder_ == null) {
+                ensureRestrictionChangesIsMutable();
+                restrictionChanges_.add(m);
+              } else {
+                restrictionChangesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.drive.activity.v2.SettingsChange) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1892,7 +1854,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SettingsChange(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -252,7 +252,7 @@ public interface UdpProxyConfigOrBuilder extends
 
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -261,7 +261,7 @@ public interface UdpProxyConfigOrBuilder extends
       getAccessLogList();
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -269,7 +269,7 @@ public interface UdpProxyConfigOrBuilder extends
   io.envoyproxy.envoy.config.accesslog.v3.AccessLog getAccessLog(int index);
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -277,7 +277,7 @@ public interface UdpProxyConfigOrBuilder extends
   int getAccessLogCount();
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
@@ -286,12 +286,56 @@ public interface UdpProxyConfigOrBuilder extends
       getAccessLogOrBuilderList();
   /**
    * <pre>
-   * Configuration for access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * Configuration for session access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
    * </pre>
    *
    * <code>repeated .envoy.config.accesslog.v3.AccessLog access_log = 8;</code>
    */
   io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder getAccessLogOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> 
+      getProxyAccessLogList();
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  io.envoyproxy.envoy.config.accesslog.v3.AccessLog getProxyAccessLog(int index);
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  int getProxyAccessLogCount();
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  java.util.List<? extends io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder> 
+      getProxyAccessLogOrBuilderList();
+  /**
+   * <pre>
+   * Configuration for proxy access logs emitted by the UDP proxy. Note that certain UDP specific data is emitted as :ref:`Dynamic Metadata &lt;config_access_log_format_dynamic_metadata&gt;`.
+   * </pre>
+   *
+   * <code>repeated .envoy.config.accesslog.v3.AccessLog proxy_access_log = 10;</code>
+   */
+  io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder getProxyAccessLogOrBuilder(
       int index);
 
   public io.envoyproxy.envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig.RouteSpecifierCase getRouteSpecifierCase();

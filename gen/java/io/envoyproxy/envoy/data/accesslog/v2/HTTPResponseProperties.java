@@ -35,101 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HTTPResponseProperties(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (responseCode_ != null) {
-              subBuilder = responseCode_.toBuilder();
-            }
-            responseCode_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(responseCode_);
-              responseCode_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            responseHeadersBytes_ = input.readUInt64();
-            break;
-          }
-          case 24: {
-
-            responseBodyBytes_ = input.readUInt64();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              responseHeaders_ = com.google.protobuf.MapField.newMapField(
-                  ResponseHeadersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            responseHeaders__ = input.readMessage(
-                ResponseHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            responseHeaders_.getMutableMap().put(
-                responseHeaders__.getKey(), responseHeaders__.getValue());
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              responseTrailers_ = com.google.protobuf.MapField.newMapField(
-                  ResponseTrailersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            responseTrailers__ = input.readMessage(
-                ResponseTrailersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            responseTrailers_.getMutableMap().put(
-                responseTrailers__.getKey(), responseTrailers__.getValue());
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            responseCodeDetails_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.data.accesslog.v2.AccesslogProto.internal_static_envoy_data_accesslog_v2_HTTPResponseProperties_descriptor;
@@ -192,11 +97,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getResponseCodeOrBuilder() {
-    return getResponseCode();
+    return responseCode_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : responseCode_;
   }
 
   public static final int RESPONSE_HEADERS_BYTES_FIELD_NUMBER = 2;
-  private long responseHeadersBytes_;
+  private long responseHeadersBytes_ = 0L;
   /**
    * <pre>
    * Size of the HTTP response headers in bytes.
@@ -213,7 +118,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_BODY_BYTES_FIELD_NUMBER = 3;
-  private long responseBodyBytes_;
+  private long responseBodyBytes_ = 0L;
   /**
    * <pre>
    * Size of the HTTP response body in bytes.
@@ -241,6 +146,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> responseHeaders_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -251,7 +157,6 @@ private static final long serialVersionUID = 0L;
     }
     return responseHeaders_;
   }
-
   public int getResponseHeadersCount() {
     return internalGetResponseHeaders().getMap().size();
   }
@@ -262,7 +167,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; response_headers = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsResponseHeaders(
       java.lang.String key) {
@@ -285,7 +189,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; response_headers = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getResponseHeadersMap() {
     return internalGetResponseHeaders().getMap();
   }
@@ -297,10 +200,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; response_headers = 4;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getResponseHeadersOrDefault(
+  public /* nullable */
+java.lang.String getResponseHeadersOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetResponseHeaders().getMap();
@@ -314,7 +218,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; response_headers = 4;</code>
    */
   @java.lang.Override
-
   public java.lang.String getResponseHeadersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -338,6 +241,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> responseTrailers_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -348,7 +252,6 @@ private static final long serialVersionUID = 0L;
     }
     return responseTrailers_;
   }
-
   public int getResponseTrailersCount() {
     return internalGetResponseTrailers().getMap().size();
   }
@@ -359,7 +262,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; response_trailers = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsResponseTrailers(
       java.lang.String key) {
@@ -382,7 +284,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; response_trailers = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getResponseTrailersMap() {
     return internalGetResponseTrailers().getMap();
   }
@@ -394,10 +295,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; response_trailers = 5;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getResponseTrailersOrDefault(
+  public /* nullable */
+java.lang.String getResponseTrailersOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetResponseTrailers().getMap();
@@ -411,7 +313,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; response_trailers = 5;</code>
    */
   @java.lang.Override
-
   public java.lang.String getResponseTrailersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -424,7 +325,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_CODE_DETAILS_FIELD_NUMBER = 6;
-  private volatile java.lang.Object responseCodeDetails_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object responseCodeDetails_ = "";
   /**
    * <pre>
    * The HTTP response code details.
@@ -507,7 +409,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(responseCodeDetails_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, responseCodeDetails_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -551,7 +453,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(responseCodeDetails_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, responseCodeDetails_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -581,7 +483,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetResponseTrailers())) return false;
     if (!getResponseCodeDetails()
         .equals(other.getResponseCodeDetails())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -612,7 +514,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + RESPONSE_CODE_DETAILS_FIELD_NUMBER;
     hash = (53 * hash) + getResponseCodeDetails().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -759,36 +661,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.data.accesslog.v2.HTTPResponseProperties.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (responseCodeBuilder_ == null) {
-        responseCode_ = null;
-      } else {
-        responseCode_ = null;
+      bitField0_ = 0;
+      responseCode_ = null;
+      if (responseCodeBuilder_ != null) {
+        responseCodeBuilder_.dispose();
         responseCodeBuilder_ = null;
       }
       responseHeadersBytes_ = 0L;
-
       responseBodyBytes_ = 0L;
-
       internalGetMutableResponseHeaders().clear();
       internalGetMutableResponseTrailers().clear();
       responseCodeDetails_ = "";
-
       return this;
     }
 
@@ -815,21 +709,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.data.accesslog.v2.HTTPResponseProperties buildPartial() {
       io.envoyproxy.envoy.data.accesslog.v2.HTTPResponseProperties result = new io.envoyproxy.envoy.data.accesslog.v2.HTTPResponseProperties(this);
-      int from_bitField0_ = bitField0_;
-      if (responseCodeBuilder_ == null) {
-        result.responseCode_ = responseCode_;
-      } else {
-        result.responseCode_ = responseCodeBuilder_.build();
-      }
-      result.responseHeadersBytes_ = responseHeadersBytes_;
-      result.responseBodyBytes_ = responseBodyBytes_;
-      result.responseHeaders_ = internalGetResponseHeaders();
-      result.responseHeaders_.makeImmutable();
-      result.responseTrailers_ = internalGetResponseTrailers();
-      result.responseTrailers_.makeImmutable();
-      result.responseCodeDetails_ = responseCodeDetails_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.data.accesslog.v2.HTTPResponseProperties result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.responseCode_ = responseCodeBuilder_ == null
+            ? responseCode_
+            : responseCodeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.responseHeadersBytes_ = responseHeadersBytes_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.responseBodyBytes_ = responseBodyBytes_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.responseHeaders_ = internalGetResponseHeaders();
+        result.responseHeaders_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.responseTrailers_ = internalGetResponseTrailers();
+        result.responseTrailers_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.responseCodeDetails_ = responseCodeDetails_;
+      }
     }
 
     @java.lang.Override
@@ -887,13 +795,16 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableResponseHeaders().mergeFrom(
           other.internalGetResponseHeaders());
+      bitField0_ |= 0x00000008;
       internalGetMutableResponseTrailers().mergeFrom(
           other.internalGetResponseTrailers());
+      bitField0_ |= 0x00000010;
       if (!other.getResponseCodeDetails().isEmpty()) {
         responseCodeDetails_ = other.responseCodeDetails_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -908,17 +819,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.data.accesslog.v2.HTTPResponseProperties parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getResponseCodeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              responseHeadersBytes_ = input.readUInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              responseBodyBytes_ = input.readUInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              responseHeaders__ = input.readMessage(
+                  ResponseHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableResponseHeaders().getMutableMap().put(
+                  responseHeaders__.getKey(), responseHeaders__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              responseTrailers__ = input.readMessage(
+                  ResponseTrailersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableResponseTrailers().getMutableMap().put(
+                  responseTrailers__.getKey(), responseTrailers__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              responseCodeDetails_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.data.accesslog.v2.HTTPResponseProperties) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -935,7 +899,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the responseCode field is set.
      */
     public boolean hasResponseCode() {
-      return responseCodeBuilder_ != null || responseCode_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -965,11 +929,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         responseCode_ = value;
-        onChanged();
       } else {
         responseCodeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -983,11 +947,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (responseCodeBuilder_ == null) {
         responseCode_ = builderForValue.build();
-        onChanged();
       } else {
         responseCodeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -999,17 +963,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResponseCode(com.google.protobuf.UInt32Value value) {
       if (responseCodeBuilder_ == null) {
-        if (responseCode_ != null) {
-          responseCode_ =
-            com.google.protobuf.UInt32Value.newBuilder(responseCode_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          responseCode_ != null &&
+          responseCode_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getResponseCodeBuilder().mergeFrom(value);
         } else {
           responseCode_ = value;
         }
-        onChanged();
       } else {
         responseCodeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1020,14 +985,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value response_code = 1;</code>
      */
     public Builder clearResponseCode() {
-      if (responseCodeBuilder_ == null) {
-        responseCode_ = null;
-        onChanged();
-      } else {
-        responseCode_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      responseCode_ = null;
+      if (responseCodeBuilder_ != null) {
+        responseCodeBuilder_.dispose();
         responseCodeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1038,7 +1002,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value response_code = 1;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getResponseCodeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getResponseCodeFieldBuilder().getBuilder();
     }
@@ -1107,6 +1071,7 @@ private static final long serialVersionUID = 0L;
     public Builder setResponseHeadersBytes(long value) {
       
       responseHeadersBytes_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1121,7 +1086,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseHeadersBytes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       responseHeadersBytes_ = 0L;
       onChanged();
       return this;
@@ -1156,6 +1121,7 @@ private static final long serialVersionUID = 0L;
     public Builder setResponseBodyBytes(long value) {
       
       responseBodyBytes_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1170,7 +1136,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseBodyBytes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       responseBodyBytes_ = 0L;
       onChanged();
       return this;
@@ -1179,7 +1145,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> responseHeaders_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetResponseHeaders() {
+        internalGetResponseHeaders() {
       if (responseHeaders_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ResponseHeadersDefaultEntryHolder.defaultEntry);
@@ -1187,8 +1153,7 @@ private static final long serialVersionUID = 0L;
       return responseHeaders_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableResponseHeaders() {
-      onChanged();;
+        internalGetMutableResponseHeaders() {
       if (responseHeaders_ == null) {
         responseHeaders_ = com.google.protobuf.MapField.newMapField(
             ResponseHeadersDefaultEntryHolder.defaultEntry);
@@ -1196,9 +1161,10 @@ private static final long serialVersionUID = 0L;
       if (!responseHeaders_.isMutable()) {
         responseHeaders_ = responseHeaders_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return responseHeaders_;
     }
-
     public int getResponseHeadersCount() {
       return internalGetResponseHeaders().getMap().size();
     }
@@ -1209,7 +1175,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; response_headers = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsResponseHeaders(
         java.lang.String key) {
@@ -1232,7 +1197,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; response_headers = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getResponseHeadersMap() {
       return internalGetResponseHeaders().getMap();
     }
@@ -1244,10 +1208,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; response_headers = 4;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getResponseHeadersOrDefault(
+    public /* nullable */
+java.lang.String getResponseHeadersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetResponseHeaders().getMap();
@@ -1261,7 +1226,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; response_headers = 4;</code>
      */
     @java.lang.Override
-
     public java.lang.String getResponseHeadersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1272,8 +1236,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearResponseHeaders() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableResponseHeaders().getMutableMap()
           .clear();
       return this;
@@ -1285,7 +1249,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; response_headers = 4;</code>
      */
-
     public Builder removeResponseHeaders(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1298,7 +1261,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableResponseHeaders() {
+        getMutableResponseHeaders() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableResponseHeaders().getMutableMap();
     }
     /**
@@ -1312,12 +1276,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableResponseHeaders().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -1327,18 +1289,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; response_headers = 4;</code>
      */
-
     public Builder putAllResponseHeaders(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableResponseHeaders().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> responseTrailers_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetResponseTrailers() {
+        internalGetResponseTrailers() {
       if (responseTrailers_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ResponseTrailersDefaultEntryHolder.defaultEntry);
@@ -1346,8 +1308,7 @@ private static final long serialVersionUID = 0L;
       return responseTrailers_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableResponseTrailers() {
-      onChanged();;
+        internalGetMutableResponseTrailers() {
       if (responseTrailers_ == null) {
         responseTrailers_ = com.google.protobuf.MapField.newMapField(
             ResponseTrailersDefaultEntryHolder.defaultEntry);
@@ -1355,9 +1316,10 @@ private static final long serialVersionUID = 0L;
       if (!responseTrailers_.isMutable()) {
         responseTrailers_ = responseTrailers_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return responseTrailers_;
     }
-
     public int getResponseTrailersCount() {
       return internalGetResponseTrailers().getMap().size();
     }
@@ -1368,7 +1330,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; response_trailers = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsResponseTrailers(
         java.lang.String key) {
@@ -1391,7 +1352,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; response_trailers = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getResponseTrailersMap() {
       return internalGetResponseTrailers().getMap();
     }
@@ -1403,10 +1363,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; response_trailers = 5;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getResponseTrailersOrDefault(
+    public /* nullable */
+java.lang.String getResponseTrailersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetResponseTrailers().getMap();
@@ -1420,7 +1381,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; response_trailers = 5;</code>
      */
     @java.lang.Override
-
     public java.lang.String getResponseTrailersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1431,8 +1391,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearResponseTrailers() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableResponseTrailers().getMutableMap()
           .clear();
       return this;
@@ -1444,7 +1404,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; response_trailers = 5;</code>
      */
-
     public Builder removeResponseTrailers(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1457,7 +1416,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableResponseTrailers() {
+        getMutableResponseTrailers() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableResponseTrailers().getMutableMap();
     }
     /**
@@ -1471,12 +1431,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableResponseTrailers().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1486,11 +1444,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; response_trailers = 5;</code>
      */
-
     public Builder putAllResponseTrailers(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableResponseTrailers().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
@@ -1547,11 +1505,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponseCodeDetails(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       responseCodeDetails_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1564,8 +1520,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseCodeDetails() {
-      
       responseCodeDetails_ = getDefaultInstance().getResponseCodeDetails();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1580,12 +1536,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponseCodeDetailsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       responseCodeDetails_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1622,7 +1576,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HTTPResponseProperties(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

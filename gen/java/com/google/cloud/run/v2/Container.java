@@ -31,6 +31,7 @@ private static final long serialVersionUID = 0L;
     env_ = java.util.Collections.emptyList();
     ports_ = java.util.Collections.emptyList();
     volumeMounts_ = java.util.Collections.emptyList();
+    workingDir_ = "";
   }
 
   @java.lang.Override
@@ -44,131 +45,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Container(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            image_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              command_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            command_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              args_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            args_.add(s);
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              env_ = new java.util.ArrayList<com.google.cloud.run.v2.EnvVar>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            env_.add(
-                input.readMessage(com.google.cloud.run.v2.EnvVar.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.cloud.run.v2.ResourceRequirements.Builder subBuilder = null;
-            if (resources_ != null) {
-              subBuilder = resources_.toBuilder();
-            }
-            resources_ = input.readMessage(com.google.cloud.run.v2.ResourceRequirements.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resources_);
-              resources_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              ports_ = new java.util.ArrayList<com.google.cloud.run.v2.ContainerPort>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            ports_.add(
-                input.readMessage(com.google.cloud.run.v2.ContainerPort.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              volumeMounts_ = new java.util.ArrayList<com.google.cloud.run.v2.VolumeMount>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            volumeMounts_.add(
-                input.readMessage(com.google.cloud.run.v2.VolumeMount.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        command_ = command_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        args_ = args_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        env_ = java.util.Collections.unmodifiableList(env_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        ports_ = java.util.Collections.unmodifiableList(ports_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        volumeMounts_ = java.util.Collections.unmodifiableList(volumeMounts_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -184,7 +60,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the container specified as a DNS_LABEL.
@@ -230,7 +107,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object image_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object image_ = "";
   /**
    * <pre>
    * Required. URL of the Container image in Google Container Registry or Google Artifact
@@ -278,6 +156,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMMAND_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList command_;
   /**
    * <pre>
@@ -361,6 +240,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ARGS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList args_;
   /**
    * <pre>
@@ -444,6 +324,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENV_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.run.v2.EnvVar> env_;
   /**
    * <pre>
@@ -544,10 +425,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.run.v2.ResourceRequirementsOrBuilder getResourcesOrBuilder() {
-    return getResources();
+    return resources_ == null ? com.google.cloud.run.v2.ResourceRequirements.getDefaultInstance() : resources_;
   }
 
   public static final int PORTS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.run.v2.ContainerPort> ports_;
   /**
    * <pre>
@@ -628,6 +510,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VOLUME_MOUNTS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.run.v2.VolumeMount> volumeMounts_;
   /**
    * <pre>
@@ -687,6 +570,157 @@ private static final long serialVersionUID = 0L;
     return volumeMounts_.get(index);
   }
 
+  public static final int WORKING_DIR_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object workingDir_ = "";
+  /**
+   * <pre>
+   * Container's working directory.
+   * If not specified, the container runtime's default will be used, which
+   * might be configured in the container image.
+   * </pre>
+   *
+   * <code>string working_dir = 9;</code>
+   * @return The workingDir.
+   */
+  @java.lang.Override
+  public java.lang.String getWorkingDir() {
+    java.lang.Object ref = workingDir_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      workingDir_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Container's working directory.
+   * If not specified, the container runtime's default will be used, which
+   * might be configured in the container image.
+   * </pre>
+   *
+   * <code>string working_dir = 9;</code>
+   * @return The bytes for workingDir.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getWorkingDirBytes() {
+    java.lang.Object ref = workingDir_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      workingDir_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LIVENESS_PROBE_FIELD_NUMBER = 10;
+  private com.google.cloud.run.v2.Probe livenessProbe_;
+  /**
+   * <pre>
+   * Periodic probe of container liveness.
+   * Container will be restarted if the probe fails.
+   * More info:
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+   * </pre>
+   *
+   * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+   * @return Whether the livenessProbe field is set.
+   */
+  @java.lang.Override
+  public boolean hasLivenessProbe() {
+    return livenessProbe_ != null;
+  }
+  /**
+   * <pre>
+   * Periodic probe of container liveness.
+   * Container will be restarted if the probe fails.
+   * More info:
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+   * </pre>
+   *
+   * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+   * @return The livenessProbe.
+   */
+  @java.lang.Override
+  public com.google.cloud.run.v2.Probe getLivenessProbe() {
+    return livenessProbe_ == null ? com.google.cloud.run.v2.Probe.getDefaultInstance() : livenessProbe_;
+  }
+  /**
+   * <pre>
+   * Periodic probe of container liveness.
+   * Container will be restarted if the probe fails.
+   * More info:
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+   * </pre>
+   *
+   * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.run.v2.ProbeOrBuilder getLivenessProbeOrBuilder() {
+    return livenessProbe_ == null ? com.google.cloud.run.v2.Probe.getDefaultInstance() : livenessProbe_;
+  }
+
+  public static final int STARTUP_PROBE_FIELD_NUMBER = 11;
+  private com.google.cloud.run.v2.Probe startupProbe_;
+  /**
+   * <pre>
+   * Startup probe of application within the container.
+   * All other probes are disabled if a startup probe is provided, until it
+   * succeeds. Container will not be added to service endpoints if the probe
+   * fails.
+   * More info:
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+   * </pre>
+   *
+   * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+   * @return Whether the startupProbe field is set.
+   */
+  @java.lang.Override
+  public boolean hasStartupProbe() {
+    return startupProbe_ != null;
+  }
+  /**
+   * <pre>
+   * Startup probe of application within the container.
+   * All other probes are disabled if a startup probe is provided, until it
+   * succeeds. Container will not be added to service endpoints if the probe
+   * fails.
+   * More info:
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+   * </pre>
+   *
+   * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+   * @return The startupProbe.
+   */
+  @java.lang.Override
+  public com.google.cloud.run.v2.Probe getStartupProbe() {
+    return startupProbe_ == null ? com.google.cloud.run.v2.Probe.getDefaultInstance() : startupProbe_;
+  }
+  /**
+   * <pre>
+   * Startup probe of application within the container.
+   * All other probes are disabled if a startup probe is provided, until it
+   * succeeds. Container will not be added to service endpoints if the probe
+   * fails.
+   * More info:
+   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+   * </pre>
+   *
+   * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.run.v2.ProbeOrBuilder getStartupProbeOrBuilder() {
+    return startupProbe_ == null ? com.google.cloud.run.v2.Probe.getDefaultInstance() : startupProbe_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -725,7 +759,16 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < volumeMounts_.size(); i++) {
       output.writeMessage(8, volumeMounts_.get(i));
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(workingDir_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, workingDir_);
+    }
+    if (livenessProbe_ != null) {
+      output.writeMessage(10, getLivenessProbe());
+    }
+    if (startupProbe_ != null) {
+      output.writeMessage(11, getStartupProbe());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -772,7 +815,18 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, volumeMounts_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(workingDir_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, workingDir_);
+    }
+    if (livenessProbe_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getLivenessProbe());
+    }
+    if (startupProbe_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, getStartupProbe());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -806,7 +860,19 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPortsList())) return false;
     if (!getVolumeMountsList()
         .equals(other.getVolumeMountsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getWorkingDir()
+        .equals(other.getWorkingDir())) return false;
+    if (hasLivenessProbe() != other.hasLivenessProbe()) return false;
+    if (hasLivenessProbe()) {
+      if (!getLivenessProbe()
+          .equals(other.getLivenessProbe())) return false;
+    }
+    if (hasStartupProbe() != other.hasStartupProbe()) return false;
+    if (hasStartupProbe()) {
+      if (!getStartupProbe()
+          .equals(other.getStartupProbe())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -845,7 +911,17 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VOLUME_MOUNTS_FIELD_NUMBER;
       hash = (53 * hash) + getVolumeMountsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + WORKING_DIR_FIELD_NUMBER;
+    hash = (53 * hash) + getWorkingDir().hashCode();
+    if (hasLivenessProbe()) {
+      hash = (37 * hash) + LIVENESS_PROBE_FIELD_NUMBER;
+      hash = (53 * hash) + getLivenessProbe().hashCode();
+    }
+    if (hasStartupProbe()) {
+      hash = (37 * hash) + STARTUP_PROBE_FIELD_NUMBER;
+      hash = (53 * hash) + getStartupProbe().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -970,56 +1046,60 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.run.v2.Container.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getEnvFieldBuilder();
-        getPortsFieldBuilder();
-        getVolumeMountsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       image_ = "";
-
       command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (envBuilder_ == null) {
         env_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        env_ = null;
         envBuilder_.clear();
       }
-      if (resourcesBuilder_ == null) {
-        resources_ = null;
-      } else {
-        resources_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      resources_ = null;
+      if (resourcesBuilder_ != null) {
+        resourcesBuilder_.dispose();
         resourcesBuilder_ = null;
       }
       if (portsBuilder_ == null) {
         ports_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        ports_ = null;
         portsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000040);
       if (volumeMountsBuilder_ == null) {
         volumeMounts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        volumeMounts_ = null;
         volumeMountsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000080);
+      workingDir_ = "";
+      livenessProbe_ = null;
+      if (livenessProbeBuilder_ != null) {
+        livenessProbeBuilder_.dispose();
+        livenessProbeBuilder_ = null;
+      }
+      startupProbe_ = null;
+      if (startupProbeBuilder_ != null) {
+        startupProbeBuilder_.dispose();
+        startupProbeBuilder_ = null;
       }
       return this;
     }
@@ -1047,53 +1127,78 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.run.v2.Container buildPartial() {
       com.google.cloud.run.v2.Container result = new com.google.cloud.run.v2.Container(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.image_ = image_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.run.v2.Container result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         command_ = command_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.command_ = command_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         args_ = args_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.args_ = args_;
       if (envBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           env_ = java.util.Collections.unmodifiableList(env_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.env_ = env_;
       } else {
         result.env_ = envBuilder_.build();
       }
-      if (resourcesBuilder_ == null) {
-        result.resources_ = resources_;
-      } else {
-        result.resources_ = resourcesBuilder_.build();
-      }
       if (portsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           ports_ = java.util.Collections.unmodifiableList(ports_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.ports_ = ports_;
       } else {
         result.ports_ = portsBuilder_.build();
       }
       if (volumeMountsBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           volumeMounts_ = java.util.Collections.unmodifiableList(volumeMounts_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.volumeMounts_ = volumeMounts_;
       } else {
         result.volumeMounts_ = volumeMountsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.run.v2.Container result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.image_ = image_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.resources_ = resourcesBuilder_ == null
+            ? resources_
+            : resourcesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.workingDir_ = workingDir_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.livenessProbe_ = livenessProbeBuilder_ == null
+            ? livenessProbe_
+            : livenessProbeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.startupProbe_ = startupProbeBuilder_ == null
+            ? startupProbe_
+            : startupProbeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1142,16 +1247,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.run.v2.Container.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getImage().isEmpty()) {
         image_ = other.image_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.command_.isEmpty()) {
         if (command_.isEmpty()) {
           command_ = other.command_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureCommandIsMutable();
           command_.addAll(other.command_);
@@ -1161,7 +1268,7 @@ private static final long serialVersionUID = 0L;
       if (!other.args_.isEmpty()) {
         if (args_.isEmpty()) {
           args_ = other.args_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureArgsIsMutable();
           args_.addAll(other.args_);
@@ -1172,7 +1279,7 @@ private static final long serialVersionUID = 0L;
         if (!other.env_.isEmpty()) {
           if (env_.isEmpty()) {
             env_ = other.env_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureEnvIsMutable();
             env_.addAll(other.env_);
@@ -1185,7 +1292,7 @@ private static final long serialVersionUID = 0L;
             envBuilder_.dispose();
             envBuilder_ = null;
             env_ = other.env_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000010);
             envBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEnvFieldBuilder() : null;
@@ -1201,7 +1308,7 @@ private static final long serialVersionUID = 0L;
         if (!other.ports_.isEmpty()) {
           if (ports_.isEmpty()) {
             ports_ = other.ports_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensurePortsIsMutable();
             ports_.addAll(other.ports_);
@@ -1214,7 +1321,7 @@ private static final long serialVersionUID = 0L;
             portsBuilder_.dispose();
             portsBuilder_ = null;
             ports_ = other.ports_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000040);
             portsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPortsFieldBuilder() : null;
@@ -1227,7 +1334,7 @@ private static final long serialVersionUID = 0L;
         if (!other.volumeMounts_.isEmpty()) {
           if (volumeMounts_.isEmpty()) {
             volumeMounts_ = other.volumeMounts_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureVolumeMountsIsMutable();
             volumeMounts_.addAll(other.volumeMounts_);
@@ -1240,7 +1347,7 @@ private static final long serialVersionUID = 0L;
             volumeMountsBuilder_.dispose();
             volumeMountsBuilder_ = null;
             volumeMounts_ = other.volumeMounts_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000080);
             volumeMountsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVolumeMountsFieldBuilder() : null;
@@ -1249,7 +1356,18 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getWorkingDir().isEmpty()) {
+        workingDir_ = other.workingDir_;
+        bitField0_ |= 0x00000100;
+        onChanged();
+      }
+      if (other.hasLivenessProbe()) {
+        mergeLivenessProbe(other.getLivenessProbe());
+      }
+      if (other.hasStartupProbe()) {
+        mergeStartupProbe(other.getStartupProbe());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1264,17 +1382,117 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.run.v2.Container parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              image_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCommandIsMutable();
+              command_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureArgsIsMutable();
+              args_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.run.v2.EnvVar m =
+                  input.readMessage(
+                      com.google.cloud.run.v2.EnvVar.parser(),
+                      extensionRegistry);
+              if (envBuilder_ == null) {
+                ensureEnvIsMutable();
+                env_.add(m);
+              } else {
+                envBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getResourcesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.cloud.run.v2.ContainerPort m =
+                  input.readMessage(
+                      com.google.cloud.run.v2.ContainerPort.parser(),
+                      extensionRegistry);
+              if (portsBuilder_ == null) {
+                ensurePortsIsMutable();
+                ports_.add(m);
+              } else {
+                portsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              com.google.cloud.run.v2.VolumeMount m =
+                  input.readMessage(
+                      com.google.cloud.run.v2.VolumeMount.parser(),
+                      extensionRegistry);
+              if (volumeMountsBuilder_ == null) {
+                ensureVolumeMountsIsMutable();
+                volumeMounts_.add(m);
+              } else {
+                volumeMountsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              workingDir_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getLivenessProbeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getStartupProbeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.run.v2.Container) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1332,11 +1550,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1349,8 +1565,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1365,12 +1581,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1431,11 +1645,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       image_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1449,8 +1661,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImage() {
-      
       image_ = getDefaultInstance().getImage();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1466,21 +1678,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       image_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCommandIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         command_ = new com.google.protobuf.LazyStringArrayList(command_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1583,10 +1793,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommand(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCommandIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCommandIsMutable();
       command_.set(index, value);
       onChanged();
       return this;
@@ -1610,10 +1818,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCommand(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCommandIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCommandIsMutable();
       command_.add(value);
       onChanged();
       return this;
@@ -1661,7 +1867,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCommand() {
       command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1684,10 +1890,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCommandBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCommandIsMutable();
       command_.add(value);
       onChanged();
@@ -1696,9 +1900,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureArgsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         args_ = new com.google.protobuf.LazyStringArrayList(args_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1801,10 +2005,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArgs(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureArgsIsMutable();
       args_.set(index, value);
       onChanged();
       return this;
@@ -1828,10 +2030,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addArgs(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureArgsIsMutable();
       args_.add(value);
       onChanged();
       return this;
@@ -1879,7 +2079,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearArgs() {
       args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1902,10 +2102,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addArgsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureArgsIsMutable();
       args_.add(value);
       onChanged();
@@ -1915,9 +2113,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.run.v2.EnvVar> env_ =
       java.util.Collections.emptyList();
     private void ensureEnvIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         env_ = new java.util.ArrayList<com.google.cloud.run.v2.EnvVar>(env_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2111,7 +2309,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEnv() {
       if (envBuilder_ == null) {
         env_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         envBuilder_.clear();
@@ -2216,7 +2414,7 @@ private static final long serialVersionUID = 0L;
         envBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.run.v2.EnvVar, com.google.cloud.run.v2.EnvVar.Builder, com.google.cloud.run.v2.EnvVarOrBuilder>(
                 env_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         env_ = null;
@@ -2238,7 +2436,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resources field is set.
      */
     public boolean hasResources() {
-      return resourcesBuilder_ != null || resources_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2272,11 +2470,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resources_ = value;
-        onChanged();
       } else {
         resourcesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2292,11 +2490,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.run.v2.ResourceRequirements.Builder builderForValue) {
       if (resourcesBuilder_ == null) {
         resources_ = builderForValue.build();
-        onChanged();
       } else {
         resourcesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2310,17 +2508,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResources(com.google.cloud.run.v2.ResourceRequirements value) {
       if (resourcesBuilder_ == null) {
-        if (resources_ != null) {
-          resources_ =
-            com.google.cloud.run.v2.ResourceRequirements.newBuilder(resources_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          resources_ != null &&
+          resources_ != com.google.cloud.run.v2.ResourceRequirements.getDefaultInstance()) {
+          getResourcesBuilder().mergeFrom(value);
         } else {
           resources_ = value;
         }
-        onChanged();
       } else {
         resourcesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2333,14 +2532,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.run.v2.ResourceRequirements resources = 6;</code>
      */
     public Builder clearResources() {
-      if (resourcesBuilder_ == null) {
-        resources_ = null;
-        onChanged();
-      } else {
-        resources_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      resources_ = null;
+      if (resourcesBuilder_ != null) {
+        resourcesBuilder_.dispose();
         resourcesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2353,7 +2551,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.run.v2.ResourceRequirements resources = 6;</code>
      */
     public com.google.cloud.run.v2.ResourceRequirements.Builder getResourcesBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getResourcesFieldBuilder().getBuilder();
     }
@@ -2400,9 +2598,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.run.v2.ContainerPort> ports_ =
       java.util.Collections.emptyList();
     private void ensurePortsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         ports_ = new java.util.ArrayList<com.google.cloud.run.v2.ContainerPort>(ports_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2640,7 +2838,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPorts() {
       if (portsBuilder_ == null) {
         ports_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         portsBuilder_.clear();
@@ -2773,7 +2971,7 @@ private static final long serialVersionUID = 0L;
         portsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.run.v2.ContainerPort, com.google.cloud.run.v2.ContainerPort.Builder, com.google.cloud.run.v2.ContainerPortOrBuilder>(
                 ports_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         ports_ = null;
@@ -2784,9 +2982,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.run.v2.VolumeMount> volumeMounts_ =
       java.util.Collections.emptyList();
     private void ensureVolumeMountsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         volumeMounts_ = new java.util.ArrayList<com.google.cloud.run.v2.VolumeMount>(volumeMounts_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2980,7 +3178,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearVolumeMounts() {
       if (volumeMountsBuilder_ == null) {
         volumeMounts_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         volumeMountsBuilder_.clear();
@@ -3085,12 +3283,496 @@ private static final long serialVersionUID = 0L;
         volumeMountsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.run.v2.VolumeMount, com.google.cloud.run.v2.VolumeMount.Builder, com.google.cloud.run.v2.VolumeMountOrBuilder>(
                 volumeMounts_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         volumeMounts_ = null;
       }
       return volumeMountsBuilder_;
+    }
+
+    private java.lang.Object workingDir_ = "";
+    /**
+     * <pre>
+     * Container's working directory.
+     * If not specified, the container runtime's default will be used, which
+     * might be configured in the container image.
+     * </pre>
+     *
+     * <code>string working_dir = 9;</code>
+     * @return The workingDir.
+     */
+    public java.lang.String getWorkingDir() {
+      java.lang.Object ref = workingDir_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        workingDir_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Container's working directory.
+     * If not specified, the container runtime's default will be used, which
+     * might be configured in the container image.
+     * </pre>
+     *
+     * <code>string working_dir = 9;</code>
+     * @return The bytes for workingDir.
+     */
+    public com.google.protobuf.ByteString
+        getWorkingDirBytes() {
+      java.lang.Object ref = workingDir_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        workingDir_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Container's working directory.
+     * If not specified, the container runtime's default will be used, which
+     * might be configured in the container image.
+     * </pre>
+     *
+     * <code>string working_dir = 9;</code>
+     * @param value The workingDir to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWorkingDir(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      workingDir_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Container's working directory.
+     * If not specified, the container runtime's default will be used, which
+     * might be configured in the container image.
+     * </pre>
+     *
+     * <code>string working_dir = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWorkingDir() {
+      workingDir_ = getDefaultInstance().getWorkingDir();
+      bitField0_ = (bitField0_ & ~0x00000100);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Container's working directory.
+     * If not specified, the container runtime's default will be used, which
+     * might be configured in the container image.
+     * </pre>
+     *
+     * <code>string working_dir = 9;</code>
+     * @param value The bytes for workingDir to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWorkingDirBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      workingDir_ = value;
+      bitField0_ |= 0x00000100;
+      onChanged();
+      return this;
+    }
+
+    private com.google.cloud.run.v2.Probe livenessProbe_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.run.v2.Probe, com.google.cloud.run.v2.Probe.Builder, com.google.cloud.run.v2.ProbeOrBuilder> livenessProbeBuilder_;
+    /**
+     * <pre>
+     * Periodic probe of container liveness.
+     * Container will be restarted if the probe fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+     * @return Whether the livenessProbe field is set.
+     */
+    public boolean hasLivenessProbe() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <pre>
+     * Periodic probe of container liveness.
+     * Container will be restarted if the probe fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+     * @return The livenessProbe.
+     */
+    public com.google.cloud.run.v2.Probe getLivenessProbe() {
+      if (livenessProbeBuilder_ == null) {
+        return livenessProbe_ == null ? com.google.cloud.run.v2.Probe.getDefaultInstance() : livenessProbe_;
+      } else {
+        return livenessProbeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Periodic probe of container liveness.
+     * Container will be restarted if the probe fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+     */
+    public Builder setLivenessProbe(com.google.cloud.run.v2.Probe value) {
+      if (livenessProbeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        livenessProbe_ = value;
+      } else {
+        livenessProbeBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Periodic probe of container liveness.
+     * Container will be restarted if the probe fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+     */
+    public Builder setLivenessProbe(
+        com.google.cloud.run.v2.Probe.Builder builderForValue) {
+      if (livenessProbeBuilder_ == null) {
+        livenessProbe_ = builderForValue.build();
+      } else {
+        livenessProbeBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Periodic probe of container liveness.
+     * Container will be restarted if the probe fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+     */
+    public Builder mergeLivenessProbe(com.google.cloud.run.v2.Probe value) {
+      if (livenessProbeBuilder_ == null) {
+        if (((bitField0_ & 0x00000200) != 0) &&
+          livenessProbe_ != null &&
+          livenessProbe_ != com.google.cloud.run.v2.Probe.getDefaultInstance()) {
+          getLivenessProbeBuilder().mergeFrom(value);
+        } else {
+          livenessProbe_ = value;
+        }
+      } else {
+        livenessProbeBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Periodic probe of container liveness.
+     * Container will be restarted if the probe fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+     */
+    public Builder clearLivenessProbe() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      livenessProbe_ = null;
+      if (livenessProbeBuilder_ != null) {
+        livenessProbeBuilder_.dispose();
+        livenessProbeBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Periodic probe of container liveness.
+     * Container will be restarted if the probe fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+     */
+    public com.google.cloud.run.v2.Probe.Builder getLivenessProbeBuilder() {
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return getLivenessProbeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Periodic probe of container liveness.
+     * Container will be restarted if the probe fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+     */
+    public com.google.cloud.run.v2.ProbeOrBuilder getLivenessProbeOrBuilder() {
+      if (livenessProbeBuilder_ != null) {
+        return livenessProbeBuilder_.getMessageOrBuilder();
+      } else {
+        return livenessProbe_ == null ?
+            com.google.cloud.run.v2.Probe.getDefaultInstance() : livenessProbe_;
+      }
+    }
+    /**
+     * <pre>
+     * Periodic probe of container liveness.
+     * Container will be restarted if the probe fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe liveness_probe = 10;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.run.v2.Probe, com.google.cloud.run.v2.Probe.Builder, com.google.cloud.run.v2.ProbeOrBuilder> 
+        getLivenessProbeFieldBuilder() {
+      if (livenessProbeBuilder_ == null) {
+        livenessProbeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.run.v2.Probe, com.google.cloud.run.v2.Probe.Builder, com.google.cloud.run.v2.ProbeOrBuilder>(
+                getLivenessProbe(),
+                getParentForChildren(),
+                isClean());
+        livenessProbe_ = null;
+      }
+      return livenessProbeBuilder_;
+    }
+
+    private com.google.cloud.run.v2.Probe startupProbe_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.run.v2.Probe, com.google.cloud.run.v2.Probe.Builder, com.google.cloud.run.v2.ProbeOrBuilder> startupProbeBuilder_;
+    /**
+     * <pre>
+     * Startup probe of application within the container.
+     * All other probes are disabled if a startup probe is provided, until it
+     * succeeds. Container will not be added to service endpoints if the probe
+     * fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+     * @return Whether the startupProbe field is set.
+     */
+    public boolean hasStartupProbe() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <pre>
+     * Startup probe of application within the container.
+     * All other probes are disabled if a startup probe is provided, until it
+     * succeeds. Container will not be added to service endpoints if the probe
+     * fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+     * @return The startupProbe.
+     */
+    public com.google.cloud.run.v2.Probe getStartupProbe() {
+      if (startupProbeBuilder_ == null) {
+        return startupProbe_ == null ? com.google.cloud.run.v2.Probe.getDefaultInstance() : startupProbe_;
+      } else {
+        return startupProbeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Startup probe of application within the container.
+     * All other probes are disabled if a startup probe is provided, until it
+     * succeeds. Container will not be added to service endpoints if the probe
+     * fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+     */
+    public Builder setStartupProbe(com.google.cloud.run.v2.Probe value) {
+      if (startupProbeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        startupProbe_ = value;
+      } else {
+        startupProbeBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Startup probe of application within the container.
+     * All other probes are disabled if a startup probe is provided, until it
+     * succeeds. Container will not be added to service endpoints if the probe
+     * fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+     */
+    public Builder setStartupProbe(
+        com.google.cloud.run.v2.Probe.Builder builderForValue) {
+      if (startupProbeBuilder_ == null) {
+        startupProbe_ = builderForValue.build();
+      } else {
+        startupProbeBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Startup probe of application within the container.
+     * All other probes are disabled if a startup probe is provided, until it
+     * succeeds. Container will not be added to service endpoints if the probe
+     * fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+     */
+    public Builder mergeStartupProbe(com.google.cloud.run.v2.Probe value) {
+      if (startupProbeBuilder_ == null) {
+        if (((bitField0_ & 0x00000400) != 0) &&
+          startupProbe_ != null &&
+          startupProbe_ != com.google.cloud.run.v2.Probe.getDefaultInstance()) {
+          getStartupProbeBuilder().mergeFrom(value);
+        } else {
+          startupProbe_ = value;
+        }
+      } else {
+        startupProbeBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Startup probe of application within the container.
+     * All other probes are disabled if a startup probe is provided, until it
+     * succeeds. Container will not be added to service endpoints if the probe
+     * fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+     */
+    public Builder clearStartupProbe() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      startupProbe_ = null;
+      if (startupProbeBuilder_ != null) {
+        startupProbeBuilder_.dispose();
+        startupProbeBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Startup probe of application within the container.
+     * All other probes are disabled if a startup probe is provided, until it
+     * succeeds. Container will not be added to service endpoints if the probe
+     * fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+     */
+    public com.google.cloud.run.v2.Probe.Builder getStartupProbeBuilder() {
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return getStartupProbeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Startup probe of application within the container.
+     * All other probes are disabled if a startup probe is provided, until it
+     * succeeds. Container will not be added to service endpoints if the probe
+     * fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+     */
+    public com.google.cloud.run.v2.ProbeOrBuilder getStartupProbeOrBuilder() {
+      if (startupProbeBuilder_ != null) {
+        return startupProbeBuilder_.getMessageOrBuilder();
+      } else {
+        return startupProbe_ == null ?
+            com.google.cloud.run.v2.Probe.getDefaultInstance() : startupProbe_;
+      }
+    }
+    /**
+     * <pre>
+     * Startup probe of application within the container.
+     * All other probes are disabled if a startup probe is provided, until it
+     * succeeds. Container will not be added to service endpoints if the probe
+     * fails.
+     * More info:
+     * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
+     * </pre>
+     *
+     * <code>.google.cloud.run.v2.Probe startup_probe = 11;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.run.v2.Probe, com.google.cloud.run.v2.Probe.Builder, com.google.cloud.run.v2.ProbeOrBuilder> 
+        getStartupProbeFieldBuilder() {
+      if (startupProbeBuilder_ == null) {
+        startupProbeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.run.v2.Probe, com.google.cloud.run.v2.Probe.Builder, com.google.cloud.run.v2.ProbeOrBuilder>(
+                getStartupProbe(),
+                getParentForChildren(),
+                isClean());
+        startupProbe_ = null;
+      }
+      return startupProbeBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -3125,7 +3807,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Container(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,93 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TextSentimentEvaluationMetrics(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 13: {
-
-            precision_ = input.readFloat();
-            break;
-          }
-          case 21: {
-
-            recall_ = input.readFloat();
-            break;
-          }
-          case 29: {
-
-            f1Score_ = input.readFloat();
-            break;
-          }
-          case 37: {
-
-            meanAbsoluteError_ = input.readFloat();
-            break;
-          }
-          case 45: {
-
-            meanSquaredError_ = input.readFloat();
-            break;
-          }
-          case 53: {
-
-            linearKappa_ = input.readFloat();
-            break;
-          }
-          case 61: {
-
-            quadraticKappa_ = input.readFloat();
-            break;
-          }
-          case 66: {
-            com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Builder subBuilder = null;
-            if (confusionMatrix_ != null) {
-              subBuilder = confusionMatrix_.toBuilder();
-            }
-            confusionMatrix_ = input.readMessage(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(confusionMatrix_);
-              confusionMatrix_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1.TextSentimentProto.internal_static_google_cloud_automl_v1_TextSentimentEvaluationMetrics_descriptor;
@@ -135,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRECISION_FIELD_NUMBER = 1;
-  private float precision_;
+  private float precision_ = 0F;
   /**
    * <pre>
    * Output only. Precision.
@@ -150,7 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECALL_FIELD_NUMBER = 2;
-  private float recall_;
+  private float recall_ = 0F;
   /**
    * <pre>
    * Output only. Recall.
@@ -165,7 +78,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int F1_SCORE_FIELD_NUMBER = 3;
-  private float f1Score_;
+  private float f1Score_ = 0F;
   /**
    * <pre>
    * Output only. The harmonic mean of recall and precision.
@@ -180,7 +93,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEAN_ABSOLUTE_ERROR_FIELD_NUMBER = 4;
-  private float meanAbsoluteError_;
+  private float meanAbsoluteError_ = 0F;
   /**
    * <pre>
    * Output only. Mean absolute error. Only set for the overall model
@@ -196,7 +109,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEAN_SQUARED_ERROR_FIELD_NUMBER = 5;
-  private float meanSquaredError_;
+  private float meanSquaredError_ = 0F;
   /**
    * <pre>
    * Output only. Mean squared error. Only set for the overall model
@@ -212,7 +125,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LINEAR_KAPPA_FIELD_NUMBER = 6;
-  private float linearKappa_;
+  private float linearKappa_ = 0F;
   /**
    * <pre>
    * Output only. Linear weighted kappa. Only set for the overall model
@@ -228,7 +141,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUADRATIC_KAPPA_FIELD_NUMBER = 7;
-  private float quadraticKappa_;
+  private float quadraticKappa_ = 0F;
   /**
    * <pre>
    * Output only. Quadratic weighted kappa. Only set for the overall model
@@ -284,7 +197,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrixOrBuilder getConfusionMatrixOrBuilder() {
-    return getConfusionMatrix();
+    return confusionMatrix_ == null ? com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.getDefaultInstance() : confusionMatrix_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -325,7 +238,7 @@ private static final long serialVersionUID = 0L;
     if (confusionMatrix_ != null) {
       output.writeMessage(8, getConfusionMatrix());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -366,7 +279,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getConfusionMatrix());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -407,7 +320,7 @@ private static final long serialVersionUID = 0L;
       if (!getConfusionMatrix()
           .equals(other.getConfusionMatrix())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -443,7 +356,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONFUSION_MATRIX_FIELD_NUMBER;
       hash = (53 * hash) + getConfusionMatrix().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -564,40 +477,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1.TextSentimentEvaluationMetrics.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       precision_ = 0F;
-
       recall_ = 0F;
-
       f1Score_ = 0F;
-
       meanAbsoluteError_ = 0F;
-
       meanSquaredError_ = 0F;
-
       linearKappa_ = 0F;
-
       quadraticKappa_ = 0F;
-
-      if (confusionMatrixBuilder_ == null) {
-        confusionMatrix_ = null;
-      } else {
-        confusionMatrix_ = null;
+      confusionMatrix_ = null;
+      if (confusionMatrixBuilder_ != null) {
+        confusionMatrixBuilder_.dispose();
         confusionMatrixBuilder_ = null;
       }
       return this;
@@ -626,20 +527,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1.TextSentimentEvaluationMetrics buildPartial() {
       com.google.cloud.automl.v1.TextSentimentEvaluationMetrics result = new com.google.cloud.automl.v1.TextSentimentEvaluationMetrics(this);
-      result.precision_ = precision_;
-      result.recall_ = recall_;
-      result.f1Score_ = f1Score_;
-      result.meanAbsoluteError_ = meanAbsoluteError_;
-      result.meanSquaredError_ = meanSquaredError_;
-      result.linearKappa_ = linearKappa_;
-      result.quadraticKappa_ = quadraticKappa_;
-      if (confusionMatrixBuilder_ == null) {
-        result.confusionMatrix_ = confusionMatrix_;
-      } else {
-        result.confusionMatrix_ = confusionMatrixBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1.TextSentimentEvaluationMetrics result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.precision_ = precision_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.recall_ = recall_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.f1Score_ = f1Score_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.meanAbsoluteError_ = meanAbsoluteError_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.meanSquaredError_ = meanSquaredError_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.linearKappa_ = linearKappa_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.quadraticKappa_ = quadraticKappa_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.confusionMatrix_ = confusionMatrixBuilder_ == null
+            ? confusionMatrix_
+            : confusionMatrixBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -710,7 +630,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasConfusionMatrix()) {
         mergeConfusionMatrix(other.getConfusionMatrix());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -725,19 +645,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1.TextSentimentEvaluationMetrics parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+              precision_ = input.readFloat();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 13
+            case 21: {
+              recall_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 21
+            case 29: {
+              f1Score_ = input.readFloat();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 29
+            case 37: {
+              meanAbsoluteError_ = input.readFloat();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 37
+            case 45: {
+              meanSquaredError_ = input.readFloat();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 45
+            case 53: {
+              linearKappa_ = input.readFloat();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 53
+            case 61: {
+              quadraticKappa_ = input.readFloat();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 61
+            case 66: {
+              input.readMessage(
+                  getConfusionMatrixFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1.TextSentimentEvaluationMetrics) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private float precision_ ;
     /**
@@ -764,6 +740,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPrecision(float value) {
       
       precision_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -776,7 +753,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrecision() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       precision_ = 0F;
       onChanged();
       return this;
@@ -807,6 +784,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRecall(float value) {
       
       recall_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -819,7 +797,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecall() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       recall_ = 0F;
       onChanged();
       return this;
@@ -850,6 +828,7 @@ private static final long serialVersionUID = 0L;
     public Builder setF1Score(float value) {
       
       f1Score_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -862,7 +841,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearF1Score() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       f1Score_ = 0F;
       onChanged();
       return this;
@@ -895,6 +874,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMeanAbsoluteError(float value) {
       
       meanAbsoluteError_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -908,7 +888,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMeanAbsoluteError() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       meanAbsoluteError_ = 0F;
       onChanged();
       return this;
@@ -941,6 +921,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMeanSquaredError(float value) {
       
       meanSquaredError_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -954,7 +935,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMeanSquaredError() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       meanSquaredError_ = 0F;
       onChanged();
       return this;
@@ -987,6 +968,7 @@ private static final long serialVersionUID = 0L;
     public Builder setLinearKappa(float value) {
       
       linearKappa_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1000,7 +982,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLinearKappa() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       linearKappa_ = 0F;
       onChanged();
       return this;
@@ -1033,6 +1015,7 @@ private static final long serialVersionUID = 0L;
     public Builder setQuadraticKappa(float value) {
       
       quadraticKappa_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1046,7 +1029,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuadraticKappa() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       quadraticKappa_ = 0F;
       onChanged();
       return this;
@@ -1066,7 +1049,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the confusionMatrix field is set.
      */
     public boolean hasConfusionMatrix() {
-      return confusionMatrixBuilder_ != null || confusionMatrix_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1100,11 +1083,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         confusionMatrix_ = value;
-        onChanged();
       } else {
         confusionMatrixBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1120,11 +1103,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Builder builderForValue) {
       if (confusionMatrixBuilder_ == null) {
         confusionMatrix_ = builderForValue.build();
-        onChanged();
       } else {
         confusionMatrixBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1138,17 +1121,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfusionMatrix(com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix value) {
       if (confusionMatrixBuilder_ == null) {
-        if (confusionMatrix_ != null) {
-          confusionMatrix_ =
-            com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.newBuilder(confusionMatrix_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          confusionMatrix_ != null &&
+          confusionMatrix_ != com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.getDefaultInstance()) {
+          getConfusionMatrixBuilder().mergeFrom(value);
         } else {
           confusionMatrix_ = value;
         }
-        onChanged();
       } else {
         confusionMatrixBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1161,14 +1145,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix confusion_matrix = 8;</code>
      */
     public Builder clearConfusionMatrix() {
-      if (confusionMatrixBuilder_ == null) {
-        confusionMatrix_ = null;
-        onChanged();
-      } else {
-        confusionMatrix_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      confusionMatrix_ = null;
+      if (confusionMatrixBuilder_ != null) {
+        confusionMatrixBuilder_.dispose();
         confusionMatrixBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1181,7 +1164,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix confusion_matrix = 8;</code>
      */
     public com.google.cloud.automl.v1.ClassificationEvaluationMetrics.ConfusionMatrix.Builder getConfusionMatrixBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getConfusionMatrixFieldBuilder().getBuilder();
     }
@@ -1257,7 +1240,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TextSentimentEvaluationMetrics(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

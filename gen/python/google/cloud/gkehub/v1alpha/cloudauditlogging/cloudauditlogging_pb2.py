@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nEgoogle/cloud/gkehub/v1alpha/cloudauditlogging/cloudauditlogging.proto\x12-google.cloud.gkehub.cloudauditlogging.v1alpha\x1a\x1cgoogle/api/annotations.proto\"3\n\x0b\x46\x65\x61tureSpec\x12$\n\x1c\x61llowlisted_service_accounts\x18\x01 \x03(\tB\xc1\x02\n1com.google.cloud.gkehub.cloudauditlogging.v1alphaB\x16\x43loudAuditLoggingProtoP\x01Z^google.golang.org/genproto/googleapis/cloud/gkehub/cloudauditlogging/v1alpha;cloudauditlogging\xaa\x02-Google.Cloud.GkeHub.CloudAuditLogging.V1Alpha\xca\x02-Google\\Cloud\\GkeHub\\CloudAuditLogging\\V1alpha\xea\x02\x31Google::Cloud::GkeHub::CloudAuditLogging::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nEgoogle/cloud/gkehub/v1alpha/cloudauditlogging/cloudauditlogging.proto\x12-google.cloud.gkehub.cloudauditlogging.v1alpha\"3\n\x0b\x46\x65\x61tureSpec\x12$\n\x1c\x61llowlisted_service_accounts\x18\x01 \x03(\tB\xc1\x02\n1com.google.cloud.gkehub.cloudauditlogging.v1alphaB\x16\x43loudAuditLoggingProtoP\x01Z^google.golang.org/genproto/googleapis/cloud/gkehub/cloudauditlogging/v1alpha;cloudauditlogging\xaa\x02-Google.Cloud.GkeHub.CloudAuditLogging.V1Alpha\xca\x02-Google\\Cloud\\GkeHub\\CloudAuditLogging\\V1alpha\xea\x02\x31Google::Cloud::GkeHub::CloudAuditLogging::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.gkehub.v1alpha.cloudauditlogging.cloudauditlogging_pb2', globals())
@@ -22,6 +21,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n1com.google.cloud.gkehub.cloudauditlogging.v1alphaB\026CloudAuditLoggingProtoP\001Z^google.golang.org/genproto/googleapis/cloud/gkehub/cloudauditlogging/v1alpha;cloudauditlogging\252\002-Google.Cloud.GkeHub.CloudAuditLogging.V1Alpha\312\002-Google\\Cloud\\GkeHub\\CloudAuditLogging\\V1alpha\352\0021Google::Cloud::GkeHub::CloudAuditLogging::V1alpha'
-  _FEATURESPEC._serialized_start=150
-  _FEATURESPEC._serialized_end=201
+  _FEATURESPEC._serialized_start=120
+  _FEATURESPEC._serialized_end=171
 # @@protoc_insertion_point(module_scope)

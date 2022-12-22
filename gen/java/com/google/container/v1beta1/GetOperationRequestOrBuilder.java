@@ -16,7 +16,7 @@ public interface GetOperationRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.GetOperationRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2872
+   *     See google/container/v1beta1/cluster_service.proto;l=2943
    * @return The projectId.
    */
   @java.lang.Deprecated java.lang.String getProjectId();
@@ -29,7 +29,7 @@ public interface GetOperationRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.GetOperationRequest.project_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2872
+   *     See google/container/v1beta1/cluster_service.proto;l=2943
    * @return The bytes for projectId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -45,7 +45,7 @@ public interface GetOperationRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.GetOperationRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2881
+   *     See google/container/v1beta1/cluster_service.proto;l=2952
    * @return The zone.
    */
   @java.lang.Deprecated java.lang.String getZone();
@@ -59,7 +59,7 @@ public interface GetOperationRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.GetOperationRequest.zone is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2881
+   *     See google/container/v1beta1/cluster_service.proto;l=2952
    * @return The bytes for zone.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -73,7 +73,7 @@ public interface GetOperationRequestOrBuilder extends
    *
    * <code>string operation_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.GetOperationRequest.operation_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2888
+   *     See google/container/v1beta1/cluster_service.proto;l=2959
    * @return The operationId.
    */
   @java.lang.Deprecated java.lang.String getOperationId();
@@ -85,7 +85,7 @@ public interface GetOperationRequestOrBuilder extends
    *
    * <code>string operation_id = 3 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.container.v1beta1.GetOperationRequest.operation_id is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=2888
+   *     See google/container/v1beta1/cluster_service.proto;l=2959
    * @return The bytes for operationId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

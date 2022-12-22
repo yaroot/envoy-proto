@@ -49,7 +49,7 @@ public interface BatchPredictionJobOrBuilder extends
 
   /**
    * <pre>
-   * The name of the Model resoure that produces the predictions via this job,
+   * The name of the Model resource that produces the predictions via this job,
    * must share the same ancestor Location.
    * Starting this job has no impact on any existing deployments of the Model
    * and their resources.
@@ -64,7 +64,7 @@ public interface BatchPredictionJobOrBuilder extends
   java.lang.String getModel();
   /**
    * <pre>
-   * The name of the Model resoure that produces the predictions via this job,
+   * The name of the Model resource that produces the predictions via this job,
    * must share the same ancestor Location.
    * Starting this job has no impact on any existing deployments of the Model
    * and their resources.
@@ -296,6 +296,36 @@ public interface BatchPredictionJobOrBuilder extends
 
   /**
    * <pre>
+   * The service account that the DeployedModel's container runs as. If not
+   * specified, a system generated one will be used, which
+   * has minimal permissions and the custom container, if used, may not have
+   * enough permission to access other Google Cloud resources.
+   * Users deploying the Model must have the `iam.serviceAccounts.actAs`
+   * permission on this service account.
+   * </pre>
+   *
+   * <code>string service_account = 29;</code>
+   * @return The serviceAccount.
+   */
+  java.lang.String getServiceAccount();
+  /**
+   * <pre>
+   * The service account that the DeployedModel's container runs as. If not
+   * specified, a system generated one will be used, which
+   * has minimal permissions and the custom container, if used, may not have
+   * enough permission to access other Google Cloud resources.
+   * Users deploying the Model must have the `iam.serviceAccounts.actAs`
+   * permission on this service account.
+   * </pre>
+   *
+   * <code>string service_account = 29;</code>
+   * @return The bytes for serviceAccount.
+   */
+  com.google.protobuf.ByteString
+      getServiceAccountBytes();
+
+  /**
+   * <pre>
    * Immutable. Parameters configuring the batch behavior. Currently only applicable when
    * [dedicated_resources][google.cloud.aiplatform.v1.BatchPredictionJob.dedicated_resources] are used (in other cases Vertex AI does
    * the tuning itself).
@@ -471,7 +501,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -483,7 +513,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -494,7 +524,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -505,7 +535,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -517,7 +547,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -760,7 +790,6 @@ public interface BatchPredictionJobOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 19;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -777,7 +806,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 19;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

@@ -36,135 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private XyChart(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              dataSets_ = new java.util.ArrayList<com.google.monitoring.dashboard.v1.XyChart.DataSet>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            dataSets_.add(
-                input.readMessage(com.google.monitoring.dashboard.v1.XyChart.DataSet.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeshiftDuration_ != null) {
-              subBuilder = timeshiftDuration_.toBuilder();
-            }
-            timeshiftDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeshiftDuration_);
-              timeshiftDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              thresholds_ = new java.util.ArrayList<com.google.monitoring.dashboard.v1.Threshold>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            thresholds_.add(
-                input.readMessage(com.google.monitoring.dashboard.v1.Threshold.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.monitoring.dashboard.v1.XyChart.Axis.Builder subBuilder = null;
-            if (xAxis_ != null) {
-              subBuilder = xAxis_.toBuilder();
-            }
-            xAxis_ = input.readMessage(com.google.monitoring.dashboard.v1.XyChart.Axis.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(xAxis_);
-              xAxis_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.monitoring.dashboard.v1.XyChart.Axis.Builder subBuilder = null;
-            if (yAxis_ != null) {
-              subBuilder = yAxis_.toBuilder();
-            }
-            yAxis_ = input.readMessage(com.google.monitoring.dashboard.v1.XyChart.Axis.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(yAxis_);
-              yAxis_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.monitoring.dashboard.v1.ChartOptions.Builder subBuilder = null;
-            if (chartOptions_ != null) {
-              subBuilder = chartOptions_.toBuilder();
-            }
-            chartOptions_ = input.readMessage(com.google.monitoring.dashboard.v1.ChartOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(chartOptions_);
-              chartOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.monitoring.dashboard.v1.XyChart.Axis.Builder subBuilder = null;
-            if (y2Axis_ != null) {
-              subBuilder = y2Axis_.toBuilder();
-            }
-            y2Axis_ = input.readMessage(com.google.monitoring.dashboard.v1.XyChart.Axis.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(y2Axis_);
-              y2Axis_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        dataSets_ = java.util.Collections.unmodifiableList(dataSets_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        thresholds_ = java.util.Collections.unmodifiableList(thresholds_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.XyChartProto.internal_static_google_monitoring_dashboard_v1_XyChart_descriptor;
@@ -346,89 +217,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private DataSet(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.monitoring.dashboard.v1.TimeSeriesQuery.Builder subBuilder = null;
-              if (timeSeriesQuery_ != null) {
-                subBuilder = timeSeriesQuery_.toBuilder();
-              }
-              timeSeriesQuery_ = input.readMessage(com.google.monitoring.dashboard.v1.TimeSeriesQuery.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timeSeriesQuery_);
-                timeSeriesQuery_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              plotType_ = rawValue;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              legendTemplate_ = s;
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (minAlignmentPeriod_ != null) {
-                subBuilder = minAlignmentPeriod_.toBuilder();
-              }
-              minAlignmentPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(minAlignmentPeriod_);
-                minAlignmentPeriod_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-
-              targetAxis_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -823,11 +611,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.TimeSeriesQueryOrBuilder getTimeSeriesQueryOrBuilder() {
-      return getTimeSeriesQuery();
+      return timeSeriesQuery_ == null ? com.google.monitoring.dashboard.v1.TimeSeriesQuery.getDefaultInstance() : timeSeriesQuery_;
     }
 
     public static final int PLOT_TYPE_FIELD_NUMBER = 2;
-    private int plotType_;
+    private int plotType_ = 0;
     /**
      * <pre>
      * How this data should be plotted on the chart.
@@ -848,13 +636,13 @@ private static final long serialVersionUID = 0L;
      * @return The plotType.
      */
     @java.lang.Override public com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType getPlotType() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType result = com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType.valueOf(plotType_);
+      com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType result = com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType.forNumber(plotType_);
       return result == null ? com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType.UNRECOGNIZED : result;
     }
 
     public static final int LEGEND_TEMPLATE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object legendTemplate_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object legendTemplate_ = "";
     /**
      * <pre>
      * A template string for naming `TimeSeries` in the resulting data set.
@@ -950,11 +738,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getMinAlignmentPeriodOrBuilder() {
-      return getMinAlignmentPeriod();
+      return minAlignmentPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minAlignmentPeriod_;
     }
 
     public static final int TARGET_AXIS_FIELD_NUMBER = 5;
-    private int targetAxis_;
+    private int targetAxis_ = 0;
     /**
      * <pre>
      * Optional. The target axis to use for plotting the metric.
@@ -975,8 +763,7 @@ private static final long serialVersionUID = 0L;
      * @return The targetAxis.
      */
     @java.lang.Override public com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis getTargetAxis() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis result = com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis.valueOf(targetAxis_);
+      com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis result = com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis.forNumber(targetAxis_);
       return result == null ? com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis.UNRECOGNIZED : result;
     }
 
@@ -1009,7 +796,7 @@ private static final long serialVersionUID = 0L;
       if (targetAxis_ != com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis.TARGET_AXIS_UNSPECIFIED.getNumber()) {
         output.writeEnum(5, targetAxis_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1037,7 +824,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, targetAxis_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1066,7 +853,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getMinAlignmentPeriod())) return false;
       }
       if (targetAxis_ != other.targetAxis_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1091,7 +878,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + TARGET_AXIS_FIELD_NUMBER;
       hash = (53 * hash) + targetAxis_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1212,40 +999,31 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.monitoring.dashboard.v1.XyChart.DataSet.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (timeSeriesQueryBuilder_ == null) {
-          timeSeriesQuery_ = null;
-        } else {
-          timeSeriesQuery_ = null;
+        bitField0_ = 0;
+        timeSeriesQuery_ = null;
+        if (timeSeriesQueryBuilder_ != null) {
+          timeSeriesQueryBuilder_.dispose();
           timeSeriesQueryBuilder_ = null;
         }
         plotType_ = 0;
-
         legendTemplate_ = "";
-
-        if (minAlignmentPeriodBuilder_ == null) {
-          minAlignmentPeriod_ = null;
-        } else {
-          minAlignmentPeriod_ = null;
+        minAlignmentPeriod_ = null;
+        if (minAlignmentPeriodBuilder_ != null) {
+          minAlignmentPeriodBuilder_.dispose();
           minAlignmentPeriodBuilder_ = null;
         }
         targetAxis_ = 0;
-
         return this;
       }
 
@@ -1272,21 +1050,32 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.XyChart.DataSet buildPartial() {
         com.google.monitoring.dashboard.v1.XyChart.DataSet result = new com.google.monitoring.dashboard.v1.XyChart.DataSet(this);
-        if (timeSeriesQueryBuilder_ == null) {
-          result.timeSeriesQuery_ = timeSeriesQuery_;
-        } else {
-          result.timeSeriesQuery_ = timeSeriesQueryBuilder_.build();
-        }
-        result.plotType_ = plotType_;
-        result.legendTemplate_ = legendTemplate_;
-        if (minAlignmentPeriodBuilder_ == null) {
-          result.minAlignmentPeriod_ = minAlignmentPeriod_;
-        } else {
-          result.minAlignmentPeriod_ = minAlignmentPeriodBuilder_.build();
-        }
-        result.targetAxis_ = targetAxis_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.monitoring.dashboard.v1.XyChart.DataSet result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.timeSeriesQuery_ = timeSeriesQueryBuilder_ == null
+              ? timeSeriesQuery_
+              : timeSeriesQueryBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.plotType_ = plotType_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.legendTemplate_ = legendTemplate_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.minAlignmentPeriod_ = minAlignmentPeriodBuilder_ == null
+              ? minAlignmentPeriod_
+              : minAlignmentPeriodBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.targetAxis_ = targetAxis_;
+        }
       }
 
       @java.lang.Override
@@ -1341,6 +1130,7 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getLegendTemplate().isEmpty()) {
           legendTemplate_ = other.legendTemplate_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.hasMinAlignmentPeriod()) {
@@ -1349,7 +1139,7 @@ private static final long serialVersionUID = 0L;
         if (other.targetAxis_ != 0) {
           setTargetAxisValue(other.getTargetAxisValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1364,19 +1154,62 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.monitoring.dashboard.v1.XyChart.DataSet parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTimeSeriesQueryFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                plotType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                legendTemplate_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getMinAlignmentPeriodFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                targetAxis_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.monitoring.dashboard.v1.XyChart.DataSet) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.monitoring.dashboard.v1.TimeSeriesQuery timeSeriesQuery_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1391,7 +1224,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the timeSeriesQuery field is set.
        */
       public boolean hasTimeSeriesQuery() {
-        return timeSeriesQueryBuilder_ != null || timeSeriesQuery_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -1423,11 +1256,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           timeSeriesQuery_ = value;
-          onChanged();
         } else {
           timeSeriesQueryBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1442,11 +1275,11 @@ private static final long serialVersionUID = 0L;
           com.google.monitoring.dashboard.v1.TimeSeriesQuery.Builder builderForValue) {
         if (timeSeriesQueryBuilder_ == null) {
           timeSeriesQuery_ = builderForValue.build();
-          onChanged();
         } else {
           timeSeriesQueryBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1459,17 +1292,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeTimeSeriesQuery(com.google.monitoring.dashboard.v1.TimeSeriesQuery value) {
         if (timeSeriesQueryBuilder_ == null) {
-          if (timeSeriesQuery_ != null) {
-            timeSeriesQuery_ =
-              com.google.monitoring.dashboard.v1.TimeSeriesQuery.newBuilder(timeSeriesQuery_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            timeSeriesQuery_ != null &&
+            timeSeriesQuery_ != com.google.monitoring.dashboard.v1.TimeSeriesQuery.getDefaultInstance()) {
+            getTimeSeriesQueryBuilder().mergeFrom(value);
           } else {
             timeSeriesQuery_ = value;
           }
-          onChanged();
         } else {
           timeSeriesQueryBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1481,14 +1315,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.monitoring.dashboard.v1.TimeSeriesQuery time_series_query = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearTimeSeriesQuery() {
-        if (timeSeriesQueryBuilder_ == null) {
-          timeSeriesQuery_ = null;
-          onChanged();
-        } else {
-          timeSeriesQuery_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        timeSeriesQuery_ = null;
+        if (timeSeriesQueryBuilder_ != null) {
+          timeSeriesQueryBuilder_.dispose();
           timeSeriesQueryBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1500,7 +1333,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.monitoring.dashboard.v1.TimeSeriesQuery time_series_query = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.monitoring.dashboard.v1.TimeSeriesQuery.Builder getTimeSeriesQueryBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTimeSeriesQueryFieldBuilder().getBuilder();
       }
@@ -1564,8 +1397,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setPlotTypeValue(int value) {
-        
         plotType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1579,8 +1412,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType getPlotType() {
-        @SuppressWarnings("deprecation")
-        com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType result = com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType.valueOf(plotType_);
+        com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType result = com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType.forNumber(plotType_);
         return result == null ? com.google.monitoring.dashboard.v1.XyChart.DataSet.PlotType.UNRECOGNIZED : result;
       }
       /**
@@ -1596,7 +1428,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         plotType_ = value.getNumber();
         onChanged();
         return this;
@@ -1610,7 +1442,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPlotType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         plotType_ = 0;
         onChanged();
         return this;
@@ -1675,11 +1507,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setLegendTemplate(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         legendTemplate_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1694,8 +1524,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLegendTemplate() {
-        
         legendTemplate_ = getDefaultInstance().getLegendTemplate();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1712,12 +1542,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setLegendTemplateBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         legendTemplate_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1738,7 +1566,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the minAlignmentPeriod field is set.
        */
       public boolean hasMinAlignmentPeriod() {
-        return minAlignmentPeriodBuilder_ != null || minAlignmentPeriod_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -1776,11 +1604,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           minAlignmentPeriod_ = value;
-          onChanged();
         } else {
           minAlignmentPeriodBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1798,11 +1626,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (minAlignmentPeriodBuilder_ == null) {
           minAlignmentPeriod_ = builderForValue.build();
-          onChanged();
         } else {
           minAlignmentPeriodBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1818,17 +1646,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeMinAlignmentPeriod(com.google.protobuf.Duration value) {
         if (minAlignmentPeriodBuilder_ == null) {
-          if (minAlignmentPeriod_ != null) {
-            minAlignmentPeriod_ =
-              com.google.protobuf.Duration.newBuilder(minAlignmentPeriod_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            minAlignmentPeriod_ != null &&
+            minAlignmentPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getMinAlignmentPeriodBuilder().mergeFrom(value);
           } else {
             minAlignmentPeriod_ = value;
           }
-          onChanged();
         } else {
           minAlignmentPeriodBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1843,14 +1672,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration min_alignment_period = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearMinAlignmentPeriod() {
-        if (minAlignmentPeriodBuilder_ == null) {
-          minAlignmentPeriod_ = null;
-          onChanged();
-        } else {
-          minAlignmentPeriod_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        minAlignmentPeriod_ = null;
+        if (minAlignmentPeriodBuilder_ != null) {
+          minAlignmentPeriodBuilder_.dispose();
           minAlignmentPeriodBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1865,7 +1693,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration min_alignment_period = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.protobuf.Duration.Builder getMinAlignmentPeriodBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getMinAlignmentPeriodFieldBuilder().getBuilder();
       }
@@ -1935,8 +1763,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTargetAxisValue(int value) {
-        
         targetAxis_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1950,8 +1778,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis getTargetAxis() {
-        @SuppressWarnings("deprecation")
-        com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis result = com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis.valueOf(targetAxis_);
+        com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis result = com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis.forNumber(targetAxis_);
         return result == null ? com.google.monitoring.dashboard.v1.XyChart.DataSet.TargetAxis.UNRECOGNIZED : result;
       }
       /**
@@ -1967,7 +1794,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000010;
         targetAxis_ = value.getNumber();
         onChanged();
         return this;
@@ -1981,7 +1808,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTargetAxis() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         targetAxis_ = 0;
         onChanged();
         return this;
@@ -2019,7 +1846,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DataSet(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2114,57 +1952,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Axis(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              label_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              scale_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -2325,7 +2112,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LABEL_FIELD_NUMBER = 1;
-    private volatile java.lang.Object label_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object label_ = "";
     /**
      * <pre>
      * The label of the axis.
@@ -2371,7 +2159,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SCALE_FIELD_NUMBER = 2;
-    private int scale_;
+    private int scale_ = 0;
     /**
      * <pre>
      * The axis scale. By default, a linear scale is used.
@@ -2392,8 +2180,7 @@ private static final long serialVersionUID = 0L;
      * @return The scale.
      */
     @java.lang.Override public com.google.monitoring.dashboard.v1.XyChart.Axis.Scale getScale() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.XyChart.Axis.Scale result = com.google.monitoring.dashboard.v1.XyChart.Axis.Scale.valueOf(scale_);
+      com.google.monitoring.dashboard.v1.XyChart.Axis.Scale result = com.google.monitoring.dashboard.v1.XyChart.Axis.Scale.forNumber(scale_);
       return result == null ? com.google.monitoring.dashboard.v1.XyChart.Axis.Scale.UNRECOGNIZED : result;
     }
 
@@ -2417,7 +2204,7 @@ private static final long serialVersionUID = 0L;
       if (scale_ != com.google.monitoring.dashboard.v1.XyChart.Axis.Scale.SCALE_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, scale_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2433,7 +2220,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, scale_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2451,7 +2238,7 @@ private static final long serialVersionUID = 0L;
       if (!getLabel()
           .equals(other.getLabel())) return false;
       if (scale_ != other.scale_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2466,7 +2253,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getLabel().hashCode();
       hash = (37 * hash) + SCALE_FIELD_NUMBER;
       hash = (53 * hash) + scale_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2587,26 +2374,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.monitoring.dashboard.v1.XyChart.Axis.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         label_ = "";
-
         scale_ = 0;
-
         return this;
       }
 
@@ -2633,10 +2414,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.XyChart.Axis buildPartial() {
         com.google.monitoring.dashboard.v1.XyChart.Axis result = new com.google.monitoring.dashboard.v1.XyChart.Axis(this);
-        result.label_ = label_;
-        result.scale_ = scale_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.monitoring.dashboard.v1.XyChart.Axis result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.label_ = label_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.scale_ = scale_;
+        }
       }
 
       @java.lang.Override
@@ -2685,12 +2475,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.monitoring.dashboard.v1.XyChart.Axis.getDefaultInstance()) return this;
         if (!other.getLabel().isEmpty()) {
           label_ = other.label_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.scale_ != 0) {
           setScaleValue(other.getScaleValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2705,19 +2496,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.monitoring.dashboard.v1.XyChart.Axis parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                label_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                scale_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.monitoring.dashboard.v1.XyChart.Axis) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object label_ = "";
       /**
@@ -2772,11 +2587,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setLabel(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         label_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2789,8 +2602,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLabel() {
-        
         label_ = getDefaultInstance().getLabel();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2805,12 +2618,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setLabelBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         label_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2837,8 +2648,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setScaleValue(int value) {
-        
         scale_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2852,8 +2663,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.XyChart.Axis.Scale getScale() {
-        @SuppressWarnings("deprecation")
-        com.google.monitoring.dashboard.v1.XyChart.Axis.Scale result = com.google.monitoring.dashboard.v1.XyChart.Axis.Scale.valueOf(scale_);
+        com.google.monitoring.dashboard.v1.XyChart.Axis.Scale result = com.google.monitoring.dashboard.v1.XyChart.Axis.Scale.forNumber(scale_);
         return result == null ? com.google.monitoring.dashboard.v1.XyChart.Axis.Scale.UNRECOGNIZED : result;
       }
       /**
@@ -2869,7 +2679,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         scale_ = value.getNumber();
         onChanged();
         return this;
@@ -2883,7 +2693,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearScale() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         scale_ = 0;
         onChanged();
         return this;
@@ -2921,7 +2731,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Axis(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2942,6 +2763,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_SETS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.monitoring.dashboard.v1.XyChart.DataSet> dataSets_;
   /**
    * <pre>
@@ -3048,10 +2870,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeshiftDurationOrBuilder() {
-    return getTimeshiftDuration();
+    return timeshiftDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeshiftDuration_;
   }
 
   public static final int THRESHOLDS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.monitoring.dashboard.v1.Threshold> thresholds_;
   /**
    * <pre>
@@ -3146,7 +2969,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.dashboard.v1.XyChart.AxisOrBuilder getXAxisOrBuilder() {
-    return getXAxis();
+    return xAxis_ == null ? com.google.monitoring.dashboard.v1.XyChart.Axis.getDefaultInstance() : xAxis_;
   }
 
   public static final int Y_AXIS_FIELD_NUMBER = 7;
@@ -3184,7 +3007,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.dashboard.v1.XyChart.AxisOrBuilder getYAxisOrBuilder() {
-    return getYAxis();
+    return yAxis_ == null ? com.google.monitoring.dashboard.v1.XyChart.Axis.getDefaultInstance() : yAxis_;
   }
 
   public static final int Y2_AXIS_FIELD_NUMBER = 9;
@@ -3222,7 +3045,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.dashboard.v1.XyChart.AxisOrBuilder getY2AxisOrBuilder() {
-    return getY2Axis();
+    return y2Axis_ == null ? com.google.monitoring.dashboard.v1.XyChart.Axis.getDefaultInstance() : y2Axis_;
   }
 
   public static final int CHART_OPTIONS_FIELD_NUMBER = 8;
@@ -3260,7 +3083,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.dashboard.v1.ChartOptionsOrBuilder getChartOptionsOrBuilder() {
-    return getChartOptions();
+    return chartOptions_ == null ? com.google.monitoring.dashboard.v1.ChartOptions.getDefaultInstance() : chartOptions_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3298,7 +3121,7 @@ private static final long serialVersionUID = 0L;
     if (y2Axis_ != null) {
       output.writeMessage(9, getY2Axis());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3335,7 +3158,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getY2Axis());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3379,7 +3202,7 @@ private static final long serialVersionUID = 0L;
       if (!getChartOptions()
           .equals(other.getChartOptions())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3418,7 +3241,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CHART_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getChartOptions().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3539,64 +3362,55 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.XyChart.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getDataSetsFieldBuilder();
-        getThresholdsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (dataSetsBuilder_ == null) {
         dataSets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        dataSets_ = null;
         dataSetsBuilder_.clear();
       }
-      if (timeshiftDurationBuilder_ == null) {
-        timeshiftDuration_ = null;
-      } else {
-        timeshiftDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      timeshiftDuration_ = null;
+      if (timeshiftDurationBuilder_ != null) {
+        timeshiftDurationBuilder_.dispose();
         timeshiftDurationBuilder_ = null;
       }
       if (thresholdsBuilder_ == null) {
         thresholds_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        thresholds_ = null;
         thresholdsBuilder_.clear();
       }
-      if (xAxisBuilder_ == null) {
-        xAxis_ = null;
-      } else {
-        xAxis_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      xAxis_ = null;
+      if (xAxisBuilder_ != null) {
+        xAxisBuilder_.dispose();
         xAxisBuilder_ = null;
       }
-      if (yAxisBuilder_ == null) {
-        yAxis_ = null;
-      } else {
-        yAxis_ = null;
+      yAxis_ = null;
+      if (yAxisBuilder_ != null) {
+        yAxisBuilder_.dispose();
         yAxisBuilder_ = null;
       }
-      if (y2AxisBuilder_ == null) {
-        y2Axis_ = null;
-      } else {
-        y2Axis_ = null;
+      y2Axis_ = null;
+      if (y2AxisBuilder_ != null) {
+        y2AxisBuilder_.dispose();
         y2AxisBuilder_ = null;
       }
-      if (chartOptionsBuilder_ == null) {
-        chartOptions_ = null;
-      } else {
-        chartOptions_ = null;
+      chartOptions_ = null;
+      if (chartOptionsBuilder_ != null) {
+        chartOptionsBuilder_.dispose();
         chartOptionsBuilder_ = null;
       }
       return this;
@@ -3625,7 +3439,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.XyChart buildPartial() {
       com.google.monitoring.dashboard.v1.XyChart result = new com.google.monitoring.dashboard.v1.XyChart(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.monitoring.dashboard.v1.XyChart result) {
       if (dataSetsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           dataSets_ = java.util.Collections.unmodifiableList(dataSets_);
@@ -3635,42 +3455,44 @@ private static final long serialVersionUID = 0L;
       } else {
         result.dataSets_ = dataSetsBuilder_.build();
       }
-      if (timeshiftDurationBuilder_ == null) {
-        result.timeshiftDuration_ = timeshiftDuration_;
-      } else {
-        result.timeshiftDuration_ = timeshiftDurationBuilder_.build();
-      }
       if (thresholdsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           thresholds_ = java.util.Collections.unmodifiableList(thresholds_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.thresholds_ = thresholds_;
       } else {
         result.thresholds_ = thresholdsBuilder_.build();
       }
-      if (xAxisBuilder_ == null) {
-        result.xAxis_ = xAxis_;
-      } else {
-        result.xAxis_ = xAxisBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.XyChart result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.timeshiftDuration_ = timeshiftDurationBuilder_ == null
+            ? timeshiftDuration_
+            : timeshiftDurationBuilder_.build();
       }
-      if (yAxisBuilder_ == null) {
-        result.yAxis_ = yAxis_;
-      } else {
-        result.yAxis_ = yAxisBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.xAxis_ = xAxisBuilder_ == null
+            ? xAxis_
+            : xAxisBuilder_.build();
       }
-      if (y2AxisBuilder_ == null) {
-        result.y2Axis_ = y2Axis_;
-      } else {
-        result.y2Axis_ = y2AxisBuilder_.build();
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.yAxis_ = yAxisBuilder_ == null
+            ? yAxis_
+            : yAxisBuilder_.build();
       }
-      if (chartOptionsBuilder_ == null) {
-        result.chartOptions_ = chartOptions_;
-      } else {
-        result.chartOptions_ = chartOptionsBuilder_.build();
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.y2Axis_ = y2AxisBuilder_ == null
+            ? y2Axis_
+            : y2AxisBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.chartOptions_ = chartOptionsBuilder_ == null
+            ? chartOptions_
+            : chartOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3750,7 +3572,7 @@ private static final long serialVersionUID = 0L;
         if (!other.thresholds_.isEmpty()) {
           if (thresholds_.isEmpty()) {
             thresholds_ = other.thresholds_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureThresholdsIsMutable();
             thresholds_.addAll(other.thresholds_);
@@ -3763,7 +3585,7 @@ private static final long serialVersionUID = 0L;
             thresholdsBuilder_.dispose();
             thresholdsBuilder_ = null;
             thresholds_ = other.thresholds_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             thresholdsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getThresholdsFieldBuilder() : null;
@@ -3784,7 +3606,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasChartOptions()) {
         mergeChartOptions(other.getChartOptions());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3799,17 +3621,91 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.XyChart parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.monitoring.dashboard.v1.XyChart.DataSet m =
+                  input.readMessage(
+                      com.google.monitoring.dashboard.v1.XyChart.DataSet.parser(),
+                      extensionRegistry);
+              if (dataSetsBuilder_ == null) {
+                ensureDataSetsIsMutable();
+                dataSets_.add(m);
+              } else {
+                dataSetsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 34: {
+              input.readMessage(
+                  getTimeshiftDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 34
+            case 42: {
+              com.google.monitoring.dashboard.v1.Threshold m =
+                  input.readMessage(
+                      com.google.monitoring.dashboard.v1.Threshold.parser(),
+                      extensionRegistry);
+              if (thresholdsBuilder_ == null) {
+                ensureThresholdsIsMutable();
+                thresholds_.add(m);
+              } else {
+                thresholdsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getXAxisFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getYAxisFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getChartOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getY2AxisFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.XyChart) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -4142,7 +4038,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeshiftDuration field is set.
      */
     public boolean hasTimeshiftDuration() {
-      return timeshiftDurationBuilder_ != null || timeshiftDuration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -4180,11 +4076,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeshiftDuration_ = value;
-        onChanged();
       } else {
         timeshiftDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4202,11 +4098,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeshiftDurationBuilder_ == null) {
         timeshiftDuration_ = builderForValue.build();
-        onChanged();
       } else {
         timeshiftDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4222,17 +4118,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeshiftDuration(com.google.protobuf.Duration value) {
       if (timeshiftDurationBuilder_ == null) {
-        if (timeshiftDuration_ != null) {
-          timeshiftDuration_ =
-            com.google.protobuf.Duration.newBuilder(timeshiftDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          timeshiftDuration_ != null &&
+          timeshiftDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeshiftDurationBuilder().mergeFrom(value);
         } else {
           timeshiftDuration_ = value;
         }
-        onChanged();
       } else {
         timeshiftDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4247,14 +4144,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeshift_duration = 4;</code>
      */
     public Builder clearTimeshiftDuration() {
-      if (timeshiftDurationBuilder_ == null) {
-        timeshiftDuration_ = null;
-        onChanged();
-      } else {
-        timeshiftDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      timeshiftDuration_ = null;
+      if (timeshiftDurationBuilder_ != null) {
+        timeshiftDurationBuilder_.dispose();
         timeshiftDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4269,7 +4165,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeshift_duration = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeshiftDurationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTimeshiftDurationFieldBuilder().getBuilder();
     }
@@ -4320,9 +4216,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.monitoring.dashboard.v1.Threshold> thresholds_ =
       java.util.Collections.emptyList();
     private void ensureThresholdsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         thresholds_ = new java.util.ArrayList<com.google.monitoring.dashboard.v1.Threshold>(thresholds_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -4516,7 +4412,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearThresholds() {
       if (thresholdsBuilder_ == null) {
         thresholds_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         thresholdsBuilder_.clear();
@@ -4621,7 +4517,7 @@ private static final long serialVersionUID = 0L;
         thresholdsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.monitoring.dashboard.v1.Threshold, com.google.monitoring.dashboard.v1.Threshold.Builder, com.google.monitoring.dashboard.v1.ThresholdOrBuilder>(
                 thresholds_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         thresholds_ = null;
@@ -4641,7 +4537,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the xAxis field is set.
      */
     public boolean hasXAxis() {
-      return xAxisBuilder_ != null || xAxis_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -4671,11 +4567,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         xAxis_ = value;
-        onChanged();
       } else {
         xAxisBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4689,11 +4585,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.dashboard.v1.XyChart.Axis.Builder builderForValue) {
       if (xAxisBuilder_ == null) {
         xAxis_ = builderForValue.build();
-        onChanged();
       } else {
         xAxisBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4705,17 +4601,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeXAxis(com.google.monitoring.dashboard.v1.XyChart.Axis value) {
       if (xAxisBuilder_ == null) {
-        if (xAxis_ != null) {
-          xAxis_ =
-            com.google.monitoring.dashboard.v1.XyChart.Axis.newBuilder(xAxis_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          xAxis_ != null &&
+          xAxis_ != com.google.monitoring.dashboard.v1.XyChart.Axis.getDefaultInstance()) {
+          getXAxisBuilder().mergeFrom(value);
         } else {
           xAxis_ = value;
         }
-        onChanged();
       } else {
         xAxisBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4726,14 +4623,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.XyChart.Axis x_axis = 6;</code>
      */
     public Builder clearXAxis() {
-      if (xAxisBuilder_ == null) {
-        xAxis_ = null;
-        onChanged();
-      } else {
-        xAxis_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      xAxis_ = null;
+      if (xAxisBuilder_ != null) {
+        xAxisBuilder_.dispose();
         xAxisBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4744,7 +4640,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.XyChart.Axis x_axis = 6;</code>
      */
     public com.google.monitoring.dashboard.v1.XyChart.Axis.Builder getXAxisBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getXAxisFieldBuilder().getBuilder();
     }
@@ -4796,7 +4692,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the yAxis field is set.
      */
     public boolean hasYAxis() {
-      return yAxisBuilder_ != null || yAxis_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -4826,11 +4722,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         yAxis_ = value;
-        onChanged();
       } else {
         yAxisBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4844,11 +4740,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.dashboard.v1.XyChart.Axis.Builder builderForValue) {
       if (yAxisBuilder_ == null) {
         yAxis_ = builderForValue.build();
-        onChanged();
       } else {
         yAxisBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4860,17 +4756,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeYAxis(com.google.monitoring.dashboard.v1.XyChart.Axis value) {
       if (yAxisBuilder_ == null) {
-        if (yAxis_ != null) {
-          yAxis_ =
-            com.google.monitoring.dashboard.v1.XyChart.Axis.newBuilder(yAxis_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          yAxis_ != null &&
+          yAxis_ != com.google.monitoring.dashboard.v1.XyChart.Axis.getDefaultInstance()) {
+          getYAxisBuilder().mergeFrom(value);
         } else {
           yAxis_ = value;
         }
-        onChanged();
       } else {
         yAxisBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -4881,14 +4778,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.XyChart.Axis y_axis = 7;</code>
      */
     public Builder clearYAxis() {
-      if (yAxisBuilder_ == null) {
-        yAxis_ = null;
-        onChanged();
-      } else {
-        yAxis_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      yAxis_ = null;
+      if (yAxisBuilder_ != null) {
+        yAxisBuilder_.dispose();
         yAxisBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4899,7 +4795,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.XyChart.Axis y_axis = 7;</code>
      */
     public com.google.monitoring.dashboard.v1.XyChart.Axis.Builder getYAxisBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getYAxisFieldBuilder().getBuilder();
     }
@@ -4951,7 +4847,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the y2Axis field is set.
      */
     public boolean hasY2Axis() {
-      return y2AxisBuilder_ != null || y2Axis_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -4981,11 +4877,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         y2Axis_ = value;
-        onChanged();
       } else {
         y2AxisBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -4999,11 +4895,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.dashboard.v1.XyChart.Axis.Builder builderForValue) {
       if (y2AxisBuilder_ == null) {
         y2Axis_ = builderForValue.build();
-        onChanged();
       } else {
         y2AxisBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -5015,17 +4911,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeY2Axis(com.google.monitoring.dashboard.v1.XyChart.Axis value) {
       if (y2AxisBuilder_ == null) {
-        if (y2Axis_ != null) {
-          y2Axis_ =
-            com.google.monitoring.dashboard.v1.XyChart.Axis.newBuilder(y2Axis_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          y2Axis_ != null &&
+          y2Axis_ != com.google.monitoring.dashboard.v1.XyChart.Axis.getDefaultInstance()) {
+          getY2AxisBuilder().mergeFrom(value);
         } else {
           y2Axis_ = value;
         }
-        onChanged();
       } else {
         y2AxisBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -5036,14 +4933,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.XyChart.Axis y2_axis = 9;</code>
      */
     public Builder clearY2Axis() {
-      if (y2AxisBuilder_ == null) {
-        y2Axis_ = null;
-        onChanged();
-      } else {
-        y2Axis_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      y2Axis_ = null;
+      if (y2AxisBuilder_ != null) {
+        y2AxisBuilder_.dispose();
         y2AxisBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5054,7 +4950,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.XyChart.Axis y2_axis = 9;</code>
      */
     public com.google.monitoring.dashboard.v1.XyChart.Axis.Builder getY2AxisBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getY2AxisFieldBuilder().getBuilder();
     }
@@ -5106,7 +5002,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the chartOptions field is set.
      */
     public boolean hasChartOptions() {
-      return chartOptionsBuilder_ != null || chartOptions_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -5136,11 +5032,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         chartOptions_ = value;
-        onChanged();
       } else {
         chartOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -5154,11 +5050,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.dashboard.v1.ChartOptions.Builder builderForValue) {
       if (chartOptionsBuilder_ == null) {
         chartOptions_ = builderForValue.build();
-        onChanged();
       } else {
         chartOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -5170,17 +5066,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeChartOptions(com.google.monitoring.dashboard.v1.ChartOptions value) {
       if (chartOptionsBuilder_ == null) {
-        if (chartOptions_ != null) {
-          chartOptions_ =
-            com.google.monitoring.dashboard.v1.ChartOptions.newBuilder(chartOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          chartOptions_ != null &&
+          chartOptions_ != com.google.monitoring.dashboard.v1.ChartOptions.getDefaultInstance()) {
+          getChartOptionsBuilder().mergeFrom(value);
         } else {
           chartOptions_ = value;
         }
-        onChanged();
       } else {
         chartOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -5191,14 +5088,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.ChartOptions chart_options = 8;</code>
      */
     public Builder clearChartOptions() {
-      if (chartOptionsBuilder_ == null) {
-        chartOptions_ = null;
-        onChanged();
-      } else {
-        chartOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      chartOptions_ = null;
+      if (chartOptionsBuilder_ != null) {
+        chartOptionsBuilder_.dispose();
         chartOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5209,7 +5105,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.ChartOptions chart_options = 8;</code>
      */
     public com.google.monitoring.dashboard.v1.ChartOptions.Builder getChartOptionsBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getChartOptionsFieldBuilder().getBuilder();
     }
@@ -5281,7 +5177,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new XyChart(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -38,63 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RoboDirective(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            inputText_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            actionType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_RoboDirective_descriptor;
@@ -109,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Required. The android resource name of the target UI element.
@@ -167,7 +111,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INPUT_TEXT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object inputText_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inputText_ = "";
   /**
    * <pre>
    * The text that Robo is directed to set. If left empty, the directive will be
@@ -215,7 +160,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACTION_TYPE_FIELD_NUMBER = 3;
-  private int actionType_;
+  private int actionType_ = 0;
   /**
    * <pre>
    * Required. The type of action that Robo should perform on the specified
@@ -238,8 +183,7 @@ private static final long serialVersionUID = 0L;
    * @return The actionType.
    */
   @java.lang.Override public com.google.devtools.testing.v1.RoboActionType getActionType() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.testing.v1.RoboActionType result = com.google.devtools.testing.v1.RoboActionType.valueOf(actionType_);
+    com.google.devtools.testing.v1.RoboActionType result = com.google.devtools.testing.v1.RoboActionType.forNumber(actionType_);
     return result == null ? com.google.devtools.testing.v1.RoboActionType.UNRECOGNIZED : result;
   }
 
@@ -266,7 +210,7 @@ private static final long serialVersionUID = 0L;
     if (actionType_ != com.google.devtools.testing.v1.RoboActionType.ACTION_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, actionType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +229,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, actionType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -305,7 +249,7 @@ private static final long serialVersionUID = 0L;
     if (!getInputText()
         .equals(other.getInputText())) return false;
     if (actionType_ != other.actionType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -322,7 +266,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getInputText().hashCode();
     hash = (37 * hash) + ACTION_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + actionType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -444,28 +388,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.RoboDirective.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       inputText_ = "";
-
       actionType_ = 0;
-
       return this;
     }
 
@@ -492,11 +429,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.RoboDirective buildPartial() {
       com.google.devtools.testing.v1.RoboDirective result = new com.google.devtools.testing.v1.RoboDirective(this);
-      result.resourceName_ = resourceName_;
-      result.inputText_ = inputText_;
-      result.actionType_ = actionType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.RoboDirective result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.inputText_ = inputText_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.actionType_ = actionType_;
+      }
     }
 
     @java.lang.Override
@@ -545,16 +493,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.testing.v1.RoboDirective.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getInputText().isEmpty()) {
         inputText_ = other.inputText_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.actionType_ != 0) {
         setActionTypeValue(other.getActionTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -569,19 +519,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.RoboDirective parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              inputText_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              actionType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.RoboDirective) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object resourceName_ = "";
     /**
@@ -654,11 +633,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -677,8 +654,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -699,12 +676,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -765,11 +740,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInputText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       inputText_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -783,8 +756,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInputText() {
-      
       inputText_ = getDefaultInstance().getInputText();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -800,12 +773,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInputTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inputText_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -834,8 +805,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setActionTypeValue(int value) {
-      
       actionType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -850,8 +821,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.testing.v1.RoboActionType getActionType() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.testing.v1.RoboActionType result = com.google.devtools.testing.v1.RoboActionType.valueOf(actionType_);
+      com.google.devtools.testing.v1.RoboActionType result = com.google.devtools.testing.v1.RoboActionType.forNumber(actionType_);
       return result == null ? com.google.devtools.testing.v1.RoboActionType.UNRECOGNIZED : result;
     }
     /**
@@ -868,7 +838,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       actionType_ = value.getNumber();
       onChanged();
       return this;
@@ -883,7 +853,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearActionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       actionType_ = 0;
       onChanged();
       return this;
@@ -921,7 +891,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RoboDirective(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

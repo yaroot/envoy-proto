@@ -37,102 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TaskGroup(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.batch.v1.TaskSpec.Builder subBuilder = null;
-            if (taskSpec_ != null) {
-              subBuilder = taskSpec_.toBuilder();
-            }
-            taskSpec_ = input.readMessage(com.google.cloud.batch.v1.TaskSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(taskSpec_);
-              taskSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            taskCount_ = input.readInt64();
-            break;
-          }
-          case 40: {
-
-            parallelism_ = input.readInt64();
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              taskEnvironments_ = new java.util.ArrayList<com.google.cloud.batch.v1.Environment>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            taskEnvironments_.add(
-                input.readMessage(com.google.cloud.batch.v1.Environment.parser(), extensionRegistry));
-            break;
-          }
-          case 80: {
-
-            taskCountPerNode_ = input.readInt64();
-            break;
-          }
-          case 88: {
-
-            requireHostsFile_ = input.readBool();
-            break;
-          }
-          case 96: {
-
-            permissiveSsh_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        taskEnvironments_ = java.util.Collections.unmodifiableList(taskEnvironments_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.batch.v1.JobProto.internal_static_google_cloud_batch_v1_TaskGroup_descriptor;
@@ -147,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. TaskGroup name.
@@ -233,11 +138,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1.TaskSpecOrBuilder getTaskSpecOrBuilder() {
-    return getTaskSpec();
+    return taskSpec_ == null ? com.google.cloud.batch.v1.TaskSpec.getDefaultInstance() : taskSpec_;
   }
 
   public static final int TASK_COUNT_FIELD_NUMBER = 4;
-  private long taskCount_;
+  private long taskCount_ = 0L;
   /**
    * <pre>
    * Number of Tasks in the TaskGroup.
@@ -253,7 +158,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARALLELISM_FIELD_NUMBER = 5;
-  private long parallelism_;
+  private long parallelism_ = 0L;
   /**
    * <pre>
    * Max number of tasks that can run in parallel.
@@ -269,6 +174,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TASK_ENVIRONMENTS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.batch.v1.Environment> taskEnvironments_;
   /**
    * <pre>
@@ -369,7 +275,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TASK_COUNT_PER_NODE_FIELD_NUMBER = 10;
-  private long taskCountPerNode_;
+  private long taskCountPerNode_ = 0L;
   /**
    * <pre>
    * Max number of tasks that can be run on a VM at the same time.
@@ -386,7 +292,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRE_HOSTS_FILE_FIELD_NUMBER = 11;
-  private boolean requireHostsFile_;
+  private boolean requireHostsFile_ = false;
   /**
    * <pre>
    * When true, Batch will populate a file with a list of all VMs assigned to
@@ -403,7 +309,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERMISSIVE_SSH_FIELD_NUMBER = 12;
-  private boolean permissiveSsh_;
+  private boolean permissiveSsh_ = false;
   /**
    * <pre>
    * When true, Batch will configure SSH to allow passwordless login between
@@ -456,7 +362,7 @@ private static final long serialVersionUID = 0L;
     if (permissiveSsh_ != false) {
       output.writeBool(12, permissiveSsh_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -496,7 +402,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(12, permissiveSsh_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -530,7 +436,7 @@ private static final long serialVersionUID = 0L;
         != other.getRequireHostsFile()) return false;
     if (getPermissiveSsh()
         != other.getPermissiveSsh()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -566,7 +472,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PERMISSIVE_SSH_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getPermissiveSsh());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -688,47 +594,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.batch.v1.TaskGroup.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTaskEnvironmentsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (taskSpecBuilder_ == null) {
-        taskSpec_ = null;
-      } else {
-        taskSpec_ = null;
+      taskSpec_ = null;
+      if (taskSpecBuilder_ != null) {
+        taskSpecBuilder_.dispose();
         taskSpecBuilder_ = null;
       }
       taskCount_ = 0L;
-
       parallelism_ = 0L;
-
       if (taskEnvironmentsBuilder_ == null) {
         taskEnvironments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        taskEnvironments_ = null;
         taskEnvironmentsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       taskCountPerNode_ = 0L;
-
       requireHostsFile_ = false;
-
       permissiveSsh_ = false;
-
       return this;
     }
 
@@ -755,29 +650,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.batch.v1.TaskGroup buildPartial() {
       com.google.cloud.batch.v1.TaskGroup result = new com.google.cloud.batch.v1.TaskGroup(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (taskSpecBuilder_ == null) {
-        result.taskSpec_ = taskSpec_;
-      } else {
-        result.taskSpec_ = taskSpecBuilder_.build();
-      }
-      result.taskCount_ = taskCount_;
-      result.parallelism_ = parallelism_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.batch.v1.TaskGroup result) {
       if (taskEnvironmentsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           taskEnvironments_ = java.util.Collections.unmodifiableList(taskEnvironments_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.taskEnvironments_ = taskEnvironments_;
       } else {
         result.taskEnvironments_ = taskEnvironmentsBuilder_.build();
       }
-      result.taskCountPerNode_ = taskCountPerNode_;
-      result.requireHostsFile_ = requireHostsFile_;
-      result.permissiveSsh_ = permissiveSsh_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.batch.v1.TaskGroup result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.taskSpec_ = taskSpecBuilder_ == null
+            ? taskSpec_
+            : taskSpecBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.taskCount_ = taskCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.parallelism_ = parallelism_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.taskCountPerNode_ = taskCountPerNode_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.requireHostsFile_ = requireHostsFile_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.permissiveSsh_ = permissiveSsh_;
+      }
     }
 
     @java.lang.Override
@@ -826,6 +741,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.batch.v1.TaskGroup.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTaskSpec()) {
@@ -841,7 +757,7 @@ private static final long serialVersionUID = 0L;
         if (!other.taskEnvironments_.isEmpty()) {
           if (taskEnvironments_.isEmpty()) {
             taskEnvironments_ = other.taskEnvironments_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureTaskEnvironmentsIsMutable();
             taskEnvironments_.addAll(other.taskEnvironments_);
@@ -854,7 +770,7 @@ private static final long serialVersionUID = 0L;
             taskEnvironmentsBuilder_.dispose();
             taskEnvironmentsBuilder_ = null;
             taskEnvironments_ = other.taskEnvironments_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             taskEnvironmentsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTaskEnvironmentsFieldBuilder() : null;
@@ -872,7 +788,7 @@ private static final long serialVersionUID = 0L;
       if (other.getPermissiveSsh() != false) {
         setPermissiveSsh(other.getPermissiveSsh());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -887,17 +803,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.batch.v1.TaskGroup parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              input.readMessage(
+                  getTaskSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 32: {
+              taskCount_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 40: {
+              parallelism_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 74: {
+              com.google.cloud.batch.v1.Environment m =
+                  input.readMessage(
+                      com.google.cloud.batch.v1.Environment.parser(),
+                      extensionRegistry);
+              if (taskEnvironmentsBuilder_ == null) {
+                ensureTaskEnvironmentsIsMutable();
+                taskEnvironments_.add(m);
+              } else {
+                taskEnvironmentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 80: {
+              taskCountPerNode_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 80
+            case 88: {
+              requireHostsFile_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 88
+            case 96: {
+              permissiveSsh_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 96
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.batch.v1.TaskGroup) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -964,11 +943,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -984,8 +961,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1003,12 +980,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1025,7 +1000,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the taskSpec field is set.
      */
     public boolean hasTaskSpec() {
-      return taskSpecBuilder_ != null || taskSpec_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1055,11 +1030,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         taskSpec_ = value;
-        onChanged();
       } else {
         taskSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1073,11 +1048,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1.TaskSpec.Builder builderForValue) {
       if (taskSpecBuilder_ == null) {
         taskSpec_ = builderForValue.build();
-        onChanged();
       } else {
         taskSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1089,17 +1064,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTaskSpec(com.google.cloud.batch.v1.TaskSpec value) {
       if (taskSpecBuilder_ == null) {
-        if (taskSpec_ != null) {
-          taskSpec_ =
-            com.google.cloud.batch.v1.TaskSpec.newBuilder(taskSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          taskSpec_ != null &&
+          taskSpec_ != com.google.cloud.batch.v1.TaskSpec.getDefaultInstance()) {
+          getTaskSpecBuilder().mergeFrom(value);
         } else {
           taskSpec_ = value;
         }
-        onChanged();
       } else {
         taskSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1110,14 +1086,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1.TaskSpec task_spec = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearTaskSpec() {
-      if (taskSpecBuilder_ == null) {
-        taskSpec_ = null;
-        onChanged();
-      } else {
-        taskSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      taskSpec_ = null;
+      if (taskSpecBuilder_ != null) {
+        taskSpecBuilder_.dispose();
         taskSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1128,7 +1103,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1.TaskSpec task_spec = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.batch.v1.TaskSpec.Builder getTaskSpecBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTaskSpecFieldBuilder().getBuilder();
     }
@@ -1195,6 +1170,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTaskCount(long value) {
       
       taskCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1208,7 +1184,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTaskCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       taskCount_ = 0L;
       onChanged();
       return this;
@@ -1241,6 +1217,7 @@ private static final long serialVersionUID = 0L;
     public Builder setParallelism(long value) {
       
       parallelism_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1254,7 +1231,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParallelism() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       parallelism_ = 0L;
       onChanged();
       return this;
@@ -1263,9 +1240,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.batch.v1.Environment> taskEnvironments_ =
       java.util.Collections.emptyList();
     private void ensureTaskEnvironmentsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         taskEnvironments_ = new java.util.ArrayList<com.google.cloud.batch.v1.Environment>(taskEnvironments_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1547,7 +1524,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTaskEnvironments() {
       if (taskEnvironmentsBuilder_ == null) {
         taskEnvironments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         taskEnvironmentsBuilder_.clear();
@@ -1708,7 +1685,7 @@ private static final long serialVersionUID = 0L;
         taskEnvironmentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.batch.v1.Environment, com.google.cloud.batch.v1.Environment.Builder, com.google.cloud.batch.v1.EnvironmentOrBuilder>(
                 taskEnvironments_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         taskEnvironments_ = null;
@@ -1745,6 +1722,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTaskCountPerNode(long value) {
       
       taskCountPerNode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1759,7 +1737,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTaskCountPerNode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       taskCountPerNode_ = 0L;
       onChanged();
       return this;
@@ -1794,6 +1772,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRequireHostsFile(boolean value) {
       
       requireHostsFile_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1808,7 +1787,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequireHostsFile() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       requireHostsFile_ = false;
       onChanged();
       return this;
@@ -1841,6 +1820,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPermissiveSsh(boolean value) {
       
       permissiveSsh_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1854,7 +1834,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPermissiveSsh() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       permissiveSsh_ = false;
       onChanged();
       return this;
@@ -1892,7 +1872,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TaskGroup(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

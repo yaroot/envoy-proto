@@ -38,279 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExecutionEvent(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (eventTime_ != null) {
-              subBuilder = eventTime_.toBuilder();
-            }
-            eventTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventTime_);
-              eventTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.actions.sdk.v2.ExecutionState.Builder subBuilder = null;
-            if (executionState_ != null) {
-              subBuilder = executionState_.toBuilder();
-            }
-            executionState_ = input.readMessage(com.google.actions.sdk.v2.ExecutionState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(executionState_);
-              executionState_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (status_ != null) {
-              subBuilder = status_.toBuilder();
-            }
-            status_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(status_);
-              status_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.actions.sdk.v2.UserConversationInput.Builder subBuilder = null;
-            if (eventDataCase_ == 4) {
-              subBuilder = ((com.google.actions.sdk.v2.UserConversationInput) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.UserConversationInput.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.UserConversationInput) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.actions.sdk.v2.IntentMatch.Builder subBuilder = null;
-            if (eventDataCase_ == 5) {
-              subBuilder = ((com.google.actions.sdk.v2.IntentMatch) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.IntentMatch.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.IntentMatch) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.actions.sdk.v2.ConditionsEvaluated.Builder subBuilder = null;
-            if (eventDataCase_ == 6) {
-              subBuilder = ((com.google.actions.sdk.v2.ConditionsEvaluated) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.ConditionsEvaluated.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.ConditionsEvaluated) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.actions.sdk.v2.OnSceneEnter.Builder subBuilder = null;
-            if (eventDataCase_ == 7) {
-              subBuilder = ((com.google.actions.sdk.v2.OnSceneEnter) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.OnSceneEnter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.OnSceneEnter) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.actions.sdk.v2.WebhookRequest.Builder subBuilder = null;
-            if (eventDataCase_ == 8) {
-              subBuilder = ((com.google.actions.sdk.v2.WebhookRequest) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.WebhookRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.WebhookRequest) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.actions.sdk.v2.WebhookResponse.Builder subBuilder = null;
-            if (eventDataCase_ == 9) {
-              subBuilder = ((com.google.actions.sdk.v2.WebhookResponse) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.WebhookResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.WebhookResponse) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.actions.sdk.v2.WebhookInitiatedTransition.Builder subBuilder = null;
-            if (eventDataCase_ == 10) {
-              subBuilder = ((com.google.actions.sdk.v2.WebhookInitiatedTransition) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.WebhookInitiatedTransition.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.WebhookInitiatedTransition) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.actions.sdk.v2.SlotMatch.Builder subBuilder = null;
-            if (eventDataCase_ == 11) {
-              subBuilder = ((com.google.actions.sdk.v2.SlotMatch) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.SlotMatch.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.SlotMatch) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 11;
-            break;
-          }
-          case 98: {
-            com.google.actions.sdk.v2.SlotRequested.Builder subBuilder = null;
-            if (eventDataCase_ == 12) {
-              subBuilder = ((com.google.actions.sdk.v2.SlotRequested) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.SlotRequested.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.SlotRequested) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.actions.sdk.v2.SlotValidated.Builder subBuilder = null;
-            if (eventDataCase_ == 13) {
-              subBuilder = ((com.google.actions.sdk.v2.SlotValidated) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.SlotValidated.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.SlotValidated) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 13;
-            break;
-          }
-          case 114: {
-            com.google.actions.sdk.v2.FormFilled.Builder subBuilder = null;
-            if (eventDataCase_ == 14) {
-              subBuilder = ((com.google.actions.sdk.v2.FormFilled) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.FormFilled.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.FormFilled) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 14;
-            break;
-          }
-          case 122: {
-            com.google.actions.sdk.v2.WaitingForUserInput.Builder subBuilder = null;
-            if (eventDataCase_ == 15) {
-              subBuilder = ((com.google.actions.sdk.v2.WaitingForUserInput) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.WaitingForUserInput.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.WaitingForUserInput) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 15;
-            break;
-          }
-          case 130: {
-            com.google.actions.sdk.v2.EndConversation.Builder subBuilder = null;
-            if (eventDataCase_ == 16) {
-              subBuilder = ((com.google.actions.sdk.v2.EndConversation) eventData_).toBuilder();
-            }
-            eventData_ =
-                input.readMessage(com.google.actions.sdk.v2.EndConversation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.EndConversation) eventData_);
-              eventData_ = subBuilder.buildPartial();
-            }
-            eventDataCase_ = 16;
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              warningMessages_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            warningMessages_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        warningMessages_ = warningMessages_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.EventLogsProto.internal_static_google_actions_sdk_v2_ExecutionEvent_descriptor;
@@ -422,7 +149,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEventTimeOrBuilder() {
-    return getEventTime();
+    return eventTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : eventTime_;
   }
 
   public static final int EXECUTION_STATE_FIELD_NUMBER = 2;
@@ -460,7 +187,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.ExecutionStateOrBuilder getExecutionStateOrBuilder() {
-    return getExecutionState();
+    return executionState_ == null ? com.google.actions.sdk.v2.ExecutionState.getDefaultInstance() : executionState_;
   }
 
   public static final int STATUS_FIELD_NUMBER = 3;
@@ -498,7 +225,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getStatusOrBuilder() {
-    return getStatus();
+    return status_ == null ? com.google.rpc.Status.getDefaultInstance() : status_;
   }
 
   public static final int USER_INPUT_FIELD_NUMBER = 4;
@@ -1061,6 +788,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WARNING_MESSAGES_FIELD_NUMBER = 17;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList warningMessages_;
   /**
    * <pre>
@@ -1196,7 +924,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < warningMessages_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 17, warningMessages_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1277,7 +1005,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 2 * getWarningMessagesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1366,7 +1094,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1449,7 +1177,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1573,42 +1301,74 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.ExecutionEvent.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (eventTimeBuilder_ == null) {
-        eventTime_ = null;
-      } else {
-        eventTime_ = null;
+      bitField0_ = 0;
+      eventTime_ = null;
+      if (eventTimeBuilder_ != null) {
+        eventTimeBuilder_.dispose();
         eventTimeBuilder_ = null;
       }
-      if (executionStateBuilder_ == null) {
-        executionState_ = null;
-      } else {
-        executionState_ = null;
+      executionState_ = null;
+      if (executionStateBuilder_ != null) {
+        executionStateBuilder_.dispose();
         executionStateBuilder_ = null;
       }
-      if (statusBuilder_ == null) {
-        status_ = null;
-      } else {
-        status_ = null;
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
+      if (userInputBuilder_ != null) {
+        userInputBuilder_.clear();
+      }
+      if (intentMatchBuilder_ != null) {
+        intentMatchBuilder_.clear();
+      }
+      if (conditionsEvaluatedBuilder_ != null) {
+        conditionsEvaluatedBuilder_.clear();
+      }
+      if (onSceneEnterBuilder_ != null) {
+        onSceneEnterBuilder_.clear();
+      }
+      if (webhookRequestBuilder_ != null) {
+        webhookRequestBuilder_.clear();
+      }
+      if (webhookResponseBuilder_ != null) {
+        webhookResponseBuilder_.clear();
+      }
+      if (webhookInitiatedTransitionBuilder_ != null) {
+        webhookInitiatedTransitionBuilder_.clear();
+      }
+      if (slotMatchBuilder_ != null) {
+        slotMatchBuilder_.clear();
+      }
+      if (slotRequestedBuilder_ != null) {
+        slotRequestedBuilder_.clear();
+      }
+      if (slotValidatedBuilder_ != null) {
+        slotValidatedBuilder_.clear();
+      }
+      if (formFilledBuilder_ != null) {
+        formFilledBuilder_.clear();
+      }
+      if (waitingUserInputBuilder_ != null) {
+        waitingUserInputBuilder_.clear();
+      }
+      if (endConversationBuilder_ != null) {
+        endConversationBuilder_.clear();
+      }
       warningMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00010000);
       eventDataCase_ = 0;
       eventData_ = null;
       return this;
@@ -1637,121 +1397,95 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.ExecutionEvent buildPartial() {
       com.google.actions.sdk.v2.ExecutionEvent result = new com.google.actions.sdk.v2.ExecutionEvent(this);
-      int from_bitField0_ = bitField0_;
-      if (eventTimeBuilder_ == null) {
-        result.eventTime_ = eventTime_;
-      } else {
-        result.eventTime_ = eventTimeBuilder_.build();
-      }
-      if (executionStateBuilder_ == null) {
-        result.executionState_ = executionState_;
-      } else {
-        result.executionState_ = executionStateBuilder_.build();
-      }
-      if (statusBuilder_ == null) {
-        result.status_ = status_;
-      } else {
-        result.status_ = statusBuilder_.build();
-      }
-      if (eventDataCase_ == 4) {
-        if (userInputBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = userInputBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 5) {
-        if (intentMatchBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = intentMatchBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 6) {
-        if (conditionsEvaluatedBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = conditionsEvaluatedBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 7) {
-        if (onSceneEnterBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = onSceneEnterBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 8) {
-        if (webhookRequestBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = webhookRequestBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 9) {
-        if (webhookResponseBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = webhookResponseBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 10) {
-        if (webhookInitiatedTransitionBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = webhookInitiatedTransitionBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 11) {
-        if (slotMatchBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = slotMatchBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 12) {
-        if (slotRequestedBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = slotRequestedBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 13) {
-        if (slotValidatedBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = slotValidatedBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 14) {
-        if (formFilledBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = formFilledBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 15) {
-        if (waitingUserInputBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = waitingUserInputBuilder_.build();
-        }
-      }
-      if (eventDataCase_ == 16) {
-        if (endConversationBuilder_ == null) {
-          result.eventData_ = eventData_;
-        } else {
-          result.eventData_ = endConversationBuilder_.build();
-        }
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        warningMessages_ = warningMessages_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.warningMessages_ = warningMessages_;
-      result.eventDataCase_ = eventDataCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.ExecutionEvent result) {
+      if (((bitField0_ & 0x00010000) != 0)) {
+        warningMessages_ = warningMessages_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00010000);
+      }
+      result.warningMessages_ = warningMessages_;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.ExecutionEvent result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.eventTime_ = eventTimeBuilder_ == null
+            ? eventTime_
+            : eventTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.executionState_ = executionStateBuilder_ == null
+            ? executionState_
+            : executionStateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.status_ = statusBuilder_ == null
+            ? status_
+            : statusBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.actions.sdk.v2.ExecutionEvent result) {
+      result.eventDataCase_ = eventDataCase_;
+      result.eventData_ = this.eventData_;
+      if (eventDataCase_ == 4 &&
+          userInputBuilder_ != null) {
+        result.eventData_ = userInputBuilder_.build();
+      }
+      if (eventDataCase_ == 5 &&
+          intentMatchBuilder_ != null) {
+        result.eventData_ = intentMatchBuilder_.build();
+      }
+      if (eventDataCase_ == 6 &&
+          conditionsEvaluatedBuilder_ != null) {
+        result.eventData_ = conditionsEvaluatedBuilder_.build();
+      }
+      if (eventDataCase_ == 7 &&
+          onSceneEnterBuilder_ != null) {
+        result.eventData_ = onSceneEnterBuilder_.build();
+      }
+      if (eventDataCase_ == 8 &&
+          webhookRequestBuilder_ != null) {
+        result.eventData_ = webhookRequestBuilder_.build();
+      }
+      if (eventDataCase_ == 9 &&
+          webhookResponseBuilder_ != null) {
+        result.eventData_ = webhookResponseBuilder_.build();
+      }
+      if (eventDataCase_ == 10 &&
+          webhookInitiatedTransitionBuilder_ != null) {
+        result.eventData_ = webhookInitiatedTransitionBuilder_.build();
+      }
+      if (eventDataCase_ == 11 &&
+          slotMatchBuilder_ != null) {
+        result.eventData_ = slotMatchBuilder_.build();
+      }
+      if (eventDataCase_ == 12 &&
+          slotRequestedBuilder_ != null) {
+        result.eventData_ = slotRequestedBuilder_.build();
+      }
+      if (eventDataCase_ == 13 &&
+          slotValidatedBuilder_ != null) {
+        result.eventData_ = slotValidatedBuilder_.build();
+      }
+      if (eventDataCase_ == 14 &&
+          formFilledBuilder_ != null) {
+        result.eventData_ = formFilledBuilder_.build();
+      }
+      if (eventDataCase_ == 15 &&
+          waitingUserInputBuilder_ != null) {
+        result.eventData_ = waitingUserInputBuilder_.build();
+      }
+      if (eventDataCase_ == 16 &&
+          endConversationBuilder_ != null) {
+        result.eventData_ = endConversationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1810,7 +1544,7 @@ private static final long serialVersionUID = 0L;
       if (!other.warningMessages_.isEmpty()) {
         if (warningMessages_.isEmpty()) {
           warningMessages_ = other.warningMessages_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00010000);
         } else {
           ensureWarningMessagesIsMutable();
           warningMessages_.addAll(other.warningMessages_);
@@ -1874,7 +1608,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1889,17 +1623,148 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.ExecutionEvent parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEventTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getExecutionStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getUserInputFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getIntentMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getConditionsEvaluatedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getOnSceneEnterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getWebhookRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getWebhookResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getWebhookInitiatedTransitionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getSlotMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getSlotRequestedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getSlotValidatedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 13;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getFormFilledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 14;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getWaitingUserInputFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 15;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getEndConversationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              eventDataCase_ = 16;
+              break;
+            } // case 130
+            case 138: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureWarningMessagesIsMutable();
+              warningMessages_.add(s);
+              break;
+            } // case 138
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.ExecutionEvent) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int eventDataCase_ = 0;
@@ -1931,7 +1796,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventTime field is set.
      */
     public boolean hasEventTime() {
-      return eventTimeBuilder_ != null || eventTime_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1961,11 +1826,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventTime_ = value;
-        onChanged();
       } else {
         eventTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1979,11 +1844,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (eventTimeBuilder_ == null) {
         eventTime_ = builderForValue.build();
-        onChanged();
       } else {
         eventTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1995,17 +1860,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventTime(com.google.protobuf.Timestamp value) {
       if (eventTimeBuilder_ == null) {
-        if (eventTime_ != null) {
-          eventTime_ =
-            com.google.protobuf.Timestamp.newBuilder(eventTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          eventTime_ != null &&
+          eventTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEventTimeBuilder().mergeFrom(value);
         } else {
           eventTime_ = value;
         }
-        onChanged();
       } else {
         eventTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2016,14 +1882,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp event_time = 1;</code>
      */
     public Builder clearEventTime() {
-      if (eventTimeBuilder_ == null) {
-        eventTime_ = null;
-        onChanged();
-      } else {
-        eventTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      eventTime_ = null;
+      if (eventTimeBuilder_ != null) {
+        eventTimeBuilder_.dispose();
         eventTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2034,7 +1899,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp event_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getEventTimeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getEventTimeFieldBuilder().getBuilder();
     }
@@ -2086,7 +1951,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the executionState field is set.
      */
     public boolean hasExecutionState() {
-      return executionStateBuilder_ != null || executionState_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2116,11 +1981,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         executionState_ = value;
-        onChanged();
       } else {
         executionStateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2134,11 +1999,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.ExecutionState.Builder builderForValue) {
       if (executionStateBuilder_ == null) {
         executionState_ = builderForValue.build();
-        onChanged();
       } else {
         executionStateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2150,17 +2015,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExecutionState(com.google.actions.sdk.v2.ExecutionState value) {
       if (executionStateBuilder_ == null) {
-        if (executionState_ != null) {
-          executionState_ =
-            com.google.actions.sdk.v2.ExecutionState.newBuilder(executionState_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          executionState_ != null &&
+          executionState_ != com.google.actions.sdk.v2.ExecutionState.getDefaultInstance()) {
+          getExecutionStateBuilder().mergeFrom(value);
         } else {
           executionState_ = value;
         }
-        onChanged();
       } else {
         executionStateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2171,14 +2037,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.ExecutionState execution_state = 2;</code>
      */
     public Builder clearExecutionState() {
-      if (executionStateBuilder_ == null) {
-        executionState_ = null;
-        onChanged();
-      } else {
-        executionState_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      executionState_ = null;
+      if (executionStateBuilder_ != null) {
+        executionStateBuilder_.dispose();
         executionStateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2189,7 +2054,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.ExecutionState execution_state = 2;</code>
      */
     public com.google.actions.sdk.v2.ExecutionState.Builder getExecutionStateBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getExecutionStateFieldBuilder().getBuilder();
     }
@@ -2241,7 +2106,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return statusBuilder_ != null || status_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2271,11 +2136,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         status_ = value;
-        onChanged();
       } else {
         statusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2289,11 +2154,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (statusBuilder_ == null) {
         status_ = builderForValue.build();
-        onChanged();
       } else {
         statusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2305,17 +2170,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatus(com.google.rpc.Status value) {
       if (statusBuilder_ == null) {
-        if (status_ != null) {
-          status_ =
-            com.google.rpc.Status.newBuilder(status_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          status_ != null &&
+          status_ != com.google.rpc.Status.getDefaultInstance()) {
+          getStatusBuilder().mergeFrom(value);
         } else {
           status_ = value;
         }
-        onChanged();
       } else {
         statusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2326,14 +2192,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status status = 3;</code>
      */
     public Builder clearStatus() {
-      if (statusBuilder_ == null) {
-        status_ = null;
-        onChanged();
-      } else {
-        status_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2344,7 +2209,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status status = 3;</code>
      */
     public com.google.rpc.Status.Builder getStatusBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getStatusFieldBuilder().getBuilder();
     }
@@ -2558,7 +2423,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 4;
-      onChanged();;
+      onChanged();
       return userInputBuilder_;
     }
 
@@ -2736,7 +2601,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 5;
-      onChanged();;
+      onChanged();
       return intentMatchBuilder_;
     }
 
@@ -2914,7 +2779,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 6;
-      onChanged();;
+      onChanged();
       return conditionsEvaluatedBuilder_;
     }
 
@@ -3092,7 +2957,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 7;
-      onChanged();;
+      onChanged();
       return onSceneEnterBuilder_;
     }
 
@@ -3270,7 +3135,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 8;
-      onChanged();;
+      onChanged();
       return webhookRequestBuilder_;
     }
 
@@ -3448,7 +3313,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 9;
-      onChanged();;
+      onChanged();
       return webhookResponseBuilder_;
     }
 
@@ -3626,7 +3491,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 10;
-      onChanged();;
+      onChanged();
       return webhookInitiatedTransitionBuilder_;
     }
 
@@ -3804,7 +3669,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 11;
-      onChanged();;
+      onChanged();
       return slotMatchBuilder_;
     }
 
@@ -3982,7 +3847,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 12;
-      onChanged();;
+      onChanged();
       return slotRequestedBuilder_;
     }
 
@@ -4160,7 +4025,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 13;
-      onChanged();;
+      onChanged();
       return slotValidatedBuilder_;
     }
 
@@ -4338,7 +4203,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 14;
-      onChanged();;
+      onChanged();
       return formFilledBuilder_;
     }
 
@@ -4516,7 +4381,7 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 15;
-      onChanged();;
+      onChanged();
       return waitingUserInputBuilder_;
     }
 
@@ -4694,15 +4559,15 @@ private static final long serialVersionUID = 0L;
         eventData_ = null;
       }
       eventDataCase_ = 16;
-      onChanged();;
+      onChanged();
       return endConversationBuilder_;
     }
 
     private com.google.protobuf.LazyStringList warningMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureWarningMessagesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00010000) != 0)) {
         warningMessages_ = new com.google.protobuf.LazyStringArrayList(warningMessages_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00010000;
        }
     }
     /**
@@ -4790,10 +4655,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWarningMessages(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWarningMessagesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureWarningMessagesIsMutable();
       warningMessages_.set(index, value);
       onChanged();
       return this;
@@ -4814,10 +4677,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addWarningMessages(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWarningMessagesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureWarningMessagesIsMutable();
       warningMessages_.add(value);
       onChanged();
       return this;
@@ -4859,7 +4720,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearWarningMessages() {
       warningMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -4879,10 +4740,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addWarningMessagesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureWarningMessagesIsMutable();
       warningMessages_.add(value);
       onChanged();
@@ -4921,7 +4780,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExecutionEvent(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 
